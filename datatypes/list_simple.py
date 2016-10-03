@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# simple_list.py
+# list_simple.py
 
 num = [0, 2, 5, 4, 6, 7]
 
