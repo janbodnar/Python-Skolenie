@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# list_counting.py
+# list_counting_elements.py
 
 numbers = [0, 0, 2, 3, 3, 3, 3]
 
