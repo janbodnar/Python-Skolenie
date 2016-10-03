@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# commemts.py
+# comments.py
 # Author Jan Bodnar
 # ZetCode 2016
 
