@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# splitjoin.py
+# split_join.py
 
 nums = "1,5,6,8,2,3,1,9"
 
