@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-import copy
-
 # copying.py
+
+import copy
 
 w = ["Python", "Ruby", "Perl"]
 
