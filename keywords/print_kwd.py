@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# tutorial.py
+# print_kwd.py
 
 print ("*" * 24)
 print ("*" * 24)
