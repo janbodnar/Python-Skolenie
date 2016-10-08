@@ -13,7 +13,7 @@ class Rock:
         
         attr = []
         
-        for key,value in self.__dict__.iteritems():
+        for key, value in self.__dict__.iteritems():
             attr.append((key, value))
             
         return str(attr)    
