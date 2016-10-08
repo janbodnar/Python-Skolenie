@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
-# looping
+# looping.py
 
 domains = { "de": "Germany", "sk": "Slovakia", "hu": "Hungary",
     "us": "United States", "no": "Norway"  }
