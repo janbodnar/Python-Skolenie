@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# licence.py
+# if_kwd.py
 
 age = 17
 
