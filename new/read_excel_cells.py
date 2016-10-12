@@ -21,3 +21,8 @@ c3 = sheet['B3']
 c3.value
 
 print(type(c3.value))
+
+for i in range(1, 4):
+    for j in range(1, 3):
+        print(sheet.cell(row=i, column=j).value)
+
