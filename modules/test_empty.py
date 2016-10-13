@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# module_name.py
+# test_empty.py
 
 import empty
 import sys
