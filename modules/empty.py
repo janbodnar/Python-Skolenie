@@ -1,0 +1,3 @@
+"""
+An empty module
+"""
