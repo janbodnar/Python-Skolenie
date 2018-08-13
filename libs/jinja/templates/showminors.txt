@@ -1,0 +1,5 @@
+{% for person in persons %}
+    {% if person.age < 18 -%}
+        {{ person.name }}
+    {% endif %}    
+{%- endfor %}
