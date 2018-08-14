@@ -6,10 +6,10 @@ domains = { "de": "Germany", "sk": "Slovakia", "hu": "Hungary",
     "us": "United States", "no": "Norway"  }
 
 for key in domains:
-    print (key)
+    print(key)
     
 for val in domains.values():
-    print (val)
+    print(val)
     
 for k, v in domains.items():
-    print (": ".join((k, v)))
+    print(": ".join((k, v)))
