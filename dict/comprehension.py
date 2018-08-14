@@ -10,6 +10,6 @@ capitals = { "Bratislava": 424207, "Vilnius": 556723, "Lisbon": 564657,
 
 capitals2 = { key:val for key, val in capitals.items() if val < 1000000 }
 
-print (capitals2)
+print(capitals2)
 
 
