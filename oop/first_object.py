@@ -7,5 +7,5 @@ class First:
 
 fr = First()
 
-print (type(fr))
-print (type(First))
+print(type(fr))
+print(type(First))
