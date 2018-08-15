@@ -9,20 +9,12 @@ import os
 # ******************************      
 # os module
 
-print(os.getcwd())
-
-try:
-
-    os.mkdir('newfolder')
-    
-except FileExistsError as e:
-    print(e)
+print(os.version)
 
 print("******************************") 
 
 # ******************************      
 # list, for loop, built-ins
-
 
 nums = [1, 2, 3, 4, 5]
 
@@ -39,7 +31,6 @@ print("summation: {0}".format(sum(nums)))
 
 
 # ******************************      
-# while loop
 
 male = False
 male = bool(random.randint(0, 1))
@@ -55,20 +46,13 @@ print("******************************")
 # ******************************      
 # dictionary   
 
-weekend = { "Sun": "Sunday", "Mon": "Monday" }
-vals = dict(one=1, two=2)
-
 capitals = {}
 capitals["svk"] = "Bratislava"
 capitals["deu"] = "Berlin"
 capitals["dnk"] = "Copenhagen"
 
-d = { i: object() for i in range(4) }
-
-print(weekend)
-print(vals)
 print(capitals)
-print(d)
+
 
 for k, v in weekend.items():
     print("key: {0}, value: {1}".format(k, v))
