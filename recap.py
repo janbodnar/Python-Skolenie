@@ -1,15 +1,15 @@
-#!/usr/bin/python3
+##!/usr/bin/python3
 
 # recapitulation
 # recap.py
 
 import random
-import os
+import sys
 
 # ******************************      
 # os module
 
-print(os.version)
+print(sys.version)
 
 print("******************************") 
 
@@ -29,8 +29,20 @@ print("maximum: {0}".format(max(nums)))
 print("maximum: {0}".format(max(nums)))
 print("summation: {0}".format(sum(nums)))
 
+# ******************************
+# expressions, operators
 
-# ******************************      
+x = 45
+y = 12
+
+z = x * y - 12
+print(z)
+
+print(12 / 4 * 3)
+
+
+# ******************************
+# booleans      
 
 male = False
 male = bool(random.randint(0, 1))
@@ -54,7 +66,7 @@ capitals["dnk"] = "Copenhagen"
 print(capitals)
 
 
-for k, v in weekend.items():
+for k, v in capitals.items():
     print("key: {0}, value: {1}".format(k, v))
 
 print("******************************")
@@ -76,6 +88,16 @@ print("summation 2: {0}".format(mysum))
 print("******************************")
 
 # ******************************      
+# introspection
+
+ab = ()
+print(type(ab))
+print(dir(ab))
+print(ab.__doc__)
+
+print("******************************")
+
+# ******************************      
 # sets
 
 set1 = { 'a', 'b', 'c', 'c', 'd' }
@@ -87,3 +109,4 @@ print("intersection:", set1.intersection(set2))
 print("union:", set1.union(set2))
 print("difference:", set1.difference(set2))
 print("symmetric difference:", set1.symmetric_difference(set2))
+
