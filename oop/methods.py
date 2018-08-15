@@ -22,5 +22,5 @@ class Circle(object):
 c = Circle()
 
 c.setRadius(5)
-print (c.getRadius())
-print (c.area())
+print(c.getRadius())
+print(c.area())
