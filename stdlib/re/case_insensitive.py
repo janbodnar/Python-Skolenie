@@ -4,7 +4,7 @@ import re
 
 words = ('dog', 'Dog', 'DOG', 'Doggy')
 
-pattern = re.compile(r'^dog', re.IGNORECASE)
+pattern = re.compile(r'dog', re.IGNORECASE)
 
 for word in words:
     if re.match(pattern, word):
