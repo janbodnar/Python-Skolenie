@@ -3,7 +3,7 @@
 import re
 
 words = ('book', 'bookworm', 'Bible', 
-    'bookish', 'bookstore', 'boolean')
+    'bookish','cookbook', 'bookstore', 'pocketbook')
 
 pattern = re.compile(r'book')
 
