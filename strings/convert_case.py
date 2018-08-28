@@ -4,7 +4,7 @@
 
 a = "ZetCode"
 
-print (a.upper())
-print (a.lower())
-print (a.swapcase())
-print (a.title()) 
+print(a.upper())
+print(a.lower())
+print(a.swapcase())
+print(a.title()) 
