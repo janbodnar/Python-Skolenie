@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import sqlite3
-import sys
 
 cars = (
     ('Bratislava', 432000),
