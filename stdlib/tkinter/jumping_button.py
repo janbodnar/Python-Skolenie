@@ -4,7 +4,7 @@
 import tkinter
 import random
 
-def onEnter(e):
+def onEnterButton(e):
 
     w = root.winfo_width()
     h = root.winfo_height()
@@ -25,7 +25,7 @@ root.resizable(False, False)
 btn = tkinter.Button(root, text='Exit', width=10, command=root.quit)
 btn.place(x=180, y=20)
 
-root.bind('<Enter>', onEnter)
+btn.bind('<Enter>', onEnterButton)
 
 root.geometry("600x600+30+30")
 root.mainloop()
