@@ -19,7 +19,7 @@ def onEnter(e):
 
 
 root = tkinter.Tk()
-root.title('Mouse move event')
+root.title('Jumping button')
 root.resizable(False, False)
 
 btn = tkinter.Button(root, text='Exit', width=10, command=root.quit)
