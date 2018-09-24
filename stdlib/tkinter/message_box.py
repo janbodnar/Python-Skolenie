@@ -16,7 +16,7 @@ root.title('Message box')
 
 btn = tkinter.Button(root, text="Show date", padx=5, pady=5, width=10,
     command=showDate)
-btn.pack()
+btn.pack(pady=10)
 
 root.geometry('300x300+300+250')
 root.mainloop()
