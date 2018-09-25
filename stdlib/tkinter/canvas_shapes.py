@@ -4,7 +4,7 @@
 import tkinter
 
 root = tkinter.Tk()
-root.title('Canvas colours')
+root.title('Canvas shapes')
 
 canvas = tkinter.Canvas(root)
 canvas.create_oval(10, 10, 80, 80, outline="#f11", 
