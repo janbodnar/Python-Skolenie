@@ -9,6 +9,7 @@ np.save('data', a)
 b = np.load('data.npy') 
 print(b)
 
+#
 # a = np.array([1,2,3,4,5]) 
 # np.savetxt('data.txt',a) 
 
