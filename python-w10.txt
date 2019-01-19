@@ -1,0 +1,13 @@
+$ ftype PythonScript
+PythonScript=C:\Users\Jano\AppData\Local\Programs\Python\Python37\python.exe "%1" %*
+
+$ assoc .py
+.py=PythonScript
+
+Regedit
+
+py_auto_file\shell\open\command
+"C:\Users\Jano\AppData\Local\Programs\Python\Python37\python.exe" "%1" %*
+
+$ echo %PATHEXT%
+.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY
