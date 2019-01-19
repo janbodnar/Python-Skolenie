@@ -11,3 +11,8 @@ py_auto_file\shell\open\command
 
 $ echo %PATHEXT%
 .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY
+
+
+The syntax of the command to execute is defined by the Explorer. %1 is replaced by the short name of 
+the file being executed; %L is replaced by the long name; and %* is replaced by the name of any 
+arguments to the file. 
