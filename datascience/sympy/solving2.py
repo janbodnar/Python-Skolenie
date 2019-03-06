@@ -1,14 +1,11 @@
 #!/usr/bin/env python
 
-'''
-Solving expressions
-'''
+from sympy import pprint, Symbol, Eq, solve
 
-from sympy import pprint, symbols, solveset
+x = Symbol('x')
 
-x, y, z = symbols('x y z')
+eq1 = Eq(x + 1, 4)
+pprint(eq1)
 
-sol = solveset(x + y + z - 3, x)
-
-pprint(sol)
+sol = solve(eq1, x)
 print(sol)
