@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Solving expressions
+Solving equation
 '''
 
 from sympy import pprint, Symbol, solve
