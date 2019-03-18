@@ -1,0 +1,8 @@
+forest
+blue
+wood
+sky
+cloud
+pavement
+bear
+dog
