@@ -10,7 +10,7 @@ month = now.month
 name = input('Enter article name:')
 
 path1 = Path('articles') / str(year) / str(month)
-path1.mkdir(parents=True)
+path1.mkdir(parents=True, exist_ok=True)
 
 path2 = path1 /  f'{name}.txt'
 
