@@ -12,6 +12,17 @@ On Windows:
 $ py -3 -m venv venv
 ```
 
+Activate environment:
+
+```
+$ . venv/bin/activate
+```
+
+On Windows:
+
+```
+$ venv\Scripts\activate
+```
 
 
 
