@@ -1,8 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 
 # methods.py
 
-class Circle(object):
+class Circle:
 
    pi = 3.141592
 
