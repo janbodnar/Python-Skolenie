@@ -2,7 +2,7 @@
 
 # inheritance.py
 
-class Animal(object):
+class Animal:
 
    def __init__(self):
       print("Animal created")
