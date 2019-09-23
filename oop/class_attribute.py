@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 
 # class_attribute.py
 
@@ -14,9 +14,9 @@ class Cat:
 missy = Cat('Missy', 3)
 lucky = Cat('Lucky', 5)
 
-print (missy.name, missy.age)
-print (lucky.name, lucky.age)
+print(missy.name, missy.age)
+print(lucky.name, lucky.age)
 
-print (Cat.species)
-print (missy.__class__.species)
-print (lucky.__class__.species)
+print(Cat.species)
+print(missy.__class__.species)
+print(lucky.__class__.species)
