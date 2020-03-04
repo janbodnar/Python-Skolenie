@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+# functions can be passed to other functions 
+# as parameters
+
 def inc(x):
     return x + 1
 
