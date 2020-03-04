@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+# nested functions are functions defined inside other
+# functions
+
 def myfun():
     print("inside myfun()")
 
