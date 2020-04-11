@@ -1,12 +1,11 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import locale
-from functools import cmp_to_key
 
-w = [u'zem', u'štebot', u'rum', u'železo', u'prameň', u"sob"]
+words = ['zem', 'čučoriedka', 'drevo', 'štebot', 'cesta', 'černice', 'ďateľ', 'rum', 'železo', 'prameň', 'sob']
 locale.setlocale(locale.LC_COLLATE, ('sk_SK', 'UTF8'))
 
-w.sort(key=cmp_to_key(locale.strcoll))
+words.sort(key=locale.strxfrm)
 
-for e in w:
-    print (e)
+for word in words:
+    print(word)
