@@ -3,19 +3,20 @@
 import numpy as np
 
 a = np.array([[1, 2, 3], [4, 5, 6]])
+print(a)
 
 # the number of axes (dimensions) of the array
-print('# of array dimensions: {}'.format(a.ndim))
+print(f'# of array dimensions: {a.ndim}')
 
-# the dimensions of the array - a tuple of 
+# the dimensions of the array - a tuple of
 # integers indicating the size of the array in each dimension.
-print('array shape: {}'.format(a.shape))
+print(f'array shape: {a.shape}')
 
 # total number of elements in the array
-print('# of elements: {}'.format(a.size))
+print(f'# of elements: {a.size}')
 
 # an object describing the type of the elements in the array
-print('type of elements: {}'.format(a.dtype))
+print(f'type of elements: {a.dtype}')
 
 # the size in bytes of each element of the array
-print('element size in bytes {}'.format(a.itemsize))
+print(f'element size in bytes {a.itemsize}')
