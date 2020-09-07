@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 set1 = set(['a', 'b', 'c', 'c', 'd'])
 set2 = set(['a', 'b', 'x', 'y', 'z'])

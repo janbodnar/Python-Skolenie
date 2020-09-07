@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 from matplotlib import pyplot as plt
 from matplotlib import style

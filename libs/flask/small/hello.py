@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 from flask import Flask, render_template, request
 app = Flask(__name__)

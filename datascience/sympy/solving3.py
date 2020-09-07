@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 from sympy.solvers import solveset
 from sympy import Symbol, Interval, pprint

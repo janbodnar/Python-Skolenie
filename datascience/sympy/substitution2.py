@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 from sympy import pprint, Symbol, sin, cos
 

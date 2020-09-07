@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python
 
 from cerberus import Validator
 from dataclasses import dataclass

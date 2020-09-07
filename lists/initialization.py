@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 n1 = [0 for i in range(15)]
 n2 = [0] * 15

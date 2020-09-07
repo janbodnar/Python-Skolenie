@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 from sympy import summation, sequence, pprint
 from sympy.abc import x

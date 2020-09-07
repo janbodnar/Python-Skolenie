@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 import numpy as np
 from scipy.spatial.distance import pdist, squareform

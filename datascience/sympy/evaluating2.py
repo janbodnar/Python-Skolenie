@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 import numpy
 from sympy import Symbol, lambdify, sin, pprint
