@@ -8,4 +8,4 @@ print (n2)
 
 n1[0:10] = [10] * 10
 
-print (n1)
+print(n1)
