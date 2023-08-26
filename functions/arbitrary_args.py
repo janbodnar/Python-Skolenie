@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-# arbitrary_args.py
-
-def sum(*args):
+def do_sum(*args):
    '''Function returns the sum 
    of all values'''
    
@@ -14,6 +12,6 @@ def sum(*args):
    return r
 
 
-print (sum.__doc__)
-print (sum(1, 2, 3))
-print (sum(1, 2, 3, 4, 5))
+print(do_sum.__doc__)
+print(do_sum(1, 2, 3))
+print(do_sum(1, 2, 3, 4, 5))
