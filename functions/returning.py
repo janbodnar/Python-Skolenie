@@ -4,7 +4,7 @@
 
 def showMessage(msg):
     
-    print msg
+    print(msg)
 
 def cube(x):
     
