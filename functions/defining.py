@@ -2,20 +2,30 @@
 
 # defining.py
 
+class Info:
+
+    def say(self):
+        print('This is Info class')
+
 class Some:
 
-    @staticmethod  
+    @staticmethod
     def f():
-        print ("f() method")
+        print ("f() static method")
 
 def f():
-    print ("f() function")
-    
+    print ("f() plain function")
+
 def g():
     def f():
         print ("f() inner function")
-    f()        
-        
+    f()
+
+
+i = Info()
+i.say()
+
 Some.f()
 f()
 g()
+
