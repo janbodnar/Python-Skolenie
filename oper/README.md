@@ -37,7 +37,7 @@ The minus sign changes the sign of a value.
 1
 ```
 
-Multiplication and addition operators are examples of binary operators. They are used with two operands.
+Multiplication and addition operators are examples of binary operators. They are used with two operands. 
 
 ```
 >>> 3 * 3
@@ -66,7 +66,7 @@ Here we assign a number to an `x` variable.
 2
 ```
 
-The previous expression does not make sense in mathematics. But it is legal in programming. 
+The previous expression does not make sense in mathematics. But it is legal in programming.  
 The expression means that we add 1 to the x variable. The right side is equal to 2 and 2 is assigned to x.
 
 ```
@@ -89,7 +89,9 @@ This code example results in syntax error. We cannot assign a value to a literal
 
 The following is a table of arithmetic operators:
 
-Symbol	Name
+
+|Symbol|	Name|
+| --- | --- |
 +	Addition
 -	Subtraction
 *	Multiplication
@@ -270,12 +272,12 @@ True
 And, or operators are short circuit evaluated. Short circuit evaluation means that  
 the second argument is only evaluated if the first argument does not suffice  
 to determine the value of the expression: when the first argument of and evaluates  
-to false, the overall value must be false; and when the first argument of or evaluates 
+to false, the overall value must be false; and when the first argument of or evaluates  
 to true, the overall value must be true. 
 
 The following example demonstrates the short curcuit evaluation.
 
-```
+```python
 #!/usr/bin/python
 
 # short_circuit.py
@@ -294,7 +296,8 @@ is not evaluated. Otherwise, we would get a `ZeroDivisionError`.
 
 Relational operators are used to compare values. These operators always result in a boolean value.
 
-Symbol	Meaning
+|Symbol|	Meaning|
+| --- | --- |
 <	strictly less than
 <=	less than or equal to
 >	greater than
@@ -314,7 +317,7 @@ False
 True
 ```
 
-As we already mentioned, the relational operators return boolean values: `True` or `False`.
+As we already mentioned, the relational operators return boolean values: `True` or `False`.  
 
 Notice that the relational operators are not limited to numbers. We can use them for other  
 objects as well. Although they might not always be meaningful.
@@ -332,7 +335,8 @@ We can compare string objects, too.
 >>> 'a' < 'b'
 ```
 What exactly happens here? Computers do not know characters or strings.  
-For them, everything is just a number. Characters are special numbers stored in specific tables, like ASCII.
+For them, everything is just a number. Characters are special numbers stored  
+in specific tables, like ASCII.
 
 ```
 >>> 'a' > 6
@@ -396,7 +400,7 @@ print([] is [])
 print("Python" is "Python")
 ```
 
-The `==` operator tests for equality while the is operator tests for object identity. 
+The `==` operator tests for equality while the is operator tests for object identity.  
 Whether we are talking about the same object. Note that more variables may refer to the same object.
 
 ```
@@ -409,8 +413,8 @@ False
 True
 ```
 
-The output might be surprising for you. In Python language, there is only one None and one `True` 
-object. That's why `True` is equal and also identical to `True`. There is only one truth out there, 
+The output might be surprising for you. In Python language, there is only one None and one `True`  
+object. That's why `True` is equal and also identical to `True`. There is only one truth out there,  
 anyway. The empty list `[]` is equal to another empty list `[]`. But they are not identical.  
 Python has put them into two different memory locations. They are two distinct objects.  
 Hence the is operator returns `False`.
@@ -419,7 +423,7 @@ On the other hand, `"Python" is "Python"` returns `True`. This is because of opt
 literals are equal, they have been put to same memory location. Since a string is an immutable entity,  
 no harm can be done.
 
-# Membership operators
+## Membership operators
 
 The membership operators, `in` and `not in`, test for membership in a sequence, such as strings, lists, or tuples.
 
@@ -503,12 +507,13 @@ A 31 years old person is adult.
 
 # Bitwise operators
 
-Decimal numbers are natural to humans. Binary numbers are native to computers. Binary, octal, decimal 
+Decimal numbers are natural to humans. Binary numbers are native to computers. Binary, octal, decimal  
 or hexadecimal symbols are only notations of the same number. Bitwise operators work with bits  
-of a binary number. We have binary logical operators and shift operators. Bitwise operators are 
-seldom used in higher level languages like Python.
+of a binary number. We have binary logical operators and shift operators. Bitwise operators are  
+seldom used in higher level languages like Python. 
 
-Symbol	Meaning
+|Symbol|	Meaning|
+| --- | --- |
 ~	bitwise negation
 ^	bitwise exclusive or
 &	bitwise and
@@ -526,7 +531,7 @@ The bitwise negation operator changes each 1 to 0 and 0 to 1.
 ```
 
 The operator reverts all bits of a number 7. One of the bits also determines, whether  
-the number is negative. If we negate all the bits one more time, we get number 7 again.
+the number is negative. If we negate all the bits one more time, we get number 7 again. 
 
 The bitwise and operator performs bit-by-bit comparison between two numbers. The result for  
 a bit position is 1 only if both corresponding bits in the operands are 1.
@@ -546,8 +551,8 @@ The first number is a binary notation of 6, the second is 3 and the final result
 2
 ```
 
-The bitwise or operator performs bit-by-bit comparison between two numbers. The result for 
-a bit position is 1 if either of the corresponding bits in the operands is 1.
+The bitwise or operator performs bit-by-bit comparison between two numbers. The result for  
+a bit position is 1 if either of the corresponding bits in the operands is 1. 
 
 ```
      00110
@@ -578,7 +583,7 @@ The result is 00101 or decimal 5.
 5
 ```
 
-As we mentioned, bitwise operators are seldom used in Python and other high level languages. 
+As we mentioned, bitwise operators are seldom used in Python and other high level languages.  
 Yet there are some situations, where they are used. One example is a mask. A mask is a specific  
 bit pattern. It determines whether some property is set or not.
 
@@ -599,9 +604,10 @@ window.Show(True)
 app.MainLoop()
 ```
 
-This is a small example of a wxPython code. The `wx.MAXIMIZE_BOX`, `wx.RESIZE_BORDER`, `wx.SYSTEM_MENU`,`wx.CAPTION`,  
-and `wx.CLOSE_BOX` are constants. The bitwise or operator adds all these constants to the mask. In our case, 
-all these properties are set using the bitwise or operator and applied to the `wx.Frame` widget.
+This is a small example of a wxPython code. The `wx.MAXIMIZE_BOX`, `wx.RESIZE_BORDER`, 
+`wx.SYSTEM_MENU`,`wx.CAPTION`, and `wx.CLOSE_BOX` are constants. The bitwise or operator  
+adds all these constants to the mask. In our case, all these properties are set using the  
+bitwise or operator and applied to the `wx.Frame` widget.
 
 Finally, we also have bitwise shift operators. The bitwise shift operators shift bits to the right or left.
 
