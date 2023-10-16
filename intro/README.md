@@ -136,17 +136,14 @@ Enter your name:Peter
 Hello Peter
 ```
 
+## Python command line arguments
 
-<h2>Python command line arguments</h2>
+Python programs can receive command line arguments. The <code>sys.argv</code> contains  
+a list of command line arguments passed to a Python script. The <code>argv[0]</code> is   
+the script name; the remaining elements are arguments passed to the script.  
+ 
 
-<p>
-Python programs can receive command line arguments. The <code>sys.argv</code> contains
-a list of command line arguments passed to a Python script. The <code>argv[0]</code> is 
-the script name; the remaining elements are arguments passed to the script.
-</p>
-
-<div class="codehead">command_line_arguments.py</div>
-<pre class="code">
+```python
 #!/usr/bin/env python
 
 # command_line_arguments.py
@@ -160,49 +157,44 @@ for arg in sys.argv[1:]:
     print(arg, end=" ")
 
 print()
-</pre>
+```
 
-<p>
 The example prints the command line arguments passed to the script.
-</p>
 
-<pre class="explanation">
+```python
 import sys
-</pre>
+```
 
-<p>
 We import the <code>sys</code> module, which has the <code>argv</code> variable.
-</p>
 
-<pre class="explanation">
+```python
 print("Script name:", sys.argv[0])
-</pre>
+```
 
-<p>
+
 The name of the program is printed.
-</p>
 
-<pre class="explanation">
+
+```python
 for arg in sys.argv[1:]:
     print(arg, end=" ")
-</pre>
+```
 
-<p>
-We go through the list of arguments stored in <code>sys.argv</code> and
-print them to the console. With the <code>end</code> option we append a new
-space to the end instead of a new line.
-</p>
 
-<pre class="explanation">
+We go through the list of arguments stored in <code>sys.argv</code> and  
+print them to the console. With the <code>end</code> option we append a new   
+space to the end instead of a new line.  
+
+
+```python
 print()
-</pre>
+```
 
-<p>
 At the end, a new line is printed to the console.
-</p>
 
-<pre class="compact">
+
+```
 $ ./command_line_arguments.py 1 2 3
 Script name: ./command_line_arguments.py
 Arguments: 1 2 3 
-</pre>
+```
