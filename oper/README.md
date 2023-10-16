@@ -514,12 +514,12 @@ seldom used in higher level languages like Python.
 
 |Symbol|	Meaning|
 | --- | --- |
-~	bitwise negation
-^	bitwise exclusive or
-&	bitwise and
-|	bitwise or
-<<	left shift
->>	right shift
+|~  |	bitwise negation |
+|^  |	bitwise exclusive or |
+|&  |	bitwise and |
+||  |	bitwise or |
+|<< | 	left shift |
+|>> |	right shift |
 
 The bitwise negation operator changes each 1 to 0 and 0 to 1.
 
@@ -775,10 +775,9 @@ of operators with the same precedence level.
 ```
 
 What is the outcome of this expression, 9 or 1? The multiplication, deletion, and the modulo operator  
-are left to right associated. So the expression is evaluated this way: `(9 / 3) * 3` and the result is 9.
+are left to right associated. So the expression is evaluated this way: `(9 / 3) * 3` and the result is 9.  
 
-Arithmetic, boolean, relational and bitwise operators are all left to right associated.
-
+Arithmetic, boolean, relational and bitwise operators are all left to right associated.  
 On the other hand, the assignment operator is right associated.
 
 ```
@@ -787,7 +786,7 @@ On the other hand, the assignment operator is right associated.
 (0, 0, 0, 0)
 ```
 
-If the association was left to right, the previous expression would not be possible.
+If the association was left to right, the previous expression would not be possible.  
 The compound assignment operators are right to left associated.
 
 ```
