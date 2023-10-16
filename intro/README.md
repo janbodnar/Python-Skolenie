@@ -39,61 +39,52 @@ The official web site for the Python programming language is
 
 ## Python implementations
 
-Formally, Python programming language is a specification. There are three main implementations
-of Python: CPython, IronPython, and Jython. CPython is implemented in C language. It is the
-most widely used implementation of Python. When people talk about Python language, they
-mostly mean CPython. IronPython is implemented in C#. It is part of the .NET framework. 
-Similarly, Jython is an implementation of the Python language in Java. Jython
-program is translated into the Java bytecode and executed by the JVM (Java Virtual Machine).
-In this tutorial, we work with CPython. 
+Formally, Python programming language is a specification. There are three main implementations  
+of Python: CPython, IronPython, and Jython. CPython is implemented in C language. It is the  
+most widely used implementation of Python. When people talk about Python language, they  
+mostly mean CPython. IronPython is implemented in C#. It is part of the .NET framework.  
+Similarly, Jython is an implementation of the Python language in Java. Jython  
+program is translated into the Java bytecode and executed by the JVM (Java Virtual Machine).  
+In this tutorial, we work with CPython.  
  
-<h2>Popularity</h2> 
+## Popularity
  
-<p>
-Python belongs to the most popular programming languages.
-Several surveys put Python to top ten languages. Some very popular Python projects include
-a distributed source management tool Mercurial, a Django web framework, a PyQt GUI library,
-or a package management utility called Yum.
-</p> 
+Python belongs to the most popular programming languages. Several surveys put Python to top ten  
+languages. Some very popular Python projects include  
+a distributed source management tool Mercurial, a Django web framework, a PyQt GUI library,  
+or a package management utility called Yum.  
 
 
-<h2>Python scripts</h2>
+## Python scripts
 
-<p>
-Every script in the Unix starts with a <em>shebang</em>. The shebang is the first two 
-characters in the script: <code>#!</code>. The shebang is followed by the 
-path to the interpreter, which will execute our script. Shebangs do not work on Windows;
-but it it a good practice to include them even on Windows, since we might expect our
-programs to be run on Unix, too.
-</p>
+Every script in the Unix starts with a <em>shebang</em>. The shebang is the first two  
+characters in the script: <code>#!</code>. The shebang is followed by the  
+path to the interpreter, which will execute our script. Shebangs do not work on Windows; 
+but it it a good practice to include them even on Windows, since we might expect our 
+programs to be run on Unix, too. 
 
-<div class="codehead">simple.py</div>
-<pre class="code">
+
+```python
 #!/usr/bin/env python
 
 # simple.py
 
 print("The Python tutorial")
-</pre>
+```
 
-<p>
-This is our first Python script. The script will print "The Python tutorial" 
-string to the console. Python scripts have <code>.py</code> extension. 
-</p>
+This is our first Python script. The script will print "The Python tutorial"  
+string to the console. Python scripts have `.py` extension.  
 
-<pre class="compact">
+
+```
 $ which python
 /usr/bin/python
-</pre>
+```
 
-<p>
-We can find out the path to the Python interpreter using the 
-<code>which</code> command. 
-</p>
+We can find out the path to the Python interpreter using the <code>which</code> command.  
 
-<p>
-Python scripts can be run in two ways. 
-</p>
+
+Python scripts can be run in two ways:  
 
 <pre class="compact">
 $ python first.py
@@ -104,94 +95,46 @@ The Python tutorial
 Python script is given as an argument to the interpreter. 
 </p>
 
-<pre class="compact">
+```
 $ chmod +x first.py 
 $ ./first.py 
 The Python tutorial
-</pre>
+```
 
-<p>
+
 We use the <code>chmod</code> command to make the file executable. 
 The program is launched.
-</p>
 
 
-<p>
-The next example shows a simple Ruby script. 
-</p>
 
-<div class="codehead">simple.rb</div>
-<pre class="code">
-#!/usr/bin/ruby
-
-# simple.rb
-
-fruits = ["orange", "apple", "pear", "kiwi"]
-fruits.each {|fruits| puts fruits}
-</pre>
-
-<p>
-Note the shebang and the path to the Ruby interpreter. 
-</p>
-
-<pre class="compact">
-$ ./ruby.rb 
-orange
-apple
-pear
-kiwi
-</pre>
+## Python reading input
 
 
-<p>
-Finally, we show a small Perl script. 
-</p>
-
-<div class="codehead">simple.pl</div>
-<pre class="code">
-#!/usr/bin/perl
-
-# simple.pl
-
-$perl = "Practical Extraction and Report Language\n";
-
-print $perl;
-</pre>
-
-<p>
-Now the concept should be clear. 
-</p>
-
-
-<h2>Python reading input</h2>
-
-<p>
-The <code>input</code> function reads a line from input, converts it to a 
-string (stripping a trailing newline), and returns that. The function takes
-an optional argument, which is written to standard output without a trailing newline, if
+The <code>input</code> function reads a line from input, converts it to a  
+string (stripping a trailing newline), and returns that. The function takes  
+an optional argument, which is written to standard output without a trailing newline, if  
 present.
-</p>
 
-<div class="codehead">read_input.py</div>
-<pre class="code">
+
+```python
 #!/usr/bin/env python
 
 # read_input.py
 
 name = input("Enter your name:")
 print("Hello", name)
-</pre>
+```
 
-<p>
-The example prints a prompt and reads a name from the console.
-Then it prints a greeting to the console.
-</p>
 
-<pre class="compact">
+The example prints a prompt and reads a name from the console. Then it prints a greeting  
+to the console.
+
+
+```python
 $ ./read_input.py 
 Enter your name:Peter
 Hello Peter
-</pre>
+```
 
 
 <h2>Python command line arguments</h2>
