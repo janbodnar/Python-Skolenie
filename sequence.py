@@ -6,7 +6,7 @@ import numpy
 
 # 1
 vals = numpy.linspace(100, 1000, 900, dtype=int)
- print(vals)
+print(vals)
 
 # 2
 vals2 = []
@@ -46,7 +46,6 @@ def seq():
 vals4 = []
 
 for e in seq():
-
     vals4.append(e)
 
 print(vals4)
