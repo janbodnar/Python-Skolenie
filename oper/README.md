@@ -292,7 +292,8 @@ if (y != 0 and x/y < 100):
 The first part of the expression evaluates to `False`. The second part of the expression  
 is not evaluated. Otherwise, we would get a `ZeroDivisionError`.
 
-# Relational operators
+
+## Relational operators
 
 Relational operators are used to compare values. These operators always result in a boolean value.
 
@@ -381,7 +382,8 @@ next ones. In our case, the b character at the second position has a greater val
 a character. That is why "ab" string is greater than "aa" string. Comparing strings in such  
 a way does not make much sense, of course. But it is technically possible.
 
-# Object identity operators
+
+## Object identity operators
 
 The object identity operators, `is` and `not is`, check if its operatos are the same object.
 
@@ -466,7 +468,7 @@ There is a coin in the tuple
 There is no bowl in the tuple
 ```
 
-# Ternary operator
+## Ternary operator
 
 A ternary operator is a simple terse conditional assignment statement.
 
@@ -506,7 +508,7 @@ Adult: True
 ```
 A 31 years old person is adult.
 
-# Bitwise operators
+## Bitwise operators
 
 Decimal numbers are natural to humans. Binary numbers are native to computers. Binary, octal, decimal  
 or hexadecimal symbols are only notations of the same number. Bitwise operators work with bits  
