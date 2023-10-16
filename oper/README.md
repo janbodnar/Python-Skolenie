@@ -92,14 +92,14 @@ The following is a table of arithmetic operators:
 
 |Symbol|	Name|
 | --- | --- |
-+	Addition
--	Subtraction
-*	Multiplication
-/	Division
-//	Integer division
-%	Modulo
-**	Power
- 	
+|+ |	Addition |
+|- |	Subtraction |
+|* |	Multiplication |
+|/ |	Division |
+|// |	Integer division |
+|% |	Modulo |
+|** |	Power |
+ 	 
 The following example shows arithmetic operations.
 
 ```python
@@ -298,14 +298,15 @@ Relational operators are used to compare values. These operators always result i
 
 |Symbol|	Meaning|
 | --- | --- |
-<	strictly less than
-<=	less than or equal to
->	greater than
->=	greater than or equal to
-==	equal to
-!=	not equal to
-is	object identity
-is not	negated object identity
+|<	|strictly less than|
+|<=	|less than or equal to|
+|>	|greater than|
+|>=	|greater than or equal to|
+|==	|equal to|
+|!=	|not equal to|
+|is	|object identity|
+|is not	|negated object identity|
+
 The above table shows Python relational operators.
 
 ```
