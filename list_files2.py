@@ -21,7 +21,6 @@ for myfile in files:
     print(myfile)
 
 
-
 # directories = filter(os.path.isdir, os.listdir(os.curdir))
 
 # for mydir in directories:
