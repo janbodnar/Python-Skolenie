@@ -340,7 +340,6 @@ print(fruits)  # prints  ('apples', 'oranges', 'bananas')
 The parentheses are not mandatory. We can omit them.
 
 ```python
-tuples.py
 #!/usr/bin/python
 
 # tuples.py
