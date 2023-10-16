@@ -1,5 +1,6 @@
 # Python-Course
-Python code examples for the Python course
+
+Python materials and code examples for the Python course.  
 
 ## Requirements 
 
