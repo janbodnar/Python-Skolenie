@@ -517,7 +517,7 @@ seldom used in higher level languages like Python.
 |~  |	bitwise negation |
 |^  |	bitwise exclusive or |
 |&  |	bitwise and |
-||  |	bitwise or |
+|\|  |	bitwise or |
 |<< | 	left shift |
 |>> |	right shift |
 
