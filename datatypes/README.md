@@ -5,8 +5,8 @@ Tools to work with various data types are essential part of a modern computer la
 
 ## Eefinition
 
-Data type is a set of values and the allowable operations on those values.
-Python has a great set of useful data types. Python's data types are built  
+Data type is a set of values and the allowable operations on those values.  
+Python has a great set of useful data types. Python's data types are built   
 in the core of the language. They are easy to use and straightforward.
 
 # Booleans
@@ -76,8 +76,9 @@ print(bool(0))
 print(bool())
 print(bool(3))
 print(bool(None))
-The example prints nine boolean values.
 ```
+
+The example prints nine boolean values.
 
 ```
 $ ./bool_fun.py
