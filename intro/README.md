@@ -1,5 +1,7 @@
 # Introduction
 
+This is an introduction to the Python programming language.  
+
 ## Goal
 
 The goal of this tutorial is to get you started with the Python  
@@ -59,7 +61,7 @@ or a package management utility called Yum.
 
 Every script in the Unix starts with a <em>shebang</em>. The shebang is the first two  
 characters in the script: <code>#!</code>. The shebang is followed by the  
-path to the interpreter, which will execute our script. Shebangs do not work on Windows; 
+path to the interpreter, which will execute our script. Shebangs do not work on Windows;  
 but it it a good practice to include them even on Windows, since we might expect our 
 programs to be run on Unix, too. 
 
@@ -112,12 +114,12 @@ The program is launched.
 
 The <code>input</code> function reads a line from input, converts it to a  
 string (stripping a trailing newline), and returns that. The function takes  
-an optional argument, which is written to standard output without a trailing newline, if  
-present.
+an optional argument, which is written to standard output without a trailing newline,  
+if present.
 
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # read_input.py
 
@@ -144,7 +146,7 @@ the script name; the remaining elements are arguments passed to the script.
  
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # command_line_arguments.py
 
