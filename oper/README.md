@@ -592,7 +592,7 @@ bit pattern. It determines whether some property is set or not.
 
 Let's have an example from GUI programming.
 
-```
+```python
 #!/usr/bin/python
 
 # bitwise_or.py
@@ -723,14 +723,14 @@ print(not (True or True))
 In this code example, we show some common expressions. The outcome of each expression is  
 dependent on the precedence level.
 
-```
+```python
 print(2 ** 3 * 5)
 ```
 
 The power operator has higher precedence than the multiplication operator. First, the `2 ** 3` is  
 evaluated, which returns 8. Then the outcome is multiplied by 5 and the result is 40.
 
-```
+```python
 print(not True or True)
 ```
 
