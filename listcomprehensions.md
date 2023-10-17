@@ -128,7 +128,7 @@ print(c)
 We have a list of elements, which are integers and strings. We create two new lists;  
 one having only integers and one only strings.
 
-```
+```python
 b = [e for e in a if type(e) == int]
 ```
 
