@@ -183,9 +183,9 @@ In the example we print all numbers smaller than 1000 that cannot be divided by 
 
 ## The for statement 
 
-The for keyword is used to iterate over items of a collection in order that they appear in the container.
+The `for/in` keywords are used to iterate over items of a collection in order that they appear in the container.
 
-```
+```python
 #!/usr/bin/python
 
 # for_kwd.py
