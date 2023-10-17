@@ -161,8 +161,10 @@ sentence = 'There are eagles in the sky.'
 
 vowels = [c for c in sentence if is_vowel(c)]
 print(vowels)
+```
 The example filters out all vowels from a sentence.
 
+```python
 def is_vowel(c):
 
     vowels = 'aeiou'
