@@ -57,7 +57,7 @@ $ ./multiply_elements.py
 
 Each of the elements was multiplied by two.
 
-## Calculating Fahrenheit temperatures from Celsius
+## Celsius to Fahrenheit
 
 We have a list of temperatures in Celsius. We want to create a new list of temperatures expressed  
 in Fahrenheit temperature.
@@ -84,7 +84,7 @@ $ ./fahrenheit_celsius.py
 [71.6, 82.4, 91.4, 107.6, 125.6]
 ```
 
-# Filtering list
+## Filtering list
 
 In the following example, we are going to filter a list with a list comprehension.
 
@@ -135,9 +135,11 @@ b = [e for e in a if type(e) == int]
 Here we create a list b, which will contain only integer values. The `type` function is used  
 to determine the type of the element.
 
+```
 $ ./filter_by_type.py 
 [2, 12, 3]
 ['a', 'c', 'd']
+```
 
 ## Predicates
 
@@ -162,6 +164,7 @@ sentence = 'There are eagles in the sky.'
 vowels = [c for c in sentence if is_vowel(c)]
 print(vowels)
 ```
+
 The example filters out all vowels from a sentence.
 
 ```python
