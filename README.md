@@ -2,6 +2,8 @@
 
 Python materials and code examples for the Python course.  
 
+Contact: jan.bodnar(@)gmail.com, 0903 102 418.
+
 ## Requirements 
 
 There are no special requirements other than the ability to download and install programs and  
