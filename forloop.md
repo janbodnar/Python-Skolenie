@@ -72,9 +72,9 @@ door
 Finished looping
 ```
 
-# Loop with range
+## Loop with range
 
-Python range function generates a list of numbers.
+Python range function generates a sequence of numbers. 
 
 ```python
 range(n)
@@ -135,7 +135,7 @@ $ ./for_loop_range.py
 0 2 4 6 8 10
 ```
  
-# Loop over a tuple and list
+## Loop over a tuple and list
 
 With Python for loop, we can easily traverse Python tuples and lists.
 
@@ -192,7 +192,7 @@ $ ./for_loop_index.py
 5: door
 ```
 
-# Loop over a dictionary
+## Loop over a dictionary
 
 In the following example, we loop over a Python dictionary.
 
@@ -308,7 +308,7 @@ $ ./for_loop_custom_iterable.py
 ```
 
 
-# Loop with break
+## Loop with break
 
 The break statement terminates the for loop.
 
@@ -344,8 +344,7 @@ $ ./for_loop_break.py
 22
 ```
 
-
-# Loop with continue
+## Loop with continue
 
 The `continue` keyword is used to interrupt the current cycle, without jumping out of the  
 whole loop. It initiates a new cycle.
