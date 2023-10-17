@@ -7,6 +7,18 @@ Python materials and code examples for the Python course.
 There are no special requirements other than the ability to download and install programs and  
 to use the terminal.  
 
+## Outline
+
+- Introduction
+- Interactive Python
+- Lexical structure
+- Data types
+- Operators
+- Control flow
+- Lists
+- Dictionaries
+- Functions
+
 ## Installations
 
 - Python 3.10+
