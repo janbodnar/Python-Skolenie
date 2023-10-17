@@ -1,7 +1,7 @@
 # Lexical structure 
 
 Computer languages, like human languages, have a lexical structure. A source code of a Python program  
-consists of tokens. Tokens are atomic code elements. In Python language, we have comments, variables,  
+consists of tokens. Tokens are atomic code elements. In Python, we have comments, variables,  
 literals, operators, delimiters, and keywords.
 
 
