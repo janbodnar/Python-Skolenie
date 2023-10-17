@@ -14,9 +14,7 @@ A list comprehension can be used to:
 The syntax of a list comprehension was influenced by mathematical notation of sets. The Python  
 syntax was inspired by the Haskell programming language.
 
-```
 $$S = {x² : x in {0 ... 16}}$$
-```
 
 This is a mathematical notation for creating a set of integer values.
 
