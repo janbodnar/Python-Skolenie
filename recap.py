@@ -47,10 +47,10 @@ print(12 / 4 * 3)
 male = False
 male = bool(random.randint(0, 1))
 
-if (male):
-   print("We will use name John")
+if male:
+   print("We use name John")
 else:
-   print("We will use name Victoria")
+   print("We use name Victoria")
    
  
 print("******************************") 
