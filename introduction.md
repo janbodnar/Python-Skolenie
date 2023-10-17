@@ -19,17 +19,11 @@ The design purpose of the Python language emphasizes programmer productivity
 and code readability. Python was initially developed by Guido van Rossum.  
 It was first released in 1991. Python was inspired by ABC, Haskell, Java, Lisp, Icon,  
 and Perl  programming languages. Python is a high-level, general purpose,  
-multi-platform, interpreted language.  
-
+multi-platform, interpreted language. Python is maintained by a large group  
+of volunteers worldwide. Python is open source software.  
 
 Python is a minimalistic language. One of its most visible features is that it  
 does not use semicolons nor brackets; Python uses indentation instead.  
-
-There are two main branches of Python currently: Python 2.x and Python 3.x. Python 3.x  
-breaks backward compatibility with previous releases of Python. It was created to  
-correct some design flaws of the language and make it more clean.   
-This tutorial covers Python 3.x version. Today, Python is maintained by a large group  
-of volunteers worldwide. Python is open source software.  
 
 Python supports several programming styles. It does not force a programmer to a specific  
 paradigm. It supports procedural, object oriented, and functional programming.  
