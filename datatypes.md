@@ -9,6 +9,17 @@ Data type is a set of values and the allowable operations on those values.
 Python has a great set of useful data types. Python's data types are built   
 in the core of the language. They are easy to use and straightforward.
 
+Python data types include:
+
+- Booleans
+- Strings
+- Numbers
+- Tuples
+- Lists
+- Sets
+- Dictionaries
+- None
+
 ## Booleans
 
 In Python programming language, the Boolean datatype is a primitive datatype  
@@ -93,29 +104,6 @@ True
 False
 ```
 
-## None
-
-There is another special data type — None. This data type means non existent, not known, or empty.
-
-```
-#!/usr/bin/python
-
-# none.py
-
-def function():
-    pass
-
-print(function())
-```
-
-In our example, we define a function. Functions will be covered later in the tutorial.  
-The function does nothing. It does not explicitly return any value. Such a function will implicitly return `None`.  
-
-```
-$ ./none.py
-None
-```
-
 
 ## Numbers
 
@@ -183,7 +171,7 @@ The average speed of a sprinter is  36.4741641337 km/h
 This is the output of the `sprinter.py` script. Value `36.4741641337` is a floating point number.
 
 
-## String
+## Strings
 
 String is a data type representing textual data in computer programs.
 
@@ -283,7 +271,7 @@ We can use the len function to calculate the length of the string in characters.
 
 If we append an r to the string, we get a raw string. The escape sequences are not interpreted.
 
-```pythonn
+```python
 #!/usr/bin/python
 
 # raw.py
@@ -323,9 +311,9 @@ eagle and falcon
 
 Python has several built-in data types for working with collections of values: tuples, lists, sets, and dictionaries.
 
-## Tuple 
+## Tuples
 
-A tuple is an immutable sequence data type. The tuple can contain mixed data types.
+A *tuple* is an immutable sequence data type. The tuple can contain mixed data types.
 
 ```python
 fruits = ("oranges", "apples", "bananas")
@@ -470,7 +458,7 @@ $ ./tuple_one.py
 (10,)
 ```
 
-## List 
+## Lists
 
 A list is a mutable sequence data type. It can contain mixed data types.  
 A list and a tuple share many common features. Because a list is a modifiable data type,  
@@ -683,9 +671,9 @@ $ ./list_transform.py
 (4, 5, 6)
 ```
 
-## Set
+## Sets
 
-A set is an unordered collection of data with no duplicate elements. A set supports  
+A *set* is an unordered collection of data with no duplicate elements. A set supports  
 operations like union, intersection, or difference; similar as in Mathematics.
 
 ```python
@@ -763,7 +751,7 @@ fs = frozenset(['a', 'b', 'c'])
 
 This line creates a frozen set from a list.
 
-## Dictionary
+## Dictionaries
 
 A Python dictionary is a group of key-value pairs. The elements in a dictionary are indexed  
 by keys. Keys in a dictionary are required to be unique. Because of the importance  
@@ -801,4 +789,27 @@ Haus
 Maedchen
 {'house': 'Haus', 'death': 'Tod'}
 {}
+```
+
+## None
+
+There is another special data type — None. This data type means non existent, not known, or empty.
+
+```
+#!/usr/bin/python
+
+# none.py
+
+def function():
+    pass
+
+print(function())
+```
+
+In our example, we define a function. Functions will be covered later in the tutorial.  
+The function does nothing. It does not explicitly return any value. Such a function will implicitly return `None`.  
+
+```
+$ ./none.py
+None
 ```
