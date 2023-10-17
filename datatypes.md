@@ -795,7 +795,7 @@ Maedchen
 
 There is another special data type — None. This data type means non existent, not known, or empty.
 
-```
+```python
 #!/usr/bin/python
 
 # none.py
