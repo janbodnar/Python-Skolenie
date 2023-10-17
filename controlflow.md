@@ -181,8 +181,32 @@ print()
 
 In the example we print all numbers smaller than 1000 that cannot be divided by number 2 without a remainder.
 
+## The for statement 
+
+The for keyword is used to iterate over items of a collection in order that they appear in the container.
+
+```
+#!/usr/bin/python
+
+# for_kwd.py
+
+lyrics = """
+Are you really here or am I dreaming
+I can't tell dreams from truth
+for it's been so long since I have seen you
+I can hardly remember your face anymore
+"""
 
 
+for i in lyrics:
 
+    print(i, end=" ")
+```
+
+In the example, we have a lyrics variable having a strophe of a song. We iterate over the text and print  
+the text character by character. The comma in the print statement prevents from printing each character  
+on a new line.
+
+The `for` statement has a rich syntax and it is covered in a separate section in a more detail.  
 
 
