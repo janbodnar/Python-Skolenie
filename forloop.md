@@ -164,10 +164,11 @@ The code example prints the elements of a tuple and a list.
 $ ./for_loop_tuple_list.py 
 1 2 3 4 5 6 
 cup star monkey bottle 
-Python looping with index
 ```
 
-Sometimes we need to get the index of the element as well; for this we can use the enumerate function.
+## Loop with index
+
+Sometimes we need to get the index of the element as well; for this we can use the `enumerate` function.
 
 ```python
 #!/usr/bin/python
