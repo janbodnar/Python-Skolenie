@@ -101,9 +101,85 @@ the second block is executed. If not, the third block following the else keyword
 The `else` block is always executed if the previous conditions were not met.
 
 
+## The while statement
+
+The `while` keyword is used to create a cycle. The statements inside the while loop are executed until  
+the expression evaluates to `False`.
+
+```python
+#!/usr/bin/python
+
+# while_kwd.py
+
+numbers = [22, 34, 12, 32, 4]
+mysum = 0
+
+i = len(numbers)
+
+while i != 0:
+
+   i -= 1
+   mysum = mysum + numbers[i]
+
+print("The sum is:", mysum)
+```
+
+We want to calculate the sum of all values in the numbers list. We utilize the while loop.  
+We determine the length of the list. The while loop is executed over and over again, until the `i` is equal  
+to zero. In the body of the loop, we decrement the counter and calculate the sum of values.
+
+## The break statement
+
+The `break keyword` is used to interrupt the cycle if needed.
+
+```python
+#!/usr/bin/python
+
+# break_kwd.py
+
+import random
+
+while True:
+
+    val = random.randint(1, 30)
+    print(val, end=" ")
+
+    if val == 22:
+        break
+
+print()
+```
+
+In our example, we print random integer numbers. If the number equals to 22, the cycle is interrupted  
+with the `break` keyword. The `while True` creates an endless cycle. The `break` is used to jump out of  
+this endless cycle.  
+
+## The continue statement 
+
+The `continue` statement is used to interrupt the current cycle without jumping out of the whole cycle.  
+It initiates a new cycle.
 
 
+```python
+#!/usr/bin/python
 
+# continue_kwd.py
+
+num = 0
+
+while num < 1000:
+
+      num = num + 1
+
+      if num % 2 == 0:
+         continue
+
+      print(num, end=" ")
+
+print()
+```
+
+In the example we print all numbers smaller than 1000 that cannot be divided by number 2 without a remainder.
 
 
 
