@@ -5,7 +5,7 @@ Python materials and code examples for the Python course.
 ## Requirements 
 
 There are no special requirements other than the ability to download and install programs and  
-to use the terminal.  
+use the terminal.  
 
 ## Outline
 
