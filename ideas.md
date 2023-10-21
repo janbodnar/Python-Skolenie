@@ -1,5 +1,89 @@
 # Ideas
 
+## Ordered words
+
+An ordered word is a word in which the letters appear in alphabetic order.  
+
+# Solution I
+
+```python
+import urllib.request
+
+url = 'http://www.puzzlers.org/pub/wordlists/unixdict.txt'
+
+words = urllib.request.urlopen(url).read().decode("utf-8").split()
+
+ordered = [word for word in words if word==''.join(sorted(word))]
+maxlen = len(max(ordered, key=len))
+
+maxorderedwords = [word for word in ordered if len(word) == maxlen]
+print(' '.join(maxorderedwords))
+```
+
+Solution II
+
+```python
+import urllib.request
+
+mx, url = 0, 'http://www.puzzlers.org/pub/wordlists/unixdict.txt'
+
+for word in urllib.request.urlopen(url).read().decode("utf-8").split():
+    lenword = len(word)
+    if lenword >= mx and word==''.join(sorted(word)):
+        if lenword > mx:
+            words, mx = [], lenword
+        words.append(word)
+print(' '.join(words))
+```
+
+Solution III
+
+```python
+'''The longest ordered words in a list'''
+
+from functools import reduce
+from operator import le
+import urllib.request
+
+
+# longestOrds :: [String] -> [String]
+def longestOrds(ws):
+    '''The longest ordered words in a given list.
+    '''
+    return reduce(triage, ws, (0, []))[1]
+
+
+# triage :: (Int, [String]) -> String -> (Int, [String])
+def triage(nxs, w):
+    '''The maximum length seen for an ordered word,
+       and the ordered words of this length seen so far.
+    '''
+    n, xs = nxs
+    lng = len(w)
+    return (
+        (lng, ([w] if n != lng else xs + [w])) if (
+            ordered(w)
+        ) else nxs
+    ) if lng >= n else nxs
+
+
+# ordered :: String -> Bool
+def ordered(w):
+    '''True if the word w is ordered.'''
+    return all(map(le, w, w[1:]))
+
+
+# ------------------------- TEST -------------------------
+if __name__ == '__main__':
+    print(
+        '\n'.join(longestOrds(
+            urllib.request.urlopen(
+                'http://wiki.puzzlers.org/pub/wordlists/unixdict.txt'
+            ).read().decode("utf-8").split()
+        ))
+    )
+```
+
 ## Anagrams
 
 
