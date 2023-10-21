@@ -4,7 +4,7 @@
 
 An ordered word is a word in which the letters appear in alphabetic order.  
 
-# Solution I
+Solution I
 
 ```python
 import urllib.request
