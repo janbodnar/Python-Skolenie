@@ -524,7 +524,7 @@ except ValueError as e:
 
 When the substring is not found, the `rindex` method raises `ValueError` exception.
 
-```python
+```
 $ ./substrings2.py
 8
 35
@@ -550,7 +550,7 @@ print("eagle " + "and " + "falcon")
 The `*` operator repeates the string n times. In our case five times. Two string literals next to  
 each other are automatically concatenated. We can also use the `+` operator to explicitly concatenate the strings.
 
-```python
+```
 $ ./add_multiply.py
 eagle eagle eagle eagle eagle
 eagle falcon
@@ -571,7 +571,7 @@ print(word, "has", len(word), "characters")
 
 In the example, we compute the number of characters in a string variable.  
 
-```python
+```
 $ ./eagle.py
 eagle has 5 characters
 ```
