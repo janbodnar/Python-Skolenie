@@ -99,7 +99,7 @@ class Person:
     age: int
 ```
 
-We apply the dataclass decorator on the Person class.
+We apply the dataclass decorator on the `Person` class.
 
 ```
 p = Person('John Doe', 34)
@@ -160,7 +160,7 @@ Person(name='John Doe', age=34)
 Person(name='unknown', age=0)
 ```
 
-## The dataclass frozen parameter
+## The frozen parameter
 
 If the frozen parameter is set to True, we cannot assign values to fields.
 
@@ -187,7 +187,7 @@ print(p.occupation)
 In the example, the frozen parameter is set to `True`. The program fails with the following error message:  
 *dataclasses.FrozenInstanceError: cannot assign to field 'occupation'.*
 
-## The dataclass asdict function
+## The asdict function
 
 The `asdict` function converts a dataclass instance to a dict of its fields.
 
@@ -220,7 +220,7 @@ Person(name='John Doe', occupation='gardener', age=34)
 
 The first line is the output of the `__repr__` method. The second line is the dictionary of the fields.
 
-## The dataclass field function
+## The field function
 
 With the `field` function, we can provide some additional per-field information.
 
