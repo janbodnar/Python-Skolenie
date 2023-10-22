@@ -59,7 +59,7 @@ programs to be run on Unix, too.
 
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # simple.py
 
