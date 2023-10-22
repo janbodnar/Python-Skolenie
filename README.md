@@ -17,6 +17,7 @@ use the terminal.
 - Data types
 - Operators
 - Control flow
+- Strings
 - Lists
 - Dictionaries
 - Functions
