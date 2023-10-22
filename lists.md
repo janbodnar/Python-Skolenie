@@ -1,4 +1,4 @@
-# List
+# Lists
 
 
 A *list* is an ordered collection of values. It can contain various types of values. A list is a mutable  
