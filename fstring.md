@@ -38,13 +38,13 @@ This is the oldest option. It uses the % operator and classic string format spec
 print('{} is {} years old'.format(name, age))
 ```
 
-Since Python 3.0, the format function was introduced to provide advance formatting options.
+Since Python 3.0, the `format` function was introduced to provide advance formatting options.
 
 ```python
 print(f'{name} is {age} years old')
 ```
 
-Python f-strings are available since Python 3.6. The string has the f prefix and uses `{}` to evaluate variables.
+Python f-strings are available since Python 3.6. The string has the `f` prefix and uses `{}` to evaluate variables.
 
 ```
 $ python formatting_string.py
