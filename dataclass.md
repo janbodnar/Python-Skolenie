@@ -1,4 +1,4 @@
-# Data class 
+# The dataclass 
 
 The `dataclass` decorator is used to automatically generate special methods to classes, including  
 `__str__` and `__repr__`. It helps reduce some boilerplate code. The `dataclass` decorator is  
