@@ -209,4 +209,59 @@ on a new line.
 
 The `for` statement has a rich syntax and it is covered in a separate section in a more detail.  
 
+## Pattern match
+Pattern matching is a powerful control flow construct that allows us to compare a value against  
+a series of patterns and executing code based on which pattern matches. It is a much more  
+advanced construct than the `if/else` statements.
 
+```python
+#!/usr/bin/python
+
+grades = ['A', 'B', 'C', 'D', 'E', 'F', 'FX']
+
+for grade in grades:
+
+    match grade:
+        case 'A' | 'B' | 'C' | 'D' | 'E' | 'F':
+            print('passed')
+        case 'FX':
+            print('failed')
+```
+
+We have a list of grades. For A throug F grades, we pass the example.  
+For the FX grade, we fail the exam.
+
+```python
+grades = ['A', 'B', 'C', 'D', 'E', 'F', 'FX']
+```
+
+We define a list of grades.
+
+```python
+for grade in grades:
+```
+
+First, we go over the list with a for loop.
+
+```python
+match grade:
+    case 'A' | 'B' | 'C' | 'D' | 'E' | 'F':
+        print('passed')
+    case 'FX':
+        print('failed')
+```
+        
+In each for cycle, we match a value agains the given patterns. The first case branch  
+matches against several values separated with |. In the second branch, we match  
+agains single value 'FX'. 
+
+```
+$ ./main.py  
+passed
+passed
+passed
+passed
+passed
+passed
+failed
+```
