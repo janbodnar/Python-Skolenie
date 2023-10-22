@@ -1,11 +1,11 @@
 # Data class 
 
-The `dataclass` decorator helps reduce some boilerplate code. The `dataclass` decorator is used to  
-automatically generate special methods to classes, including `__str__` and `__repr__`. It helps reduce  
-some boilerplate code. The `dataclass` decorator is located in the dataclasses module. 
+The `dataclass` decorator is used to automatically generate special methods to classes, including  
+`__str__` and `__repr__`. It helps reduce some boilerplate code. The `dataclass` decorator is  
+located in the `dataclasses` module.  
 
 The `dataclass` decorator examines the class to find fields. A field is defined as class variable  
-that has a type annotation.
+that has a type annotation. 
 
 ```python
 @dataclass
