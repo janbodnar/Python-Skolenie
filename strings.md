@@ -1,10 +1,10 @@
 # Strings 
 
 
-A *string* in Python is a sequence of characters. It is a derived data type. Strings are immutable.  
-This means that once defined, they cannot be changed. Many Python methods, such as `replace`, `join`,  
-or `split` modify strings. However, they do not modify the original string. They create a copy of  
-a string which they modify and return to the caller.
+A *string* in Python is a sequence of characters. Strings are immutable; this means that once defined,  
+they cannot be changed. Many Python methods, such as `replace`, `join`, or `split` modify strings.  
+However, they do not modify the original string. They create a copy of a string which they modify  
+and return to the caller.
 
 ## String literals
 
@@ -12,7 +12,6 @@ Python strings can be created with single quotes, double quotes, or triple quote
 quotes, strings can span several lines without using the escape character.  
 
 ```python
-string_literals.py
 #!/usr/bin/python
 
 # string_literals.py
