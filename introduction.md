@@ -4,10 +4,10 @@ This is an introduction to the Python programming language.
 
 ## Goal
 
-The goal of this tutorial is to get you started with the Python programming language.
+The goal of this tutorial is to get you started with the Python programming language.  
 Python is a great language to learn. It is an ideal language for those who are new to programming.  
 You can create scripts, web sites, games, or desktop applications in Python.  
-Even if you do not want to become a programmer, Python may be a great tool for occasional 
+Even if you do not want to become a programmer, Python may be a great tool for occasional  
 programmers or hobbyists.  
 
 ## Python
