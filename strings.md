@@ -102,7 +102,7 @@ print('He said, "Which one is your favourite?"')
 
 We use the `\` character to escape additional quotes. Normally the double quote character is  
 used to delimit a string literal. However, when escaped, the original meaning is suppressed.  
-It appears as a normal character and can be used within a string literal. The second way to 
+It appears as a normal character and can be used within a string literal. The second way to  
 use quotes within quotes is to mix single and double quotes.
 
 ```
