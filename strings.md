@@ -67,7 +67,7 @@ $ ./unicode.py
 Анна Каренина
 ```
 
-We can use the Russian letters directly if we use the encoding comment.
+We can use the Russian letters directly.
 
 ```python
 #!/usr/bin/python
