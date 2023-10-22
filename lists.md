@@ -166,7 +166,7 @@ True
 ['Ruby', 'Python', 'Perl']
 ```
 
-$$ List operations
+## List operations
 
 The following code shows some basic list operations.
 
