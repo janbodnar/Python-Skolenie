@@ -2,16 +2,43 @@
 
 Materiály a príklady pre školenie jazyka Python.   [English version](#python-course)
 
+## Požiadavky
+
+Školenie nevyžaduje žiadne špeciálne znalosti okrem schopnosti inštalácie programov  
+a používania terminálu. Akákoľvek skúsenosť s programovaním je vítaná. 
+
+## Rozvrh
+
+## Python základy
+
+- Úvod
+- Interactívny Python
+- Lexikálna štruktúra
+- Dátové type
+- Operátory
+- Riadenie behu programu
+- Reťazce
+- Zoznamy a slovníky
+- Funkcie
+
+## Python základy II
+
+- Zopakovanie základov
+- Stručný prehľad OOP
+- Moduly
+- Balíčky
+- Práca so súbormi
+-  
 
 
-Python materials and code examples for the Python course.  
-
-Contact: jan.bodnar(@)gmail.com, 0903 102 418.
+Kontakt na školiteľa: jan.bodnar(@)gmail.com, 0903 102 418.
 
 
 
 
 ## Python Course
+
+Python materials and code examples for the Python course.  
 
 ## Requirements 
 
