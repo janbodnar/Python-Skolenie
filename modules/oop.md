@@ -45,7 +45,7 @@ print(type(function))
 print(type(sys))
 ```
 
-In this example we show that all these entities are in fact objects. The `type` function returns the 
+In this example we show that all these entities are in fact objects. The `type` function returns the  
 type of the object specified.
 
 ```
@@ -67,7 +67,7 @@ Integers, strings, lists, dictionaries, tuples, functions, and modules are Pytho
 The previous objects were all built-in objects of the Python programming language. The user defined  
 objects are created using the `class` keyword. The class is a blueprint that defines a nature of  
 future object. From classes we construct instances. An instance is a specific object created from  
-a particular class. For example, Huck might be an instance of a `Dog` class. 
+a particular class. For example, Huck might be an instance of a `Dog` class.  
 
 ```python
 #!/usr/bin/python
@@ -83,15 +83,15 @@ print(type(fr))
 print(type(First))
 ```
 
-This is our first class. The body of the class is left empty for now. It is a convention  
-to give classes a name that starts with a capital letter. 
+This is our first class. The body of the class is left empty for now. It is a convention   
+to give classes a name that starts with a capital letter.  
 
 ```python
 class First:
     pass
 ```
 
-Here we define the `First` class. Note that by default, all classes inherit from the base object. 
+Here we define the `First` class. Note that by default, all classes inherit from the base object.  
 
 ```python
 fr = First()
@@ -106,7 +106,7 @@ $ ./first_object.py
 <class 'type'>
 ```
 
-Here we see that `fr` is an instance object of the `First` class.
+Here we see that `fr` is an instance object of the `First` class. 
 
 Inside a class, we can define attributes and methods. An attribute is a characteristic of an object.  
 This can be for example a salary of an employee. A method defines operations that we can perform with  
@@ -181,15 +181,15 @@ missy = Cat('Missy')
 lucky = Cat('Lucky')
 ```
 
-Here we create two objects: cats Missy and Lucky. The number of arguments must correspond to the `__init__` 
-method of the class definition. The 'Missy' and 'Lucky' strings become the name parameter of the `__init__` method.
+Here we create two objects: cats Missy and Lucky. The number of arguments must correspond to the `__init__`  
+method of the class definition. The `'Missy'` and `'Lucky'` strings become the name parameter of the `__init__` method. 
 
 ```python
 print(missy.name)
 print(lucky.name)
 ```
 
-Here we print the attributes of the two cat objects. Each instance of a class can have their own attributes. 
+Here we print the attributes of the two cat objects. Each instance of a class can have their own attributes.  
 
 ```
 $ ./attributes.py 
