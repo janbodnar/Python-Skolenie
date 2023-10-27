@@ -338,7 +338,7 @@ Modules can be imported into other modules or they can be also executed. Module 
 often create a testing suite to test the module. Only if the module is executed as a script,  
 the `__name__` attribute equals to `'__main__'`.
 
-We will demonstrate this on a fibonacci module. Fibonacci numbers is a sequence of numbers,  
+We demonstrate this on a `fibonacci` module. Fibonacci numbers is a sequence of numbers,  
 where each is the sum of its two immediate predecessors. 
 
 ```python
@@ -376,7 +376,7 @@ $ ./fibonacci.py
 
 If we do import the `fibonacci` module, the test is not executed automatically.  
 
-```python
+```
 >>> import fibonacci as fib
 >>> fib.fib(500)
 1 1 2 3 5 8 13 21 34 55 89 144 233 377
@@ -501,10 +501,13 @@ print(c.__module__)
 
 In this code we use the `__module__` attribute.
 
-```
+```python
 from animals import Cat
-From the animals module, we import the Cat class.
+```
 
+From the `animals` module, we import the `Cat` class.
+
+```python
 class Being:
     pass
 ```
