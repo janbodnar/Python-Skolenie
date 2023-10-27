@@ -61,7 +61,7 @@ the file name. Modules can be imported into other modules using the `import` key
 ## Python locating modules
 
 When a module is imported the interpreter first searches for a built-in module with that name.  
-If not found, it then searches in a list of directories given by the variable sys.path.  
+If not found, it then searches in a list of directories given by the variable `sys.path`.  
 The `sys.path` is a list of strings that specifies the search path for modules. It consists of the  
 current working directory, directory names specified in the `PYTHONPATH` environment variable,  
 and some additional installation dependent directories. If the module is not found, an `ImportError`  
