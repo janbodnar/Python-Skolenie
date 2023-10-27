@@ -134,6 +134,26 @@ $ ./locating_modules.py
 /usr/local/lib/python3.10/dist-packages
 ```
 
+## Python multiline import 
+
+We can use square brackets to enable multiline import statements.  
+
+```python
+#!/usr/bin/python
+
+from math import (pi, cos, sin, log,
+    floor, exp)
+
+print(pi.__doc__)
+print(cos.__doc__)
+print(sin.__doc__)
+print(log.__doc__)
+print(floor.__doc__)
+print(exp.__doc__)
+```
+
+
+
 ## Python import keyword
 
 The `import` keyword can be used in several ways.
