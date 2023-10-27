@@ -14,9 +14,21 @@ inside a database module, security code in a security module etc. Smaller Python
 one module. But larger programs are split into several modules. Modules are grouped together  
 to form packages.  
 
+## The pyc file
+
+To speed up loading modules, Python caches the compiled content of modules in `.pyc` files.  
+
+CPython compiles the program source code into *byte code*, and for performance reasons, it caches this  
+byte code on the file system whenever the source file has changes. This makes loading of Python 
+modules much faster because the compilation phase can be bypassed.  
+
+Python writes and searches for byte code cache files in a single directory inside every Python 
+package directory. This directory is called `__pycache__`.  
+
+
 ## Python module names
 
-A module name is the file name with the `.py` extension. When we have a file called `empty.p`y, empty  
+A module name is the file name with the `.py` extension. When we have a file called `empty.py`, empty  
 is the module name. The `__name__` is a variable that holds the name of the module being referenced.  
 The current module, the module being executed (called also the main module) has a special name: `'__main__'`.  
 With this name it can be referenced from the Python code. 
@@ -57,6 +69,7 @@ sys
 
 The name of the module, which is being executed is always `'__main__'`. Other modules are named after  
 the file name. Modules can be imported into other modules using the `import` keyword.  
+
 
 ## Python locating modules
 
