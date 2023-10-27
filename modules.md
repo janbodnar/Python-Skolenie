@@ -134,6 +134,40 @@ $ ./locating_modules.py
 /usr/local/lib/python3.10/dist-packages
 ```
 
+## Name clashes
+
+A common beginner error is to name the program after the standard library, such as Tkinter.  
+If we name the following script `tkinter.py`, then the program fails with  
+`ModuleNotFoundError: No module named 'tkinter.messagebox'; 'tkinter' is not a package`. This is  
+because in `sys.path` the current working directory precedes the standard library locations and the  
+program tries to import itself and fails.  
+
+```python
+#!/usr/bin/python
+
+import tkinter
+import tkinter.messagebox
+import datetime
+
+def showDate():
+    
+    now = datetime.datetime.now()
+    msg = 'Today is: {}'.format(now)
+    tkinter.messagebox.showinfo("Information", msg)
+
+root = tkinter.Tk()
+root.title('Message box')
+
+btn = tkinter.Button(root, text="Show date", padx=5, pady=5, width=10,
+    command=showDate)
+btn.pack(pady=10)
+
+root.geometry('300x300+300+250')
+root.mainloop()
+```
+
+
+
 ## Python multiline import 
 
 We can use square brackets to enable multiline import statements.  
@@ -151,6 +185,9 @@ print(log.__doc__)
 print(floor.__doc__)
 print(exp.__doc__)
 ```
+
+
+
 
 
 ## Python import keyword
