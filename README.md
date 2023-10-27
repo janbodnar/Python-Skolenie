@@ -7,6 +7,14 @@ Materiály a príklady pre školenie jazyka Python.   [English version](#python-
 Školenie nevyžaduje žiadne špeciálne znalosti okrem schopnosti inštalácie programov  
 a používania terminálu. Akákoľvek skúsenosť s programovaním je vítaná. 
 
+## Inštalácie
+
+- Python 3.10+
+- VS Code 
+- Python plugin pre Code
+
+Pri inštalácii Pythonu (platí pre Windows), nezabudnite si zaškrnúť voľbu *add to PATH*
+
 ## Rozvrh
 
 ## Python základy
