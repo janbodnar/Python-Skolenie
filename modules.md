@@ -16,14 +16,26 @@ to form packages.
 
 ## The pyc file
 
-To speed up loading modules, Python caches the compiled content of modules in `.pyc` files.  
+Python caches the compiled content of modules in `.pyc` files to speed up loading modules. Python  
+compiles the program source code into byte code. To improve performance, it caches the byte code on  
+the file system whenever the source file has changes.  
 
-CPython compiles the program source code into *byte code*, and for performance reasons, it caches this  
-byte code on the file system whenever the source file has changes. This makes loading of Python  
-modules much faster because the compilation phase can be bypassed.  
+This caching makes loading of Python modules much faster because the compilation phase can be bypassed.  
+Python caches the compiled version of each module in the `__pycache__` directory under the name  
+`module.version.pyc`.  
 
-Python writes and searches for byte code cache files in a single directory inside every Python  
-package directory. This directory is called `__pycache__`.  
+Python checks the modification date of the source against the compiled version to see if it's out of date  
+and needs to be recompiled.  
+
+```python
+#!/usr/bin/python
+
+import compileall
+
+compileall.compile_dir('lib/', force=True)
+```
+
+The `compileall` module can be used to programtically compile Python modules.
 
 
 ## Python module names
