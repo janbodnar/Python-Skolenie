@@ -13,7 +13,7 @@ a používania terminálu. Akákoľvek skúsenosť s programovaním je vítaná.
 - VS Code 
 - Python plugin pre Code
 
-Pri inštalácii Pythonu (platí pre Windows), nezabudnite si zaškrnúť voľbu *add to PATH*
+Pri inštalácii Pythonu (platí pre Windows), nezabudnite zaškrnúť voľbu *add to PATH*.
 
 ## Rozvrh
 
@@ -36,8 +36,7 @@ Pri inštalácii Pythonu (platí pre Windows), nezabudnite si zaškrnúť voľbu
 - Moduly
 - Balíčky
 - Práca so súbormi
--  
-
+  
 
 Kontakt na školiteľa: jan.bodnar(@)gmail.com, 0903 102 418.
 
