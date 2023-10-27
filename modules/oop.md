@@ -258,9 +258,9 @@ print(missy.__class__.species)
 print(lucky.__class__.species)
 ```
 
-In our example, we have two cats with specific name and age attributes. Both cats share 
+In our example, we have two cats with specific name and age attributes. Both cats share  
 some characteristics. `Missy` and `Lucky` are both mammals. This is reflected in a class level  
-attribute species. The attribute is defined outside any method name in the body of a class. 
+attribute species. The attribute is defined outside any method name in the body of a class.  
 
 ```python
 print(Cat.species)
@@ -268,7 +268,7 @@ print(missy.__class__.species)
 ```
 
 There are two ways how we can access the class object attributes: either via the name of the `Cat`  
-class, or with the help of a special `__class__` attribute. 
+class, or with the help of a special `__class__` attribute.  
 
 ```
 $ ./class_attribute.py 
@@ -282,7 +282,7 @@ mammal
 ## Python methods
 
 Methods are functions defined inside the body of a class. They are used to perform operations with  
-the attributes of our objects. Methods are essential in the encapsulation concept of the OOP paradigm. 
+the attributes of our objects. Methods are essential in the encapsulation concept of the OOP paradigm.  
 For example, we might have a connect method in our `AccessDatabase` class. We need not to be informed  
 how exactly the method connect connects to the database. We only know that it is used to connect  
 to a database. This is essential in dividing responsibilities in programming, especially  
@@ -345,7 +345,7 @@ c.setRadius(5)
 ```
 
 The method is called on an instance object. The `c` object is paired with the `self`  
-parameter of the class definition. The number `5` is paired with the radius parameter. 
+parameter of the class definition. The number `5` is paired with the radius parameter.  
 
 ```
 $ ./methods.py 
@@ -376,7 +376,7 @@ print(m.getName())
 print(Methods.getName(m))
 ```
 
-In this example, we demostrate both method calls. 
+In this example, we demostrate both method calls.  
 
 ```python
 print(m.getName())
@@ -389,7 +389,7 @@ the `self` parameter.
 print(Methods.getName(m))
 ```
 
-And this is the unbounded method call. The instance object is explicitly given to the `getName` method. 
+And this is the unbounded method call. The instance object is explicitly given to the `getName` method.  
 
 ```
 $ ./bound_unbound_methods.py 
@@ -443,7 +443,7 @@ d.bark()
 In this example, we have two classes: `Animal` and `Dog`. The `Animal` is the base class, the `Dog` is the derived class.  
 The derived class inherits the functionality of the base class. It is shown by the eat method. The derived class  
 modifies existing behaviour of the base class, shown by the `whoAmI` method. Finally, the derived class extends the  
-functionality of the base class, by defining a new `bark` method.
+functionality of the base class, by defining a new `bark` method. 
 
 ```python
 class Dog(Animal):
@@ -455,8 +455,8 @@ class Dog(Animal):
 ```
 
 We put the ancestor classes in round brackets after the name of the descendant class. If the derived class provides  
-its own `__init__` method and we want to call the parent constructor, we have to explicitly call the base class `__init__` 
-method with the help of the super function. 
+its own `__init__` method and we want to call the parent constructor, we have to explicitly call the base class `__init__`  
+method with the help of the super function.  
 
 ```
 $ ./inherit.py 
