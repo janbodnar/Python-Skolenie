@@ -19,10 +19,10 @@ to form packages.
 To speed up loading modules, Python caches the compiled content of modules in `.pyc` files.  
 
 CPython compiles the program source code into *byte code*, and for performance reasons, it caches this  
-byte code on the file system whenever the source file has changes. This makes loading of Python 
+byte code on the file system whenever the source file has changes. This makes loading of Python  
 modules much faster because the compilation phase can be bypassed.  
 
-Python writes and searches for byte code cache files in a single directory inside every Python 
+Python writes and searches for byte code cache files in a single directory inside every Python  
 package directory. This directory is called `__pycache__`.  
 
 
