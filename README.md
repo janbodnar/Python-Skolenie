@@ -1,8 +1,17 @@
-# Python-Course
+# Python-Skolenie
+
+Materiály a príklady pre školenie jazyka Python.   [English version](#python-course)
+
+
 
 Python materials and code examples for the Python course.  
 
 Contact: jan.bodnar(@)gmail.com, 0903 102 418.
+
+
+
+
+## Python Course
 
 ## Requirements 
 
