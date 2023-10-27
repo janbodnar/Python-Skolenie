@@ -136,7 +136,7 @@ print(pi)
 This import construct has imported all definitions from the built-in `math` module. We can call   
 the math functions directly, without referencing the math module.  
 
-```python
+```
 $ ./everything.py
 -0.9899924966004454
 3.141592653589793
@@ -186,11 +186,14 @@ def show_names():
 def _show_version():
 
     print(_version)
-test_names.py
 ```
 
-```
+This is the `names.py` module. It has a private variable and public and a private functions.  
+
+```python
 #!/usr/bin/python
+
+# test_names.py
 
 from names import *
 
