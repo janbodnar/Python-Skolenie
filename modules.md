@@ -79,14 +79,23 @@ sp = sorted(sys.path)
 dnames = ', '.join(sp)
 
 print(textwrap.fill(dnames))
-The script prints all directories from sys.path variable.
+```
 
+The script prints all directories from `sys.path` variable.
+
+```python
 import textwrap
-The textwrap module is used for easy formatting of paragraphs.
+```
 
+The `textwrap` module is used for easy formatting of paragraphs.  
+
+```python
 sp = sorted(sys.path)
-We retrieve a list of directories from the sys.path variable and sort them.
+```
 
+We retrieve a list of directories from the `sys.path` variable and sort them.
+
+```python
 dnames = ', '.join(sp)
 ```
 
