@@ -37,6 +37,8 @@ Pri inštalácii Pythonu (platí pre Windows), nezabudnite zaškrnúť voľbu *a
 - Balíčky
 - Práca so súbormi
 - Pokročilá práca s funkciami
+- Základy funkcionálneho programovania
+- Pip manažér
 - Lambda funkcie
 - Štandardná knižnica jazyka Python
   
