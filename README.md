@@ -36,6 +36,9 @@ Pri inštalácii Pythonu (platí pre Windows), nezabudnite zaškrnúť voľbu *a
 - Moduly
 - Balíčky
 - Práca so súbormi
+- Pokročilá práca s funkciami
+- Lambda funkcie
+- Štandardná knižnica jazyka Python
   
 
 Kontakt na školiteľa: jan.bodnar(@)gmail.com, 0903 102 418.
