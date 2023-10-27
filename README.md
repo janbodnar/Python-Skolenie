@@ -20,7 +20,7 @@ Pri inštalácii Pythonu (platí pre Windows), nezabudnite zaškrnúť voľbu *a
 ## Python základy
 
 - Úvod
-- Interactívny Python
+- Interaktívny Python
 - Lexikálna štruktúra
 - Dátové type
 - Operátory
