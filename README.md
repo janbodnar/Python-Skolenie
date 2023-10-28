@@ -22,7 +22,7 @@ Pri inštalácii Pythonu (platí pre Windows), nezabudnite zaškrnúť voľbu *a
 - Úvod
 - Interaktívny Python
 - Lexikálna štruktúra
-- Dátové type
+- Dátové typy
 - Operátory
 - Riadenie behu programu
 - Reťazce
@@ -39,7 +39,7 @@ Pri inštalácii Pythonu (platí pre Windows), nezabudnite zaškrnúť voľbu *a
 - Pokročilá práca s funkciami
 - Základy funkcionálneho programovania
 - Pip manažér
-- Lambda funkcie
+- Jupyter notebooky
 - Štandardná knižnica jazyka Python
   
 
