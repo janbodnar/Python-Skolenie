@@ -616,3 +616,15 @@ animals
 ```
 
 The current module's name is `'__main__'`. And the Cat's module name is animals.
+
+## ImportError
+
+```python
+try:
+    # Non-existent module
+    import numpy12
+except ImportError:
+    print('Module not found')
+```
+
+
