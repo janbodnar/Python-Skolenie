@@ -20,11 +20,11 @@ new cell immediately below (focus remains on current cell).
 There are two modes: *edit mode* & *command mode*. The `Enter` key starts the edit mode and the `Esc` key  
 the command mode.  
 
-In command mode, the `A` adds a cell above, the `B` adds a cell below the selected cell, the `dd` deletes the cell.  
-The `M` switches the cell type to markdown and the `Y` switches the cell type to code. 
+In command mode, the `A` adds a cell above, the `B` adds a cell below the selected cell, the `dd` deletes  
+the cell. The `M` switches the cell type to markdown and the `Y` switches the cell type to code.  
 
-The `Alt+Arrow` moves one or more cells.  The `z` undos the previous change. The `L` toggles line numbering within a  
-single code cell. The `Shift+L` toggles line numbering for the entire notebook.  
+The `Alt+Arrow` moves one or more cells.  The `z` undos the previous change. The `L` toggles line numbering  
+within a single code cell. The `Shift+L` toggles line numbering for the entire notebook.   
 
 ## Code cells
 
