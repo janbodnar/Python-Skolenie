@@ -1,4 +1,4 @@
-# Jupyter & repl
+# Jupyter & code cells
 
 
 - https://code.visualstudio.com/docs/python/jupyter-support-py
@@ -9,6 +9,17 @@
 - https://pbpython.com/pandas-pivot-table-explained.html
 - https://pbpython.com/visualization-tools-1.html
 
+
+## Notebook
+
+The notebook have the `.ipynb` extensions.  The `Ctrl+Enter` runs the current cell, the `Shift+Enter` runs  
+the current cell and advances to the next.
+
+There are two modes: edit mode & command mode. The `Enter` key starts the edit mode and the `Esc` key  
+the command mode.  
+
+In command mode, the `A` adds a cell above, the `B` adds a cell below the selected cell, the `dd` deletes the cell.  
+The `M` switches the cell type to markdown and the `Y` switches the cell type to code. 
 
 
 
