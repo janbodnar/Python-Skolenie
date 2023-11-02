@@ -26,6 +26,8 @@ the cell. The `M` switches the cell type to markdown and the `Y` switches the ce
 The `Alt+Arrow` moves one or more cells.  The `z` undos the previous change. The `L` toggles line numbering  
 within a single code cell. The `Shift+L` toggles line numbering for the entire notebook.   
 
+In command mode, `J` moves down and `K` up.  
+
 ## Code cells
 
 - Go to Next Cell 	`Ctrl+Alt+]`
