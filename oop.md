@@ -167,7 +167,7 @@ def __init__(self, name):
 ```
 
 Each method in a class definition begins with a reference to the instance object. It is by convention named `self`.  
-There is nothing special about the self name. We could name it this, for example. The second parameter, name, 
+There is nothing special about the self name. We could name it this, for example. The second parameter, name,  
 is the argument. The value is passed during the class initialization.  
 
 ```python
@@ -181,7 +181,7 @@ missy = Cat('Missy')
 lucky = Cat('Lucky')
 ```
 
-Here we create two objects: cats Missy and Lucky. The number of arguments must correspond to the `__init__` method 
+Here we create two objects: cats Missy and Lucky. The number of arguments must correspond to the `__init__` method  
 of the class definition. The 'Missy' and 'Lucky' strings become the name parameter of the `__init__` method.  
 
 ```python
@@ -453,8 +453,8 @@ class Dog(Animal):
 ```
 
 We put the ancestor classes in round brackets after the name of the descendant class. If the derived class provides its  
-own `__init__` method and we want to call the parent constructor, we have to explicitly call the base class `__init__` 
-method with the help of the super function. 
+own `__init__` method and we want to call the parent constructor, we have to explicitly call the base class `__init__`  
+method with the help of the super function.  
 
 ```
 $ ./inherit.py 
