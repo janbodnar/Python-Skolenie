@@ -207,7 +207,7 @@ The `__init__.py` file in the numbers package has this one line.
 myintegers = (2, 3, 45, 6, 7, 8, 9)
 ```
 
-The integers module defines a tuple of seven integers. This tuple will be accessed from the `read.py` script.
+The `myintegers` module defines a tuple of seven integers. This tuple will be accessed from the `read.py` script.
   
 ```python
 #!/usr/bin/python
