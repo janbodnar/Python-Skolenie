@@ -141,7 +141,7 @@ Being is initialized
 
 Attributes are characteristics of an object. Attributes are set in the `__init__` method.
 
-attributes.py
+```
 #!/usr/bin/env python
 
 # attributes.py
@@ -157,28 +157,49 @@ lucky = Cat('Lucky')
 
 print(missy.name)
 print(lucky.name)
-In this code example, we have a Cat class. The special method __init__ is called automatically right after the object has been created.
+```
 
+In this code example, we have a Cat class. The special method `__init__` is called automatically right after  
+the object has been created.
+
+```python
 def __init__(self, name):
-Each method in a class definition begins with a reference to the instance object. It is by convention named self. There is nothing special about the self name. We could name it this, for example. The second parameter, name, is the argument. The value is passed during the class initialization.
+```
 
+Each method in a class definition begins with a reference to the instance object. It is by convention named `self`.  
+There is nothing special about the self name. We could name it this, for example. The second parameter, name, 
+is the argument. The value is passed during the class initialization.  
+
+```python
 self.name = name
+```
+
 Here we pass an attribute to an instance object.
 
+```python
 missy = Cat('Missy')
 lucky = Cat('Lucky')
-Here we create two objects: cats Missy and Lucky. The number of arguments must correspond to the __init__ method of the class definition. The 'Missy' and 'Lucky' strings become the name parameter of the __init__ method.
+```
 
+Here we create two objects: cats Missy and Lucky. The number of arguments must correspond to the `__init__` method 
+of the class definition. The 'Missy' and 'Lucky' strings become the name parameter of the `__init__` method.  
+
+```python
 print(missy.name)
 print(lucky.name)
+```
+
 Here we print the attributes of the two cat objects. Each instance of a class can have their own attributes.
 
+```
 $ ./attributes.py 
 Missy
 Lucky
-The attributes can be assigned dynamically, not just during initialization. This is demonstrated by the next example.
+```
 
-attributes_dynamic.py
+The attributes can be assigned dynamically, not just during initialization. This is demonstrated by the next example.  
+
+```python
 #!/usr/bin/env python
 
 # attributes_dynamic.py
@@ -191,18 +212,28 @@ p.age = 24
 p.name = "Peter"
 
 print("{0} is {1} years old".format(p.name, p.age))
-We define and create an empty Person class.
+```
 
+We define and create an empty `Person` class.
+
+```python
 p.age = 24
 p.name = "Peter"
-Here we create two attributes dynamically: age and name.
+```
 
+Here we create two attributes dynamically: `age` and `name`.
+
+```
 $ ./attributes_dynamic.py 
 24 is Peter years old
-Python class attributes
-So far, we have been talking about instance attributes. In Python there are also so called class object attributes. Class object attributes are same for all instances of a class.
+```
 
-class_attribute.py
+## Class attributes
+
+So far, we have been talking about instance attributes. In Python there are also so called class object  
+attributes. Class object attributes are same for all instances of a class. 
+
+```python
 #!/usr/bin/env python
 
 # class_attribute.py
@@ -225,22 +256,38 @@ print(lucky.name, lucky.age)
 print(Cat.species)
 print(missy.__class__.species)
 print(lucky.__class__.species)
-In our example, we have two cats with specific name and age attributes. Both cats share some characteristics. Missy and Lucky are both mammals. This is reflected in a class level attribute species. The attribute is defined outside any method name in the body of a class.
+```
 
+In our example, we have two cats with specific name and age attributes. Both cats share some characteristics.  
+Missy and Lucky are both mammals. This is reflected in a class level attribute species. The attribute is defined  
+outside any method name in the body of a class.
+
+```python
 print(Cat.species)
 print(missy.__class__.species)
-There are two ways how we can access the class object attributes: either via the name of the Cat class, or with the help of a special __class__ attribute.
+```
 
+There are two ways how we can access the class object attributes: either via the name of the `Cat` class, or with the  
+help of a special `__class__` attribute.
+
+```
 $ ./class_attribute.py 
 Missy 3
 Lucky 5
 mammal
 mammal
 mammal
-Python methods
-Methods are functions defined inside the body of a class. They are used to perform operations with the attributes of our objects. Methods are essential in the encapsulation concept of the OOP paradigm. For example, we might have a connect method in our AccessDatabase class. We need not to be informed how exactly the method connect connects to the database. We only know that it is used to connect to a database. This is essential in dividing responsibilities in programming, especially in large applications.
+```
 
-methods.py
+## Methods
+
+Methods are functions defined inside the body of a class. They are used to perform operations with the attributes  
+of our objects. Methods are essential in the encapsulation concept of the OOP paradigm. For example, we might have  
+a connect method in our AccessDatabase class. We need not to be informed how exactly the method connect connects  
+to the database. We only know that it is used to connect to a database. This is essential in dividing responsibilities  
+in programming, especially in large applications.
+
+```python
 #!/usr/bin/env python
 
 # methods.py
@@ -267,29 +314,47 @@ c = Circle()
 c.setRadius(5)
 print(c.getRadius())
 print(c.area())
-In the code example, we have a Circle class. We define three new methods.
+```
 
+In the code example, we have a `Circle` class. We define three new methods.
+
+```python
 def area(self):
     return self.radius * self.radius * Circle.pi
+```
+
 The area method returns the area of a circle.
 
+```python
 def setRadius(self, radius):
     self.radius = radius
-The setRadius method sets a new value for the radius attribute.
+```
 
+The `setRadius` method sets a new value for the radius attribute.
+
+```python
 def getRadius(self):
     return self.radius
-The getRadius method returns the current radius.
+```
 
+The `getRadius` method returns the current radius.  
+
+```python
 c.setRadius(5)
-The method is called on an instance object. The c object is paired with the self parameter of the class definition. The number 5 is paired with the radius parameter.
+```
 
+The method is called on an instance object. The c object is paired with the `self` parameter  
+of the class definition. The number 5 is paired with the `radius` parameter.  
+
+```
 $ ./methods.py 
 5
 78.5398
+```
+
 In Python, we can call methods in two ways. There are bounded and unbounded method calls.
 
-bound_unbound_methods.py
+```python
 #!/usr/bin/env python
 
 # bound_unbound_methods.py
@@ -307,21 +372,37 @@ m = Methods()
 
 print(m.getName())
 print(Methods.getName(m))
+```
+
 In this example, we demostrate both method calls.
 
+```python
 print(m.getName())
-This is the bounded method call. The Python interpreter automatically pairs the m instance with the self parameter.
+```
 
+This is the bounded method call. The Python interpreter automatically pairs the `m` instance  
+with the `self` parameter.
+
+```python
 print(Methods.getName(m))
-And this is the unbounded method call. The instance object is explicitly given to the getName method.
+```
 
+And this is the unbounded method call. The instance object is explicitly given to the `getName` method.  
+
+```
 $ ./bound_unbound_methods.py 
 Methods
 Methods
-Python inheritance
-Inheritance is a way to form new classes using classes that have already been defined. The newly formed classes are called derived classes, the classes that we derive from are called base classes. Important benefits of inheritance are code reuse and reduction of complexity of a program. The derived classes (descendants) override or extend the functionality of base classes (ancestors).
+```
 
-inheritance.py
+## Inheritance
+
+Inheritance is a way to form new classes using classes that have already been defined. The newly formed  
+classes are called derived classes, the classes that we derive from are called base classes. Important 
+benefits of inheritance are code reuse and reduction of complexity of a program. The derived classes (descendants)  
+override or extend the functionality of base classes (ancestors). 
+
+```python
 #!/usr/bin/env python
 
 # inheritance.py
@@ -355,26 +436,42 @@ d = Dog()
 d.whoAmI()
 d.eat()
 d.bark()
-In this example, we have two classes: Animal and Dog. The Animal is the base class, the Dog is the derived class. The derived class inherits the functionality of the base class. It is shown by the eat method. The derived class modifies existing behaviour of the base class, shown by the whoAmI method. Finally, the derived class extends the functionality of the base class, by defining a new bark method.
+```
 
+In this example, we have two classes: `Animal` and `Dog`. The `Animal` is the base class, the `Dog` is the derived class.  
+The derived class inherits the functionality of the base class. It is shown by the eat method. The derived class  
+modifies existing behaviour of the base class, shown by the whoAmI method. Finally, the derived class extends the  
+functionality of the base class, by defining a new bark method. 
+
+```
 class Dog(Animal):
 
     def __init__(self):
         super().__init__()
         
         print("Dog created")
-We put the ancestor classes in round brackets after the name of the descendant class. If the derived class provides its own __init__ method and we want to call the parent constructor, we have to explicitly call the base class __init__ method with the help of the super function.
+```
 
+We put the ancestor classes in round brackets after the name of the descendant class. If the derived class provides its  
+own `__init__` method and we want to call the parent constructor, we have to explicitly call the base class `__init__` 
+method with the help of the super function. 
+
+```
 $ ./inherit.py 
 Animal created
 Dog created
 Dog
 Eating
 Woof!
-Python polymorphism
-Polymorphism is the process of using an operator or function in different ways for different data input. In practical terms, polymorphism means that if class B inherits from class A, it doesn't have to inherit everything about class A; it can do some of the things that class A does differently.
+```
 
-basic_polymorphism.py
+## Polymorphism
+
+Polymorphism is the process of using an operator or function in different ways for different data input.   
+In practical terms, polymorphism means that if class B inherits from class A, it doesn't have to inherit   
+everything about class A; it can do some of the things that class A does differently.  
+
+```python
 #!/usr/bin/env python
 
 # basic_polymorphism.py
@@ -386,15 +483,21 @@ c = ['o', 'm', 'e', 'g', 'a']
 print(a[2])
 print(b[1])
 print(c[3])
-Python uses polymorphism extensively in built-in types. Here we use the same indexing operator for three different data types.
+```
 
+Python uses polymorphism extensively in built-in types. Here we use the same indexing operator for three  
+different data types.
+
+```
 $ ./basic_polymorphism.py 
 f
 2
 g
+```
+
 Polymorphism is mostly used when dealing with inheritance.
 
-polymorphism.py
+```python
 #!/usr/bin/env python
 
 # polymorphism.py
@@ -429,15 +532,24 @@ c.talk()
 
 d = Dog("Rocky")
 d.talk()
-Here we have two species: a dog and a cat. Both are animals. The Dog class and the Cat class inherit the Animal class. They have a talk method, which gives different output for them.
+```
 
+Here we have two species: a dog and a cat. Both are animals. The `Dog` class and the `Cat` class inherit  
+the `Animal` class. They have a `talk` method, which gives different output for them.
+
+```
 $ ./polymorphism.py 
 Meow!
 Woof!
-Python special methods
-Classes in Python programming language can implement certain operations with special method names. These methods are not called directly, but by a specific language syntax. This is similar to what is known as operator overloading in C++ or Ruby.
+```
 
-special_methods.py
+## Python special methods
+
+Classes in Python programming language can implement certain operations with special method names.  
+These methods are not called directly, but by a specific language syntax. This is similar to what  
+is known as operator overloading in C++ or Ruby.
+
+```python
 #!/usr/bin/env python
 
 # special_methods.py
@@ -470,23 +582,39 @@ book = Book("Inside Steve's Brain", "Leander Kahney", 304)
 print(book)
 print(len(book))
 del book
-In our code example, we have a book class. Here we introduce four special methods: __init__, __str__, __len__ and __del__.
+```
 
+In our code example, we have a book class. Here we introduce four special methods: `__init__`, `__str__`,  
+`__len__` and `__del__`.
+
+```python
 book = Book("Inside Steve's Brain", "Leander Kahney", 304)
-Here we call the __init__ method. The method creates a new instance of a Book class.
+```
 
+Here we call the `__init__` method. The method creates a new instance of a `Book` class.
+
+```python
 print(book)
-The print function calls the __str__ method. This method should return an informal string representation of an object.
+```
 
+The `print` function calls the `__str__` method. This method should return an informal string representation of an object.
+
+```python
 print(len(book))
-The len function invokes the __len__ method. In our case, we print the number of pages of our book.
+```
 
+The len function invokes the `__len__` method. In our case, we print the number of pages of our book.
+
+```python
 del book
-The del keyword deletes an object. It invokes its __del__ method.
+```
+
+The `del` keyword deletes an object. It invokes its `__del__` method.
+
 
 In the next example we implement a vector class and demonstrate addition and substraction operations on it.
 
-vector.py
+```python
 #!/usr/bin/env python
 
 # vector.py
@@ -527,8 +655,11 @@ y = Vector([3, 0, 2])
 
 print(x + y)
 print(y - x)
-The example presents __add__ and __sub__ methods.
+```
 
+The example presents `__add__` and `__sub__` methods.
+
+```python
 def __add__(self, other):
 
     data = []
@@ -538,8 +669,13 @@ def __add__(self, other):
         data.append(self.data[j] + other.data[j])
 
     return Vector(data)
-Here we implement the addition operation of vectors. The __add__ method is called when we add two Vector objects with the + operator. Here we add each member of the respective vectors.
+```
 
+Here we implement the addition operation of vectors. The `__add__` method is called when we add two `Vector`
+objects with the `+` operator. Here we add each member of the respective vectors.
+
+```
 $ ./vector.py 
 [4, 2, 5]
 [2, -2, -1]
+```
