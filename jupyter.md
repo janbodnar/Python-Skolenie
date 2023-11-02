@@ -23,7 +23,7 @@ the command mode.
 In command mode, the `A` adds a cell above, the `B` adds a cell below the selected cell, the `dd` deletes the cell.  
 The `M` switches the cell type to markdown and the `Y` switches the cell type to code. 
 
-
+The `Alt+Arrow` moves one or more cells.  
 
 ## Code cells
 
