@@ -26,7 +26,7 @@ form new classes using classes that have already been defined.
 Everything in Python is an object. Objects are basic building blocks of a Python OOP program.  
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # object_types.py
 
@@ -70,7 +70,7 @@ a nature of a future object. From classes we construct instances. An instance is
 object created from a particular class. For example, Huck might be an instance of a Dog class.
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # first_object.py
 
@@ -118,7 +118,7 @@ functions defined inside a class.
 A special method called `__init__` is used to initialize an object.  
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # object_initialization.py
 
@@ -142,7 +142,7 @@ Being is initialized
 Attributes are characteristics of an object. Attributes are set in the `__init__` method.
 
 ```
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # attributes.py
 
@@ -200,7 +200,7 @@ Lucky
 The attributes can be assigned dynamically, not just during initialization. This is demonstrated by the next example.  
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # attributes_dynamic.py
 
@@ -234,7 +234,7 @@ So far, we have been talking about instance attributes. In Python there are also
 attributes. Class object attributes are same for all instances of a class. 
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # class_attribute.py
 
@@ -288,7 +288,7 @@ to the database. We only know that it is used to connect to a database. This is 
 in programming, especially in large applications.
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # methods.py
 
@@ -355,7 +355,7 @@ $ ./methods.py
 In Python, we can call methods in two ways. There are bounded and unbounded method calls.
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # bound_unbound_methods.py
 
@@ -403,7 +403,7 @@ benefits of inheritance are code reuse and reduction of complexity of a program.
 override or extend the functionality of base classes (ancestors).  
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # inheritance.py
 
@@ -472,7 +472,7 @@ In practical terms, polymorphism means that if class B inherits from class A, it
 everything about class A; it can do some of the things that class A does differently.  
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # basic_polymorphism.py
 
@@ -498,7 +498,7 @@ g
 Polymorphism is mostly used when dealing with inheritance.
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # polymorphism.py
 
@@ -550,7 +550,7 @@ These methods are not called directly, but by a specific language syntax. This i
 is known as operator overloading in C++ or Ruby.
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # special_methods.py
 
@@ -615,7 +615,7 @@ The `del` keyword deletes an object. It invokes its `__del__` method.
 In the next example we implement a vector class and demonstrate addition and substraction operations on it.
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python
 
 # vector.py
 
