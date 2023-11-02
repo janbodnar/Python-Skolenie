@@ -3,6 +3,12 @@
 
 - https://code.visualstudio.com/docs/python/jupyter-support-py
 - https://code.visualstudio.com/docs/datascience/jupyter-notebooks
+- https://code.visualstudio.com/docs/datascience/data-science-tutorial
+- https://pbpython.com/notebook-alternative.html
+- https://pbpython.com/excel-pandas-comp.html
+- https://pbpython.com/pandas-pivot-table-explained.html
+- https://pbpython.com/visualization-tools-1.html
+
 
 
 
