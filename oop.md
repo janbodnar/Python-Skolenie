@@ -397,10 +397,10 @@ Methods
 
 ## Inheritance
 
-Inheritance is a way to form new classes using classes that have already been defined. The newly formed  
-classes are called derived classes, the classes that we derive from are called base classes. Important 
+Inheritance is a way to form new classes using classes that have already been defined. The newly formed   
+classes are called derived classes, the classes that we derive from are called base classes. Important  
 benefits of inheritance are code reuse and reduction of complexity of a program. The derived classes (descendants)  
-override or extend the functionality of base classes (ancestors). 
+override or extend the functionality of base classes (ancestors).  
 
 ```python
 #!/usr/bin/env python
@@ -443,7 +443,7 @@ The derived class inherits the functionality of the base class. It is shown by t
 modifies existing behaviour of the base class, shown by the whoAmI method. Finally, the derived class extends the  
 functionality of the base class, by defining a new bark method. 
 
-```
+```python
 class Dog(Animal):
 
     def __init__(self):
@@ -671,8 +671,8 @@ def __add__(self, other):
     return Vector(data)
 ```
 
-Here we implement the addition operation of vectors. The `__add__` method is called when we add two `Vector`
-objects with the `+` operator. Here we add each member of the respective vectors.
+Here we implement the addition operation of vectors. The `__add__` method is called when we add two `Vector`  
+objects with the `+` operator. Here we add each member of the respective vectors.  
 
 ```
 $ ./vector.py 
