@@ -221,7 +221,7 @@ print(names)
 print(myintegers)
 ```
 
-This is the `read.py` program. We import the names tuple from the constants package and the `myintegers`
+This is the `read.py` program. We import the names tuple from the constants package and the `myintegers`  
 tuple from the `constants.numbers` subpackage.
 
 ```
