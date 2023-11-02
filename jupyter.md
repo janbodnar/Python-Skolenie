@@ -13,7 +13,10 @@
 ## Notebook
 
 The notebook have the `.ipynb` extensions.  The `Ctrl+Enter` runs the current cell, the `Shift+Enter` runs  
-the current cell and advances to the next.
+the current cell and advances to the next. The `Alt+Enter` runs the currently selected cell and inserts a  
+new cell immediately below (focus remains on current cell).  
+
+Run multiple code cells
 
 There are two modes: edit mode & command mode. The `Enter` key starts the edit mode and the `Esc` key  
 the command mode.  
