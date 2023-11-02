@@ -12,7 +12,7 @@
 
 ## Notebook
 
-The notebook have the `.ipynb` extensions.  The `Ctrl+Enter` runs the current cell, the `Shift+Enter` runs  
+The notebook have the `.ipynb` extension.  The `Ctrl+Enter` runs the current cell, the `Shift+Enter` runs  
 the current cell and advances to the next. The `Alt+Enter` runs the currently selected cell and inserts a  
 new cell immediately below (focus remains on current cell).  
 
