@@ -141,7 +141,7 @@ Being is initialized
 
 Attributes are characteristics of an object. Attributes are set in the `__init__` method.
 
-```
+```python
 #!/usr/bin/python
 
 # attributes.py
