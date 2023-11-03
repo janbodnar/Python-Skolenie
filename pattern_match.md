@@ -350,15 +350,20 @@ for e in res:
             print("saturday")
         case Day.Sunday:
             print("sunday")
+```
+
 In the example, we define a Day enumeration.
 
+```python
 days = [Day.Monday, Day.Tuesday, Day.Wednesday,
     Day.Thursday, Day.Friday, Day.Saturday, Day.Sunday]
 
-
 res = random.sample(days, 4)
+```
+
 We randomly choose four days from a list.
 
+```python
 for e in res:
 
     match e:
@@ -378,7 +383,7 @@ for e in res:
             print("sunday")
 ```
 
-We check the four chosen values and print their corresponding string representations.
+We check the four chosen values and print their corresponding string representations.  
 
 ```
 $ ./enums.py 
@@ -461,8 +466,11 @@ for user in users:
             print(f'favourite colours of {name}:')
             for col in cols:
                 print(col)
-We have a list of users represented as maps.
+```
 
+We have a list of users represented as maps.  
+
+```
 case {'name':name, 'cols': cols}:
     print(f'favourite colours of {name}:')
     for col in cols:
