@@ -127,6 +127,7 @@ for i in range(17):
 
 We create a factorial function with `match/case`.  
 
+```python
 match n:
     case 0 | 1:
         return 1
