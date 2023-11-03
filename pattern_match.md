@@ -123,7 +123,9 @@ def factorial(n):
 
 for i in range(17):
     print(i, factorial(i))
-We create a factorial function with match/case.
+```
+
+We create a factorial function with `match/case`.  
 
 match n:
     case 0 | 1:
