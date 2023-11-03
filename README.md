@@ -79,3 +79,32 @@ use the terminal.
 You can bring your own notebook or use the classroom computer. When you install Python, don't forget  
 to check the add to `PATH` option.  
 
+```python
+from io import StringIO
+
+import requests
+import csv
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    name: str
+    occupation: str
+    age: int
+
+
+url = 'https://webcode.me/users.csv'
+req = requests.get(url)
+
+content = str(req.content, encoding='utf8')
+
+f = StringIO(content)
+reader = csv.DictReader(f)
+
+users = []
+
+for user in reader:
+    users.append(User(user['name'], user['occupation'], user['age']))
+
+print(users)
+```
