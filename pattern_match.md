@@ -470,7 +470,7 @@ for user in users:
 
 We have a list of users represented as maps.  
 
-```
+```python
 case {'name':name, 'cols': cols}:
     print(f'favourite colours of {name}:')
     for col in cols:
