@@ -550,8 +550,8 @@ This is the template file, located in the templates directory. We add the name o
 to the template file with `{{` name `}}` syntax.
 
 ```
-$ python app.py 
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+$ SET FLASK_APP=app.py
+$ flask run
 ```
 
 We start the server.
