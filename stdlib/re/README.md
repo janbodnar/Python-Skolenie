@@ -55,8 +55,10 @@ Otherwise, they return `None`.
 The `match` function returns a match object if zero or more characters at the beginning  
 of string match the regular expression pattern.
 
-match_fun.py
+```python
 #!/usr/bin/python
+
+# match_fun.py
 
 import re
 
@@ -69,29 +71,48 @@ for word in words:
 
     if re.match(pattern, word):
         print(f'The {word} matches')
-In the example, we have a tuple of words. The compiled pattern will look for a 'book' string in each of the words.
+```
 
+In the example, we have a tuple of words. The compiled pattern will look for a 'book'  
+string in each of the words.
+
+```python
 pattern = re.compile(r'book')
-With the compile function, we create a pattern. The regular expression is a raw string and consists of four normal characters.
+```
 
+With the `compile` function, we create a pattern. The regular expression is a raw string  
+and consists of four normal characters.
+
+```python
 for word in words:
 
     if re.match(pattern, word):
         print(f'The {word} matches')
-We go through the tuple and call the match function. It applies the pattern on the word. The match function returns a match object if there is a match at the beginning of a string. It returns None if there is no match.
+```
 
+We go through the tuple and call the `match` function. It applies the pattern on the word.  
+The `match` function returns a match object if there is a match at the beginning of a string.  
+It returns `None` if there is no match.
+
+```
 $ ./match_fun.py 
 The book matches 
 The bookworm matches 
 The bookish matches 
 The bookstore matches 
-Four of the words in the tuple match the pattern. Note that the words that do not start with the 'book' term do not match. To include also these words, we use the search function.
+```
 
-The fullmatch function
-The fullmatch function looks an exact match.
+Four of the words in the tuple match the pattern. Note that the words that do not start  
+with the 'book' term do not match. To include also these words, we use the `search` function.
 
-fullmatch_fun.py
+## The fullmatch function
+
+The `fullmatch` function looks an exact match.
+
+```python
 #!/usr/bin/python
+
+# fullmatch_fun.py
 
 import re
 
@@ -104,17 +125,25 @@ for word in words:
 
     if re.fullmatch(pattern, word):
         print(f'The {word} matches')
-In the example, we use the fullmatch function to look for the exact 'book' term.
+```
 
+In the example, we use the `fullmatch` function to look for the exact 'book' term.
+
+```
 $ ./fullmatch_fun.py 
 The book matches
 There is only one match.
+```
 
-The search function
-The search function looks for the first location where the regular expression pattern produces a match.
+## The search function
 
-search_fun.py
+The `search` function looks for the first location where the regular expression 
+pattern produces a match.
+
+```python
 #!/usr/bin/python
+
+# search_fun.py
 
 import re
 
@@ -127,22 +156,30 @@ for word in words:
 
     if re.search(pattern, word):
         print(f'The {word} matches')   
+```
+
 In the example, we use the search function to look for the 'book' term.
 
+```
 $ ./search_fun.py 
 The book matches 
 The bookworm matches 
 The bookish matches 
 The cookbook matches 
 The bookstore matches 
-The pocketbook matches 
+The pocketbook matches
+```
+
 This time the cookbook and pocketbook words are included as well.
 
-Dot metacharacter
+## The dot metacharacter
+
 The dot (.) metacharacter stands for any single character in the text.
 
-dot_meta.py
+```python
 #!/usr/bin/python
+
+# dot_meta.py
 
 import re
 
@@ -154,14 +191,23 @@ pattern = re.compile(r'.even')
 for word in words:
     if re.match(pattern, word):
         print(f'The {word} matches')
-In the example, we have a tuple with eight words. We apply a pattern containing the dot metacharacter on each of the words.
+```
 
+In the example, we have a tuple with eight words. We apply a pattern containing the dot  
+metacharacter on each of the words.
+
+```python
 pattern = re.compile(r'.even')
+```
+
 The dot stands for any single character in the text. The character must be present.
 
+```
 $ ./dot_meta.py 
 The seven matches 
-The revenge matches 
+The revenge matches
+```
+
 Two words match the pattern: seven and revenge.
 
 Question mark meta character
