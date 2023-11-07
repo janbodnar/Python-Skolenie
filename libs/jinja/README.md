@@ -282,6 +282,8 @@ template = env.get_template('showpersons.txt')
 
 We get the template with the `get_template` method.  
 
+The `templates/showpersons.txt` file:  
+
 ```jinja
 {% for person in persons -%}
     {{ person.name }} {{ person.age }}
@@ -333,6 +335,8 @@ env.rstrip_blocks = True
 ```
 
 White space in output can be controlled with environment attributes. 
+
+The `templates/showminors.txt` file:  
 
 ```jinja
 {% for person in persons %}
@@ -392,6 +396,8 @@ cars = [
 
 We have a list of car dictionaries. Each dictionary has a price key. It will be  
 used to calculate the sum.
+
+The `templates/sumprices.txt` file:  
 
 ```jinja
 The sum of car prices is {{ cars | sum(attribute='price') }}
@@ -499,8 +505,10 @@ And we define content.
 
 In the next example, we create a simple Flask application that uses Jinja.
 
-app.py
+```
 #!/usr/bin/python
+
+# app.py
 
 from flask import Flask, render_template, request
 app = Flask(__name__)
@@ -512,9 +520,14 @@ def greet():
 
 if __name__ == "__main__":
     app.run()
-In this Flask application, we get the name of a user and pass it as a parameter to the render_template method. The greet function reacts to the /greet path.
+```
 
-templates/index.html
+In this Flask application, we get the name of a user and pass it as a parameter to the  
+`render_template` method. The greet function reacts to the `/greet` path.  
+
+The `templates/index.html` file:
+
+```html
 <!doctype html>
 
 <html lang="en">
@@ -531,12 +544,19 @@ templates/index.html
 </body>
 
 </html>
-This is the template file, located in the templates directory. We add the name of the user to the template file with {{ name }} syntax.
+```
 
-$ python3 app.py 
+This is the template file, located in the templates directory. We add the name of the user  
+to the template file with `{{` name `}}` syntax.
+
+```
+$ python app.py 
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
+
 We start the server.
 
+```
 $ curl http://127.0.0.1:5000/greet?name=Peter
 <!doctype html>
 
@@ -554,4 +574,6 @@ $ curl http://127.0.0.1:5000/greet?name=Peter
 </body>
 
 </html>
-We connect to the application with the curl tool. We add a name parameter.
+```
+
+We connect to the application with the `curl` tool. We add a name parameter.  
