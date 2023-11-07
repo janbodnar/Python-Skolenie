@@ -210,11 +210,15 @@ The revenge matches
 
 Two words match the pattern: seven and revenge.
 
-Question mark meta character
-The question mark (?) meta character is a quantifier that matches the previous element zero or one time.
+## Question mark meta character
 
-question_mark_meta.py
+The question mark `(?)` meta character is a quantifier that matches the previous element  
+zero or one time.
+
+```python
 #!/usr/bin/python
+
+# question_mark_meta.py
 
 import re
 
@@ -227,20 +231,31 @@ for word in words:
 
     if re.match(pattern, word):
         print(f'The {word} matches')
-In the example, we add a question mark after the dot character. This means that in the pattern we can have one arbitrary character or we can have no character there.
+```
 
+In the example, we add a question mark after the dot character. This means that in  
+the pattern we can have one arbitrary character or we can have no character there. 
+
+```
 $ ./question_mark_meta.py 
 The seven matches 
 The even matches 
 The revenge matches 
 The event matches 
+```
+
 This time, in addition to seven and revenge, the even and event words match as well.
 
-Anchors
-Anchors match positions of characters inside a given text. When using the ^ anchor the match must occur at the beginning of the string and when using the $ anchor the match must occur at the end of the string.
+## Anchors
 
-anchors.py
+Anchors match positions of characters inside a given text. When using the `^` anchor the  
+match must occur at the beginning of the string and when using the $ anchor the match  
+must occur at the end of the string.
+
+```
 #!/usr/bin/python
+
+# anchors.py
 
 import re
 
@@ -254,13 +269,21 @@ for sentence in sentences:
     
     if re.search(pattern, sentence):
         print(sentence)
-In the example, we have three sentences. The search pattern is ^Jane. The pattern checks if the "Jane" string is located at the beginning of the text. The Jane\. would look for "Jane" at the end of the sentence.
+```
 
-Exact match
-An exact match can be performed with the fullmatch function or by placing the term between the anchors: ^ and $.
+In the example, we have three sentences. The search pattern is `^Jane`. The pattern checks if  
+the `"Jane"` string is located at the beginning of the text. The `Jane\.` would look for `"Jane"`  
+at the end of the sentence. 
 
-exact_match.py
+## Exact match
+
+An exact match can be performed with the `fullmatch` function or by placing the term between  
+the anchors: `^` and `$`.
+
+```python
 #!/usr/bin/python
+
+# exact_match.py
 
 import re
 
@@ -273,15 +296,23 @@ for word in words:
 
     if re.search(pattern, word):
         print(f'The {word} matches')  
+```
+
 In the example, we look for an exact match for the 'book' term.
 
+```
 $ ./exact_match.py 
 The book matches
 Character classes
-A character class defines a set of characters, any one of which can occur in an input string for a match to succeed.
+```
 
-character_class.py
+A character class defines a set of characters, any one of which can occur in an input  
+string for a match to succeed.
+
+```python
 #!/usr/bin/python
+
+# character_class.py
 
 import re
 
@@ -292,17 +323,26 @@ pattern = re.compile(r'gr[ea]y')
 for word in words:
 
     if re.search(pattern, word):
-        print(f'{word} matches') 
+        print(f'{word} matches')
+```
+
 In the example, we use a character class to include both gray and grey words.
 
+```python
 pattern = re.compile(r'gr[ea]y')
-The [ea] class allows to use either 'e' or 'a' charcter in the pattern.
+```
 
-Named character classes
-There are some predefined character classes. The \s matches a whitespace character [\t\n\t\f\v], the \d a digit [0-9], and the \w a word character [a-zA-Z0-9_].
+The `[ea]` class allows to use either `'e'` or `'a'` charcter in the pattern.  
 
-named_character_class.py
+## Named character classes
+
+There are some predefined character classes. The `\s` matches a whitespace character   
+`[\t\n\t\f\v]`, the `\d` a digit `[0-9]`, and the `\w` a word character `[a-zA-Z0-9_]`.
+
+```python
 #!/usr/bin/python
+
+# named_character_class.py
 
 import re
 
@@ -313,14 +353,22 @@ pattern = re.compile(r'\d+')
 found = re.findall(pattern, text)
 
 if found:
-    print(f'There are {len(found)} numbers')   
+    print(f'There are {len(found)} numbers')
+```
+
 In the example, we count numbers in the text.
 
+```python
 pattern = re.compile(r'\d+')
-The \d+ pattern looks for any number of digit sets in the text.
+```
 
+The `\d+` pattern looks for any number of digit sets in the text.
+
+```python
 found = re.findall(pattern, text)
-With findall method, we look up all numbers in the text.
+```
+
+With `findall` method, we look up all numbers in the text.
 
 $ ./named_character_classes.py 
 There are 2 numbers
