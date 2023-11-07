@@ -47,7 +47,7 @@ We look for matches with regex functions.
 - `finditer` - finds all substrings where the RE matches, and returns them as an iterator
 - `split`	- splits the string by RE pattern
 
-The `match`, `fullmatch`, and `search` functions return a match object if they are successful. 
+The `match`, `fullmatch`, and `search` functions return a match object if they are successful.  
 Otherwise, they return `None`.
 
 ## The match function
@@ -73,7 +73,7 @@ for word in words:
         print(f'The {word} matches')
 ```
 
-In the example, we have a tuple of words. The compiled pattern will look for a 'book'  
+In the example, we have a tuple of words. The compiled pattern will look for a `'book'` 
 string in each of the words.
 
 ```python
@@ -103,7 +103,7 @@ The bookstore matches
 ```
 
 Four of the words in the tuple match the pattern. Note that the words that do not start  
-with the 'book' term do not match. To include also these words, we use the `search` function.
+with the `'book'` term do not match. To include also these words, we use the `search` function.
 
 ## The fullmatch function
 
@@ -127,7 +127,7 @@ for word in words:
         print(f'The {word} matches')
 ```
 
-In the example, we use the `fullmatch` function to look for the exact 'book' term.
+In the example, we use the `fullmatch` function to look for the exact `'book'` term.
 
 ```
 $ ./fullmatch_fun.py 
@@ -158,7 +158,7 @@ for word in words:
         print(f'The {word} matches')   
 ```
 
-In the example, we use the search function to look for the 'book' term.
+In the example, we use the search function to look for the `'book'` term.
 
 ```
 $ ./search_fun.py 
@@ -298,7 +298,7 @@ for word in words:
         print(f'The {word} matches')  
 ```
 
-In the example, we look for an exact match for the 'book' term.
+In the example, we look for an exact match for the `'book'` term.
 
 ```
 $ ./exact_match.py 
