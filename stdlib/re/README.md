@@ -249,10 +249,10 @@ This time, in addition to seven and revenge, the even and event words match as w
 ## Anchors
 
 Anchors match positions of characters inside a given text. When using the `^` anchor the  
-match must occur at the beginning of the string and when using the $ anchor the match  
+match must occur at the beginning of the string and when using the `$` anchor the match  
 must occur at the end of the string.
 
-```
+```python
 #!/usr/bin/python
 
 # anchors.py
@@ -370,13 +370,19 @@ found = re.findall(pattern, text)
 
 With `findall` method, we look up all numbers in the text.
 
+```
 $ ./named_character_classes.py 
 There are 2 numbers
 Case insensitive match
-By default, the matching of patterns is case sensitive. By passing the re.IGNORECASE to the compile function, we can make it case insensitive.
+```
 
-case_insensitive.py
+By default, the matching of patterns is case sensitive. By passing the `re.IGNORECASE`  
+to the compile function, we can make it case insensitive.
+
+```python
 #!/usr/bin/python
+
+# case_insensitive.py
 
 import re
 
@@ -387,20 +393,28 @@ pattern = re.compile(r'dog', re.IGNORECASE)
 for word in words:
     if re.match(pattern, word):
         print(f'{word} matches')
+```
+
 In the example, we apply the pattern on words regardless of the case.
 
+```
 $ ./case_insensitive.py 
 dog matches
 Dog matches
 DOG matches
 Doggy matches
+```
+
 All four words match the pattern.
 
-Alternations
-The alternation operator | creates a regular expression with several choices.
+## Alternations
 
-alternations.py
+The alternation operator `|` creates a regular expression with several choices. 
+
+```python
 #!/usr/bin/python
+
+# alternations.py
 
 import re
 
@@ -413,15 +427,22 @@ for word in words:
     
     if re.match(pattern, word):
         print(word)
+```
+
 We have eight names in the list.
 
+```python
 pattern = re.compile(r'Jane|Beky|Robert')
-This regular expression looks for "Jane", "Beky", or "Robert" strings.
+```
 
-The finditer function
-The finditer function returns an iterator yielding match objects over all non-overlapping matches for the pattern in a string.
+This regular expression looks for `"Jane"`, `"Beky"`, or `"Robert"` strings.
 
-finditer_fun.py
+## The finditer function
+
+The `finditer` function returns an iterator yielding match objects over all  
+non-overlapping matches for the pattern in a string.
+
+```python
 #!/usr/bin/python
 
 import re
@@ -437,22 +458,37 @@ for item in found:
     s = item.start()
     e = item.end()
     print(f'Found {text[s:e]} at {s}:{e}')
-In the example, we search for the 'fox' term in the text. We go over the iterator of the found matches and print them with their indexes.
+```
 
+In the example, we search for the `'fox'` term in the text. We go over the iterator  
+of the found matches and print them with their indexes.  
+
+```python
 s = item.start()
 e = item.end()
-The start and end functions return the starting and ending index, respectively.
+```
 
+The `start` and `end` functions return the starting and ending index, respectively.  
+
+```
 $ ./finditer_fun.py 
 Found fox at 8:11
 Found fox at 29:32
-Capturing groups
-Capturing groups is a way to treat multiple characters as a single unit. They are created by placing characters inside a set of round brackets. For instance, (book) is a single group containing 'b', 'o', 'o', 'k', characters.
+```
 
-The capturing groups technique allows us to find out those parts of a string that match the regular pattern.
+## Capturing groups
 
-capturing_groups.py
+Capturing groups is a way to treat multiple characters as a single unit. They are created  
+by placing characters inside a set of round brackets. For instance, `(book)` is a single group  
+containing `'b'`, `'o'`, `'o'`, `'k'`, characters.
+
+The capturing groups technique allows us to find out those parts of a string that  
+match the regular pattern.
+
+```python
 #!/usr/bin/python
+
+# capturing_groups.py
 
 import re
 
@@ -465,23 +501,35 @@ found = re.findall(pattern, content)
 
 for tag in found:
     print(tag)
-The code example prints all HTML tags from the supplied string by capturing a group of characters.
+```
 
+The code example prints all HTML tags from the supplied string by capturing  
+a group of characters.
+
+```python
 found = re.findall(pattern, content)
-In order to find all tags, we use the findall method.
+```
 
+In order to find all tags, we use the `findall` method.  
+
+```
 $ ./capturing_groups.py 
 <p>
 <code>
 </code>
 </p>
+```
+
 We have found four HTML tags.
 
-Python regex email example
-In the following example, we create a regex pattern for checking email addresses.
+## Python regex email example
 
-emails.py
+In the following example, we create a regex pattern for checking email addresses.  
+
+```python
 #!/usr/bin/python
+
+# emails.py
 
 import re
 
@@ -496,19 +544,37 @@ for email in emails:
         print(f'{email} matches')
     else:
         print(f'{email} does not match')
+```
+
 This example provides one possible solution.
 
+```python
 pattern = re.compile(r'^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,18}$')    
-The first ^ and the last $ characters provide an exact pattern match. No characters before and after the pattern are allowed. The email is divided into five parts. The first part is the local part. This is usually a name of a company, individual, or a nickname. The [a-zA-Z0-9._-]+ lists all possible characters, we can use in the local part. They can be used one or more times.
+```
 
-The second part consists of the literal @ character. The third part is the domain part. It is usually the domain name of the email provider such as Yahoo, or Gmail. The [a-zA-Z0-9-]+ is a character class providing all characters that can be used in the domain name. The + quantifier allows to use of one or more of these characters.
+The first `^` and the last `$` characters provide an exact pattern match. No characters  
+before and after the pattern are allowed. The email is divided into five parts. The first  
+part is the local part. This is usually a name of a company, individual, or a nickname.  
+The `[a-zA-Z0-9._-]+` lists all possible characters, we can use in the local part.  
+They can be used one or more times.  
+ 
+The second part consists of the literal `@` character. The third part is the domain part.  
+It is usually the domain name of the email provider such as Yahoo, or Gmail. The `[a-zA-Z0-9-]+`  
+is a character class providing all characters that can be used in the domain name.  
+The `+` quantifier allows to use of one or more of these characters.  
 
-The fourth part is the dot character. It is preceded by the escape character (\) to get a literal dot.
+The fourth part is the dot character. It is preceded by the escape character `(\)` to  
+get a literal dot.
 
-The final part is the top level domain: [a-zA-Z.]{2,18}. Top level domains can have from 2 to 18 characters, such as sk, net, info, travel, cleaning, travelinsurance. The maximum length can be 63 characters, but most domain are shorter than 18 characters today. There is also a dot character. This is because some top level domains have two parts; for instance co.uk.
+The final part is the top level domain: `[a-zA-Z.]{2,18}`. Top level domains can have from    
+2 to 18 characters, such as sk, net, info, travel, cleaning, travelinsurance. The maximum  
+length can be 63 characters, but most domain are shorter than 18 characters today. There is  
+also a dot character. This is because some top level domains have two parts; for instance `co.uk`.  
 
+```
 $ ./emails.py 
 luke@gmail.com matches
 andy@yahoocom does not match
 34234sdfa#2345 does not match
 f344@gmail.com matches
+```
