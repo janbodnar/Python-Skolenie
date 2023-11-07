@@ -104,7 +104,7 @@ My name is Peter and I am 34
 
 We can work with objects in our template strings.
 
-```
+```python
 #!/usr/bin/python
 
 # objects.py
@@ -288,7 +288,7 @@ We get the template with the `get_template` method.
 {% endfor %}
 ```
 
-In the template file, inside `templates/showpersons.txt` we use the for expression to iterate 
+In the template file, inside `templates/showpersons.txt` we use the for expression to iterate  
 over the collection. We show the person's name and age. The dash character next to the `%`  
 characters is used to control white space.  
 
@@ -405,11 +405,16 @@ $ ./sum_filter.py
 The sum of car prices is 105900
 ```
 
-Jinja template inheritance
-Template inheritance is a powerful feature that reduces code duplication and improves code organization. We define a base template from which we inherit in other template files. These template files overwrite specific blocks of the base template file.
+## Template inheritance
 
-ineritance.py
+Template inheritance is a powerful feature that reduces code duplication and improves  
+code organization. We define a base template from which we inherit in other template  
+files. These template files overwrite specific blocks of the base template file. 
+
+```python
 #!/usr/bin/python
+
+# ineritance.py
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -422,9 +427,13 @@ template = env.get_template('about.html')
 
 output = template.render(content=content)
 print(output)
-We render the about.html file. It inherits from the base.html file.
+```
 
-base.html
+We render the `about.html` file. It inherits from the base.html file.
+
+The `base.html` file:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -439,9 +448,14 @@ base.html
     {% endblock %}
 </body>
 </html>
-In the base.html file, we declare two blocks: title and content. These blocks are going to be filled with specific tags and text in the child templates.
+```
 
-about.html
+In the `base.html` file, we declare two blocks: title and content. These blocks are  
+going to be filled with specific tags and text in the child templates. 
+
+The `about.html` file: 
+
+```jinja
 {% extends 'base.html' %}
 
 {% block title%}About page{% endblock %}
@@ -452,23 +466,37 @@ about.html
     This is about page
 </p>
 {% endblock %}
-The about.html template file inherits from base.html. It adds data specific to this page. We avoid code repetition; we do not repeat tags that are same for both pages, such as body and html and meta tags.
+```
 
+The `about.html` template file inherits from `base.html`. It adds data specific to this  
+page. We avoid code repetition; we do not repeat tags that are same for both pages,  
+such as body and html and meta tags.
+
+```jinja
 {% extends 'base.html' %}
-The inheritance is done with the extends directive.
+```
 
+The inheritance is done with the extends directive.  
+
+```jinja
 {% block title%}About page{% endblock %}
+```
+
 We define a title.
 
+```jinja
 {% block content %}
 <h1>About page</h1>
 <p>
     This is about page
 </p>
 {% endblock %}
+```
+
 And we define content.
 
-Jinja Flask example
+## Flask example
+
 In the next example, we create a simple Flask application that uses Jinja.
 
 app.py
