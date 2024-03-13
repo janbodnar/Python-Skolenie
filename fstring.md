@@ -205,7 +205,7 @@ John Doe is a gardener
 
 ## The __format__ method
 
-The `__format` method gives us more control over how an object is formatted within  
+The `__format__` method gives us more control over how an object is formatted within  
 an f-string. It allows us to define custom formatting behavior based on the format  
 specifier provided within the f-string.  
 
