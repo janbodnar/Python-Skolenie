@@ -1,13 +1,22 @@
 # Python fstrings
 
 
-
 Python f-string is the newest Python syntax to do string formatting. It is available since Python 3.6.  
 Python f-strings provide a faster, more readable, more concise, and less error prone way  
 of formatting strings in Python.
 
 The f-strings have the `f` prefix and use `{}` brackets to evaluate values.  
+#!/usr/bin/python
 
+name = 'John Doe'
+occupation = 'gardener'
+age = 34
+
+msg = f'''name: {name}
+age: {age}
+occupation: {occupation}'''
+
+print(msg)
 Format specifiers for types, padding, or aligning are specified after the colon character;  
 for instance: `f'{price:.3}'`, where price is a variable name. 
 
@@ -115,7 +124,7 @@ math.cos(x) = 0.6967067093471654
 math.sin(x) = 0.7173560908995228
 ```
 
-## Python multiline f-string
+## Multiline f-string
 
 We can work with multiline strings.
 
@@ -123,29 +132,26 @@ We can work with multiline strings.
 #!/usr/bin/python
 
 name = 'John Doe'
-age = 32
 occupation = 'gardener'
+age = 34
 
-msg = (
-    f'Name: {name}\n'
-    f'Age: {age}\n'
-    f'Occupation: {occupation}'
-)
+msg = f'''name: {name}
+age: {age}
+occupation: {occupation}'''
 
 print(msg)
 ```
 
-The example presents a multiline f-string. The f-strings are placed between round brackets;  
-each of the strings is preceded with the `f` character.
+The example presents a multiline f-string.  
 
 ```
-$ python multiline.py
-Name: John Doe
-Age: 32
-Occupation: gardener
+$ python main.py
+name: John Doe
+age: 34
+occupation: gardener
 ```
 
-## Python f-string calling function
+## Calling functions
 
 We can also call functions in f-strings.
 
@@ -165,11 +171,11 @@ print(f'Max of {a} and {b} is {mymax(a, b)}')
 The example calls a custom function in the f-string.
 
 ```
-$ python call_fun.py
+$ python main.py
 Max of 3 and 4 is 4
 ```
 
-## Python f-string objects
+## F-string objects
 
 Python f-string accepts objects as well; the objects must have either `__str__` or `__repr__`   
 magic functions defined.
@@ -193,9 +199,41 @@ print(f'{u}')
 The example evaluates an object in the f-string.
 
 ```
-$ python objects.py
+$ python main.py
 John Doe is a gardener
 ```
+
+## The __format__ method
+
+The `__format` method gives us more control over how an object is formatted within  
+an f-string. It allows us to define custom formatting behavior based on the format  
+specifier provided within the f-string.  
+
+```python
+#!/usr/bin/python
+
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    name: str
+    occupation: str
+
+    def __format__(self, spec):
+        return f'User(name={self.name}{spec} occupation={self.occupation})'
+
+
+u1 = User('John Doe', 'gardener')
+u2 = User('Roger Roe', 'driver')
+u3 = User('Lucia Smith', 'teacher')
+
+print(f'{u1:-}')
+print(f'{u2:;}')
+print(f'{u3:#}')
+```
+
+We define a data object with a custom `__format__` method.  
+
 
 ## Python f-string escaping characters
 
