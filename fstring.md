@@ -321,35 +321,52 @@ $ python format_width.py
 ```
 
 ## Python f-string justify string
-By default, the strings are justified to the left. We can use the `>` character to justify the strings to the right.  
-The `>` character follows the colon character.
+
+By default, the strings are justified to the left. We can use the `>` character to justify the strings  
+to the right. The `>` character follows the colon character. The `<` justifies to the left; this can  
+be omitted. The `^` centers the string.
 
 ```python
 #!/usr/bin/python
 
-s1 = 'a'
-s2 = 'ab'
-s3 = 'abc'
-s4 = 'abcd'
+words = ['sky', 'fork', 'small', 'cup', 'car', 'war']
 
-print(f'{s1:>10}')
-print(f'{s2:>10}')
-print(f'{s3:>10}')
-print(f'{s4:>10}')
+for word in words:
+    print(f'|{word:>20}|')
+
+for word in words:
+    print(f'|{word:^20}|')
+
+for word in words:
+    print(f'|{word:<20}|')
 ```
 
-We have four strings of different length. We set the width of the output to ten characters.  
-The values are justified to the right.
+We have a list of words. The words are aligned to the right, center, and left.  
+Each of the outputs has twenty characters.  
 
 ```
-$ python justify.py
-         a
-        ab
-       abc
-      abcd
+$ python main.py
+|                 sky|
+|                fork|
+|               small|
+|                 cup|
+|                 car|
+|                 war|
+|        sky         |
+|        fork        |
+|       small        |
+|        cup         |
+|        car         |
+|        war         |
+|sky                 |
+|fork                |
+|small               |
+|cup                 |
+|car                 |
+|war                 |
 ```
       
-## Python f-string numeric notations
+## Numeric notations
 
 Numbers can have various numeric notations, such as decadic or hexadecimal.
 
@@ -383,3 +400,29 @@ $ python format_notations.py
 100101100
 3.000000e+02
 ```
+
+## Thousands separator
+
+We can format numbers with underscore and command thousands separators.  
+
+```python
+#!/usr/bin/python
+
+val = 1_200_400_001
+
+print(val)
+print(f'{val:_}')
+print(f'{val:,}')
+```
+
+A big integer is printed in formats where thousand groups are separated with 
+`_` and `,`.
+
+```
+$ python main.py
+python main.py
+1200400001
+1_200_400_001
+1,200,400,001
+```
+
