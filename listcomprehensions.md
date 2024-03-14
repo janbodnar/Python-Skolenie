@@ -286,6 +286,21 @@ $ ./flatten_list.py
 [1, 2, 3, 3, 4, 5, 6, 7, 8]
 ```
 
+## Cards
+
+```python
+def partition(l, n):
+    for i in range(0, len(l), n):
+        yield l[i: i+n]
+
+
+signs = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
+symbols = ['♣', '♦', '♥', '♠']
+
+res = [f'{sign}{e}' for e in symbols for sign in signs]
+print(res)
+```
+
 ## Nested list comprehensions
 
 The initial expression in a Python list comprehension can be another list comprehension.
