@@ -288,6 +288,9 @@ $ ./flatten_list.py
 
 ## Cards
 
+We create four card decks with list comprehensions. First we combine all symbols with each sign  
+and then partition the cards into four decks.  
+
 ```python
 def partition(l, n):
     for i in range(0, len(l), n):
