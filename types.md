@@ -19,10 +19,12 @@ for e in objects:
             print(f'{e} is a list cointainer')
         case tuple():
             print(f'{e} is a tuple cointainer')
-        case True | False:
-            print(f'{e} is a boolean value')
         case float():
             print(f'{e} is a float')
+        case True | False:
+            print(f'{e} is a boolean value')
+        case _val if isinstance(_val, str):
+            print(f'{e} is a string')
         case _val if isinstance(_val, dict):
             print(f'{e} is a dictionary')
         case _val if isinstance(_val, int):
