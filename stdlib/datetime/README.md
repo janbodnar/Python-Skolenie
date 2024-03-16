@@ -40,6 +40,22 @@ print(int(time.time()))
 print(time.time())
 ```
 
+## Timestamp
+
+```python
+#!/usr/bin/python
+
+from datetime import date
+from time import time
+
+dt = date.fromtimestamp(1568576278)
+print(dt)
+
+ts = int(time())
+dt2 = date.fromtimestamp(ts)
+print(dt2)
+```
+
 
 ## Format date
 
