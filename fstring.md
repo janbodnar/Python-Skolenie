@@ -284,7 +284,28 @@ March
 5
 ```
 
-## Python f-string format floats
+## Nested expressions
+
+It is possible to nest expressions within expressions.  
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+today = datetime.now().date()
+
+spec1 = '%d.%m.%y'
+spec2 = '%y/%m/%d'
+
+print(f'{today:{spec1}}')
+print(f'{today:{spec2}}')
+```
+
+In the example, we use different format specifications. They are provided as  
+spec variables and are evaluated as nested expressions.  
+
+## Format floats
 
 Floating point values have the `f` suffix. We can also specify the precision: the number of decimal places.  
 The precision is a value that goes right after the dot character.
