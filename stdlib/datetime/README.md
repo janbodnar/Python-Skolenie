@@ -1,6 +1,23 @@
 # Date & time 
 
 
+
+## Format date
+
+Use `strftime` function or f-strings. 
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+now = datetime.now()
+
+print(now.strftime('%d. %b %Y'))
+print(f'{now:%d. %b %Y}')
+```
+
+
 ## Difference in days
 
 ```python
