@@ -1,6 +1,21 @@
 # Date & time 
 
 
+## Unix time 
+
+Unix time is a way of counting time in computers. It represents the number of seconds  
+elapsed since midnight (UTC) on January 1st, 1970, which is called the Unix epoch. 
+
+
+```python
+#!/usr/bin/python
+
+import time
+
+print(int(time.time()))
+print(time.time())
+```
+
 
 ## Format date
 
