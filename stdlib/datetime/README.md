@@ -93,13 +93,12 @@ print(delta.days)
 #!/usr/bin/python
 
 from datetime import datetime
-from zoneinfo import ZoneInfo
-import zoneinfo
+from zoneinfo import ZoneInfo, available_timezones
 
 # Windows must install tzdata
 # pip install tzdata
 
-print(zoneinfo.available_timezones())
+print(available_timezones())
 
 local = datetime.now()
 print("Local:", local.strftime("%m/%d/%Y, %H:%M:%S"))
