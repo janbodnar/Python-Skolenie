@@ -103,6 +103,36 @@ dt2 = date.fromtimestamp(ts)
 print(dt2)
 ```
 
+## Weekday
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+from enum import Enum
+
+class WeekDay(Enum):
+    Monday = 0
+    Tuesday = 1
+    Weekday = 2
+    Thursday = 3
+    Friday = 4
+    Saturday = 5
+    Sunday = 6
+
+    @staticmethod
+    def of(val):
+        return list(WeekDay)[val]
+
+
+now = datetime.now()
+n = now.weekday()
+
+print(n)
+print(WeekDay.of(n))
+```
+
 
 ## Format date
 
