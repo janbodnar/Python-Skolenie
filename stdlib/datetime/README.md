@@ -41,6 +41,19 @@ print(datetime.now(datetime.UTC))
 print(datetime.now())
 ```
 
+## ISO 8601 format 
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+now = datetime.now()
+print(now)
+
+iso_date = now.isoformat()
+print(iso_date)
+```
 
 
 ## Datetime parts
