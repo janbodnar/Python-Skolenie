@@ -48,23 +48,23 @@ for Standardization (ISO) that defines a specific way to represent dates and tim
 
 Key characteristics of ISO 8601 format:
 
-- Year first: Dates are written with the year coming first, followed by the month and then the day.
+- Year first: Dates are written with the year coming first, followed by the month and then the day.  
   This order (YYYY-MM-DD) avoids confusion caused by regional variations in date notation (e.g., MM-DD-YYYY in US).
-- 24-hour clock: Times are always represented in the 24-hour clock format (hh:mm:ss[.fff]).
+- 24-hour clock: Times are always represented in the 24-hour clock format (hh:mm:ss[.fff]).  
   This eliminates ambiguity arising from using AM/PM designations.
-- Decimal seconds: Seconds can include optional decimal places for increased precision (e.g., 14:23:05.123).
-- Time zone offset: The time zone offset can be included using either a "Z" for Coordinated Universal Time (UTC)
-  or a plus (+) or minus (-) sign followed by the difference in hours and minutes from UTC
-  (e.g., 2023-10-26T15:00:00Z, 2023-10-26T10:00:00-05:00).
+- Decimal seconds: Seconds can include optional decimal places for increased precision (e.g., 14:23:05.123).  
+- Time zone offset: The time zone offset can be included using either a "Z" for Coordinated Universal Time (UTC)  
+  or a plus (+) or minus (-) sign followed by the difference in hours and minutes from UTC  
+  (e.g., 2023-10-26T15:00:00Z, 2023-10-26T10:00:00-05:00).  
 - Flexibility: ISO 8601 offers various formats to represent dates, times, and combinations:
-- Basic date format (YYYY-MM-DD): This is the simplest format, specifying just the year, month, and day.
-  (e.g., 2024-03-18)
-- Extended date and time format (YYYY-MM-DDTHH:MM:SS[.fff][Z]) : This format includes both the date and
-  time, separated by the letter "T". (e.g., 2023-11-19T07:30:00Z)
-- Date and time with timezone offset (YYYY-MM-DDTHH:MM:SS[.fff][+|-HH:MM]) : This format includes the
-  time zone offset after the time. (e.g., 2023-12-25T12:00:00-08:00)
-- Week date format (YYYY-Www-d) : This format specifies the year, week number (W), and day of the week
-  within that week (d). (e.g., 2024-W11-2)
+  - Basic date format (YYYY-MM-DD): This is the simplest format, specifying just the year, month, and day.
+    (e.g., 2024-03-18)
+  - Extended date and time format (YYYY-MM-DDTHH:MM:SS[.fff][Z]) : This format includes both the date and
+    time, separated by the letter "T". (e.g., 2023-11-19T07:30:00Z)
+  - Date and time with timezone offset (YYYY-MM-DDTHH:MM:SS[.fff][+|-HH:MM]) : This format includes the
+    time zone offset after the time. (e.g., 2023-12-25T12:00:00-08:00)
+  - Week date format (YYYY-Www-d) : This format specifies the year, week number (W), and day of the week
+    within that week (d). (e.g., 2024-W11-2)
 
 Overall, ISO 8601 promotes clear and unambiguous communication of dates and times across  
 different cultures and computer systems.
