@@ -1,5 +1,22 @@
 # Date & time 
 
+## Current date and time 
+
+```python
+#!/usr/bin/python
+
+import datetime
+
+now = datetime.datetime.now()
+print(now)
+
+d = datetime.date.today()
+print(d)
+
+t = datetime.datetime.now().time()
+print(t)
+```
+
 
 ## Local & UTC time 
 
@@ -23,6 +40,8 @@ from datetime import datetime
 print(datetime.now(datetime.UTC))
 print(datetime.now())
 ```
+
+
 
 ## Datetime parts
 
