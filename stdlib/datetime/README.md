@@ -55,6 +55,23 @@ iso_date = now.isoformat()
 print(iso_date)
 ```
 
+### week-numbering format
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+now = datetime.now()
+(iso_year, iso_week, _) = now.isocalendar()
+
+iso_fmt = f"{iso_year:-04d}-W{iso_week:02d}-{now.weekday() + 1}"
+print(iso_fmt)
+
+d = datetime.fromisoformat(iso_fmt).date()
+print(d)
+```
+
 
 ## Datetime parts
 
