@@ -43,6 +43,8 @@ print(datetime.now())
 
 ## ISO 8601 format 
 
+## basic format
+
 ```python
 #!/usr/bin/python
 
@@ -53,6 +55,22 @@ print(now)
 
 iso_date = now.isoformat()
 print(iso_date)
+```
+
+### various formats
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+fmts = ('2023-11-08', '20231108', '2023-11-08T00:05:23', '2023-11-08T00:05:23Z',
+           '20231108T000523', '2023-W01-2T00:05:23.283', '2023-11-08 00:05:23.283',
+           '2023-11-08 00:05:23.283+00:00', '2023-11-08T00:05:23+04:00')
+
+for fmt in fmts:
+    d = datetime.fromisoformat(fmt)
+    print(d, repr(d))
 ```
 
 ### week-numbering format
