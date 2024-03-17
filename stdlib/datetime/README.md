@@ -96,7 +96,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 import zoneinfo
 
-# Windows must instlal tzdata
+# Windows must install tzdata
 # pip install tzdata
 
 print(zoneinfo.available_timezones())
