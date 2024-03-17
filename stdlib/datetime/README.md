@@ -24,6 +24,21 @@ print(datetime.now(datetime.UTC))
 print(datetime.now())
 ```
 
+## Datetime parts
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+dt = datetime(2023, 9, 15, 22, 3, 31, 355741)
+
+print(f'year: {dt.year}')
+print(f'month: {dt.month}')
+print(f'hour: {dt.hour}')
+print(f'minute: {dt.minute}')
+print(f'timestamp: {dt.timestamp()}')
+```
+
 
 ## Unix time 
 
