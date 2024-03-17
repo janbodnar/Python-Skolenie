@@ -87,6 +87,32 @@ delta = d1 - d0
 print(delta.days)
 ```
 
+## Timezones
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import zoneinfo
+
+# Windows must instlal tzdata
+# pip install tzdata
+
+print(zoneinfo.available_timezones())
+
+local = datetime.now()
+print("Local:", local.strftime("%m/%d/%Y, %H:%M:%S"))
+
+tz_MSC = ZoneInfo('Europe/Moscow')
+datetime_Moscow = datetime.now(tz_MSC)
+print("Moscow:", datetime_Moscow.strftime("%m/%d/%Y, %H:%M:%S"))
+
+tz_London = ZoneInfo('Europe/London')
+datetime_London = datetime.now(tz_London)
+print("London:", datetime_London.strftime("%m/%d/%Y, %H:%M:%S"))
+```
+
 ## Days until XMas
 
 ```python
