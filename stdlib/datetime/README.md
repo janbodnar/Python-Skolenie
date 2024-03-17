@@ -69,6 +69,11 @@ Key characteristics of ISO 8601 format:
 Overall, ISO 8601 promotes clear and unambiguous communication of dates and times across  
 different cultures and computer systems.
 
+
+The `datetime` module does not support all ISO formats, but the most commonly used ISO 8601 format is   
+supported. To use a specific ISO format that is not supported by Python’s datetime, we need to use a   
+custom formatting or a third-party library.
+
 ## basic format
 
 ```python
