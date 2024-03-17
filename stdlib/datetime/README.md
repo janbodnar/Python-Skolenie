@@ -72,6 +72,30 @@ print(now.strftime('%d. %b %Y'))
 print(f'{now:%d. %b %Y}')
 ```
 
+## Get age
+
+```python
+#!/usr/bin/python
+
+
+from datetime import date
+
+
+def calculate_age(born):
+
+    today = date.today()
+    # return today.year - born.year - (today.timetuple()[1:3] < born.timetuple()[1:3])
+    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+
+d1 = date(2002, 3, 12)
+print(f'{calculate_age(d1)}')
+
+d2 = date(1977, 3, 17)
+print(f'{calculate_age(d2)}')
+```
+
+
 
 ## Difference in days
 
