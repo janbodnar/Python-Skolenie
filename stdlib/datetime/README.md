@@ -71,6 +71,16 @@ print(f'minute: {dt.minute}')
 print(f'timestamp: {dt.timestamp()}')
 ```
 
+## Max/min representable datetimes
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+print(datetime.max)
+print(datetime.min)
+```
 
 ## Unix time 
 
@@ -132,6 +142,33 @@ n = now.weekday()
 print(n)
 print(WeekDay.of(n))
 ```
+
+## Day of year
+
+The `toordinal` function returns the *proleptic Gregorian ordinal* value. It refers to a system  
+used in the proleptic Gregorian calendar, which extends the Gregorian calendar backward to dates  
+preceding its official introduction in 15821. 
+
+In this system, the proleptic Gregorian ordinal of a specific date represents the number of days  
+that have elapsed since January 1, 00012. For example, in Python’s datetime module, the `toordinal`    
+function returns the proleptic Gregorian ordinal of a specified datetime instance2. This system is  
+useful in computer software for identifying pre-Gregorian dates.
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime, date
+
+now = datetime.now()
+print(now.toordinal())
+
+day_of_year = now.timetuple().tm_yday
+print(day_of_year)
+
+day_of_year = now.toordinal() - date(now.year, 1, 1).toordinal() + 1
+print(day_of_year)
+```
+
 
 ## Comparing dates
 
