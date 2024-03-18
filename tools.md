@@ -18,7 +18,7 @@ Here are some key benefits of using a Python linter:
 - Improved code quality: Linters help you write cleaner, more consistent, and less error-prone code.
 - Enhanced readability: Consistent style makes code easier to understand for you and other developers.
 - Early bug detection: Linters can catch potential bugs before they cause problems in your application.
-- Enforced coding standards: Linters can help ensure your code adheres to your team's or
+- Enforced coding standards: Linters can help ensure your code adheres to your team's or  
   project's specific coding guidelines.
 
 
