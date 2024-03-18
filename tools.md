@@ -8,7 +8,7 @@ a specific style guide. They ensure consistent indentation, spacing, and other s
 elements, making your code:
 
 - More readable: Consistent formatting improves code clarity for you and other developers.
-- Easier to maintain: Consistent style reduces the risk of introducing errors due to
+- Easier to maintain: Consistent style reduces the risk of introducing errors due to  
   formatting inconsistencies.
 - Adherent to standards: Formatters can enforce project-specific coding conventions.
 
@@ -17,9 +17,9 @@ Here are a few commonly used Python source code formatters:
 
 - Black: A popular opinionated formatter with a strict style guide. It enforces a single style,  
    making code very consistent.
-- autopep8: A formatter that follows PEP 8, the official Python style guide. It offers more
+- autopep8: A formatter that follows PEP 8, the official Python style guide. It offers more  
   flexibility than Black but still promotes consistent style.
-- YAPF (Yet Another Python Formatter): Another flexible formatter with a large configuration
+- YAPF (Yet Another Python Formatter): Another flexible formatter with a large configuration  
   options to customize the formatting style.
 - isort: Specifically formats imports in your Python code, ensuring consistent ordering and grouping.
 
