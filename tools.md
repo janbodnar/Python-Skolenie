@@ -1,5 +1,28 @@
 # Python tools
 
+
+## Formatter 
+
+Python source code formatters are  automated tools that reformat your Python code according to   
+a specific style guide. They ensure consistent indentation, spacing, and other stylistic   
+elements, making your code:
+
+- More readable: Consistent formatting improves code clarity for you and other developers.
+- Easier to maintain: Consistent style reduces the risk of introducing errors due to
+  formatting inconsistencies.
+- Adherent to standards: Formatters can enforce project-specific coding conventions.
+
+
+Here are a few commonly used Python source code formatters:
+
+- Black: A popular opinionated formatter with a strict style guide. It enforces a single style,  
+   making code very consistent.
+- autopep8: A formatter that follows PEP 8, the official Python style guide. It offers more
+  flexibility than Black but still promotes consistent style.
+- YAPF (Yet Another Python Formatter): Another flexible formatter with a large configuration
+  options to customize the formatting style.
+- isort: Specifically formats imports in your Python code, ensuring consistent ordering and grouping.
+
 ## Linter 
 
 A Python linter is a static code analysis tool that helps you identify and fix potential issues   
@@ -35,3 +58,25 @@ bigger problems.
 
 Overall, using a Python linter is a valuable practice for any Python developer. It can significantly  
 improve your code quality, save you time debugging, and make your codebase more maintainable.
+
+
+## Ruff 
+
+`Ruff` is a high-performance Python linter and code formatter written in Rust, offering speed and   
+comprehensive code analysis.
+
+Here are some key characteristics of Ruff:
+
+- High Speed: It boasts speeds 10-100 times faster than traditional linters like `Flake8` or formatters like `Black`.  
+- Multifunctional: Combines linting and formatting functionalities into a single tool, streamlining your workflow.  
+- Wide Range of Checks: Performs over 700 built-in checks, including syntax errors, style inconsistencies,  
+  and potential bugs.
+- Automatic Fixes: Offers auto-fix capabilities for certain issues, saving you time correcting minor errors.
+- Drop-in Replacement: Aims to replace various linters and formatters like `Flake8`, `Pylint`, `Black`, and `isort`,  
+  with a single, faster solution.
+
+
+
+
+
+
