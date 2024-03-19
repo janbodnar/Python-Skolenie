@@ -34,6 +34,8 @@ for e in objects:
 
 ## Type hints
 
+### Literals
+
 ```python
 #!/usr/bin/python
 
@@ -48,6 +50,18 @@ def read_file(name: str, fmode: Mode) -> str:
 
 content: str = read_file("dummy.txt", "r")
 print(content)
+```
+
+### Function parameters 
+
+```python
+#!/usr/bin/python
+
+def add(x: int, y: int) -> int:
+    return x + y
+
+
+print(add(2, 5))
 ```
 
 ---
@@ -82,7 +96,7 @@ vals4: tuple[int, ...] = (1, 2, 3, 4, 5, 4)
 print(max(vals4))
 ```
 
----
+### Type alias
 
 ```python
 #!/usr/bin/python
