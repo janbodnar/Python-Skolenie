@@ -1,5 +1,42 @@
 # Types
 
+
+## The type function
+
+```python
+#!/usr/bin/python
+
+import sys
+
+
+class Being:
+    pass
+
+
+def function():
+    pass
+
+
+objects = [
+    1,
+    3.4,
+    sys,
+    function,
+    range(10),
+    None,
+    False,
+    [1, 2],
+    "Python",
+    (2, 3),
+    Being(),
+    {},
+]
+
+for e in objects:
+    print(type(e))
+```
+
+
 ## Check types
 
 ```python
