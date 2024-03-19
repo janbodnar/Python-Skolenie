@@ -30,3 +30,126 @@ for e in objects:
         case _val if isinstance(_val, int):
             print(f'{e} is an integer')
 ```
+
+
+## Type hints
+
+```python
+#!/usr/bin/python
+
+from typing import Literal
+
+type Mode = Literal["r", "w", "a", "rw"]
+
+
+def read_file(name: str, fmode: Mode) -> str:
+    return "content"
+
+
+content: str = read_file("dummy.txt", "r")
+print(content)
+```
+
+---
+
+```python
+#!/usr/bin/python
+
+
+from typing import Any
+
+
+type Num = int | float
+
+
+def add(x: int, y: int) -> int:
+    return x + y
+
+
+print(add(2, 5))
+
+
+vals: list[Any] = [1, "falcon", True]
+print(vals)
+
+vals2: list[int | float] = [1, 3.4, 4]
+print(vals2)
+
+vals3: list[Num] = [1, 2, 3.4, 0, -1, 9]
+print(len(vals3))
+
+vals4: tuple[int, ...] = (1, 2, 3, 4, 5, 4)
+print(max(vals4))
+```
+
+---
+
+```python
+#!/usr/bin/python
+
+from dataclasses import dataclass
+from random import randint
+
+
+type Users = list[User]
+
+
+@dataclass
+class User:
+    name: str
+    occupation: str
+
+    @staticmethod
+    def rand_users(n: int) -> Users:
+        return Helper.generate_users(n)
+
+
+class Helper:
+    @staticmethod
+    def get_usernames() -> list[str]:
+        names: list[str] = [
+            "John Doe",
+            "Roger Roe",
+            "Martin Biely",
+            "Susan Kelly",
+            "Paul Smith",
+            "Tom Nolland",
+            "Lucia Smith",
+            "Tibor Novak",
+        ]
+
+        return names
+
+    @staticmethod
+    def get_occupations() -> list[str]:
+        occupations: list[str] = [
+            "gardener",
+            "driver",
+            "teacher",
+            "shopkeeper",
+            "scientist",
+            "programmer",
+            "optician",
+        ]
+        return occupations
+
+    @staticmethod
+    def generate_users(n: int) -> Users:
+        names: list[str] = __class__.get_usernames()
+        occupations: list[str] = Helper.get_occupations()
+        n1: int = len(names) - 1 
+        n2: int = len(occupations) - 1
+        users: Users = []
+
+        for _ in range(n):
+            users.append(User(names[randint(0, n1)], occupations[randint(0, n2)]))
+
+        return users
+
+
+users: Users = User.rand_users(4)
+print(users)
+```
+
+
+
