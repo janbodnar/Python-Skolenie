@@ -34,6 +34,19 @@ for e in objects:
 
 ## Type hints
 
+### Tuples
+
+```python
+#!/usr/bin/python
+
+
+vals: tuple[int, ...] = (1, 2, 3, 4, 5, 4)
+print(max(vals))
+
+vals2: tuple[int, int, int] = (1, 2, 3)
+print(min(vals))
+```
+
 ### Literals
 
 ```python
@@ -75,14 +88,6 @@ from typing import Any
 
 type Num = int | float
 
-
-def add(x: int, y: int) -> int:
-    return x + y
-
-
-print(add(2, 5))
-
-
 vals: list[Any] = [1, "falcon", True]
 print(vals)
 
@@ -91,12 +96,9 @@ print(vals2)
 
 vals3: list[Num] = [1, 2, 3.4, 0, -1, 9]
 print(len(vals3))
-
-vals4: tuple[int, ...] = (1, 2, 3, 4, 5, 4)
-print(max(vals4))
 ```
 
-### Type alias
+### Complex example
 
 ```python
 #!/usr/bin/python
