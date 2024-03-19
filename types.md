@@ -222,6 +222,10 @@ print(vals)
 ### Self
 
 ```python
+#!/usr/bin/python
+
+from typing import Any, Self
+
 class Point:
     def __init__(self, x: int, y: int):
         self.x: int = x
