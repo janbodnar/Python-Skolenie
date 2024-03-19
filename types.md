@@ -219,6 +219,28 @@ vals: list[Num] = [1, 3.4, 4, 6, 3.2]
 print(vals)
 ```
 
+### Self
+
+```python
+class Point:
+    def __init__(self, x: int, y: int):
+        self.x: int = x
+        self.y: int = y
+
+    def __add__(self, other: Self) -> Self:
+        return self.__class__(self.x + other.x, self.y + other.y)
+    
+    def __str__(self) -> str:
+        return f'Point(x: {self.x}, y: {self.y})'
+    
+
+p1: Point = Point(1, 1)
+p2: Point = Point(3, 2)
+
+p3: Point = p1 + p2
+print(p3)
+```
+
 
 ### Complex example
 
