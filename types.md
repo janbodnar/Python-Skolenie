@@ -224,7 +224,7 @@ print(vals)
 ```python
 #!/usr/bin/python
 
-from typing import Any, Self
+from typing import Self
 
 class Point:
     def __init__(self, x: int, y: int):
