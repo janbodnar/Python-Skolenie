@@ -47,6 +47,27 @@ vals2: tuple[int, int, int] = (1, 2, 3)
 print(min(vals))
 ```
 
+### Lists
+
+```python
+#!/usr/bin/python
+
+from typing import Any
+
+
+vals: list[Any] = [1, "falcon", True]
+print(vals)
+
+vals2: list[int] = [1, 2, 3, 4, 4]
+print(vals2)
+
+vals3: list[bool] = [True, False, True, True]
+print(vals3)
+
+vals4: list[float] = [1.0, 2, 3.4, 0, -1, 9]
+print(vals4)
+```
+
 ### Literals
 
 ```python
@@ -82,21 +103,26 @@ print(add(2, 5))
 ```python
 #!/usr/bin/python
 
+vals: list[int | float] = [1, 3.4, 4]
+print(vals)
 
-from typing import Any
+vals2: list[str | bool] = ["falcon", "war", True, False]
+print(len(vals2))
+```
+
+
+### Type alias
+
+```python
+#!/usr/bin/python
 
 
 type Num = int | float
 
-vals: list[Any] = [1, "falcon", True]
+vals: list[Num] = [1, 3.4, 4, 6, 3.2]
 print(vals)
-
-vals2: list[int | float] = [1, 3.4, 4]
-print(vals2)
-
-vals3: list[Num] = [1, 2, 3.4, 0, -1, 9]
-print(len(vals3))
 ```
+
 
 ### Complex example
 
