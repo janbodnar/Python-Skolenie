@@ -64,7 +64,7 @@ def add(x: int, y: int) -> int:
 print(add(2, 5))
 ```
 
----
+### Unions
 
 ```python
 #!/usr/bin/python
