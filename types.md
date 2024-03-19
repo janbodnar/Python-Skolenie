@@ -21,6 +21,7 @@ objects = [
     1,
     3.4,
     sys,
+    {1, 2, 3},
     function,
     range(10),
     None,
