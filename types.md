@@ -37,6 +37,64 @@ for e in objects:
     print(type(e))
 ```
 
+## The isinstance function 
+
+```python
+#!/usr/bin/python
+
+import sys
+from typing import Callable
+
+
+class Being:
+    pass
+
+
+def function():
+    pass
+
+
+objects = [
+    1,
+    3.4,
+    sys,
+    {1, 2, 3},
+    function,
+    range(10),
+    None,
+    False,
+    [1, 2],
+    "Python",
+    (2, 3),
+    Being(),
+    {},
+]
+
+for e in objects:
+    if isinstance(e, list):
+        print(f'{e} is a list')
+    elif isinstance(e, tuple):
+        print(f'{e} is a tuple')
+    elif isinstance(e, dict):
+        print(f'{e} is a dictionary')
+    elif isinstance(e, int):
+        print(f'{e} is an integer')
+    elif isinstance(e, float):
+        print(f'{e} is a float')
+    elif isinstance(e, set):
+        print(f'{e} is a set')
+    elif isinstance(e, bool):
+        print(f'{e} is a boolean')
+    elif isinstance(e, str):
+        print(f'{e} is a string')
+    elif isinstance(e, Being):
+        print(f'{e} is a Being')
+    elif isinstance(e, Callable):
+        print(f'{e} is a callable')
+    elif e is None:
+        print(f'{e} is a null')
+```
+
 
 ## Check types
 
