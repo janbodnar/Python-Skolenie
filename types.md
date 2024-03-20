@@ -164,6 +164,37 @@ vals4: list[float] = [1.0, 2, 3.4, 0, -1, 9]
 print(vals4)
 ```
 
+## TypedDict
+
+```python
+#!/usr/bin/python
+
+
+from typing import Any, TypedDict, NotRequired
+
+
+class UserT(TypedDict):
+    name: str
+    age: int
+    occupation: str
+    fav_colors: NotRequired[list[str]]
+
+
+user: dict[str, Any] = {
+    "name": "John Doe",
+    "age": 35,
+    "occupation": "gardener",
+    "fav_colors": ["red", "blue"],
+}
+
+user2: UserT = {
+    "name": "John Doe",
+    "age": 35,
+    "occupation": "gardener",
+    "fav_colors": ["red", "blue"],
+}
+```
+
 ### Literals
 
 ```python
