@@ -6,6 +6,42 @@ syntax-friendly way to enhance or alter the functionality of functions or method
 without changing their source code. They are prefixed with an `@` symbol and  
 placed immediately before the function definition.  
 
+## Timing decorator 
+
+```python
+#!/usr/bin/python
+
+import time
+import math
+import sys
+
+sys.set_int_max_str_digits(maxdigits=90000)
+
+def timer(func):
+
+    def wrapper(*args, **kwargs):
+
+        begin = time.time()
+
+        f = func(*args, **kwargs)
+
+        end = time.time()
+        print("Total time taken in : ", func.__name__, end - begin)
+
+        return f
+
+    return wrapper
+
+
+@timer
+def factorial(num):
+
+    return math.factorial(num)
+
+f = factorial(4580)
+print(f)
+```
+
 
 ## Multiple decorators
 
