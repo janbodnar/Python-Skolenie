@@ -37,8 +37,9 @@ print(multiply_together(2, 2))
 ```
 
 
-The `__call__` method in the `Power` class serves two different purposes depending on the context in which it's used.   
-This is why it can either return a wrapper function or the result of an expression.
+The `__call__` method in the `Power` class serves two different purposes depending on the  
+context in which it's used. This is why it can either return a wrapper function or the  
+result of an expression.
 
 1. **Returns a Wrapper Function**: When the `Power` class is used as a decorator with an argument (like `@Power(3)`),
   the `__call__` method receives the decorated function as its argument. In this case, it defines a wrapper function
