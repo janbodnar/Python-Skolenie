@@ -23,7 +23,7 @@ readable manner.
 
 
 
-## xml.etree.ElementTree (ElementTree):**
+## xml.etree.ElementTree (ElementTree)
 
 * A lightweight and user-friendly API for parsing and manipulating XML data.  
 * Represents the XML document as a tree structure, with elements as nodes.  
@@ -44,7 +44,7 @@ for product in root.findall("product"):
 ```
 
 
-## xml.dom.minidom (minidom):
+## xml.dom.minidom (minidom)
 
 A W3C DOM (Document Object Model) compliant parser. Provides a more comprehensive API for  
 accessing and modifying XML elements and attributes. Offers functionalities like navigating  
@@ -67,7 +67,7 @@ for product in root.getElementsByTagName("product"):
 ```
 
 
-## xml.sax (SAX - Simple API for XML):
+## xml.sax (SAX - Simple API for XML)
 
 An event-based parser that processes XML data as a stream of events  
 (start/end tags, character data). More memory-efficient for very large XML files as it  
@@ -101,7 +101,7 @@ parser.setContentHandler(ProductHandler())
 parser.parse("products.xml")
 ```
 
-## Third-party libraries:
+## Third-party libraries
 
 Several powerful third-party libraries like lxml and Beautiful Soup offer extended  
 functionalities for complex XML processing including:
