@@ -6,6 +6,59 @@ syntax-friendly way to enhance or alter the functionality of functions or method
 without changing their source code. They are prefixed with an `@` symbol and  
 placed immediately before the function definition.  
 
+## Simple example 
+
+```python
+#!/usr/bin/python
+
+
+def enclose(fun):
+    def wrapper():
+        print("------------------------------")
+        fun()
+        print("------------------------------")
+
+    return wrapper
+
+
+def myfun():
+    print("myfun")
+
+
+enc = enclose(myfun)
+enc()
+```
+
+The `enclose` function is a decorator which extends the decorated function by  
+adding star symbols to its output.
+
+
+Python allows to use the `@` symbol to mark the method to be decorated with  
+a decorator. Functionally, the example is equivalent to the previous one. Only  
+different syntax is used.  
+
+```python
+#!/usr/bin/python
+
+def enclose(fun):
+
+    def wrapper():
+
+        print("------------------------------")
+        fun()
+        print("------------------------------")
+
+    return wrapper
+
+@enclose
+def myfun():
+    print("myfun")
+
+myfun()
+```
+
+
+
 ## Timing decorator 
 
 ```python
