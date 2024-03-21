@@ -6,6 +6,37 @@ syntax-friendly way to enhance or alter the functionality of functions or method
 without changing their source code. They are prefixed with an `@` symbol and  
 placed immediately before the function definition.  
 
+
+## Multiple decorators
+
+Decorators can be stacked.  
+
+```python
+#!/usr/bin/python
+
+def strong(fun):
+
+    def wrapper():
+        return f'<strong>{fun()}</strong>'
+    return wrapper
+
+def em(fun):
+
+    def wrapper():
+        return f'<em>{fun()}</em>'
+
+    return wrapper
+
+
+@strong
+@em
+def message():
+    return 'This is some message'
+
+
+print(message())
+```
+
 ## Defining via a class
 
 ```python
@@ -62,7 +93,6 @@ This flexibility in the `__init__` method allows the `Power` class to be used
 as a decorator in multiple ways, either with or without arguments. The type  
 of `self._arg` determines the behavior of the `__call__` method, which in  
 turn defines the behavior of the decorated function.  
-
 
 
 ### The __call__ method
