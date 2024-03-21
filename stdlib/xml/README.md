@@ -1,11 +1,27 @@
 # XML processing
 
-**XML (Extensible Markup Language)** is a markup language designed to describe  
-data in a human-readable and machine-readable format. It uses tags to define the  
-structure of the data, allowing for flexible data exchange between different  
-applications and systems.  
+1. **ElementTree**: This is a lightweight and efficient API for parsing and creating  
+XML data. It provides methods to iterate over elements in the XML tree.  
 
-Here's how you can process XML data in Python using various parsers:  
+2. **minidom**: minidom is a minimal implementation of the Document Object Model  
+interface, with an API similar to that in other languages. It is intended for  
+simple, one-time tasks.  
+
+3. **SAX (Simple API for XML)**: SAX is a standard interface for event-driven XML  
+parsing. It provides a mechanism to read data from an XML document.  
+
+4. **DOM (Document Object Model)**: DOM is a standard tree structure, where each  
+node contains one of the components from an XML structure.  
+
+5. **xmltodict**: xmltodict is a Python module that makes working with XML feel  
+like you are working with JSON. It converts XML to an OrderedDict.  
+
+6. **BeautifulSoup**: BeautifulSoup is a Python library used for web scraping  
+purposes to pull the data out of HTML and XML files. It creates a parse tree  
+from page source code that can be used to extract data in a hierarchical and  
+readable manner.  
+
+
 
 ## xml.etree.ElementTree (ElementTree):**
 
