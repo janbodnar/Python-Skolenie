@@ -2,7 +2,7 @@
 
 ## XML and Processing in Python
 
-**XML (Extensible Markup Language)** is a markup language designed to describe 
+**XML (Extensible Markup Language)** is a markup language designed to describe  
 data in a human-readable and machine-readable format. It uses tags to define the  
 structure of the data, allowing for flexible data exchange between different  
 applications and systems.  
