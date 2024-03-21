@@ -1,5 +1,10 @@
 # Python decorators
 
+A **Python decorator** is a callable that takes a function as input, modifies or  
+extends its behavior, and returns the modified function. Decorators provide a  
+syntax-friendly way to enhance or alter the functionality of functions or methods  
+without changing their source code. They are prefixed with an `@` symbol and  
+placed immediately before the function definition.  
 
 ## Defining via a class
 
