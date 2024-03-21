@@ -10,12 +10,6 @@ class Power:
         print(f'{arg} {type(arg)}')
 
     def __call__(self, *param_arg):
-        """If there are decorator arguments, __call__() is only called once
-        as part of the decoration process. You can only give it a single argument,
-        which is the function object
-        If there are no decorator arguments, the function
-        to be decorated is passed to the constructor.
-        """
         if len(param_arg) == 1:
 
             def wrapper(a, b):
