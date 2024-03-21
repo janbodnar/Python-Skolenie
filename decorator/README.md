@@ -45,8 +45,8 @@ result of an expression.
   argument (like `@Power(3)`), the `__call__` method receives the decorated function as its  
   argument. In this case, it defines a wrapper function that takes two arguments, calls the  
   decorated function with these arguments, and returns the result raised to the power of  
-  `self._arg`. This wrapper function is then returned by the `__call__` method and replaces
-  the original decorated function. This is why when you call `multiply_together(2, 2)`, you're
+  `self._arg`. This wrapper function is then returned by the `__call__` method and replaces  
+  the original decorated function. This is why when you call `multiply_together(2, 2)`, you're  
   actually calling the wrapper function, which returns `64`.  
 
 7. **Returns the Result of an Expression**: If the `Power` class is used as a decorator without  
@@ -56,6 +56,6 @@ result of an expression.
   the `__call__` method.  
 
 The ability to return different types of values based on the context is a powerful feature  
-of Python, allowing for flexible and dynamic behavior. In the context of decorators, this allows the same 
+of Python, allowing for flexible and dynamic behavior. In the context of decorators, this allows the same  
 class to be used as a decorator in multiple ways, either with or without arguments. The `__call__` method  
 is central to this functionality, defining the behavior of the decorator when it's applied to a function.
