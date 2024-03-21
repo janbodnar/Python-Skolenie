@@ -395,6 +395,55 @@ Methods
 Methods
 ```
 
+## Properties
+
+The `@property` decorator in Python is a built-in decorator that allows us to  
+use getter and setter methods as attributes, rather than methods. This provides  
+a more intuitive and convenient way to handle instance variables.  
+
+Here's an example of its usage with a `User` class that has `name` and  
+`occupation` attributes:
+
+```python
+class User:
+    def __init__(self, name='', occupation=''):
+        self._name = name
+        self._occupation = occupation
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Name must be a string.")
+        self._name = value
+
+    @property
+    def occupation(self):
+        return self._occupation
+
+    @occupation.setter
+    def occupation(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Occupation must be a string.")
+        self._occupation = value
+```
+
+In this example, `name` and `occupation` are property objects which provide an  
+interface to the private `_name` and `_occupation` attributes. The `@property`  
+decorator makes the method below it a getter for the property, and  
+`@name.setter` and `@occupation.setter` decorators make the methods setters  
+for the `name` and `occupation` properties. If you try to set the `name` or  
+`occupation` to a non-string value, it raises a `ValueError`.
+
+This approach allows for more control over how an attribute is accessed and  
+modified, and can be used to implement validation and other property-specific  
+logic.
+
+
+
 ## Inheritance
 
 Inheritance is a way to form new classes using classes that have already been defined. The newly formed   
