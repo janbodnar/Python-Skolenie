@@ -41,16 +41,16 @@ The `__call__` method in the `Power` class serves two different purposes dependi
 This is why it can either return a wrapper function or the result of an expression.
 
 1. **Returns a Wrapper Function**: When the `Power` class is used as a decorator with an argument (like `@Power(3)`),
-2. the `__call__` method receives the decorated function as its argument. In this case, it defines a wrapper function
-3. that takes two arguments, calls the decorated function with these arguments, and returns the result raised to the
-4.  power of `self._arg`. This wrapper function is then returned by the `__call__` method and replaces the original
-5.  decorated function. This is why when you call `multiply_together(2, 2)`, you're actually calling the wrapper
-6.  function, which returns `64`.
+  the `__call__` method receives the decorated function as its argument. In this case, it defines a wrapper function
+  that takes two arguments, calls the decorated function with these arguments, and returns the result raised to the
+  power of `self._arg`. This wrapper function is then returned by the `__call__` method and replaces the original
+  decorated function. This is why when you call `multiply_together(2, 2)`, you're actually calling the wrapper
+  function, which returns `64`.
 
 7. **Returns the Result of an Expression**: If the `Power` class is used as a decorator without an argument
-8. (not demonstrated in the provided code), the `__call__` method would receive the arguments of the decorated function.
-9.  In this case, it calculates the result of the decorated function, raises it to the power of `2`, and returns
-10.  this value. This behavior is defined in the `else` block of the `__call__` method.
+  (not demonstrated in the provided code), the `__call__` method would receive the arguments of the decorated function.
+  In this case, it calculates the result of the decorated function, raises it to the power of `2`, and returns
+  this value. This behavior is defined in the `else` block of the `__call__` method.
 
 The ability to return different types of values based on the context is a powerful feature of Python, allowing for  
 flexible and dynamic behavior. In the context of decorators, this allows the same class to be used as a decorator  
