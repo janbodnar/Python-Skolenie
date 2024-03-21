@@ -1,5 +1,7 @@
 # Basic standard modules 
 
+https://docs.python.org/3/library/index.html
+
 Demonstrating some basic standard modules
 
 ## secrets 
