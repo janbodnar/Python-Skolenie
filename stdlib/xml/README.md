@@ -22,14 +22,11 @@ from page source code that can be used to extract data in a hierarchical and
 readable manner.  
 
 
-
 ## xml.etree.ElementTree (ElementTree)
 
 * A lightweight and user-friendly API for parsing and manipulating XML data.  
 * Represents the XML document as a tree structure, with elements as nodes.  
 * Ideal for smaller to medium-sized XML files.  
-
-### Example
 
 ```python
 import xml.etree.ElementTree as ET
