@@ -77,6 +77,7 @@ a Python object into a JSON string. This module also provides a `json.loads()`
 method that can be used to parse a JSON string and convert it into a Python  
 object.  
 
+Write to file with `dump`. 
 
 ```python
 #!/usr/bin/python
@@ -85,11 +86,26 @@ import json
 
 data = {"name": "Jane", "age": 17}
 
-with open('friends.json', 'w') as f:
+fname = 'friends.json'
+with open(fname, 'w') as f:
     json.dump(data, f)
 ```
 
+Read from file with `load`.
 
+```python
+#!/usr/bin/python
+
+import json
+
+fname = 'products.json'
+with open(fname) as f:
+
+    data = json.load(f)
+
+    for e in data['products']:
+        print(e)
+```
 
 
 ## urllib3
