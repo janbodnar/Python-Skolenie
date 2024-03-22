@@ -4,6 +4,30 @@ https://docs.python.org/3/library/index.html
 
 Demonstrating some basic standard modules
 
+## os 
+
+Run an external program
+
+```python
+#!/usr/bin/python
+
+import os
+
+os.system('code')
+```
+
+Run and read the output.
+
+```python
+#!/usr/bin/python
+
+import os
+
+output = os.popen('dir').read()
+print(output)
+```
+
+
 ## secrets 
 
 ```python
