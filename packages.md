@@ -1,3 +1,5 @@
+# Python packages 
+
 A *package* is a collection of modules which have a common purpose. Package  
 directories must have one special file called `__init__.py`. (Since Python 3.3,  
 `__init__.py` is no longer required to define package directories.) A Python  
