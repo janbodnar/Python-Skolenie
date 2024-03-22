@@ -60,6 +60,58 @@ for root, dirs, files in os.walk(os.path.abspath(".")):
 - Read the contents of the current working directory and print only Python files.
 - Read the contents of the current working directory and print first 10 Python files.
 
+## urllib3
+
+```python
+#!/usr/bin/python
+
+import urllib3
+
+
+http = urllib3.PoolManager()
+
+url = 'https://webcode.me'
+
+resp = http.request('GET', url)
+print(resp.status)
+```
+
+GET request 
+
+```python
+#!/usr/bin/python
+
+import urllib3
+
+
+http = urllib3.PoolManager()
+
+url = 'https://webcode.me'
+
+resp = http.request('GET', url)
+print(resp.data.decode('utf-8'))
+```
+
+HEAD request
+
+```python
+#!/usr/bin/python
+
+import urllib3
+
+
+http = urllib3.PoolManager()
+
+url = 'https://webcode.me'
+resp = http.request('HEAD', url)
+
+print(resp.headers['Server'])
+print(resp.headers['Date'])
+print(resp.headers['Content-Type'])
+print(resp.headers['Last-Modified'])
+```
+
+
 ## secrets 
 
 ```python
