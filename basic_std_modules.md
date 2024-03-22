@@ -9,7 +9,7 @@ Demonstrating some basic standard modules
 - Read the contents of the `PATH` variable and find all Python content.  
 - Read the contents of the current working directory and print only Python files.
 - Read the contents of the current working directory and print first 10 Python files.
-- Read webcode.me/words.txt file & print the words in sortet order. Print only words
+- Read webcode.me/words.txt file & print the words in sortet order. Print only words  
   starting in 'w' or 'c'.
 
 ## os 
