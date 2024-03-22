@@ -86,6 +86,24 @@ with open("unix-words.txt") as f:
     print(password)
 ```
 
+Example uses traditional `try/except/finally` keywords. 
+
+```python
+#!/usr/bin/python
+
+import secrets
+
+try:
+    f = open("unix-words.txt")
+    words = [word.strip() for word in f]
+    password = " ".join(secrets.choice(words) for i in range(4))
+    print(password)
+except Exception as e:
+    print("An error occurred: ", e)
+finally:
+    f.close()
+```
+
 ## zipfile 
 
 Create a ZIP file.  
