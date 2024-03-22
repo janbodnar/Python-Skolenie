@@ -124,6 +124,29 @@ print(type(data))
 print(data)
 ```
 
+Read JSON from URL. 
+
+```python
+#!/usr/bin/python
+
+import json
+import urllib3
+
+
+http = urllib3.PoolManager()
+
+url = 'http://time.jsontest.com'
+
+resp = http.request('GET', url)
+text = resp.data.decode("utf-8")
+
+data = json.loads(text)
+
+print(f"Unix time: {data['milliseconds_since_epoch']}")
+print(f"Time: {data['time']}")
+print(f"Date: {data['date']}")
+```
+
 
 ## urllib3
 
