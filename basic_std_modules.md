@@ -62,6 +62,34 @@ for root, dirs, files in os.walk(os.path.abspath(".")):
         print(os.path.join(root, name))
 ```
 
+## json
+
+**JSON (JavaScript Object Notation)** is a lightweight data-interchange format  
+that is easy for humans to read and write and easy for machines to parse and  
+generate. It is based on a subset of JavaScript Programming Language, Standard  
+ECMA-262 3rd Edition - December 1999. JSON is a text format that is completely  
+language independent but uses conventions that are familiar to programmers of  
+the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python,  
+and many others. These properties make JSON an ideal data-interchange language.  
+
+The `json` module in Python provides a method called `json.dumps()` that converts  
+a Python object into a JSON string. This module also provides a `json.loads()`  
+method that can be used to parse a JSON string and convert it into a Python  
+object.  
+
+
+```python
+#!/usr/bin/python
+
+import json
+
+data = {"name": "Jane", "age": 17}
+
+with open('friends.json', 'w') as f:
+    json.dump(data, f)
+```
+
+
 
 
 ## urllib3
