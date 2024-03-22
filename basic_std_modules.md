@@ -44,6 +44,20 @@ with zipfile.ZipFile('output.zip', 'r') as zip_ref:
     zip_ref.extractall('tmp')
 ```
 
+Extract a specific file 
+
+```python
+#!/usr/bin/python
+
+
+import zipfile
+
+with zipfile.ZipFile('output.zip') as zip:
+
+    zip.extract('funs.py', '.')
+```
+
+
 List contents of a ZIP file.  
 
 ```python
