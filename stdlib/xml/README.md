@@ -68,7 +68,25 @@ root = doc.documentElement
 for product in root.getElementsByTagName("product"):
   id = product.getElementsByTagName("id")[0].firstChild.nodeValue
   name = product.getElementsByTagName("name")[0].firstChild.nodeValue
-  print(f"ID: {id}, Name: {name}")
+  print(f"id: {id}, name: {name}")
+```
+
+Reading attributes. 
+
+```python
+#!/usr/bin/python
+
+from xml.dom import minidom
+
+doc = minidom.parse("products2.xml")
+root = doc.documentElement
+
+for product in root.getElementsByTagName("product"):
+  pid = product.getAttribute('id')
+  name = product.getElementsByTagName("name")[0].firstChild.nodeValue
+  price = product.getElementsByTagName("price")[0].firstChild.nodeValue
+  quantity = product.getElementsByTagName("quantity")[0].firstChild.nodeValue
+  print(pid, name, price, quantity)
 ```
 
 
