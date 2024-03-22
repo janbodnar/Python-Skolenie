@@ -11,6 +11,7 @@ Demonstrating some basic standard modules
 - Read the contents of the current working directory and print first 10 Python files.
 - Read webcode.me/words.txt file & print the words in sortet order. Print only words  
   starting in 'w' or 'c'.
+- Read JSON data from `https://webcode.me/users.json` and load it into a dictionary.  
 
 ## os 
 
