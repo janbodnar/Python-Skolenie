@@ -1,17 +1,19 @@
-# Packages
+A *package* is a collection of modules which have a common purpose. Package  
+directories must have one special file called `__init__.py`. (Since Python 3.3,  
+`__init__.py` is no longer required to define package directories.) A Python  
+module is a single Python file.  
 
-A *package* is a collection of modules which have a common purpose. Package directories must have one special  
-file called `__init__.py`. (Since Python 3.3, `__init__.py` is no longer required to define package directories.)  
-A Python module is a single Python file.
+When we deal with large projects containing hundreds or thousands of modules,  
+using packages is crucial. For example, we could put all database related  
+modules in a database package and user interface code in `ui` package.   
 
-When we deal with large projects containing hundreds or thousands of modules, using packages is crucial. For example,  
-we could put all database related modules in a database package and user interface code in `ui` package. 
+Built-in packages available in predefined directories; for instance,  
+`/usr/lib/python3.5` on Debian Linux or  
+`C:\Users\Jano\AppData\Local\Programs\Python\Python36-32\Lib\site-packages`.    
 
-Built-in packages available in predefined directories; for instance, `/usr/lib/python3.5` on Debian Linux or  
-`C:\Users\Jano\AppData\Local\Programs\Python\Python36-32\Lib\site-packages`.  
-
-Third-party packages are installed into predefined directories such as `/usr/local/lib/python3.5/dist-packages`  
-on Debian Linux or `C:\Users\Jano\AppData\Local\Programs\Python\Python36-32\libs` on Windows.  
+Third-party packages are installed into predefined directories such as  
+`/usr/local/lib/python3.5/dist-packages` on Debian Linux or  
+`C:\Users\Jano\AppData\Local\Programs\Python\Python36-32\libs` on Windows. 
 
 ## Python package management
 
@@ -113,7 +115,8 @@ from mymath import mycube
 print(mycube(3))
 ```
 
-In the `myprog.py` program, we import the `mycube` function. This time we have omitted the module name.
+In the `myprog.py` program, we import the `mycube` function. This time we have omitted  
+the module name.
 
 ## Package without __init__.py
 
@@ -165,9 +168,9 @@ api.py  arrow.py  factory.py  formatter.py  __init__.py
 locales.py  parser.py  __pycache__  util.py
 ```
 
-The library is installed in the arrow directory, under the dist-packages in Debian Linux.  
-The library is installed with the pip package manager. As we can see, the library is a collection  
-of Python modules.
+The library is installed in the arrow directory, under the dist-packages in   
+Debian Linux. The library is installed with the pip package manager. As we can  
+see, the library is a collection of Python modules.
 
 ## Python subpackages
 
@@ -207,7 +210,8 @@ The `__init__.py` file in the numbers package has this one line.
 myintegers = (2, 3, 45, 6, 7, 8, 9)
 ```
 
-The `myintegers` module defines a tuple of seven integers. This tuple will be accessed from the `read.py` script.
+The `myintegers` module defines a tuple of seven integers. This tuple will be accessed  
+from the `read.py` script.
   
 ```python
 #!/usr/bin/python
@@ -221,8 +225,8 @@ print(names)
 print(myintegers)
 ```
 
-This is the `read.py` program. We import the names tuple from the constants package and the `myintegers`  
-tuple from the `constants.numbers` subpackage.
+This is the `read.py` program. We import the names tuple from the constants package  
+and the `myintegers` tuple from the `constants.numbers` subpackage.  
 
 ```
 $ ./read.py 
