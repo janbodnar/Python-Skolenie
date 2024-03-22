@@ -4,6 +4,14 @@ https://docs.python.org/3/library/index.html
 
 Demonstrating some basic standard modules
 
+## Tasks
+
+- Read the contents of the `PATH` variable and find all Python content.  
+- Read the contents of the current working directory and print only Python files.
+- Read the contents of the current working directory and print first 10 Python files.
+- Read webcode.me/words.txt file & print the words in sortet order. Print only words
+  starting in 'w' or 'c'.
+
 ## os 
 
 Run an external program
@@ -54,11 +62,7 @@ for root, dirs, files in os.walk(os.path.abspath(".")):
         print(os.path.join(root, name))
 ```
 
-## Tasks
 
-- Read the contents of the `PATH` variable and find all Python content.  
-- Read the contents of the current working directory and print only Python files.
-- Read the contents of the current working directory and print first 10 Python files.
 
 ## urllib3
 
