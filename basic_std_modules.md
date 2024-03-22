@@ -27,6 +27,21 @@ output = os.popen('dir').read()
 print(output)
 ```
 
+Read environment variables 
+
+```python
+#!/usr/bin/python
+
+import os
+
+print(os.environ)
+print(os.getenv("PATH"))
+```
+
+## Example
+
+Read the contents of the `PATH` variable and find all Python content.  
+
 
 ## secrets 
 
