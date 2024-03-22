@@ -38,10 +38,30 @@ print(os.environ)
 print(os.getenv("PATH"))
 ```
 
-## Example
+## Task
 
 Read the contents of the `PATH` variable and find all Python content.  
 
+
+Walking directories. 
+
+```python
+#!/usr/bin/python
+
+
+import os
+
+# for root, dirs, files in os.walk("."):
+for root, dirs, files in os.walk(os.path.abspath(".")):
+    for name in files:
+        print(os.path.join(root, name))
+    for name in dirs:
+        print(os.path.join(root, name))
+```
+
+## Task
+
+Read the contents of the current working directory and print only Python files.
 
 ## secrets 
 
