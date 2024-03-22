@@ -38,11 +38,6 @@ print(os.environ)
 print(os.getenv("PATH"))
 ```
 
-## Task
-
-Read the contents of the `PATH` variable and find all Python content.  
-
-
 Walking directories. 
 
 ```python
@@ -59,9 +54,10 @@ for root, dirs, files in os.walk(os.path.abspath(".")):
         print(os.path.join(root, name))
 ```
 
-## Task
+## Tasks
 
-Read the contents of the current working directory and print only Python files.
+- Read the contents of the current working directory and print only Python files.
+- Read the contents of the `PATH` variable and find all Python content.  
 
 ## secrets 
 
