@@ -21,6 +21,16 @@ with open('words.txt', 'r') as f:
         print(line)
 ```
 
+Using `Path`
+
+```python
+from pathlib import Path
+
+fname = 'words.txt'
+
+text = Path(fname).read_text()
+print(text)
+```
 
 
 ## Large files
