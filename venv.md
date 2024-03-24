@@ -88,7 +88,8 @@ current virtual environment. The `>` redirects the output of the pip freeze comm
 The `requirements.txt` file specifies the filename where the list of packages will  
 be saved.  
 
-
+The `pip uninstall -r requirements.txt -y` uninstalls all packages in the 
+`requirements.txt` file.  
 
 
 
