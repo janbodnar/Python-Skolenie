@@ -90,7 +90,7 @@ print(e)
 print(len(e))
 ```
 
-We encode the string into a bytes type using the utf8 encoding and print the bytes. 
+We encode the string into a bytes type using the utf8 encoding and print the bytes.  
 We count the number of bytes in this encoding type.
 
 ```
