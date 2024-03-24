@@ -1,5 +1,27 @@
 # Input & output
 
+## Small files
+
+The `read` method
+
+```python
+with open('words.txt', 'r') as f:
+    data = f.read()
+
+    print(data)
+```
+
+The `readlines` method
+
+```python
+with open('words.txt', 'r') as f:
+    lines = f.readlines()
+
+    for line in lines:
+        print(line)
+```
+
+
 
 ## Large files
 
