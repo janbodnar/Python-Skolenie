@@ -520,7 +520,7 @@ Python dictionaries are orderless. This also implies that they cannot be sorted 
 Python list. Programmers can create sorted representations of Python dictionaries.  
 In this section, we show several ways to create a sorted output.
 
-Programmers might want to sort the data in a normal or reverse order. They could sort 
+Programmers might want to sort the data in a normal or reverse order. They could sort  
 the data by keys or by values.
 
 ```python
