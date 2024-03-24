@@ -1,8 +1,8 @@
 # Python namedtuple
 
 Python namedtuple is an immutable container type, whose values can be accessed with  
-indexes and named attributes. It has functionality like tuples with additional features. 
-A named tuple is created with the `collections.namedtuple` factory function.
+indexes and named attributes. It has functionality like tuples with additional features.  
+A named tuple is created with the `collections.namedtuple` factory function.  
 
 Named tuples are essentially easy-to-create, immutable, lightweight object types. Named tuples  
 can be used to make the code more clean and Pythonic. They are similar to records in other  
