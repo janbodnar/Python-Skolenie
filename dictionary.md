@@ -285,7 +285,7 @@ $ ./fruits.py
 
 We receive this output when we launch the fruits.py script.
 
-The update method
+## The update method
 
 The next code example shows how to add two Python dictionaries using the update method.
 
