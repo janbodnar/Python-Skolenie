@@ -21,7 +21,19 @@ with open('words.txt', 'r') as f:
         print(line)
 ```
 
-Using `Path`
+## The pathlib
+
+```python
+from pathlib import Path
+
+fname = 'words.txt'
+
+with Path(fname).open() as f:
+    
+    text = f.read()
+    print(text)
+```
+
 
 ```python
 from pathlib import Path
