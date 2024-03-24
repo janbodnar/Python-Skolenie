@@ -519,12 +519,12 @@ In the example we check if a country is in the dictionary with the in operator.
 
 ## Sorting
 
-Python dictionaries are orderless. This also implies that they cannot be sorted like a  
-Python list. Programmers can create sorted representations of Python dictionaries.  
-In this section, we show several ways to create a sorted output.
+Starting from Python 3.7, dictionaries in CPython (the most common implementation of Python)  
+maintain insertion order. This means the order in which you add key-value pairs to the dictionary  
+is preserved when iterating over it or accessing elements.  
 
-Programmers might want to sort the data in a normal or reverse order. They could sort  
-the data by keys or by values.
+We might want to sort the data in a normal or reverse order. We can sort the data by keys  
+or by values.
 
 ```python
 #!/usr/bin/python
