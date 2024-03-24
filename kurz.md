@@ -17,6 +17,7 @@ pip install ipykernel
 - [JetBrains Python prieskum](https://www.jetbrains.com/lp/devecosystem-2023/python/)
 - [VS Code Python doc](https://code.visualstudio.com/docs/python/python-quick-start)
 - [C++ vs Python vs Java](https://www.youtube.com/watch?v=hnlz0YYCpBU)
+- [Stackoverflow survey](https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages)
 
 
 ## VS Code
