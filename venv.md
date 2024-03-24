@@ -76,3 +76,25 @@ Overall, `requirements.txt` is a best practice for managing dependencies in
 Python projects, promoting a consistent and efficient development workflow.  
 
 
+Once you've installed all the necessary packages for your project using pip,   
+you can generate a `requirements.txt` file that captures those dependencies  
+and their versions. 
+
+`pip freeze > requirements.txt`
+
+
+The command lists all the installed Python packages and their versions in your  
+current virtual environment. The `>` redirects the output of the pip freeze command.  
+The `requirements.txt` file specifies the filename where the list of packages will  
+be saved.  
+
+
+
+
+
+
+
+
+
+
+
