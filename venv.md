@@ -25,11 +25,11 @@ Python virtual environments offer several advantages:
 ## Commands
 
 1. **Create a virtual environment**:  
-   `python3 -m venv /path/to/new/virtual/environment`  
+   `py -m venv myenv`  
 
 2. **Activate the virtual environment**:  
-   - On Windows: `path\\to\\env\\Scripts\\activate`  
-   - On Unix or MacOS: `source path/to/env/bin/activate`  
+   - On Windows: `myenv\Scripts\activate`  
+   - On Unix or MacOS: `source ./myenv/bin/activate`  
 
 3. **Deactivate the virtual environment**:  
    `deactivate`  
