@@ -475,6 +475,28 @@ The `__lt__` method is a special method used for overloading the less-than (`<`)
 operator. When it comes to sorting, this method is called to compare two objects  
 and determine their order.
 
+Defining only the `__lt__` method is sufficient for basic ordering functionality.  
+
+Here's why:
+
+Python leverages the defined `__lt__` method to implement the other comparison operators  
+(`__gt__`, `__le__`, and `__ge__`) for your class.
+
+Here's how it works:
+
+- a > b is equivalent to not (a < b).
+- a >= b is equivalent to not (a < b) or (a == b).
+- a <= b is the opposite of a > b (can be derived from `__lt__` and `__eq__`).
+
+Since Python can derive the other comparison methods from a well-defined `__lt__`, we only  
+need to explicitly define `__lt__` for our custom class to enable ordering.  
+
+However, there are some advantages to defining all the comparison methods explicitly:  
+
+- Clarity: It can make your code more readable and express your intention clearly.  
+- Customization: In rare cases, you might need to implement specific logic for each comparison.  
+
+
 ```python
 class User:
     def __init__(self, name, age):
