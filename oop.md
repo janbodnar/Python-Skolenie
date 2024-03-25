@@ -443,13 +443,105 @@ modified, and can be used to implement validation and other property-specific
 logic.
 
 
+## Object equality 
+
+The object equality is determined by the `__eq__` method. By default, this method  
+checks if two objects are the same object (i.e., they occupy the same memory space).  
+However, we can override the `__eq__` method in your class to define custom equality logic. 
+
+```python
+class User:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __eq__(self, other):
+        if isinstance(other, User):
+            return self.name == other.name and self.age == other.age
+        return False
+
+u1 = User("John Doe", 35)
+u2 = User("John Doe", 35)
+
+u3 = u1
+
+print(u1 == u2)  
+print(u1 == u3)  
+```
+
+## Ordering objects
+
+The `__lt__` method is a special method used for overloading the less-than (`<`)  
+operator. When it comes to sorting, this method is called to compare two objects  
+and determine their order.
+
+```python
+class User:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __eq__(self, other):
+        if isinstance(other, User):
+            return self.name == other.name and self.age == other.age
+        return False
+
+    def __lt__(self, other):
+        if isinstance(other, User):
+            return self.age < other.age
+        return False
+    
+    def __str__(self):
+        return f'[User {self.name} {self.age}]'
+
+users = [User('Alice', 25), User('Bob', 20), User('Charlie', 22)]
+users.sort()
+
+for user in users:
+    print(user)
+```
+
+
+
+
+## Ordering by multiple fields
+
+```python
+class User:
+    def __init__(self, first_name, last_name, occupation):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.occupation = occupation
+
+    def __lt__(self, other):
+        if isinstance(other, User):
+            if self.last_name == other.last_name:
+                return self.first_name < other.first_name
+            return self.last_name < other.last_name
+        return False
+
+    def __repr__(self):
+        return f'{self.first_name} {self.last_name} {self.occupation}'
+
+
+users = [User('John', 'Doe', 'gardener'), User('Adam', 'Roe', 'student'), User('Jane', 'Doe', 'teacher'),
+         User('Roger', 'Roe', 'driver'), User('John', 'Smith', 'broker'), User('Rob', 'Roe', 'dancer')]
+
+# users.sort(key=lambda user: (user.last_name, user.first_name))
+users.sort()
+
+for user in users:
+    print(user)
+```
+
+
 
 ## Inheritance
 
 Inheritance is a way to form new classes using classes that have already been defined. The newly formed   
 classes are called derived classes, the classes that we derive from are called base classes. Important  
-benefits of inheritance are code reuse and reduction of complexity of a program. The derived classes (descendants)  
-override or extend the functionality of base classes (ancestors).  
+benefits of inheritance are code reuse and reduction of complexity of a program. The derived classes  
+(descendants) override or extend the functionality of base classes (ancestors).   
 
 ```python
 #!/usr/bin/python
