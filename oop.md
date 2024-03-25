@@ -1,15 +1,16 @@
 # Object-oriented programming
 
 
-There are three widely used programming paradigms there: procedural programming, functional programming,  
-and object-oriented programming. Python supports all three programming paradigms. 
+There are three widely used programming paradigms there: procedural programming,  
+functional programming, and object-oriented programming. Python supports all three  
+programming paradigms. 
 
 ## Object-oriented programming
 
-*Object-oriented programming (OOP)* is a programming paradigm that uses objects and their interactions to   
-design applications and computer programs. 
+*Object-oriented programming (OOP)* is a programming paradigm that uses objects and their  
+interactions to design applications and computer programs.  
 
-There are some basic programming concepts in OOP:
+There are some basic programming concepts in OOP: 
 
 - Abstraction
 - Polymorphism
