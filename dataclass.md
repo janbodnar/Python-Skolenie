@@ -187,6 +187,43 @@ print(p.occupation)
 In the example, the frozen parameter is set to `True`. The program fails with the following error message:  
 *dataclasses.FrozenInstanceError: cannot assign to field 'occupation'.*
 
+## Sorting 
+
+When the `@dataclass` decorator’s order parameter is set to `Tru`e, Python  
+automatically adds the special methods `__lt__`, `__le__`, `__gt__`, and `__ge__` to  
+the class. These methods are used for comparisons: less than, less than or equal to,  
+greater than, and greater than or equal to, respectively. The comparisons are based  
+on the attributes of the dataclass instances, in the order they are defined in the class.  
+
+```python
+from dataclasses import dataclass
+import operator
+
+@dataclass(order=True)
+class User:
+    fname: str
+    lname: str
+    occupation: str
+
+users = [User('John', 'Doe', 'gardener'), User('Adam', 'Roe', 'student'),
+         User('Jane', 'Doe', 'teacher'), User('Roger', 'Roe', 'driver'),
+         User('Leo', 'Abramovic', 'singer'), User('Tomas', 'Wager', 'programmer'),
+         User('John', 'Adams', 'dentist'), User('Sam', 'Brown', 'actor'),
+         User('John', 'Smith', 'broker'), User('Rob', 'Roe', 'dancer')]
+
+
+# sorted_users = sorted(users)
+# for user in sorted_users:
+#     print(user)
+
+
+res = sorted(users, key=operator.attrgetter("lname", "fname"))
+
+for e in res:
+    print(e)
+```
+
+
 ## The asdict function
 
 The `asdict` function converts a dataclass instance to a dict of its fields.
