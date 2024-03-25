@@ -6,6 +6,8 @@ Python f-strings provide a faster, more readable, more concise, and less error p
 of formatting strings in Python.
 
 The f-strings have the `f` prefix and use `{}` brackets to evaluate values.  
+
+```python
 #!/usr/bin/python
 
 name = 'John Doe'
@@ -17,6 +19,8 @@ age: {age}
 occupation: {occupation}'''
 
 print(msg)
+```
+
 Format specifiers for types, padding, or aligning are specified after the colon character;  
 for instance: `f'{price:.3}'`, where price is a variable name. 
 
