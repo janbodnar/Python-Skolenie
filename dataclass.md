@@ -248,8 +248,9 @@ In the example, we have an additional occupation field.
 
 ```python
 occupation: str = field(init=False, repr=False)
-The occupation field is not included in the __init__ and __repr__ methods.
 ```
+
+The occupation field is not included in the `__init__` and `__repr__` methods.
 
 ```
 $ ./fields.py
