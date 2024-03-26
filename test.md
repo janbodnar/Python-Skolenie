@@ -1,6 +1,16 @@
 # Test example
 
 ```python
+
+from dataclasses import dataclass
+
+# nacitat data
+# vytvorit list dataclass objektov
+# for loop -> vypis vsetkych studentov
+
+# open, Path
+
+
 @dataclass
 class User:
     fname: str
@@ -25,6 +35,6 @@ with open(fname, 'r') as f:
 
 for user in users:
     match user:
-        case User(fname, lname, 'student'):
-            print(f'{user.fname} {user.lname} is a student')
+        case User(fname, lname, 'teacher') | User(fname, lname, 'driver'):
+            print(f'{user.fname} {user.lname} is a teacher or driver')
 ```
