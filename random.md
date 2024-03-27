@@ -1,5 +1,19 @@
 # Generating random values
 
+*Random number generator (RNG)* generates a set of values that do not display any distinguishable  
+patterns in their appearance. The random number generators are divided into two categories:  
+hardware random-number generators and pseudo-random number generators. Hardware random-number  
+generators are believed to produce genuine random numbers. Pseudo-random number generators  
+generate values based on software algorithms. They produce values that look random. But these  
+values are deterministic and can be reproduced, if the algorithm is known.
+
+In computing, random generators are used in gambling, gaming, simulations, or cryptography.  
+
+
+To increase the quality of the pseudo random-number generators, operating systems use  
+environmental noise collected from device drivers, user input latency, or jitter from one or  
+more hardware components. This is the core of the cryptographically secure pseudo-random  
+number generators.
 
 ## random 
 
