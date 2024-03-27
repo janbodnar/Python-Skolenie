@@ -114,3 +114,21 @@ import random
 print(random.sample(range(10, 30), 3))
 ```
 
+The example creates a bag of colored balls (represented by colors) with different  
+quantities (counts). It then uses `random.sample` to pick 4 balls, considering the  
+number of each color available (using the counts attribute). The output will likely  
+have more 'red' balls than others since there are more red ones in the bag.  
+
+```python
+import random
+
+# Simulate a bag of balls (colors) with different counts
+colors = ['red', 'green', 'blue']
+counts = [3, 2, 1]  # Red has more balls
+
+# Sample 4 elements, respecting the counts
+chosen_colors = random.sample(colors, 4, counts=counts)
+
+print(chosen_colors)  # Output: Likely includes more 'red' than others
+```
+
