@@ -68,7 +68,17 @@ The `choice(seq)` function returns a random element from the non-empty sequence 
 
 ```python
 import random
+
 print(random.choice('abcdefghij'))
+```
+
+We can specify population sample `k` and probability weights.  
+
+```python
+import random
+
+res = random.choices('abcdef', k=3, weights=[1, 5, 3, 1, 1, 10])
+print(res)
 ```
 
 AI-generated code. Review and use carefully. More info on FAQ.
