@@ -9,11 +9,12 @@ values are deterministic and can be reproduced, if the algorithm is known.
 
 In computing, random generators are used in gambling, gaming, simulations, or cryptography.  
 
-
 To increase the quality of the pseudo random-number generators, operating systems use  
 environmental noise collected from device drivers, user input latency, or jitter from one or  
 more hardware components. This is the core of the cryptographically secure pseudo-random  
 number generators.
+
+> For security purposes, cryptographically secure pseudo-random number generators must be used.  
 
 ## random 
 
@@ -95,4 +96,3 @@ import random
 print(random.sample(range(10, 30), 3))
 ```
 
-Please note that the random module uses the pseudo-random number generator which is not suitable for security-sensitive applications. For such use-cases, consider using the secrets module.
