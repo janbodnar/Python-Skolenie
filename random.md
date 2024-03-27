@@ -62,6 +62,15 @@ import random
 print(random.randrange(0, 101, 10))
 ```
 
+creating a list of random vals
+
+```python
+import random
+
+rvals = [random.randrange(10, 110, 10) for _ in range(10)]
+print(rvals)
+```
+
 ## choice
 
 The `choice(seq)` function returns a random element from the non-empty sequence seq.  
