@@ -676,11 +676,13 @@ $ ./list_transform.py
 A *set* is an unordered collection of data with no duplicate elements. A set supports  
 operations like union, intersection, or difference; similar as in Mathematics.
 
-```python
-#!/usr/bin/python
+### Newer syntax
 
-set1 = set(['a', 'b', 'c', 'c', 'd'])
-set2 = set(['a', 'b', 'x', 'y', 'z'])
+Newer syntax uses `{}` to define sets, older uses the `set` function. 
+
+```python
+set1 = {'a', 'b', 'c', 'c', 'd'}
+set2 = {'a', 'b', 'x', 'y', 'z'}
 
 print("set1: " , set1)
 print("set2: " , set2)
@@ -696,14 +698,15 @@ The union operation returns all elements from both sets. The difference returns 
 that are in the set1 but not is set2. And finally, the symmetric difference returns elements  
 that are in set1 or set2, but not in both.
 
+
 ```
 $ ./sets.py
-set1: set(['a', 'c', 'b', 'd'])
-set2: set(['a', 'x', 'b', 'y', 'z'])
-intersection: set(['a', 'b'])
-union: set(['a', 'c', 'b', 'd', 'y', 'x', 'z'])
-difference: set(['c', 'd'])
-symmetric difference: set(['c', 'd', 'y', 'x', 'z'])
+set1:  {'a', 'c', 'b', 'd'}
+set2:  {'x', 'b', 'z', 'a', 'y'}
+intersection:  {'a', 'b'}
+union:  {'d', 'z', 'x', 'b', 'a', 'y', 'c'}
+difference:  {'c', 'd'}
+symmetric difference:  {'x', 'd', 'z', 'y', 'c'}
 ```
 
 Next we introduce some other operations with sets.
@@ -711,13 +714,11 @@ Next we introduce some other operations with sets.
 ```python
 #!/usr/bin/python
 
-# sets2.py
-
-set1 = set([1, 2])
+set1 = {1, 2}
 set1.add(3)
 set1.add(4)
 
-set2 = set([1, 2, 3, 4, 6, 7, 8])
+set2 = {1, 2, 3, 4, 6, 7, 8}
 set2.remove(8)
 
 print(set1)
@@ -736,11 +737,11 @@ element in set2 is also in set1. The set1 is a subset of set2 if every element i
 
 ```
 $ ./sets2.py
-set([1, 2, 3, 4])
-set([1, 2, 3, 4, 6, 7])
-Is set1 subset of set2 ? :  True
-Is set1 superset of set2 ? :  False
-set([])
+{1, 2, 3, 4}
+{1, 2, 3, 4, 6, 7}
+Is set1 subset of set2 ? : True
+Is set1 superset of set2 ? : False
+set()
 ```
 
 If we need an immutable set, we can create a frozen set with the frozenset function.
@@ -750,6 +751,14 @@ fs = frozenset(['a', 'b', 'c'])
 ```
 
 This line creates a frozen set from a list.
+
+Find common and different functionality for bytes, strings and lists and tuples.  
+
+```python
+print(set(dir(bytes)) - set(dir(str)))
+print(set(dir(list)) & set(dir(tuple)))
+```
+
 
 ## Dictionaries
 
