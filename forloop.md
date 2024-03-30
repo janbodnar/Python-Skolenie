@@ -398,7 +398,7 @@ We print all numbers smaller than 1000 that cannot be divided by number 2 withou
 
 ## Declarative iteration
 
-There are equivalent of Java's `forEach` loop, but they are awkward.  
+The following Java code uses a declarative loop using `forEach`. 
 
 ```java
 import java.util.List;
@@ -410,6 +410,8 @@ void main() {
     vals.forEach(e -> System.out.println(e));
 }
 ```
+
+There are equivalent of Java's `forEach` loop in Python, but they are awkward.  
 
 ```python
 vals = [1, 2, 3, 4, 5]
