@@ -1,8 +1,9 @@
 # Python for loop
 
-A *loop* is a sequence of instructions that is continually repeated until a certain condition is reached.  
-For instance, we have a collection of items and we create a loop to go through all elements of the collection.  
-Loops in Python can be created with `for` or `while` statements.
+A *loop* is a sequence of instructions that is continually repeated until  
+a certain condition is reached. For instance, we have a collection of items  
+and we create a loop to go through all elements of the collection.  
+Loops in Python can be created with `for` or `while` statements.  
 
 ## The for statement
 
@@ -25,12 +26,13 @@ The following example uses Python for statement to go through a string.
 
 word = "cloud"
 
-for let in word:
+for e in word:
     
-    print(let)
+    print(e)
 ```
 
-We have a string defined. With the for loop, we print the letters of the word one by one to the terminal.
+We have a string defined. With the for loop, we print the letters of the word   
+one by one to the terminal.
 
 ```
 $ ./for_loop_string.py 
@@ -40,6 +42,33 @@ o
 u
 d
 ```
+
+## Syntax sugar
+
+The `for` loop is a syntax sugar for the following `while` loop:
+
+```python
+vals = [1, 2, 3, 4, 5, 6]
+
+
+it = iter(vals)
+
+while True:
+    try:
+        e = next(it)
+    except StopIteration:
+        break
+    else:
+        print(e)
+```
+
+The code is equivalent to:
+
+```python
+for e in vals:
+  print(e)
+```
+
 
 ## Loop & else
 
