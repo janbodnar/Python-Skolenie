@@ -395,3 +395,32 @@ for num in range(1000):
 print()
 ```
 We print all numbers smaller than 1000 that cannot be divided by number 2 without a remainder.
+
+## Declarative iteration
+
+There are equivalent of Java's `forEach` loop, but they are awkward.  
+
+```java
+import java.util.List;
+
+void main() {
+
+    var vals = List.of("sky", "blue", "nice");
+
+    vals.forEach(e -> System.out.println(e));
+}
+```
+
+```python
+vals = [1, 2, 3, 4, 5]
+
+mv = map(lambda e: print(e), vals)
+
+for _ in mv:
+    pass
+
+[print(e) for e in vals]
+
+list(map(lambda e: print(e), vals))
+```
+
