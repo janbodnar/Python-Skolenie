@@ -2,6 +2,7 @@
 
 - Python language
 - VS Code editor
+- VS Code Python extensions
 - Windows Terminal
 
 
