@@ -1,7 +1,5 @@
 # Introduction
 
-This is an introduction to the Python programming language.  
-
 
 ## Python
 
