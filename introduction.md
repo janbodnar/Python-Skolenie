@@ -129,6 +129,23 @@ words = ['sky', 'book', 'war', 'cup']
 print(words)
 ```
 
+The example creates a list of integers and a list of strings.  
+
+```python
+vals = [1, 2, 3, 4, 5]
+print(vals)
+```
+
+We define and print a list of integers.
+
+```python
+for val in vals:
+    print(val)
+```
+
+We go over the elements of a list with `for` loop.  
+
+
 ## Python reading input
 
 
