@@ -42,9 +42,15 @@ echo %path:;=&echo(%
 
 ## VS Code 
 
+VS Code, short for Visual Studio Code, is a popular source code editor that's both  
+lightweight and powerful. Unlike a full-fledged Integrated Development Environment  
+(IDE) like Visual Studio, VS Code focuses on being a fast and efficient tool for writing code.  
+
 [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 
 ```
 winget install Microsoft.VisualStudioCode
 ```
+
+
 
