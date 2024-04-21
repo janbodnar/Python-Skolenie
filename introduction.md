@@ -5,11 +5,23 @@
 
 Python is a general-purpose, dynamic, object-oriented programming language.  
 The design purpose of the Python language emphasizes programmer productivity  
-and code readability. Python was initially developed by Guido van Rossum.  
-It was first released in 1991. Python was inspired by ABC, Haskell, Java, Lisp, Icon,  
-and Perl  programming languages. Python is a high-level, general purpose,  
-multi-platform, interpreted language. Python is maintained by a large group  
-of volunteers worldwide. Python is open source software.  
+and code readability.  
+
+Python was initially developed by Guido van Rossum.  
+
+It was first released in 1991. 
+
+Python was inspired by:
+
+- ABC
+- Haskell
+- Java
+- Lisp
+- Icon
+- Perl
+
+Python is a high-level, general purpose, multi-platform, interpreted language.  
+Python is maintained by a large group of volunteers worldwide. Python is open source software.  
 
 Python is a minimalistic language. One of its most visible features is that it  
 does not use semicolons nor brackets; Python uses indentation instead.  
@@ -30,6 +42,7 @@ mostly mean CPython. IronPython is implemented in C#. It is part of the .NET fra
 Similarly, Jython is an implementation of the Python language in Java. Jython  
 program is translated into the Java bytecode and executed by the JVM (Java Virtual Machine).  
 In this tutorial, we work with CPython.  
+
  
 ## Popularity
  
