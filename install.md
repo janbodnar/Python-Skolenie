@@ -1,5 +1,9 @@
 # Installation
 
+- Python language
+- VS Code editor
+- Windows Terminal
+
 
 ## Download
 
