@@ -41,7 +41,7 @@ a distributed source management tool Mercurial, a Django web framework, a PyQt G
 or a package management utility called Yum.  
 
 [Stackoverflow survey ](https://survey.stackoverflow.co/2023/#programming-scripting-and-markup-languages)
-
+[JetBrains servey](https://www.jetbrains.com/lp/devecosystem-2023/python/)
 
 ## Python scripts
 
@@ -74,10 +74,10 @@ We can find out the path to the Python interpreter using the <code>which</code> 
 
 Python scripts can be run in two ways:  
 
-<pre class="compact">
+```
 $ python first.py
 The Python tutorial
-</pre>
+```
 
 <p>
 Python script is given as an argument to the interpreter. 
