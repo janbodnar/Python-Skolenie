@@ -1,6 +1,9 @@
 # Installation
 
 
+## Download
+
+[www.python.org/downloads/](https://www.python.org/downloads/)
 
 ## PATH variable
 
