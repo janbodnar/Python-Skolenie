@@ -197,3 +197,26 @@ $ ./command_line_arguments.py 1 2 3
 Script name: ./command_line_arguments.py
 Arguments: 1 2 3 
 ```
+
+## Random values 
+
+The `raindom` module is used to work with randomness.  
+
+```python
+import random 
+
+r1 = random.randint(0, 10)
+print(r1)
+
+r2 = random.randrange(500, 1000, 50)
+print(r2)
+
+vals = [11, 22, 33, 44, 55, 66, 77]
+r3 = random.choice(vals)
+print(r3)
+
+words = ['sky', 'atom', 'war', 'cup', 'book', 'zebra', 'moon']
+r4 = random.sample(words, 2)
+print(r4)
+```
+
