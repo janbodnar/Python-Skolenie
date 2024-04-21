@@ -5,6 +5,14 @@
 
 [www.python.org/downloads/](https://www.python.org/downloads/)
 
+## Using winget 
+
+winget is a modern Windowns package manager.  
+
+```
+winget install Python.Python.3.12
+```
+
 ## PATH variable
 
 The `PATH` variable in Windows is an environment variable that contains a list of  
