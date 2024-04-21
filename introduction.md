@@ -104,7 +104,30 @@ The Python tutorial
 We use the <code>chmod</code> command to make the file executable. 
 The program is launched.
 
+## Lists 
 
+A Python list is a fundamental data structure that allows you to store an ordered  
+collection of items. Here are some key characteristics of Python lists:
+
+- Ordered: Elements in a list have a defined sequence, and the order you add them
+  in is preserved. This means you can access elements by their position (index) in the list.
+- Mutable: You can change, add, or remove elements from a list even after it's created.
+  This makes them flexible for storing and manipulating data.
+- Heterogeneous: Lists can hold elements of different data types (e.g., integers, strings, booleans)
+  within the same list.
+
+You can create a Python list using square brackets `[]` and separating elements with commas.  
+
+```python
+vals = [1, 2, 3, 4, 5]
+print(vals)
+
+for val in vals:
+    print(val)
+
+words = ['sky', 'book', 'war', 'cup']
+print(words)
+```
 
 ## Python reading input
 
