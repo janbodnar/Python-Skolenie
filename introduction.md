@@ -20,7 +20,7 @@ Python supports several programming styles. It does not force a programmer to a 
 paradigm. It supports procedural, object oriented, and functional programming.  
 
 
-The official web site for the Python programming language is [python.org](https://python.org")
+The official web site for the Python programming language is [python.org](https://python.org)
 
 
 ## Python implementations
