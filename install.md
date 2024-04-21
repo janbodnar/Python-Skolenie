@@ -1,8 +1,7 @@
 # Installation
 
 - Python language
-- VS Code editor
-- VS Code Python extensions
+- VS Code editor & Python extension
 - Windows Terminal
 
 
