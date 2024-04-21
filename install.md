@@ -5,11 +5,15 @@
 - Windows Terminal
 
 
-## Download
+## Install Python
+
+We can download an installation file from `python.org` or use `winget` package manager.  
+
+### Download
 
 [www.python.org/downloads/](https://www.python.org/downloads/)
 
-## Using winget 
+### Using winget 
 
 winget is a modern Windowns package manager.  
 
