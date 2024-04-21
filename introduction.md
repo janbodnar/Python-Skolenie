@@ -2,13 +2,6 @@
 
 This is an introduction to the Python programming language.  
 
-## Goal
-
-The goal of this tutorial is to get you started with the Python programming language.  
-Python is a great language to learn. It is an ideal language for those who are new to programming.  
-You can create scripts, web sites, games, or desktop applications in Python.  
-Even if you do not want to become a programmer, Python may be a great tool for occasional  
-programmers or hobbyists.  
 
 ## Python
 
@@ -27,8 +20,7 @@ Python supports several programming styles. It does not force a programmer to a 
 paradigm. It supports procedural, object oriented, and functional programming.  
 
 
-The official web site for the Python programming language is 
-<a href="http://python.org">python.org</a>
+The official web site for the Python programming language is [python.org](https://python.org")
 
 
 ## Python implementations
