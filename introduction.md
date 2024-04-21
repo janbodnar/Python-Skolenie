@@ -40,8 +40,8 @@ languages. Some very popular Python projects include
 a distributed source management tool Mercurial, a Django web framework, a PyQt GUI library,  
 or a package management utility called Yum.  
 
-[Stackoverflow survey ](https://survey.stackoverflow.co/2023/#programming-scripting-and-markup-languages)
-[JetBrains servey](https://www.jetbrains.com/lp/devecosystem-2023/python/)
+[Stackoverflow survey ](https://survey.stackoverflow.co/2023/#programming-scripting-and-markup-languages)  
+[JetBrains servey](https://www.jetbrains.com/lp/devecosystem-2023/python/)  
 
 ## Python scripts
 
