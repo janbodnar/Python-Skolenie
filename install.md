@@ -52,5 +52,12 @@ lightweight and powerful. Unlike a full-fledged Integrated Development Environme
 winget install Microsoft.VisualStudioCode
 ```
 
+## Windows Terminal 
+
+Windows Terminal is a modern terminal on Windows OS. 
+
+```
+winget install Microsoft.WindowsTerminal
+```
 
 
