@@ -4,6 +4,14 @@
 
 ## PATH variable
 
+The `PATH` variable in Windows is an environment variable that contains a list of  
+directories where the operating system looks for executable files. When you type  
+a command in the command prompt, Windows searches through the `PATH` directories to  
+find the executable file to run.
+
+Press `Windows+R`, type `sysdm.cpl`, and press `Enter` to open System Properties.  
+Go to the Advanced tab and click on Environment Variables.  
+
 
 To print all paths:  
 
