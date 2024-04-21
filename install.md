@@ -34,9 +34,17 @@ To print all paths:
 echo %path%
 ```
 
-
 To print all directories, each directory is on a separate line:  
 
 ```
 echo %path:;=&echo(%
 ```
+
+## VS Code 
+
+[https://code.visualstudio.com/download](https://code.visualstudio.com/download)
+
+```
+winget install Microsoft.VisualStudioCode
+```
+
