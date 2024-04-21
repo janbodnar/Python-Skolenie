@@ -41,7 +41,7 @@ a distributed source management tool Mercurial, a Django web framework, a PyQt G
 or a package management utility called Yum.  
 
 [Stackoverflow survey ](https://survey.stackoverflow.co/2023/#programming-scripting-and-markup-languages)  
-[JetBrains servey](https://www.jetbrains.com/lp/devecosystem-2023/python/)  
+[JetBrains survey](https://www.jetbrains.com/lp/devecosystem-2023/python/)  
 
 ## Python scripts
 
