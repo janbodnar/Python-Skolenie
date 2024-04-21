@@ -64,4 +64,7 @@ Windows Terminal is a modern terminal on Windows OS.
 winget install Microsoft.WindowsTerminal
 ```
 
+## Online Python
+
+[www.online-python.com](https://www.online-python.com/)
 
