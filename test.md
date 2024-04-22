@@ -1,9 +1,14 @@
 # Test example
 
 ```python
-words = ['sky', 'blue', 'cup', 'war']
+words = ['an', 'old', 'falcon']
+
+print(words[0] + ' ' + words[1] + ' ' + words[2])
+
+msg = ''
 
 for e in words:
-    print(e, 'has', len(e), 'letters')
-    print(f'{e} has {len(e)} letters')
+    msg = msg + ' ' + e
+
+print(msg)
 ```
