@@ -1,14 +1,16 @@
 # Test example
 
 ```python
-words = ['an', 'old', 'falcon']
 
-print(words[0] + ' ' + words[1] + ' ' + words[2])
+nums = "1,5,6,8,2,3,1,9"
 
-msg = ''
+k = nums.split(",")
+print(k)
 
-for e in words:
-    msg = msg + ' ' + e
+mysum = 0
 
-print(msg)
+for e in k:
+    mysum = mysum + int(e)
+
+print(e)
 ```
