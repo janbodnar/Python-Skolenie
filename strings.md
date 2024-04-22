@@ -129,8 +129,11 @@ s3 = "Eagle  "
 print(len(s1))
 print(len(s2))
 print(len(s3))
+```
+
 We compute the length of three strings.
 
+```
 s1 = "Eagle"
 s2 = "Eagle\n"
 s3 = "Eagle  "
