@@ -1,5 +1,16 @@
 # Test example
 
+```python
+msg = "Hello there! How are you? Fine."
+
+n = 0
+
+for c in msg:
+    if c in ['!', '.', ',', '?', ';', ':']:
+        n = n + 1  
+print(n)
+```
+
 
 ```python
 vals = (-5, 10, 55, 12, -7, 11, 22)
