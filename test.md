@@ -1,6 +1,22 @@
 # Test example
 
 ```python
+def ispunct(c):
+    return c in ['!', '.', ',', '?', ';', ':']
+
+
+msg = "Hello there! How are you? Fine."
+
+n = 0
+
+for c in msg:
+    if ispunct(c):
+        n = n + 1
+
+print(n)
+```
+
+```python
 msg = "Hello there! How are you? Fine."
 
 n = 0
