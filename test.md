@@ -1,5 +1,17 @@
 # Test example
 
+
+```python
+words = ['sky', 'blue', 'cat', 'by', 'cloud', 'an', 'rock', 'pen', 'cup']
+words2 = []
+
+for word in words:
+    if len(word) == 3 and word.startswith("c"):
+        words2.append(word)
+
+print(words2)
+```
+
 ```python
 words = ['sky', 'blue', 'by', 'an', 'rock', 'pen', 'cup']
 words2 = []
