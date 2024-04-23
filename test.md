@@ -1,6 +1,20 @@
 # Test example
 
 ```python
+age_s = input("Enter your age: ")
+age = int(age_s)
+
+if age < 18:
+    print('minor')
+elif age >= 18 and age < 60:
+    print('adult')
+else:
+    print('senior')
+```
+
+
+
+```python
 from random import randint
 
 data = []
