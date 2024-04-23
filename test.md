@@ -1,5 +1,19 @@
 # Test example
 
+```python
+data = "1,2,3,4,5,6,7,8,9,10"
+
+parts = data.split(',')
+print(parts)
+
+mysum = 0
+
+for e in parts:
+    mysum = mysum + int(e)
+
+print(mysum)
+```
+
 
 ```python
 words = ['sky', 'blue', 'cat', 'by', 'cloud', 'an', 'rock', 'pen', 'cup']
