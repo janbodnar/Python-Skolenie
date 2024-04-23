@@ -1,5 +1,14 @@
 # Test example
 
+```python
+words = ['sky', 'blue', 'by', 'an', 'rock', 'pen', 'cup']
+
+for word in words:
+    if len(word) == 2 or len(word) == 3:
+        print(word)
+```
+
+
 
 ```python
 words = ['sky', 'blue', 'rock', 'pen', 'cup']
