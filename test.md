@@ -1,5 +1,24 @@
 # Test example
 
+
+## Datetime
+
+```python
+#!/usr/bin/python
+
+import datetime
+
+now = datetime.datetime.now()
+print(now)
+
+d = datetime.date.today()
+print(d)
+
+t = datetime.datetime.now().time()
+print(t)
+```
+
+
 ```python
 
 vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
