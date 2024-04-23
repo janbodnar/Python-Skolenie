@@ -1,6 +1,16 @@
 # Test example
 
 
+
+```python
+myname = 'John Doe'
+age = 34
+
+print(f"{myname} is {age} years old")
+```
+
+
+
 ## Datetime
 
 ```python
