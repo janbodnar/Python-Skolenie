@@ -1,6 +1,19 @@
 # Test example
 
 ```python
+from random import randint
+
+data = []
+
+for i in range(10):
+    r = randint(0, 100)
+    data.append(r)
+
+print(f'the sum of random 10 values is {sum(data)}')
+```
+
+
+```python
 data = "1,2,3,4,5,6,7,8,9,10"
 
 parts = data.split(',')
