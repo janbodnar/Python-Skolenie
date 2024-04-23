@@ -2,6 +2,19 @@
 
 ```python
 words = ['sky', 'blue', 'by', 'an', 'rock', 'pen', 'cup']
+words2 = []
+
+for word in words:
+    if len(word) == 2 or len(word) == 3:
+        # print(word)
+        words2.append(word)
+
+print(words2)
+```
+
+
+```python
+words = ['sky', 'blue', 'by', 'an', 'rock', 'pen', 'cup']
 
 for word in words:
     if len(word) == 2 or len(word) == 3:
