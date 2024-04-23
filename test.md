@@ -1,6 +1,27 @@
 # Test example
 
 
+```python
+words = ['sky', 'blue', 'rock', 'pen', 'cup']
+
+print(len(words))
+
+print(words[0])
+print(words[-1])
+print(words[4])
+
+for word in words:
+    print(word, end=" ")
+
+words.sort()
+
+print()
+
+for word in words:
+    print(word, end=" ")
+```
+
+
 
 ```python
 myname = 'John Doe'
