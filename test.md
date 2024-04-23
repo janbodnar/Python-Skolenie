@@ -1,5 +1,14 @@
 # Test example
 
+
+```python
+with open('words.txt') as f:
+
+    for line in f:
+        print(line.rstrip())
+```
+
+
 ```python
 def ispunct(c):
     return c in ['!', '.', ',', '?', ';', ':']
