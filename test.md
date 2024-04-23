@@ -1,5 +1,15 @@
 # Test example
 
+
+```python
+vals = (-5, 10, 55, 12, -7, 11, 22)
+
+print(f'minimum je: {min(vals)}')
+print(f'maximum je: {max(vals)}')
+print(f'pocet prvkov je: {len(vals)}')
+print(f'suma je: {sum(vals)}')
+```
+
 ```python
 age_s = input("Enter your age: ")
 age = int(age_s)
