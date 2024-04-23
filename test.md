@@ -1,5 +1,18 @@
 # Test example
 
+```python
+words = []
+
+with open('words.txt') as f:
+
+    lines = f.readlines()
+
+    for line in lines:
+        words.append(line.rstrip())
+
+    print(lines)
+    print(words)
+```
 
 ```python
 with open('words.txt') as f:
