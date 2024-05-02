@@ -107,7 +107,53 @@ print(vals)
 
 The `sorted` function creates a sorted copy of the data; the original values are not modified.  
 
+## Shallow copy vs deep copy
 
+A shallow copy creates copies of objects for one level. To copy also nested objects, we use deep copy.  
+The `copy` function creates a shallow copy, while the `copy.deepcopy` a deep copy.  
 
+```python
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+vals2 = vals.copy()
+
+vals2[0] = 11
+vals2[-1] = 99
+
+print(vals)
+print(vals2)
+```
+
+For a shallow copy of integers, changing the copied list does not affect the original values.  
+
+```python
+vals = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+vals2 = vals.copy()
+
+vals2[0][0] = 11
+vals2[-1][-1] = 99
+
+print(vals)
+print(vals2)
+```
+
+For nested lists, modifying a shallow copy also affects the original list.  
+
+Using deep copy, two distinct copies are created. That is, also the nested  
+objects are full copies.  
+
+```python
+import copy
+
+vals = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+vals2 = copy.deepcopy(vals)
+
+vals2[0][0] = 11
+vals2[-1][-1] = 99
+
+print(vals)
+print(vals2)
+```
+
+Chaning the copied object does not affect the original data.  
 
 
