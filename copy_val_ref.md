@@ -79,3 +79,35 @@ print(vals)
 
 We pass a copy of `vals` to the `modify` function with `vals[:]` or `vals.copy`.  
 
+
+## Modify data in-place or create a modified copy
+
+Often, we have an option to modify data in-place or create a modified copy using different functions.  
+For instance, we have `sort` & `reverse` functions that modify in-place, and `sorted` & `reversed`  
+that create a modified copy.  
+
+```python
+vals = [8, 7, 6, 0, -1, -2, 2, 1, -3, 4, 3, 5]
+
+print(vals)
+vals.sort()
+print(vals)
+```
+
+The `sort` function sorts data in-place. 
+
+```python
+vals = [8, 7, 6, 0, -1, -2, 2, 1, -3, 4, 3, 5]
+
+print(vals)
+vals_s = sorted(vals)
+print(vals_s)
+print(vals)
+```
+
+The `sorted` function creates a sorted copy of the data; the original values are not modified.  
+
+
+
+
+
