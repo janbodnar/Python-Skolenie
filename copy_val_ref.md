@@ -4,6 +4,8 @@ In Python, variables are copied by reference for lists, dictionaries, and sets.
 For basic values (integers, strings) and for other immutable objects (tuples) the  
 variables are copied by value.  
 
+Copy by reference is used to save memory for large data structures.  
+
 ```python
 x = 10 
 y = x
