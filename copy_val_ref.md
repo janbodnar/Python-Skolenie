@@ -57,5 +57,25 @@ print(vals)
 
 Modifying data inside the function alters the original data.  
 
+If we do not want to modify the original data, we pass a copy of the data  
+to the function.  
 
+```python
+def modify(data):
+
+    for i, _ in enumerate(data):
+        data[i] *= 2
+
+    print(f'inside modify: {data}')
+
+
+vals = [1, 2, 3, 4, 5]
+
+print(vals)
+modify(vals[:])
+modify(vals.copy()) # vals[:] and vals.copy do the same
+print(vals)
+```
+
+We pass a copy of `vals` to the `modify` function with `vals[:]` or `vals.copy`.  
 
