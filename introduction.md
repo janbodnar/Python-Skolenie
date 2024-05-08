@@ -57,7 +57,7 @@ or a package management utility called Yum.
 ## Learning materials 
 
 Books:  
-- [Python Crash Course](https://www.amazon.co.uk/Python-Crash-Course-3Rd-Matthes/)
+- [Python Crash Course](https://www.amazon.co.uk/Python-Crash-Course-3Rd-Matthes/dp/1718502702)
 
 Videos:  
 - [Python for Everyone: From Zero to Hero 6 Hours Complete Course](https://www.youtube.com/watch?v=JZDQKj9BOoc)
