@@ -54,6 +54,15 @@ or a package management utility called Yum.
 [Stackoverflow survey ](https://survey.stackoverflow.co/2023/#programming-scripting-and-markup-languages)  
 [JetBrains survey](https://www.jetbrains.com/lp/devecosystem-2023/python/)  
 
+## Learning materials 
+
+Books:  
+- [Python Crash Course](https://www.amazon.co.uk/Python-Crash-Course-3Rd-Matthes/)
+
+Videos:  
+- [Python for Everyone: From Zero to Hero 6 Hours Complete Course](https://www.youtube.com/watch?v=JZDQKj9BOoc)
+- [Python Full Course for Beginners](https://www.youtube.com/watch?v=H2EJuAcrZYU)
+
 ## Python scripts
 
 Every script in the Unix starts with a <em>shebang</em>. The shebang is the first two  
