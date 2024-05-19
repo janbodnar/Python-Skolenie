@@ -67,5 +67,5 @@ winget install Microsoft.WindowsTerminal
 ## Online Python
 
 [www.online-python.com](https://www.online-python.com/)  
-[https://programiz.pro/ide/python](https://programiz.pro/ide/python)  
+[programiz.pro/ide/python](https://programiz.pro/ide/python)  
 
