@@ -1,5 +1,15 @@
 # Samples
 
+
+```python
+i = 10
+
+while i > 0:
+    print('falcon')
+    # i += 1
+    i = i - 1
+```
+
 ```python
 vals = [-2, 3, 0, 4, -6, 0, 9]
 
