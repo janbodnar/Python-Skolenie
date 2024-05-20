@@ -1,6 +1,20 @@
 # Samples
 
 ```python
+vals = [-2, 3, 0, 4, -6, 0, 9]
+
+for e in vals:
+    if e < 0:
+        print(f'{e} is negative')
+    elif e == 0:
+        print(f'{e} is zero')
+    else:
+        print(f'{e} is positive')
+```
+
+
+
+```python
 import random
 
 
