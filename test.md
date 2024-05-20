@@ -1,5 +1,16 @@
 # Samples
 
+```python
+words = ['sky', 'top', 'warm', 'clear', 'war', 'by', 'net', 'falcon', 'cup']
+words_w = []
+
+for word in words:
+    if word.startswith('w') or word.startswith('c'):
+        words_w.append(word)
+
+print(words)
+print(words_w)
+```
 
 ```python
 words = ['sky', 'top', 'warm', 'clear', 'war', 'by', 'net', 'falcon']
