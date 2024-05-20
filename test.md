@@ -1,6 +1,20 @@
 # Samples
 
 ```python
+age_s = input('Enter your age: ')
+age = int(age_s)
+
+if age < 18:
+    print('minor')
+# elif age >= 18 and age < 70:
+elif 18 <= age < 70:
+    print('adult')
+else:
+    print('senior')
+```
+
+
+```python
 vals = [1, 2, -3, -4, 0, 2, 1, 9, 11, -22]
 
 maximum = max(vals)
