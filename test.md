@@ -2,6 +2,18 @@
 
 
 ```python
+words = ['sky', 'top', 'warm', 'clear', 'war', 'by', 'net', 'falcon']
+words_w = []
+
+for word in words:
+    if word.startswith('w'):
+        words_w.append(word)
+
+print(words)
+print(words_w)
+```
+
+```python
 words = ['sky', 'top', 'clear', 'by', 'net', 'falcon']
 words_3 = []
 
