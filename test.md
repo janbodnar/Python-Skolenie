@@ -1,6 +1,20 @@
 # Samples
 
 ```python
+vals = [1, 2, -3, -4, 0, 2, 1, 9, 11, -22]
+
+maximum = max(vals)
+minimum = min(vals)
+n = len(vals)
+mysum = sum(vals)
+
+print(f'maximum is {maximum}')
+print(f'minimum is {minimum}')
+print(f'length is {n}')
+print(f'the sum is {mysum}')
+```
+
+```python
 words = ['sky', 'top', 'warm', 'clear', 'war', 'by', 'net', 'falcon', 'cup']
 words_w = []
 
