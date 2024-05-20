@@ -362,7 +362,7 @@ first * 3 :  (1, 2, 3, 1, 2, 3, 1, 2, 3)
 
 Next we do some indexing.
 
-```
+```python
 #!/usr/bin/python
 
 # tuples2.py
