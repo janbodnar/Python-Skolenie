@@ -1,10 +1,23 @@
 # Samples
 
+
+```python
+words = ['sky', 'top', 'clear', 'by', 'net', 'falcon']
+words_3 = []
+
+for word in words:
+    if len(word) == 3:
+        words_3.append(word)
+
+print(words)
+print(words_3)
+```
+
+
 ```python
 mix = (1, 2, 3, (1, 2, 3, (1, 2, 3, (11, 12, 13))))
 print(mix[3][3][3][2])
 ```
-
 
 
 ```python
