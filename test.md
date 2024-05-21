@@ -1,6 +1,21 @@
 # Samples
 
 ```python
+words = ['sky', 'war', 'water', 'cup', 'ocean', 'owl']
+
+data = list(filter(lambda e: e.startswith('w'), words))
+print(data)
+
+data = list(filter(lambda e: e.startswith('w') or e.startswith('o'), words))
+print(data)
+
+data = list(filter(lambda e: len(e) == 3, words))
+print(data)
+```
+
+
+
+```python
 def starts_w(e):
     return e.startswith('w')
 
