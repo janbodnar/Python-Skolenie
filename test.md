@@ -1,5 +1,35 @@
 # Samples
 
+
+## Read CSV data
+
+```
+1,2,3,4,5,6,7,8,9,10
+11,12,13,14,15,16,17
+18,19,20,21,22,23,24
+```
+
+```python
+import csv
+
+values = []
+
+with open('vals.csv') as f:
+    reader = csv.reader(f)
+
+    for row in reader:
+        values.extend(row)
+
+        # print(row)
+        # lines.extend(row)
+        # for e in row:
+        #     lines.append(e)
+
+    print(sum(map(lambda e: int(e), values)))
+```
+
+## map fun
+
 ```python
 def twice(e: int):
     return e * 2
