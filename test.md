@@ -1,5 +1,26 @@
 # Samples
 
+
+```python
+words = ['sky', 'cup', 'blue', 'bottom', 'war', 'atom', 'water', 'car']
+words_w = []
+words_w_c = []
+
+for word in words:
+    if word.startswith('w'):
+        words_w.append(word)
+
+print(words_w)
+
+
+for word in words:
+    if word.startswith('w') or word.startswith('c'):
+        words_w_c.append(word)
+
+print(words_w_c)
+```
+
+
 ```python
 
 words = ['sky', 'blue', 'bottom', 'war', 'atom', 'water', 'car']
