@@ -20,7 +20,7 @@ vals = [-2, 0, 3, 2, 6, -9, 11, -7, -5]
 doubled = list(map(lambda e: e * 2, vals))
 print(doubled)
 
-cubed = list(map(lambda e: e * 3, vals))
+cubed = list(map(lambda e: e ** 3, vals))
 print(cubed)
 ```
 
