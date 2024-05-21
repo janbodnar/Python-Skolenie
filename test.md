@@ -1,6 +1,23 @@
 # Samples
 
 ```python
+
+words = ['sky', 'blue', 'bottom', 'war', 'atom', 'water', 'car']
+
+for word in words:
+    print(word)
+
+for word in words:
+    print(word, end=' ')
+
+print()
+
+for word in words:
+    print(word.capitalize(), end=' ')
+```
+
+
+```python
 age_s = input('Enter your age: ')
 age = int(age_s)
 
