@@ -1,5 +1,17 @@
 # Samples
 
+
+```python
+nums = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+
+for i in nums:
+    for e in i:
+        for f in e:
+            print(f)
+```
+
+
+
 ```python
 data = '1-2-3-4-5-6-7-8-9-10'
 mysum = 0
