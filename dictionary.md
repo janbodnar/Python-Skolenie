@@ -241,8 +241,11 @@ domains2 = { "us": "United States", "no": "Norway" }
 domains.update(domains2)
 
 print(domains)
-Two dictionaries are joined with the update method.
+```
 
+Two dictionaries are joined with the update method.  
+
+```python
 domains.update(domains2)
 ```
 
