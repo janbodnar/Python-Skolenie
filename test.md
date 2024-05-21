@@ -28,6 +28,24 @@ with open('vals.csv') as f:
     print(sum(map(lambda e: int(e), values)))
 ```
 
+---
+
+```python
+filename = 'termopyly.txt'
+
+with open(filename) as f:
+    content = f.read()
+
+freq = {}
+for c in content:
+    freq[c] = freq.get(c, 0) + 1
+
+print(freq)
+
+for k, v in freq.items():
+    print(f'{k} is there {v} times')
+```
+
 ## map fun
 
 ```python
