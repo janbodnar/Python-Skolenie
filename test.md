@@ -1,5 +1,21 @@
 # Samples
 
+```python
+def starts_w(e):
+    return e.startswith('w')
+
+def starts_w_o(e):
+    return e.startswith('w') or e.startswith('o')
+
+words = ['sky', 'war', 'water', 'cup', 'ocean', 'owl']
+
+data = list(filter(starts_w, words))
+print(data)
+
+data = list(filter(starts_w_o, words))
+print(data)
+```
+
 
 ```python
 vals = (1, 2, 3, 7, 8, 11, 12, -6, -21, 22)
