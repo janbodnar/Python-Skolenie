@@ -361,7 +361,8 @@ print("de" in domains)
 print("cz" in domains)
 ```
 
-With the in keyword, we check if the "de", "cz" keys are present in the domains dictionary. The return value is either True or False.
+With the in keyword, we check if the "de", "cz" keys are present in the domains dictionary. 
+The return value is either `True` or `False`.
 
 ```
 $ ./keys_values.py
@@ -645,8 +646,11 @@ print("###############")
 for key, value in sorted(items.items(), key=lambda pair: pair[1], reverse=True):
 
     print("{0}: {1}".format(key, value))
-The example prints the data in ascending and descending order by their values.
+```
 
+The example prints the data in ascending and descending order by their values.  
+
+```python
 for key, value in sorted(items.iteritems(),
     key=lambda (k,v): (v,k)):
 ```
