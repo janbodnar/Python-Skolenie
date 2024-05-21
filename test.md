@@ -25,6 +25,30 @@ for k, v in freq.items():
     print(f'{k} is there {v} times')
 ```
 
+---
+
+```python
+freq = {}
+
+filename = 'termopyly.txt'
+with open(filename) as f:
+
+    content = f.read()
+
+    for c in content:
+
+        if c in freq:
+            freq[c] += 1
+        else:
+            freq[c] = 1
+
+
+print(freq)
+
+for k, v in freq.items():
+    print(f'{k} is there {v} times')
+```
+
 ## Read CSV data
 
 ```
