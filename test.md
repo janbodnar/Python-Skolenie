@@ -2,6 +2,26 @@
 
 
 ```python
+vals = (1, 2, 3, 7, 8, 11, 12, -6, -21, 22)
+evens = []
+odds = []
+
+for val in vals:
+    if val % 2 == 0:
+        evens.append(val)
+        
+print(evens)
+
+for val in vals:
+    if val % 2 == 1:
+        odds.append(val)
+
+print(odds)
+```
+
+
+
+```python
 nums = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
 
 for i in nums:
