@@ -1,5 +1,29 @@
 # Samples
 
+## Frequency
+
+```
+The Battle of Thermopylae was fought between an alliance of Greek city-states,
+led by King Leonidas of Sparta, and the Persian Empire of Xerxes I over the
+course of three days, during the second Persian invasion of Greece.
+```
+
+
+```python
+filename = 'termopyly.txt'
+
+with open(filename) as f:
+    content = f.read()
+
+freq = {}
+for c in content:
+    freq[c] = freq.get(c, 0) + 1
+
+print(freq)
+
+for k, v in freq.items():
+    print(f'{k} is there {v} times')
+```
 
 ## Read CSV data
 
@@ -26,24 +50,6 @@ with open('vals.csv') as f:
         #     lines.append(e)
 
     print(sum(map(lambda e: int(e), values)))
-```
-
----
-
-```python
-filename = 'termopyly.txt'
-
-with open(filename) as f:
-    content = f.read()
-
-freq = {}
-for c in content:
-    freq[c] = freq.get(c, 0) + 1
-
-print(freq)
-
-for k, v in freq.items():
-    print(f'{k} is there {v} times')
 ```
 
 ## map fun
