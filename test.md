@@ -1,5 +1,18 @@
 # Samples
 
+```python
+data = '1-2-3-4-5-6-7-8-9-10'
+mysum = 0
+
+substrings = data.split('-')
+print(substrings)
+
+for val in substrings:
+    mysum += int(val)
+
+print(mysum)
+```
+
 
 ```python
 words = ['sky', 'cup', 'blue', 'bottom', 'war', 'atom', 'water', 'car']
