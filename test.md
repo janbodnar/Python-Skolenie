@@ -1,6 +1,32 @@
 # Samples
 
 ```python
+def twice(e: int):
+    return e * 2
+
+def cube(e: int):
+    # return e * e * e
+    # return e ** 3
+    return pow(e, 3)
+
+vals = [-2, 0, 3, 2, 6, -9, 11, -7, -5]
+
+# doubled = list(map(twice, vals))
+# print(doubled)
+#
+# cubed = list(map(cube, vals))
+# print(cubed)
+
+doubled = list(map(lambda e: e * 2, vals))
+print(doubled)
+
+cubed = list(map(lambda e: e * 3, vals))
+print(cubed)
+```
+
+
+
+```python
 words = ['sky', 'war', 'water', 'cup', 'ocean', 'owl']
 
 data = list(filter(lambda e: e.startswith('w'), words))
