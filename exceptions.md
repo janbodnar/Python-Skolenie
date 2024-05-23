@@ -197,6 +197,35 @@ except ValueError as e:
     print(e)
 ```
 
+## Custom exception 
 
+Custom exceptions can be created by inheriting from the base `Exception` class.  
+
+```python
+class InvalidAgeError(Exception):
+    def __init__(self, value):
+        self.par = value
+
+    def __str__(self):
+        return f"InvalidAgeError: {self.par}"
+
+
+def read_age():
+
+    age = int(input("Enter your age: "))
+
+    if age < 0 or age > 130:
+        raise InvalidAgeError(f"{age} is not a valid human age")
+
+    return age
+
+
+try:
+    val = read_age()
+    print(f"Your age is {val}")
+
+except InvalidAgeError as e:
+    print(e)
+```
 
 
