@@ -156,6 +156,8 @@ rword = words[r_idx]
 print(f'random word: {rword}')
 ```
 
+We pass `len(words) - 1)` into the function.  
+
 ## ImportError 
 
 ```python
