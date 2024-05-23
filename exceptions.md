@@ -308,6 +308,48 @@ except ValueError:
     print('invalid integer value')
 ```
 
+## Multiple exceptions in one arm
+
+```python
+from operator import mul, truediv, add, sub
+
+
+def calculate(operator, operand1, operand2):
+    return operator(operand1, operand2)
+
+
+try:
+    x = float(input("Enter first number: "))
+    y = float(input("Enter second number: "))
+    oper = input("Enter one of (+ - * /): ")
+
+    if oper == "+":
+        res = calculate(add, x, y)
+    elif oper == "-":
+        res = calculate(sub, x, y)
+    elif oper == "*":
+        res = calculate(mul, x, y)
+    elif oper == "/":
+        res = calculate(truediv, x, y)
+    else:
+        raise RuntimeError(f"'{oper}' is an unsupported operator")
+    
+except (RuntimeError, ValueError, ZeroDivisionError) as e:
+
+    print(f"A {type(e).__name__} has occurred")
+
+    match e:
+        case RuntimeError():
+            print(f"invalid operator symbol: {e}")
+        case ValueError():
+            print(f"invalid number: {e}")
+        case ZeroDivisionError():
+            print(f"cannot divide by zero: {e}")
+else:
+    print(f"{x} {oper} {y} = {res}")
+```
+
+
 ## The finally clause
 
 The `finally` clause is used to clean up resources at the end. It is always  
