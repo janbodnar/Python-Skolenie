@@ -37,6 +37,32 @@ finally:
    # cleanup resources
 ```
 
+## Returning errors 
+
+Some programming languages, including C, Go and Rust, do not work with exceptions.  
+They work with errors that are returned from functions.  
+
+```go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+)
+
+func main() {
+
+    content, err := ioutil.ReadFile("thermopylae.txt")
+
+     if err != nil {
+          log.Fatal(err)
+     }
+
+    fmt.Println(string(content))
+}
+```
+
 ## ValueError 
 
 Value error is raised when invalid value is received.  
