@@ -98,8 +98,7 @@ except ValueError as e:
 
 ## ZeroDivisionError 
 
-In this case, rather than catching the exception, we can fix the code by  
-adding the `if b != 0`.   
+`ZeroDivisionError` is thrown when we try to divide by zero.   
 
 ```python
 def input_numbers():
@@ -118,5 +117,28 @@ except ZeroDivisionError:
     print("Cannot divide by zero")
 ```
 
+Rather than catching the exception, we can fix the code by  
+adding the `if b == 0` condition.   
+
+```
+import sys
+
+def input_numbers():
+
+    a = float(input("Enter numerator:"))
+    b = float(input("Enter denominator:"))
+
+    if b == 0:
+        print('cannot divide by zero')
+        sys.exit(1)
+
+    return a, b
+
+
+x, y = input_numbers()
+
+
+print(f"{x} / {y} is {x/y}")
+```
 
 
