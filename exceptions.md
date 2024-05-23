@@ -120,7 +120,7 @@ except ZeroDivisionError:
 Rather than catching the exception, we can fix the code by  
 adding the `if b == 0` condition.   
 
-```
+```python
 import sys
 
 def input_numbers():
