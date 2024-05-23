@@ -361,6 +361,8 @@ We can test for a kind of an exception with pattern matching:
          print(f"invalid operator symbol: {e}")
 ```
 
+Add `pow` operation to the example.  
+
 
 ## The finally clause
 
