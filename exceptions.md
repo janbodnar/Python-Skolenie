@@ -53,3 +53,20 @@ except ValueError:
     print("invalid number")
 ```
 
+## Exception object 
+
+We can receive information about the exception from the exception object.  
+
+```python
+try:
+    x = int(input("Please enter a number: "))
+    y = int(input("Please enter another number: "))
+
+    print(f'addition: {x + y}')
+    print(f'multiplication: {x * y}')
+
+except ValueError as e:
+    print("invalid number")
+    print(e)
+```
+
