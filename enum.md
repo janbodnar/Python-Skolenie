@@ -38,3 +38,46 @@ print(list(Season))
 
 To access a member, we specify the enumeration name followed by a dot and the member name.  
 
+```python
+class Season(Enum):
+    SPRING = 1
+    SUMMER = 2
+    AUTUMN = 3
+    WINTER = 4
+````
+
+The `Season` enumeration is created with the class keyword. We inherit from the `enum.Enum`  
+base class. We explicity set numbers to the enumeration values.  
+
+```python
+seas = Season.SPRING
+print(seas)
+```
+
+An enumeration value is assigned to a variable and it is printed to the console.  
+
+```python
+if seas == Season.SPRING:
+    print("Spring")
+```
+
+The `Season.SPRING` is used in an if expression.  
+
+```pythnon
+print(list(Season))
+```
+
+With the list built-in function, we get the list of all possible values for the `Season` enum.  
+
+
+
+
+
+
+
+
+
+
+
+
+
