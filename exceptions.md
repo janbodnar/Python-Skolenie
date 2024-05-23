@@ -174,4 +174,29 @@ content = resp.content.decode('utf8')
 print(content)
 ```
 
+## Raising exceptions 
+
+Exceptions can be raised by programmers with the `raise` keyword.  
+
+```python
+def read_age():
+
+    age = int(input("Enter your age: "))
+
+    if age < 0 or age > 130:
+        raise ValueError("Invalid age")
+
+    return age
+
+
+try:
+    val = read_age()
+    print(f"Your age is {val}")
+
+except ValueError as e:
+    print(e)
+```
+
+
+
 
