@@ -130,8 +130,125 @@ print(Season(1))
 Member of an enumeration can be accessed by item name and index.
 
 
+## Functional API
+
+```python
+from enum import Enum
+
+Season = Enum('Season', 'SPRING SUMMER AUTUMN WINTER', start=1)
+
+seas = Season.SUMMER
+print(seas)
+
+if seas == Season.SUMMER:
+    print("Summer")
+```
+
+```python
+Season = Enum('Season', 'SPRING SUMMER AUTUMN WINTER', start=1)
+```
+
+Here the values are specified in a string, separated by space. The `start`  
+provides the initial value.
 
 
+## Enumeration
+
+In this example, we create a `Season` enum where the values are set in   
+a list of strings.
+
+```python
+from enum import Enum
 
 
+Season = Enum('Season', ['SPRING', 'SUMMER', 'AUTUMN', 'WINTER'], start=5)
+
+for season in Season:
+    print(season)
+
+for season in Season:
+    print(season.name, season.value)
+```
+
+```python
+for season in Season:
+    print(season)
+```
+
+We iterate over enum members in a for loop.
+
+```python
+for season in Season:
+    print(season.name, season.value)
+```
+
+Here we print their names and values.
+
+## Automatic values
+
+Python enum values can be automatically set with the auto function.
+
+```python
+
+from enum import Enum, auto
+
+
+class Season(Enum):
+    SPRING = auto()
+    SUMMER = auto()
+    AUTUMN = auto()
+    WINTER = auto()
+
+
+for season in Season:
+    print(season.value)
+```
+
+We have a `Season` enum where its members get a value with `auto` function.
+
+
+## Unique member values
+
+The member values of a Python enum can be enforced to be unique with the `@unique`  
+decorator.
+
+```python
+
+from enum import Enum, unique
+
+@unique
+class Season(Enum):
+    SPRING = 1
+    SUMMER = 2
+    AUTUMN = 3
+    WINTER = 3
+    # WINTER = 4
+
+
+for season in Season:
+    print(season)
+```
+
+The example fails with the `ValueError: duplicate values found in <enum 'Season'>: WINTER -> AUTUMN error`,   
+because the `AUTUMN` and `WINTER` members have the same value. If we comment out the @unique decorator, the  
+example prints three members; the `WINTER` is ignored.  
+
+## The __members__ attribute
+
+The special attribute `__members__` is a read-only ordered mapping of names to members.
+
+```python
+from enum import Enum
+
+
+Season = Enum('Season', [('SPRING', 1), ('SUMMER', 2), 
+    ('AUTUMN', 3), ('WINTER', 4)])
+
+
+for name, member in Season.__members__.items():
+    print(name, member)
+```
+
+In the example, we use the `__members__` property. The enumeration members are created with a list of  
+tuples using functional API.
 
