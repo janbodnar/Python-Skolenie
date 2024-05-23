@@ -141,6 +141,21 @@ x, y = input_numbers()
 print(f"{x} / {y} is {x/y}")
 ```
 
+## IndexError 
+
+`IndexError` is handled by fixing the logical error in the application.  
+
+```python
+import random
+
+words = ['sky', 'word', 'blue', 'cop', 'atom', 'car']
+
+r_idx = random.randint(0, len(words))
+rword = words[r_idx]
+
+print(f'random word: {rword}')
+```
+
 ## ImportError 
 
 ```python
