@@ -37,6 +37,32 @@ finally:
    # cleanup resources
 ```
 
+## List of basic exceptions 
+
+
+
+- `ZeroDivisionError:` - raised when division or modulo operation is performed with zero as the divisor  
+- `NameError:` - raised when a local or global name is not found  
+- `IndentationError:` - raised when there is incorrect indentation in the code  
+- `IOError:` - raised when an input/output operation fails (e.g., file not found)  
+- `EOFError:` - raised when the end of the file is reached unexpectedly  
+- `TypeError:` - raised when an operation or function is applied to an object of inappropriate type  
+- `ValueError:` - raised when a built-in operation or function receives an argument of the correct type but an inappropriate value  
+- `IndexError:` - raised when a sequence subscript is out of range  
+- `KeyError:` - raised when a dictionary key is not found  
+- `AttributeError:` - raised when an attribute reference or assignment fails  
+- `ImportError:` - raised when an import statement fails to find the specified module  
+- `AssertionError:` - raised when an assert statement fails  
+- `RuntimeError:` - raised when an error occurs that doesn’t belong to any specific category  
+- `MemoryError:` - raised when an operation runs out of memory  
+- `FileNotFoundError:` A specific type of IOError - raised when a file is not found  
+- `PermissionError:` - raised when trying to perform an operation without the required permissions  
+- `OverflowError:` - raised when an arithmetic operation exceeds the limits of the data type  
+- `RecursionError:` - raised when the maximum recursion depth is exceeded  
+- `SystemExit:` - raised when the sys.exit() function is called  
+- `KeyboardInterrupt:` - raised when the user interrupts the program (e.g., by pressing Ctrl+C)  
+
+
 ## Returning errors 
 
 Some programming languages, including C, Go and Rust, do not work with exceptions.  
