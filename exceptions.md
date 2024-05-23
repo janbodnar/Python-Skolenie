@@ -262,5 +262,30 @@ except ValueError:
     print('invalid integer value')
 ```
 
+## The finally clause
+
+The `finally` clause is used to clean up resources at the end. It is always  
+executed.  
+
+```python
+f = None
+
+try:
+
+    f = open('data.txt', 'r')
+    lines = f.readlines()
+
+    for line in lines:
+        print(line.rstrip())
+
+except IOError:
+
+    print('Error opening file')
+
+finally:
+
+    if f:
+        f.close()
+```
 
 
