@@ -141,4 +141,22 @@ x, y = input_numbers()
 print(f"{x} / {y} is {x/y}")
 ```
 
+## ImportError 
+
+```python
+import sys
+
+try:
+    import requests
+except ImportError:
+    print('please install requests library')
+    sys.exit(1)
+
+url = 'https://webcode.me'
+resp = requests.get(url)
+
+content = resp.content.decode('utf8')
+print(content)
+```
+
 
