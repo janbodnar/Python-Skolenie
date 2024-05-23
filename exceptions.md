@@ -8,6 +8,15 @@ Errors detected during code execution are called `excepitons`.
 - unsufficient permissions
 
 
+`Warnings` are alerts generated during code compilation or execution. Unlike exceptions,  
+warnings do not halt program execution. They indicate potential problems but allow the  
+program to continue.
+
+Warnings can arise from issues like deprecated functions, unused variables, or type  
+mismatches. Developers should review and address warnings to improve code quality, but they  
+don't require immediate action.  
+
+
 ## Handling exceptions 
 
 ```python
