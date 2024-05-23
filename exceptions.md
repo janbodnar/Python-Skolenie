@@ -288,4 +288,18 @@ finally:
         f.close()
 ```
 
+## The with statement
 
+The `with` statement is used for managing resources, especially in the context of exception handling  
+and ensuring proper resource cleanup.
+
+It is used with  used with file streams, locks, sockets or subprocesses.  
+
+```python
+with open('data.txt', 'r') as f:
+
+    lines = f.readlines()
+
+    for line in lines:
+        print(line.rstrip())
+```
