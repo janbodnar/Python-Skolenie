@@ -176,6 +176,22 @@ content = resp.content.decode('utf8')
 print(content)
 ```
 
+## OverFlowError
+
+`OverFlowError` - result is too large to be represented.  
+
+```python
+try:
+    f = 3.0
+
+    for _ in range(100):
+        f = f ** 2
+        print(f)
+
+except OverflowError as err:
+    print('Overflowed after', f, err)
+```
+
 ## Raising exceptions 
 
 Exceptions can be raised by programmers with the `raise` keyword.  
