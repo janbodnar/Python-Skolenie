@@ -467,7 +467,7 @@ logging.basicConfig(filename='error.log', level=logging.ERROR, format=log_format
 
 def simulate_error():
 
-    exceptions = [MemoryError(),
+    exceptions = [MemoryError('not enough memory'),
                   RuntimeError('unknown error'),
                   FileNotFoundError('file was not found'),
                   PermissionError('insufficient privildges')
@@ -487,16 +487,16 @@ try:
 
 
 except MemoryError as e:
-    logging.error(f'not enough memory {e}')
+    logging.error(f'error: {e}')
 
 except FileNotFoundError as e:
-    logging.error(f'file was not found {e}')
+    logging.error(f'error: {e}')
 
 except PermissionError as e:
-    logging.error(f'insuficient privildges {e}')
+    logging.error(f'error: {e}')
 
 except Exception as e:
-    logging.error('An error occurred: %s', str(e))
+    logging.error(f'error: {e}')
 ```
 
 
