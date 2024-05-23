@@ -349,3 +349,62 @@ with open('data.txt', 'r') as f:
     for line in lines:
         print(line.rstrip())
 ```
+
+## One exception caught
+
+By default, only the first exception can be caught. Raising multiple exceptions, the program  
+will finish after handling the first exception. The rest will never be raised.   
+
+```python
+import random
+
+exceptions = [IndexError(), FileNotFoundError(), ImportError(), TypeError()]
+random.shuffle(exceptions)
+
+try:
+    for e in exceptions:
+        raise e
+except ImportError:
+    print('ZeroDivisionError')
+except FileNotFoundError:
+    print('FileNotFoundError')
+except IndexError:
+    print('IndexError')
+except TypeError:
+    print('TypeError')
+```
+
+In concurrent programming, where our program performs multiple tasks simultaneously, it becomes  
+essential to handle all exceptions that may occur. Each concurrent task can raise its own exceptions.  
+Starting from Python 3.11, the language introduces `ExceptionGroup` objects and a special except* clause  
+to facilitate handling all exceptions.
+
+```python
+import random
+
+exceptions = [IndexError(), FileNotFoundError(), ImportError(), TypeError()]
+random.shuffle(exceptions)
+
+try:
+    raise ExceptionGroup("Errors Occurred", exceptions)
+except* ImportError:
+    print('ZeroDivisionError')
+except* FileNotFoundError:
+    print('FileNotFoundError')
+except* IndexError:
+    print('IndexError')
+except* TypeError:
+    print('TypeError')
+```
+
+
+
+
+
+
+
+
+
+
+
+
