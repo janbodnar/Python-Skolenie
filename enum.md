@@ -63,17 +63,71 @@ if seas == Season.SPRING:
 
 The `Season.SPRING` is used in an if expression.  
 
-```pythnon
+```python
 print(list(Season))
 ```
 
 With the list built-in function, we get the list of all possible values for the `Season` enum.  
 
 
+## Basic functionality 
+
+The next example presents some other basic functionality of a Python enum.
+
+```python
+from enum import Enum
 
 
+class Season(Enum):
+    SPRING = 1
+    SUMMER = 2
+    AUTUMN = 3
+    WINTER = 4
 
 
+seas = Season.SPRING
+
+print(seas)
+print(isinstance(seas, Season))
+print(type(seas))
+print(repr(seas))
+
+print(Season['SPRING'])
+print(Season(1))
+```
+
+Again, we deal with a Season enumeration created with the class.
+
+```python
+print(seas)
+```
+
+Here we print a human readable string representation of a `Season` member.  
+
+```python
+print(isinstance(seas, Season))
+```
+
+With the isinstance method, we check if the variable has a value of `Season` type.  
+
+```python
+print(type(seas))
+```
+
+The type function prints the type of the variable.
+
+```python
+print(repr(seas))
+```
+
+The `repr` function provides more information about the enum.
+
+```python
+print(Season['SPRING'])
+print(Season(1))
+```
+
+Member of an enumeration can be accessed by item name and index.
 
 
 
