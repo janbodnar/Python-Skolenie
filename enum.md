@@ -252,3 +252,167 @@ for name, member in Season.__members__.items():
 In the example, we use the `__members__` property. The enumeration members are created with a list of  
 tuples using functional API.
 
+## The enum.Flag
+
+The `enum.Flag` is a base class for creating enumerated constants that can be combined using the  
+bitwise operations without losing their Flag membership.
+
+```python
+#!/usr/bin/python
+
+from enum import Flag, auto
+
+
+class Perm(Flag):
+    EXECUTE = auto()
+    WRITE = auto()
+    READ = auto()
+
+
+print(list(Perm))
+print(Perm.READ | Perm.WRITE)
+```
+
+The example shows how the Flag can be used on permissions.
+
+## Static method 
+
+```python
+from enum import Enum
+import random
+
+
+class Day(Enum):
+    Monday = 0
+    Tuesday = 1
+    Wednesday = 2
+    Thursday = 3
+    Friday = 4
+    Saturday = 5
+    Sunday = 6
+
+    @staticmethod
+    def random_day():
+        return random.choice(list(Day))
+
+
+rdays = [Day.random_day() for _ in range(10)]
+
+for e in rdays:
+    print(e)
+```
+
+We define a Day enumeration. The `random_day` static method returns a random choice from the  
+keys of the enumeration.
+
+```python
+rdays = [Day.random_day() for _ in range(10)]
+```
+
+With a list comprehension, we create a list of ten random days.
+
+## Coin toss
+
+We have a coin with two enum values: `HEADS` and `TAILS`.
+
+```
+from enum import Enum
+import random
+
+
+class Coin(Enum):
+    HEADS = 0
+    TAILS = 1
+
+    @staticmethod
+    def toss():
+        return random.choice(list(Coin))
+
+
+for _ in range(15):
+    print(f'{Coin.toss()}', end=' ')
+```
+
+In the example, we toss a coin fifteen times.
+
+## Pattern matching
+
+The `match/case` keywords can be used with enums to create concise code.
+
+```python
+#!/usr/bin/python
+
+from enum import Enum
+import random
+
+
+class Day(Enum):
+    Monday = 0
+    Tuesday = 1
+    Wednesday = 2
+    Thursday = 3
+    Friday = 4
+    Saturday = 5
+    Sunday = 6
+
+days = [Day.Monday, Day.Tuesday, Day.Wednesday,
+        Day.Thursday, Day.Friday, Day.Saturday, Day.Sunday]
+
+res = random.sample(days, 4)
+
+for e in res:
+
+    match e:
+        case Day.Monday:
+            print("monday")
+        case Day.Tuesday:
+            print("tuesday")
+        case Day.Wednesday:
+            print("wednesay")
+        case Day.Thursday:
+            print("thursday")
+        case Day.Friday:
+            print("friday")
+        case Day.Saturday:
+            print("saturday")
+        case Day.Sunday:
+            print("sunday")
+```
+
+In the example, we define a `Day` enumeration.
+
+```python
+days = [Day.Monday, Day.Tuesday, Day.Wednesday,
+        Day.Thursday, Day.Friday, Day.Saturday, Day.Sunday]
+
+res = random.sample(days, 4)
+```
+
+We randomly choose four days from a list.
+
+```python
+for e in res:
+
+    match e:
+        case Day.Monday:
+            print("monday")
+        case Day.Tuesday:
+            print("tuesday")
+        case Day.Wednesday:
+            print("wednesay")
+        case Day.Thursday:
+            print("thursday")
+        case Day.Friday:
+            print("friday")
+        case Day.Saturday:
+            print("saturday")
+        case Day.Sunday:
+            print("sunday")
+```
+
+We check the four chosen values and print their corresponding string representations. For each option,  
+we have a specific case arm.
+
+
+
+
