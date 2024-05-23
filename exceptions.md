@@ -96,3 +96,27 @@ except ValueError as e:
     print(e)
 ```
 
+## ZeroDivisionError 
+
+In this case, rather than catching the exception, we can fix the code by  
+adding the `if b != 0`.   
+
+```python
+def input_numbers():
+
+    a = float(input("Enter numerator:"))
+    b = float(input("Enter denominator:"))
+    return a, b
+
+x, y = input_numbers()
+
+try:
+    print(f"{x} / {y} is {x/y}")
+
+except ZeroDivisionError:
+
+    print("Cannot divide by zero")
+```
+
+
+
