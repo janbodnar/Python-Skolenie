@@ -189,7 +189,6 @@ Here we print their names and values.
 Python enum values can be automatically set with the auto function.
 
 ```python
-
 from enum import Enum, auto
 
 
@@ -213,7 +212,6 @@ The member values of a Python enum can be enforced to be unique with the `@uniqu
 decorator.
 
 ```python
-
 from enum import Enum, unique
 
 @unique
@@ -258,8 +256,6 @@ The `enum.Flag` is a base class for creating enumerated constants that can be co
 bitwise operations without losing their Flag membership.
 
 ```python
-#!/usr/bin/python
-
 from enum import Flag, auto
 
 
@@ -315,7 +311,7 @@ With a list comprehension, we create a list of ten random days.
 
 We have a coin with two enum values: `HEADS` and `TAILS`.
 
-```
+```python
 from enum import Enum
 import random
 
@@ -340,8 +336,6 @@ In the example, we toss a coin fifteen times.
 The `match/case` keywords can be used with enums to create concise code.
 
 ```python
-#!/usr/bin/python
-
 from enum import Enum
 import random
 
