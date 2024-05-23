@@ -453,6 +453,52 @@ except* TypeError:
     print('TypeError')
 ```
 
+## Logging exceptions
+
+In larger applications, exceptions are logged into files.  
+
+```python
+import logging
+import random
+
+log_format = '%(asctime)s %(filename)s: %(message)s'
+logging.basicConfig(filename='error.log', level=logging.ERROR, format=log_format)
+
+
+def simulate_error():
+
+    exceptions = [MemoryError(),
+                  RuntimeError('unknown error'),
+                  FileNotFoundError('file was not found'),
+                  PermissionError('insufficient privildges')
+                  ]
+
+    r = random.randint(1, 3)
+    if r == 3:
+        raise random.choice(exceptions)
+
+
+try:
+
+    print('doing task 1')
+    simulate_error()
+    print('doing task 2')
+    print('doing task 3')
+
+
+except MemoryError as e:
+    logging.error(f'not enough memory {e}')
+
+except FileNotFoundError as e:
+    logging.error(f'file was not found {e}')
+
+except PermissionError as e:
+    logging.error(f'insuficient privildges {e}')
+
+except Exception as e:
+    logging.error('An error occurred: %s', str(e))
+```
+
 
 
 
