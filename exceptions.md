@@ -1,6 +1,6 @@
 # Exceptions 
 
-Errors detected during code execution are called `excepitons`.  
+Errors detected during code execution are called `exceptions`.  
 
 - full disk
 - logical errors 
