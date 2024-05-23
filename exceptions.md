@@ -310,6 +310,10 @@ except ValueError:
 
 ## Multiple exceptions in one arm
 
+Multiple exceptions can be separated with comma within one arm:  
+`except (RuntimeError, ValueError, ZeroDivisionError) as e:`.  
+
+
 ```python
 from operator import mul, truediv, add, sub
 
@@ -347,6 +351,14 @@ except (RuntimeError, ValueError, ZeroDivisionError) as e:
             print(f"cannot divide by zero: {e}")
 else:
     print(f"{x} {oper} {y} = {res}")
+```
+
+We can test for a kind of an exception with pattern matching:  
+
+```
+ match e:
+     case RuntimeError():
+         print(f"invalid operator symbol: {e}")
 ```
 
 
