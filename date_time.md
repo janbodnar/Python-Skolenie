@@ -227,6 +227,37 @@ elif final < 0:
     print("It is past XMas, wait until next year!")
 ```
 
+## Calculate age
+
+We can use `dateutil.relativedelta` function to calculate the age.  
+
+```python
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+birth_str = '1987-11-08'
+born = date.fromisoformat(birth_str)
+today = date.today()
+
+age = relativedelta(today, born)
+
+print(age.years)
+```
+
+The following example utilizes the fact that a boolean `True` evaluates to 1 in the expression.  
+
+```python
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+birth_str = '1987-11-08'
+born = date.fromisoformat(birth_str)
+today = date.today()
+age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+print(age)
+```
+
 ## Local & UTC time 
 
 Our planet is a sphere. It revolves round its axis. The Earth rotates towards the east.  
@@ -492,36 +523,7 @@ for user in users:
 print(oldest)
 ```
 
-## Calculate age
 
-We can use `dateutil.relativedelta` function to calculate the age.  
-
-```python
-from datetime import date
-from dateutil.relativedelta import relativedelta
-
-birth_str = '1987-11-08'
-born = date.fromisoformat(birth_str)
-today = date.today()
-
-age = relativedelta(today, born)
-
-print(age.years)
-```
-
-The following example utilizes the fact that a boolean `True` evaluates to 1 in the expression.  
-
-```python
-from datetime import date
-from dateutil.relativedelta import relativedelta
-
-birth_str = '1987-11-08'
-born = date.fromisoformat(birth_str)
-today = date.today()
-age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-
-print(age)
-```
 
 
 ## Timezones
