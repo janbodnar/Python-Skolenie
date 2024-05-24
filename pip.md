@@ -12,3 +12,11 @@ in the command line interface. Utilizing pip enhances the ease of managing Pytho
 ## Upgrade pip 
 
 `python -m pip install --upgrade pip`
+
+## List packages 
+
+`pip list`
+
+## Check version of package
+
+`pip show numpy`
