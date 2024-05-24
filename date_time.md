@@ -81,11 +81,9 @@ air traffic control clearances, and maps. Unlike local time, UTC does not change
 a change of seasons.
 
 ```python
-#!/usr/bin/python
+from datetime import datetime, timezone
 
-from datetime import datetime
-
-print(datetime.now(datetime.UTC))
+print(datetime.now(timezone.utc))
 print(datetime.now())
 ```
 
