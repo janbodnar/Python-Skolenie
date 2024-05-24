@@ -19,8 +19,6 @@ t = datetime.datetime.now().time()
 print(t)
 ```
 
-
-
 ## Today
 
 ```python
@@ -436,6 +434,31 @@ datetime_London = datetime.now(tz_London)
 print("London:", datetime_London.strftime("%m/%d/%Y, %H:%M:%S"))
 ```
 
+---
+
+Get timezone names with `tzname`. 
+
+```python
+from datetime import datetime
+import pytz
+
+# Create a datetime object for the current time
+current_time = datetime.now()
+
+# Define the time zones for Slovakia, UTC, Moscow, and New York
+time_zones = {
+    'Slovakia': 'Europe/Bratislava',
+    'UTC': 'UTC',
+    'Moscow': 'Europe/Moscow',
+    'New York': 'America/New_York'
+}
+
+# Print the tzname for each time zone
+for city, tz in time_zones.items():
+    timezone = pytz.timezone(tz)
+    city_time = current_time.astimezone(timezone)
+    print(f"Time zone name for {city}: {city_time.tzname()}")
+```
 ---
 
 ```python
