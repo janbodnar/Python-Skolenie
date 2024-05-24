@@ -64,6 +64,9 @@ print(age.years)
 The following example utilizes the fact that a boolean `True` evaluates to 1 in the expression.  
 
 ```python
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
 birth_str = '1987-11-08'
 born = date.fromisoformat(birth_str)
 today = date.today()
