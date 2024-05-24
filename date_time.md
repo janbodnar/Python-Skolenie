@@ -498,6 +498,11 @@ The solution is harder to read and relies on an implicit transformation.
 
 ## Common datetime formats
 
+- ISO 8601
+- RFC 3339
+- US style
+- European style
+
 ```python
 from datetime import datetime
 
