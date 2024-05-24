@@ -565,24 +565,21 @@ print("European style:", european_style)
 The `dateutil` module enhances the functionality of Python's standard `datetime` module,  
 making it a powerful tool for a wide range of date and time manipulation tasks.
 
-1. **Flexible Date Parsing**: It supports parsing of dates from almost any string format, which is
+1. **Flexible Date Parsing**: It supports parsing of dates from almost any string format, which is  
    extremely useful when dealing with various date representations.
 
-3. **Time Zone Handling**: The module provides internal up-to-date world time zone information,
+3. **Time Zone Handling**: The module provides internal up-to-date world time zone information,  
    allowing for accurate and aware datetime objects across different time zones.
 
 5. **Relative Deltas**: With `dateutil`, you can compute relative deltas (differences) between dates,  
-   which is handy for operations like finding the next day, next week, or adding a specific amount of
+   which is handy for operations like finding the next day, next week, or adding a specific amount of  
    time to a given date.
 
-7. **Recurrence Rules**: It allows for the computation of dates based on very flexible recurrence rules,
+7. **Recurrence Rules**: It allows for the computation of dates based on very flexible recurrence rules,  
    making it easier to work with repeating events and schedules.
 
-9. **Extended Functionality**: `dateutil` extends the standard `datetime` module, providing additional
+9. **Extended Functionality**: `dateutil` extends the standard `datetime` module, providing additional  
     functionality that simplifies many common date and time operations.
-
-
-
 
 
 ### Relative calculations 
