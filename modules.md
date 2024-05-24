@@ -14,28 +14,7 @@ inside a database module, security code in a security module etc. Smaller Python
 one module. But larger programs are split into several modules. Modules are grouped together  
 to form packages.  
 
-## The pyc file
 
-Python caches the compiled content of modules in `.pyc` files to speed up loading modules. Python  
-compiles the program source code into byte code. To improve performance, it caches the byte code on  
-the file system whenever the source file has changes.  
-
-This caching makes loading of Python modules much faster because the compilation phase can be bypassed.  
-Python caches the compiled version of each module in the `__pycache__` directory under the name  
-`module.version.pyc`.  
-
-Python checks the modification date of the source against the compiled version to see if it's out of date  
-and needs to be recompiled.  
-
-```python
-#!/usr/bin/python
-
-import compileall
-
-compileall.compile_dir('lib/', force=True)
-```
-
-The `compileall` module can be used to programtically compile Python modules.
 
 
 ## Python module names
@@ -627,4 +606,26 @@ except ImportError:
     print('Module not found')
 ```
 
+## The pyc file
+
+Python caches the compiled content of modules in `.pyc` files to speed up loading modules. Python  
+compiles the program source code into byte code. To improve performance, it caches the byte code on  
+the file system whenever the source file has changes.  
+
+This caching makes loading of Python modules much faster because the compilation phase can be bypassed.  
+Python caches the compiled version of each module in the `__pycache__` directory under the name  
+`module.version.pyc`.  
+
+Python checks the modification date of the source against the compiled version to see if it's out of date  
+and needs to be recompiled.  
+
+```python
+#!/usr/bin/python
+
+import compileall
+
+compileall.compile_dir('lib/', force=True)
+```
+
+The `compileall` module can be used to programtically compile Python modules.
 
