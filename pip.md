@@ -8,3 +8,7 @@ on a different system.
 
 To install the packages specified in a `requirements.txt` file, the command `pip install -r requirements.txt` should be executed  
 in the command line interface. Utilizing pip enhances the ease of managing Python projects and their associated dependencies.
+
+## Upgrade pip 
+
+`python -m pip install --upgrade pip`
