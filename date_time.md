@@ -436,6 +436,29 @@ datetime_London = datetime.now(tz_London)
 print("London:", datetime_London.strftime("%m/%d/%Y, %H:%M:%S"))
 ```
 
+---
+
+```python
+from datetime import datetime
+import pytz
+
+# pip install pytz
+
+# Define the time zones for Slovakia, UTC, Moscow, and New York
+time_zones = {
+    'Slovakia': 'Europe/Bratislava',
+    'UTC': 'UTC',
+    'Moscow': 'Europe/Moscow',
+    'New York': 'America/New_York'
+}
+
+# Calculate and print the current datetime for each time zone
+for city, tz in time_zones.items():
+    timezone = pytz.timezone(tz)
+    city_time = datetime.now(timezone)
+    print(f"Current datetime in {city}: {city_time.strftime('%Y-%m-%d %H:%M:%S %Z%z')}")
+```
+
 ## Days until XMas
 
 ```python
