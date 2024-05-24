@@ -1,5 +1,7 @@
 # Date & time 
 
+Using `datetime` and `dateutil` modules.  
+
 ## Current date and time 
 
 ```python
@@ -556,4 +558,108 @@ print("European style:", european_style)
    - It uses DD/MM/YYYY for the date, where DD is the two-digit day, MM is the two-digit month, and  
      YYYY is the four-digit year.
    - It follows the same 24-hour clock format HH:MM:SS for the time as the previous formats.
+
+
+## Using dateutil module 
+
+### Parsing datetimes 
+
+```
+from datetime import datetime
+from dateutil.parser import parse
+
+# Example date strings
+date_str1 = "24th May 2024"
+date_str2 = "2024-05-24T10:00:00"
+date_str3 = "Yesterday"
+
+# Parsing the strings
+parsed_date1 = parse(date_str1)
+parsed_date2 = parse(date_str2)
+parsed_date3 = parse(date_date3)
+
+# Now you can work with the parsed datetime objects
+print(parsed_date1.strftime("%Y-%m-%d"))  # Output: 2024-05-24
+print(parsed_date2)  # Output: datetime.datetime(2024, 5, 24, 10, 0)
+print(parsed_date3.date())  # Assuming Yesterday refers to the previous day
+```
+
+### Relative calculations 
+
+
+```python
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+# Today's date
+today = date.today()
+
+# Find the date 3 weeks from now
+three_weeks_from_now = today + relativedelta(weeks=+3)
+
+# Find the date 2 months ago
+two_months_ago = today + relativedelta(months=-2)
+
+print(three_weeks_from_now)
+print(two_months_ago)
+```
+
+### Recurring events 
+
+
+Recurring months.  
+
+```python
+from datetime import datetime
+from dateutil.rrule import rrule, MONTHLY
+
+# Define a rule for monthly recurrence
+rule = rrule(MONTHLY, dtstart=datetime.now(), count=5)
+
+# List the next 5 months
+for dt in rule:
+    print(dt)
+```
+
+Recurring weekdays.  
+
+```python
+from dateutil.rrule import rrule, WEEKLY
+from datetime import date, timedelta
+import calendar 
+
+# Define the start date as the next Monday (if today isn't Monday)
+today = date.today()
+start_weekday = calendar.MONDAY  # Use calendar module for clarity
+offset_days = (start_weekday - today.weekday()) % 7  # Handle wrapping around weekdays
+start_date = today + timedelta(days=offset_days)
+
+# Generate recurring weekdays every other week for 4 occurrences starting from the next Monday
+every_other_weekday = rrule(freq=WEEKLY, interval=2, count=4, dtstart=start_date)
+
+# Get the recurring dates in a readable format
+for dt in every_other_weekday:
+    print(dt.strftime("%A, %B %d"))  # Output formatted as "Monday, May 27"
+```
+
+### Timezones
+
+```python
+from datetime import datetime, timezone
+from dateutil.tz import gettz
+
+# Define a timezone for New York City (America/New_York)
+ny_timezone = gettz('America/New_York')
+
+# Get the current date and time in UTC
+now_utc = datetime.now(timezone.utc)
+
+# Convert the UTC time to New York time (localized)
+now_ny = now_utc.astimezone(ny_timezone)
+
+print("Current UTC time:", now_utc.isoformat())
+print("Current time in New York:", now_ny.isoformat())
+```
+
+
 
