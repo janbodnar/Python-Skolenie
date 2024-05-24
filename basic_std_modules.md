@@ -63,6 +63,33 @@ for root, dirs, files in os.walk(os.path.abspath(".")):
         print(os.path.join(root, name))
 ```
 
+## Platform 
+
+Get platform information with the `platform` module.  
+
+```python
+import platform
+
+plat = platform.system()
+print(plat)
+
+arch = platform.architecture()
+print(arch)
+
+version = platform.version()
+print(version)
+
+py_branch = platform.python_branch()
+print(py_branch)
+
+processor = platform.processor()
+print(processor)
+
+machine = platform.machine()
+print(machine)
+```
+
+
 ## json
 
 **JSON (JavaScript Object Notation)** is a lightweight data-interchange format  
