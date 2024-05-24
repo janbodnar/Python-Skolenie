@@ -669,22 +669,22 @@ print("Current time in New York:", now_ny.isoformat())
 ```python
 from dateutil import parser
 
-# Example 1: Standard date format
+# standard date format
 date_string_1 = "2024-05-24"
 parsed_date_1 = parser.parse(date_string_1)
 print(parsed_date_1)  # Output: 2024-05-24 00:00:00
 
-# Example 2: Different date format with day first
+# different date format with day first
 date_string_2 = "24/05/2024"
 parsed_date_2 = parser.parse(date_string_2)
 print(parsed_date_2)  # Output: 2024-05-24 00:00:00
 
-# Example 3: Date and time with timezone information
+# date and time with timezone information
 date_string_3 = "May 24, 2024 11:03:14 AM +0200"
 parsed_date_3 = parser.parse(date_string_3)
 print(parsed_date_3)  # Output: 2024-05-24 11:03:14+02:00
 
-# Example 4: Full date and time string with day of the week
+# full date and time string with day of the week
 date_string_5 = "Friday, 24 May 2024 11:03:14"
 parsed_date_5 = parser.parse(date_string_5)
 print(parsed_date_5)  # Output: 2024-05-24 11:03:14
