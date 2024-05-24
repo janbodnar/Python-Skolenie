@@ -63,6 +63,169 @@ print(now.strftime('%x'))
 print(now.strftime('%c'))
 ```
 
+## Datetime parts
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+dt = datetime(2023, 9, 15, 22, 3, 31, 355741)
+
+print(f'year: {dt.year}')
+print(f'month: {dt.month}')
+print(f'hour: {dt.hour}')
+print(f'minute: {dt.minute}')
+print(f'timestamp: {dt.timestamp()}')
+```
+
+## Timestamp
+
+```python
+#!/usr/bin/python
+
+from datetime import date
+from time import time
+
+dt = date.fromtimestamp(1568576278)
+print(dt)
+
+ts = int(time())
+dt2 = date.fromtimestamp(ts)
+print(dt2)
+```
+
+## Weekday
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+from enum import Enum
+
+class WeekDay(Enum):
+    Monday = 0
+    Tuesday = 1
+    Weekday = 2
+    Thursday = 3
+    Friday = 4
+    Saturday = 5
+    Sunday = 6
+
+    @staticmethod
+    def of(val):
+        return list(WeekDay)[val]
+
+
+now = datetime.now()
+n = now.weekday()
+
+print(n)
+print(WeekDay.of(n))
+```
+
+## Unix time 
+
+Unix time is a way of counting time in computers. It represents the number of seconds  
+elapsed since midnight (UTC) on January 1st, 1970, which is called the Unix epoch. 
+
+
+```python
+#!/usr/bin/python
+
+import time
+
+print(int(time.time()))
+print(time.time())
+```
+
+## Day of year
+
+The `toordinal` function returns the *proleptic Gregorian ordinal* value. It refers to a system  
+used in the proleptic Gregorian calendar, which extends the Gregorian calendar backward to dates  
+preceding its official introduction in 15821. 
+
+In this system, the proleptic Gregorian ordinal of a specific date represents the number of days  
+that have elapsed since January 1, 00012. For example, in Python’s datetime module, the `toordinal`    
+function returns the proleptic Gregorian ordinal of a specified datetime instance2. This system is  
+useful in computer software for identifying pre-Gregorian dates.
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime, date
+
+now = datetime.now()
+print(now.toordinal())
+
+day_of_year = now.timetuple().tm_yday
+print(day_of_year)
+
+day_of_year = now.toordinal() - date(now.year, 1, 1).toordinal() + 1
+print(day_of_year)
+```
+
+## Max/min representable datetimes
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+print(datetime.max)
+print(datetime.min)
+```
+
+## Difference in days
+
+```python
+#!/usr/bin/python
+
+from datetime import date
+
+d0 = date(2018, 8, 15)
+d1 = date(2018, 9, 26)
+
+delta = d1 - d0
+print(delta.days)
+```
+
+## Time deltas 
+
+```python
+#!/usr/bin/python
+
+import datetime
+
+now = datetime.datetime.now()
+print(now)
+
+dt1 = now + datetime.timedelta(days=1, hours=2)
+print(dt1)
+
+dt2 = now - datetime.timedelta(weeks=9)
+print(dt2)
+```
+
+## Days until XMas
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+
+now = datetime.now()
+xmas = datetime(now.year, 12, 25)
+delta = xmas - now
+final = delta.days
+
+if final > 0:
+    print(final, "days until XMas")
+elif final == 0:
+    print("Merry XMas!")
+elif final < 0:
+    print("It is past XMas, wait until next year!")
+```
 
 ## Local & UTC time 
 
@@ -272,120 +435,26 @@ print("European style:", european_style)
    - It follows the same 24-hour clock format HH:MM:SS for the time as the previous formats.
 
 
-## Datetime parts
+## Parsing date & time
 
-```python
-#!/usr/bin/python
-
-from datetime import datetime
-dt = datetime(2023, 9, 15, 22, 3, 31, 355741)
-
-print(f'year: {dt.year}')
-print(f'month: {dt.month}')
-print(f'hour: {dt.hour}')
-print(f'minute: {dt.minute}')
-print(f'timestamp: {dt.timestamp()}')
-```
-
-
-
-## Max/min representable datetimes
+We use the `strptime` function to parse datetime objects from strings.  
 
 ```python
 #!/usr/bin/python
 
 from datetime import datetime
 
-print(datetime.max)
-print(datetime.min)
+dt1 = datetime.strptime('Jun 1 2018 5:33PM', '%b %d %Y %I:%M%p')
+print(dt1)
+
+dt2 = datetime.strptime('23:33:45', '%H:%M:%S')
+print(dt2.time())
 ```
 
-## Unix time 
-
-Unix time is a way of counting time in computers. It represents the number of seconds  
-elapsed since midnight (UTC) on January 1st, 1970, which is called the Unix epoch. 
 
 
-```python
-#!/usr/bin/python
-
-import time
-
-print(int(time.time()))
-print(time.time())
-```
-
-## Timestamp
-
-```python
-#!/usr/bin/python
-
-from datetime import date
-from time import time
-
-dt = date.fromtimestamp(1568576278)
-print(dt)
-
-ts = int(time())
-dt2 = date.fromtimestamp(ts)
-print(dt2)
-```
-
-## Weekday
-
-```python
-#!/usr/bin/python
-
-from datetime import datetime
-
-from enum import Enum
-
-class WeekDay(Enum):
-    Monday = 0
-    Tuesday = 1
-    Weekday = 2
-    Thursday = 3
-    Friday = 4
-    Saturday = 5
-    Sunday = 6
-
-    @staticmethod
-    def of(val):
-        return list(WeekDay)[val]
 
 
-now = datetime.now()
-n = now.weekday()
-
-print(n)
-print(WeekDay.of(n))
-```
-
-## Day of year
-
-The `toordinal` function returns the *proleptic Gregorian ordinal* value. It refers to a system  
-used in the proleptic Gregorian calendar, which extends the Gregorian calendar backward to dates  
-preceding its official introduction in 15821. 
-
-In this system, the proleptic Gregorian ordinal of a specific date represents the number of days  
-that have elapsed since January 1, 00012. For example, in Python’s datetime module, the `toordinal`    
-function returns the proleptic Gregorian ordinal of a specified datetime instance2. This system is  
-useful in computer software for identifying pre-Gregorian dates.
-
-```python
-#!/usr/bin/python
-
-from datetime import datetime, date
-
-now = datetime.now()
-print(now.toordinal())
-
-day_of_year = now.timetuple().tm_yday
-print(day_of_year)
-
-day_of_year = now.toordinal() - date(now.year, 1, 1).toordinal() + 1
-print(day_of_year)
-```
 
 
 ## Comparing dates
@@ -423,10 +492,6 @@ for user in users:
 print(oldest)
 ```
 
-
-
-
-
 ## Calculate age
 
 We can use `dateutil.relativedelta` function to calculate the age.  
@@ -458,20 +523,6 @@ age = today.year - born.year - ((today.month, today.day) < (born.month, born.day
 print(age)
 ```
 
-
-## Difference in days
-
-```python
-#!/usr/bin/python
-
-from datetime import date
-
-d0 = date(2018, 8, 15)
-d1 = date(2018, 9, 26)
-
-delta = d1 - d0
-print(delta.days)
-```
 
 ## Timezones
 
@@ -545,64 +596,6 @@ for city, tz in time_zones.items():
     city_time = datetime.now(timezone)
     print(f"Current datetime in {city}: {city_time.strftime('%Y-%m-%d %H:%M:%S %Z%z')}")
 ```
-
-## Days until XMas
-
-```python
-#!/usr/bin/python
-
-from datetime import datetime
-
-now = datetime.now()
-xmas = datetime(now.year, 12, 25)
-delta = xmas - now
-final = delta.days
-
-if final > 0:
-    print(final, "days until XMas")
-elif final == 0:
-    print("Merry XMas!")
-elif final < 0:
-    print("It is past XMas, wait until next year!")
-```
-
-## Parsing date & time
-
-We use the `strptime` function to parse datetime objects from strings.  
-
-```python
-#!/usr/bin/python
-
-from datetime import datetime
-
-dt1 = datetime.strptime('Jun 1 2018 5:33PM', '%b %d %Y %I:%M%p')
-print(dt1)
-
-dt2 = datetime.strptime('23:33:45', '%H:%M:%S')
-print(dt2.time())
-```
-
-## Time deltas 
-
-```python
-#!/usr/bin/python
-
-import datetime
-
-now = datetime.datetime.now()
-print(now)
-
-dt1 = now + datetime.timedelta(days=1, hours=2)
-print(dt1)
-
-dt2 = now - datetime.timedelta(weeks=9)
-print(dt2)
-```
-
-
-The solution is harder to read and relies on an implicit transformation.  
-
-
 
 
 
