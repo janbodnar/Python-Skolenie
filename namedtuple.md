@@ -441,7 +441,7 @@ City(name='Edinburgh', population=' 464000')
 City(name='Berlin', population=' 3671000')
 ```
 
-## $ead SQLite database
+## Read SQLite database
 
 In the following example, we use a namedtuple to read data from SQLite database.
 
