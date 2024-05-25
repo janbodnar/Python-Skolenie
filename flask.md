@@ -3,6 +3,10 @@
 *Flask* is Python micro web framework.
 
 
+## Simple example
+
+Featuring routes, error handling, text/image/JSON responses.  
+
 ```python
 from flask import Flask, make_response, send_file, render_template, jsonify
 from markupsafe import escape
