@@ -3,13 +3,13 @@ Create environment:
 ```
 $ mkdir myproject
 $ cd myproject
-$ python3 -m venv venv
+$ python3 -m venv .venv
 ```
 
 On Windows:
 
 ```
-$ py -3 -m venv venv
+$ py -3 -m venv .venv
 ```
 
 Activate environment:
