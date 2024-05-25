@@ -141,7 +141,27 @@ The `templates/show_users.html` file:
 </html>
 ```
 
+## Debug toolbar
 
+`pip install flask-debugtoolbar`
+
+```python
+from flask import Flask, render_template
+from flask_debugtoolbar import DebugToolbarExtension
+
+app = Flask(__name__)
+
+app.debug = True
+app.config['SECRET_KEY'] = 's$cret'
+
+toolbar = DebugToolbarExtension(app)
+
+
+@app.route("/")
+def home():
+
+    return render_template('home.html', message='This is home page')
+```
 
 
 
