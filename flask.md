@@ -43,3 +43,75 @@ def random_movie():
 
     return jsonify(movie)
 ```
+
+
+## SQLite database 
+
+The `test.db` file in project directory: 
+
+```sql
+CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, occupation TEXT);
+INSERT INTO users(name, occupation) VALUES('John Doe', 'gardener');
+INSERT INTO users(name, occupation) VALUES('Roger Doe', 'driver');
+INSERT INTO users(name, occupation) VALUES('Paul Novak', 'teacher');
+INSERT INTO users(name, occupation) VALUES('Lucia Smith', 'teacher');
+INSERT INTO users(name, occupation) VALUES('John Williams', 'accountant');
+INSERT INTO users(name, occupation) VALUES('Martin Bielik', 'programmer');
+```
+
+The `app.py` file. 
+
+```python
+import sqlite3
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+
+def get_db_connection():
+    con = sqlite3.connect('test.db')
+    con.row_factory = sqlite3.Row
+    return con
+
+
+@app.route('/users')
+def index():
+
+    con = get_db_connection()
+    users = con.execute('SELECT * FROM users').fetchall()
+    con.close()
+
+    return render_template('show_users.html', users=users)
+```
+
+The `templates/show_users.html` file:  
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of users</title>
+</head>
+<body>
+
+    {% for user in users %}
+        <ul>
+            <li>{{ user['id'] }}</li>
+            <li>{{ user['name'] }}</li>
+            <li>{{ user['occupation'] }}</li>
+        </ul>
+    {% endfor %}
+    
+</body>
+</html>
+```
+
+
+
+
+
+
+
+
