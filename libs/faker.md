@@ -46,6 +46,53 @@ for i in range(3):
     print(f'{name}, {address}, {phone}')
 ```
 
+## Internet data
+
+```python
+#!/usr/bin/env python
+
+from faker import Faker
+
+faker = Faker()
+
+print(f'Email: {faker.email()}')
+print(f'Safe email: {faker.safe_email()}')
+print(f'Free email: {faker.free_email()}')
+print(f'Company email: {faker.company_email()}')
+
+print('------------------------------------')
+
+print(f'Host name: {faker.hostname()}')
+print(f'Domain name: {faker.domain_name()}')
+print(f'Domain word: {faker.domain_word()}')
+print(f'TLD: {faker.tld()}')
+
+print('------------------------------------')
+
+print(f'IPv4: {faker.ipv4()}')
+print(f'IPv6: {faker.ipv6()}')
+print(f'MAC address: {faker.mac_address()}')
+
+print('------------------------------------')
+
+print(f'Slug: {faker.slug()}')
+print(f'Image URL: {faker.image_url()}')
+```
+
+## Hashes
+
+```python
+
+from faker import Faker
+
+faker = Faker()
+
+print(f'md5: {faker.md5()}')
+print(f'sha1: {faker.sha1()}')
+print(f'sha256: {faker.sha256()}')
+print(f'uuid4: {faker.uuid4()}')
+```
+
 ## Date and time 
 
 ```python
@@ -119,7 +166,29 @@ print(f"Past datetime: {faker.past_datetime()}")
 print(f"Past date: {faker.past_date()}")
 ```
 
+## Profiles 
 
+`pip install dumper`
+
+```python
+from faker import Faker
+import dumper
+
+faker = Faker()
+
+profile1 = faker.simple_profile()
+dumper.dump(profile1)
+
+print('--------------------------')
+
+profile2 = faker.simple_profile('M')
+dumper.dump(profile2)
+
+print('--------------------------')
+
+profile3 = faker.profile(sex='F')
+dumper.dump(profile3)
+```
 
 ## Generate CSV data
 
