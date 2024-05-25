@@ -73,7 +73,7 @@ with open('users.csv', 'w', newline='') as f:
 
 ## Pick users by last names
 
-```
+```python
 import csv 
 from collections import namedtuple
 
