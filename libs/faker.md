@@ -71,4 +71,33 @@ with open('users.csv', 'w', newline='') as f:
             'last_name': lname, 'occupation': occupation})
 ```
 
+## Pick users by last names
 
+```
+import csv 
+from collections import namedtuple
+
+User = namedtuple('User', 'id first_name last_name occupation')
+
+fname = 'users.csv'
+
+users = []
+users_ab = []
+
+with open(fname) as f:
+
+    reader = csv.reader(f)
+
+    for row in reader:
+
+        u = User(*row)
+        users.append(u)
+
+# print(users)
+users_ab = [u for u in users if u.last_name.startswith('W') or u.last_name.startswith('A')]
+
+print(len(users_ab))
+
+for u in users_ab:
+    print(u)
+```
