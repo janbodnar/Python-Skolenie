@@ -2,6 +2,12 @@
 
 *Flask* is Python micro web framework.
 
+The flask application is run like this: `flask hello run`, provided the main app name is `hello.py`.  
+If the applications name is `app.py`, we can directly run the application like: `flask run`.  
+
+We can also run the application directly with `flask run` if we set the main application file to the  
+`FLASK_APP` environment variable.  
+
 
 ## Simple example
 
@@ -46,6 +52,29 @@ def random_movie():
     print(movie)
 
     return jsonify(movie)
+```
+
+## Query params
+
+```python
+from flask import Flask, request
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+
+    return 'Home page'
+
+
+@app.route('/greet', methods=['GET'])
+def greet():
+
+    name = request.args.get('name', 'Guest')
+    msg = f'Hello {name}'
+
+    return msg, 200, {'Content-Type': 'text/plain; charset=utf-8'}
 ```
 
 
