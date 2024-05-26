@@ -221,7 +221,7 @@ for name in names:
     print(f'Hello {name}!')
 ```
 
-The example produces greeting messages to all names specified with the `n` or `name` options;
+The example produces greeting messages to all names specified with the `n` or `name` options;  
 they can be repeated multipile times.
 
 ```
@@ -229,6 +229,167 @@ $ appending.py -n Peter -n Lucy --name Jane
 Hello Peter!
 Hello Lucy!
 Hello Jane!
+```
+
+
+## The nargs argument 
+
+The `nargs` specifies the number of command-line arguments that should be consumed.
+
+```python
+import argparse
+import sys
+
+# nargs sets the required number of argument values
+# metavar gives name to argument values in error and help output
+
+parser = argparse.ArgumentParser()
+parser.add_argument('chars', type=str, nargs=2, metavar='c',
+                    help='starting and ending character')
+
+args = parser.parse_args()
+
+try:
+    v1 = ord(args.chars[0])
+    v2 = ord(args.chars[1])
+
+except TypeError as e:
+
+    print('Error: arguments must be characters')
+    parser.print_help()
+    sys.exit(1)
+
+if v1 > v2:
+    print('first letter must precede the second in alphabet')
+    parser.print_help()
+    sys.exit(1)
+```
+
+The example shows a sequence of characters from character one to character two.   
+It expects two arguments.
+```
+parser.add_argument('chars', type=str, nargs=2, metavar='c',
+    help='starting and ending character')
+```
+
+With `nargs=2` we specify that we expect two arguments.
+
+```
+$ charseq.py e k
+e f g h i j k
+```
+
+The program shows a sequence of characters from e to k.
+
+Variable number of arguments can be set with the `*` character.
+
+```python
+import argparse
+
+# * nargs expects 0 or more arguments
+
+parser = argparse.ArgumentParser()
+parser.add_argument('num', type=int, nargs='*')
+args = parser.parse_args()
+
+print(f"The sum of values is {sum(args.num)}")
+```
+
+The example computes the sum of values; we can specify variable number of  
+arguments to the program.
+
+```
+$ var_args.py 1 2 3 4 5
+The sum of values is 15
+```
+
+## The choices option 
+
+The choices option limits arguments to the given list.
+
+```python
+import argparse
+import datetime
+import time
+
+# choices limits argument values to the 
+# given list
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--now', dest='format', choices=['std', 'iso', 'unix', 'tz'],
+                    help="shows datetime in given format")
+
+args = parser.parse_args()
+fmt = args.format
+
+if fmt == 'std':
+    print(datetime.date.today())
+elif fmt == 'iso':
+    print(datetime.datetime.now().isoformat())
+elif fmt == 'unix':
+    print(time.time())
+elif fmt == 'tz':
+    print(datetime.datetime.now(datetime.timezone.utc))
+```
+
+In the example, the now option can accept the following values: `std`, `iso`, `unix`, or `tz`.
+
+```
+$ ./mytime.py --now iso
+2022-08-20T09:44:22.437880
+$ ./mytime.py --now unix
+1660981466.8261166
+```
+
+
+## Head example
+
+The following example mimics the Linux head command. It shows the n lines of a text from the   
+beginning of the file.
+
+The `words.txt` file: 
+
+```
+sky
+top
+forest
+wood
+lake
+wood
+```
+
+For the example, we have this small test file.
+
+```python
+import argparse
+from pathlib import Path
+
+# head command
+# working with positional arguments
+
+parser = argparse.ArgumentParser()
+   
+parser.add_argument('f', type=str, help='file name')
+parser.add_argument('n', type=int, help='show n lines from the top')
+
+args = parser.parse_args()
+
+filename = args.f
+
+lines = Path(filename).read_text().splitlines()
+
+for line in lines[:args.n]:
+    print(line)
+```
+
+The example has two options: `f` for a file name and `-n` for the number of lines to show.
+
+```
+$ head.py words.txt 3
+sky
+top
+forest
 ```
 
 
@@ -255,7 +416,7 @@ val = args.v
 print(val * val * val)
 ```
 
-The example names the expected value value. The default name is V.
+The example names the expected value value. The default name is `V`.
 
 ```
 $ metavar.py -h
@@ -265,6 +426,7 @@ optional arguments:
   -h, --help  show this help message and exit
   -v value    computes cube for the given value
 ```
+
 The given name is shown in the help output.
 
 
