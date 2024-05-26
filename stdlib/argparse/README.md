@@ -95,7 +95,6 @@ print(f'Hello {args.name}')
 
 ## Positional arguments
 
-```
 The following example works with positional arguments. They are created with `add_argument`.
 
 ```python
@@ -115,7 +114,30 @@ The example expects two positional arguments: `name` and `age`.
 
 ```
 $ positional_arg.py Peter 23
+Peter is 23 years old
 ```
 
-Peter is 23 years old
+## Python argparse dest
+
+The `dest` option of the `add_argument` gives a name to the argument. If not given, it is   
+inferred from the option.
+
+```python
+import argparse
+import datetime
+
+# dest gives a different name to a flag
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-n', dest='now', action='store_true', help="shows now")
+args = parser.parse_args()
+
+# we can refer to the flag
+# by a new name
+if args.now:
+
+    now = datetime.datetime.now()
+    print(f"Now: {now}")
+```
+
 
