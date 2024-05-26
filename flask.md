@@ -79,6 +79,9 @@ def greet():
 
 ## Plain form 
 
+The example processes a plain form without a form library. Note that processing forms  
+requires a lot of work including form validation and applying necessery security measures.    
+
 ```python
 from flask import Flask, render_template, request
 app = Flask(__name__)
@@ -97,6 +100,11 @@ def show_user():
         data = request.form
         return render_template("show_user.html", data=data)
 ```
+
+The `endpoint` parameter specifies the name of the url to which we refer via the  
+`url_for` function in the templates. If the parameter is not specified, it defaults  
+to the template name, `show_user` in our case. The first parameter of the `@app.route`  
+defines the slug, the string that is actually displayed in the browser.  
 
 ```html
 <html>
