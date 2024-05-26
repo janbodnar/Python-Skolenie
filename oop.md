@@ -847,9 +847,6 @@ $ ./vector.py
 ## Tkinter procedural 
 
 ```python
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import tkinter
 
 def toggleTitle():
@@ -877,76 +874,48 @@ root.mainloop()
 ## Tkinter OOP
 
 ```python
-import tkinter as tk
+from tkinter import Tk, Frame, Checkbutton
+from tkinter import BooleanVar, BOTH
 
-class CustomDialog(tk.Toplevel):
-    def __init__(self, parent, title=None):
-        super().__init__(parent)
-        
-        self.transient(parent)
-        self.title(title or "Custom Dialog")
-        
-        self.parent = parent
-        self.result = None
-        
-        body = tk.Frame(self)
-        self.initial_focus = self.body(body)
-        body.pack(padx=5, pady=5)
+class Example(Frame):
 
-        self.buttonbox()
-        self.grab_set()
+    def __init__(self):
+        super().__init__()
 
-        if not self.initial_focus:
-            self.initial_focus = self
+        self.initUI()
 
-        self.protocol("WM_DELETE_WINDOW", self.cancel)
-        self.geometry("+%d+%d" % (parent.winfo_rootx()+50, parent.winfo_rooty()+50))
 
-        self.initial_focus.focus_set()
-        self.wait_window(self)
+    def initUI(self):
 
-    def body(self, master):
-        # create dialog body. return widget that should have initial focus.
-        self.label = tk.Label(master, text="Enter your text:")
-        self.label.pack(side="top", fill="x", pady=10)
-        
-        self.entry = tk.Entry(master)
-        self.entry.pack(padx=5, fill="x", pady=5)
-        return self.entry
+        self.master.title("Checkbutton")
 
-    def buttonbox(self):
-        # add standard button box.
-        box = tk.Frame(self)
+        self.pack(fill=BOTH, expand=True)
+        self.var = BooleanVar()
 
-        self.submit_button = tk.Button(box, text="Submit", width=10, command=self.ok, default=tk.ACTIVE)
-        self.submit_button.pack(side="left", padx=5, pady=5)
-        
-        self.cancel_button = tk.Button(box, text="Cancel", width=10, command=self.cancel)
-        self.cancel_button.pack(side="left", padx=5, pady=5)
+        cb = Checkbutton(self, text="Show title",
+            variable=self.var, command=self.onClick)
+        cb.select()
+        cb.place(x=50, y=50)
 
-        self.bind("<Return>", self.ok)
-        self.bind("<Escape>", self.cancel)
 
-        box.pack()
+    def onClick(self):
 
-    def ok(self, event=None):
-        # process the data
-        self.result = self.entry.get()
-        self.parent.focus_set() # put focus back to the parent window
-        self.destroy()
+        if self.var.get() == True:
+            self.master.title("Checkbutton")
+        else:
+            self.master.title("")
 
-    def cancel(self, event=None):
-        # put focus back to the parent window
-        self.parent.focus_set()
-        self.destroy()
 
-# Example usage:
-if __name__ == "__main__":
-    root = tk.Tk()
-    root.geometry("300x150")
-    button = tk.Button(root, text="Open dialog", command=lambda: CustomDialog(root))
-    button.pack(pady=20)
+def main():
+
+    root = Tk()
+    root.geometry("250x150+300+300")
+    app = Example()
     root.mainloop()
+
+
+if __name__ == '__main__':
+    main()
 ```
 
 
