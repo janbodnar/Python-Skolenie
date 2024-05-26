@@ -21,11 +21,11 @@ Third-party packages are installed into predefined directories such as
 
 Python packages are managed with the Python package manager `pip`.  
 
-`$ sudo pip3 install arrow`  
+`sudo pip install arrow`  
 
 For instance, the `arrow` library is installed with the above command.  
 
-`$ sudo pip3 uninstall arrow`  
+`sudo pip uninstall arrow`  
 
 To uninstall arrow, we use the above command.
 
