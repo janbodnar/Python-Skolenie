@@ -9,6 +9,8 @@ and a new parameter is added with `add_argument`. Arguments can be optional, req
 
 ## Optional arguments 
 
+The following example creates a simple argument parser. 
+
 ```python
 import argparse
 
@@ -26,4 +28,54 @@ if args.output:
     print("This is some output")
 ```
 
+The example adds one argument having two options: a short `-o` and a long `--ouput`.   
+These are optional arguments.
+
+```python
+import argparse
+```
+
+The module is imported.
+
+```python
+parser.add_argument('-o', '--output', action='store_true', 
+    help="shows output")
+```
+
+An argument is added with `add_argument`. The action set to `store_true` will store the argument as `True`,   
+if present. The help option gives argument help.
+
+```python
+args = parser.parse_args()
+```
+
+The arguments are parsed with parse_args. The parsed arguments are present as object attributes. In our case,   
+there will be `args.output` attribute.
+
+```python
+if args.output:
+    print("This is some output")
+```
+
+If the argument is present, we show some output.
+
+```
+$ optional_arg.py -o
+This is some output
+$ optional_arg.py --output
+This is some output
+```
+
+We run the program with the `-o` and `--output`.
+
+```
+$ optional_arg.py --help
+usage: optional_arg.py [-h] [-o]
+
+optional arguments:
+    -h, --help    show this help message and exit
+    -o, --output  shows output
+```
+
+We can show the program help.
 
