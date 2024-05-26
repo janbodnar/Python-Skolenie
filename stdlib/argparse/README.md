@@ -198,6 +198,26 @@ $ power.py -b 3 -e 3
 27
 ```
 
+## Verbose argument 
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+   
+parser.add_argument('-v', type=int, required=True, help="computes cube")
+parser.add_argument('--verbose', action='store_true', help="gives verbose output")
+args = parser.parse_args()
+
+val = args.v
+cubed = val * val * val
+
+if args.verbose:
+    print(f'{val} cubed is {cubed}')
+else:
+    print(cubed)
+```
+
 ## The append action
 
 The `append` action allows to group repeating options.
@@ -267,6 +287,7 @@ if v1 > v2:
 
 The example shows a sequence of characters from character one to character two.   
 It expects two arguments.
+
 ```
 parser.add_argument('chars', type=str, nargs=2, metavar='c',
     help='starting and ending character')
@@ -302,6 +323,21 @@ arguments to the program.
 $ var_args.py 1 2 3 4 5
 The sum of values is 15
 ```
+
+We set 1+ arguments with `nargs='+'`.
+
+```
+import argparse
+
+# + nargs expects 1+ arguments
+
+parser = argparse.ArgumentParser()
+parser.add_argument('num', type=int, nargs='+')
+args = parser.parse_args()
+
+print(f"The sum of values is {sum(args.num)}")
+```
+
 
 ## The choices option 
 
