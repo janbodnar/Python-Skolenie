@@ -77,6 +77,81 @@ def greet():
     return msg, 200, {'Content-Type': 'text/plain; charset=utf-8'}
 ```
 
+## Plain form 
+
+```python
+from flask import Flask, render_template, request
+app = Flask(__name__)
+
+
+@app.route('/')
+def home():
+
+    return render_template('index.html')
+
+
+@app.route('/show-user', methods=['POST', 'GET'], endpoint='show-user')
+def show_user():
+
+    if request.method == 'POST':
+        data = request.form
+        return render_template("show_user.html", data=data)
+```
+
+```html
+<html>
+
+<body>
+    <form action="{{ url_for('show-user') }}" method="POST">
+        <div>
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="firstname" required>
+        </div>
+        <div>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="lastname" required>
+        </div>
+        <div>
+            <label for="occupation">Occupation:</label>
+            <input type="text" id="occupation" name="occupation" required>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>
+```
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show user</title>
+</head>
+
+<body>
+
+    <ul>
+
+        {% for k, v in data.items() %}
+        <li>
+            {{ k }} - {{ v }}
+        </li>
+        {% endfor %}
+
+    </ul>
+
+</body>
+
+</html>
+```
+
 
 ## SQLite database 
 
