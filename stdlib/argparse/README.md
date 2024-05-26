@@ -140,4 +140,143 @@ if args.now:
     print(f"Now: {now}")
 ```
 
+## Argument type
+
+The `type` argument determines the argument type.
+
+```python
+import argparse
+import random
+
+# type determines the type of the argument
+
+parser = argparse.ArgumentParser()
+   
+parser.add_argument('-n', type=int, required=True, 
+    help="define the number of random integers")
+args = parser.parse_args()
+
+n = args.n
+
+for i in range(n):
+    print(random.randint(-100, 100))
+```
+
+## Default arg value
+
+The `default` option specifies the default value, if the value is not given.
+
+```python
+import argparse
+
+# required defines a mandatory argument 
+# default defines a default value if not specified
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('-b', type=int, required=True, help="defines the base value")
+parser.add_argument('-e', type=int, default=2, help="defines the exponent value")
+args = parser.parse_args()
+
+val = 1
+
+base = args.b
+exp = args.e
+
+for i in range(exp):
+    val *= base
+
+print(val)
+```
+
+The example computes exponentiation. The exponent value is not required; if not given, the default will be 2.
+
+```
+$ power.py -b 3
+9
+$ power.py -b 3 -e 3
+27
+```
+
+## The append action
+
+The `append` action allows to group repeating options.
+   
+```python
+import argparse
+
+# append action allows to group repeating
+# options
+
+parser = argparse.ArgumentParser()
+   
+parser.add_argument('-n', '--name', dest='names', action='append', 
+    help="provides names to greet")
+
+args = parser.parse_args()
+
+names = args.names
+
+for name in names:
+    print(f'Hello {name}!')
+```
+
+The example produces greeting messages to all names specified with the `n` or `name` options;
+they can be repeated multipile times.
+
+```
+$ appending.py -n Peter -n Lucy --name Jane
+Hello Peter!
+Hello Lucy!
+Hello Jane!
+```
+
+
+## The metavar option
+
+The `metavar` option gives a name to the expected value in error and help outputs.
+
+```python
+import argparse
+
+# metavar gives name to the expected value 
+# in error and help outputs
+
+parser = argparse.ArgumentParser()
+   
+parser.add_argument('-v', type=int, required=True, metavar='value', 
+    help="computes cube for the given value")
+args = parser.parse_args()
+
+print(args)
+
+val = args.v
+
+print(val * val * val)
+```
+
+The example names the expected value value. The default name is V.
+
+```
+$ metavar.py -h
+usage: metavar.py [-h] -v value
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -v value    computes cube for the given value
+```
+The given name is shown in the help output.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
