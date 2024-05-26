@@ -79,3 +79,43 @@ optional arguments:
 
 We can show the program help.
 
+## Required argument
+
+An argument is made required with the `required` option.
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--name', required=True)
+
+args = parser.parse_args()
+print(f'Hello {args.name}')
+```
+
+## Positional arguments
+
+```
+The following example works with positional arguments. They are created with `add_argument`.
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+   
+parser.add_argument('name')
+parser.add_argument('age')
+
+args = parser.parse_args()
+
+print(f'{args.name} is {args.age} years old')
+```
+
+The example expects two positional arguments: `name` and `age`.
+
+```
+$ positional_arg.py Peter 23
+```
+
+Peter is 23 years old
+
