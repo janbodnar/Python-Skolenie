@@ -1,5 +1,14 @@
 # Samples
 
+## Read data from CSV file
+
+Data in `data.csv`
+
+```
+1, 2, 3, 4, 5
+6, 7, 8, 9, 10
+```
+
 
 ```python
 import csv
@@ -25,6 +34,8 @@ print(min(data))
 print(len(data))
 ```
 
+
+## Split string
 
 ```python
 data = '1,2,3,4,5,6,7,8,9,10'
