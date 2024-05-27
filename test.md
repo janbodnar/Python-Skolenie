@@ -1,5 +1,39 @@
 # Samples
 
+
+```python
+words = ['sky', 'word', 'cup', 'letter', 'water']
+vals = [1, 2, 3, 4, 5]
+# for loop, len, fstring
+
+def startw(e:str):
+    return e.startswith('w')
+
+def times5(e):
+    return e * 5
+
+for word in words:
+    print(f'{word} has {len(word)} ascii characters')
+
+# filter slov na w
+# map -> prenasob 5
+
+filtered = list(filter(startw, words))
+print(filtered)
+
+multiplied = list(map(times5, vals))
+print(multiplied)
+```
+
+
+
+
+
+
+
+
+
+
 ## Frequency
 
 ```
