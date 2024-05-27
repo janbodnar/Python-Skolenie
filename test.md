@@ -1,6 +1,14 @@
 # Samples
 
 ```python
+words = ['war', 'water', 'cup', 'atom', 'cloud', 'sky']
+
+words_w_c = [word for word in words if word.startswith('w') or word.startswith('c')]
+print(words_w_c)
+```
+
+
+```python
 a = [9, 2, 18, 14, 22, 11, 7, 19, 23]
 
 b1 = [e for e in a if e > 10 if e < 20]
