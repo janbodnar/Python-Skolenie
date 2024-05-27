@@ -1,5 +1,29 @@
 # Samples
 
+
+
+```python
+a = [-4, 2, 0, -1, 12, -3]
+
+b = [e for e in a if e > 0]
+print(b)
+
+vals = [1, 2, 3, 4, 5, 6, 7]
+
+evens = [e for e in vals if e % 2 == 0]
+print(evens)
+
+odds = [e for e in vals if e % 2 == 1]
+print(odds)
+
+
+words = ['sky', 'cup', 'war', 'twin', 'forest']
+
+words_3 = [word for word in words if len(word) == 3]
+print(words_3)
+```
+
+
 ```python
 #!/usr/bin/python
 
