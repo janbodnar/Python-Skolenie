@@ -1,5 +1,16 @@
 # Samples
 
+```python
+a = [9, 2, 18, 14, 22, 11, 7, 19, 23]
+
+b1 = [e for e in a if e > 10 if e < 20]
+b2 = [e for e in a if e > 10 and e < 20]
+b3 = [e for e in a if 10 < e < 20]
+
+print(b1, b2, b3)
+```
+
+
 
 
 ```python
