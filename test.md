@@ -1,5 +1,43 @@
 # Samples
 
+## Read first 100 lines of CSV data
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Person:
+    id: int
+    first_name: str
+    last_name: str
+    occupation: str
+
+fname = 'users.csv'
+
+users = []
+
+i = 0
+with open(fname) as f:
+
+    reader = csv.DictReader(f)
+
+    for row in reader:
+        user = Person(row['id'], row['first_name'], row['last_name'], row['occupation'])
+        users.append(user)
+        i += 1
+
+        if i >= 101:
+            break
+
+
+print(len(users))
+
+for user in users:
+    print(user)
+```
+
+
+
 ## Read data from CSV file
 
 Data in `data.csv`
