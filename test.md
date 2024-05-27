@@ -1,5 +1,31 @@
 # Samples
 
+
+```python
+import csv
+
+fname = 'data.csv'
+values = []
+
+with open(fname) as f:
+
+    reader = csv.reader(f)
+
+    for row in reader:
+        values.extend(row)
+
+print(values)
+
+data = [int(e) for e in values]
+print(data)
+
+print(sum(data))
+print(max(data))
+print(min(data))
+print(len(data))
+```
+
+
 ```python
 data = '1,2,3,4,5,6,7,8,9,10'
 
