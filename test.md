@@ -1,5 +1,50 @@
 # Samples
 
+```python
+#!/usr/bin/python
+
+class User:
+
+    def __init__(self, name, occupation):
+        self.name = name
+        self.occupation = occupation
+
+    def setName(self, name):
+        self.name = name
+
+    def getName(self):
+        return self.name
+
+    def setOccupation(self, occupation):
+        self.occupation = occupation
+
+    def getOccupation(self):
+        return self.occupation
+
+data = [
+    ['John Doe', 'gardener'],
+    ['Roger Roe', 'driver'],
+    ['Lucia Smith', 'teacher']
+]
+
+
+for e in data:
+    user = User(e[0], e[1])
+    print(user.getName(), user.getOccupation())
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```python
 words = ['sky', 'word', 'cup', 'letter', 'water']
