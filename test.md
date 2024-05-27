@@ -1,6 +1,23 @@
 # Samples
 
 ```python
+data = '1,2,3,4,5,6,7,8,9,10'
+
+# split/int/sum
+
+parts = data.split(',')
+print(parts)
+
+vals = [int(e) for e in parts]
+print(vals)
+print(sum(vals))
+
+print(sum([int(e) for e in data.split(',')]))
+```
+
+
+
+```python
 words = ['war', 'water', 'cup', 'atom', 'cloud', 'sky']
 
 words_w_c = [word for word in words if word.startswith('w') or word.startswith('c')]
