@@ -35,7 +35,9 @@ with open('users.csv') as f:
     for row in reader:
         if row[1] == first_name and row[2] == last_name:
 
-            u = User(row[0], row[1], row[2], row[3])
+            # u = User(row[0], row[1], row[2], row[3])
+            u = User(*row)
+
             ws.append(u)
 
 print(ws)
