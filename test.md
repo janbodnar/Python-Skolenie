@@ -6,6 +6,8 @@
 ```python
 import csv
 from dataclasses import dataclass
+import argparse
+
 
 @dataclass
 class User:
@@ -16,12 +18,22 @@ class User:
 
 ws = []
 
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-fn', type=str, required=True, help="provide first name of user")
+parser.add_argument('-ln', type=str, required=True, help="provide last name of user")
+
+args = parser.parse_args()
+
+first_name = args.fn
+last_name = args.ln
+
 with open('users.csv') as f:
 
     reader = csv.reader(f)
 
     for row in reader:
-        if row[2].startswith('W') and row[1].startswith('A'):
+        if row[1] == first_name and row[2] == last_name:
 
             u = User(row[0], row[1], row[2], row[3])
             ws.append(u)
