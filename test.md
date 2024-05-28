@@ -1,5 +1,51 @@
 # Samples
 
+## Read CSV from internet resource
+
+```python
+
+import requests
+import csv
+from io import StringIO
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    occupation: str
+
+
+url = 'https://webcode.me/users.csv'
+resp = requests.get(url)
+
+content = resp.content.decode('utf8')
+f = StringIO(content)
+
+users = []
+
+for user in csv.DictReader(f):
+
+    u = User(**user)
+    users.append(u)
+    # print(user)
+
+# for u in users:
+#     print(u)
+
+names_w_a = [u for u in users if u.last_name.startswith('W') or u.last_name.startswith('A')]
+
+print(len(names_w_a))
+
+for user in names_w_a:
+    print(user)
+```
+
+
+
+
 ## Calculate age
 
 ```python
