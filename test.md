@@ -1,5 +1,46 @@
 # Samples
 
+## Calculate age
+
+```python
+import csv
+from dataclasses import dataclass
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+@dataclass
+class User:
+    name: str
+    occupation: str
+    dob: str
+
+def get_age(val: str):
+    born = date.fromisoformat(val.strip())
+    today = date.today()
+    age = relativedelta(today, born)
+    return age.years
+
+
+users = []
+
+fname = 'users.csv'
+with open(fname) as f:
+
+    reader = csv.reader(f)
+
+    for row in reader:
+        if row:
+            u = User(*row)
+            users.append(u)
+
+print(users)
+
+for u in users:
+
+    print(f'{u.name} is {u.occupation}, age: {get_age(u.dob)}')
+```
+
+
 
 ## Filter users
 
