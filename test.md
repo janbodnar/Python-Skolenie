@@ -30,6 +30,51 @@ last_name = args.ln
 
 with open('users.csv') as f:
 
+    # reader = csv.reader(f)
+    reader = csv.DictReader(f)
+
+    for row in reader:
+        if row['first_name'] == first_name and row['last_name'] == last_name:
+
+            # u = User(row['id'], row['first_name'], row['last_name'], row['occupation'])
+            u = User(**row)
+
+            ws.append(u)
+
+print(ws)
+print(len(ws))
+```
+
+
+
+
+```python
+import csv
+from dataclasses import dataclass
+import argparse
+
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    occupation: str
+
+ws = []
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-fn', type=str, required=True, help="provide first name of user")
+parser.add_argument('-ln', type=str, required=True, help="provide last name of user")
+
+args = parser.parse_args()
+
+first_name = args.fn
+last_name = args.ln
+
+with open('users.csv') as f:
+
     reader = csv.reader(f)
 
     for row in reader:
