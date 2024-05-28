@@ -5,6 +5,14 @@
 
 ```python
 import csv
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    occupation: str
 
 ws = []
 
@@ -13,8 +21,10 @@ with open('users.csv') as f:
     reader = csv.reader(f)
 
     for row in reader:
-        if row[2].startswith('W'):
-            ws.append(row)
+        if row[2].startswith('W') and row[1].startswith('A'):
+
+            u = User(row[0], row[1], row[2], row[3])
+            ws.append(u)
 
 print(ws)
 print(len(ws))
