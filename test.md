@@ -1,5 +1,26 @@
 # Samples
 
+
+## Filter users
+
+```python
+import csv
+
+ws = []
+
+with open('users.csv') as f:
+
+    reader = csv.reader(f)
+
+    for row in reader:
+        if row[2].startswith('W'):
+            ws.append(row)
+
+print(ws)
+print(len(ws))
+```
+
+
 ## Read first 100 lines of CSV data
 
 ```python
