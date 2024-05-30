@@ -25,6 +25,14 @@ import os
 os.system('code')
 ```
 
+## Get current working directory
+
+```python
+import os
+
+print(os.getcwd())
+```
+
 Run and read the output.
 
 ```python
@@ -39,12 +47,13 @@ print(output)
 Read environment variables 
 
 ```python
-#!/usr/bin/python
+import os 
 
-import os
-
-print(os.environ)
-print(os.getenv("PATH"))
+print(os.name)
+print(os.environ['PATH'])
+print(os.environ['USERNAME'])
+print(os.environ['OS'])
+print(os.environ['TMP'])
 ```
 
 Walking directories. 
@@ -62,6 +71,54 @@ for root, dirs, files in os.walk(os.path.abspath(".")):
     for name in dirs:
         print(os.path.join(root, name))
 ```
+
+## Executing programs
+
+These functions all execute a new program, replacing the current process; they do not return.  
+
+```python
+os.execl(path, arg0, arg1, ...)
+os.execle(path, arg0, arg1, ..., env)
+os.execlp(file, arg0, arg1, ...)
+os.execlpe(file, arg0, arg1, ..., env)
+os.execv(path, args)
+os.execve(path, args, env)
+os.execvp(file, args)
+os.execvpe(file, args, env)
+```
+
+The `e`, `v`, `p`, and `l` letters mean:
+
+- **`l`**: This stands for "list". When this letter is present, it means the function expects
+  the arguments to be passed in as separate parameters (i.e., `arg0`, `arg1`, ...). For example,  
+  in `os.execl(path, arg0, arg1, ...)`, `arg0`, `arg1`, etc. are separate arguments.
+
+- **`v`**: This stands for "vector". When this letter is present, it means the function expects  
+  the arguments to be passed in as a list or tuple. For example, in `os.execv(path, args)`, `args` 
+  is a list or tuple of arguments.
+
+- **`e`**: This stands for "environment". When this letter is present, it means the function allows
+  you to modify the environment for the command being run. For example, in `os.execle(path, arg0, arg1, ..., env)`, `env`
+  is a dictionary that contains the environment variables.
+
+- **`p`**: This stands for "path". When this letter is present, it means the function will use the `PATH`
+  environment variable to find the executable. For example, in `os.execlp(file, arg0, arg1, ...)`, the function
+  will look for `file` in the directories listed in the `PATH` environment variable.
+
+
+```python
+import os 
+
+name = 'test.py'
+
+command = ["python", "test.py"]
+os.execvp(command[0], command)
+
+print('finished') # this line is not reached
+```
+
+
+
 
 ## Platform 
 
