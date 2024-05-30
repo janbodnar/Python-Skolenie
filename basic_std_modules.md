@@ -55,6 +55,15 @@ output = os.popen('dir').read()
 print(output)
 ```
 
+### List directory 
+
+```python
+import os 
+
+content = os.listdir('.')
+print(content)
+```
+
 ### Read environment variables 
 
 ```python
