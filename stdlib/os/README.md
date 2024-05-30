@@ -246,6 +246,24 @@ print('Size:', size)
 print('Last modified:', datetime.datetime.fromtimestamp(mtime))
 ```
 
+### normalize path 
+
+```python
+import os
+
+cwd = os.getcwd()
+print(cwd)
+
+npath = os.path.normpath(cwd)
+print(npath)
+
+# Output on Unix-based systems:
+# part1/part2/part3
+
+# Output on Windows:
+# part1\part2\part3
+```
+
 ### Filter 
 
 ```python
