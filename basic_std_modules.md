@@ -89,21 +89,21 @@ os.execvpe(file, args, env)
 
 The `e`, `v`, `p`, and `l` letters mean:
 
-- **`l`**: This stands for "list". When this letter is present, it means the function expects
+- **`l`**: This stands for "list". When this letter is present, it means the function expects  
   the arguments to be passed in as separate parameters (i.e., `arg0`, `arg1`, ...). For example,  
-  in `os.execl(path, arg0, arg1, ...)`, `arg0`, `arg1`, etc. are separate arguments.
+  in `os.execl(path, arg0, arg1, ...)`, `arg0`, `arg1`, etc. are separate arguments.  
 
 - **`v`**: This stands for "vector". When this letter is present, it means the function expects  
-  the arguments to be passed in as a list or tuple. For example, in `os.execv(path, args)`, `args` 
-  is a list or tuple of arguments.
+  the arguments to be passed in as a list or tuple. For example, in `os.execv(path, args)`, `args`   
+  is a list or tuple of arguments.  
 
-- **`e`**: This stands for "environment". When this letter is present, it means the function allows
-  you to modify the environment for the command being run. For example, in `os.execle(path, arg0, arg1, ..., env)`, `env`
-  is a dictionary that contains the environment variables.
+- **`e`**: This stands for "environment". When this letter is present, it means the function allows  
+  you to modify the environment for the command being run. For example, in `os.execle(path, arg0, arg1, ..., env)`, `env`  
+  is a dictionary that contains the environment variables.  
 
-- **`p`**: This stands for "path". When this letter is present, it means the function will use the `PATH`
-  environment variable to find the executable. For example, in `os.execlp(file, arg0, arg1, ...)`, the function
-  will look for `file` in the directories listed in the `PATH` environment variable.
+- **`p`**: This stands for "path". When this letter is present, it means the function will use the `PATH`  
+  environment variable to find the executable. For example, in `os.execlp(file, arg0, arg1, ...)`, the function  
+  will look for `file` in the directories listed in the `PATH` environment variable.  
 
 
 ```python
