@@ -44,7 +44,24 @@ except OSError:
     print('failed to rename file')
 ```
 
-### Run and read the output.
+## Remove directory 
+
+The `rmdir` removes a directory.  
+
+```python
+import os
+
+def removeDirectory(directory):
+    try:
+        if os.path.exists(directory):
+            os.rmdir(directory)
+    except OSError:
+        print('failed to remove directory ' +  directory)
+
+removeDirectory('mydata')
+```
+
+## Run and read the output.
 
 ```python
 #!/usr/bin/python
