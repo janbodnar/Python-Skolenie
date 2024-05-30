@@ -7,12 +7,30 @@ The `timeit` module provides a simple way to time small bits of Python code.
 
 parameters:
 
-- stmt which is the statement you want to measure; it defaults to `pass`.
-- setup which is the code that you run before running the stmt; it defaults to `pass`. 
-  We generally use this to import the required modules for our code.
-- timer which is a `timeit.Timer` object; it usually has a sensible default value so we
-  don't have to worry about it.
-- the `number` which is the number of executions you’d like to run the `stmt`.
+- stmt which is the statement you want to measure; it defaults to `pass`.  
+- setup which is the code that you run before running the stmt; it defaults to `pass`.   
+  We generally use this to import the required modules for our code.  
+- timer which is a `timeit.Timer` object; it usually has a sensible default value so we  
+  don't have to worry about it.  
+- the `number` which is the number of executions you’d like to run the `stmt`.  
+
+```python
+import timeit
+
+stm = "5+5"
+print(timeit.timeit(stmt=stm, number=50_000_000))
+```
+
+```python
+import timeit
+
+stm = "3**3"
+print(timeit.timeit(stmt=stm, number=50_000_000))
+
+stm = "pow(3, 3)"
+print(timeit.timeit(stmt=stm, number=50_000_000))
+```
+
 
 ```python
 import timeit
