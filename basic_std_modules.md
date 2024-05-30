@@ -67,6 +67,26 @@ print(os.environ['OS'])
 print(os.environ['TMP'])
 ```
 
+### Make directory
+
+```python
+import os 
+import sys
+
+cur_dir = os.getcwd()
+new_dir = 'data'
+path = f'{cur_dir}/{new_dir}'
+
+if os.path.exists(path):
+    print('file/directory already exists')
+    sys.exit(1)
+
+os.mkdir(path)
+
+if os.path.exists(path):
+    print('file/directory is created')
+```
+
 ### Walking directories. 
 
 ```python
