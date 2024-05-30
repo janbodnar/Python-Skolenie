@@ -228,3 +228,15 @@ mtime = os.path.getmtime(path)
 print('Size:', size)
 print('Last modified:', datetime.datetime.fromtimestamp(mtime))
 ```
+
+### Filter 
+
+```python
+import os
+
+files = filter(os.path.isfile, os.listdir(os.curdir))
+
+for myfile in files:
+    print(myfile)
+```
+
