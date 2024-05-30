@@ -246,6 +246,20 @@ print('Size:', size)
 print('Last modified:', datetime.datetime.fromtimestamp(mtime))
 ```
 
+### directory name/basename
+
+```python
+import os
+
+cwd = os.getcwd()
+
+basename = os.path.basename(cwd)
+print(basename)
+
+dname = os.path.dirname(cwd)
+print(dname)
+```
+
 ### normalize path 
 
 ```python
