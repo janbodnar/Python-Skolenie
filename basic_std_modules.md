@@ -57,12 +57,32 @@ print(output)
 
 ### List directory 
 
+The `listdir` function returns a list containing the names of the entries in the directory   
+given by path. The list is in arbitrary order, and does not include the special entries  
+'.' and '..' even if they are present in the directory. If a file is removed from or added to   
+the directory during the call of this function, whether a name for that file be included is unspecified.  
+
 ```python
 import os 
 
 content = os.listdir('.')
 print(content)
 ```
+
+`scandir` is faster and also provides additional info.   
+
+```python
+import os 
+from datetime import datetime
+
+path = '.'
+
+with os.scandir(path) as it:
+    for entry in it:
+        print(f'{entry.name} {datetime.fromtimestamp(entry.stat().st_birthtime)}')
+```
+
+
 
 ### Read environment variables 
 
