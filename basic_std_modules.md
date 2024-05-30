@@ -33,7 +33,7 @@ import os
 print(os.getcwd())
 ```
 
-## Renaming
+### Renaming
 
 ```python
 import os 
@@ -44,7 +44,7 @@ newname = 'words2.txt'
 os.rename(oldname, newname)
 ```
 
-## Run and read the output.
+### Run and read the output.
 
 ```python
 #!/usr/bin/python
@@ -55,7 +55,7 @@ output = os.popen('dir').read()
 print(output)
 ```
 
-Read environment variables 
+### Read environment variables 
 
 ```python
 import os 
@@ -67,12 +67,9 @@ print(os.environ['OS'])
 print(os.environ['TMP'])
 ```
 
-Walking directories. 
+### Walking directories. 
 
 ```python
-#!/usr/bin/python
-
-
 import os
 
 # for root, dirs, files in os.walk("."):
@@ -83,7 +80,7 @@ for root, dirs, files in os.walk(os.path.abspath(".")):
         print(os.path.join(root, name))
 ```
 
-## Executing programs
+### Executing programs
 
 These functions all execute a new program, replacing the current process; they do not return.  
 
