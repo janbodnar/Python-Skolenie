@@ -69,6 +69,8 @@ print(os.environ['TMP'])
 
 ### Make directory
 
+A new directory/folder is created with `mkdir`.  
+
 ```python
 import os 
 import sys
@@ -82,6 +84,28 @@ if os.path.exists(path):
     sys.exit(1)
 
 os.mkdir(path)
+
+if os.path.exists(path):
+    print('file/directory is created')
+```
+
+---
+
+Make multiple directories in one shot with `makedirs`.  
+
+```python
+import os 
+import sys
+
+cur_dir = os.getcwd()
+new_dir = 'data/text/2024'
+path = f'{cur_dir}/{new_dir}'
+
+if os.path.exists(path):
+    print('file/directory already exists')
+    sys.exit(1)
+
+os.makedirs(path)
 
 if os.path.exists(path):
     print('file/directory is created')
