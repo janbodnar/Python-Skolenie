@@ -14,7 +14,15 @@ Demonstrating some basic standard modules
 - Read JSON data from `https://webcode.me/users.json` and load it into a dictionary.  
 
 
+## sys module 
 
+## The executable
+
+```python
+import sys
+
+print(sys.executable)
+```
 
 
 
