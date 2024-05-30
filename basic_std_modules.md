@@ -33,7 +33,18 @@ import os
 print(os.getcwd())
 ```
 
-Run and read the output.
+## Renaming
+
+```python
+import os 
+
+oldname = 'words.txt'
+newname = 'words2.txt'
+
+os.rename(oldname, newname)
+```
+
+## Run and read the output.
 
 ```python
 #!/usr/bin/python
