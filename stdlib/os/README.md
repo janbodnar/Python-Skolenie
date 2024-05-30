@@ -260,6 +260,19 @@ dname = os.path.dirname(cwd)
 print(dname)
 ```
 
+### head/tail
+
+```python
+import os
+
+cwd = os.getcwd()
+
+head, tail = os.path.split(cwd)
+
+print('Head:', head)
+print('Tail:', tail)
+```
+
 ### normalize path 
 
 ```python
