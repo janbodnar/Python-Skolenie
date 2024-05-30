@@ -14,12 +14,16 @@ parameters:
   don't have to worry about it.  
 - the `number` which is the number of executions you’d like to run the `stmt`.  
 
+## Simple statement
+
 ```python
 import timeit
 
 stm = "5+5"
 print(timeit.timeit(stmt=stm, number=50_000_000))
 ```
+
+## power
 
 ```python
 import timeit
@@ -31,6 +35,31 @@ stm = "pow(3, 3)"
 print(timeit.timeit(stmt=stm, number=50_000_000))
 ```
 
+## for vs while
+
+```python
+import timeit
+
+
+mycode = ''' 
+def fn(): 
+    for e in range(10000): 
+        print(e)
+'''
+
+mycode2 = ''' 
+def fn():
+    i = 0
+    while i < 10000:
+        print(e)
+        i += 1
+'''
+
+print(timeit.timeit(stmt=mycode, number=5_000_000))
+print(timeit.timeit(stmt=mycode2, number=5_000_000))
+```
+
+## Decorator
 
 ```python
 import timeit
