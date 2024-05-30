@@ -105,8 +105,6 @@ My name is Peter and I am 34
 We can work with objects in our template strings.
 
 ```python
-#!/usr/bin/python
-
 # objects.py
 
 from jinja2 import Template
@@ -140,8 +138,6 @@ In the example, we define a `Person` object. We get the name and age via the two
 Jinja allows a convenient dot notation to access data in Python dictionaries.  
 
 ```python
-#!/usr/bin/python
-
 # dicts.py
 
 from jinja2 import Template
@@ -169,8 +165,6 @@ Both the active and the commented way are valid. The dot notation is more conven
 We can use raw, endraw markers to escape Jinja delimiters.  
 
 ```python
-#!/usr/bin/python
-
 # raw_data.py
 
 from jinja2 import Template
@@ -190,13 +184,12 @@ print(msg)
 By using the raw, endraw block, we escape the Jinja `{{ }}` syntax. It is printed in its  
 literal meaning.
 
+
 ## Jinja escape data
 
 To escape data such as `<` or `>` characters, we can use a filter or the escape function.  
 
 ```python
-#!/usr/bin/python
-
 # escape_data.py
 
 from jinja2 import Template, escape
@@ -229,8 +222,6 @@ is loaded with `FileSystemLoader`.
 
 
 ```python
-#!/usr/bin/python
-
 # for_expr.py
 
 from jinja2 import Environment, FileSystemLoader
@@ -299,8 +290,6 @@ characters is used to control white space.
 Conditionals are expressions that are evaluated when a certain condition is met.  
 
 ```python
-#!/usr/bin/python
-
 # conditionals.py
 
 from jinja2 import Environment, FileSystemLoader
@@ -361,8 +350,6 @@ Filters can be applied to data to modify them. For instance, the sum filter can 
 data, escape filter escapes them, and sort filter sorts them. 
 
 ```python
-#!/usr/bin/python
-
 # sum_filter.py
 
 from jinja2 import Environment, FileSystemLoader
@@ -418,8 +405,6 @@ code organization. We define a base template from which we inherit in other temp
 files. These template files overwrite specific blocks of the base template file. 
 
 ```python
-#!/usr/bin/python
-
 # ineritance.py
 
 from jinja2 import Environment, FileSystemLoader
@@ -501,13 +486,12 @@ We define a title.
 
 And we define content.
 
+
 ## Flask example
 
 In the next example, we create a simple Flask application that uses Jinja.
 
-```
-#!/usr/bin/python
-
+```python
 # app.py
 
 from flask import Flask, render_template, request
@@ -517,9 +501,6 @@ app = Flask(__name__)
 def greet():
     username = request.args.get('name')
     return render_template('index.html', name=username)
-
-if __name__ == "__main__":
-    app.run()
 ```
 
 In this Flask application, we get the name of a user and pass it as a parameter to the  
@@ -550,7 +531,6 @@ This is the template file, located in the templates directory. We add the name o
 to the template file with `{{` name `}}` syntax.
 
 ```
-$ SET FLASK_APP=app.py
 $ flask run
 ```
 
