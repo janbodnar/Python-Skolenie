@@ -16,7 +16,7 @@ Demonstrating some basic standard modules
 
 ## sys module 
 
-## The executable
+### The executable
 
 ```python
 import sys
@@ -24,8 +24,39 @@ import sys
 print(sys.executable)
 ```
 
+### The sys.modules 
+
+The `sys.modules` is a dictionary containing all the modules that have ever been imported since Python was started.  
+
+```python
+import sys
+
+print(sys.modules)
+
+for m in sys.modules:
+    print(m)
+
+import math, os, random
+
+for m in sys.modules:
+    print(m)
+```
+
+### Various system information
+
+```python
 
 
+import sys
+
+print(sys.argv)
+print(sys.byteorder)
+print(sys.platform)
+print(sys.version)
+print(sys.version_info)
+print(sys.implementation)
+print(sys.path)
+```
 ## Platform 
 
 Get platform information with the `platform` module.  
