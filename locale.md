@@ -23,3 +23,33 @@ for val in vals:
     num = locale.format_string("%.2f", val)
     print(num)
 ```
+
+## Dates
+
+```python
+import datetime
+import locale
+
+locale.setlocale(locale.LC_ALL, 'de_DE')
+
+fmt = "%A, %d %B %Y - %H:%M"
+now = datetime.datetime.now()
+
+fdt = now.strftime(fmt)
+print(fdt)
+
+locale.setlocale(locale.LC_ALL, 'sk_SK')
+
+fdt = now.strftime(fmt)
+print(fdt)
+
+locale.setlocale(locale.LC_ALL, 'ru_RU')
+
+fdt = now.strftime(fmt)
+print(fdt)
+
+locale.setlocale(locale.LC_ALL, 'hu_HU')
+
+fdt = now.strftime(fmt)
+print(fdt)
+```
