@@ -6,7 +6,7 @@ The `py-moneyed` package in Python offers several advantages over using the `Dec
 for representing monetary values:
 
 1. **Currency and Money Classes**: `py-moneyed` provides `Money` and `Currency` classes, which are more useful for  
-   representing instances of money¹. These classes offer a higher level of abstraction than the `Decimal` class,  
+   representing instances of money. These classes offer a higher level of abstraction than the `Decimal` class,  
    making it easier to handle money-related operations.  
 3. **Avoids Floating Point Issues**: The `Decimal` class is a better choice than floating point numbers for monetary  
    calculations due to precision issues with floats⁴. However, `py-moneyed` takes this a step further by providing  
