@@ -71,6 +71,8 @@ msum = sum(values)
 print(msum)
 ```
 
+
+
 ## The get_country_name function
 
 ```python
@@ -84,6 +86,24 @@ print(get_country_name('ZM', 'en'))
 print(get_country_name('ZM', 'ru'))
 print(get_country_name('ZM', 'uk'))
 print(get_country_name('ZM', 'fr'))
+```
+
+---
+
+```python
+from moneyed import get_country_name
+from moneyed import SKK
+
+print(SKK.name)
+print(SKK.code)
+print(SKK.numeric)
+print(SKK.sub_unit)
+print(SKK.countries)
+
+print(get_country_name('SK', 'en'))
+print(get_country_name('SK', 'ru'))
+print(get_country_name('SK', 'uk'))
+print(get_country_name('SK', 'fr'))
 ```
 
 ## Precision
