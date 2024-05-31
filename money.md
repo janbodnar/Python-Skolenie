@@ -43,3 +43,16 @@ print(m1.currency)
 print(m1.get_amount_in_sub_unit())
 ```
 
+## Forint 
+
+```python
+from moneyed import HUF
+
+print(HUF.get_name(locale='hu_HU'))
+print(HUF.get_name(locale='sk_SK'))
+
+print(HUF.code)
+print(HUF.name)
+```
+
+
