@@ -79,3 +79,30 @@ print(num)
 num2 = locale.atof(val2)
 print(num2)
 ```
+
+## Locale switching 
+
+```python
+import contextlib
+import locale
+
+@contextlib.contextmanager
+def temporary_locale(nloc):
+
+    cloc = locale.setlocale(locale.LC_ALL)
+    try:
+        yield locale.setlocale(locale.LC_ALL, nloc)
+    finally:
+        locale.setlocale(locale.LC_ALL, cloc)
+
+
+val = 156_245.99
+
+with temporary_locale('ru_RU'):
+    price = locale.currency(val)
+    print(price)
+
+with temporary_locale('sk_SK'):
+    price = locale.currency(val)
+    print(price)
+```
