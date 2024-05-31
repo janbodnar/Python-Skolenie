@@ -173,8 +173,8 @@ content_json = json.loads(content)
 amount_usd = content_json['rates'][cto]
 dt = content_json['date']
 
-m_eur = Money(amount_eur, 'EUR')
-m_usd = Money(amount_usd, 'USD')
+m_eur = Money(amount_eur, cfrom)
+m_usd = Money(amount_usd, cto)
 
 print(f'{m_eur} is {m_usd} on {dt}')
 ```
