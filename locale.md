@@ -1,5 +1,12 @@
 # Localization 
 
+*Internationalisation* is the process of ensuring that an application is capable of adapting to  
+local requirements, for instance ensuring that the local writing system can be displayed.  
+*Localisation* is the process of adapting the software to be as familiar as possible to a specific  
+locale, by displaying text in the local language and using local conventions for the display of such  
+things as units of measurement.
+
+
 ```python
 import locale
 
