@@ -1,5 +1,7 @@
 # Money
 
+A wrapper of `py-moneyed` is used by Django project.  
+
 `pip install py-moneyed`
 
 The `py-moneyed` package in Python offers several advantages over using the `Decimal` class  
@@ -53,6 +55,33 @@ print(HUF.get_name(locale='sk_SK'))
 
 print(HUF.code)
 print(HUF.name)
+```
+
+## Precision
+
+```python
+from moneyed import Money
+
+
+msum = Money(amount='0', currency='EUR')
+m = Money(amount='1.46', currency='EUR')
+
+for _ in range(100_000):
+    msum += m
+
+print(msum)
+print(type(msum))
+
+print('------------------------------')
+
+msum = 0
+m = 1.46
+
+for _ in range(100_000):
+    msum += m
+
+print(msum)
+print(type(msum))
 ```
 
 
