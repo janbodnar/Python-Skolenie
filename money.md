@@ -71,6 +71,21 @@ msum = sum(values)
 print(msum)
 ```
 
+## The get_country_name function
+
+```python
+from moneyed import get_country_name
+from moneyed import ZMW
+
+print(ZMW.name)
+
+
+print(get_country_name('ZM', 'en'))
+print(get_country_name('ZM', 'ru'))
+print(get_country_name('ZM', 'uk'))
+print(get_country_name('ZM', 'fr'))
+```
+
 ## Precision
 
 ```python
