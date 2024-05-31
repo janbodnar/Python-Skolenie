@@ -19,3 +19,27 @@ for representing monetary values:
 In summary, `py-moneyed` offers a more robust and user-friendly way to handle monetary values in Python   
 compared to the `Decimal` class.
 
+
+## List currencies
+
+```python
+from moneyed import list_all_currencies
+
+currencies = list_all_currencies()
+print(currencies)
+print(len(currencies))
+```
+
+## Money type
+
+```python
+from moneyed import Money
+
+
+m1 = Money(amount='35.45', currency='EUR')
+
+print(m1.amount)
+print(m1.currency)
+print(m1.get_amount_in_sub_unit())
+```
+
