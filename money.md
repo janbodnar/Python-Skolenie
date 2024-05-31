@@ -133,4 +133,19 @@ print(msum)
 print(type(msum))
 ```
 
+## Format
+
+```python
+from moneyed import Money
+from moneyed.l10n import format_money
+
+m = Money(25.36, 'CNY')
+
+print(format_money(m, locale='en_US'))
+print(format_money(m, locale='sk_SK'))
+print(format_money(m, locale='ru_RU'))
+print(format_money(m, locale='cs_CZ'))
+print(format_money(m, locale='fr_FR'))
+print(format_money(m, locale='zh_CN'))
+```
 
