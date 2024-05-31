@@ -149,3 +149,32 @@ print(format_money(m, locale='fr_FR'))
 print(format_money(m, locale='zh_CN'))
 ```
 
+## Conversion rates
+
+- https://api.frankfurter.app/latest
+- https://nbs.sk/statisticke-udaje/kurzovy-listok/denny-kurzovy-listok-ecb/
+- https://api.frankfurter.app/latest?amount=1000&from=CZK&to=EUR
+
+```python
+import requests, json
+from moneyed import Money
+
+
+amount_eur = 100
+cfrom = 'EUR'
+cto = 'USD'
+
+url = f'https://api.frankfurter.app/latest?amount={amount_eur}&from={cfrom}&to={cto}'
+
+resp = requests.get(url)
+content = resp.content.decode('utf8')
+
+content_json = json.loads(content)
+amount_usd = content_json['rates'][cto]
+dt = content_json['date']
+
+m_eur = Money(amount_eur, 'EUR')
+m_usd = Money(amount_usd, 'USD')
+
+print(f'{m_eur} is {m_usd} on {dt}')
+```
