@@ -57,6 +57,20 @@ print(HUF.code)
 print(HUF.name)
 ```
 
+## Sum Money values
+
+```python
+from moneyed import Money, USD
+
+cur = USD
+
+values = (Money('19.99', cur), Money('25.00', cur),
+          Money('14.32', cur), Money('6.00', cur))
+
+msum = sum(values)
+print(msum)
+```
+
 ## Precision
 
 ```python
