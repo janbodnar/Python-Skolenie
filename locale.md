@@ -306,21 +306,29 @@ print(val)
 ## Translation
 
 
-1. Create directories.  
-
 ```
-md locales\en\LC_MESSAGES
-md locales\sk\LC_MESSAGES
-```
-
-2. Copy pot files. Add translations
-
-```
-cp locales\base.pot locales\en\LC_MESSAGES\base.po
-cp locales\base.pot locales\es\LC_MESSAGES\base.po
+pybabel extract . -o locales/messages.pot  
+pybabel init -l sk en -i locales/messages.pot -d locales
+pybabel init -l en -i locales/messages.pot -d locales
+pybabel compile -d locales
 ```
 
-3. Generate final messages.
+```python
+import gettext
+
+for lang in ['sk', 'en']:
+
+    trans = gettext.translation('messages', 'locales', languages=[lang])
+    trans.install()
+
+    # define _ shortcut for translations
+    _ = trans.gettext
+
+    # mark a string translatable
+    print(_("Hello World!!!!"))
+    print(_("Good Bye"))
+    print(_("What is the time?"))
+```
 
 
 
