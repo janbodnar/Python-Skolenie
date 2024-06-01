@@ -187,7 +187,7 @@ for e in skl.currency_symbols.values():
 
 ## Lists
 
-```
+```python
 from babel.lists import format_list
 
 words = ['sky', 'cloud', 'falcon']
