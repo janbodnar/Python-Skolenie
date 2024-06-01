@@ -165,6 +165,112 @@ with temporary_locale('sk_SK'):
     print(price)
 ```
 
+## Babel 
+
+
+
+```python
+from babel import Locale
+
+skl = Locale.parse('sk_SK')
+
+print(skl.get_display_name())
+print(skl.get_language_name())
+print(skl.get_territory_name())
+
+for e in skl.currencies.values():
+    print(e)
+
+for e in skl.currency_symbols.values():
+    print(e)
+```
+
+## Numbers/dates/units
+
+```python
+from babel.dates import format_date, format_datetime
+from babel.numbers import format_decimal, format_percent, parse_decimal
+from babel.units import format_unit
+from datetime import date, datetime
+
+# Date, time
+d = date(2010, 3, 10)
+print(format_date(d, format='short', locale='sk'))
+print(format_date(d, format='medium', locale='sk'))
+print(format_date(d, format='long', locale='sk'))
+print(format_date(d, format='full', locale='sk'))
+print(format_date(d, "EEEE, d.M.yyyy", locale='sk'))
+
+print('-------------------------------------')
+
+# datetime
+dt = datetime.now()
+print(format_datetime(dt, "yyyy.MMMM.dd GGG hh:mm a", locale='ru'))
+print(format_datetime(dt, "yyyy.MMMM.dd GGG hh:mm a", locale='sk'))
+
+print('-------------------------------------')
+
+# Percents
+print(format_percent(0.45, locale='sk'))
+print(format_percent(0.45, locale='ru'))
+print(format_percent(0.45, locale='fa'))
+print(format_percent(0.45, locale='tr'))
+
+print('-------------------------------------')
+
+# Numbers
+
+print(format_decimal(12.4512, locale='sk'))
+print(format_decimal(12.4512, locale='ru'))
+
+print('-------------------------------------')
+
+# Units
+print(format_unit(16, 'length-meter', locale='ru'))
+print(format_unit(16, 'length-meter', locale='en'))
+print(format_unit(16, 'length-meter', locale='sk'))
+print(format_unit(16, 'length-meter', locale='hu'))
+print(format_unit(16, 'length-meter', locale='fr'))
+print(format_unit(16, 'length-meter', locale='fa'))
+
+val = parse_decimal('3.229,45', locale='de')
+print(val)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# from babel import Locale
+
+# skl = Locale.parse('sk_SK')
+
+# print(skl.get_display_name())
+# print(skl.get_language_name())
+# print(skl.get_territory_name())
+
+# for e in skl.currencies.values():
+#     print(e)
+
+# for e in skl.currency_symbols.values():
+#     print(e)
+            
+
+
+
+
+
+
 ## Translation
 
 
