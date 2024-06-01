@@ -238,39 +238,6 @@ print(val)
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# from babel import Locale
-
-# skl = Locale.parse('sk_SK')
-
-# print(skl.get_display_name())
-# print(skl.get_language_name())
-# print(skl.get_territory_name())
-
-# for e in skl.currencies.values():
-#     print(e)
-
-# for e in skl.currency_symbols.values():
-#     print(e)
-            
-
-
-
-
-
-
 ## Translation
 
 
