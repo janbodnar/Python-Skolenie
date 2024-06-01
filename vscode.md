@@ -38,6 +38,20 @@ print('pocet prvkov je: {len(vals)}!')
 print('suma je: {sum(vals)}!')
 ```
 
+## Selections
+
+Swap the occupation & last name columns.  
+
+```
+first name   occupation     last name  
+John         gardener       Doe
+Roger        driver         Roe
+Paul         teacher        Novak
+Jane         accountant     Smith
+Lucia        programmer     Dorak
+Robert       soldier        Williams
+```
+
 ## Commands 
 
 The commands palette is started with `Ctrl + Shift + P`.  
