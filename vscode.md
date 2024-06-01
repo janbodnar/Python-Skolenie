@@ -7,7 +7,7 @@
 - `Ctrl + Shift + K` - delete line
 - `Ctrl + Shift + L` - highlight all occurrences
 - `Ctrl + D` - highlight next occurrence
-- 
+- `Ctrl + C` - copy line without highlighting it first
 
 
 ## Multi-cursor
