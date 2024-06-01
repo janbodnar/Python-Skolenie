@@ -1,5 +1,9 @@
 # VS Code
 
+- `Ctrl + P` - search for symbols
+- `Ctrl + Shift + P` - open command palette
+
+
 ## Shortcuts
 
 - `Ctrl + Shift + Enter` - insert line above
