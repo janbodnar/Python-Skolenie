@@ -306,44 +306,44 @@ print(val)
 ## Translation
 
 
+Creating translation files.  
+
 ```
+mkdir locales
 pybabel extract . -o locales/messages.pot  
-pybabel init -l sk en -i locales/messages.pot -d locales
+pybabel init -l sk -i locales/messages.pot -d locales
 pybabel init -l en -i locales/messages.pot -d locales
 pybabel compile -d locales
+```
+
+Updating.  
+
+```
+pybabel update -i locales/messages.pot -d locales
 ```
 
 In `messages.pot`: 
 
 ```
-#: main.py:22
-msgid "Hello World!!!!"
-msgstr "Ahoj svet!"
+#: main.py:15
+msgid "Python programming language"
+msgstr "Programovací jazyk Python"
 
-#: main.py:23
-msgid "Good Bye"
-msgstr "Maj sa!"
-
-#: main.py:24
-msgid "What is the time?"
-msgstr "Koľko je hodín?"
+#: main.py:16
+msgid "Today is Monday"
+msgstr "Dnes je pondelok"
 ```
 
 ```python
 import gettext
 
-for lang in ['sk', 'en']:
+trans = gettext.translation('messages', 'locales', languages=['sk'])
+trans.install()
 
-    trans = gettext.translation('messages', 'locales', languages=[lang])
-    trans.install()
+_ = trans.gettext
 
-    # define _ shortcut for translations
-    _ = trans.gettext
-
-    # mark a string translatable
-    print(_("Hello World!!!!"))
-    print(_("Good Bye"))
-    print(_("What is the time?"))
+print(_("Python programming language"))
+print(_("Today is Monday"))
 ```
 
 
