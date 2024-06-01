@@ -6,6 +6,15 @@
 - `Ctrl + Enter` - insert line below
 - `Ctrl + Shift + K` - delete line
 
+## Extensions
+
+- Rewrap
+- Hex editor
+- file-icons
+- TabOut
+- SQLite viewer
+- REST Client
+
 
 ## Settings 
 
