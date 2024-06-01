@@ -28,6 +28,14 @@ print('pocet prvkov je: {len(vals)}!')
 print('suma je: {sum(vals)}!')
 ```
 
+## Commands 
+
+The commands palette is started with `Ctrl + Shift + P`.  
+
+Common useful commands: 
+
+- 
+
 
 ## Extensions
 
