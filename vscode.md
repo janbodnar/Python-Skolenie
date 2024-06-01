@@ -5,8 +5,12 @@ Great tutorial: https://code.visualstudio.com/docs/editor/codebasics
 - `Ctrl + P` - search for symbols
 - `Ctrl + Shift + P` - open command palette
 
+## Formatting
 
-## Shortcuts
+- format document `Shift+Alt+F` - Format the entire active file.
+- format selection `Ctrl+K Ctrl+F` - Format the selected text.
+
+## Basic shortcuts
 
 - `Ctrl + Shift + Enter` - insert line above
 - `Ctrl + Enter` - insert line below
