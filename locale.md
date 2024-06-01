@@ -185,6 +185,39 @@ for e in skl.currency_symbols.values():
     print(e)
 ```
 
+## Official languages
+
+```python
+from babel import languages
+
+
+print(languages.get_official_languages('ch'))
+print(languages.get_official_languages('sk'))
+print(languages.get_official_languages('be'))
+
+print(languages.get_official_languages("us", de_facto=True))
+print(languages.get_official_languages("us"))
+```
+
+## Eras
+
+```python
+from babel import Locale
+
+
+era = Locale('en', 'US').eras['wide'][1]
+print(era)
+
+era_ab = Locale('en', 'US').eras['abbreviated'][0]
+print(era_ab)
+
+era = Locale('sk_SK').eras['wide'][1]
+print(era)
+
+era_ab = Locale('sk_SK').eras['abbreviated'][0]
+print(era_ab)
+```
+
 ## Month/day/quarter names
 
 ```python
