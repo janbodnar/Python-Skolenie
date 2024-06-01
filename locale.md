@@ -164,3 +164,33 @@ with temporary_locale('sk_SK'):
     price = locale.currency(val)
     print(price)
 ```
+
+## Translation
+
+
+1. Create directories.  
+
+```
+md locales\en\LC_MESSAGES
+md locales\sk\LC_MESSAGES
+```
+
+2. Copy pot files. Add translations
+
+```
+cp locales\base.pot locales\en\LC_MESSAGES\base.po
+cp locales\base.pot locales\es\LC_MESSAGES\base.po
+```
+
+3. Generate final messages.
+
+
+
+
+
+
+
+
+
+
+
