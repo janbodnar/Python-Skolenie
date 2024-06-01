@@ -34,7 +34,11 @@ The commands palette is started with `Ctrl + Shift + P`.
 
 Common useful commands: 
 
-- 
+- Trim Trailing Whitespace
+- Help: Welcome
+- Developer: Reload window
+- Python: Select Interpreter
+- Preferences: Color Theme
 
 
 ## Extensions
