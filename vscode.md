@@ -34,6 +34,8 @@
 
 ## REST client
 
+Create `client.http` file.  
+
 ```
 get http://webcode.me/words.txt
 get http://webcode.me/users.csv
