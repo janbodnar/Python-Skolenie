@@ -313,6 +313,22 @@ pybabel init -l en -i locales/messages.pot -d locales
 pybabel compile -d locales
 ```
 
+In `messages.pot`: 
+
+```
+#: main.py:22
+msgid "Hello World!!!!"
+msgstr "Ahoj svet!"
+
+#: main.py:23
+msgid "Good Bye"
+msgstr "Maj sa!"
+
+#: main.py:24
+msgid "What is the time?"
+msgstr "Koľko je hodín?"
+```
+
 ```python
 import gettext
 
