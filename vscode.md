@@ -31,3 +31,16 @@
 "workbench.editor.pinnedTabSizing": "compact",
 "workbench.iconTheme": "file-icons",
 ```
+
+## REST client
+
+```
+get http://webcode.me/words.txt
+get http://webcode.me/users.csv
+get http://webcode.me/users.json
+get http://webcode.me/users.xml
+get http://webcode.me/thermopylae.txt
+get http://webcode.me/os.html
+get http://webcode.me/countries.html
+```
+
