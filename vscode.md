@@ -5,6 +5,9 @@
 - `Ctrl + Shift + Enter` - insert line above
 - `Ctrl + Enter` - insert line below
 - `Ctrl + Shift + K` - delete line
+- `Ctrl + Shift + L` - highlight all occurrences
+- `Ctrl + D` - highlight next occurrence
+- 
 
 ## Extensions
 
