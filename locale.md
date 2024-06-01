@@ -185,6 +185,26 @@ for e in skl.currency_symbols.values():
     print(e)
 ```
 
+## Month/day/quarter names
+
+```python
+from babel import Locale
+
+locale = Locale('sk')
+
+month_names = locale.months['format']['wide'].items()
+for _, name in month_names:
+    print(name)
+
+quars = locale.quarters['format']['wide'].items()
+for _, name in quars:
+    print(name)
+
+days = locale.days['format']['wide'].items()
+for _, name in days:
+    print(name)
+```
+
 ## Numbers/dates/units
 
 ```python
