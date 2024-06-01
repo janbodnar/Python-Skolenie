@@ -8,6 +8,8 @@
 - `Ctrl + Shift + L` - highlight all occurrences
 - `Ctrl + D` - highlight next occurrence
 - `Ctrl + C` - copy line without highlighting it first
+- `Alt + Up/Down arrow` - move line up/down
+- `Alt + Shift + Up/Down arrow` - duplicate line up/down
 
 
 ## Multi-cursor
