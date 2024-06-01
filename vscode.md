@@ -12,18 +12,18 @@
 
 ## Multi-cursor
 
-Add `f` and `!` to the example with multicursor (`Ctrl + Alt + Up/Down` on Windows.)  
+Add `f` and remove `!` from the example with multicursor (`Ctrl + Alt + Up/Down` on Windows.)  
 Also `Ctrl + Click`.  
+
+Trim trailing whitespaces.  
 
 ```python
 vals = (-5, 10, 55, 12, -7, 11, 22)
 
-print('minimum je: {min(vals)}')
-print('maximum je: {max(vals)}')
-print('pocet prvkov je: {len(vals)}')
-print('suma je: {sum(vals)}')
-print('prvy prvok: {vals[0]}')
-print('posledny prvok: {vals[-1]}')
+print('minimum je: {min(vals)}!') 
+print('maximum je: {max(vals)}!')   
+print('pocet prvkov je: {len(vals)}!')            
+print('suma je: {sum(vals)}!')
 ```
 
 
