@@ -50,6 +50,7 @@ print('posledny prvok: {vals[-1]}')
 "editor.stickyScroll.enabled": false,
 "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
 "workbench.editor.pinnedTabSizing": "compact",
+"editor.occurrencesHighlight": "off",
 "workbench.iconTheme": "file-icons",
 ```
 
