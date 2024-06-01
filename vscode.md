@@ -1,5 +1,7 @@
 # VS Code
 
+Great tutorial: https://code.visualstudio.com/docs/editor/codebasics
+
 - `Ctrl + P` - search for symbols
 - `Ctrl + Shift + P` - open command palette
 
