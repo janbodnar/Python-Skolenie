@@ -110,6 +110,24 @@ res = list(chain('ABC', 'DEF', 'GHI', 'JKL', 'MNO'))
 print(res)
 ```
 
+## accumulate function
+
+```python
+from itertools import accumulate
+import operator
+
+data = [1, 2, 3, 4, 5]
+
+res = accumulate(data, operator.mul)
+
+for e in res:
+    print(e)
+
+res = accumulate(data, operator.add)
+
+for e in res:
+    print(e)
+```
 
 
 
