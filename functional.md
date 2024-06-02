@@ -17,7 +17,7 @@ Key points:
   in contrast to an imperative style where the main focus is "how to solve".
 
 Python supports functional programming but also contains features of other programming models. While Python  
-is not primarily a functional language, it's good to be familiar with `lambda`, `map()`, `filter()`, and `reduce()`   
+is not primarily a functional language, it's good to be familiar with `lambda`, `map`, `filter`, and `reduce`   
 because they can help you write concise, high-level, parallelizable code.  
 
 In a functional program, input flows through a set of functions. Each function operates on its input and produces   
