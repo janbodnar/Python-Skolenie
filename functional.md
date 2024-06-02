@@ -101,7 +101,14 @@ numbers = list(chain(odd, even))
 print(numbers)
 ```
 
+---
 
+```python
+from itertools import chain
+ 
+res = list(chain('ABC', 'DEF', 'GHI', 'JKL', 'MNO'))
+print(res)
+```
 
 
 
