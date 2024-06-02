@@ -129,6 +129,20 @@ for e in res:
     print(e)
 ```
 
+## starmap function
+
+```python
+from itertools import starmap
+import operator
+
+data = [(2, 6), (8, 4), (7, 3)]
+
+res = starmap(operator.mul, data)
+
+for e in res:
+    print(e)
+```
+
 ## groupby function
 
 ```python
