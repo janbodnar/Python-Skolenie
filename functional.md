@@ -129,5 +129,25 @@ for e in res:
     print(e)
 ```
 
+## groupby function
 
+```python
+from itertools import groupby
+
+users = [
+    {'first_name': 'John', 'last_name': 'Doe', 'occupation': 'gardener'},
+    {'first_name': 'Roger', 'last_name': 'Roe', 'occupation': 'driver'},
+    {'first_name': 'Adam', 'last_name': 'Novak', 'occupation': 'teacher'},
+    {'first_name': 'Paul', 'last_name': 'Novak', 'occupation': 'programmer'},
+    {'first_name': 'Roman', 'last_name': 'Meszaros', 'occupation': 'programmer'},
+    {'first_name': 'Tomas', 'last_name': 'Bruzik', 'occupation': 'driver'},
+]
+
+users.sort(key=lambda user: user['occupation'])
+
+for key, group in groupby(users, key=lambda user: user['occupation']):
+
+    print(f'{key}s:')
+    print(list(group))
+```
 
