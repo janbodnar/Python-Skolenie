@@ -14,6 +14,7 @@ and their associated dependencies.
 The `pip` is located in the `Scripts` directory of the Python standard installation such as:  
 `C:\Users\Jano\AppData\Local\Programs\Python\Python312\Scripts\`
 
+The currently used Python installation location can be found with `sys.executable`.  
 
 ## Upgrade pip 
 
