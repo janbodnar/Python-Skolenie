@@ -143,6 +143,33 @@ for e in res:
     print(e)
 ```
 
+We have a list of coordinates representing the sides of various triangles.  
+We want to apply the Pythagorean theorem to each set of coordinates to determine  
+if they form a right-angled triangle.  
+
+Here's how you can do it using `itertools.starmap`:
+
+```python
+from itertools import starmap
+
+# List of coordinates representing sides of triangles
+coordinates = [(2, 3, 4), (3, 4, 5), (6, 8, 10), (1, 5, 7), (7, 4, 10)]
+
+# Apply Pythagorean theorem to each set of coordinates
+right_triangles = list(starmap(lambda x, y, z: True if ((x * x) + (y * y)) == (z * z) else False, coordinates))
+
+print("Tuples which form right-angled triangle:", right_triangles)
+
+# Print the coordinates that form right-angled triangles
+print("The right triangle coordinates are:", [coord for coord, is_right in zip(coordinates, right_triangles) if is_right])
+```
+
+In this example, `starmap` applies the lambda function to each tuple in the `coordinates` list.  
+The lambda function takes three arguments, `x`, `y`, and `z`, representing the sides of a triangle,  
+and returns `True` if the sides form a right-angled triangle (according to the Pythagorean theorem),  
+and `False` otherwise¹.
+
+
 ## groupby function
 
 ```python
