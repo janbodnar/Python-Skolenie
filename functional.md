@@ -34,3 +34,42 @@ from itertools import product
 res = list(product('ABCD', repeat=2))
 print(res)
 ```
+
+### Permutations and combinations
+
+Permutations and combinations are two concepts in mathematics that deal with counting or arranging objects.  
+*Permutations* are  used when the order of arrangement matters. *Combinations* are is used when the order  
+of arrangement does not matter.  
+
+```python
+from itertools import  permutations, combinations
+from itertools import combinations_with_replacement
+
+res = permutations('ABCD', 2)
+
+print('permutations')
+for e in res:
+    print(e)
+
+res = combinations('ABCD', 2)
+
+print('combinations')
+for e in res:
+    print(e)
+
+res = combinations_with_replacement('ABCD', 2)
+
+print('combinations with replacement')
+for e in res:
+    print(e)
+```
+
+
+
+
+
+
+
+
+
+
