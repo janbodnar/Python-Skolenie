@@ -22,13 +22,13 @@ The currently used Python installation location can be found with `sys.executabl
 
 ## Upgrade pip 
 
-`python -m pip install --upgrade pip`
+`python -m pip install --upgrade pip`  
 
 ## List packages 
 
-`pip list` - list installed packages in the tabular format
-`pip list -o` - list outdated packages
-`pip list -u` - list up-to-date packages
+`pip list` - list installed packages in the tabular format  
+`pip list -o` - list outdated packages  
+`pip list -u` - list up-to-date packages  
 
 ## Check version of package
 
