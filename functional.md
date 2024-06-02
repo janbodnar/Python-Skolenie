@@ -13,16 +13,16 @@ Key points:
 - **First-Class Functions**: In functional programming, functions are considered *first-class citizens*.  
   This means we can use them to store and manipulate data.  
 
-- **Declarative Style**: It is a declarative type of programming style. Its main focus is on "what to solve"  
-  in contrast to an imperative style where the main focus is "how to solve".
+- **Declarative Style**: It is a declarative type of programming style. Its main focus is on
+- "what to solve" in contrast to an imperative style where the main focus is "how to solve".  
 
-Python supports functional programming but also contains features of other programming models. While Python  
-is not primarily a functional language, it's good to be familiar with `lambda`, `map`, `filter`, and `reduce`   
-because they can help you write concise, high-level, parallelizable code.  
+Python supports functional programming but also contains features of other programming models.  
+While Python is not primarily a functional language, it's good to be familiar with `lambda`, `map`,  
+`filter`, and `reduce` because they can help you write concise, high-level, parallelizable code.   
 
-In a functional program, input flows through a set of functions. Each function operates on its input and produces   
-some output. This style discourages functions with side effects that modify internal state or make other changes   
-that aren't visible in the function's return value.  
+In a functional program, input flows through a set of functions. Each function operates on its input   
+and produces some output. This style discourages functions with side effects that modify internal state  
+or make other changes  that aren't visible in the function's return value.    
 
 
 ## itertools 
@@ -37,9 +37,9 @@ print(res)
 
 ### Permutations and combinations
 
-Permutations and combinations are two concepts in mathematics that deal with counting or arranging objects.  
-*Permutations* are  used when the order of arrangement matters. *Combinations* are is used when the order  
-of arrangement does not matter.  
+Permutations and combinations are two concepts in mathematics that deal with counting or   
+arranging objects. *Permutations* are  used when the order of arrangement matters.   
+*Combinations* are is used when the order of arrangement does not matter.   
 
 ```python
 from itertools import  permutations, combinations
