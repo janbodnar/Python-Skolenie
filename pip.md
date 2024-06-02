@@ -31,3 +31,17 @@ The currently used Python installation location can be found with `sys.executabl
 ## Check version of package
 
 `pip show numpy`
+
+## Upgrade package 
+
+`pip install -U flask`
+
+## Remove package
+
+`pip uninstall flask`
+
+## Freeze packages 
+
+`pip freeze > requirements.txt` - provides a list of currently installed packages and their versions  
+`pip install -r requirements.txt` - installs libraries in the file along with their dependencies 
+
