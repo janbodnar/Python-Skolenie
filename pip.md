@@ -12,7 +12,7 @@ should be executed in the command line interface. Utilizing pip enhances the eas
 and their associated dependencies.
 
 The `pip` is located in the `Scripts` directory of the Python standard installation such as:  
-`C:\Users\Jano\AppData\Local\Programs\Python\Python312\Scripts\`
+`C:\Users\Jano\AppData\Local\Programs\Python\Python312\Scripts\`  
 The `Scripts` directory directory contains various utility scripts that are part of Python's standard library  
 or are installed with Python packages.
 
