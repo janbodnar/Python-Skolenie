@@ -64,7 +64,25 @@ for e in res:
     print(e)
 ```
 
+## repeat function
 
+```python
+from itertools import repeat
+
+word = 'falcon'
+
+for i in repeat(word, 3):
+    print(i)
+
+res = [e for e in repeat(range(55, 86), 7)]
+print(res)
+
+res = [list(e) for e in res]
+print(res)
+
+total_sum = sum(sum(nested) for nested in res)
+print("Total sum:", total_sum)
+```
 
 
 
