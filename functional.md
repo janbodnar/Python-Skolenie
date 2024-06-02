@@ -4,6 +4,10 @@
 Functional programming is a programming paradigm where the primary method of  
 computation is the evaluation of functions. 
 
+Functional programming in Python is performed with `map`, `filter`, `lamba` functions,  
+`itertools`, `functools` modules or `funcy` library.  
+
+
 Key points:
 
 - **Pure Functions**: Ideally, functions only take inputs and produce outputs, without any  
