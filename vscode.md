@@ -87,9 +87,17 @@ Common useful commands:
 "terminal.integrated.enableMultiLinePasteWarning": false,
 "editor.stickyScroll.enabled": false,
 "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+"editor.multiCursorModifier": "ctrlCmd",
+"editor.suggest.insertMode": "replace",
 "workbench.editor.pinnedTabSizing": "compact",
 "editor.occurrencesHighlight": "off",
 "workbench.iconTheme": "file-icons",
+"workbench.editor.enablePreview": true,
+"explorer.autoReveal": true,
+"workbench.tree.indent": 12,
+"emmet.triggerExpansionOnTab": true,
+"workbench.tree.renderIndentGuides": "onHover",
+"editor.fontSize": 13,
 ```
 
 ## REST client
