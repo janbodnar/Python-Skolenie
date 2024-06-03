@@ -1,5 +1,25 @@
 # Code samples
 
+```python
+import requests, re
+
+url = 'https://webcode.me/thermopylae.txt'
+
+resp = requests.get(url)
+
+content = resp.content.decode('utf8')
+# print(content)
+
+parts = content.split(' ')
+# print(parts)
+
+cleaned = [re.sub(r'[,.\s]', '', e) for e in parts]
+print(cleaned)
+
+print(len(cleaned))
+print(len(set(cleaned)))
+```
+
 
 ```python
 import faker
