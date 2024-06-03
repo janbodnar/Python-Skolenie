@@ -1,6 +1,44 @@
 # Code samples
 
 ```python
+import sqlite3
+from dataclasses import dataclass
+
+
+@dataclass
+class City:
+    id: int
+    name: str
+    population: str
+
+
+con = sqlite3.connect("test.db")
+
+cities = []
+
+with con:
+
+    cur = con.cursor()
+    cur.execute("SELECT * FROM cities")
+
+    rows = cur.fetchall()
+
+    for row in rows:
+
+        city = City(*row)
+        # city = City(row[0], row[1], row[2])
+        cities.append(city)
+
+print(cities)
+
+big_cities = [city for city in cities if city.population > 1000_000]
+
+for bcity in big_cities:
+    print(bcity)
+```
+
+
+```python
 import requests, re
 
 url = 'https://webcode.me/thermopylae.txt'
