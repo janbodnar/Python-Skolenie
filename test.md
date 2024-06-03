@@ -24,3 +24,41 @@ with open(fname, 'w') as f:
 
         writer.writerow([fname, lname, salary])
 ```
+
+---
+
+```python
+from dataclasses import dataclass
+import csv
+
+
+@dataclass
+class User:
+    first_name: str
+    last_name: str
+    salary: int
+
+
+fname = 'users.csv'
+users = []
+
+with open(fname, 'r') as f:
+
+    reader = csv.reader(f)
+
+    i  = 0
+
+    for row in reader:
+        users.append(User(*row))
+
+lastname_w = [ user for user in users if user.last_name.startswith('W') ]
+
+total_salary = sum(int(user.salary) for user in lastname_w)
+print(total_salary)
+
+
+# for user in lastname_w:
+#     print(user)
+
+# print(len(lastname_w))
+```
