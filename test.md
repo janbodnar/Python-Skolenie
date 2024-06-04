@@ -1,6 +1,41 @@
 # Code samples
 
 ```python
+import sqlite3, json
+from flask import Flask, render_template, jsonify
+
+app = Flask(__name__)
+
+
+def get_db_connection():
+    con = sqlite3.connect('test.db')
+    con.row_factory = sqlite3.Row
+    return con
+
+
+@app.route('/users')
+def index():
+
+    con = get_db_connection()
+    users = con.execute('SELECT * FROM users').fetchall()
+    con.close()
+
+    return render_template('show_users.html', users=users)
+
+@app.route('/api/users')
+def index2():
+
+    con = get_db_connection()
+    users = con.execute('SELECT * FROM users').fetchall()
+    con.close()
+
+    users_dict = [dict(row) for row in users]
+
+    return jsonify(users_dict)
+```
+
+
+```python
 import requests
 import re
 
