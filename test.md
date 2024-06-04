@@ -1,6 +1,50 @@
 # Code samples
 
 ```python
+import re
+
+words = [
+    "sky.",
+    "blue!",
+    "falcon  ",
+    "\tcloud",
+    "book:",
+    "small;",
+    "nord",
+    "car",
+    ",ten",
+    "atom?",
+]
+
+
+print('------------------------------')
+print('for loop')
+
+cleaned = []
+
+for word in words:
+
+    cleaned_word = re.sub(r"[.!,;:?\s]", "", word)
+    cleaned.append(cleaned_word)
+
+print(cleaned)
+
+print('------------------------------')
+print('list comprehension')
+
+cleaned = [re.sub(r"[.!,;:?\s]", "", word) for word in words]
+print(cleaned)
+
+
+print('------------------------------')
+print('map function')
+
+cleaned = list(map(lambda word: re.sub(r"[.!,;:?\s]", "", word), words))
+print(cleaned)
+```
+
+
+```python
 import sqlite3
 from dataclasses import dataclass
 
