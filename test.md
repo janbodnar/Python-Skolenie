@@ -1,6 +1,26 @@
 # Code samples
 
 ```python
+import requests
+import re
+
+url = "http://webcode.me/thermopylae.txt"
+
+resp = requests.get(url)
+
+content = resp.content.decode("utf8")
+print(content)
+
+pattern = re.compile(r"\w+")
+
+words = re.findall(pattern, content)
+print(words)
+print(len(words))
+print(len(set(words)))
+```
+
+
+```python
 import re
 
 words = [
