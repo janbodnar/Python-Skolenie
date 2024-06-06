@@ -20,6 +20,24 @@ Python data types include:
 - Dictionaries
 - None
 
+Here is the data you provided in a markdown table format:
+
+| Data Type | Class | Category | Kind | Mutable |
+| --- | --- | --- | --- | --- |
+| integers | int | numerics | Primitive | No |
+| floats | float | numerics | Primitive | No |
+| boolean | bool | booleans | Primitive | No |
+| strings | str | text sequences | Primitive | No |
+| ranges | range | sequences | Non-primitive | No |
+| tuples | tuple | sequences | Non-primitive | No |
+| lists | list | sequences | Non-primitive | Yes |
+| dictionaries | dict | maps | Non-primitive | Yes |
+| sets | set | sets | Non-primitive | Yes |
+| frozen sets | frozenset | sets | Non-primitive | No |
+| functions | function | functions | Non-primitive | Yes |
+| NoneType | NoneType | nulls | --?-- | No |
+
+
 ## Booleans
 
 In Python programming language, the Boolean datatype is a primitive datatype  
