@@ -2,6 +2,8 @@
 
 Materiály a príklady pre školenie jazyka Python.   [English version](#python-course)
 
+![Python](images/python2.jpg)
+
 ## Požiadavky
 
 Školenie nevyžaduje žiadne špeciálne znalosti okrem schopnosti inštalácie programov  
