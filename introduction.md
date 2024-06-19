@@ -49,7 +49,7 @@ The official web site for the Python programming language is [python.org](https:
    - System scripting  
    - Handling big data  
 7. *Cross-Platform*: Python works on various platforms (Windows, Mac, Linux, Raspberry Pi, etc.).
-8. *Fewer Lines of Code*: Python allows developers to write programs with fewer lines compared
+8. *Fewer Lines of Code*: Python allows developers to write programs with fewer lines compared  
     to some other languages.
 
 
