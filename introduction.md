@@ -32,6 +32,8 @@ paradigm. It supports procedural, object oriented, and functional programming.
 
 The official web site for the Python programming language is [python.org](https://python.org)
 
+![Python](images/python.jpg)
+
 
 ## Basic characteristics
 
