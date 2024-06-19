@@ -33,6 +33,26 @@ paradigm. It supports procedural, object oriented, and functional programming.
 The official web site for the Python programming language is [python.org](https://python.org)
 
 
+## Basic characteristics
+
+1. *High-Level and Readable*: Python is a high-level language designed for readability.  
+2. *Interpreted*: Python runs on an interpreter system, allowing code execution as soon as  
+   it's written. This makes prototyping quick and efficient.  
+4. *Dynamic Typing*: You don't need to declare variable types explicitly; Python infers  
+   them dynamically during runtime.  
+5. *Significant Indentation*: Python uses whitespace (indentation) to define scope, such as loops,  
+   functions, and classes. No curly braces are needed.
+6. *Versatile Use Cases*:  
+   - Web development (server-side)  
+   - Software development  
+   - Mathematics and scientific computing  
+   - System scripting  
+   - Handling big data  
+7. *Cross-Platform*: Python works on various platforms (Windows, Mac, Linux, Raspberry Pi, etc.).
+8. *Fewer Lines of Code*: Python allows developers to write programs with fewer lines compared
+    to some other languages.
+
+
 ## Python implementations
 
 Formally, Python programming language is a specification. There are three main implementations  
