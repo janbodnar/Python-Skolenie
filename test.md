@@ -1,5 +1,21 @@
 # Code examples 
 
+## Split & count chars
+
+```python
+# split sentence
+# word has n characters split/len/fstring/for loop
+msg = "There is an old falcon in the sky"
+
+words = msg.split(' ')
+print(words)
+
+for word in words:
+    print(f'{word} has {len(word)} ascii characters')
+```
+
+## Splitting
+
 ```python
 s = " Eagle  "
 
