@@ -1,5 +1,16 @@
 # Code examples 
 
+
+## nested tuples
+
+```python
+mix = (1, 2, "solaris", (1, 2, 3, (4, 5, 6)))
+
+print(mix[3][3][0])
+print(mix[3][3][1])
+print(mix[3][3][2])
+```
+
 ## startswith
 
 ```python
