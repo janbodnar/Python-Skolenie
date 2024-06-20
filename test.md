@@ -1,5 +1,25 @@
 # Code examples 
 
+## startswith
+
+```python
+words = ['war', 'cup', 'cloud', 'atom', 'water', 'key']
+
+for word in words:
+    # if word.startswith('w,') or word.startswith('c'):
+    if word[0] in ['w', 'c']:
+        print(word)
+
+# words = ['war', 'cup', 'cloud', 'atom', 'water', 'key']
+#
+# pattern = re.compile(r'^[cw].*')
+#
+# for word in words:
+#     if re.fullmatch(pattern, word):
+#         print(word)
+```
+
+
 ## Split & count chars
 
 ```python
