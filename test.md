@@ -1,5 +1,8 @@
 # Code examples 
 
+
+
+
 ## Lambda function
 
 ```python
@@ -16,6 +19,21 @@ print(positive)
 
 negative = list(filter(lambda e: e< 0, vals))
 print(negative)
+```
+
+## map fun 
+
+```python
+words = ['sky', 'cup', 'war', 'water', 'cloud', 'atom', 'first']
+
+res = list(map(lambda word: word.upper(), words))
+print(res)
+
+
+vals = [-2, 0, 1, -9, 4, 5, 2, -4]
+
+twice = list(map(lambda e: e * 2, vals))
+print(twice)
 ```
 
 
