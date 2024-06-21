@@ -1,5 +1,27 @@
 # Code examples 
 
+## Word frequency
+
+```python
+def create_word_frequency(file_path):
+    word_freq = {}
+    with open(file_path, 'r') as file:
+        for line in file:
+            words = line.split()
+            for word in words:
+                if word in word_freq:
+                    word_freq[word] += 1
+                else:
+                    word_freq[word] = 1
+    return word_freq
+
+# Usage
+file_path = 'thermopylae.txt'  # replace with your file path
+word_frequency = create_word_frequency(file_path)
+print(word_frequency)
+```
+
+
 ## Recap
 
 ```python
