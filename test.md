@@ -1,5 +1,22 @@
 # Code examples 
 
+## Reading words
+
+```python
+fname = "words.txt"
+w_c_words = []
+
+with open(fname, 'r') as f:
+    lines = f.readlines()
+    for word in lines:
+        cleaned_word = word.rstrip()
+        if cleaned_word.startswith('w') or cleaned_word.startswith('c'):
+            w_c_words.append(cleaned_word)
+
+print(w_c_words)
+```
+
+
 ## Writing to files 
 
 ```python
