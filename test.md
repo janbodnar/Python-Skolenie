@@ -1,5 +1,18 @@
 # Code examples 
 
+## Writing to files 
+
+```python
+words = ['falcon', 'forest']
+fname = "words.txt"
+
+with open(fname, 'a') as f:
+
+    for word in words:
+        f.write(word + '\n')
+```
+
+
 ## Word frequency
 
 ```python
