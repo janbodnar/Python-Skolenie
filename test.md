@@ -1,5 +1,15 @@
 # Code examples 
 
+## Recap
+
+```python
+users = [("John Doe", "gardener"), ("Roger Roe", "driver"), ("Paul Novak", "teacher")]
+# John Doe is a gardener/ for loop/fstring/[]
+
+for user in users:
+    print(f'{user[0]} is a(n) {user[1]}')
+```
+
 
 ## nested tuples
 
