@@ -1,5 +1,26 @@
 # Code examples 
 
+## filter fun
+
+```python
+def is_positive(e):
+    return e > 0
+
+def is_negative(e):
+    return e < 0
+
+print(is_negative(3))
+
+vals = [-2, 0, 1, -9, 4, 5, 2, -4]
+
+positive = list(filter(is_positive, vals))
+print(positive)
+
+negative = list(filter(is_negative, vals))
+print(negative)
+```
+
+
 ## Reading words
 
 ```python
