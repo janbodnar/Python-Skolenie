@@ -20,6 +20,7 @@ print(words)
 for word in words:
     all += len(word)
 
+    # if word[0] in ("w", "c"):
     if word.startswith("w") or word.startswith("c"):
         w_or_c += len(word)
 
