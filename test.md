@@ -10,6 +10,23 @@ for user in users:
     print(f'{user[0]} is a(n) {user[1]}')
 ```
 
+```python
+words = ["sky", "cup", "war", "water", "warm", "cloud", "atom"]
+all = 0
+w_or_c = 0
+
+print(words)
+
+for word in words:
+    all += len(word)
+
+    if word.startswith("w") or word.startswith("c"):
+        w_or_c += len(word)
+
+print(f'there are {all} ascii characters')
+print(f'there are {w_or_c} ascii characters in words starting with w or c')
+```
+
 
 ## nested tuples
 
