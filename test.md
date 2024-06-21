@@ -3,6 +3,18 @@
 ## filter fun
 
 ```python
+def is_w_c(word):
+    return word[0] in ['w', 'c']
+
+words = ['sky', 'cup', 'war', 'water', 'cloud', 'atom', 'first']
+
+res = list(filter(is_w_c, words))
+print(res)
+```
+
+---
+
+```python
 def is_positive(e):
     return e > 0
 
