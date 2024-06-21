@@ -1,5 +1,24 @@
 # Code examples 
 
+## Lambda function
+
+```python
+words = ['sky', 'cup', 'war', 'water', 'cloud', 'atom', 'first']
+
+res = list(filter(lambda word:word[0] in ['w', 'c'], words))
+print(res)
+
+
+vals = [-2, 0, 1, -9, 4, 5, 2, -4]
+
+positive = list(filter(lambda e: e > 0, vals))
+print(positive)
+
+negative = list(filter(lambda e: e< 0, vals))
+print(negative)
+```
+
+
 ## filter fun
 
 ```python
