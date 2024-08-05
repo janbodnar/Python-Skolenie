@@ -1,5 +1,25 @@
 # Priklady
 
+
+## Casting
+
+```python
+name = "John Doe"
+age = 34
+occupation = 'gardener'
+
+msg = name + " is " + str(age) + " years old"
+msg2 = f"{name} is {age} years old and he is a {occupation}"
+
+print(msg)
+print(msg2)
+
+n1 = '11'
+n2 = '34'
+
+print(int(n1) + int(n2))
+```
+
 ## For cyklus
 
 ```python
