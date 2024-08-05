@@ -1,5 +1,18 @@
 # Priklady
 
+## startswith/endswith
+
+```python
+words = ['sky', 'wrong', 'pen', 'cloud', 'atom', 'war', 'water', 'cup']
+
+for word in words:
+    if word.startswith('w') or word.startswith('c'):
+        print(word)
+
+for word in words:
+    msg = f'{word} has {len(word)} letters'
+    print(msg)
+```
 
 ## Casting
 
