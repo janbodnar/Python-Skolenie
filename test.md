@@ -29,3 +29,16 @@ for letter in lyrics:
     # elif letter == 'u':
     #     print(letter, end=" ")
 ```
+
+## Neparne cisla
+
+```python
+vals = [1, 2, 3, 4, 5, 6, 7, 8]
+
+for val in vals:
+    if val % 2 == 1:
+        print(val)
+
+    # if val % 2 != 0:
+    #     print(val)
+```
