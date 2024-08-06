@@ -10,25 +10,27 @@ last_name = 'Doe'
 occupation = 'gardener'
 age = 23
 
-msg = f''
-# print message
+msg = f'{first_name} {last_name} is a {occupation} and he is {age} years old'
+print(msg)
+
 
 words = ['sky', 'try', 'wrong', 'pen', 'cloud', 'atom', 'war', 'water', 'cup']
 # print first, fourth, last element, one but last
 # print all words in uppercase
 # print words starting with w, ending with y
 
-word = 'falcon'
-# print length
-# print first, last letter
+print(words[0], words[3], words[-1], words[-2])
 
+for word in words:
+    print(word.upper())
 
-vals = [1, 2, 3, 4, 5, 6, 7, 8]
-# calculate sum
-# calculate sum of even values
+for word in words:
+    if word.startswith('w'):
+        print(word)
 
-data = ['1', '2', '3', '4', '5', '6', '7', '8']
-# calculate sum of values
+for word in words:
+    if word.endswith('y'):
+        print(word)
 ```
 
 
