@@ -36,17 +36,40 @@ for word in words:
 
 
 # word = 'falcon'
-# # print length
-# # print first, last letter
-#
-#
-# vals = [1, 2, 3, 4, 5, 6, 7, 8]
-# # calculate sum
-# # calculate sum of even values
-#
-# data = ['1', '2', '3', '4', '5', '6', '7', '8']
-# # calculate sum of values
+# print length
+# print first, last letter
 
+print(len(word))
+print(word[0])
+print(word[-1])
+
+
+vals = [1, 2, 3, 4, 5, 6, 7, 8]
+
+# calculate sum
+# calculate sum of even values
+
+print(sum(vals))
+
+mysum = 0
+
+for val in vals:
+    if val % 2 == 0:
+       # mysum = mysum + val
+       mysum +=  val
+
+print(mysum)
+
+
+data = ['1', '2', '3', '4', '5', '6', '7', '8']
+# calculate sum of values
+
+mysum2 = 0
+
+for a in data:
+    mysum2 = mysum2 + int(a)
+
+print(mysum2)
 ```
 
 
