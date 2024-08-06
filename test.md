@@ -1,5 +1,19 @@
 # Priklady
 
+## counter 
+
+```python
+text = "an old falcon in the sky"
+
+counter = 0
+
+for letter in text:
+    if letter in 'aeiou':
+        counter += 1
+
+print(counter)
+```
+
 ## range function
 
 ```python
