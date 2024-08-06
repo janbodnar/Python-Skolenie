@@ -16,7 +16,7 @@ msg = f''
 words = ['sky', 'try', 'wrong', 'pen', 'cloud', 'atom', 'war', 'water', 'cup']
 # print first, fourth, last element, one but last
 # print all words in uppercase
-# print words starting with w & ending with y
+# print words starting with w, ending with y
 
 word = 'falcon'
 # print length
