@@ -1,5 +1,26 @@
 # Priklady
 
+## range function
+
+```python
+number_of_odd_numbers = 0
+
+for number in range(100, 501):
+    if number % 2 == 1:
+        number_of_odd_numbers = number_of_odd_numbers + 1
+        # number_of_odd_numbers += 1
+
+
+print(number_of_odd_numbers)
+
+for number in range(700, 1200, 1):
+    if number % 2 == 1:
+        number_of_odd_numbers = number_of_odd_numbers + 1
+
+print(number_of_odd_numbers)
+```
+
+
 ## find function
 
 ```python
