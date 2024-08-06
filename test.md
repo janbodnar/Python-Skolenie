@@ -1,6 +1,16 @@
 # Priklady
 
+## find function
 
+```python
+word_to_find = "falcon"
+
+msg = "an old falcon in the sky"
+begin_index = msg.find(word_to_find)
+end_index = begin_index + len(word_to_find)
+
+print(msg[begin_index:end_index])
+```
 
 ## Opakovanie
 
