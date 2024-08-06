@@ -1,5 +1,38 @@
 # Priklady
 
+
+
+## Opakovanie
+
+```python
+first_name = 'John'
+last_name = 'Doe'
+occupation = 'gardener'
+age = 23
+
+msg = f''
+# print message
+
+words = ['sky', 'try', 'wrong', 'pen', 'cloud', 'atom', 'war', 'water', 'cup']
+# print first, fourth, last element, one but last
+# print all words in uppercase
+# print words starting with w & ending with y
+
+word = 'falcon'
+# print length
+# print first, last letter
+
+
+vals = [1, 2, 3, 4, 5, 6, 7, 8]
+# calculate sum
+# calculate sum of even values
+
+data = ['1', '2', '3', '4', '5', '6', '7', '8']
+# calculate sum of values
+```
+
+
+
 ## startswith/endswith
 
 ```python
