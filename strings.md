@@ -82,6 +82,48 @@ print(text)
 In this example, we use non-latin characters directly in the source code.  
 We have defined UTF-8 encoding with a encoding comment.  
 
+## String formatting
+
+The following example summarizes string formatting options in Python.
+
+```python
+#!/usr/bin/python
+
+name = 'Peter'
+age = 23
+
+print('%s is %d years old' % (name, age))
+print('{} is {} years old'.format(name, age))
+print(f'{name} is {age} years old')
+```
+
+The example formats a string using two variables.
+
+```python
+print('%s is %d years old' % (name, age))
+```
+
+This is the oldest option. It uses the % operator and classic string format specifies such as `%s` and `%d`.
+
+```python
+print('{} is {} years old'.format(name, age))
+```
+
+Since Python 3.0, the `format` function was introduced to provide advance formatting options.
+
+```python
+print(f'{name} is {age} years old')
+```
+
+Python f-strings are available since Python 3.6. The string has the `f` prefix and uses `{}` to evaluate variables.
+
+```
+$ python formatting_string.py
+Peter is 23 years old
+Peter is 23 years old
+Peter is 23 years old
+```
+
 
 ## Using quotes
 
