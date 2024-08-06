@@ -5,6 +5,7 @@
 ## Opakovanie
 
 ```python
+
 first_name = 'John'
 last_name = 'Doe'
 occupation = 'gardener'
@@ -31,6 +32,21 @@ for word in words:
 for word in words:
     if word.endswith('y'):
         print(word)
+
+
+
+# word = 'falcon'
+# # print length
+# # print first, last letter
+#
+#
+# vals = [1, 2, 3, 4, 5, 6, 7, 8]
+# # calculate sum
+# # calculate sum of even values
+#
+# data = ['1', '2', '3', '4', '5', '6', '7', '8']
+# # calculate sum of values
+
 ```
 
 
