@@ -1,9 +1,25 @@
 # Priklady
 
+## sort/sorted
+
+```python
+# can be modified, mutable
+numbers_list = [4, 3, 6, 1, 2, 0, 5] # zoznam, list
+numbers_list.sort()
+print(numbers_list)
+
+# cannot be modified, immutable
+numbers_tuple = (4, 3, 6, 1, 2, 0, 5) # ntica, tuple
+sorted_numbers = sorted(numbers_tuple)
+print(sorted_numbers)
+```
+
+
 ## indexing inner tuples
 
 ```python
 data = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
+print(data[3][3][3][1])
 ```
 
 ## counter 
