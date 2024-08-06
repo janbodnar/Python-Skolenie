@@ -1,5 +1,10 @@
 # Priklady
 
+
+## VS Code guide
+
+https://code.visualstudio.com/docs/python/python-quick-start
+
 ## sort/sorted
 
 ```python
