@@ -3,6 +3,17 @@
 ```python
 vals = [1, 2, 6, 8, -40, -3]
 vals2 = [-4, 45, 11, -7, 11, 0, 18]
+
+mysum = 0
+
+for e in vals:
+    mysum += e
+
+for e in vals2:
+    mysum += e
+
+print(mysum)
+print(sum(vals + vals2))
 ```
 
 ## sum values of vals and vals2
