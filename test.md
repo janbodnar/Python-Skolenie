@@ -33,3 +33,20 @@ print(mysum)
 ```
 
 ## calculate sum of numbers
+
+## sum of values in file
+
+```python
+filename = 'vals.txt'
+
+mysum = 0
+
+with open(filename, 'r') as f:
+
+    lines = f.readlines()
+
+    for line in lines:
+        mysum += int(line.strip())
+
+    print(mysum)
+```
