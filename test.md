@@ -3,12 +3,17 @@
 ## type function
 
 ```python
-#!/usr/bin/env python
-
 def f():
     pass
 
 data = [1, 2, 3, 4, 'falcon', 3.4, 5.5, True, False, f]
+
+for e in data:
+    # if type(e) == int or type(e) == float:
+    #     print(e)
+
+    if type(e) in (int, float):
+        print(e)
 ```
 
 
