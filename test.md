@@ -1,5 +1,15 @@
 # Priklady
 
+## fstring
+
+```python
+words = ['sky', 'war', 'cup', 'eleven', 'culminate']
+
+for word in words:
+    print(f'{word} has {len(word)} latin characters')
+```
+
+
 ## type function
 
 ```python
