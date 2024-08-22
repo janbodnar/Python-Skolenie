@@ -20,6 +20,16 @@ print(sum(vals + vals2))
 
 ```python
 data = '1-2-3-4-5-6-7-8-9-10'
+
+res = data.split('-')
+print(res)
+
+mysum = 0
+
+for e in res:
+    mysum += int(e)
+
+print(mysum)
 ```
 
 ## calculate sum of numbers
