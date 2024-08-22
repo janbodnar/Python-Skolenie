@@ -16,6 +16,21 @@ for e in data:
         print(e)
 ```
 
+```python
+def f():
+    pass
+
+data = ['war', 'water', 1, 2, 3, 'bar', 4, 'falcon', 3.4, 5.5, True, False, 'warm', f]
+w_words = []
+
+for e in data:
+    if type(e) == str and e.startswith('w'):
+        w_words.append(e)
+
+        
+print(w_words)
+```
+
 
 ```python
 vals = [1, 2, 6, 8, -40, -3]
