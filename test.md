@@ -1,5 +1,17 @@
 # Priklady
 
+## type function
+
+```python
+#!/usr/bin/env python
+
+def f():
+    pass
+
+data = [1, 2, 3, 4, 'falcon', 3.4, 5.5, True, False, f]
+```
+
+
 ```python
 vals = [1, 2, 6, 8, -40, -3]
 vals2 = [-4, 45, 11, -7, 11, 0, 18]
