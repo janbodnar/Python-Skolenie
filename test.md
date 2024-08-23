@@ -1,5 +1,34 @@
 # Priklady
 
+
+## recap
+
+```python
+data = []
+
+# generate 100 random values (random module)
+# create calcuate_max, calculate_min, calculate_sum in utils.py
+# use fstrings to generate final output
+
+# --------------------------------
+
+file_name = 'thermopylae.txt'
+
+# read data from thermopylae.txt and calculate the number 
+# of vowels and consonants
+
+
+# --------------------------------
+
+file_name = 'unix-words.txt'
+
+# read the file and calculate the number of all words and 
+# the number of words starting with 'w'
+```
+
+
+
+
 ## fstring
 
 ```python
