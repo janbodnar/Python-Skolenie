@@ -1,5 +1,26 @@
 # Priklady
 
+## List comprehensions
+
+```python
+negatives = []
+positives = []
+
+vals = [0, 2, -2, -9, 11, 9, 8, -3]
+
+
+for e in vals:
+    if e > 0:
+        positives.append(e)
+    elif e < 0:
+        negatives.append(e)
+
+
+print(positives)
+print(negatives)
+```
+
+
 ## OOP
 
 ```python
