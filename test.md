@@ -1,5 +1,35 @@
 # Priklady
 
+
+## Faker
+
+```python
+from faker import Faker
+
+faker = Faker()
+
+file_name = 'users.csv'
+
+with open(file_name, 'w') as f:
+
+    for _ in range(100_000):
+
+        fname = faker.first_name()
+        lname = faker.last_name()
+        job = faker.job()
+        age = faker.random_int(18, 65)
+
+        line = f'{fname},{lname},{job},{age}\n'
+
+        f.write(line)
+
+print('finished creating test data')
+```
+
+
+
+
+
 ## List comprehensions
 
 ```python
