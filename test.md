@@ -1,5 +1,41 @@
 # Priklady
 
+```python
+# utils.py
+
+def calculate_max(data):
+    return max(data)
+    
+
+def calculate_min(data):
+    return min(data)
+
+def calculate_sum(data):
+    return sum(data)
+```
+
+```python
+import random
+import utils
+
+# main.py
+
+data = []
+
+for i in range(100):
+    r = random.randint(-100, 100)
+    data.append(r)
+
+maximum = utils.calculate_max(data)
+minimum = utils.calculate_min(data)
+mysum = utils.calculate_sum(data)
+
+
+print(f'the maximum of random values is {maximum}')
+print(f'the minimum of random values is {minimum}')
+print(f'the sum of random values is {mysum}')
+```
+
 
 ## recap
 
