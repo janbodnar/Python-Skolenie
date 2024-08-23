@@ -14,7 +14,35 @@ print(wages)
 print(wages_increased)
 ```
 
+```python
 
+def is_vowel(c):
+
+    vowels = 'aeiouAEIOU'
+
+    if c in vowels:
+        return True
+    else:
+        return False
+
+def is_consonant(c):
+
+    vowels = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'
+
+    if c in vowels:
+        return True
+    else:
+        return False
+
+
+sentence = 'There are eagles in the sky.'
+
+vowels = [c for c in sentence if is_vowel(c)]
+consonants = [c for c in sentence if is_consonant(c)]
+
+print(vowels)
+print(consonants)
+```
 
 
 ```python
