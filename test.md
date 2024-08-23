@@ -50,8 +50,23 @@ data = []
 
 file_name = 'thermopylae.txt'
 
-# read data from thermopylae.txt and calculate the number 
-# of vowels and consonants
+n_vowels = 0
+n_consonants = 0
+
+with open(file_name) as f:
+    contents = f.read()
+    
+    for c in contents:
+        
+        if c in 'aeiouAEIOU':
+            n_vowels += 1
+        
+        if c in 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ':
+            n_consonants += 1
+
+
+print(f'there are {n_vowels} vowels')
+print(f'there are {n_consonants} consonants')
 
 
 # --------------------------------
