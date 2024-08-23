@@ -26,7 +26,37 @@ with open(file_name, 'w') as f:
 print('finished creating test data')
 ```
 
+```python
+from dataclasses import dataclass
 
+@dataclass
+class User:
+    fname: str
+    lname: str
+    job: str
+    age: int
+
+
+users = []
+
+file_name = 'users.csv'
+
+with open(file_name, 'r') as f:
+
+    for row in f:
+
+        fields = row.rstrip().split(';')
+        user = User(*fields)
+
+        users.append(user)
+
+
+users_w_lname = [user for user in users if user.lname.startswith("W")]
+
+print(len(users_w_lname))
+
+print(users_w_lname[:31])
+```
 
 
 
