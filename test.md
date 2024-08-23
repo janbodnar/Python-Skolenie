@@ -1,5 +1,52 @@
 # Priklady
 
+## OOP
+
+```python
+#!/usr/bin/python
+
+import math
+
+class Rectangle:
+
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+    
+
+class Circle:
+
+    def __init__(self, radius=5):
+        self.radius = radius
+
+    def area(self):
+        return self.radius * self.radius * math.pi
+
+    def setRadius(self, radius):
+        self.radius = radius
+
+    def getRadius(self):
+        return self.radius
+
+
+r = Rectangle(10, 10)
+print(r.area())
+
+
+c = Circle(10)
+print(c.area())
+
+c2 = Circle(5)
+print(c2.area())
+
+c2.setRadius(1)
+print(c2.area())
+```
+
+
 ```python
 # utils.py
 
