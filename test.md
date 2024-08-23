@@ -3,6 +3,26 @@
 ## List comprehensions
 
 ```python
+a_words = []
+k_words = []
+
+fname = 'unix-words.txt'
+
+with open(fname) as f:
+
+    all_words = f.readlines()
+
+    a_words = [word.rstrip() for word in all_words if word.startswith('a') or word.startswith('A')]
+    k_words = [word.rstrip() for word in all_words if word.startswith('k') or word.startswith('K')]
+
+
+print(a_words[:11])
+print(k_words[:11])
+```
+
+
+
+```python
 from math import ceil
 
 wages = [1012, 988, 1230, 2340, 5120, 1236]
