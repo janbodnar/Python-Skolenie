@@ -3,6 +3,21 @@
 ## List comprehensions
 
 ```python
+from math import ceil
+
+wages = [1012, 988, 1230, 2340, 5120, 1236]
+wraise = 1.08
+
+wages_increased = [ceil(e * wraise) for e in wages]
+
+print(wages)
+print(wages_increased)
+```
+
+
+
+
+```python
 negatives = []
 positives = []
 
