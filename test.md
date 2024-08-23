@@ -75,6 +75,25 @@ file_name = 'unix-words.txt'
 
 # read the file and calculate the number of all words and 
 # the number of words starting with 'w'
+
+file_name = 'unix-words.txt'
+
+all_words = 0
+w_words = 0
+
+with open(file_name) as f:
+
+    for word in f:
+
+        all_words += 1
+        
+        if word.startswith('w') or word.startswith('W'):
+            w_words += 1
+
+
+print(f'there are {all_words} in the file')
+print(f'there are {w_words} starting with w/W in the file')
+
 ```
 
 
