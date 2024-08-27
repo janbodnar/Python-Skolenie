@@ -1,5 +1,34 @@
 # Priklady
 
+## CSV to database table 
+
+```python
+import sqlite3
+import csv
+
+users = []
+file_name = 'users.csv'
+
+with open(file_name) as f:
+
+    reader = csv.reader(f)
+
+    for row in reader:
+        users.append(row)
+
+
+con = sqlite3.connect('test.db')
+
+with con:
+    
+    cur = con.cursor()    
+    cur.execute("DROP TABLE IF EXISTS users")
+    cur.execute("CREATE TABLE users(id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, city TEXT, salary INT)")
+
+    cur.executemany("INSERT INTO users(first_name, last_name, city, salary) VALUES(?, ?, ?, ?)", users)
+```
+
+
 ## CSV 
 
 reader 
