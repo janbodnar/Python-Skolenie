@@ -1,5 +1,44 @@
 # Priklady
 
+## Count vowels, consonants, whitespace
+
+```python
+
+vowels = 0
+consonants = 0
+punctuations = 0
+whitespace = 0
+unknown = 0
+
+file_name = 'thermopylae.txt'
+
+with open(file_name) as f:
+
+    contents = f.read()
+
+    for c in contents:
+        if c in 'aeiouAEIOU':
+            vowels += 1
+        elif c in 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ':
+            consonants += 1
+        elif c in '.!,:,?':
+            punctuations += 1
+        elif c in ' \n\t':
+            whitespace += 1
+        else:
+            unknown += 1
+
+
+print(f'vowels: {vowels}')
+print(f'consonants: {consonants}')
+print(f'whitespace: {whitespace}')
+print(f'punctuations: {punctuations}')
+print(f'unknown: {unknown}')
+```
+
+
+
+
 ## Count number of characters in file
 
 ```python
