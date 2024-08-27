@@ -1,5 +1,31 @@
 # Priklady
 
+## Filter data 
+
+```python
+users = []
+file_name = 'users.csv'
+
+with open(file_name, 'r') as f:
+
+    for line in f:
+        fields = line.split(',')
+
+        user = User(fields[0], fields[1], fields[2], int(fields[3].rstrip()))
+        users.append(user)
+
+    users_w = list(filter(lambda u: u.last_name.startswith('W'), users))
+    users_3000 = list(filter(lambda u: u.salary > 3000, users))
+
+print(len(users_w))
+print(users_w[0:11])
+
+print('----------------------------')
+
+print(len(users_3000))
+print(users_3000[0:11])
+```
+
 
 ## Generate test data in CSV
 
