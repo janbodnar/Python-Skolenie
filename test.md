@@ -1,5 +1,30 @@
 # Priklady
 
+
+## Generate test data in CSV
+
+```python
+from faker import Faker
+
+faker = Faker()
+
+file_name = 'users.csv'
+
+with open(file_name, 'w') as f:
+
+    for _ in range(100_000):
+
+        fname = faker.first_name()
+        lname = faker.last_name()
+        city = faker.city()
+        salary = faker.random_int(950, 3500)
+
+        line = f'{fname},{lname},{city},{salary}\n'
+
+        f.write(line)
+```
+
+
 ## Count vowels, consonants, whitespace
 
 ```python
