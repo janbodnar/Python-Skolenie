@@ -3,6 +3,15 @@
 ## Filter data 
 
 ```python
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    first_name: str
+    last_name: str
+    city: str
+    salary: int
+
 users = []
 file_name = 'users.csv'
 
