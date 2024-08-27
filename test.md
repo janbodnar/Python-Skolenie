@@ -36,7 +36,38 @@ print(f'punctuations: {punctuations}')
 print(f'unknown: {unknown}')
 ```
 
+---
 
+```python
+import string
+
+ascii = 0
+punctuations = 0
+whitespace = 0
+unknown = 0
+
+file_name = 'thermopylae.txt'
+
+with open(file_name) as f:
+
+    contents = f.read()
+
+    for c in contents:
+        if c in string.ascii_letters:
+            ascii += 1
+        elif c in string.punctuation:
+            punctuations += 1
+        elif c in string.whitespace:
+            whitespace += 1
+        else:
+            unknown += 1
+
+
+print(f'ascii: {ascii}')
+print(f'whitespace: {whitespace}')
+print(f'punctuations: {punctuations}')
+print(f'unknown: {unknown}')
+```
 
 
 ## Count number of characters in file
