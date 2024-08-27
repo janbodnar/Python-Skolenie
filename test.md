@@ -2,6 +2,42 @@
 
 ## CSV 
 
+reader 
+
+```
+import csv
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    first_name: str
+    last_name: str
+    city: str
+    salary: int
+
+
+users = []
+
+with open('users.csv', 'r') as f:
+
+    reader = csv.reader(f)
+    
+    i = 0
+
+    for row in reader:
+
+        user = User(*row)
+        users.append(user)
+
+
+    print(users[:11])
+```
+
+
+Dictionary reader  
+
+data must contain a header.  
+
 ```python
 import csv
 from dataclasses import dataclass
