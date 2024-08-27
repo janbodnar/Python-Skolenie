@@ -76,7 +76,35 @@ Here are some key characteristics of Ruff:
   with a single, faster solution.
 
 
+## VS Code settings 
 
+```json
+{
+    "editor.rulers": [
+        80
+    ],
+    "editor.minimap.enabled": true,
+    "editor.renderWhitespace": "all",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "workbench.editor.pinnedTabSizing": "compact",
+    "[python]": {
+        // "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "editor.occurrencesHighlight": "off",
+    "editor.fontFamily": "Cascadia Code NF Regular, JetBrains Mono, Consolas, 'Courier New', monospace",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.suggest.insertMode": "replace",
+    // "editor.lineHeight": 1.4,
+    "editor.stickyScroll.enabled": false,
+    "workbench.editor.enablePreview": true,
+    "explorer.autoReveal": true,
+    "workbench.tree.indent": 12,
+    "emmet.triggerExpansionOnTab": true,
+    "workbench.tree.renderIndentGuides": "onHover",
+    "editor.fontSize": 14,
+}
+```
 
 
 
