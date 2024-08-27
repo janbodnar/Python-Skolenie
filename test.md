@@ -1,5 +1,49 @@
 # Priklady
 
+## List comprehension
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    first_name: str
+    last_name: str
+    city: str
+    salary: int
+
+
+users = []
+file_name = 'users.csv'
+
+with open(file_name, 'r') as f:
+
+    for line in f:
+        fields = line.split(',')
+
+        user = User(fields[0], fields[1], fields[2], int(fields[3].rstrip()))
+        users.append(user)
+
+
+    users_a_c = [user for user in users if user.last_name.startswith('A') or user.last_name.startswith('C')]
+    users_less_1000 = [user for user in users if user.salary < 1000]
+
+    users_sorted_salary = sorted(users, reverse=True, key=lambda u: u.salary)
+
+for u in users_sorted_salary[:16]:
+    print(u)
+
+
+print(len(users_a_c))
+print(users_a_c[0:11])
+
+print('----------------------------')
+
+print(len(users_less_1000))
+print(users_less_1000[0:11])
+```
+
+
 ## Filter data 
 
 ```python
