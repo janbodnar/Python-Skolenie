@@ -1,5 +1,61 @@
 # Priklady
 
+## Correlation
+
+```python
+import csv
+import statistics
+
+f = open('income.csv', 'r')
+
+ages = []
+salaries = []
+
+with f:
+
+    reader = csv.DictReader(f)
+    
+    for row in reader:
+
+        ages.append(int(row['Age']))
+        salaries.append(int(row['Income($)']))
+
+# print(ages)
+# print(salaries)
+
+cor = statistics.correlation(ages, salaries, method='ranked')
+print(cor)
+```
+
+The `income.csv` file.  
+
+```
+Name,Age,Income($)
+Rob,27,60000
+Michael,29,66000
+Mohan,29,61000
+John,28,60000
+Peter,42,150000
+Roman,39,155000
+David,41,160000
+Andrea,38,162000
+Brad,36,156000
+Angelina,35,130000
+Donald,37,137000
+Tom,26,45000
+Arnold,27,48000
+Jared,28,51000
+Stark,29,49500
+Ranbir,32,53000
+Stefan,40,65000
+Patrik,41,63000
+Nick,43,94000
+Alia,39,80000
+Sid,41,112000
+Abdul,39,58000
+```
+
+
 ## JSON 
 
 ```python
