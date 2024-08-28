@@ -1,5 +1,24 @@
 # Priklady
 
+## Count words
+
+```python
+import re
+
+file_name = 'thermopylae.txt'
+
+pattern = re.compile(f'\w+')
+
+with open(file_name) as f:
+
+    contents = f.read()
+
+    found = re.findall(pattern, contents)
+    print(found)
+
+    print(len(found))
+```
+
 ## Correlation
 
 ```python
