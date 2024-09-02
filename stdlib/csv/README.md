@@ -12,7 +12,7 @@ delimiters, new lines, or quoting characters.
 ## Python csv module
 
 The `csv` module implements classes to read and write tabular data in CSV  
-format. The `csv` module's reader and writer objects read and write sequences.
+format. The `csv` module's reader and writer objects read and write sequences.  
 Programmers can also read and write data in dictionary form using the  
 `DictReader` and `DictWriter` classes.  
 
@@ -30,15 +30,6 @@ The following table shows basic csv methods:
 | csv.list_dialects | Returns all registered dialects |
 | csv.field_size_limit | Returns the current maximum field size allowed by the parser |
 
-
-
-## Using csv module
-
-```python
-import csv
-```
-
-To use Python CSV module, we import csv.
 
 ## Python CSV reader
 
@@ -265,7 +256,7 @@ with open('items3.csv', 'w') as f:
     writer.writerow(("cups", 1))
 ```
 
-The program uses a (#) character as a delimiter. The dialect is specified with 
+The program uses a (#) character as a delimiter. The dialect is specified with  
  the dialect option in the `csv.writer` method.
 
 ```python
@@ -297,7 +288,7 @@ with open('users.csv', 'w', newline='') as f:
     writer.writeheader()
 
     for i in range(1, 101, 1):
-        
+
         _id = i
         fname = faker.first_name()
         lname = faker.last_name()
