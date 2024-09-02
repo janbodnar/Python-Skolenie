@@ -1,7 +1,5 @@
 ## The csv module 
 
-## CSV 
-
 CSV (Comma Separated Values) is a very popular import and export data format  
 used in spreadsheets and databases. Each line in a CSV file is a data record.  
 Each record consists of one or more fields, separated by commas. While CSV is a  
@@ -87,8 +85,6 @@ chair|book|tablet
 The `items.csv` contains values separated with `|` character.
 
 ```python
-#!/usr/bin/python
-
 import csv
 
 with open('items.csv', 'r') as f:
