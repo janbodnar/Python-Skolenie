@@ -7,8 +7,6 @@ very simple data format, there can be many differences, such as different
 delimiters, new lines, or quoting characters.  
 
 
-## Python csv module
-
 The `csv` module implements classes to read and write tabular data in CSV  
 format. The `csv` module's reader and writer objects read and write sequences.  
 Programmers can also read and write data in dictionary form using the  
