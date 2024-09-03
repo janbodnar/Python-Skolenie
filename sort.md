@@ -381,6 +381,41 @@ Lucia Smith
 The names are sorted by their last names. The Doe users are correctly sorted by  
 their first names.  
 
+
+## Sort list of dataclasses
+
+In the next example, we sort a list of dataclasses.
+
+```python
+from dataclasses import dataclass
+from operator import attrgetter
+
+@dataclass
+class City:
+    id: int
+    name: str
+    population: int
+
+
+c1 = City(1, 'Bratislava', 432000)
+c2 = City(2, 'Budapest', 1759000)
+c3 = City(3, 'Prague', 1280000)
+c4 = City(4, 'Warsaw', 1748000)
+c5 = City(5, 'Los Angeles', 3971000)
+c6 = City(6, 'Edinburgh', 464000)
+c7 = City(7, 'Berlin', 3671000)
+
+cities = [c1, c2, c3, c4, c5, c6, c7]
+
+cities.sort(key=lambda e: e.name)
+# cities.sort(key=attrgetter('id'))
+
+for city in cities:
+    print(city)
+```
+
+We provide the key function as a lambda or use the `attrgetter` function.  
+
 ## Sort list of namedtuples
 
 In the next example, we sort namedtuples.
@@ -423,8 +458,8 @@ The anonymous function returns the `name` property of the namedtuple.
 
 ## The itemgetter and attrgetter functions
 
-Python provides the `itemgetter` and `attrgetter` convenience functions to make
-accessor functions easier and faster. They are located in the `operator` module.
+Python provides the `itemgetter` and `attrgetter` convenience functions to make  
+accessor functions easier and faster. They are located in the `operator` module.  
 
 ```python
 from typing import NamedTuple
@@ -503,13 +538,13 @@ for student in students:
     print(student)
 ```
 
-We sort the students by grades and then by age. The sorting is in asceding order.
+We sort the students by grades and then by age. The sorting is in asceding order.  
 
 ```python
 students.sort(key=lambda s: (s.grade, s.age))
 ```
 
-To do the sorting, we pass the lambda function a tuple of sorting attributes.
+To do the sorting, we pass the lambda function a tuple of sorting attributes.  
 
 ```
 $ ./multiple_sort.py
@@ -566,7 +601,8 @@ for student in students:
     print(student)
 ```
 
-The example sorts students by grade in asceding order and then by age in descending order.
+The example sorts students by grade in asceding order and then by age in  
+descending order.  
 
 ```python
 students.sort(key=lambda s: (s.grade, negate(s.age)))
