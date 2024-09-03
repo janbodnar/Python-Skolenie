@@ -34,7 +34,9 @@ given CSV file.
 
 ```
 $ cat numbers.csv
-16,6,4,12,81,6,71,6
+16,6,4,12,81
+11,12,11,13,12
+4,3,2,1,5,6,7
 ```
 
 The `numbers.csv` file contains numbers.
