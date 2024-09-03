@@ -158,8 +158,8 @@ writer a row of data into the specified file.
 
 ```
 $ cat numbers2.csv
-1,2,3,4,5,6
-7,8,9,10,11,12
+1,2,3,4,5,6  
+7,8,9,10,11,12  
 ```
 
 It is possible to write all data in one shot. The `writerows` method writes all  
