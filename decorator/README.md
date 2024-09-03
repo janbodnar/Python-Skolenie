@@ -9,9 +9,6 @@ placed immediately before the function definition.
 ## Simple example 
 
 ```python
-#!/usr/bin/python
-
-
 def enclose(fun):
     def wrapper():
         print("------------------------------")
@@ -38,8 +35,6 @@ a decorator. Functionally, the example is equivalent to the previous one. Only
 different syntax is used.  
 
 ```python
-#!/usr/bin/python
-
 def enclose(fun):
 
     def wrapper():
@@ -62,8 +57,6 @@ myfun()
 ## Timing decorator 
 
 ```python
-#!/usr/bin/python
-
 import time
 import math
 import sys
@@ -101,8 +94,6 @@ print(f)
 Decorators can be stacked.  
 
 ```python
-#!/usr/bin/python
-
 def strong(fun):
 
     def wrapper():
