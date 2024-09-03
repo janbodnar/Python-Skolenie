@@ -40,11 +40,11 @@ derived from merge sort and insertion sort. It was implemented by Tim Peters in
 
 ## Python sort functions
 
-Python has two basic function for sorting lists: `sort` and `sorted`. The `sort`
-sorts the list in place, while the `sorted` returns a new sorted list from the
-items in iterable. Both functions have the same options: `key` and `reverse`.
-The `key` takes a function which will be used on each value in the list being
-`sorted` to determine the resulting order. The `reverse` option can reverse the
+Python has two basic function for sorting lists: `sort` and `sorted`. The `sort`  
+sorts the list in place, while the `sorted` returns a new sorted list from the  
+items in iterable. Both functions have the same options: `key` and `reverse`.  
+The `key` takes a function which will be used on each value in the list being  
+`sorted` to determine the resulting order. The `reverse` option can reverse the  
 comparison order.
 
 Both functions produce stable sorting.  
@@ -125,9 +125,7 @@ objects.
 A Python list can have nested iterables. In such cases, we can choose the  
 elements which should be sorted.  
 
-sort_elem_idx.py
-#!/usr/bin/python
-
+```python
 vals = [(4, 0), (0, -2), (3, 5), (1, 1), (-1, 3)]
 
 vals.sort()
@@ -135,20 +133,24 @@ print(vals)
 
 vals.sort(key=lambda e: e[1])
 print(vals)
-The example sorts the nested tuples initally by their first elements, then by their second.
+```
 
+The example sorts the nested tuples initally by their first elements, then by  
+their second.  
+
+```python
 vals.sort(key=lambda e: e[1])
-By providing an anonymous function which returns the second element of the tuple, we sort the tuples by their second values.
+```
 
-$ ./sort_elem_idx.py
-[(-1, 3), (0, -2), (1, 1), (3, 5), (4, 0)]
-[(0, -2), (4, 0), (1, 1), (-1, 3), (3, 5)]
-Python sort list by sum of nested list
-Say we have nested lists which all have some various rankings. The final ranking is the sum of all the values.
+By providing an anonymous function which returns the second element of the  
+tuple, we sort the tuples by their second values.  
 
-sort_sum.py
-#!/usr/bin/python
+## Sort list by sum of nested list
 
+Say we have nested lists which all have some various rankings. The final ranking  
+is the sum of all the values.  
+
+```python
 data = [[10, 11, 12, 13], [9, 10, 11, 12], [8, 9, 10, 11], [10, 9, 8, 7],
     [6, 7, 8, 9], [5, 5, 5, 1], [5, 5, 5, 5], [3, 4, 5, 6], [10, 1, 1, 2]]
 
@@ -157,19 +159,17 @@ print(data)
 
 data.sort(key=sum)
 print(data)
-By default, the sorting functions sort by the first value of the nested lists. To achieve our goal, we pass the built-in sum function to the key option.
+```
 
-$ ./sort_sum.py
-[[3, 4, 5, 6], [5, 5, 5, 1], [5, 5, 5, 5], [6, 7, 8, 9], [8, 9, 10, 11], [9, 10, 11, 12], [10, 1, 1, 2], [10, 9, 8, 7], [10, 11, 12, 13]]
-[[10, 1, 1, 2], [5, 5, 5, 1], [3, 4, 5, 6], [5, 5, 5, 5], [6, 7, 8, 9], [10, 9, 8, 7], [8, 9, 10, 11], [9, 10, 11, 12], [10, 11, 12, 13]]
-The example shows the default and the custom sorting.
+By default, the sorting functions sort by the first value of the nested lists.  
+To achieve our goal, we pass the built-in `sum` function to the key option.  
 
-Python sort list of localized strings
-For locale aware sorting, we can use the locale.strxfrm for the key function.
+## Sort list of localized strings
 
-locale_sort.py
-#!/usr/bin/python
+For locale aware sorting, we can use the `locale.strxfrm` for the `key`  
+function.
 
+```python
 import locale
 
 words = ['zem', 'čučoriedka', 'drevo', 'štebot', 'cesta', 'černice', 'ďateľ',
@@ -180,8 +180,11 @@ words.sort(key=locale.strxfrm)
 
 for word in words:
     print (word)
+```
+
 The example sorts Slovak words.
 
+```
 $ ./locale_sort.py
 cesta
 černice
@@ -194,13 +197,14 @@ sob
 štebot
 zem
 železo
-Note: the resulting order of the Slovak words is not entirely correct. The letter ď goes after d. It depends on how well the language is supported.
-Python sort list of dictionaries
-When sorting dictionaries, we can choose the property by which the sorting is performed.
+```
 
-sort_dict.py
-#!/usr/bin/python
+Note: the resulting order of the Slovak words is not entirely correct. The  
+letter ď goes after d. It depends on how well the language is supported. Python  
+sort list of dictionaries When sorting dictionaries, we can choose the property  
+by which the sorting is performed.  
 
+```python
 users = [
   {'name': 'John Doe', 'date_of_birth': 1987},
   {'name': 'Jane Doe', 'date_of_birth': 1996},
@@ -213,25 +217,34 @@ users.sort(reverse=True, key=lambda e: e['date_of_birth'])
 
 for user in users:
     print(user)
-We have a list of users. Each user is represented by a dictionary.
+```
 
+We have a list of users. Each user is represented by a dictionary.  
+
+```python
 users.sort(reverse=True, key=lambda e: e['date_of_birth'])
+```
+
 In the anonymous function, we choose the date_of_birth property.
 
+```
 $ ./sort_dict.py
 {'name': 'Lucia Smith', 'date_of_birth': 2002}
 {'name': 'Jane Doe', 'date_of_birth': 1996}
 {'name': 'Patrick Dempsey', 'date_of_birth': 1994}
 {'name': 'John Doe', 'date_of_birth': 1987}
 {'name': 'Robert Brown', 'date_of_birth': 1977}
+```
+
 The users are sorted by their date of birth in descending order.
 
-Python sort list of grades
-There are various grading systems around the world. Our example contains grades such as A+ or C- and these cannot be ordered lexicographically. We use a dictionary where each grade has its given value.
+## Sort list of grades
 
-grades.py
-#!/usr/bin/python
+There are various grading systems around the world. Our example contains grades  
+such as A+ or C- and these cannot be ordered lexicographically. We use a  
+dictionary where each grade has its given value.  
 
+```python
 data = 'A+ A A- B+ B B- C+ C C- D+ D'
 grades = { grade: idx for idx, grade in enumerate(data.split()) }
 
@@ -246,32 +259,40 @@ print(grades)
 students.sort(key=mc)
 print(students)
 
-
 # from operator import itemgetter
 # students.sort(key=lambda e: itemgetter(e[1])(grades))
-We have a list of students. Each student has a name and a grade in a nested tuple.
+```
 
+We have a list of students. Each student has a name and a grade in a nested  
+tuple.  
+
+```python
 data = 'A+ A A- B+ B B- C+ C C- D+ D'
 grades = { grade: idx for idx, grade in enumerate(data.split()) }
-We build the dictionary of grades. Each grade has its value. The grades will be sorted by their dictionary value.
+```
 
+We build the dictionary of grades. Each grade has its value. The grades will be  
+sorted by their dictionary value.  
+
+```python
 def mc(e):
     return grades.get(e[1])
-The key function simply returns the value of the grade.
+```
 
+The `key` function simply returns the value of the grade.
+
+```python
 # from operator import itemgetter
 # students.sort(key=lambda e: itemgetter(e[1])(grades))
+```
+
 This solution uses an anonymous function.
 
-$ ./grades.py
-{'A+': 0, 'A': 1, 'A-': 2, 'B+': 3, 'B': 4, 'B-': 5, 'C+': 6, 'C': 7, 'C-': 8, 'D+': 9, 'D': 10}
-[('Anna', 'A+'), ('Jan', 'A'), ('Zoltan', 'A-'), ('Jozef', 'B'), ('Rebecca', 'B-'), ('Sofia', 'C+'), ('Michelle', 'C-'), ('Michael', 'D+')]
-Python sort list by string length
+## Sort list by string length
+
 Sometimes, we need to sort the strings by their length.
 
-sort_by_len.py
-#!/usr/bin/python
-
+```python
 def w_len(e):
   return len(e)
 
@@ -280,22 +301,24 @@ words = ['forest', 'wood', 'tool', 'sky', 'poor', 'cloud', 'rock', 'if']
 words.sort(reverse=True, key=w_len)
 
 print(words)
+```
+
 In this example, we do not use an anonymous function.
 
+```python
 def w_len(e):
   return len(e)
-The w_len function returns the length of each of the elements.
+```
 
-$ ./sort_by_len.py
-['forest', 'cloud', 'wood', 'tool', 'poor', 'rock', 'sky', 'if']
-The words are ordered by their length in descending order.
+The `w_len` function returns the length of each of the elements.  
 
-Python sort list by case
-By default, the strings with uppercase first letters are sorted before the other strings. We can sort strings regardless of their case as well.
 
-case_sorting.py
-#!/usr/bin/python
+## Sort list by case
 
+By default, the strings with uppercase first letters are sorted before the other  
+strings. We can sort strings regardless of their case as well.  
+
+```python
 text = 'Today is a beautiful day. Andy went fishing.'
 words = text.replace('.', '')
 
@@ -304,17 +327,17 @@ print('Case insensitive:', sorted_words)
 
 sorted_words2 = sorted(words.split())
 print('Case sensitive:', sorted_words2)
-By providing the str.lower function to the key attribute, we perform a case insensitive sorting.
+```
 
-$ ./case_sorting.py
-Case insensitive: ['a', 'Andy', 'beautiful', 'day', 'fishing', 'is', 'Today', 'went']
-Case sensitive: ['Andy', 'Today', 'a', 'beautiful', 'day', 'fishing', 'is', 'went']
-Python sort list by lastname
+By providing the `str.lower` function to the `key` attribute, we perform a case  
+insensitive sorting.  
+
+
+## Sort list by lastname
+
 In the following example, we sort the names by last name.
 
-sort_by_lastname.py
-#!/usr/bin/python
-
+```python
 names = ['John Doe', 'Jane Doe', 'Robert Brown', 'Robert Novak',
     'Lucia Smith', 'Patrick Dempsey', 'George Marshall', 'Alan Brooke',
     'Harold Andras', 'Albert Doe']
@@ -325,12 +348,23 @@ names.sort(key=lambda e: e.split()[-1])
 
 for name in names:
     print(name)
-We have a list of names. Each name consists of a first name and last name. In addition, there are several users with the same last name. In such a case, we want them to be sorted by their first names.
+```
 
+We have a list of names. Each name consists of a first name and last name. In  
+addition, there are several users with the same last name. In such a case, we  
+want them to be sorted by their first names.  
+
+```python
 names.sort()
 names.sort(key=lambda e: e.split()[-1])
-First, we sort the names by their first names. Then we sort the names by their last name. To do so, we split each string and choose the last string (it has index -1.) Since Python's sort algorithm is stable, the first sorting is remembered and we get the expected output.
+```
 
+First, we sort the names by their first names. Then we sort the names by their  
+last name. To do so, we split each string and choose the last string (it has  
+index -1.) Since Python's sort algorithm is stable, the first sorting is  
+remembered and we get the expected output.  
+
+```
 $ ./sort_by_lastname.py
 Harold Andras
 Alan Brooke
@@ -342,14 +376,16 @@ John Doe
 George Marshall
 Robert Novak
 Lucia Smith
-The names are sorted by their last names. The Doe users are correctly sorted by their first names.
+```
 
-Python sort list of namedtuples
+The names are sorted by their last names. The Doe users are correctly sorted by  
+their first names.  
+
+## Sort list of namedtuples
+
 In the next example, we sort namedtuples.
 
-namedtuple_sort.py
-#!/usr/bin/python
-
+```python
 from typing import NamedTuple
 
 
@@ -373,25 +409,24 @@ cities.sort(key=lambda e: e.name)
 
 for city in cities:
     print(city)
-The City namedtuple has three attributes: id, name, and population. The example sorts the namedtuples by their names.
+```
 
+The `City` namedtuple has three attributes: `id`, `name`, and `population`. The  
+example sorts the namedtuples by their names.  
+
+```python
 cities.sort(key=lambda e: e.name)
-The anonymous function returns the name property of the namedtuple.
+```
 
-$ ./namedtuple_sort.py
-City(id=7, name='Berlin', population=3671000)
-City(id=1, name='Bratislava', population=432000)
-City(id=2, name='Budapest', population=1759000)
-City(id=6, name='Edinburgh', population=464000)
-City(id=5, name='Los Angeles', population=3971000)
-City(id=3, name='Prague', population=1280000)
-City(id=4, name='Warsaw', population=1748000)
-The itemgetter and attrgetter functions
-Python provides the itemgetter and attrgetter convenience functions to make accessor functions easier and faster. They are located in the operator module.
+The anonymous function returns the `name` property of the namedtuple.
 
-helpers.py
-#!/usr/bin/python
 
+## The itemgetter and attrgetter functions
+
+Python provides the `itemgetter` and `attrgetter` convenience functions to make
+accessor functions easier and faster. They are located in the `operator` module.
+
+```python
 from typing import NamedTuple
 from operator import itemgetter, attrgetter
 
@@ -421,39 +456,31 @@ sorted_cities = sorted(cities, key=itemgetter(2))
 
 for city in sorted_cities:
     print(city)
+```
+
 We sort a list of cities using sorted and the helper functions.
 
+```python
 sorted_cities = sorted(cities, key=attrgetter('name'))
+```
+
 We pass the attribute name by which we sort the cities.
 
+```python
 sorted_cities = sorted(cities, key=itemgetter(2))
-In case of itemgetter, we pass the attribute's index.
+```
 
-$ ./named_tuple_sort.py
-City(id=7, name='Berlin', population=3671000)
-City(id=1, name='Bratislava', population=432000)
-City(id=2, name='Budapest', population=1759000)
-City(id=6, name='Edinburgh', population=464000)
-City(id=5, name='Los Angeles', population=3971000)
-City(id=3, name='Prague', population=1280000)
-City(id=4, name='Warsaw', population=1748000)
----------------------
-City(id=1, name='Bratislava', population=432000)
-City(id=6, name='Edinburgh', population=464000)
-City(id=3, name='Prague', population=1280000)
-City(id=4, name='Warsaw', population=1748000)
-City(id=2, name='Budapest', population=1759000)
-City(id=7, name='Berlin', population=3671000)
-City(id=5, name='Los Angeles', population=3971000)
-Python sort list by multiple sort criteria
-The following example sorts a list of students by two sorting criteria.
+In case of `itemgetter`, we pass the attribute's index.
 
-multi_sort.py
-#!/usr/bin/python
+## Sort list by multiple sort criteria
 
-from typing import NamedTuple
+The following example sorts a list of students by two sorting criteria.  
 
-class Student(NamedTuple):
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Student:
     id: int
     name: str
     grade: str
@@ -474,11 +501,17 @@ students.sort(key=lambda s: (s.grade, s.age))
 
 for student in students:
     print(student)
+```
+
 We sort the students by grades and then by age. The sorting is in asceding order.
 
+```python
 students.sort(key=lambda s: (s.grade, s.age))
+```
+
 To do the sorting, we pass the lambda function a tuple of sorting attributes.
 
+```
 $ ./multiple_sort.py
 Student(id=7, name='Sofia', grade='A', age=18)
 Student(id=1, name='Patrick', grade='A', age=21)
@@ -488,13 +521,14 @@ Student(id=9, name='Arnold', grade='B', age=23)
 Student(id=3, name='Robert', grade='C', age=19)
 Student(id=5, name='Thomas', grade='D', age=20)
 Student(id=8, name='Harold', grade='E', age=22)
-We may want to sort the data by multiple criteria with various ordering types.
+```
 
-The first solution is to wrap the key in a class which defines the ordering type.
+We may want to sort the data by multiple criteria with various ordering types.  
 
-multi_sort2.py
-#!/usr/bin/python
+The first solution is to wrap the key in a class which defines the ordering  
+type.
 
+```python
 from typing import NamedTuple
 
 class negate:
@@ -530,11 +564,17 @@ students.sort(key=lambda s: (s.grade, negate(s.age)))
 
 for student in students:
     print(student)
+```
+
 The example sorts students by grade in asceding order and then by age in descending order.
 
+```python
 students.sort(key=lambda s: (s.grade, negate(s.age)))
+```
+
 The second key is wrapped with negate.
 
+```
 $ ./multi_sort2.py
 Student(id=4, name='Monika', grade='A', age=22)
 Student(id=1, name='Patrick', grade='A', age=21)
@@ -543,11 +583,11 @@ Student(id=9, name='Arnold', grade='B', age=23)
 Student(id=2, name='Lucia', grade='B', age=19)
 Student(id=3, name='Robert', grade='C', age=19)
 Student(id=5, name='Thomas', grade='D', age=20)
-Another solution is to sort the list twice.
+```
 
-multi_sort3.py
-#!/usr/bin/python
+Another solution is to sort the list twice.  
 
+```python
 from typing import NamedTuple
 from operator import attrgetter
 
@@ -581,11 +621,17 @@ multi_sort(students, (('grade', False), ('age', True)))
 
 for student in students:
     print(student)
-First, the students are sorted by grades in ascending order, then they are sorted by age in descending order.
+```
 
+First, the students are sorted by grades in ascending order, then they are  
+sorted by age in descending order.  
+
+```python
 def multi_sort(data, specs):
 
     for key, reverse in reversed(specs):
         data.sort(key=attrgetter(key), reverse=reverse)
     return data
-The multi_sort function applies all the sorting specs on the list.
+```
+
+The `multi_sort` function applies all the sorting specs on the list.
