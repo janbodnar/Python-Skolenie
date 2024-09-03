@@ -179,6 +179,27 @@ with open('numbers3.csv', 'w') as f:
 The code example writes three rows of numbers into the file using the  
 `writerows` method.  
 
+
+## Custom dialect 
+
+A custom dialect can be created with the `register_dialect` function.
+
+```python
+import csv
+
+csv.register_dialect("hashes", delimiter="#")
+
+f = open('items3.csv', 'w')
+
+with f:
+
+    writer = csv.writer(f, dialect="hashes")
+    writer.writerow(("pencils", 2)) 
+    writer.writerow(("plates", 1))
+    writer.writerow(("books", 4))
+```
+
+
 ## CSV DictWriter
 
 The `csv.DictWriter` class operates like a regular writer but maps Python  
@@ -187,8 +208,6 @@ identify the order in which values in the dictionary passed to the `writerow`
 method are written to the CSV file.  
 
 ```python
-#!/usr/bin/python
-
 import csv
 
 with open('names.csv', 'w') as f:
