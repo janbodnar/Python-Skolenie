@@ -1,5 +1,13 @@
 # List of objects
 
+An object is a grouping of attributes and methods. It can be represented by a  
+class/dataclass, namedtuple, or a dictionary.  
+
+- list of dataclass objects
+- list of namedtuple objects
+- list of dictionaries
+
+
 Generate a CSV file with faker.  
 
 ```python
@@ -126,7 +134,7 @@ for user in sorted_users:
     print(user)
 ```
 
-Using custom methof.  
+Using custom method.  
 
 ```python
 import csv
