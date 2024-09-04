@@ -137,7 +137,7 @@ if os.path.exists(path):
 
 ---
 
-```
+```python
 import os
 
 def createDirectory(directory):
