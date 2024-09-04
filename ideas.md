@@ -128,6 +128,49 @@ for user in sorted_users:
     print(user)
 ```
 
+Using custom methof.  
+
+```python
+import csv
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    first_name: str
+    last_name: str
+    counry: str
+    date_of_birth: str
+    job: str
+
+    def get_age(self):
+        born = date.fromisoformat(self.date_of_birth)
+        today = date.today()
+        age = relativedelta(today, born)
+        return age.years    
+
+users = []
+file_name = 'users.csv'
+
+
+
+with open(file_name, 'r') as f:
+
+    reader = csv.reader(f)
+    next(reader) # skips header
+
+    for row in reader:
+        users.append(User(*row))
+ 
+
+sorted_users = sorted(users, key=lambda u: u.get_age(), reverse=True)
+
+for user in sorted_users:
+    print(user)
+```
+
 ## Ordered words
 
 An ordered word is a word in which the letters appear in alphabetic order.  
