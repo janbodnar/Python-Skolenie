@@ -5,6 +5,7 @@
 Generate a CSV file with faker.  
 
 ```python
+
 import csv, random
 from faker import Faker 
 
@@ -16,16 +17,18 @@ jobs = ['teacher', 'writer', 'programmer', 'shopkeeper', 'driver', 'gardener']
 with open(file_name, 'w') as f:
 
     writer = csv.writer(f, lineterminator='\n')
-    writer.writerow(('first_name', 'last_name', 'country', 'job'))
+    writer.writerow(('first_name', 'last_name', 'country', 'date_of_birth', 'job'))
 
     for _ in range(30):
         fname = faker.first_name()
         lname = faker.last_name()
         job = random.sample(jobs, 1)[0]
         # job = faker.job()
+        dob = faker.date_of_birth()
         country = faker.country()
 
-        writer.writerow((fname, lname, country, job))
+        writer.writerow((fname, lname, country, dob, job))
+
 ```
 
 List of objects created with dataclass or namedtuple.  
@@ -40,9 +43,10 @@ from collections import namedtuple
 #     first_name: str
 #     last_name: str
 #     counry: str
+#     date_of_birth: str
 #     job: str
 
-User = namedtuple('User', 'first_name last_name country job')
+User = namedtuple('User', 'first_name last_name country date_of_birth job')
 
 users = []
 file_name = 'users.csv'
