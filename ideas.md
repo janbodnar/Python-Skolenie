@@ -128,7 +128,7 @@ for user in sorted_users:
     print(user)
 ```
 
-Using custom methof.  
+Using custom method.  
 
 ```python
 import csv
