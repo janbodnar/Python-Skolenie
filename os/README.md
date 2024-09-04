@@ -16,7 +16,7 @@ def print_hex(file_path):
 print_hex('path_to_your_binary_file')
 ```
 
---
+---
 
 ```python
 file_name = 'data.txt'
