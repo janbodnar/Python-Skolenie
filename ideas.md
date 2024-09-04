@@ -1,5 +1,90 @@
 # Ideas
 
+## List of objects
+
+Generate a CSV file with faker.  
+
+```python
+import csv, random
+from faker import Faker 
+
+faker = Faker()
+file_name = 'users.csv'
+
+jobs = ['teacher', 'writer', 'programmer', 'shopkeeper', 'driver', 'gardener']
+
+with open(file_name, 'w') as f:
+
+    writer = csv.writer(f, lineterminator='\n')
+    writer.writerow(('first_name', 'last_name', 'country', 'job'))
+
+    for _ in range(30):
+        fname = faker.first_name()
+        lname = faker.last_name()
+        job = random.sample(jobs, 1)[0]
+        # job = faker.job()
+        country = faker.country()
+
+        writer.writerow((fname, lname, country, job))
+```
+
+List of objects created with dataclass or namedtuple.  
+
+```python
+import csv
+from dataclasses import dataclass
+from collections import namedtuple
+
+# @dataclass
+# class User:
+#     first_name: str
+#     last_name: str
+#     counry: str
+#     job: str
+
+User = namedtuple('User', 'first_name last_name country job')
+
+users = []
+file_name = 'users.csv'
+
+with open(file_name, 'r') as f:
+
+    reader = csv.reader(f)
+    next(reader) # skips header
+
+    for row in reader:
+        users.append(User(*row))
+ 
+for user in users[:11]:
+    print(user)
+```
+
+List of objects as dictionaries. 
+
+```python
+import csv
+
+users = []
+file_name = 'users.csv'
+
+with open(file_name, 'r') as f:
+
+    reader = csv.DictReader(f)
+    
+    i = 1
+    for row in reader:
+        user = {}
+        user['id'] = i
+        user.update(row)
+        users.append(user)
+        i += 1
+ 
+for user in users[:11]:
+    print(user)
+
+# print(users)
+```
+
 ## Ordered words
 
 An ordered word is a word in which the letters appear in alphabetic order.  
