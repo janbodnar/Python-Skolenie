@@ -284,6 +284,19 @@ finally:
 
 ## zipfile 
 
+Create a ZIP file
+
+```python
+import zipfile
+
+files_to_zip = ['load_data.py', 'load_data2.py']
+
+with zipfile.ZipFile('pyarchive.zip', 'w') as zip:
+    for file in files_to_zip:
+        zip.write(file)
+```
+
+
 Extract a ZIP file.  
 
 ```python
