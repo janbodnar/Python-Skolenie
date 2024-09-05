@@ -1,5 +1,23 @@
 # Priklady
 
+## list directory
+
+```python
+import os 
+
+# content = os.listdir('.')
+content = os.listdir(r'C:\Users\bodnar\Documents\pyprogs')
+# print(content)
+
+for file in content:
+    if file.endswith('py'):
+        print(file)
+
+py_files = list(filter(lambda file: file.endswith('py'), content))
+print(py_files)
+```
+
+
 ## filter words
 
 ```python
