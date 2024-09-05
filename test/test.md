@@ -1,5 +1,29 @@
 # Priklady
 
+## filter words
+
+```python
+def has_3_letters(word):
+
+    return len(word) == 3
+
+
+words = ['sky', 'letter', 'pet', 'cup', 'morning']
+
+# words_3 = list(filter(has_3_letters, words)) 
+words_3 = list(filter(lambda word: len(word) == 3, words)) 
+print(words_3)
+
+# words_3 = []
+
+# for word in words:
+#     if len(word) == 3:
+#         words_3.append(word)
+
+# print(words_3)
+```
+
+
 ## lambda & median
 
 ```python
