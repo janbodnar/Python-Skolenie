@@ -51,11 +51,12 @@ The `rmdir` removes a directory.
 import os
 
 def removeDirectory(directory):
-    try:
-        if os.path.exists(directory):
-            os.rmdir(directory)
-    except OSError:
+
+    if os.path.exists(directory):
+        os.rmdir(directory)
+    else: 
         print('failed to remove directory ' +  directory)
+
 
 removeDirectory('mydata')
 ```
