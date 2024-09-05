@@ -2,6 +2,8 @@
 
 ## JSON
 
+using urllib3  
+
 ```python
 #!/usr/bin/python
 
@@ -21,6 +23,24 @@ print(type(data))
 for user in data['users']:
     print(user)
 ```
+
+using requests 
+
+```python
+import json
+import requests
+
+url = 'https://webcode.me/users.json'
+
+resp = requests.get(url)
+text = resp.content.decode("utf-8")
+
+data = json.loads(text)
+
+for user in data['users']:
+    print(user)
+```
+
 
 
 ## list directory
