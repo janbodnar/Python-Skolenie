@@ -284,7 +284,7 @@ finally:
 
 ## zipfile 
 
-Create a ZIP file.  
+Extract a ZIP file.  
 
 ```python
 #!/usr/bin/python
