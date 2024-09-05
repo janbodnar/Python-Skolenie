@@ -37,10 +37,9 @@ import os
 
 file_name = 'myfile.txt'
 
-try:
-    if os.path.exists(file_name):
-        os.rename('myfile.txt', 'myfile2.txt')
-except OSError:
+if os.path.exists(file_name):
+    os.rename('myfile.txt', 'myfile2.txt')
+else:
     print('failed to rename file')
 ```
 
