@@ -1,5 +1,28 @@
 # Priklady
 
+## JSON
+
+```python
+#!/usr/bin/python
+
+import json
+import urllib3
+
+http = urllib3.PoolManager()
+
+url = 'https://webcode.me/users.json'
+
+resp = http.request('GET', url)
+text = resp.data.decode("utf-8")
+
+data = json.loads(text)
+print(type(data))
+
+for user in data['users']:
+    print(user)
+```
+
+
 ## list directory
 
 ```python
