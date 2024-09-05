@@ -1,5 +1,26 @@
 # Priklady
 
+## map function
+
+```python
+#!/usr/bin/python
+
+def upper_word(word):
+    return word.upper()
+
+
+words = ['sky', 'tool', 'pen']
+
+
+# words_upper = list(map(upper_word, words))
+words_upper = list(map(lambda e: e.upper(), words))
+
+print(words_upper)
+```
+
+
+## sort by age
+
 ```python
 import csv
 from collections import namedtuple
