@@ -25,7 +25,7 @@ Great tutorial: https://code.visualstudio.com/docs/editor/codebasics
 ## Multi-cursor
 
 Add `f` and remove `!` from the example with multicursor (`Ctrl + Alt + Up/Down` on Windows.)  
-Also `Ctrl + Click`.  
+Also `Ctrl + Click`.  (Toggle MultiCursor modifier command).
 
 Trim trailing whitespaces.  
 
