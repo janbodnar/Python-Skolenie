@@ -1,6 +1,23 @@
 # Priklady
 
 
+## Download PDF file 
+
+```python
+import requests
+
+url = 'https://static.realpython.com/python-basics-sample-chapters.pdf'
+
+resp = requests.get(url)
+content = resp.content
+
+file_name = 'python-basics.pdf'
+
+with open(file_name, 'wb') as f:
+    f.write(content)
+```
+
+
 ## ZIP Python files
 
 ```python
