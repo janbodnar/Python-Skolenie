@@ -1,5 +1,23 @@
 # Priklady
 
+
+## ZIP Python files
+
+```python
+import os 
+import zipfile
+
+files = os.listdir('.')
+files_to_zip = list(filter(lambda file: file.endswith('py') , files))
+
+with zipfile.ZipFile('myarchive.zip', 'w') as zip:
+
+    for file in files_to_zip:
+        zip.write(file)
+```
+
+
+
 ## JSON
 
 using urllib3  
