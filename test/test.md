@@ -1,5 +1,50 @@
 # Priklady
 
+## JSON to database
+
+```python
+import requests
+import json
+import sqlite3
+
+def download_data(url):
+
+    resp = requests.get(url)
+    data_json = resp.content.decode('utf8')
+
+    return data_json
+
+def json2dict(json_data):
+
+    users = json.loads(json_data)
+    return users
+
+def save_db(users):
+
+    con = sqlite3.connect('test.db')
+
+    for user in users['users']:
+        print(user)
+
+    with con:
+        
+        cur = con.cursor()
+
+        cur.execute('DROP TABLE IF EXISTS myusers')
+        cur.execute('CREATE TABLE myusers(id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, email TEXT)')
+
+        for user in users['users']:
+
+            cur.execute('INSERT INTO myusers(id, first_name, last_name, email) VALUES(?, ?, ?, ?)', 
+                        (user['id'], user['first_name'], user['last_name'], user['email']))
+ 
+url = 'https://webcode.me/users.json'
+data_json = download_data(url)
+users = json2dict(data_json)
+
+save_db(users)
+```
+
 
 ## Download PDF file 
 
