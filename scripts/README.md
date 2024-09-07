@@ -8,7 +8,6 @@ import argparse
 import zipfile
 import tempfile
 import time
-import os
 
 
 parser = argparse.ArgumentParser()
@@ -59,7 +58,7 @@ if z:
     with zipfile.ZipFile(temp_path, 'w') as zip:
 
         for fname in archive_files:
-            zip.write(fname, arcname=os.path.basename(fname))
+            zip.write(fname)
 
         print(f'{temp_path} created')
 ```
