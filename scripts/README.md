@@ -83,6 +83,50 @@ path = create_dest_dir(dest_dir)
 resize_images(path, image_fnames)
 ```
 
+## Count terms 
+
+```python
+
+import httpx
+import asyncio
+import re
+
+
+async def get_async(url):
+    async with httpx.AsyncClient() as client:
+        return await client.get(url)
+
+urls = ['https://www.sme.sk', 'https://www.pravda.sk', 'https://www.hlavnespravy.sk',
+        'https://hnonline.sk', 'https://www.aktuality.sk',
+        'https://dennikn.sk', 'https://www.cas.sk', 'https://www1.pluska.sk']
+
+topics = [{'term': 'Fico', 'pattern': r'Fica|Fico|Ficovi|Ficom', 'count': 0},
+          {'term': 'Putin', 'pattern': r'Putin|Putina|Putinovi|Putinom', 'count': 0},
+          {'term': 'Trump', 'pattern': r'Trump|Trumpa|Trumpovi|Trumpom', 'count': 0},
+          {'term': 'Biden', 'pattern': r'Biden|Biden|Bidenovi|Bidenom', 'count': 0}]
+
+
+def check_terms(data):
+
+    for html in data:
+
+        for topic in topics:
+            pattern = re.compile(topic['pattern'])
+            found = re.findall(pattern, html)
+            if len(found) > 0:
+                topic['count'] += len(found)
+
+
+async def launch():
+    resps = await asyncio.gather(*map(get_async, urls))
+    data = [resp.content.decode('utf8') for resp in resps]
+    check_terms(data)
+
+    for topic in topics:
+        print(topic['term'], topic['count'])
+
+asyncio.run(launch())
+```
 
 ## CSV to HTML
 
