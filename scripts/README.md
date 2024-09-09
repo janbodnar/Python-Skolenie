@@ -71,6 +71,8 @@ print(f'There are {blanks} blank lines')
 ```
 
 ```python
+#!/usr/bin/python
+
 from jinja2 import Environment, FileSystemLoader
 import csv
 import argparse
@@ -81,11 +83,12 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-f', required=True, help='CSV file name')
-    parser.add_argument('-t',  default='Data', help='HTML table title')
+    parser.add_argument('-o', default='data.html', help='HTML output file name')
+    parser.add_argument('-t', default='Data', help='HTML table title')
 
     args = parser.parse_args()
-    
-    return args.f, args.t
+
+    return args.f, args.t, args.o
 
 
 def read_data(fname):
@@ -101,13 +104,13 @@ def read_data(fname):
             
         return headers, data
 
-def write2file(data):
+def write2file(data, fname):
 
-    with open('data.html', 'w') as f:
+    with open(fname, 'w') as f:
         f.write(data)
 
 
-fname, title = parse_args()
+fname, title, ofname = parse_args()
 headers, rows = read_data(fname)
 
 file_loader = FileSystemLoader('templates')
@@ -116,7 +119,7 @@ env = Environment(loader=file_loader)
 template = env.get_template('data.html')
 
 data = template.render(headers=headers, rows=rows, title=title)
-write2file(data)
+write2file(data, ofname)
 ```
 
 ## find/zip files 
