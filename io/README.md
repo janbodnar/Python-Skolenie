@@ -21,6 +21,32 @@ with open('words.txt', 'r') as f:
         print(line)
 ```
 
+## The seek method 
+
+When you iterate over a file object, the file pointer is advanced to the next line  
+after each iteration. Once you reach the end of the file, the pointer cannot be moved  
+back to the beginning. This is a fundamental limitation of how file objects work.  
+
+```python
+fname = 'words.txt'
+
+with open(fname, 'r') as r:
+
+    for line in r:
+        print(line.rstrip())
+
+    print('---------------------')
+
+    r.seek(0)
+    
+    for line in r:
+        print(line.rstrip())
+```
+
+Use the `seek(0)` method to reposition the file pointer to the beginning of the file.  
+This allows you to iterate over the file again. However, be aware that seeking can be  
+inefficient for large files, especially if you are seeking frequently.
+
 ## The pathlib
 
 ```python
