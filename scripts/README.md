@@ -1,5 +1,39 @@
 # Scripts
 
+## count blanks
+
+```python
+import argparse
+import re
+
+parser = argparse.ArgumentParser()
+parser.add_argument('file')
+args = parser.parse_args()
+
+fname = args.file
+
+pattern = re.compile(r'\s*$')
+blanks = 0
+non_blanks = 0
+
+with open(fname, 'r') as r:
+
+    print(r.readlines())
+
+    for line in r:
+        
+        if re.fullmatch(pattern, line.strip()):
+            blanks += 1
+        else:
+            non_blanks += 1
+
+
+print(f'There are {non_blanks + blanks} lines')
+print(f'There are {blanks} blank lines')
+```
+
+
+
 ## find/zip files 
 
 ```python
