@@ -32,7 +32,92 @@ print(f'There are {non_blanks + blanks} lines')
 print(f'There are {blanks} blank lines')
 ```
 
+## CSV to HTML
 
+```jinja
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+
+    <h2>{{title}}</h2>
+
+    <table>
+        <thead>
+        <tr>
+            {% for header in headers -%}
+            <td>{{ header }}</td>
+            {% endfor -%}
+        </tr>  
+        </thead>
+
+        <tbody>
+        {% for row in rows %}
+            <tr>
+            {% for header in headers -%}
+                <td>{{ row[header] -}}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
+```
+
+```python
+from jinja2 import Environment, FileSystemLoader
+import csv
+import argparse
+
+
+def parse_args():
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('-f', required=True, help='CSV file name')
+    parser.add_argument('-t',  default='Data', help='HTML table title')
+
+    args = parser.parse_args()
+    
+    return args.f, args.t
+
+
+def read_data(fname):
+
+    with open(fname, 'r') as f:
+
+        reader = csv.DictReader(f)
+        headers = reader.fieldnames
+        
+        data = []
+        for row in reader:
+            data.append(row)
+            
+        return headers, data
+
+def write2file(data):
+
+    with open('data.html', 'w') as f:
+        f.write(data)
+
+
+fname, title = parse_args()
+headers, rows = read_data(fname)
+
+file_loader = FileSystemLoader('templates')
+env = Environment(loader=file_loader)
+
+template = env.get_template('data.html')
+
+data = template.render(headers=headers, rows=rows, title=title)
+write2file(data)
+```
 
 ## find/zip files 
 
