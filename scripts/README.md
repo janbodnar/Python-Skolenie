@@ -32,6 +32,58 @@ print(f'There are {non_blanks + blanks} lines')
 print(f'There are {blanks} blank lines')
 ```
 
+## Resize images
+
+```python
+
+import argparse
+import pathlib
+from PIL import Image
+import os, re
+
+def parse_args():
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('-s', default='images', help='source directory')
+    parser.add_argument('-d', default='resized_images', help='destination directory')
+
+    args = parser.parse_args()
+
+    return args.s, args.d
+
+def create_dest_dir(dir_name):
+
+    path = pathlib.Path(dir_name)
+
+    if not path.exists():
+        path.mkdir()
+        
+    return path
+
+def get_image_names(dir_name):
+
+    path = pathlib.Path(dir_name)
+    file_names = path.glob('*')
+
+    pattern = re.compile(r'.*\.(jpg|jpeg|png)')
+    return [fname for fname in file_names if re.fullmatch(pattern, fname.as_posix())] 
+
+def resize_images(path, names):
+
+    for name in names:
+        img = Image.open(name).copy()
+        img.thumbnail((400, 300))
+        img.save(path / os.path.basename(name))
+
+src_dir, dest_dir = parse_args() 
+
+image_fnames = get_image_names(src_dir)
+path = create_dest_dir(dest_dir)
+resize_images(path, image_fnames)
+```
+
+
 ## CSV to HTML
 
 ```jinja
