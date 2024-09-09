@@ -18,7 +18,7 @@ non_blanks = 0
 
 with open(fname, 'r') as r:
 
-    print(r.readlines())
+    # print(r.readlines())
 
     for line in r:
         
