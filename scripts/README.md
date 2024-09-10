@@ -34,6 +34,15 @@ print(f'There are {blanks} blank lines')
 
 ## List processes
 
+Using `psutil` to list processes and `rich` to format data into console table.  
+Currently, rich does not support summary info in the footer.  
+
+The `-a` and `-n` options are mutually exclusive; either we list all processes or  
+only a specific process.  
+
+If we provide both short and long options, such as `-a` and `-all`, the parser stores  
+the name of the long option.    
+
 ```python
 import psutil
 import argparse
