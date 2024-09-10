@@ -51,6 +51,32 @@ for e in sorted_ps[-5:]:
     print(f'pid: {e['pid']} name: {e['name']} cpu time: {e['sum_cpu_t']}')
 ```
 
+## List processes by memory size
+
+```python
+import psutil
+import argparse
+
+# list processes with memory usage above the 
+# given value in MB
+
+parser = argparse.ArgumentParser()
+parser.add_argument('memory', help='memory value in MB')
+
+args = parser.parse_args()
+
+mem_limit = int(args.memory) * 1024 * 1024
+
+p_it = psutil.process_iter(['name', 'memory_info'])
+
+large_mem_ps = [{'pid': p.pid, 'name': p.info['name'], 'mem': p.info['memory_info'].rss}
+                for p in p_it if p.info['memory_info'].rss > mem_limit]
+
+for p in large_mem_ps:
+
+    print(f'{p['pid']} {p['name']} {(p['mem'] / (1024 * 1024)):.2f}')
+```
+
 ## List processes
 
 Using `psutil` to list processes and `rich` to format data into console table.  
