@@ -1,6 +1,6 @@
 # Scripts
 
-## count blanks
+## Count blanks
 
 ```python
 import argparse
@@ -30,6 +30,25 @@ with open(fname, 'r') as r:
 
 print(f'There are {non_blanks + blanks} lines')
 print(f'There are {blanks} blank lines')
+```
+
+## Top processes by CPU usage
+
+```python
+import psutil
+
+processes = [
+    {'pid': p.pid, 'name': p.info['name'],
+        'sum_cpu_t': sum(p.info['cpu_times'])}
+    for p in psutil.process_iter(['name', 'cpu_times'])
+]
+
+# sort the processes by the sum of their CPU times (user + system)
+sorted_ps = sorted(processes, key=lambda p: p['sum_cpu_t'])
+
+# print the last five
+for e in sorted_ps[-5:]:
+    print(f'pid: {e['pid']} name: {e['name']} cpu time: {e['sum_cpu_t']}')
 ```
 
 ## List processes
