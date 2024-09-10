@@ -51,6 +51,17 @@ for e in sorted_ps[-5:]:
     print(f'pid: {e['pid']} name: {e['name']} cpu time: {e['sum_cpu_t']}')
 ```
 
+## Show opened log files 
+
+```python
+import psutil
+
+for p in psutil.process_iter(['name', 'open_files']):
+    for file in p.info['open_files'] or []:
+        if file.path.endswith('.log'):
+            print(f"{p.pid:<5} {p.info['name']:<20} {file.path}")
+```
+
 ## List processes by memory size
 
 ```python
