@@ -32,6 +32,68 @@ print(f'There are {non_blanks + blanks} lines')
 print(f'There are {blanks} blank lines')
 ```
 
+## List processes
+
+```python
+import psutil
+import argparse
+from datetime import datetime
+from rich import box
+from rich.console import Console
+from rich.table import Table
+from datetime import date
+
+def parse_arguments():
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('-a', '--all', action='store_true', help='show all processes')
+    group.add_argument('-n', '--name', help='show info about process name')
+    args = parser.parse_args()
+    return args.all, args.name
+
+def list_process(name):
+    now = f'{date.today()}'
+    table = Table(title='Users', box=box.MINIMAL, caption=now, caption_justify='left')
+    table.add_column('id', style='cyan')
+    table.add_column('process name', style='grey69')
+    table.add_column('username')
+    table.add_column('create time', style='blue')
+    table.add_column('memory', style='green')
+    # table.show_footer = True
+
+    total_memory = 0
+    process_count = 0
+
+    for p in psutil.process_iter():
+        if name in p.name().lower():
+            ctime = datetime.fromtimestamp(p.create_time())
+            memory_percent = p.memory_percent()
+            table.add_row(f'{p.pid}', p.name(), p.username(), ctime.isoformat(), f'{memory_percent:.2f}')
+            total_memory += memory_percent
+            process_count += 1
+
+    table.add_row(f'[bold]{process_count}', '', '', '', f'[bold]{total_memory:.2f}')
+
+    console = Console()
+    console.print(table, justify='center')
+
+def list_all_processes():
+    pnames = []
+    for p in psutil.process_iter():
+        pnames.append(p.name())
+        print(f"pid: {p.pid}, name: {p.name()}")
+    print(len(pnames), 'processes')
+    print(len(set(pnames)), 'apps')
+
+all_f, name = parse_arguments()
+
+if all_f:
+    list_all_processes()
+elif name:
+    list_process(name)
+```
+
+
 ## Resize images
 
 ```python
