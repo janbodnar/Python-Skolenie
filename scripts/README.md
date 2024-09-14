@@ -567,7 +567,51 @@ for p in players:
     print(f'{p.name} has {p.hand}')
 ```
 
+## Group poker cards by suit
 
+```python
+import random
+from itertools import groupby
+
+def create_deck():
+
+    signs = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
+    symbols = ['♠', '♥', '♦', '♣']  # spades, hearts, diamonds, clubs
+
+    deck = [f'{si}{sy}' for si in signs for sy in symbols]
+
+    return deck
+
+
+def by_poker_order(card):
+
+    poker_order = "2 3 4 5 6 7 8 9 10 J Q K A"
+
+    return poker_order.index(card[:-1])
+
+
+# def by_poker_order2(card):
+
+#     deck = create_deck()
+
+#     return deck.index(card)
+
+
+deck = create_deck()
+
+# print(deck)
+# random.shuffle(deck)
+# print(deck)
+
+# Sort by poker order and then by suit
+deck.sort(key=by_poker_order)
+deck.sort(key=lambda c: c[-1])
+
+# print(deck)
+
+for k, g in groupby(deck, key=lambda c: c[-1]):
+    print(k, list(g))
+```
 
 
 
