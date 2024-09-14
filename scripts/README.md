@@ -503,3 +503,75 @@ We put the directories that we cannot access into the excludes list and do not
 process them.  
 
 
+
+## Deal cards
+
+```python
+import random
+from collections import namedtuple
+
+n = 6
+burns = []
+ccards = []
+
+signs = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
+symbols = ['♣', '♦', '♥', '♠']
+
+cards = [f'{sy}{si}' for si in signs for sy in symbols]
+Player = namedtuple('Player', 'name hand')
+
+
+def shuffle_deal(cards):
+
+    players = []
+
+    random.shuffle(cards)
+    deals = [[] for _ in range(n)]
+
+    for _ in range(2):
+        for i in range(n):
+            deals[i].append(cards.pop())
+
+    for idx, deal in enumerate(deals):
+        players.append(Player(f'player {idx+1}', tuple(deal)))
+
+    return players
+
+def deal_community_cards(cards):
+
+    burns.append(cards.pop())
+
+    # flop
+    ccards.append(cards.pop())
+    ccards.append(cards.pop())
+    ccards.append(cards.pop())
+
+    # turn
+    burns.append(cards.pop())
+    ccards.append(cards.pop())
+
+    # river
+    burns.append(cards.pop())
+    ccards.append(cards.pop())
+
+    return burns, ccards
+
+
+players = shuffle_deal(cards)
+burns, ccards = deal_community_cards(cards)
+
+print('community cards:', ' '.join(ccards))
+
+print('players')
+for p in players:
+    print(f'{p.name} has {p.hand}')
+```
+
+
+
+
+
+
+
+
+
