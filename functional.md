@@ -208,6 +208,8 @@ and `False` otherwise¹.
 
 ## groupby function
 
+The `groupby` function requires sorting of data.    
+
 Splitting users into groups by occupation.  
 
 ```python
@@ -246,3 +248,18 @@ res = [tuple(v) for _, v in it.groupby(s_vals, key=pred)]
 
 print(res)
 ```
+
+## partition function 
+
+The `more_itertools` has a function for this called `partition`.  
+It is a third-party library.  
+
+```python
+from more_itertools import partition
+
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+yes, no = partition(lambda e: e %2, vals)
+print(list(yes), list(no))
+```
+
