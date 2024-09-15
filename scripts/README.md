@@ -613,8 +613,253 @@ for k, g in groupby(deck, key=lambda c: c[-1]):
     print(k, list(g))
 ```
 
+## Rank hands
+
+```python
+from itertools import combinations
+from collections import Counter
 
 
+def create_deck():
+
+    signs = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
+    symbols = ['♠', '♥', '♦', '♣']  # spades, hearts, diamonds, clubs
+
+    deck = [f'{si}{sy}' for si in signs for sy in symbols]
+
+    return deck
+
+
+def by_poker_order(card):
+
+    poker_order = "2 3 4 5 6 7 8 9 10 J Q K A"
+
+    return poker_order.index(card[:-1])
+
+
+def calculate_combinations(hole: list, ccards: list):
+
+    hands = hole + ccards
+    hands.sort(key=by_poker_order)
+
+    combs = combinations(hands, 5)
+    return tuple(combs)
+
+
+def check_rank(hole: list, ccards: list):
+
+    combs = calculate_combinations(hole, ccards)
+
+    match is_royal(combs):
+        case (True, form):
+            print(f'{form} is a royal flush')
+            return
+
+    match is_4_kind(combs):
+        case (True, form):
+            print(f'{form} is four of a kind')
+            return
+
+    match is_full_house(combs):
+        case (True, form):
+            print(f'{form} is a full house')
+            return
+
+    match is_flush(combs):
+        case (True, form):
+            print(f'{form} is a flush')
+            return
+
+    match is_3_kind(combs):
+        case (True, form):
+            print(f'{form} is three of a kind')
+            return
+
+    match is_straight(combs):
+        case (True, form):
+            print(f'{form} is a straight')
+            return
+
+    match is_two_pairs(combs):
+        case (True, form):
+            print(f'{form} is two pairs')
+            return
+
+    match is_pair(combs):
+        case (True, form):
+            print(f'{form} is a pair')
+            return
+
+    match is_high_card(combs):
+        case (True, form):
+            print(f'{form} is a high card')
+            return
+
+
+def is_royal(combs: list):
+
+    royals = ["10♠ J♠ Q♠ K♠ A♠", "10♣ J♣ Q♣ K♣ A♣",
+              "10♥ J♥ Q♥ K♥ A♥", "10♦ J♦ Q♦ K♦ A♦"]
+
+    for comb in combs:
+
+        form = ' '.join(comb)
+
+        if form in royals:
+            return True, form
+
+
+def is_4_kind(combs: list):
+
+    four_kinds = []
+
+    for comb in combs:
+
+        c = Counter([e[:-1] for e in comb])
+        vals = c.values()
+
+        if 4 in vals:
+            form = ' '.join(comb)
+            four_kinds.append(form)
+
+    if len(four_kinds) > 0:
+        return True, four_kinds[-1]
+
+
+def is_full_house(combs: list):
+
+    for comb in combs:
+
+        c = Counter([e[:-1] for e in comb])
+
+        vals = c.values()
+        form = ' '.join(comb)
+
+        if 2 in vals and 3 in vals:
+            return True, form
+
+
+def is_flush(combs: list):
+
+    matches = ['♣ ♣ ♣ ♣ ♣', '♦ ♦ ♦ ♦ ♦', '♥ ♥ ♥ ♥ ♥', '♠ ♠ ♠ ♠ ♠']
+    flushes = []  # there may be more flush combinations, we pick the strongest
+
+    for comb in combs:
+
+        psuits = ' '.join(e[-1] for e in comb)
+
+        if psuits in matches:
+            form = ' '.join(comb)
+            flushes.append(form)
+
+    if len(flushes) > 0:
+        return True, flushes[-1]
+
+
+def is_straight(combs: list):
+
+    order = "2 3 4 5 6 7 8 9 10 J Q K A"
+    strainghts = []
+
+    for comb in combs:
+
+        seq = [e[:-1] for e in comb]
+        unit = ' '.join(seq)
+
+        if unit in order:
+            form = ' '.join(comb)
+            strainghts.append(form)
+
+    if len(strainghts) > 0:
+        return True, strainghts[-1]
+
+
+def is_3_kind(combs: list):
+
+    three_kinds = []
+
+    for comb in combs:
+
+        c = Counter([e[:-1] for e in comb])
+
+        vals = c.values()
+
+        if 3 in vals:
+            form = ' '.join(comb)
+            three_kinds.append(form)
+
+    if len(three_kinds) > 0:
+        return True, three_kinds[-1]
+
+
+def is_two_pairs(combs: list):
+
+    two_pairs = []
+
+    for comb in combs:
+
+        c = Counter([e[:-1] for e in comb])
+        vals = list(c.values())
+
+        if vals.count(2) == 2:
+
+            form = ' '.join(comb)
+            two_pairs.append(form)
+
+    if len(two_pairs) > 0:
+        return True, two_pairs[-1]
+
+
+def is_pair(combs: list):
+
+    pairs = []
+
+    for comb in combs:
+
+        c = Counter([e[:-1] for e in comb])
+        vals = list(c.values())
+
+        if vals.count(2) == 1:
+
+            form = ' '.join(comb)
+            pairs.append(form)
+
+    if len(pairs) > 0:
+        return True, pairs[-1]
+
+
+def is_high_card(combs: list):
+
+    high_cards = []
+
+    for comb in combs:
+
+        form = ' '.join(comb)
+        high_cards.append(form)
+
+    if len(high_cards) > 0:
+        return True, high_cards[-1]
+
+
+holes = (['K♥', 'A♣'], ['6♥', '4♠'], ['Q♠', 'Q♣'], ['2♠', '4♣'], ['5♠', '3♠'],
+         ['J♣', 'Q♣'], ['Q♦', 'K♦'], ['K♠', 'A♠'], ['6♣', '7♣'], ['2♠', '7♦'])
+
+ccards = (['3♦', '6♠', '10♦', 'J♠', '2♣'],
+          ['10♠', 'J♠', 'Q♠', '8♣', '6♠'],
+          ['9♠', '10♠', 'J♠', '6♦', '4♥'],
+          ['9♠', '3♠', '4♦', '5♦', '6♥'],
+          ['9♠', '5♦', '6♦', 'J♠', '3♣'],
+          ['9♣', '10♣', '2♣', '3♣', '4♥'],
+          ['4♦', '7♥', '7♦', 'A♣', '6♠'],
+          ['5♦', '6♦', '10♣', '2♦', '2♣'],
+          ['5♦', '5♣', '5♥', '6♦', '2♣'],
+          ['5♣', '5♥', '6♦', '2♣', '4♦'],
+          ['A♣', '10♣', '6♦', '3♦', 'K♣'])
+
+for hole in holes:
+    for ccard in ccards:
+        check_rank(hole, ccard)
+```
 
 
 
