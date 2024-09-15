@@ -485,8 +485,8 @@ Common use cases include:
 - `{}`: For dictionaries to create nested dictionaries
 - `set()`: For sets to collect unique values
 
-Unlike regular dictionaries, we don't need to check if a key exists before accessing it. The `defaultdict`
-will automatically create the key with the default value if it doesn't exist.
+Unlike regular dictionaries, we don't need to check if a key exists before accessing it. The `defaultdict`  
+will automatically create the key with the default value if it doesn't exist.  
 
 Counting letters using a dictionary.  
 
