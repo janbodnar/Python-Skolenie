@@ -263,6 +263,43 @@ res = group_by(words, len)
 print(res)
 ```
 
+```python
+from collections import namedtuple
+
+
+def group_by(seq, f):
+
+    groups = {}
+
+    for e in seq:
+
+        res = f(e)
+
+        if res in groups:
+            groups[res].append(e)
+        else:
+            groups[res] = [e]
+
+    return groups
+
+
+User = namedtuple('User', 'fname lname occupation')
+
+users = [
+    User('John', 'Doe', 'gardener'),
+    User('Roger', 'Roe', 'driver'),
+    User('Adam', 'Novak', 'teacher'),
+    User('Paul', 'Novak', 'programmer'),
+    User('Roman', 'Meszaros', 'programmer'),
+    User('Tomas', 'Bruzik', 'driver')
+]
+
+res = group_by(users, lambda user: user.occupation)
+
+for k in res.keys():
+    print(k, res[k])
+```
+
 
 ## Splitting data   
 
