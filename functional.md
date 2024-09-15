@@ -232,7 +232,42 @@ for key, group in groupby(users, key=lambda user: user['occupation']):
     print(list(group))
 ```
 
-Splitting data by predicate function.   
+## Custom groupby function
+
+```python
+
+def group_by(seq, f):
+
+    groups = {}
+
+    for e in seq:
+        
+        res = f(e)
+
+        if res in groups:
+            groups[res].append(e)
+        else:
+            groups[res] = [e]
+
+    return groups
+
+
+
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+res = group_by(vals, lambda e: e % 2 == 0)
+print(res)
+
+words = ['sky', 'top', 'small', 'warm', 'cup', 'notice', 'war', 'horse']
+
+res = group_by(words, len)
+print(res)
+```
+
+
+## Splitting data   
+
+Splitting data by predicate function.  
 
 ```python
 import itertools as it
