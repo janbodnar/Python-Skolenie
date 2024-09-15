@@ -463,6 +463,65 @@ if key in domains:
 
 In the example we check if a country is in the dictionary with the in operator.
 
+## defaultdict
+
+A defaultdict is a specialized dictionary subclass that automatically provides a default  
+value for keys that don't exist, eliminating the need to check for key existence before  
+accessing or modifying them.
+
+`from collections import defaultdict`
+
+The `defaultdict` is located in the built-in `collections` module.  
+
+We create a `defaultdict` by passing a callable (function) to its constructor. This callable  
+will be used to generate the default value when a new key is accessed.  
+
+The default value is determined by calling the callable provided to the constructor.  
+
+Common use cases include:
+
+- `0`: For numeric counters or accumulators
+- `[]`: For lists to store multiple values associated with a key
+- `{}`: For dictionaries to create nested dictionaries
+- `set()`: For sets to collect unique values
+
+Unlike regular dictionaries, we don't need to check if a key exists before accessing it. The `defaultdict`
+will automatically create the key with the default value if it doesn't exist.
+
+Counting letters using a dictionary.  
+
+```python
+msg = 'there is an old falcon in the sky'
+
+chars = {}
+
+for c in msg:
+
+    if c in chars:
+        chars[c] += 1
+    else:
+        chars[c] = 1
+
+print(chars)
+```
+
+Counting letters using a `defaultdict`.  
+
+```python
+from collections import defaultdict
+
+msg = 'there is an old falcon in the sky'
+
+chars = defaultdict(int)
+
+for c in msg:
+
+    chars[c] += 1
+
+for k in chars:
+    print(k, chars[k])
+```
+
 
 ## Sorting
 
