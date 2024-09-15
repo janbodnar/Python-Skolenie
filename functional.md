@@ -29,37 +29,6 @@ and produces some output. This style discourages functions with side effects tha
 or make other changes  that aren't visible in the function's return value.    
 
 
-## splitter function
-
-Functional way of splitting data.  
-
-```python
-def splitter(data, pred):
-    yes, no = [], []
-    for d in data:
-        (yes if pred(d) else no).append(d)
-    return [yes, no]
-
-
-def has3chars(e: str):
-    return len(e) == 3
-
-
-def starts_w(e: str):
-    return e.startswith('w')
-
-
-vals = ['sky', 'top', 'small', 'warm', 'cup', 'notice', 'war', 'horse']
-
-yes, no = splitter(vals, has3chars)
-print(yes)
-print(no)
-
-yes, no = splitter(vals, starts_w)
-print(yes)
-print(no)
-```
-
 
 ## itertools 
 
@@ -205,6 +174,36 @@ The lambda function takes three arguments, `x`, `y`, and `z`, representing the s
 and returns `True` if the sides form a right-angled triangle (according to the Pythagorean theorem),  
 and `False` otherwise¹.
 
+## splitter function
+
+Functional way of splitting data.  
+
+```python
+def splitter(data, pred):
+    yes, no = [], []
+    for d in data:
+        (yes if pred(d) else no).append(d)
+    return [yes, no]
+
+
+def has3chars(e: str):
+    return len(e) == 3
+
+
+def starts_w(e: str):
+    return e.startswith('w')
+
+
+vals = ['sky', 'top', 'small', 'warm', 'cup', 'notice', 'war', 'horse']
+
+yes, no = splitter(vals, has3chars)
+print(yes)
+print(no)
+
+yes, no = splitter(vals, starts_w)
+print(yes)
+print(no)
+```
 
 ## groupby function
 
