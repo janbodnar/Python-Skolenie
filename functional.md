@@ -29,6 +29,38 @@ and produces some output. This style discourages functions with side effects tha
 or make other changes  that aren't visible in the function's return value.    
 
 
+## splitter function
+
+Functional way of splitting data.  
+
+```python
+def splitter(data, pred):
+    yes, no = [], []
+    for d in data:
+        (yes if pred(d) else no).append(d)
+    return [yes, no]
+
+
+def has3chars(e: str):
+    return len(e) == 3
+
+
+def starts_w(e: str):
+    return e.startswith('w')
+
+
+vals = ['sky', 'top', 'small', 'warm', 'cup', 'notice', 'war', 'horse']
+
+yes, no = splitter(vals, has3chars)
+print(yes)
+print(no)
+
+yes, no = splitter(vals, starts_w)
+print(yes)
+print(no)
+```
+
+
 ## itertools 
 
 ```python
@@ -176,6 +208,8 @@ and `False` otherwise¹.
 
 ## groupby function
 
+Splitting users into groups by occupation.  
+
 ```python
 from itertools import groupby
 
@@ -196,3 +230,19 @@ for key, group in groupby(users, key=lambda user: user['occupation']):
     print(list(group))
 ```
 
+Splitting data by predicate function.   
+
+```python
+import itertools as it
+
+def pred(e):
+
+    return e % 2
+
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+s_vals = sorted(vals, key=pred)
+
+res = [tuple(v) for _, v in it.groupby(s_vals, key=pred)]
+
+print(res)
+```
