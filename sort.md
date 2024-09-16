@@ -172,14 +172,20 @@ function.
 ```python
 import locale
 
-words = ['zem', 'čučoriedka', 'drevo', 'štebot', 'cesta', 'černice', 'ďateľ',
-    'rum', 'železo', 'prameň', 'sob']
+#
+# a á ä b c č d ď dz dž e é f g h ch i í j k l ĺ ľ m n ň o ó ô p q r ŕ s š t ť u ú v w x y ý z ž
+#
+
+words = ['zem', 'čučoriedka', 'drevo', 'hrozno', 'hora', 'džem', 'element',
+         'štebot', 'cesta', 'černice', 'ďateľ', 'rum', 'železo', 'prameň', 'sob',
+         'chobot', 'chmel', 'cmar', 'džús', 'dzekať']
+
 locale.setlocale(locale.LC_COLLATE, ('sk_SK', 'UTF8'))
 
 words.sort(key=locale.strxfrm)
 
 for word in words:
-    print (word)
+    print(word)
 ```
 
 The example sorts Slovak words.
@@ -187,10 +193,19 @@ The example sorts Slovak words.
 ```
 $ ./locale_sort.py
 cesta
+cmar
 černice
 čučoriedka
 ďateľ
 drevo
+dzekať
+džem
+džús
+element
+hora
+hrozno
+chmel
+chobot
 prameň
 rum
 sob
