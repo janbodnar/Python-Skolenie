@@ -681,6 +681,7 @@ The `multi_sort` function applies all the sorting specs on the list.
 import random
 from itertools import groupby
 
+
 def create_deck():
 
     signs = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
@@ -698,6 +699,10 @@ def by_poker_order(card):
     return poker_order.index(card[:-1])
 
 
+def by_suit(card):
+
+    return card[-1]
+
 
 deck = create_deck()
 
@@ -707,7 +712,7 @@ print(deck)
 
 # Sort by poker order and then by suit
 deck.sort(key=by_poker_order)
-deck.sort(key=lambda c: c[-1])
+deck.sort(key=by_suit)
 
 for k, g in groupby(deck, key=lambda c: c[-1]):
     print(k, list(g))
