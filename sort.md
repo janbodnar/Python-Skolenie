@@ -176,46 +176,38 @@ import locale
 # a á ä b c č d ď dz dž e é f g h ch i í j k l ĺ ľ m n ň o ó ô p q r ŕ s š t ť u ú v w x y ý z ž
 #
 
-words = ['zem', 'čučoriedka', 'drevo', 'hrozno', 'hora', 'džem', 'element',
-         'štebot', 'cesta', 'černice', 'ďateľ', 'rum', 'železo', 'prameň', 'sob',
-         'chobot', 'chmel', 'cmar', 'džús', 'dzekať']
+#
+# а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я
+#
+
+ru_words = ['земля', 'черника', 'дерево', 'виноград', 'гора', 'джем', 'элемент',
+            'щебет', 'дорога', 'ежевика', 'дятел', 'ром', 'железо', 'источник', 'северный олень',
+            'хобот', 'хмель', 'пахта', 'сок', 'клевать']
+
+sk_words = ['zem', 'čučoriedka', 'drevo', 'hrozno', 'hora', 'džem', 'element',
+            'štebot', 'cesta', 'černice', 'ďateľ', 'rum', 'železo', 'prameň', 'sob',
+            'chobot', 'chmel', 'cmar', 'džús', 'dzekať']
 
 locale.setlocale(locale.LC_COLLATE, ('sk_SK', 'UTF8'))
 
-words.sort(key=locale.strxfrm)
+sk_words.sort(key=locale.strxfrm)
 
-for word in words:
+for word in sk_words:
     print(word)
+
+print('-----------------------------')
+
+locale.setlocale(locale.LC_COLLATE, ('ru_RU', 'UTF8'))
+
+ru_words.sort(key=locale.strxfrm)
+
+for word in ru_words:
+    print(word)
+
 ```
 
-The example sorts Slovak words.
+The example sorts Slovak and Russian words.
 
-```
-$ ./locale_sort.py
-cesta
-cmar
-černice
-čučoriedka
-ďateľ
-drevo
-dzekať
-džem
-džús
-element
-hora
-hrozno
-chmel
-chobot
-prameň
-rum
-sob
-štebot
-zem
-železo
-```
-
-Note: the resulting order of the Slovak words is not entirely correct. The  
-letter ď goes after d. It depends on how well the language is supported. 
 
 
 ## Python  sort list of dictionaries 
