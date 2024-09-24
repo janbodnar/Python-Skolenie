@@ -6,16 +6,16 @@ interface for handling these different data formats.
 
 It allowing use to easily:
 
-- Create and manipulate tabular data: Define and modify data structures using
+- Create and manipulate tabular data: Define and modify data structures using  
   Python lists or dictionaries.
-- Convert between formats: Seamlessly transform data between CSV, XLSX, JSON,
+- Convert between formats: Seamlessly transform data between CSV, XLSX, JSON,  
   and other supported formats.
-- Export and import data: Save data to files or load data from existing files.
-- Customize output: Control the appearance of exported data, such as column
+- Export and import data: Save data to files or load data from existing files.  
+- Customize output: Control the appearance of exported data, such as column  
   headers, formatting, and more.
 
-A tablib *Dataset* is a Python object that represents a collection of tabular
-data. It provides a structured way to store and manipulate data in a consistent
+A tablib *Dataset* is a Python object that represents a collection of tabular  
+data. It provides a structured way to store and manipulate data in a consistent  
 format.
 
 ```python
