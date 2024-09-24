@@ -24,10 +24,10 @@ import tablib
 ds = tablib.Dataset()
 
 ds.headers = ['first_name', 'last_name', 'occupation']
-ds.append(['John', 'Doe', 'gardener' ])
-ds.append(['Adam', 'Brown', 'programmer' ])
-ds.append(['Tom', 'Holland', 'teacher' ])
-ds.append(['Ken', 'Roberts', 'driver' ])
+ds.append(['John', 'Doe', 'gardener'])
+ds.append(['Adam', 'Brown', 'programmer'])
+ds.append(['Tom', 'Holland', 'teacher'])
+ds.append(['Ken', 'Roberts', 'driver'])
 
 print(ds)
 ds.wipe()
@@ -49,10 +49,10 @@ ds.headers = ['first_name', 'last_name', 'occupation']
 We create four headers for the dataset.
 
 ```python
-ds.append(['John', 'Doe', 'gardener' ])
-ds.append(['Adam', 'Brown', 'programmer' ])
-ds.append(['Tom', 'Holland', 'teacher' ])
-ds.append(['Ken', 'Roberts', 'driver' ])
+ds.append(['John', 'Doe', 'gardener'])
+ds.append(['Adam', 'Brown', 'programmer'])
+ds.append(['Tom', 'Holland', 'teacher'])
+ds.append(['Ken', 'Roberts', 'driver'])
 ```
 
 Using `append` method, we add four rows to the dataset.
@@ -80,10 +80,10 @@ import tablib
 ds = tablib.Dataset()
 
 ds.headers = ['first_name', 'last_name', 'occupation']
-ds.append(['John', 'Doe', 'gardener' ])
-ds.append(['Adam', 'Brown', 'programmer' ])
-ds.append(['Tom', 'Holland', 'teacher' ])
-ds.append(['Ken', 'Roberts', 'driver' ])
+ds.append(['John', 'Doe', 'gardener'])
+ds.append(['Adam', 'Brown', 'programmer'])
+ds.append(['Tom', 'Holland', 'teacher'])
+ds.append(['Ken', 'Roberts', 'driver'])
 
 print(ds[0])
 print(ds[-1])
@@ -105,10 +105,10 @@ import tablib
 ds = tablib.Dataset()
 
 ds.headers = ['first_name', 'last_name', 'occupation']
-ds.append(['John', 'Doe', 'gardener' ])
-ds.append(['Adam', 'Brown', 'programmer' ])
-ds.append(['Tom', 'Holland', 'teacher' ])
-ds.append(['Ken', 'Roberts', 'driver' ])
+ds.append(['John', 'Doe', 'gardener'])
+ds.append(['Adam', 'Brown', 'programmer'])
+ds.append(['Tom', 'Holland', 'teacher'])
+ds.append(['Ken', 'Roberts', 'driver'])
 
 print(ds.get_col(0))
 print(ds.get_col(2))
@@ -126,10 +126,10 @@ import tablib
 ds = tablib.Dataset()
 
 ds.headers = ['first_name', 'last_name', 'occupation']
-ds.append(['John', 'Doe', 'gardener' ])
-ds.append(['Adam', 'Brown', 'programmer' ])
-ds.append(['Tom', 'Holland', 'teacher' ])
-ds.append(['Ken', 'Roberts', 'driver' ])
+ds.append(['John', 'Doe', 'gardener'])
+ds.append(['Adam', 'Brown', 'programmer'])
+ds.append(['Tom', 'Holland', 'teacher'])
+ds.append(['Ken', 'Roberts', 'driver'])
 
 ds.append_col([980, 1230, 2310, 1100], header='salary')
 
@@ -149,10 +149,10 @@ import tablib
 ds = tablib.Dataset()
 
 ds.headers = ['first_name', 'last_name', 'occupation']
-ds.append(['John', 'Doe', 'gardener' ])
-ds.append(['Adam', 'Brown', 'programmer' ])
-ds.append(['Tom', 'Holland', 'teacher' ])
-ds.append(['Ken', 'Roberts', 'driver' ])
+ds.append(['John', 'Doe', 'gardener'])
+ds.append(['Adam', 'Brown', 'programmer'])
+ds.append(['Tom', 'Holland', 'teacher'])
+ds.append(['Ken', 'Roberts', 'driver'])
 
 ds.append_col([980, 1230, 2310, 1100], header='salary')
 
@@ -216,10 +216,10 @@ import tablib
 ds = tablib.Dataset()
 
 ds.headers = ['first_name', 'last_name', 'occupation']
-ds.append(['John', 'Doe', 'gardener' ])
-ds.append(['Adam', 'Brown', 'programmer' ])
-ds.append(['Tom', 'Holland', 'teacher' ])
-ds.append(['Ken', 'Roberts', 'driver' ])
+ds.append(['John', 'Doe', 'gardener'])
+ds.append(['Adam', 'Brown', 'programmer'])
+ds.append(['Tom', 'Holland', 'teacher'])
+ds.append(['Ken', 'Roberts', 'driver'])
 
 ds.append_col([980, 1230, 2310, 1100], header='salary')
 
