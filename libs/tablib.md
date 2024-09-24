@@ -232,8 +232,10 @@ fname = 'users.xlsx'
 
 with open(fname, 'wb') as f:
     f.write(ds.export('xlsx'))
+```
 We export the dataset into CSV and XLSX formats.
 
+```python
 with open(fname, 'w', newline='') as f:
     f.write(ds.export('csv'))
 ```
