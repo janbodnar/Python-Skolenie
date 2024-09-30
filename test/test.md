@@ -1,5 +1,26 @@
 # Priklady 
 
+## Zaver
+
+```python
+name = "John Doe"
+age = 23
+occupation = 'gardener'
+
+# fstring
+
+vals = [1, 2, 3, -4, -5, 6, 7, 8, -9, 10]
+# suma
+# spocitaj kladne cisla
+
+words = ['sky', 'water', 'sun', 'black', 'town', 'water']
+# spocitaj vsetky znaky
+# spocitaj znaky slov zacinajuce na w
+```
+
+
+
+
 
 ## Letter types
 
