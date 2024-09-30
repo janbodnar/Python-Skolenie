@@ -2,6 +2,54 @@
 
 ## Zaver
 
+
+```python
+name = "John Doe"
+age = 23
+occupation = 'gardener'
+
+# fstring
+
+msg = f'{name} is {age} years old, he is a {occupation}'
+print(msg)
+
+# suma
+# spocitaj kladne cisla
+
+vals = [1, 2, 3, -4, -5, 6, 7, 8, -9, 10]
+print(sum(vals))
+
+sum_pos = 0
+
+for val in vals:
+    if val > 0:
+        sum_pos += val
+
+print(sum_pos)
+
+# spocitaj vsetky znaky
+# spocitaj znaky slov zacinajuce na w
+
+all_chars = 0
+w_chars = 0
+
+words = ['sky', 'water', 'sun', 'black', 'town', 'water']
+
+for word in words:
+    all_chars += len(word)
+
+print(all_chars)
+
+for word in words:
+    if word.startswith('w'):
+        w_chars += len(word)
+
+print(all_chars)
+print(w_chars)
+```
+
+
+
 ```python
 name = "John Doe"
 age = 23
