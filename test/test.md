@@ -1,6 +1,22 @@
 # Priklady 
 
 
+## Sum of values
+
+```python
+nums = "1,5,6,8,2,3,1,9"
+
+fields = nums.split(",")
+print(fields)
+
+mysum = 0
+
+for val in fields:
+    mysum = mysum + int(val)
+```
+
+## Formatting
+
 ```python
 #!/usr/bin/python
 
