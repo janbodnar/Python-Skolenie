@@ -1,6 +1,41 @@
 # Priklady 
 
 
+## Letter types
+
+```python
+import string
+
+sentence = "There are 22 apples. We live now in 2024. Huraa!"
+
+alphas = 0
+digits = 0
+spaces = 0
+puncts = 0
+
+
+for i in sentence:
+
+   if i.isalpha():
+      alphas = alphas + 1
+
+   elif i.isdigit():
+      digits += 1
+
+   elif i.isspace():
+      spaces += 1
+
+   elif i in string.punctuation:
+       puncts += 1
+
+print("There are", len(sentence), "characters")
+print("There are", alphas, "alphabetic characters")
+print("There are", digits, "digits")
+print("There are", spaces, "spaces")
+print("There are", puncts, "punctuation characters")
+```
+
+
 ## Sum of values
 
 ```python
