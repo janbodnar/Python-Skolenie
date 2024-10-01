@@ -1,5 +1,22 @@
 # Priklady 
 
+## Opakovanie
+
+```python
+
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# calculate sum using for loop
+
+words = ['sky', 'word', 'soup', 'cloud', 'cup', 'town', 'war', 'sad', 'water']
+# print words starting with 'w'
+# print words starting with 'w' or 'c'
+
+# print words starting with 'w' from file words.txt
+```
+
+
+
 ## Zaver
 
 
