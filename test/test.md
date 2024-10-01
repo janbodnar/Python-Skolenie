@@ -1,5 +1,17 @@
 # Priklady 
 
+## Vypisanie suboru s diakritikou
+
+```python
+file_name = 'newfile.txt'
+
+with open(file_name, 'r', encoding="utf8") as f:
+
+    for line in f:
+        print(line.rstrip())
+```
+
+
 ## Vypisanie suboru z disku
 
 ```python
