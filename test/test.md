@@ -4,11 +4,42 @@
 
 ```python
 
+mysum = 0
+
 vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for val in vals:
+    mysum = mysum + val
+
+print(mysum)
+
+print('----------------------------')
 
 # calculate sum using for loop
 
 words = ['sky', 'word', 'soup', 'cloud', 'cup', 'town', 'war', 'sad', 'water']
+
+for word in words:
+    if word.startswith('w'):
+        print(word, end=' ')
+
+print()
+
+for word in words:
+    if word.startswith('w') or word.startswith('c'):
+        print(word, end=' ')
+
+print('\n----------------------------')
+
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+
+    for line in f:
+        if line.startswith('w'):
+            print(line.rstrip())
+
+
 # print words starting with 'w'
 # print words starting with 'w' or 'c'
 
