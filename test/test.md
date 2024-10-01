@@ -1,5 +1,17 @@
 # Priklady 
 
+## Checking types
+
+```python
+items = [1, 2.0, 'falcon', 11, True, None, 3, -2]
+
+for e in items:
+
+    if type(e) == str:
+        print(e)
+```
+
+
 
 ## Pouzitie CSV modulu
 
