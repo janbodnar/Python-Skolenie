@@ -1,5 +1,30 @@
 # Priklady 
 
+## Nacitanie dat zo CSV suboru
+
+Plus vypocitanie sumy
+
+```python
+mysum = 0
+
+file_name = 'data.csv'
+
+with open(file_name) as f:
+
+    lines = f.readlines()
+
+    for line in lines:
+
+        row = line.rstrip()
+        fields = row.split(",")
+
+        for field in fields:
+            mysum += int(field)
+
+print(mysum)
+```
+
+
 ## Vypisanie suboru s diakritikou
 
 ```python
