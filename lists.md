@@ -1529,7 +1529,7 @@ print(words2)
 
 The `map` function applies a particular function to every element of a list.
 
-```
+```python
 def to_upper(s):
 
     return s.upper()
