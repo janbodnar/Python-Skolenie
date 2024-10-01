@@ -1,5 +1,17 @@
 # Priklady 
 
+## Vypisanie suboru z disku
+
+```python
+file_name = 'C:/Users/bodnar/Documents/words2.txt'
+
+with open(file_name, 'r') as f:
+
+    for line in f:
+        print(line.rstrip())
+```
+
+
 ## Opakovanie
 
 ```python
