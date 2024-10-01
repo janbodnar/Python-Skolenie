@@ -1,5 +1,27 @@
 # Priklady 
 
+
+## Pouzitie CSV modulu
+
+```python
+import csv
+
+mysum = 0
+file_name = 'data.csv'
+
+with open(file_name) as f:
+
+    reader = csv.reader(f)
+
+    for fields in reader:
+
+        for field in fields:
+            mysum += int(field)
+
+print(mysum)
+```
+
+
 ## Nacitanie dat zo CSV suboru
 
 Plus vypocitanie sumy
