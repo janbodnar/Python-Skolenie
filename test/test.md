@@ -1,5 +1,19 @@
 # Priklady 
 
+
+## HTTP get request
+
+```python
+import requests
+
+url = 'https://webcode.me'
+resp = requests.get(url)
+
+content = resp.content
+
+print(content.decode('utf8'))
+```
+
 ## Nested tupes
 
 ```python
