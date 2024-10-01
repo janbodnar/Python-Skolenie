@@ -196,7 +196,7 @@ String is a data type representing textual data in computer programs.
 Strings in Python can be created using single quotes, double quotes, and triple quotes.  
 When we use triple quotes, strings can span several lines without using the escape character.
 
-```
+```python
 #!/usr/bin/python
 
 # strings.py
