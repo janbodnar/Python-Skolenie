@@ -35,13 +35,13 @@ MailTrap or MailSlurp, or production services such as Mailgun or Mandrill.
 ## The aiosmtp module 
 
 
-This aiosmtp module provides an asyncio-based implementation of a server for RFC
-5321 - Simple Mail Transfer Protocol (SMTP) and RFC 2033 - Local Mail Transfer
-Protocol (LMTP). It is derived from Python's `smtpd.py` standard library
-module, and provides both a command line interface and an API for use in testing
-applications that send email.
+This aiosmtp module provides an asyncio-based implementation of a server for RFC  
+5321 - Simple Mail Transfer Protocol (SMTP) and RFC 2033 - Local Mail Transfer  
+Protocol (LMTP). It is derived from Python's `smtpd.py` standard library  
+module, and provides both a command line interface and an API for use in testing  
+applications that send email.  
 
-Note that the library has been removed in Python 3.12. 
+Note that the library has been removed in Python 3.12.  
 
 ```
 $ python -m aiosmtpd -n
