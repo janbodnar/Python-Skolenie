@@ -32,13 +32,22 @@ development servers or a shared webhosting server.
 Finally, we can use a web service. There are development web services such as  
 MailTrap or MailSlurp, or production services such as Mailgun or Mandrill.  
 
-## Using Python built-in mail server
+## The aiosmtp module 
+
+
+This aiosmtp module provides an asyncio-based implementation of a server for RFC
+5321 - Simple Mail Transfer Protocol (SMTP) and RFC 2033 - Local Mail Transfer
+Protocol (LMTP). It is derived from Python's `smtpd.py` standard library
+module, and provides both a command line interface and an API for use in testing
+applications that send email.
+
+Note that the library has been removed in Python 3.12. 
 
 ```
-$ python -m smtpd -c DebuggingServer -n localhost:1025
+$ python -m aiosmtpd -n
 ```
 
-We start the Python built-in mail server on port 1025.
+We start the  mail server on port 8025.
 
 ```python
 #!/usr/bin/python
@@ -50,7 +59,7 @@ sender = 'admin@example.com'
 receivers = ['info@example.com']
 
 
-port = 1025
+port = 8025
 msg = MIMEText('This is test mail')
 
 msg['Subject'] = 'Test mail'
@@ -104,18 +113,21 @@ server.sendmail(sender, receivers, msg.as_string())
 
 The email is sent with sendmail.
 
-```python
-$ python -m smtpd -c DebuggingServer -n localhost:1025
+```
+$ python -m aiosmtpd -n
 ---------- MESSAGE FOLLOWS ----------
-b'Content-Type: text/plain; charset="us-ascii"'
-b'MIME-Version: 1.0'
-b'Content-Transfer-Encoding: 7bit'
-b'Subject: Test mail'
-b'From: admin@example.com'
-b'To: info@example.com'
-b'X-Peer: ::1'
-b''
-b'This is test mail'
+---------- MESSAGE FOLLOWS ----------
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Test mail
+Content-Transfer-Encoding: 7bit
+Subject: Test mail
+From: admin@example.com
+To: info@example.com
+X-Peer: ('::1', 61049, 0, 0)
+
+This is test mail
 ------------ END MESSAGE ------------
 ```
 
@@ -165,6 +177,7 @@ server.login(user, password)
 
 The username and password are given in the settings page; they are comprised of  
 random characters such as 24h328df3e32.  
+
 
 ## Sending email with attachment
 
