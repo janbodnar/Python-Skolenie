@@ -2,8 +2,9 @@
 
 ## Python
 
-`https://www.python.org/downloads/`
+[Python download](https://www.python.org/downloads/)
 
 ## PyCharm
 
-`https://www.jetbrains.com/pycharm/download/`
+[Pycharm download](https://www.jetbrains.com/pycharm/download/)
+
