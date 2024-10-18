@@ -7,7 +7,7 @@
 
 Check the two options in the dialog:
 
-![Python](images/python313-install.png)
+![Python](images/python313-install.jpg)
 
 
 ## PyCharm
