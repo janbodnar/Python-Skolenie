@@ -32,6 +32,32 @@ print(f'There are {non_blanks + blanks} lines')
 print(f'There are {blanks} blank lines')
 ```
 
+## Process remove CSV file
+
+```python
+import requests
+from collections import namedtuple
+
+User = namedtuple('User', 'id first_name last_name occupation')
+
+url = 'https://webcode.me/users.csv'
+
+with requests.get(url) as resp:
+
+    content = resp.content.decode('utf8')
+    lines = content.splitlines()
+
+    users = []
+
+    for line in lines[1:-1]:
+        fields = line.split(',', 3)
+        fields_cleaned = [int(fields[0]), fields[1], fields[2], fields[3].replace('"', '')]
+        users.append(User(*fields_cleaned))
+
+    print(users[90:101])
+```
+
+
 ## Top processes by CPU usage
 
 ```python
