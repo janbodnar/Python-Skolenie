@@ -32,7 +32,7 @@ print(f'There are {non_blanks + blanks} lines')
 print(f'There are {blanks} blank lines')
 ```
 
-## Process remove CSV file
+## Read remove CSV file
 
 ```python
 import requests
@@ -55,6 +55,49 @@ with requests.get(url) as resp:
         users.append(User(*fields_cleaned))
 
     print(users[90:101])
+```
+
+Using CSV library. 
+
+```python
+
+import requests
+import csv
+from io import StringIO
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    occupation: str
+
+
+url = 'https://webcode.me/users.csv'
+resp = requests.get(url)
+
+content = resp.content.decode('utf8')
+f = StringIO(content)
+
+users = []
+
+for user in csv.DictReader(f):
+
+    u = User(**user)
+    users.append(u)
+    # print(user)
+
+# for u in users:
+#     print(u)
+
+names_w_a = [u for u in users if u.last_name.startswith('W') or u.last_name.startswith('A')]
+
+print(len(names_w_a))
+
+for user in names_w_a:
+    print(user)
 ```
 
 
