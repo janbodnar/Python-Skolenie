@@ -1,5 +1,19 @@
 # Priklady
 
+```python
+file_name = 'words.txt'
+
+with open(file_name) as f:
+
+    lines = f.readlines()
+    # print(lines)
+
+    for line in lines:
+
+        if line.startswith('w') or line.startswith('c') :
+            print(line.rstrip())
+```
+
 
 ```python
 nums = "1,5,6,8,2,3,1,9"
