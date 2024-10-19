@@ -1,6 +1,23 @@
 # Priklady
 
 ```python
+# first_name = 'John'
+# last_name = 'Doe'
+# occupation = 'gardener'
+
+first_name = input("Enter your first name: ")
+last_name = input("Enter your last name: ")
+occupation = input("Enter your occupation: ")
+
+
+# msg = first_name + ' ' + last_name + " is a " + occupation
+msg = f'User {first_name} {last_name} is a {occupation}'
+
+print(msg)
+```
+
+
+```python
 file_name = 'words.txt'
 
 with open(file_name) as f:
