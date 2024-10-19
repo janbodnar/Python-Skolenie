@@ -1,6 +1,17 @@
 # Priklady
 
 ```python
+file_name = 'words.txt'
+
+with open(file_name) as f:
+
+    lines = f.readlines()
+
+    for word in lines:
+        print(f'{word.rstrip()} has {len(word.rstrip())} characters')
+```
+
+```python
 # first_name = 'John'
 # last_name = 'Doe'
 # occupation = 'gardener'
