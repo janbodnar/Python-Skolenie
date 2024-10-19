@@ -1,5 +1,20 @@
 # Priklady
 
+
+```python
+word = 'falcon'
+
+i = 1
+
+while i <= 10:
+
+    print(f'{i}. {word}')
+    i = i + 1
+
+print('end of program')
+```
+
+
 ```python
 # vals = [1, 2, 2, 3, 3, 4, 5, 6]
 #
