@@ -1,6 +1,23 @@
 # Priklady
 
 ```python
+# sumu, pocet prvkov, min, maximum
+# vypis 1. a posledny provok
+vals = (1, 2, 3, 4, 5, 6, 7)
+
+# vypis hlasku John Doe is a gardener pomocou fstringu
+data = 'John,Doe,gardener'
+
+# vypis hlasky pomocou fstringu pre vsetkych
+data2 = '''
+John,Doe,gardener
+Roger,Roe,driver
+Lucia,Smith,teacher
+'''
+```
+
+
+```python
 file_name = 'words.txt'
 
 with open(file_name) as f:
