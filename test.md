@@ -1,6 +1,10 @@
 # Priklady
 
 ```python
+mix = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
+```
+
+```python
 file_name = 'data.csv'
 
 with open(file_name, 'r') as f:
