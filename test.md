@@ -1,6 +1,17 @@
 # Priklady
 
 
+```python
+distance = float(input("Enter distance in km: "))
+time = float(input("Enter time in h: "))
+
+speed = distance / time
+
+print(f"The average speed of a sprinter is {speed} km/h")
+```
+
+
+
 Zadanie:  
 
 ```python
