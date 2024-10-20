@@ -1,5 +1,20 @@
 # Priklady
 
+```python
+file_name = 'data.csv'
+
+with open(file_name, 'r') as f:
+
+    lines = f.readlines()
+
+    for line in lines:
+        fields = line.split(",")
+        # print(fields)
+
+        speed = float(fields[0]) / float(fields[1].strip())
+        print(f'The average speed is {speed:.3} km/h')
+```
+
 
 ```python
 distance = float(input("Enter distance in km: "))
