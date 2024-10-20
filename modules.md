@@ -373,8 +373,7 @@ ImportError
 
 An `ImportError` is raised if a module cannot be imported.  
 
-```
-
+```python
 #!/usr/bin/python
 
 # importerror.py
