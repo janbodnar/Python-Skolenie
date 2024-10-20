@@ -1,5 +1,8 @@
 # Priklady
 
+
+Zadanie:  
+
 ```python
 # sumu, pocet prvkov, min, maximum
 # vypis 1. a posledny provok
@@ -14,6 +17,44 @@ John,Doe,gardener
 Roger,Roe,driver
 Lucia,Smith,teacher
 '''
+```
+
+Riesenie: 
+
+```python
+
+# sumu, pocet prvkov, min, maximum
+# vypis 1. a posledny provok
+vals = (1, 2, 3, 4, 5, 6, 7)
+
+print(sum(vals))
+print(min(vals))
+print(max(vals))
+print(vals[0])
+print(vals[-1])
+
+prvy = vals[0]
+print(prvy)
+
+# vypis hlasku John Doe is a gardener pomocou fstringu
+data = 'John,Doe,gardener'
+
+fields = data.split(",")
+print(f'{fields[0]} {fields[1]} is a {fields[2]}')
+
+# vypis hlasky pomocou fstringu pre vsetkych
+data2 = '''John,Doe,gardener
+Roger,Roe,driver
+Lucia,Smith,teacher
+'''
+
+lines = data2.splitlines()
+print(lines)
+
+for line in lines:
+    fields = line.split(",")
+    # print(fields)
+    print(f'{fields[0]} {fields[1]} is a {fields[2]}')
 ```
 
 
