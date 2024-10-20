@@ -1,5 +1,25 @@
 # Priklady
 
+## Using f descriptor as iterator
+
+```python
+words_w_c = []
+
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+
+    for line in f:
+
+        if line.startswith('w') or line.startswith('c'):
+            words_w_c.append(line.strip())
+
+    print(words_w_c)
+```
+
+
+## Reading words into list
+
 ```python
 words_w_c = []
 
