@@ -1,5 +1,26 @@
 # Priklady
 
+## namedtuple
+
+```python
+from collections import namedtuple
+
+
+User = namedtuple('User', 'first_name last_name occupation')
+
+u1 = User('John', 'Doe', 'gardener')
+print(u1)
+print(u1.first_name)
+print(u1.last_name)
+print(u1.occupation)
+
+u2 = User('Roger', 'Roe', 'driver')
+print(u2)
+print(u2.first_name)
+print(u2.last_name)
+print(u2.occupation)
+```
+
 
 ## Filer/map
 
