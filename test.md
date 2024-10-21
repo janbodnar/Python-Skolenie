@@ -1,5 +1,33 @@
 # Priklady
 
+
+## Read CSV data
+
+```python
+from collections import namedtuple
+
+User = namedtuple("User", "first_name last_name city")
+
+file_name = "users.csv"
+
+users = []
+
+with open(file_name, "r") as f:
+
+    for line in f:
+        fields = line.split(";")
+        u = User(fields[0], fields[1], fields[2].rstrip())
+
+        users.append(u)
+
+user_last_name_w = tuple(filter(lambda user: user.last_name.startswith("W"), users))
+print(len(user_last_name_w))
+
+for user in user_last_name_w[0:21]:
+    print(user)
+```
+
+
 ## generate fake data
 
 ```python
