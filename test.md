@@ -1,5 +1,24 @@
 # Priklady
 
+
+## Filer/map
+
+```python
+vals = [1, 2, 3, -2, 0, -3, -1, 9]
+
+positive = tuple(filter(lambda e: e > 0, vals))
+print(positive)
+
+negative = tuple(filter(lambda e: e < 0, vals))
+print(negative)
+
+words = ['sky', 'war', 'water', 'cup', 'cloud', 'ten', 'forest']
+
+words_c_w = tuple(filter(lambda e: e.startswith('w') or e.startswith('c'), words))
+print(words_c_w)
+```
+
+
 ## Parse words
 
 ```python
