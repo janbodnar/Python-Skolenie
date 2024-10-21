@@ -27,6 +27,37 @@ for user in user_last_name_w[0:21]:
     print(user)
 ```
 
+---
+
+```python
+from collections import namedtuple
+
+User = namedtuple("User", "first_name last_name city")
+
+file_name = "users.csv"
+
+users = []
+
+with open(file_name, "r") as f:
+
+    for line in f:
+        fields = line.split(";")
+        u = User(fields[0], fields[1], fields[2].rstrip())
+
+        users.append(u)
+
+user_last_name_w = tuple(filter(lambda user: user.last_name.startswith("W"), users))
+
+file_name2 = 'users_w.csv'
+
+with open(file_name2, 'w') as f:
+
+    for user in user_last_name_w:
+        row = f'{user.first_name},{user.last_name},{user.city}\n'
+        f.write(row)
+```
+
+
 
 ## generate fake data
 
