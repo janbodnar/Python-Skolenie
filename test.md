@@ -1,6 +1,17 @@
 # Priklady
 
 
+## Filter by type
+
+```python
+vals = [1, 2, 4, 'falcon', 'war', 3.4, 2.3, True, False, None, (1, 2, 3), (3, 4)]
+
+for val in vals:
+    if type(val) == int:
+        print(val)
+```
+
+
 ```python
 # calculate sum
 data = "1,2,3,4,5,6,7,8,9,10"
