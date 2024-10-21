@@ -1,6 +1,24 @@
 # Priklady
 
 
+## Download image
+
+```python
+
+import requests
+
+url = 'https://static.wikia.nocookie.net/theiceage/images/4/4a/SIdSloth2.jpg'
+
+resp = requests.get(url)
+img_data = resp.content
+
+file_name = 'sid_image.jpg'
+
+with open(file_name, 'wb') as f:
+
+    f.write(img_data)
+```
+
 ## Show image in UI
 
 ```python
