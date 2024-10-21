@@ -1,5 +1,28 @@
 # Priklady
 
+## generate fake data
+
+```python
+from faker import Faker
+
+faker = Faker()
+
+file_name = 'users.csv'
+
+with open(file_name, 'w') as f:
+
+    for _ in range(1000):
+
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        city = faker.city()
+
+        user = f'{first_name},{last_name},{city}\n'
+        f.write(user)
+```
+
+
+
 ## namedtuple
 
 ```python
