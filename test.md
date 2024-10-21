@@ -1,5 +1,40 @@
 # Priklady
 
+## Parse words
+
+```python
+
+import requests
+
+url = 'https://webcode.me/thermopylae.txt'
+
+resp = requests.get(url)
+content = resp.content.decode('utf8')
+
+words = content.split(' ')
+words_cleaned = []
+
+for word in words:
+
+    if '.' in word: 
+         word = word.replace('.', '')
+
+    if ',' in word: 
+         word = word.replace(',', '')
+       
+    words_cleaned.append(word.strip())
+
+
+words_2 = []
+
+for word in words_cleaned:
+     if len(word) == 2:
+          words_2.append(word)
+
+print(words_2)
+print(set(words_2))
+```
+
 
 ## Download image
 
