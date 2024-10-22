@@ -1,5 +1,41 @@
 # Priklady
 
+## Filter by SQL
+
+```python
+import psycopg
+# from dataclasses import dataclass
+from collections import namedtuple
+
+cs = "dbname='testdb' user='postgres' password='postgres'"
+countries = []
+
+# @dataclass(frozen=True)
+# class Country:
+#      id: int
+#      name: str
+#      population: int
+     
+Country = namedtuple('Country', 'id name population')
+
+with psycopg.connect(cs) as con:
+        
+        with con.cursor() as cur:
+    
+            cur = con.cursor()
+            # cur.execute("SELECT * FROM countries WHERE name ~ '^[BA].*'")
+            cur.execute("SELECT * FROM countries WHERE name LIKE 'B%' OR name LIKE 'A%'")
+
+            rows = cur.fetchall()
+
+            for row in rows:
+                country = Country(*row)
+                countries.append(country)
+
+print(len(countries))
+print(countries)
+```
+
 
 ## List comprehensions
 
