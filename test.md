@@ -1,5 +1,19 @@
 # Priklady
 
+## cars.csv
+
+```csv
+Audi,52642
+Mercedes,57127
+Skoda,9000
+Volvo,29000
+Bentley,350000
+Citroen,21000
+Hummer,41400
+Volkswagen,2160
+```
+
+
 ## Custom object vs namedtuple
 
 ```python
