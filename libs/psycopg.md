@@ -1,4 +1,6 @@
-# psycopg2
+# psycopg
+
+Version 3  
 
 Psycopg is the most popular PostgreSQL database adapter for the Python programming  
 language. Its main features are the complete implementation of the Python DB API 2.0  
@@ -18,29 +20,76 @@ Basic terms:
    a database table or a combination of tables using a code known as the query language. This way,  
    the system can understand and process the query accordingly.
 
+## Installation
 
-
+`pip install "psycopg[binary,pool]"`
 
 ## Scalar value
 
 ```python
-import psycopg2
+import psycopg
+
+cs = "dbname='testdb' user='postgres' password='s$cret'"
+
+with psycopg.connect(cs) as con:
+
+    with con.cursor() as cur:
+        
+        cur.execute('SELECT version()')
+
+        version = cur.fetchone()[0]
+        print(version)
+```
+
+---
+
+
+The `execute` method can be used to create a cursor.  
+
+```python
+import psycopg
+
+cs = "dbname='testdb' user='postgres' password='s$cret'"
+
+with psycopg.connect(cs) as con:
+
+    with con.execute('SELECT version()') as cur:
+        
+        version = cur.fetchone()[0]
+        print(version)
+```
+
+--- 
+
+```python
+import psycopg
 import sys
 
 con = None
 
 try:
+    cs = "host='localhost' dbname='testdb' user='postgres' password='s$cret'"
+    con = psycopg.connect(cs)
 
-    con = psycopg2.connect(host="localhost", database='testdb', user='postgres',
-        password='s$cret')
+    try: 
 
-    cur = con.cursor()
-    cur.execute('SELECT version()')
+        cur = con.cursor()
+        cur.execute('SELECT version()')
 
-    version = cur.fetchone()[0]
-    print(version)
+        version = cur.fetchone()[0]
+        print(version)
 
-except psycopg2.DatabaseError as e:
+    except psycopg.Error as e:
+
+        print(f'Error {e}')
+        sys.exit(1)
+    
+    finally:
+
+        if cur:
+            cur.close()
+
+except psycopg.DatabaseError as e:
 
     print(f'Error {e}')
     sys.exit(1)
@@ -51,50 +100,40 @@ finally:
         con.close()
 ```
 
----
-
-```python
-import psycopg2
-
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
-
-    cur = con.cursor()
-    cur.execute('SELECT version()')
-
-    version = cur.fetchone()[0]
-    print(version)
-```
-
 
 ## execute 
 
+The `execute` method executes a query or command to the database.  
+
 ```python
-import psycopg2
+import psycopg
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
 
-    cur = con.cursor()
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-    cur.execute("DROP TABLE IF EXISTS cars")
-    cur.execute(
-        "CREATE TABLE cars(id SERIAL PRIMARY KEY, name VARCHAR(255), price INT)")
-    cur.execute("INSERT INTO cars(name, price) VALUES('Audi', 52642)")
-    cur.execute("INSERT INTO cars(name, price) VALUES('Mercedes', 57127)")
-    cur.execute("INSERT INTO cars(name, price) VALUES('Skoda', 9000)")
-    cur.execute("INSERT INTO cars(name, price) VALUES('Volvo', 29000)")
-    cur.execute("INSERT INTO cars(name, price) VALUES('Bentley', 350000)")
-    cur.execute("INSERT INTO cars(name, price) VALUES('Citroen', 21000)")
-    cur.execute("INSERT INTO cars(name, price) VALUES('Hummer', 41400)")
-    cur.execute("INSERT INTO cars(name, price) VALUES('Volkswagen', 21600)")
+with psycopg.connect(cs) as con:
+
+    with con.cursor() as cur:
+
+        cur.execute("DROP TABLE IF EXISTS cars")
+        cur.execute("CREATE TABLE cars(id SERIAL PRIMARY KEY, name VARCHAR(255), price INT)")
+        cur.execute("INSERT INTO cars(name, price) VALUES('Audi', 52641)")
+        cur.execute("INSERT INTO cars(name, price) VALUES('Mercedes', 57127)")
+        cur.execute("INSERT INTO cars(name, price) VALUES('Skoda', 9000)")
+        cur.execute("INSERT INTO cars(name, price) VALUES('Volvo', 29000)")
+        cur.execute("INSERT INTO cars(name, price) VALUES('Bentley', 350000)")
+        cur.execute("INSERT INTO cars(name, price) VALUES('Citroen', 21000)")
+        cur.execute("INSERT INTO cars(name, price) VALUES('Hummer', 41400)")
+        cur.execute("INSERT INTO cars(name, price) VALUES('Volkswagen', 21600)")
 ```
 
 
 ## executemany
 
+The `executemany` method runs the same command with a sequence of input data.  
+
 ```python
-import psycopg2
+import psycopg
 
 cars = (
     (1, 'Audi', 52642),
@@ -107,270 +146,248 @@ cars = (
     (8, 'Volkswagen', 21600)
 )
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-    cur = con.cursor()
+with psycopg.connect(cs) as con:
+        
+    with con.cursor() as cur:
 
-    cur.execute("DROP TABLE IF EXISTS cars")
-    cur.execute(
-        "CREATE TABLE cars(id SERIAL PRIMARY KEY, name VARCHAR(255), price INT)")
+        cur.execute("DROP TABLE IF EXISTS cars")
+        cur.execute(
+            "CREATE TABLE cars(id SERIAL PRIMARY KEY, name VARCHAR(255), price INT)")
 
-    query = "INSERT INTO cars (id, name, price) VALUES (%s, %s, %s)"
-    cur.executemany(query, cars)
-
-    con.commit()
+        query = "INSERT INTO cars (id, name, price) VALUES (%s, %s, %s)"
+        cur.executemany(query, cars)
 ```
 
 ## last row id 
 
 ```python
-import psycopg2
+import psycopg
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-    cur = con.cursor()
+with psycopg.connect(cs) as con:
+        
+    with con.cursor() as cur:
 
-    cur.execute("DROP TABLE IF EXISTS words")
-    cur.execute("CREATE TABLE words(id SERIAL PRIMARY KEY, word VARCHAR(255))")
-    cur.execute("INSERT INTO words(word) VALUES('forest') RETURNING id")
-    cur.execute("INSERT INTO words(word) VALUES('cloud') RETURNING id")
-    cur.execute("INSERT INTO words(word) VALUES('valley') RETURNING id")
+        cur.execute("DROP TABLE IF EXISTS words")
+        cur.execute("CREATE TABLE words(id SERIAL PRIMARY KEY, word VARCHAR(255))")
+        cur.execute("INSERT INTO words(word) VALUES('forest') RETURNING id")
+        cur.execute("INSERT INTO words(word) VALUES('cloud') RETURNING id")
+        cur.execute("INSERT INTO words(word) VALUES('valley') RETURNING id")
 
-    last_row_id = cur.fetchone()[0]
+        last_row_id = cur.fetchone()[0]
 
-    print(f"The last Id of the inserted row is {last_row_id}")
+        print(f"The last Id of the inserted row is {last_row_id}")
 ```
 
 ## fetch_all
 
+The `fetch_all` method returns all the remaining records from the current  
+recordset.  
+
 ```python
-import psycopg2
+import psycopg
 
-with psycopg2.connect(database='testdb', user='postgres',
-                    password='s$cret') as con:
+cs = "dbname='testdb' user='postgres' password='s$cret'"
+
+with psycopg.connect(cs) as con:
+        
+        with con.cursor() as cur:
     
-    cur = con.cursor()
-    cur.execute("SELECT * FROM cars")
+            cur = con.cursor()
+            cur.execute("SELECT * FROM cars")
 
-    rows = cur.fetchall()
+            rows = cur.fetchall()
 
-    for row in rows:
-        print(f"{row[0]} {row[1]} {row[2]}")
+            for row in rows:
+                print(f"{row[0]} {row[1]} {row[2]}")
 ```
 
 ## fetch_one
 
 ```python
-import psycopg2
+import psycopg
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-    cur = con.cursor()
-    cur.execute("SELECT * FROM cars")
+with psycopg.connect(cs) as con:
 
-    while True:
+    with con.cursor() as cur:
+        
+        cur.execute("SELECT * FROM cars")
 
-        row = cur.fetchone()
+        while True:
 
-        if row == None:
-            break
+            row = cur.fetchone()
 
-        print(f"{row[0]} {row[1]} {row[2]}")
+            if row == None:
+                break
+
+            print(f"{row[0]} {row[1]} {row[2]}")
 ```
 
 ---
 
 ```python
-import psycopg2
+import psycopg
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-    cur = con.cursor()
-    cur.execute("SELECT * FROM cars WHERE id = 1")
+with psycopg.connect(cs) as con:
 
-    row = cur.fetchone()
+    with con.execute("SELECT * FROM cars WHERE id = 1") as cur:
 
-    print(f"{row[0]} {row[1]} {row[2]}")
+        row = cur.fetchone()
+        print(f"{row[0]} {row[1]} {row[2]}")
 ```
 
 ## Dictionary cursor
 
 ```python
-import psycopg2
-import psycopg2.extras
+import psycopg
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-    cursor = con.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    cursor.execute("SELECT * FROM cars")
+with psycopg.connect(cs) as con:
 
-    rows = cursor.fetchall()
+    with con.cursor(row_factory=psycopg.rows.dict_row) as cur:
+        
+        cur.execute("SELECT * FROM cars")
 
-    for row in rows:
-        print(f"{row['id']} {row['name']} {row['price']}")
+        rows = cur.fetchall()
+
+        for row in rows:
+            print(f"{row['id']} {row['name']} {row['price']}")
 ```
 
 
 ## Parameterized queries
 
 ```python
-import psycopg2
+import psycopg
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
+cs = "dbname='testdb' user='postgres' password='s$cret'"
+
+with psycopg.connect(cs) as con:
 
     uId = 1
     uPrice = 62300
 
-    cur = con.cursor()
-    cur.execute("UPDATE cars SET price=%s WHERE id=%s", (uPrice, uId))
+    with con.cursor() as cur:
+        cur.execute("UPDATE cars SET price=%s WHERE id=%s", (uPrice, uId))
 
-    print(f"Number of rows updated: {cur.rowcount}")
+        print(f"Number of rows updated: {cur.rowcount}")
 ```
 
 ---
 
 ```python
-import psycopg2
+import psycopg
 
 uid = 3
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
+with psycopg.connect(cs) as con:
 
-    cur = con.cursor()
-    cur.execute("SELECT * FROM cars WHERE id=%(id)s", {'id': uid})
-    row = cur.fetchone()
-
-    print(f'{row[0]} {row[1]} {row[2]}')
+    with con.execute("SELECT * FROM cars WHERE id=%(id)s", {'id': uid}) as cur:
+        
+        row = cur.fetchone()
+        print(f'{row[0]} {row[1]} {row[2]}')
 ```
 
-
-## mogrify
-
-```python
-
-import psycopg2
-
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
-
-    cur = con.cursor()
-
-    print(cur.mogrify("SELECT name, price FROM cars WHERE id=%s", (2,)))
-```
 
 ## Metadata
 
 ```python
-import psycopg2
+import psycopg
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-    cur = con.cursor()
+with psycopg.connect(cs) as con:
 
-    cur.execute('SELECT * FROM cars')
+    with con.execute('SELECT * FROM cars') as cur:
 
-    col_names = [cn[0] for cn in cur.description]
-    rows = cur.fetchall()
+        col_names = [cn[0] for cn in cur.description]
+        rows = cur.fetchall()
 
-    print(f'{col_names[0]} {col_names[1]} {col_names[2]}')
+        print(f'{col_names[0]} {col_names[1]} {col_names[2]}')
 ```
 
 ---
 
 ```python
-import psycopg2
+import psycopg
 
-with psycopg2.connect(database='testdb', user='postgres',
-                      password='s$cret') as con:
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-    cur = con.cursor()
-    cur.execute("""SELECT table_name FROM information_schema.tables
-        WHERE table_schema = 'public'""")
+with psycopg.connect(cs) as con:
 
-    rows = cur.fetchall()
+    with con.execute("""SELECT table_name FROM information_schema.tables
+            WHERE table_schema = 'public'""") as cur:
 
-    for row in rows:
-        print(row[0])
+        rows = cur.fetchall()
+
+        for row in rows:
+            print(row[0])
 ```
 
 ## copy_to
 
 ```python
-import psycopg2
-import sys
+import psycopg
 
-con = None
+cs = "dbname='testdb' user='postgres' password='s$cret'"
 
-try:
+with psycopg.connect(cs) as con:
 
-    con = psycopg2.connect(database='testdb', user='postgres',
-                    password='s$cret')
+    with con.cursor() as cur:
 
-    cur = con.cursor()
-    with open('cars.csv', 'w') as f:
-        cur.copy_to(f, 'cars', sep="|")
+        with open('cars.csv', 'wb') as f:
 
-except psycopg2.DatabaseError as e:
+            with cur.copy("COPY cars TO STDOUT WITH CSV HEADER") as copy:
 
-    print(f'Error {e}')
-    sys.exit(1)
-
-except IOError as e:
-
-    print(f'Error {e}')
-    sys.exit(1)
-
-finally:
-
-    if con:
-        con.close()
+                for row in copy:
+                    f.write(row)
 ```
 
-# copy_from
+## copy_from
 
 ```python
+import psycopg
 
-import psycopg2
-import sys
+cs = "dbname='testdb' user='postgres' password='s$cret'"
+with psycopg.connect(cs) as con:
 
-con = None
+    with con.cursor() as cur:
 
-try:
+        with open('cars.csv', 'r') as f:
 
-    con = psycopg2.connect(database='testdb', user='postgres',
-                    password='s$cret')
+            with cur.copy("COPY cars2 FROM STDIN WITH CSV HEADER") as copy:
 
-    cur = con.cursor()
-    with open('cars.csv', 'r') as f:
-        cur.copy_from(f, 'cars', sep="|")
-        con.commit()
+                for line in f:
+                    copy.write(line)
+```
 
-except psycopg2.DatabaseError as e:
+--
 
-    if con:
-        con.rollback()
+```python
+import psycopg
+import csv
 
-    print(f'Error {e}')
-    sys.exit(1)
+cs = "dbname='testdb' user='postgres' password='s$cret'"
+with psycopg.connect(cs) as con:
 
-except IOError as e:
+    with con.cursor() as cur:
 
-    if con:
-        con.rollback()
+        with open('cars.csv', 'r') as f:
 
-    print(f'Error {e}')
-    sys.exit(1)
+            with cur.copy("COPY cars2(id, name, price) FROM STDIN") as copy:
 
-finally:
+                for line in f:
 
-    if con:
-        con.close()
+                    f1, f2, f3 = line.strip().split(',')
+                    row = (int(f1), f2, int(f3))
+                    copy.write_row(row)
 ```
