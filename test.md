@@ -1,5 +1,43 @@
 # Priklady
 
+
+## List comprehensions
+
+```python
+import psycopg
+from dataclasses import dataclass
+
+cs = "dbname='testdb' user='postgres' password='postgres'"
+countries = []
+
+@dataclass(frozen=True)
+class Country:
+     id: int
+     name: str
+     population: int
+     
+
+with psycopg.connect(cs) as con:
+        
+        with con.cursor() as cur:
+    
+            cur = con.cursor()
+            cur.execute("SELECT * FROM countries")
+
+            rows = cur.fetchall()
+
+            for row in rows:
+                country = Country(*row)
+                countries.append(country)
+
+
+countries_100mil = [country for country in countries if country.population > 100_000_000]
+print(len(countries_100mil))
+print(countries_100mil)
+```
+
+
+
 ## fetch all rows
 
 ```python
