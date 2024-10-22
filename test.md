@@ -4,6 +4,25 @@
 words = ["small,", "sky\t\t", "\ntomorrow", "like?  ", "\nalias", "war.", ",water"]
 ```
 
+```python
+words = ["small,", "sky\t\t", "\ntomorrow", "like?  ", "\nalias", "war.", ",water"]
+
+words_cleaned = []
+
+for word in words:
+    if '.' in word:
+        word = word.replace('.', '')
+    if ',' in word:
+        word = word.replace(',', '')
+    if '?' in word:
+        word = word.replace('?', '')
+
+    words_cleaned.append(word.strip())
+
+print(words_cleaned)
+```
+
+
 
 ## Read CSV data
 
