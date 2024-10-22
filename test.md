@@ -1,5 +1,42 @@
 # Priklady
 
+## fetch all rows
+
+```python
+import psycopg
+from dataclasses import dataclass
+
+cs = "dbname='testdb' user='postgres' password='postgres'"
+cars = []
+
+@dataclass(frozen=True)
+class Car:
+     id: int
+     name: str
+     price: int
+     
+
+with psycopg.connect(cs) as con:
+        
+        with con.cursor() as cur:
+    
+            cur = con.cursor()
+            cur.execute("SELECT * FROM cars")
+
+            rows = cur.fetchall()
+
+            for row in rows:
+                # car = Car(row[0], row[1], row[2])
+                car = Car(*row)
+                cars.append(car)
+
+for car in cars:
+    print(car)
+
+# print(cars)
+```
+
+
 ```python
 import psycopg
 
