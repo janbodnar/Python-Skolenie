@@ -1,5 +1,40 @@
 # Priklady
 
+## Filter words
+
+```python
+import requests
+
+
+def is_w_r(word):
+
+    return word.startswith(('w', 'W', 'r', 'R'))
+
+    # if (
+    #     word.startswith("w")
+    #     or word.startswith("W")
+    #     or word.startswith("r")
+    #     or word.startswith("R")
+    # ):
+    #     return True
+    # else:
+    #     return False
+
+
+url = "https://raw.githubusercontent.com/janbodnar/Python-Skolenie/refs/heads/master/data/unix-words.txt"
+
+resp = requests.get(url)
+content = resp.content.decode("utf8")
+
+lines = content.splitlines()
+
+words_w_r = tuple(filter(is_w_r, lines))
+
+print(len(words_w_r))
+print(words_w_r[:30])
+```
+
+
 ```python
 words = ["small,", "sky\t\t", "\ntomorrow", "like?  ", "\nalias", "war.", ",water"]
 ```
