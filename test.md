@@ -1,5 +1,49 @@
 # Priklady
 
+## Custom object vs namedtuple
+
+```python
+class User:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __eq__(self, other):
+        if isinstance(other, User):
+            return self.name == other.name and self.age == other.age
+        return False
+
+    def __str__(self):
+        return f"User {{ {self.name} {self.age} }}"
+
+
+u1 = User("John Doe", 35)
+u2 = User("John Doe", 33)
+
+u3 = u1
+
+print(u1 == u2)
+print(u1 == u3)
+
+print(u1)
+print(u2)
+
+from collections import namedtuple
+
+Customer = namedtuple("Customer", "name age")
+
+c1 = Customer("John Doe", 35)
+c2 = Customer("John Doe", 35)
+c3 = Customer("Roger Roe", 30)
+
+print(c1)
+print(c3)
+
+print(c1 == c2)
+print(c1 == c3)
+```
+
+
 ## Filter words
 
 ```python
