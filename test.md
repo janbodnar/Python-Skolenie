@@ -1,5 +1,31 @@
 # Priklady
 
+## Generate data with faker
+
+```python
+
+from faker import Faker
+
+faker = Faker()
+
+file_name = 'users.csv'
+
+with open(file_name, 'w') as f:
+
+    f.write('id,first_name,last_name,city\n')
+
+    for uid in range(1, 100_001):
+
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        city = faker.city()
+
+        f.write(f'{uid},{first_name},{last_name},{city}\n')
+```
+
+
+
+
 ## Filter by SQL
 
 ```python
