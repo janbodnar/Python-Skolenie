@@ -1,5 +1,44 @@
 # Priklady
 
+import psycopg
+
+
+def read_csv(file_name, data):
+
+    with open(file_name, "r") as f:
+
+        for line in f:
+            fields = line.split(",")
+            fields_cleaned = fields[0], fields[1].rstrip()
+            data.append(fields_cleaned)
+
+    return data
+
+
+def write_to_postgres(data):
+
+    cs = "dbname='testdb' user='postgres' password='postgres'"
+
+    with psycopg.connect(cs) as con:
+
+        with con.cursor() as cur:
+
+            cur.execute("DROP TABLE IF EXISTS cars")
+            cur.execute(
+                "CREATE TABLE cars(id SERIAL PRIMARY KEY, name VARCHAR(255), price INT)"
+            )
+
+            query = "INSERT INTO cars (name, price) VALUES (%s, %s)"
+
+            cur.executemany(query, data)
+
+
+file_name = "cars.csv"
+cars = []
+data = read_csv(file_name, cars)
+write_to_postgres(data)
+
+
 ## cars.csv
 
 ```csv
