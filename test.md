@@ -23,6 +23,35 @@ with open(file_name, 'w') as f:
         f.write(f'{uid},{first_name},{last_name},{city}\n')
 ```
 
+## Load data from database table
+
+```python
+import psycopg
+from collections import namedtuple
+
+cs = "dbname='testdb' user='postgres' password='postgres'"
+users = []
+     
+User = namedtuple('User', 'id first_name last_name city')
+
+with psycopg.connect(cs) as con:
+        
+        with con.cursor() as cur:
+    
+            cur = con.cursor()
+            # cur.execute("SELECT * FROM users WHERE name ~ '^[BA].*'")
+            cur.execute("SELECT * FROM users WHERE last_name LIKE 'W%'")
+
+            rows = cur.fetchall()
+
+            for row in rows:
+                user = User(*row)
+                users.append(user)
+
+print(len(users))
+print(users[:10])
+```
+
 
 
 
