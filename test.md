@@ -1,5 +1,9 @@
 # Priklady
 
+```python
+words = ["small,", "sky\t\t", "\ntomorrow", "like?  ", "\nalias", "war.", ",water"]
+```
+
 
 ## Read CSV data
 
