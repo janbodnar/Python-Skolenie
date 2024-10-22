@@ -22,6 +22,26 @@ for word in words:
 print(words_cleaned)
 ```
 
+---
+
+```python
+words = ["small,", "sky\t\t", "\ntomorrow", "like?  ", "\nalias", "war.", ",water"]
+
+def clean_data(word):
+    if '.' in word:
+        word = word.replace('.', '')
+    if ',' in word:
+        word = word.replace(',', '')
+    if '?' in word:
+        word = word.replace('?', '')
+
+    return word.strip()
+
+
+words_cleaned = tuple(map(clean_data, words))
+print(words_cleaned)
+```
+
 
 
 ## Read CSV data
