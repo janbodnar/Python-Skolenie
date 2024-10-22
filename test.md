@@ -1,5 +1,6 @@
 # Priklady
 
+```python
 import psycopg
 
 
@@ -37,7 +38,7 @@ file_name = "cars.csv"
 cars = []
 data = read_csv(file_name, cars)
 write_to_postgres(data)
-
+```
 
 ## cars.csv
 
