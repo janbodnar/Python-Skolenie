@@ -42,6 +42,25 @@ words_cleaned = tuple(map(clean_data, words))
 print(words_cleaned)
 ```
 
+---
+
+```python
+import re
+
+words = ["small,", "sky\t\t", "\ntomorrow", "like?  ", "\nalias", "war.", ",water", "great!", ";tall"]
+
+def clean_data(word):
+
+    pattern = re.compile(r'[,;?.!;\s]')
+    word = re.sub(pattern, '', word)
+
+    return word
+
+
+words_cleaned = tuple(map(clean_data, words))
+print(words_cleaned)
+```
+
 
 
 ## Read CSV data
