@@ -31,9 +31,14 @@ with psycopg.connect(cs) as con:
                 countries.append(country)
 
 
+
 countries_100mil = [country for country in countries if country.population > 100_000_000]
 print(len(countries_100mil))
 print(countries_100mil)
+
+countries_B_A = [country for country in countries if country.name.startswith('B') or country.name.startswith('A') ]
+print(len(countries_B_A))
+print(countries_B_A)
 ```
 
 
