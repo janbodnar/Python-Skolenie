@@ -1,5 +1,42 @@
 # Scripts
 
+## Calculate total sales
+
+```python
+from functools import reduce
+import re
+
+data = """
+Name      | Qty | Price  
+----------------------
+Product A |  12 | $1230 
+Product B |  11 | $230 
+Product C |   8 | $870 
+Product D |   3 | $90 
+"""
+
+pattern = re.compile(r'\$(\d{2,4})')
+
+res = re.findall(pattern, data)
+prices = [int(e) for e in res]
+print(prices)
+
+pattern = re.compile(r'\|\s*(\d+)\s*\|')
+
+res = re.findall(pattern, data)
+
+quantities = [int(e) for e in res]
+print(quantities)
+
+total_sales = sum(q * p for q, p in zip(quantities, prices))
+print(f"Total Sales: ${total_sales}")
+
+total_sales = reduce(lambda acc, x: acc +
+                     x[0] * x[1], zip(quantities, prices), 0)
+print(total_sales)
+```
+
+
 ## Count blanks
 
 ```python
