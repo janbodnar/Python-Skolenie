@@ -1,5 +1,17 @@
 # Priklady
 
+
+```python
+words = ['sky', 'cup', 'war', 'atom']
+
+if 'sky' in words:
+    print('the word sky is present')
+    
+if 'forest' not in words:
+    print('forest is not present')
+```
+
+
 ## pretypovanie
 
 ```python
