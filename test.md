@@ -11,6 +11,17 @@ for word in words:
         print(word)
 ```
 
+--
+
+```python
+words = ['war', 'water', 'cup', 'cloud', 'warm', 'atom', 'forest']
+
+for word in words:
+
+    if word.startswith('w') or word.startswith('c'):
+        print(word)
+```
+
 
 ## startswith/endswith
 
