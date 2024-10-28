@@ -7,6 +7,13 @@ n = 12
 word = 'falcons'
 
 print(str(n) + ' ' + word)
+
+# print(f'{n} {word}')
+
+x = '11'
+y = '12'
+
+print(int(x) + int(y))
 ```
 
 
