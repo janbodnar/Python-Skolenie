@@ -3,6 +3,22 @@
 ## if podmientka
 
 ```python
+import random
+
+r = random.randint(-5, 5)
+
+print(r)
+
+if r > 0:
+    print('The r variable is positive')
+elif r < 0:
+    print('The r variable is negative')
+elif r == 0:
+    print('The r variable is zero')
+```
+
+
+```python
 #!/usr/bin/python
 
 import random
