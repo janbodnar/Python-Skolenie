@@ -1,5 +1,17 @@
 # Priklady
 
+## conditional printing
+
+```python
+words = ['war', 'water', 'cup', 'cloud', 'warm', 'atom', 'forest']
+
+for word in words:
+
+    if word.startswith('w'):
+        print(word)
+```
+
+
 ## startswith/endswith
 
 ```python
