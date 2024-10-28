@@ -1,6 +1,15 @@
 # Priklady
 
 
+## Vypis slov a velkosti
+
+```python
+words = ['sky', 'war', 'water', 'forest', 'cloud']
+
+for word in words:
+    print(f'{word} has {len(word)} characters')
+```
+
 ## Upper
 
 ```python
