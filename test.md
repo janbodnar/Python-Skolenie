@@ -1,5 +1,19 @@
 # Priklady
 
+## fstring
+
+```python
+name = 'John Doe'
+age = 29
+nationality = "Hungarian"
+height = 178.5
+
+print(name, nationality, age, height)
+
+msg = f'{name} is {age} years old, he is {nationality} and his height is {height}'
+print(msg)
+```
+
 
 ## builtins
 
