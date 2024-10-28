@@ -11,7 +11,7 @@ print(x)
 
 y = 2
 # y = y * 3
-y += 3
+y *= 3
 print(y)
 ```
 
