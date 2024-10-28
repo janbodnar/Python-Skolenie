@@ -15,6 +15,9 @@ suma = sum(vals)
 length = len(vals)
 
 print(minimum, maximum, suma, length)
+
+msg = 'an old falcon'
+print(len(msg))
 ```
 
 
