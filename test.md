@@ -1,5 +1,16 @@
 # Priklady
 
+## read file
+
+```python
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+
+    content = f.read()
+    print(content)
+```
+
 
 ## Calculate sum from string
 
