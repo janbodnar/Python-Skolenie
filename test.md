@@ -7,6 +7,8 @@
 # name = input("Enter your name:")
 # print("Hello", name)
 
+import math
+
 vals = [1, -2, 0, 3, 4, 11, -4, 5]
 
 minimum = min(vals)
@@ -18,6 +20,8 @@ print(minimum, maximum, suma, length)
 
 msg = 'an old falcon'
 print(len(msg))
+
+print(math.sin(0.5))
 ```
 
 
