@@ -1,6 +1,23 @@
 # Priklady
 
 
+## builtins
+
+```python
+# name = input("Enter your name:")
+# print("Hello", name)
+
+vals = [1, -2, 0, 3, 4, 11, -4, 5]
+
+minimum = min(vals)
+maximum = max(vals)
+suma = sum(vals)
+length = len(vals)
+
+print(minimum, maximum, suma, length)
+```
+
+
 ## prvy
 
 ```python
@@ -16,11 +33,6 @@ print(vals)
 words = ['sky', 'war', 'water', 'sky']
 print(words)
 ```
-
-
-
-
-
 
 
 
