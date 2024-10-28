@@ -1,5 +1,48 @@
 # Priklady
 
+
+## prvy
+
+```python
+name = "John Doe"
+age = 34
+weight = 55.6
+
+print(name, age, weight)
+
+vals = [1, 2, 3, 4, 5, 6, 7]
+print(vals)
+
+words = ['sky', 'war', 'water', 'sky']
+print(words)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Fetch users from URL 
 
 ```python
