@@ -1,5 +1,21 @@
 # Priklady
 
+## startswith/endswith
+
+```python
+word = 'falcon'
+
+print(word[0])
+print(word[1])
+
+print(word.upper())
+print(word.startswith('w'))
+print(word.startswith('f'))
+
+print(word.endswith('m'))
+print(word.endswith('n'))
+```
+
 
 ## Compound assignment
 
