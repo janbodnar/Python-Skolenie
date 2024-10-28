@@ -1,5 +1,16 @@
 # Priklady
 
+
+## Upper
+
+```python
+words = ['sky', 'war', 'water', 'forest', 'cloud']
+
+for word in words:
+    print(word.upper())
+```
+
+
 ## Vypocet sumy
 
 ```python
