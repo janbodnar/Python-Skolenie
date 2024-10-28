@@ -1,5 +1,24 @@
 # Priklady
 
+## Vypocet sumy
+
+```python
+
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+mysum = 0
+
+for val in vals:
+    mysum = mysum + val
+
+print(mysum)
+```
+
+
+
+
+
+
 ## while cycle
 
 ```python
