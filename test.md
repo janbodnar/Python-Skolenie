@@ -1,6 +1,22 @@
 # Priklady
 
 
+## Compound assignment
+
+```python
+x = 5
+# x = x + 2
+x += 2
+print(x)
+
+y = 2
+# y = y * 3
+y += 3
+print(y)
+```
+
+
+
 ```python
 words = ['sky', 'cup', 'war', 'atom']
 
