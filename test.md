@@ -1,5 +1,14 @@
 # Priklady
 
+## pretypovanie
+
+```python
+n = 12
+word = 'falcons'
+
+print(str(n) + ' ' + word)
+```
+
 
 ## Vypis slov a velkosti
 
