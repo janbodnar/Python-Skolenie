@@ -1,5 +1,20 @@
 # Priklady
 
+## while cycle
+
+```python
+word = 'falcon'
+
+i = 0
+
+while i < 10:
+    print(word)
+    i = i + 1
+
+print('end of program')
+```
+
+
 ## if podmientka
 
 ```python
