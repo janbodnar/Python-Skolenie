@@ -1,5 +1,31 @@
 # Priklady
 
+
+## Calculate sum from string
+
+```python
+data = "1,2,3,4,5,6,7,8,9,10"
+
+fields = data.split(',')
+print(fields)
+
+# for cyklus
+# pretypovanie
+# zadefinovanie premennej sumy
+
+mysum = 0
+
+for field in fields:
+    mysum += int(field)
+
+print(mysum)
+```
+
+
+
+## Escapes
+
+
 ```python
 print("this film was 'great'")
 print('this film was \'great\'')
