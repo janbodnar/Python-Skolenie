@@ -1,6 +1,12 @@
 # Priklady
 
 ```python
+print("this film was 'great'")
+print('this film was \'great\'')
+```
+
+
+```python
 name = 'Peter'
 age = 23
 job = 'gardener'
