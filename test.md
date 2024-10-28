@@ -1,5 +1,16 @@
 # Priklady
 
+```python
+name = 'Peter'
+age = 23
+job = 'gardener'
+
+print('%s is %d years old and he is a %s' % (name, age, job))
+print('{} is {} years old and he is a {}'.format(name, age, job))
+print(f'{name} is {age} years old and he is a {job}')
+```
+
+
 ## conditional printing
 
 ```python
