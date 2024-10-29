@@ -1,5 +1,35 @@
 # Priklady
 
+## Filter empty words
+
+```python
+data = """
+sky
+dark
+warm
+
+water
+cup
+
+ten
+
+rock
+"""
+
+fields = data.split('\n')
+print(fields)
+
+words = []
+
+for field in fields:
+    if field != '':
+        words.append(field)
+
+print(words)
+```
+
+
+
 ## input from user
 
 ```python
