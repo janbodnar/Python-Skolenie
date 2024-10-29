@@ -1,5 +1,19 @@
 # Priklady
 
+## Filtering by type
+
+```python
+words = []
+data = ('sky', 1, 2, True, 'forest', 3.4, 6.7, False, 'water')
+
+for e in data:
+    if type(e) == str:
+        words.append(e)
+
+
+print(words)
+```
+
 
 ## Floats
 
