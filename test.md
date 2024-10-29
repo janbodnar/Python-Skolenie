@@ -1,5 +1,23 @@
 # Priklady
 
+## implicitne argumenty
+
+```python
+def power(x, y):
+    r = 1
+
+    for i in range(y):
+        r = r * x
+
+    return r
+
+
+print(power(3, 2))
+print(power(3, 3), end=' ')
+print(power(5, 5), end=' ')
+```
+
+
 ## Celsius to fahrenheit
 
 ```python
