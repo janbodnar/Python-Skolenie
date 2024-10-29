@@ -1,5 +1,15 @@
 # Priklady
 
+## input from user
+
+```python
+x = int(input('enter first integer value: '))
+y = int(input('enter second integer value: '))
+
+print(f'addition of {x} and {y} is {x + y}')
+print(f'multiplication of {x} and {y} is {x * y}')
+```
+
 
 ## nacitanie slov do zoznamu
 
