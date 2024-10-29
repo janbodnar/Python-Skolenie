@@ -1,6 +1,24 @@
 # Priklady
 
 
+## Vykonanie operacie x krat
+
+```python
+msg = 'hello there!'
+
+i = 1
+
+while i <= 10:
+    print(msg)
+    i += 1
+
+print('-----------------------')
+
+for i in range(10):
+    print(msg)
+```
+
+
 ## podmienene vypisovanie slov
 
 `words.txt`:
