@@ -1,5 +1,24 @@
 # Priklady
 
+## compute sum of CSV data in file
+
+```python
+mysum = 0
+file_name = 'data.csv'
+
+with open(file_name, 'r') as f:
+    lines = f.readlines()
+
+    for line in lines:
+        fields = line.rstrip().split(",")
+        for field in fields:
+            mysum += int(field)
+
+
+print(mysum)
+```
+
+
 ## compute sum from string of CSV vals
 
 ```python
