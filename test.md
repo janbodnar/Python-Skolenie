@@ -12,6 +12,16 @@ negatives = list(filter(lambda e: e < 0, vals))
 print(negatives)
 ```
 
+```python
+words = ['sky', 'war', 'warm', 'water', 'cup', 'cloud', 'forest']
+
+words_w = list(filter(lambda e: e.startswith('w'), words))
+print(words_w)
+
+words_w_c = list(filter(lambda e: e.startswith(('w', 'c')), words))
+print(words_w_c)
+```
+
 
 
 ## map function
