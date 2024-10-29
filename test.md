@@ -18,6 +18,22 @@ vals_cubed = list(map(cube, vals))
 print(vals_cubed)
 ```
 
+---
+
+```python
+def string_upper(e):
+    return e.upper()
+
+
+words = ['sky', 'blue', 'war', 'forest']
+# words_uppered = list(map(string_upper, words))
+words_uppered = list(map(lambda e: e.upper(), words))
+
+print(words_uppered)
+print(words)
+```
+
+
 ## map with lambda
 
 ```python
