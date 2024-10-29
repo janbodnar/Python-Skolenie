@@ -1,5 +1,30 @@
 # Priklady
 
+## compute sum from string of CSV vals
+
+```python
+data = """
+1,2,3,4,5
+6,7,8,9,10
+11,12,13,14,15
+"""
+
+mysum = 0
+
+lines = data.splitlines()[1:]
+# lines.pop(0)
+print(lines)
+
+for line in lines:
+    fields = line.split(',')
+
+    for field in fields:
+        mysum += int(field)
+
+print(mysum)
+```
+
+
 ## implicitne argumenty
 
 ```python
