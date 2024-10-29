@@ -1,6 +1,24 @@
 # Priklady
 
 
+## Floats
+
+```python
+# 100 m is 0.1 km
+
+distance = 0.1
+
+# 9.87 s is 9.87/60*60 h
+
+time = 9.87 / 3600
+
+speed = distance / time
+
+print(f"The average speed of a sprinter is {round(speed, 2)} km/h")
+print(f"The average speed of a sprinter is {speed} km/h")
+```
+
+
 ## Vykonanie operacie x krat
 
 ```python
