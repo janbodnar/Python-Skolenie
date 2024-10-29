@@ -835,7 +835,7 @@ for val in domains.values():
     print(val)
 
 for k, v in domains.items():
-    print(": ".join((k, v)))
+    print(f'{k}: {v}')
 ```
 
 ## None
