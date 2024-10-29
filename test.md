@@ -1,5 +1,19 @@
 # Priklady
 
+## Celsius to fahrenheit
+
+```python
+def cel_to_fahr(c):
+    return c * 9/5 + 32
+
+f1 = cel_to_fahr(100)
+f2 = cel_to_fahr(0)
+f3 = cel_to_fahr(30)
+
+print(f1, f2, f3)
+```
+
+
 ## keeplines funkcia
 
 ```python
