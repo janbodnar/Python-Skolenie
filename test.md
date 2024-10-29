@@ -1,5 +1,24 @@
 # Priklady
 
+## keeplines funkcia
+
+```python
+data = """
+sky
+dark
+warm
+water
+cup
+ten
+rock
+"""
+
+lines = data.splitlines()
+lines.pop(0)
+print(lines)
+```
+
+
 ## Filter empty words
 
 ```python
