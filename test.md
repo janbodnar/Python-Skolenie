@@ -1,5 +1,25 @@
 # Priklady
 
+## map function
+
+```python
+def twice(e):
+    return e * 2
+
+def cube(e):
+    return e * e * e
+
+vals = [1, 2, 3, 4, 5]
+
+vals2 = list(map(twice, vals))
+print(vals2)
+
+vals_cubed = list(map(cube, vals))
+print(vals_cubed)
+```
+
+
+
 ## compute sum of CSV data in file
 
 ```python
