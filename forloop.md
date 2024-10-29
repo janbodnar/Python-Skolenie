@@ -381,8 +381,6 @@ whole loop. It initiates a new cycle.
 ```python
 #!/usr/bin/python
 
-num = 0
-
 for num in range(1000):
        
    if num % 2 == 0:
