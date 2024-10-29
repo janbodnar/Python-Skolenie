@@ -485,7 +485,6 @@ A big integer is printed in formats where thousand groups are separated with
 
 ```
 $ python main.py
-python main.py
 1200400001
 1_200_400_001
 1,200,400,001
