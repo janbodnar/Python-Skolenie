@@ -1,6 +1,35 @@
 # Priklady
 
 
+## podmienene vypisovanie slov
+
+`words.txt`:
+
+```
+war
+sky
+cup
+cloud
+nice
+water
+warm
+```
+
+```python
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+
+    lines = f.readlines()
+    print(lines)
+
+    for line in lines:
+
+        if line.startswith(('w', 'c')):
+            print(line.rstrip())
+```
+
+
 ## Opakovanie
 
 ```python
