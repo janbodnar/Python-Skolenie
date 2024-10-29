@@ -1,5 +1,26 @@
 # Priklady
 
+## read and filter words from file
+
+```python
+import re
+
+file_name = 'thermopylae.txt'
+
+with open(file_name, 'r') as f:
+    content = f.read()
+    print(content)
+
+    words = re.split(r'\W+', content)
+    words.pop()
+    print(words)
+
+    words_2_3 = list(filter(lambda e: len(e) == 2 or len(e) == 3, words))
+    print(words_2_3)
+```
+
+
+
 ## filter function
 
 ```python
