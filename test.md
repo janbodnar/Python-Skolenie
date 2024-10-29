@@ -20,6 +20,9 @@ print(words_w)
 
 words_w_c = list(filter(lambda e: e.startswith(('w', 'c')), words))
 print(words_w_c)
+
+words_3c = list(filter(lambda e: len(e) == 3, words))
+print(words_3c)
 ```
 
 
