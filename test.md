@@ -18,6 +18,18 @@ vals_cubed = list(map(cube, vals))
 print(vals_cubed)
 ```
 
+## map with lambda
+
+```python
+vals = [1, 2, 3, 4, 5]
+
+vals2 = list(map(lambda e: e * 2, vals))
+print(vals2)
+
+vals_cubed = list(map(lambda e: e * e * e, vals))
+print(vals_cubed)
+```
+
 
 
 ## compute sum of CSV data in file
