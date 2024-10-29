@@ -384,9 +384,7 @@ whole loop. It initiates a new cycle.
 num = 0
 
 for num in range(1000):
-    
-   num = num + 1
-   
+       
    if num % 2 == 0:
       continue
       
