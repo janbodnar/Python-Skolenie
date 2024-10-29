@@ -1,6 +1,26 @@
 # Priklady
 
 
+## nacitanie slov do zoznamu
+
+```python
+words = []
+
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+    lines = f.readlines()
+
+    for line in lines:
+        cleaned_word = line.strip()
+        words.append(cleaned_word)
+
+
+words.sort()
+print(words)
+```
+
+
 ## Indexing
 
 ```python
