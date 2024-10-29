@@ -1,5 +1,19 @@
 # Priklady
 
+## filter function
+
+```python
+vals = [1, 2, 3, -4, 0, -8, -9, -1, 9]
+
+positives = list(filter(lambda e: e > 0, vals))
+print(positives)
+
+negatives = list(filter(lambda e: e < 0, vals))
+print(negatives)
+```
+
+
+
 ## map function
 
 ```python
