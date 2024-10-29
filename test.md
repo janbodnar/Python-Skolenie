@@ -1,5 +1,20 @@
 # Priklady
 
+
+## tuple/list builtins
+
+```python
+first = [1, 2, 3]
+
+first_n = tuple(first)
+print(first_n, type(first_n))
+
+second = (5, 6, 7)
+second_l = list(second)
+print(second_l, type(second_l))
+```
+
+
 ## Filtering by type
 
 ```python
