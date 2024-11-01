@@ -33,6 +33,7 @@ in collections, or passed as arguments. This brings additional flexibility to th
 [Function redefinition](#function-redefinition)  
 [No function hoisting](#no-function-hoisting)  
 [Collection of functions](#collection-of-functions)  
+[Closures](#closures)  
 
 ## Function definition
 
@@ -628,6 +629,40 @@ h(f)
 h(g)
 ```
 
+## Closures 
 
+A *closure* is a function that has access to variables in its outer (enclosing) function's scope,  
+even after the outer function has returned. This concept is fundamental in functional programming  
+languages and is often used to create self-contained functions with their own private state. 
+
+Key characteristics of a closure:  
+
+- Function: A closure is always a function.
+- Access to Outer Variables: It has access to variables defined in its outer function's scope.
+- Persistence of State: The outer function's variables remain accessible even after the outer
+  function has finished executing.
+
+
+```python
+def create_counter():
+    count = 0
+
+    def increment():
+        nonlocal count
+        count += 1
+        return count
+
+    def get_count():
+        return count
+
+    return increment, get_count
+
+increment, get_count = create_counter()
+
+for _ in range(5):
+    increment()
+
+print(get_count())  # Output: 5
+```
 
 
