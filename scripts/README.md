@@ -69,7 +69,7 @@ print(f'There are {non_blanks + blanks} lines')
 print(f'There are {blanks} blank lines')
 ```
 
-## Read remove CSV file
+## Read remote CSV file
 
 ```python
 import requests
