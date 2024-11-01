@@ -189,6 +189,22 @@ The average speed of a sprinter is  36.4741641337 km/h
 This is the output of the `sprinter.py` script. Value `36.4741641337` is a floating point number.
 
 
+The `math.isclose` function is used to determine whether two floating-point numbers are  
+close to each other, within a specified tolerance. This is particularly useful for comparing  
+floating-point numbers, which can often have small differences due to the imprecision of  
+floating-point arithmetic.
+
+```python
+import math
+
+a = 0.1 + 0.2
+b = 0.3
+tolerance = 1e-9
+
+print(math.isclose(a, b, abs_tol=tolerance))  # Output: True
+```
+
+
 ## Strings
 
 String is a data type representing textual data in computer programs.
