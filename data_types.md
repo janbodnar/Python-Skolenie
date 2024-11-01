@@ -170,13 +170,13 @@ time = 9.87 / 3600
 
 speed = distance / time
 
-print("The average speed of a sprinter is {0} km/h".format(speed))
+print(f'The average speed of a sprinter is {speed} km/h')
 ```
 
 To get the speed, we divide the distance by the time.
 
 ```python
-print("The average speed of a sprinter is {0} km/h".format(speed))
+print(f'The average speed of a sprinter is {speed} km/h')
 ```
 
 We build the message with the format function and print it to the console.
