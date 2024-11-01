@@ -667,13 +667,13 @@ print(get_count())  # Output: 5
 
 Common Use Cases:
 
-- Creating private variables: Closures can be used to create variables that are private
+- Creating private variables: Closures can be used to create variables that are private  
   to a specific function or module.
-- Implementing callbacks: Closures can be used to create functions that can be passed as
-  arguments to other functions, capturing specific state.
-- Decorators: Closures are often used to implement decorators, which are functions that
-  modify the behavior of other functions.
-- Memoization: Closures can be used to implement memoization techniques, which can improve
-  performance by caching the results of function calls.
+- Implementing callbacks: Closures can be used to create functions that can be passed as  
+  arguments to other functions, capturing specific state.  
+- Decorators: Closures are often used to implement decorators, which are functions that  
+  modify the behavior of other functions.  
+- Memoization: Closures can be used to implement memoization techniques, which can improve  
+  performance by caching the results of function calls.  
 
 
