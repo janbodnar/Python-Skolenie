@@ -638,8 +638,8 @@ languages and is often used to create self-contained functions with their own pr
 Key characteristics of a closure:  
 
 - Function: A closure is always a function.
-- Access to Outer Variables: It has access to variables defined in its outer function's scope.
-- Persistence of State: The outer function's variables remain accessible even after the outer
+- Access to Outer Variables: It has access to variables defined in its outer function's scope.  
+- Persistence of State: The outer function's variables remain accessible even after the outer  
   function has finished executing.
 
 
