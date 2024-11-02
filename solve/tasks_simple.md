@@ -70,6 +70,17 @@ print('passed')
 ```python
 vals = [2, 1, 3, 5, 4]
 
+vals_sorted_desc = ...
+
+assert vals_sorted_desc == [5, 4, 3, 2, 1]
+print('passed')
+```
+
+## Task 7
+
+```python
+vals = [2, 1, 3, 5, 4]
+
 vals_reversed = ...
 
 assert vals_reversed == [4, 5, 3, 1, 2]
