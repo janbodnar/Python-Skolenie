@@ -65,3 +65,15 @@ assert vals_sorted == [1, 2, 3, 4, 5]
 print('passed')
 ```
 
+## Task 6
+
+```python
+vals = [2, 1, 3, 5, 4]
+
+vals_reversed = ...
+
+assert vals_reversed == [4, 5, 3, 1, 2]
+print('passed')
+```
+
+
