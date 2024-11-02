@@ -116,3 +116,26 @@ assert sales_22_23 == 570000
 print('passed')
 ```
 
+## Task 10
+
+```python
+vals = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+mysum = 0
+
+...
+
+assert mysum == 55
+print('passed')
+```
+
+## Task 11
+
+```python
+vals = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+
+flattened = ...
+
+assert flattened == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print('passed')
+```
+
