@@ -87,4 +87,19 @@ assert vals_reversed == [4, 5, 3, 1, 2]
 print('passed')
 ```
 
+## Task 8
+
+```python
+data = '''
+1,2,3,4,5
+6,7,8,9,10
+'''
+
+mysum = 0
+
+...
+
+assert mysum == 55
+print('passed')
+```
 
