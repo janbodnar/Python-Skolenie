@@ -26,3 +26,26 @@ mysum = 0
 assert mysum == 15
 print('passed')
 ```
+
+## Task 3
+
+```python
+vals = [2, 1, 3, 5, 4]
+
+...
+
+assert vals == [1, 2, 3, 4, 5]
+print('passed')
+```
+
+## Task 4
+
+```python
+vals = [2, 1, 3, 5, 4]
+
+vals_sorted = ...
+
+assert vals_sorted == [1, 2, 3, 4, 5]
+print('passed')
+```
+
