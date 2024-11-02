@@ -119,6 +119,17 @@ print('passed')
 ## Task 10
 
 ```python
+sales = {'2019': 43000, '2020': 55000, '2021': 65000}
+
+...
+
+assert sales == {'2019': 44400, '2020': 55000, '2021': 65000, '2022': 67900}
+print('passed')
+```
+
+## Task 11
+
+```python
 vals = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
 mysum = 0
 
@@ -128,7 +139,7 @@ assert mysum == 55
 print('passed')
 ```
 
-## Task 11
+## Task 12
 
 ```python
 vals = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
@@ -139,7 +150,7 @@ assert flattened == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print('passed')
 ```
 
-## Task 12
+## Task 13
 
 ```python
 words = ['war', 'water', 'sky', 'nice', 'snow', 'ten', 'warm', 'paper']
