@@ -186,6 +186,45 @@ print(f'random word: {rword}')
 
 We pass `len(words) - 1)` into the function.  
 
+## TypeError
+
+A `TypeError` is an exception that indicates an operation or function was  
+applied to an object of inappropriate type. It often helps catch and correct  
+type-related bugs in your code.  
+
+If an index of a tuple is not a plain integer a `TypeError` is thrown.  
+
+```python
+n = [1, 2, 3, 4, 5]
+
+try:
+    print(n[1])
+    print(n['2'])
+
+except TypeError as e:
+
+    print("Error in file {0}".format( __file__))
+    print("Message: {0}".format(e))
+```
+
+This example throws a `TypeError`.
+
+```python
+print(n['2'])
+```
+
+A list index must be an integer. Other types end in error.
+
+```python
+except TypeError as e:
+
+    print("Error in file {0}".format( __file__))
+    print("Message: {0}".format(e))
+```
+
+In the except block, we print the name of the file, where the exception has  
+occurred and the message string.  
+
 ## ImportError 
 
 ```python
