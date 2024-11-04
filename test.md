@@ -1,6 +1,32 @@
 # Priklady
 
 
+## Read CSV data into namedtuples
+
+```python
+
+from collections import namedtuple
+import csv
+
+User = namedtuple('User', 'first_name last_name occupation')
+
+file_name = 'users.csv'
+users = []
+
+with open(file_name, 'r') as f:
+
+    reader = csv.reader(f)
+
+    for line in reader:
+        user = User(line[0], line[1], line[2])
+        users.append(user)
+
+
+print(users)
+```
+
+
+
 ```python
 from collections import namedtuple
 
