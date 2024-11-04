@@ -23,6 +23,26 @@ words_w_f = [word for word in words if word.startswith(('w', 'f'))]
 print(words_w_f)
 ```
 
+```python
+a = ['a', 2, 1.2, 'c', 12, 3, 'd', 23.4]
+
+b = [e for e in a if type(e) == int]
+c = [e for e in a if type(e) == str]
+d = [e for e in a if type(e) == float]
+
+print(b)
+print(c)
+print(d)
+
+float_values = []
+
+for val in a:
+    if type(val) == float:
+        float_values.append((val))
+
+print(float_values)
+```
+
 
 
 ## filter & map
