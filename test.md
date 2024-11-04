@@ -1,5 +1,16 @@
 # Priklady
 
+
+```python
+def cube(x):
+    return x * x * x
+
+c = 5
+
+print(f'The cube of {c} is {cube(c)}')
+```
+
+
 ```python
 # vypis hlasku pomocou fstringu
 name = 'John Doe'
