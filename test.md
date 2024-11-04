@@ -16,6 +16,13 @@ words_3 = [word for word in words if len(word) == 3]
 print(words_3)
 ```
 
+```python
+words = ['sky', 'ten', 'word', 'tomorrow', 'war', 'pen', 'fly', 'float']
+# words_w_f = [word for word in words if word.startswith('w') or word.startswith('f')]
+words_w_f = [word for word in words if word.startswith(('w', 'f'))]
+print(words_w_f)
+```
+
 
 
 ## filter & map
