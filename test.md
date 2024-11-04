@@ -1,5 +1,18 @@
 # Priklady
 
+## filter & map
+
+```python
+vals = [1, 2, 3, 4, 5]
+
+vals2 = list(map(lambda e: e * 2, vals))
+print(vals2)
+
+vals3 = list(filter(lambda e: e % 2 == 0, vals))
+print(vals3)
+```
+
+
 
 ## Read CSV data into namedtuples
 
