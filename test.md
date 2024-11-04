@@ -1,5 +1,23 @@
 # Priklady
 
+## list comprehension
+
+```python
+vals = [-4, 2, 0, -1, 12, -3]
+
+positive = [e for e in vals if e > 0]
+print(positive)
+
+negative = [e for e in vals if e < 0]
+print(negative)
+
+words = ['sky', 'ten', 'word', 'tomorrow', 'war', 'pen', 'fly']
+words_3 = [word for word in words if len(word) == 3]
+print(words_3)
+```
+
+
+
 ## filter & map
 
 ```python
