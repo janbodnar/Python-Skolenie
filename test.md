@@ -1,5 +1,25 @@
 # Priklady
 
+
+## Show Python version and read text file
+
+```python
+
+import sys
+
+print(sys.version)
+print(sys.executable)
+
+
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+
+    for line in f:
+        print(line.strip())
+```
+
+
 ## list comprehension
 
 ```python
