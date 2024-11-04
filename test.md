@@ -25,7 +25,7 @@ with open(file_name, 'r') as f:
 print(users)
 ```
 
-
+## Simple namedtuples
 
 ```python
 from collections import namedtuple
