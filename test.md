@@ -4,7 +4,6 @@
 ## Read CSV data into namedtuples
 
 ```python
-
 from collections import namedtuple
 import csv
 
@@ -17,8 +16,9 @@ with open(file_name, 'r') as f:
 
     reader = csv.reader(f)
 
-    for line in reader:
-        user = User(line[0], line[1], line[2])
+    for fields in reader:
+        # user = User(fields[0], fields[1], fields[2])
+        user = User(*fields)
         users.append(user)
 
 
