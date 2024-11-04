@@ -2,6 +2,22 @@
 
 
 ```python
+from collections import namedtuple
+
+User = namedtuple('User', 'first_name last_name occupation')
+
+u1 = User('John', 'Doe', 'gardener')
+# print(u1)
+
+print(f'{u1.first_name} {u1.last_name} is a {u1.occupation}')
+
+u2 = User('Roger', 'Roe', 'driver')
+# print(u2)
+print(f'{u2.first_name} {u2.last_name} is a {u2.occupation}')
+```
+
+
+```python
 def cube(x):
     return x * x * x
 
