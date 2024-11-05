@@ -194,15 +194,14 @@ cs = "dbname='testdb' user='postgres' password='s$cret'"
 
 with psycopg.connect(cs) as con:
         
-        with con.cursor() as cur:
-    
-            cur = con.cursor()
-            cur.execute("SELECT * FROM cars")
+     with con.cursor() as cur:
+ 
+         cur.execute("SELECT * FROM cars")
 
-            rows = cur.fetchall()
+         rows = cur.fetchall()
 
-            for row in rows:
-                print(f"{row[0]} {row[1]} {row[2]}")
+         for row in rows:
+             print(f"{row[0]} {row[1]} {row[2]}")
 ```
 
 ## fetch_one
