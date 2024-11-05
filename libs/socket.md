@@ -208,6 +208,8 @@ A head request is issued with the HEAD command followed by the resource URL and
 HTTP protocol version. Note that the `\r\n` are mandatory part of the  
 communication process. The details are described in RFC 7231 document.  
 
+HTTPS:  
+
 ```python
 import socket
 import ssl
