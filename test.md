@@ -1,5 +1,29 @@
 # Priklady
 
+
+## Generate users
+
+```python
+from faker import Faker
+
+faker = Faker()
+
+file_name = 'users.csv'
+
+with open(file_name, 'w') as f:
+
+    for i in range(100_000):
+        first_name = faker.first_name()    
+        last_name = faker.last_name()
+        city = faker.city()
+        salary = faker.random_int(800, 3500)
+
+        line = f'{first_name},{last_name},{city},{salary}\n'
+        
+        f.write(line)
+```
+
+
 ## Fetch car name
 
 ```python
