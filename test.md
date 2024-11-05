@@ -1,6 +1,6 @@
 # Priklady
 
-
+## Rectangle
 
 ```python
 class Rectangle:
@@ -29,6 +29,25 @@ r = Rectangle(10, 10)
 print(r.area())
 
 r.setWidth(5)
+print(r.area())
+```
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Rectangle:
+    width: int
+    height: int
+
+    def area(self):
+        return self.width * self.height
+
+r = Rectangle(10, 10)
+print(r.area())
+
+# r.setWidth(5)
+r.width = 5
 print(r.area())
 ```
 
