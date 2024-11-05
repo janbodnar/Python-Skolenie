@@ -1,6 +1,38 @@
 # Priklady
 
 
+
+```python
+class Rectangle:
+
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def getWidth(self):
+        return self.width 
+
+    def setWidth(self, width):
+        self.width = width
+
+    def getHeight(self):
+        return self.height 
+
+    def setHeight(self, height):
+        self.height = height
+
+    def area(self):
+        return self.height * self.width
+
+
+r = Rectangle(10, 10)
+print(r.area())
+
+r.setWidth(5)
+print(r.area())
+```
+
+
 ## Opakovanie
 
 The `users.csv` file:  
