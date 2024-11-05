@@ -208,6 +208,23 @@ A head request is issued with the HEAD command followed by the resource URL and
 HTTP protocol version. Note that the `\r\n` are mandatory part of the  
 communication process. The details are described in RFC 7231 document.  
 
+```python
+import socket
+import ssl
+
+# Create a socket and wrap it with SSL
+context = ssl.create_default_context()
+with socket.create_connection(("webcode.me", 443)) as sock:
+    with context.wrap_socket(sock, server_hostname="webcode.me") as ssock:
+        # Send HTTPS request
+        ssock.sendall(b"HEAD / HTTP/1.1\r\nHost: webcode.me\r\nAccept: text/html\r\n\r\n")
+        
+        # Receive and print the response
+        print(str(ssock.recv(1024), 'utf-8'))
+```
+
+
+
 ## Socket GET request
 
 The HTTP GET method requests a representation of the specified resource.  
