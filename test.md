@@ -1,6 +1,30 @@
 # Priklady
 
 
+## Opakovanie
+
+```python
+# calculate sum
+vals = [1, 2, 3, 4, 5]
+
+# calculate number of letters
+words = ['sky', 'town', 'nest', 'rock', 'falcon', 'forest']
+
+# calculate the number of vowels
+msg = 'there is an old falcon in the sky'
+
+
+# read users.csv file and create a list of user objects
+# using namedtuples
+
+file_name = 'users.csv'
+```
+
+
+
+
+
+
 ## Show Python version and read text file
 
 ```python
