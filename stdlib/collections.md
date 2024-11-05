@@ -35,6 +35,36 @@ for k, v in animals2.items():
 print(animals3)
 ```
 
+## Deque
+
+A deque (short for "double-ended queue") is a data structure provided by the collections  
+module in Python. It is similar to a list but optimized for fast, O(1) append and pop  
+operations from both ends, making it useful for implementing queues, stacks, and other  
+data structures.
+
+```python
+from collections import deque
+
+def is_palindrome(s):
+    # Remove non-alphanumeric characters and convert to lowercase
+    s = ''.join(c for c in s if c.isalnum()).lower()
+    
+    # Create a deque from the string
+    d = deque(s)
+    
+    # Check if the string is a palindrome
+    while len(d) > 1:
+        if d.popleft() != d.pop():
+            return False
+    return True
+
+# Test examples
+print(is_palindrome("A man, a plan, a canal, Panama"))  # Output: True
+print(is_palindrome("racecar"))                        # Output: True
+print(is_palindrome("hello"))                          # Output: False
+```
+
+
 ## Counter
 
 ```python
