@@ -31,6 +31,71 @@ file_name = 'users.csv'
 ```
 
 
+## Riesenie
+
+```python
+
+# calculate sum
+vals = [1, 2, 3, 4, 5]
+mysum = 0
+
+for val in vals:
+    mysum += val
+
+print(mysum)
+
+
+# calculate number of letters
+words = ['sky', 'town', 'nest', 'rock', 'falcon', 'forest']
+
+count_letters = 0
+
+for word in words:
+    count_letters += len(word)
+
+print(f'there are {count_letters} letters in the list')
+
+
+# calculate the number of vowels
+msg = 'there is an old falcon in the sky'
+
+count_vowels = 0
+
+for char in msg:
+    if char in 'aeiou':
+        count_vowels += 1
+
+print(count_vowels)
+
+# read users.csv file and create a list of user objects
+# using namedtuples
+
+from collections import namedtuple
+import csv
+
+User = namedtuple('User', 'first_name last_name occupation salary')
+
+users = []
+
+file_name = 'users.csv'
+
+with open(file_name, 'r') as f:
+
+    reader = csv.reader(f)
+
+    for fields in reader:
+        # print(fields)
+        user = User(fields[0], fields[1], fields[2], fields[3])
+        # user = User(*fields)
+        users.append(user)
+
+
+# print(users)
+
+users_2000 = [user for user in users if int(user.salary) > 2000] 
+print(users_2000)
+```
+
 
 
 
