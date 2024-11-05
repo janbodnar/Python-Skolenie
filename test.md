@@ -3,6 +3,16 @@
 
 ## Opakovanie
 
+The `users.csv` file:  
+
+```
+Tom,Jones,carpenter,2900
+John,Doe,gardener,980
+Paul,Novak,programmer,2300
+Lucy,Smith,teacher,1400
+```
+
+
 ```python
 # calculate sum
 vals = [1, 2, 3, 4, 5]
