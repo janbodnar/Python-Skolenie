@@ -1,5 +1,22 @@
 # Priklady
 
+## Fetch car name
+
+```python
+import psycopg
+
+cs = "dbname='testdb' user='postgres' password='postgres'"
+
+with psycopg.connect(cs) as con:
+
+    with con.execute("SELECT name FROM cars WHERE id = 1") as cur:
+
+        row = cur.fetchone()
+        # print(row)
+        print(f"the name is: {row[0]}")
+```
+
+
 ## SELECT alll cars
 
 ```python
