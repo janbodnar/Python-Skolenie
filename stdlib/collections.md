@@ -64,6 +64,53 @@ print(is_palindrome("racecar"))                        # Output: True
 print(is_palindrome("hello"))                          # Output: False
 ```
 
+## defaultdict
+
+The defaultdict is a subclass of the built-in Python dictionary (dict). It overrides  
+one method to provide a default value for a nonexistent key. Essentially, it simplifies  
+the process of handling missing keys by automatically initializing them with a default value.
+
+```python
+from collections import defaultdict
+
+def char_count(s):
+    # Initialize defaultdict with int as the default factory
+    count = defaultdict(int)
+    
+    for char in s:
+        count[char] += 1
+    
+    return count
+
+msg = "an old falcon in the sky"
+
+res = char_count(msg)
+print(res)
+```
+
+Group words in a list by their length:  
+
+```python
+from collections import defaultdict
+
+
+def group_words_by_length(words):
+    # Initialize defaultdict with list as the default factory
+    length_dict = defaultdict(list)
+
+    for word in words:
+        length_dict[len(word)].append(word)
+
+    return length_dict
+
+
+words = ['forest', 'war', 'ten', 'alternate',
+         'cloud', 'cup', 'sup', 'fig', 'grape']
+
+res = group_words_by_length(words)
+print(res)
+```
+
 
 ## Counter
 
