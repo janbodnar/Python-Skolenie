@@ -38,6 +38,48 @@ for user in users[:21]:
     print(user)
 ```
 
+---
+
+```python
+import psycopg
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    city: str
+    salary: int
+
+
+cs = "dbname='testdb' user='postgres' password='postgres'"
+users = []
+
+
+with psycopg.connect(cs) as con:
+
+    with con.cursor() as cur:
+
+        cur.execute("SELECT * from users")
+
+        rows = cur.fetchall()
+
+        print(len(rows))
+
+        for row in rows:
+            u = User(*row)
+            users.append(u)
+
+
+users_sorted_last_name = sorted(users, key=lambda user: user.last_name, reverse=True)
+
+
+for user in users_sorted_last_name[:21]:
+    print(user)
+```
+
 
 
 ## Generate users
