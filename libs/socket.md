@@ -234,20 +234,21 @@ Requests using GET should only retrieve data.
 
 ```python
 import socket
+import ssl
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-
-    s.connect(("webcode.me" , 80))
-    s.sendall(b"GET / HTTP/1.1\r\nHost: webcode.me\r\nAccept: text/html\r\nConnection: close\r\n\r\n")
-
-    while True:
-
-        data = s.recv(1024)
-
-        if not data:
-            break
-
-        print(data.decode())
+# Create a socket and wrap it with SSL
+context = ssl.create_default_context()
+with socket.create_connection(("webcode.me", 443)) as sock:
+    with context.wrap_socket(sock, server_hostname="webcode.me") as ssock:
+        # Send HTTPS request
+        ssock.sendall(b"GET / HTTP/1.1\r\nHost: webcode.me\r\nAccept: text/html\r\nConnection: close\r\n\r\n")
+        
+        # Receive and print the response
+        while True:
+            data = ssock.recv(1024)
+            if not data:
+                break
+            print(data.decode())
 ```
 
 The example reads the home page of the `webcode.me` using a GET request.  
