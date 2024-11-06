@@ -40,3 +40,25 @@ pn.panel("Panel 2").servable()
 pn.panel("Panel 3").servable()
 ```
 
+
+## Matplotlib example
+
+```python
+import panel as pn
+import matplotlib.pyplot as plt
+import numpy as np
+
+pn.extension()
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.plot(x, y)
+plot = pn.pane.Matplotlib(plt.gcf(), tight=True)
+
+app = pn.Column("# Simple Sine Wave Plot", plot)
+app.show()
+```
+
+
+
