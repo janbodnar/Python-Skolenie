@@ -1,5 +1,8 @@
 # Python packages 
 
+You can only relatively import modules inside another module in the same package.  
+https://stackoverflow.com/questions/16981921/relative-imports-in-python-3  
+
 A *package* is a collection of modules which have a common purpose. Package  
 directories must have one special file called `__init__.py`. (Since Python 3.3,  
 `__init__.py` is no longer required to define package directories.) A Python  
