@@ -57,4 +57,40 @@ for line in lines:
 print(mysum)
 ```
 
+```python
+import requests
+import csv
+from io import StringIO
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    occupation: str
+
+
+url = 'https://webcode.me/users.csv'
+
+resp = requests.get(url)
+content = resp.content.decode('utf8')
+
+users = []
+
+fcsv = StringIO(content)
+reader = csv.DictReader(fcsv)
+
+for line in reader:
+    u = User(int(line['id']), line['first_name'],
+             line['last_name'], line['occupation'])
+    # u = User(**line)
+    users.append(u)
+
+
+users_w = [user for user in users if user.last_name.startswith(('W', 'A'))]
+print(users_w)
+```
+
 
