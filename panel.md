@@ -8,6 +8,22 @@ the HoloViz ecosystem, which provides a suite of data exploration tools.
 pip install panel
 ```
 
+- show Method
+
+Purpose: Immediately displays the Panel object in a web browser.  
+Context: Ideal for local development, quick previews, and Jupyter notebooks.  
+Usage: Simply call `show` on your Panel object to open it in the default web browser.  
+
+- servable Method
+Purpose: Prepares the Panel object to be served by a Panel server.  
+Context: Used for deploying applications in a server environment for production use.  
+
+Usage: Call `servable` on your Panel object, then use the panel serve command  
+to serve the application.  
+
+In essence, use show for instant, local previews and servable for deploying  
+applications to be accessed over the web.  
+
 
 Main use cases:  
 
