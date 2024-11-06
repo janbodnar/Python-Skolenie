@@ -14,17 +14,17 @@ panel serve app.py
 
 Main use cases:  
 
-- Dashboards - Create interactive and dynamic dashboards to visualize and
+- Dashboards - Create interactive and dynamic dashboards to visualize and  
   explore data.
-- Web Applications - Develop web applications with user interfaces that interact
+- Web Applications - Develop web applications with user interfaces that interact  
   with Python code.
-- Exploratory Data Analysis - Build tools to quickly explore and analyze data
+- Exploratory Data Analysis - Build tools to quickly explore and analyze data  
   sets interactively.
-- Interactive Reports - Generate interactive reports that allow users to
+- Interactive Reports - Generate interactive reports that allow users to  
   manipulate data and visualize results.
-- Real-Time Monitoring - Set up real-time monitoring dashboards to track live
+- Real-Time Monitoring - Set up real-time monitoring dashboards to track live  
   data feeds and visualize changes.
-- Custom GUIs - Create custom graphical user interfaces for scientific
+- Custom GUIs - Create custom graphical user interfaces for scientific  
   computing, financial analysis, and other applications.
 
 
