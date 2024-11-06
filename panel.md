@@ -187,6 +187,41 @@ app = pn.Column("# Simple Sine Wave Plot", plot)
 app.show()
 ```
 
+## Load data
+
+```python
+import panel as pn
+import requests
+import pandas as pd
+
+# Initialize Panel extension
+pn.extension()
+
+# Function to fetch data and update the table
+def load_data(event):
+    url = text_input.value
+    response = requests.get(url)
+    data = response.json()
+    df = pd.DataFrame(data)
+    print(df)  # Debugging: Print the DataFrame to check its content
+    table.object = df  # Update the table object
+
+# Create a TextInput widget for URL
+text_input = pn.widgets.TextInput(name='JSON URL', value='https://jsonplaceholder.typicode.com/users')
+
+# Create a button
+button = pn.widgets.Button(name='Load Data', button_type='primary')
+button.on_click(load_data)
+
+# Create an empty DataFrame pane
+table = pn.pane.DataFrame(pd.DataFrame(), sizing_mode='stretch_width')
+
+# Create a layout with the TextInput, button, and the table
+app = pn.Column(pn.Row(text_input, button), table)
+
+# Serve the application
+app.show()
+```
 
 
 
