@@ -61,6 +61,23 @@ app = pn.Column(slider, text)
 app.show()
 ```
 
+## Column
+
+```python
+import panel as pn
+
+pn.extension(design="material")
+
+component = pn.panel("Hello World")
+layout = pn.Column(
+    component, pn.widgets.IntSlider(value=2, start=0, end=10, name="Value"),
+    pn.pane.HTML("<h1>Title</h1>")
+)
+print(layout)
+layout.servable()
+```
+
+
 ## Rows
 
 ```python
