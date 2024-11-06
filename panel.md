@@ -4,6 +4,14 @@ The Panel library is an open-source Python library designed to streamline the de
 of robust tools, dashboards, and complex applications entirely within Python. It is part of  
 the HoloViz ecosystem, which provides a suite of data exploration tools.
 
+```
+pip install panel
+```
+
+```
+panel serve app.py
+```
+
 Main use cases:  
 
 - Dashboards - Create interactive and dynamic dashboards to visualize and
@@ -18,4 +26,17 @@ Main use cases:
   data feeds and visualize changes.
 - Custom GUIs - Create custom graphical user interfaces for scientific
   computing, financial analysis, and other applications.
+
+
+## Simple 
+
+```python
+import panel as pn
+
+pn.extension()
+
+pn.panel("Panel 1").servable()
+pn.panel("Panel 2").servable()
+pn.panel("Panel 3").servable()
+```
 
