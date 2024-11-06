@@ -57,6 +57,9 @@ for line in lines:
 print(mysum)
 ```
 
+## Read CSV from URL using StringIO
+
+
 ```python
 import requests
 import csv
