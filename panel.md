@@ -8,9 +8,6 @@ the HoloViz ecosystem, which provides a suite of data exploration tools.
 pip install panel
 ```
 
-```
-panel serve app.py
-```
 
 Main use cases:  
 
