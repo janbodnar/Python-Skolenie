@@ -1,5 +1,24 @@
 # Priklady
 
+
+## Pandas read CSV from URL
+
+```python
+import pandas
+import requests
+from io import StringIO
+
+url = 'https://webcode.me/users.csv'
+resp = requests.get(url)
+content = resp.content.decode('utf8')
+
+csv_file = StringIO(content)
+
+df = pandas.read_csv(csv_file)
+print(df.head(20))
+```
+
+
 ## splitlines
 
 ```python
