@@ -40,6 +40,27 @@ pn.panel("Panel 2").servable()
 pn.panel("Panel 3").servable()
 ```
 
+## Slider
+
+```python
+import panel as pn
+
+# Initialize the Panel extension
+pn.extension()
+
+# Create a FloatSlider widget
+slider = pn.widgets.FloatSlider(name='Value', start=0, end=10, step=0.1)
+
+# Bind the slider value to a text display
+text = pn.bind(lambda x: f"Slider value: {x:.1f}", slider)
+
+# Create a layout with the slider and text display
+app = pn.Column(slider, text)
+
+# Display the app
+app.show()
+```
+
 ## Rows
 
 ```python
