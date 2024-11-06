@@ -40,6 +40,80 @@ pn.panel("Panel 2").servable()
 pn.panel("Panel 3").servable()
 ```
 
+## Rows
+
+```python
+import panel as pn
+
+#  Apply the custom CSS
+
+custom_css = """
+* {
+    background-color: #2e2e2e;
+    color: white;
+}
+"""
+
+# Apply the custom CSS
+pn.extension(raw_css=[custom_css])
+
+# # Create a Panel object
+# text = pn.pane.Markdown("## This is some text on a dark background")
+
+# # Display the Panel
+# pn.Row(text).show()
+
+
+component1 = pn.panel("Panel 1")
+component2 = pn.panel("Panel 2")
+
+base = pn.FlexBox(flex_direction='column')
+
+row1 = pn.Row(
+    component1, component2,
+    pn.pane.HTML("<p>paragraph</p>"),
+    pn.pane.Str(
+        'This is a raw string that will not be formatted in any way.',
+    )
+)
+
+row2 = pn.Row(
+    pn.pane.Markdown("""\
+# Wind Turbine
+
+A wind turbine is a device that converts the kinetic energy of wind into \
+[electrical energy](https://en.wikipedia.org/wiki/Electrical_energy).
+
+Read more [here](https://en.wikipedia.org/wiki/Wind_turbine).
+""")
+)
+
+base.append(row1)
+base.append(row2)
+
+print(base)
+base.servable()
+```
+
+## Dataframe
+
+```python
+import pandas as pd
+import panel as pn
+
+pn.extension()
+
+data = {'A': [1, 2, 3, 4], 'B': [5, 6, 7, 8], 'C': [9, 10, 11, 12]}
+df = pd.DataFrame(data)
+
+table = pn.widgets.DataFrame(df, name='DataFrame Viewer')
+table.width = 400
+table.height = 350
+
+app = pn.Column("# DataFrame Viewer", table)
+app.show()
+```
+
 
 ## Matplotlib example
 
@@ -59,6 +133,9 @@ plot = pn.pane.Matplotlib(plt.gcf(), tight=True)
 app = pn.Column("# Simple Sine Wave Plot", plot)
 app.show()
 ```
+
+
+
 
 
 
