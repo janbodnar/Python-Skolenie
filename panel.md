@@ -187,6 +187,38 @@ app = pn.Column("# Simple Sine Wave Plot", plot)
 app.show()
 ```
 
+## Matplotlib with slider 
+
+```python
+import panel as pn
+import matplotlib.pyplot as plt
+import numpy as np
+
+pn.extension()
+
+# Define the function to create the plot
+def create_plot(frequency):
+    x = np.linspace(0, 10, 100)
+    y = np.sin(frequency * x)
+    plt.figure()
+    plt.plot(x, y)
+    plt.title(f"Sine Wave with Frequency {frequency}")
+    return pn.pane.Matplotlib(plt.gcf(), tight=True)
+
+# Create a slider to control the frequency
+frequency_slider = pn.widgets.FloatSlider(name='Frequency', start=0.1, end=10, step=0.1, value=1)
+
+# Bind the slider value to the create_plot function
+interactive_plot = pn.bind(create_plot, frequency_slider)
+
+# Layout the slider and plot together
+app = pn.Column("# Interactive Sine Wave Plot", frequency_slider, interactive_plot)
+
+# Show the app
+app.show()
+```
+
+
 ## Load data
 
 ```python
