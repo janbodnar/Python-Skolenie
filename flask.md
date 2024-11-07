@@ -224,6 +224,21 @@ The `templates/show_users.html` file:
 </html>
 ```
 
+Return data as JSON:
+
+```python
+@app.route('/users2')
+def users_json():
+
+    con = get_db_connection()
+    users = con.execute('SELECT * FROM users').fetchall()
+    con.close()
+
+    users_list = [dict(user) for user in users]
+
+    return jsonify(users_list)
+```
+
 ## Debug toolbar
 
 `pip install flask-debugtoolbar`
