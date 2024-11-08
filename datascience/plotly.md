@@ -59,6 +59,8 @@ fig = px.bar(df_long, x='Country', y='Count', color='Medal', title='Medals Won b
 fig.show()
 ```
 
+## Bar chart with Flask
+
 ```python
 from flask import Flask, render_template_string
 import plotly.express as px
@@ -82,8 +84,12 @@ def index():
     # Melt the DataFrame to long format
     df_long = df.melt(id_vars='Country', var_name='Medal', value_name='Count')
 
-    # Create a bar chart
-    fig = px.bar(df_long, x='Country', y='Count', color='Medal', title='Medals Won by Country')
+    # Define custom colors
+    custom_colors = ['#FFD700', '#C0C0C0', '#CD7F32']
+
+    # Create a bar chart with custom colors
+    fig = px.bar(df_long, x='Country', y='Count', color='Medal', title='Medals Won by Country',
+                 color_discrete_sequence=custom_colors)
 
     # Convert the plotly figure to HTML
     plot_html = fig.to_html(full_html=False)
