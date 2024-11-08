@@ -33,6 +33,44 @@ if __name__ == "__main__":
     show_edit_environment_variables_dialog()
 ```
 
+## Change registry
+
+```python
+import winreg as reg
+import ctypes
+import os
+
+def enable_long_paths():
+    try:
+        # Open the registry key
+        key = reg.OpenKey(reg.HKEY_LOCAL_MACHINE, r"SYSTEM\CurrentControlSet\Control\FileSystem", 0, reg.KEY_SET_VALUE)
+
+        # Set the LongPathsEnabled value to 1
+        reg.SetValueEx(key, "LongPathsEnabled", 0, reg.REG_DWORD, 1)
+
+        # Close the registry key
+        reg.CloseKey(key)
+
+        # Inform the user
+        print("Successfully enabled long paths in the registry.")
+
+        # Check if the script has administrative privileges
+        try:
+            is_admin = os.getuid() == 0
+        except AttributeError:
+            is_admin = ctypes.windll.shell32.IsUserAnAdmin() != 0
+
+        if not is_admin:
+            print("Please run this script with administrative privileges for the changes to take effect.")
+
+    except PermissionError:
+        print("Error: You need to run this script as an administrator.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    enable_long_paths()
+```
 
 
 ## sys module 
