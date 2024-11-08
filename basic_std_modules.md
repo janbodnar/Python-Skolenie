@@ -13,6 +13,27 @@ Demonstrating some basic standard modules
   starting in 'w' or 'c'.
 - Read JSON data from `https://webcode.me/users.json` and load it into a dictionary.  
 
+## subprocess
+
+```python
+import subprocess
+
+def show_edit_environment_variables_dialog():
+    try:
+        # Command to open the System Properties window
+        command = "SystemPropertiesAdvanced"
+
+        # Run the command using subprocess
+        subprocess.run(command, shell=True)
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    show_edit_environment_variables_dialog()
+```
+
+
 
 ## sys module 
 
