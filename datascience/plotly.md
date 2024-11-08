@@ -20,8 +20,16 @@ Key Features:
 ## Simple line chart
 
 ```python
-import plotly.express as px # Sample data df = px.data.gapminder().query("country=='Canada'") # Create a line chart fig = px.line(df, x='year', y='gdpPercap', title='GDP per Capita in Canada') # Show the plot
+import plotly.express as px
 
+# Sample data
+df = px.data.gapminder().query("country=='Canada'")
+
+# Create a line chart
+fig = px.line(df, x='year', y='gdpPercap', title='GDP per Capita in Canada')
+
+# Show the plot
+fig.show()
 ```
 
 ## Bar chart
