@@ -14,6 +14,12 @@ Key features:
 - Real-time monitoring: It can display memory usage information in real-time, providing  
   immediate insights into memory behavior.
 
+## The @profile decorator
+
+The `@profile` decorator is a tool from the memory_profiler library in Python used to monitor  
+and measure the memory usage of a specific function. When you add the `@profile` decorator to  
+a function, it tracks the memory usage of the function line by line, providing detailed insights  
+into how much memory is being used before and after each line of code within that function.
 
 ```python
 from memory_profiler import profile
@@ -35,3 +41,37 @@ if __name__ == "__main__":
 ```
 
 `py -m memory_profiler mem_prof.py`
+
+
+## The memory_usage function
+
+The `mem_usage` function from the `memory_profiler` library is used to get the current memory usage  
+of a process or specific code block. It returns the memory usage in MiB (Mebibytes) and can be helpful  
+for monitoring memory consumption in your program.  
+
+```python
+import pandas as pd
+import numpy as np
+import time
+from memory_profiler import memory_usage
+
+def pandas_example():
+    # Create a large dataset
+    num_rows = 10**7
+    df = pd.DataFrame({
+        'col1': np.random.randint(0, 100, size=num_rows),
+        'col2': np.random.random(size=num_rows),
+        'col3': np.random.choice(['A', 'B', 'C', 'D'], size=num_rows)
+    })
+
+    # Measure memory usage and time taken for a pandas operation
+    start_time = time.time()
+    mem_usage = memory_usage((df['col1'].mean, ()))
+    end_time = time.time()
+
+    print(f"Pandas Memory Usage: {max(mem_usage)} MB")
+    print(f"Pandas Time Taken: {end_time - start_time} seconds")
+
+if __name__ == '__main__':
+    pandas_example()
+```
