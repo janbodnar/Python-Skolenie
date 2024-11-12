@@ -239,6 +239,209 @@ def users_json():
     return jsonify(users_list)
 ```
 
+## Form processing
+
+
+
+
+The `app.py` file:
+
+```python
+from flask import Flask, render_template, redirect, url_for
+from flask_wtf import FlaskForm
+from wtforms import StringField, FloatField, SubmitField
+from wtforms.validators import DataRequired, Length
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'mysecretkey'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+# Define the User model
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
+    occupation = db.Column(db.String(100), nullable=False)
+    salary = db.Column(db.Float, nullable=False)
+
+# Create the database
+with app.app_context():
+    db.create_all()
+
+# Define the form class
+class UserForm(FlaskForm):
+    first_name = StringField('First Name', validators=[DataRequired(), Length(max=50)])
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(max=50)])
+    occupation = StringField('Occupation', validators=[DataRequired(), Length(max=100)])
+    salary = FloatField('Salary', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    form = UserForm()
+    if form.validate_on_submit():
+        user = User(
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            occupation=form.occupation.data,
+            salary=form.salary.data
+        )
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('success', user_id=user.id))
+    return render_template('index.html', form=form)
+
+@app.route('/success/<int:user_id>')
+def success(user_id):
+    user = User.query.get_or_404(user_id)
+    return f'User {user.first_name} {user.last_name} added successfully!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+The `index.html` file in `templates` directory:  
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>WTForms and SQLite Example</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="form-wrapper">
+        <h1>User Form</h1>
+        <form method="POST">
+          {{ form.hidden_tag() }}
+          <div>
+            <label>{{ form.first_name.label }}</label><br>
+            {{ form.first_name(size=32) }}<br>
+            {% if form.first_name.errors %}
+              <ul class="errors">
+                {% for error in form.first_name.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          <div>
+            <label>{{ form.last_name.label }}</label><br>
+            {{ form.last_name(size=32) }}<br>
+            {% if form.last_name.errors %}
+              <ul class="errors">
+                {% for error in form.last_name.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          <div>
+            <label>{{ form.occupation.label }}</label><br>
+            {{ form.occupation(size=32) }}<br>
+            {% if form.occupation.errors %}
+              <ul class="errors">
+                {% for error in form.occupation.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          <div>
+            <label>{{ form.salary.label }}</label><br>
+            {{ form.salary(size=32) }}<br>
+            {% if form.salary.errors %}
+              <ul class="errors">
+                {% for error in form.salary.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          <div>
+            {{ form.submit(class="button-primary") }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+The `style.css` in `static` directory:  
+
+```python
+/* Reset some basic elements */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Center the form container */
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f0f0;
+  }
+  
+  /* Style the form wrapper */
+  .form-wrapper {
+    width: 50%; /* Adjust the width as needed */
+    max-width: 600px; /* Maximum width */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style form elements */
+  .form-wrapper label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .form-wrapper input[type="text"],
+  .form-wrapper input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-wrapper .button-primary {
+    width: auto; /* Shrink the button width */
+    padding: 8px 16px; /* Adjust padding */
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .form-wrapper .button-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .errors {
+    color: red;
+    list-style-type: none;
+    padding: 0;
+  }
+```
+
+
 ## Debug toolbar
 
 `pip install flask-debugtoolbar`
