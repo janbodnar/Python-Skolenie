@@ -1,5 +1,9 @@
 # funcy 
 
+The funcy library is a collection of practical functional programming tools for Python.  
+It is inspired by functional programming languages like Clojure and libraries like  
+Underscore.js. funcy provides a variety of utilities to make functional programming in  
+Python more convenient and expressive.
 
 ## Filtering
 
