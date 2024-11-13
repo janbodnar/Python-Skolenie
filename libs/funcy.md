@@ -322,7 +322,58 @@ print("Active Users:", active_users)
 print("Emails of Active Users:", emails)
 ```
 
+## chunks 
 
+The `chunks` function divides the list of tasks into chunks, each with a length equal to  
+the number of employees.  
+
+The `zip` function to pair each employee with a corresponding chunk of tasks.  
+
+
+```python
+from dataclasses import dataclass
+from funcy import chunks
+from pprint import pprint
+
+@dataclass
+class Employee:
+    name: str
+
+@dataclass
+class Task:
+    description: str
+
+# List of employees
+employees = [
+    Employee(name='Alice'),
+    Employee(name='Bob'),
+    Employee(name='Charlie')
+]
+
+# List of tasks
+tasks = [
+    Task(description='Task 1'),
+    Task(description='Task 2'),
+    Task(description='Task 3'),
+    Task(description='Task 4'),
+    Task(description='Task 5'),
+    Task(description='Task 6'),
+    Task(description='Task 7'),
+    Task(description='Task 8')
+]
+
+# Distribute tasks to employees in chunks
+task_chunks = list(chunks(len(employees), tasks))
+
+# Assign tasks to employees using zip
+assigned_tasks = list(zip([employee.name for employee in employees], task_chunks))
+
+# Convert the list of tuples to a dictionary for better readability
+assigned_tasks_dict = dict(assigned_tasks)
+
+# Print the assigned tasks
+pprint(assigned_tasks_dict)
+```
 
 
 
