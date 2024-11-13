@@ -78,6 +78,18 @@ for e in res:
 
 ## repeat function
 
+The `repeat` function from itertools is used to repeatedly yield the same  
+value. This can be useful for various purposes, such as creating constant  
+sequences or filling up iterables with a specific value.  
+
+```python
+import itertools
+
+# Create a list of 10 zeros
+zeros = list(itertools.repeat(0, 10))
+print(zeros)
+```
+
 ```python
 from itertools import repeat
 
