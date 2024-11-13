@@ -1,5 +1,40 @@
 # Priklady 13.11.24
 
+## Read JSON data from file
+
+```python
+from dataclasses import dataclass
+import json
+
+@dataclass
+class Product:
+    id: int
+    name: str
+    price: int
+    quantity: int
+
+
+products = []
+
+fname = "products.json"
+with open(fname) as f:
+
+    data = json.load(f)
+    # print(data)
+
+    for e in data["products"]:
+        product = Product(int(e['id']), e['name'], float(e['price']), int(e['quantity']))
+        products.append(product)
+
+        # print(e)
+
+
+# print(products)
+for product in products:
+    print(product)
+```
+
+
 ## Opakovanie
 
 ```python
