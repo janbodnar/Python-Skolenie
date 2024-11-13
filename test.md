@@ -1,6 +1,28 @@
 # Priklady 13.11.24
 
 
+## Generate test users
+
+```python
+from faker import Faker
+
+file_name = 'users.csv'
+faker = Faker()
+
+with open(file_name, 'w') as f:
+
+    for idx in range(1, 10_000):
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        city = faker.city()
+        salary = faker.random_int(850, 5000)
+
+        line = f'{idx},{first_name},{last_name},{city},{salary}\n'
+        f.write(line)
+```
+
+
+
 ## Show database row
 
 Take id from script argument.  
