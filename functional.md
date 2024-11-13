@@ -155,16 +155,24 @@ for e in res:
 
 ## starmap function
 
+The `starmap` function in Python's `itertools` module is used to apply a function  
+to the arguments from each tuple in an iterable. It essentially "unpacks" each tuple  
+and feeds its elements as arguments to the given function.
+
 ```python
 from itertools import starmap
 import operator
 
 data = [(2, 6), (8, 4), (7, 3)]
 
+# Calculate the products
 res = starmap(operator.mul, data)
 
-for e in res:
-    print(e)
+# Get the sum of the products
+total_sum = sum(res)
+
+# Print the total sum
+print(total_sum)
 ```
 
 We have a list of coordinates representing the sides of various triangles.  
