@@ -1,6 +1,29 @@
 # Priklady 13.11.24
 
 
+## Show database row
+
+Take id from script argument.  
+
+```python
+import sqlite3
+import sys
+
+argv = sys.argv
+uid = int(argv[1])
+
+con = sqlite3.connect('test.db')
+
+with con:
+
+    cur = con.cursor()
+    cur.execute("SELECT name, population FROM cities WHERE id=:id", {"id": uid})
+
+    row = cur.fetchone()
+    print(row[0], row[1])
+```
+
+
 ## Filtering data
 
 ```python
