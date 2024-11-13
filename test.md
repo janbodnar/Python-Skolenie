@@ -1,5 +1,42 @@
 # Priklady 13.11.24
 
+## Select users
+
+```python
+import sqlite3
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    city: str
+    salary: int
+
+users = []
+
+con = sqlite3.connect('test.db')
+
+with con:    
+    
+    cur = con.cursor()    
+    cur.execute("SELECT * FROM users ORDER BY salary DESC LIMIT 30")
+
+    rows = cur.fetchall()
+
+    for row in rows:
+        user = User(row[0], row[1], row[2], row[3], row[4])
+        users.append(user)
+
+
+print(len(users))
+
+for user in users:
+    print(user)
+```
+
+
 
 ## Generate test users
 
