@@ -3,6 +3,10 @@
 
 ## Generate test users
 
+```sql
+CREATE TABLE users (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, salary INT);
+```
+
 ```python
 from faker import Faker
 
