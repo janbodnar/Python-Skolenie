@@ -74,6 +74,27 @@ nested_list = [[1, 2], [3, 4], [5]]
 flat_list = flatten(nested_list)
 ```
 
+## walk_values & walk_keys
+
+```python
+from funcy import walk_values, walk_keys
+
+# Sample data with inconsistent text cases
+data = {
+    'Name': 'Alice',
+    'Email': 'ALICE@EXAMPLE.COM',
+    'City': 'NeW YoRk'
+}
+
+# Normalize the text to lowercase
+normalized_values = walk_values(str.lower, data)
+print("Normalized values:", normalized_values)
+
+# Normalize the text to lowercase
+normalized_keys = walk_keys(str.lower, data)
+print("Normalized keys:", normalized_keys)
+```
+
 ## split_by
 
 ```python
@@ -235,5 +256,31 @@ for k, v in grouped.items():
     for e in v:
         print(e)
 ```
+
+## select & pluck
+
+```python
+from funcy import select, pluck
+
+# List of user profiles
+users = [
+    {'name': 'Alice', 'active': True, 'email': 'alice@example.com'},
+    {'name': 'Bob', 'active': False, 'email': 'bob@example.com'},
+    {'name': 'Charlie', 'active': True, 'email': 'charlie@example.com'}
+]
+
+# Select active users
+active_users = select(lambda u: u['active'], users)
+
+# Extract emails of active users
+emails = pluck('email', active_users)
+
+print("Active Users:", active_users)
+print("Emails of Active Users:", emails)
+```
+
+
+
+
 
 
