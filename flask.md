@@ -6,7 +6,10 @@ The flask application is run like this: `flask hello run`, provided the main app
 If the applications name is `app.py`, we can directly run the application like: `flask run`.  
 
 We can also run the application directly with `flask run` if we set the main application file to the  
-`FLASK_APP` environment variable.  
+`FLASK_APP` environment variable.   
+
+
+Run in debug mode: `flask run --debug`.  
 
 
 ## Simple example
