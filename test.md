@@ -4,7 +4,7 @@
 ## Generate test users
 
 ```sql
-CREATE TABLE users (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, salary INT);
+CREATE TABLE users (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, city TEXT, salary INT);
 ```
 
 ```python
