@@ -136,6 +136,10 @@ print(res)
 
 ## accumulate function
 
+The `accumulate` function from Python's itertools module is used to make an  
+iterator that returns accumulated sums, or other binary functions specified,  
+over an iterable.
+
 ```python
 from itertools import accumulate
 import operator
@@ -151,6 +155,19 @@ res = accumulate(data, operator.add)
 
 for e in res:
     print(e)
+```
+
+You might want to track the cumulative change in stock prices to understand overall  
+gains or losses over time.
+
+```python
+import itertools
+
+daily_changes = [-1.5, 2.0, -0.5, 3.0, -2.5, 1.5, 4.0]
+cumulative_changes = list(itertools.accumulate(daily_changes))
+
+print("Daily Changes: ", daily_changes)
+print("Cumulative Changes: ", cumulative_changes)
 ```
 
 ## starmap function
