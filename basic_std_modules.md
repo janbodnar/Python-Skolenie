@@ -222,6 +222,28 @@ print(data)
 
 Read JSON from URL. 
 
+## Using requests
+
+```python
+#!/usr/bin/python
+
+import json
+import requests
+
+url = 'http://time.jsontest.com'
+
+resp = requests.get(url)
+text = resp.content.decode("utf-8")
+
+data = json.loads(text)
+
+print(f"Unix time: {data['milliseconds_since_epoch']}")
+print(f"Time: {data['time']}")
+print(f"Date: {data['date']}")
+```
+
+## Using urllib3
+
 ```python
 #!/usr/bin/python
 
