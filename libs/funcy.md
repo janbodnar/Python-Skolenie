@@ -145,6 +145,49 @@ res = {k: v for k, v in filter(
 print(res)
 ```
 
+## count_by
+
+The `count_by` function counts numbers of occurrences of values of f on elements of seq.  
+Returns defaultdict(int) of counts.  
+
+The next example demonstrates how count_by can be used to categorize and count users by age  
+group, providing a clear breakdown of the user distribution across different age categories.  
+
+```python
+from dataclasses import dataclass
+from funcy import count_by
+
+@dataclass
+class User:
+    name: str
+    age: int
+    email: str
+
+# List of user profiles
+users = [
+    User(name='Alice', age=25, email='alice@example.com'),
+    User(name='Bob', age=30, email='bob@example.com'),
+    User(name='Charlie', age=35, email='charlie@example.com'),
+    User(name='David', age=40, email='david@example.com'),
+    User(name='Eva', age=25, email='eva@example.com'),
+    User(name='Frank', age=30, email='frank@example.com')
+]
+
+# Define age groups
+def age_group(user):
+    if user.age < 30:
+        return 'Under 30'
+    elif user.age < 40:
+        return '30-39'
+    else:
+        return '40 and above'
+
+# Count users by age group
+age_group_counts = count_by(age_group, users)
+
+print("User counts by age group:", age_group_counts)
+```
+
 ## Function composition
 
 ```python
