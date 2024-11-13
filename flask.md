@@ -109,6 +109,8 @@ The `endpoint` parameter specifies the name of the url to which we refer via the
 to the template name, `show_user` in our case. The first parameter of the `@app.route`  
 defines the slug, the string that is actually displayed in the browser.  
 
+The `index.html` file:
+
 ```html
 <html>
 
@@ -135,6 +137,7 @@ defines the slug, the string that is actually displayed in the browser.
 </html>
 ```
 
+The `show_user.html` file:
 
 ```html
 <!DOCTYPE html>
