@@ -1,5 +1,24 @@
 # Priklady 13.11.24
 
+## Fetch one row
+
+```python
+import sqlite3
+
+con = sqlite3.connect('test.db')
+
+with con:
+    
+    cur = con.cursor()    
+    cur.execute('SELECT * FROM cities WHERE id = 3')
+    
+    res = cur.fetchone()
+    
+    print(res)
+    print(f'{res[0]} {res[1]} {res[2]}')
+```
+
+
 ## Read JSON data from file
 
 ```python
