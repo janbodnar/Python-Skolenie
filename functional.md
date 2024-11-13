@@ -32,12 +32,19 @@ or make other changes  that aren't visible in the function's return value.
 
 ## itertools 
 
+
+### The product function 
+
+The `product` function computes the Cartesian product of input iterables.
+
 ```python
-from itertools import product
+import itertools
 
+colors = ['red', 'green']
+sizes = ['S', 'M', 'L']
 
-res = list(product('ABCD', repeat=2))
-print(res)
+for item in itertools.product(colors, sizes):
+    print(item)
 ```
 
 ### Permutations and combinations
