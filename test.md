@@ -1,5 +1,44 @@
 # Priklady 13.11.24
 
+
+## Filtering data
+
+```python
+import sqlite3
+from dataclasses import dataclass
+
+@dataclass
+class City:
+    id: int
+    name: str
+    population: int
+
+cities = []
+
+con = sqlite3.connect('test.db')
+
+with con:    
+    
+    cur = con.cursor()    
+    # cur.execute("SELECT * FROM cities WHERE population < 500000")
+    cur.execute("SELECT * FROM cities")
+
+    rows = cur.fetchall()
+
+    for row in rows:
+        # city = City(row[0], row[1], row[2])
+        city = City(*row)
+        cities.append(city)
+
+
+small_cities = [city for city in cities if city.population < 500_000]
+
+for small_city in small_cities:
+    print(small_city)
+```
+
+
+
 ## Fetch one row
 
 ```python
