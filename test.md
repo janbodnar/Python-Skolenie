@@ -1,5 +1,49 @@
 # Priklady 13.11.24
 
+## Yougest, oldest 
+
+```python
+#!/usr/bin/python
+
+from datetime import datetime
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class User:
+    name: str
+    email: str
+    dob: datetime
+
+
+users = (
+    User('John Doe', 'john.doe@example.com', datetime(1985, 8, 21)),
+    User('Roger Roe', 'roger.roe@example.com', datetime(1998, 2, 11)),
+    User('Paul Anka', 'paul.anka@example.com', datetime(1977, 9, 5)),
+    User('Lucia Smith', 'lucia.smith@example.com', datetime(2001, 2, 2)),
+    User('Jane Miller', 'jane.miller@example.com', datetime(1967, 5, 15)),
+)
+
+oldest = users[0]
+
+for user in users:
+    if user.dob < oldest.dob:
+        oldest = user
+
+print('The oldest user:', oldest)
+
+
+yougest = users[0]
+
+for user in users:
+    if user.dob > yougest.dob:
+        yougest = user
+
+print('The youngest user:', yougest)
+```
+
+
+
 ## Clean data
 
 ```python
