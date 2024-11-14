@@ -1,5 +1,25 @@
 # Priklady 13.11.24
 
+## List Python files in current directory
+
+```python
+import os 
+
+files = os.listdir('.')
+# print(files)
+
+python_files = [file for file in files if file.endswith('py')]
+print(python_files)
+
+for file in files:
+
+    if file.endswith('py'):
+        print(file)
+```
+
+
+
+
 ## Recap
 
 1. Calculate total sales
