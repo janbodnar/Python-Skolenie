@@ -1,5 +1,19 @@
 # Priklady 13.11.24
 
+## The split function
+
+```python
+from funcy import split
+
+values = [1, 2, 3, -4, 5, -6, 7, 8, 9, -10]
+
+negs, pos = split(lambda e: e < 0, values)
+
+print(list(negs))
+print(list(pos))
+```
+
+
 ## Today in Hebrew
 
 ```python
