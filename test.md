@@ -1,6 +1,8 @@
 # Priklady 13.11.24
 
-## Calculate total sales
+## Recap
+
+1. Calculate total sales
 
 ```python
 {
@@ -79,11 +81,13 @@
 }
 ```
 
+2. 
 How much is 100 Eur in US dollars and CZ. 
 
 `https://nbs.sk/export/sk/exchange-rate/2024-11-13/csv`
 
-
+3. 
+Transform top 20 earning users from database into JSON otput.
 
 
 ## Select users
