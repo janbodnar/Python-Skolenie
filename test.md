@@ -81,6 +81,35 @@
 }
 ```
 
+Solution:
+
+```python
+import json
+from decimal import Decimal 
+
+
+file_name = 'products.json'
+
+with open(file_name, 'r') as f:
+    data = json.load(f)
+
+    products = data['products']
+
+
+total_sales = sum(Decimal(product['price']) * Decimal(product['quantity']) for product in products)
+print(f"The total potential sales value is: ${total_sales:.2f}")
+
+total_sales_float = 0.0
+
+# Use a for loop to calculate the sum of all potential sales
+for product in products:
+    total_sales_float += product['price'] * product['quantity']
+
+print(f"The total potential sales value (float) is: ${total_sales_float:.2f}")
+```
+
+
+
 2. 
 How much is 100 Eur in US dollars and CZ. 
 
