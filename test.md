@@ -1,5 +1,23 @@
 # Priklady 13.11.24
 
+## Year in days
+
+```python
+from datetime import date, datetime
+
+# Define the initial date
+d0 = date(1978, 11, 18)
+
+# Get the current date
+td = datetime.today().date()  # Convert datetime to date
+print(td)
+
+# Calculate the difference
+delta = td - d0
+print(delta.days)
+```
+
+
 ## Yougest, oldest 
 
 ```python
