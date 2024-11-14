@@ -1,5 +1,42 @@
 # Priklady 13.11.24
 
+## Clean data
+
+```python
+import re
+
+# Sample data
+data = """
+    John Doe, 123-456-7890
+    Jane Smith, 987.654.3210
+    Alice   Johnson, (555)555-5555
+"""
+
+# List of words with white spaces
+words_with_spaces = ["   hello  ", "  world ", "   foo   ", "   bar"]
+
+# Clean data: remove extra white spaces and unify phone number formats
+def clean_data(data):
+    # Remove extra white spaces
+    data = re.sub(r'\s+', ' ', data)
+    # Unify phone number formats to xxx-xxx-xxxx
+    data = re.sub(r'\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})', r'\1-\2-\3', data)
+    return data
+
+# Clean words list: strip leading and trailing white spaces
+clean_words = [word.strip() for word in words_with_spaces]
+
+# Cleaned data
+cleaned_data = clean_data(data)
+
+# Print results
+print("Cleaned Data:")
+print(cleaned_data)
+print("\nCleaned Words List:")
+print(clean_words)
+```
+
+
 ## List Python files in current directory
 
 ```python
