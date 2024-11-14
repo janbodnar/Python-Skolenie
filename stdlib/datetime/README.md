@@ -36,8 +36,10 @@ a change of seasons.
 #!/usr/bin/python
 
 from datetime import datetime
+from datetime import timezone
 
-print(datetime.now(datetime.UTC))
+# print(datetime.utcnow()) # deprecated
+print(datetime.now(timezone.utc))
 print(datetime.now())
 ```
 
