@@ -1,5 +1,21 @@
 # Priklady 13.11.24
 
+## Today in Hebrew
+
+```python
+from hdate import HDate
+from datetime import datetime
+
+# Get today's date in Gregorian calendar
+today_gregorian = datetime.today().date()
+
+# Convert the current date to Hebrew calendar
+today_hebrew = HDate(today_gregorian)
+
+print(today_hebrew.hebrew_date)
+```
+
+
 ## Year in days
 
 ```python
