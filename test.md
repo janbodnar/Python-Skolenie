@@ -79,6 +79,11 @@
 }
 ```
 
+How much is 100 Eur in US dollars and CZ. 
+
+`https://nbs.sk/export/sk/exchange-rate/2024-11-13/csv`
+
+
 
 
 ## Select users
