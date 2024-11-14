@@ -115,6 +115,31 @@ How much is 100 Eur in US dollars and CZ.
 
 `https://nbs.sk/export/sk/exchange-rate/2024-11-13/csv`
 
+```python
+import requests
+import csv
+import io
+from decimal import Decimal
+
+url = 'https://nbs.sk/export/sk/exchange-rate/2024-11-13/csv'
+
+resp = requests.get(url)
+content = resp.content.decode('utf8')
+
+csv_file = io.StringIO(content) # Create a CSV reader object 
+reader = csv.DictReader(csv_file, delimiter=';')
+
+amount_eur = 100
+
+for row in reader:
+    usd = Decimal(row['USD'].replace(",", "."))
+    czk = Decimal(row['CZK'].replace(",", "."))
+
+    print(f'{amount_eur} eur is {usd * amount_eur} dollars')
+    print(f'{amount_eur} eur is {czk * amount_eur} czech crowns')
+```
+
+
 3. 
 Transform top 20 earning users from database into JSON otput.
 
