@@ -1,5 +1,86 @@
 # Priklady 13.11.24
 
+## Calculate total sales
+
+```python
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Laptop",
+            "price": 999.99,
+            "quantity": 10,
+            "category": "Electronics"
+        },
+        {
+            "id": 2,
+            "name": "Smartphone",
+            "price": 499.99,
+            "quantity": 25,
+            "category": "Electronics"
+        },
+        {
+            "id": 3,
+            "name": "Coffee Maker",
+            "price": 79.99,
+            "quantity": 5,
+            "category": "Home Appliances"
+        },
+        {
+            "id": 4,
+            "name": "Headphones",
+            "price": 199.99,
+            "quantity": 15,
+            "category": "Electronics"
+        },
+        {
+            "id": 5,
+            "name": "Blender",
+            "price": 49.99,
+            "quantity": 20,
+            "category": "Home Appliances"
+        },
+        {
+            "id": 6,
+            "name": "Electric Kettle",
+            "price": 29.99,
+            "quantity": 30,
+            "category": "Home Appliances"
+        },
+        {
+            "id": 7,
+            "name": "Tablet",
+            "price": 299.99,
+            "quantity": 8,
+            "category": "Electronics"
+        },
+        {
+            "id": 8,
+            "name": "Smartwatch",
+            "price": 199.99,
+            "quantity": 12,
+            "category": "Electronics"
+        },
+        {
+            "id": 9,
+            "name": "Camera",
+            "price": 599.99,
+            "quantity": 7,
+            "category": "Electronics"
+        },
+        {
+            "id": 10,
+            "name": "Microwave Oven",
+            "price": 89.99,
+            "quantity": 10,
+            "category": "Home Appliances"
+        }
+    ]
+}
+```
+
+
+
 ## Select users
 
 ```python
