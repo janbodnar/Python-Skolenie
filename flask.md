@@ -245,9 +245,38 @@ def users_json():
     return jsonify(users_list)
 ```
 
+## .flaskenv
+
+Run with `flask run`.  
+
+```
+FLASK_DEBUG=true
+FLASK_RUN_PORT=1111
+```
+
+## The create_app factory method
+
+```python
+from flask import Flask
+from datetime import datetime
+
+def create_app():
+
+    app = Flask(__name__)
+
+    @app.route("/hello")
+    def hello():
+        return 'hello there'
+    
+    @app.cli.command("now")
+    def now():
+        print(datetime.now())
+
+    return app
+```
+
+
 ## Form processing
-
-
 
 
 The `app.py` file:
