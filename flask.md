@@ -265,7 +265,7 @@ FLASK_RUN_PORT=1111
 
 ## The create_app factory method
 
-In a Flask application, the create_app function is a common factory function used to 
+In a Flask application, the create_app function is a common factory function used to  
 create and configure an instance of the Flask application. It is particularly useful  
 for setting up different configurations for development, testing, and production  
 environments, and for organizing larger applications.
