@@ -59,6 +59,15 @@ def random_movie():
 
 ## Query params
 
+Query parameters are a way to pass information to a web server as part of the URL.  
+They are typically used in web requests to filter, sort, or customize the response  
+from the server. Query parameters are added to the end of the URL and follow 
+a specific format.
+
+Query parameters are added to the URL after a question mark (?). Each parameter is a  
+key-value pair separated by an equals sign (=). Multiple parameters are separated 
+by ampersands (&).
+
 ```python
 from flask import Flask, request
 
