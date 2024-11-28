@@ -7,6 +7,15 @@ vals = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]]
 
 mysum = 0
 
+# for val in vals:
+#     mysum += sum(val)
+
+for nested in vals:
+    for val in nested:
+        mysum += val
+
+print(mysum)
+
 
 # generate a list of 100 random numbers and calculate its sum
 import random
