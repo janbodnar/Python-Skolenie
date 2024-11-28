@@ -376,6 +376,25 @@ with zipfile.ZipFile('output.zip') as zip:
     print(zip.namelist())
 ```
 
+## Append file 
+
+```python
+import zipfile
+
+# Open the existing ZIP file in append mode
+with zipfile.ZipFile('pyarchive.zip', 'a') as zip:
+    # Print the current files in the ZIP
+    print("Current files in the ZIP:", zip.namelist())
+
+    # Add a new file to the ZIP
+    new_file = 'newfile.txt'
+    zip.write(new_file, arcname='newfile.txt')
+
+    # Print the updated list of files in the ZIP
+    print("Updated files in the ZIP:", zip.namelist())
+```
+
+
 ## Change registry
 
 ```python
