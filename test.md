@@ -1,5 +1,29 @@
 # Priklady
 
+## requests kniznica
+
+```python
+import requests
+
+url = 'https://webcode.me'
+
+# resp = requests.get(url)
+
+# content = resp.content.decode('utf8')
+# print(content)
+
+resp = requests.head(url)
+
+headers = resp.headers
+print(type(headers))
+print(headers)
+
+print(headers['Server'])
+print(headers['Last-Modified'])
+print(headers['Date'])
+```
+
+
 ## Faker kniznica
 
 ```python
