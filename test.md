@@ -1,5 +1,39 @@
 # Priklady
 
+## Dataclass
+
+```python
+import json
+from dataclasses import dataclass
+
+@dataclass
+class Product:
+    id: int
+    name: str
+    price: float
+    quantity: int
+
+
+products = []
+
+
+fname = 'products.json'
+with open(fname) as f:
+
+    data = json.load(f)
+    rows = data['products']
+
+    for product in rows:
+        # print(product)
+        p = Product(int(product['id']), product['name'], float(product['price']), int(product['quantity']))
+        # p = Product(**product)
+        products.append(p)
+
+    
+print(products)
+```
+
+
 ## requests kniznica
 
 ```python
