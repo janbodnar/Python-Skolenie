@@ -2,6 +2,12 @@
 
 https://api.api-ninjas.com/v1/quotes?category=happiness
 
+## Docker 
+
+```
+We've detected that you have an incompatible version of Windows.
+Docker Desktop requires Windows 10 Pro/Enterprise/Home version 19044 or above.
+```
 
 ## Select random user from CSV file
 
