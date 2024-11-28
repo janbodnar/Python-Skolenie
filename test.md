@@ -1,5 +1,37 @@
 # Priklady
 
+## Faker kniznica
+
+```python
+
+from faker import Faker
+
+faker = Faker()
+
+file_name = 'users.csv'
+
+with open(file_name, 'w') as f:
+
+    for i in range(1, 501):
+
+        idx = i
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        city = faker.city()
+        
+        row = f'{idx},{first_name},{last_name},{city}\n'
+
+        f.write(row)
+
+
+print('file created OK')
+```
+
+
+
+
+## Opakovanie
+
 ```python
 
 # calculate sum
