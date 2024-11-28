@@ -1,5 +1,35 @@
 # Priklady
 
+## Select random user from CSV file
+
+```python
+import csv
+import random
+from dataclasses import dataclass
+
+@dataclass
+class Person:
+    id: int
+    first_name: str
+    last_name: str
+    address: str
+
+def read_csv(file_path: str):
+    with open(file_path, newline='') as csvfile:
+        reader = csv.reader(csvfile)
+        return [Person(int(row[0]), row[1], row[2], row[3]) for row in reader]
+
+# Read the CSV file and create a list of Person objects
+people = read_csv('users.csv')
+
+# Print the list of Person objects
+# for person in people:
+#     print(person)
+
+print(random.choice(people))
+```
+
+
 
 ## Fetch users as JSON
 
