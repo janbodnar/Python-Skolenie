@@ -99,7 +99,7 @@ The `shuffle(seq)` function shuffles the sequence seq in place.
 ```python
 import random
 
-list = [20, 16, 10, 5];
+list = [20, 16, 10, 5]
 random.shuffle(list)
 print(list)
 ```
