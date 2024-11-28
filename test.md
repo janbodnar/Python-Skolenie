@@ -1,6 +1,36 @@
 # Priklady
 
 
+## Fetch users as JSON
+
+```python
+import requests
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    email: str
+
+def fetch_users(url: str):
+    response = requests.get(url)
+    response.raise_for_status()  # Raise an exception for HTTP errors
+    data = response.json()
+    
+    users = [User(**user_data) for user_data in data['users']]
+    return users
+
+# URL to fetch data from
+url = 'https://webcode.me/users.json'
+
+# Fetch and print users
+users = fetch_users(url)
+for user in users:
+    print(user)
+```
+
 ## Total sales
 
 ```python
