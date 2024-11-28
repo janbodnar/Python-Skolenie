@@ -1,6 +1,41 @@
 # Priklady
 
 
+## Total sales
+
+```python
+import json
+from decimal import Decimal
+from dataclasses import dataclass
+
+@dataclass
+class Product:
+    id: int
+    name: str
+    price: Decimal
+    quantity: int
+
+products = []
+
+fname = 'products.json'
+with open(fname) as f:
+    data = json.load(f)
+    rows = data['products']
+
+    for product in rows:
+        p = Product(
+            int(product['id']),
+            product['name'],
+            Decimal(product['price']),
+            int(product['quantity'])
+        )
+        products.append(p)
+
+total_sales = sum(p.price * p.quantity for p in products)
+print(f"Total sales: {total_sales}")
+```
+
+
 ## Decimal
 
 ```python
