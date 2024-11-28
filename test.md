@@ -1,5 +1,8 @@
 # Priklady
 
+https://api.api-ninjas.com/v1/quotes?category=happiness
+
+
 ## Select random user from CSV file
 
 ```python
