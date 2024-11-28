@@ -1,6 +1,41 @@
 # Priklady
 
-https://api.api-ninjas.com/v1/quotes?category=happiness
+
+
+
+## GTP4All
+
+```python
+import requests
+
+# Define the API endpoint
+url = "http://localhost:4891/v1/chat/completions"
+
+# Define the payload (data to be sent in the POST request)
+payload = {
+    "model": "llama 3 8B Instruct",
+    "messages": [{"role": "user", "content": "What is Python language?"}],
+    "max_tokens": 55,
+    "temperature": 0.28
+}
+
+# Define the headers (if needed)
+headers = {
+    "Content-Type": "application/json"
+}
+
+# Make the POST request
+response = requests.post(url, json=payload, headers=headers)
+
+# Print the response (JSON format)
+print(response.json())
+```
+
+
+
+
+
+
 
 ## Docker 
 
