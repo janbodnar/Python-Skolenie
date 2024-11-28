@@ -9,6 +9,50 @@ We've detected that you have an incompatible version of Windows.
 Docker Desktop requires Windows 10 Pro/Enterprise/Home version 19044 or above.
 ```
 
+## Datclass vs classic class
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Person:
+
+    name: str
+    age: int
+
+    # def __init__(self, name, age):
+    #     self.name = name
+    #     self.age = age
+
+    # def getAge(self):
+    #     return self.age
+
+    # def setAge(self, age):
+    #     self.age = age
+
+    # def getName(self):
+    #     return self.name
+
+    # def setName(self, name):
+    #     self.name = name
+
+    # def __eq__(self, other): 
+    #     if isinstance(other, Person): 
+    #         return self.name == other.name and self.age == other.age 
+    #     return False
+
+    # def __str__(self):
+    #     return f'{self.name} {self.age}'
+
+p = Person('John Doe', 34)
+
+print(p)
+print(p.age)
+print(p.name)
+```
+
+
+
 ## Select random user from CSV file
 
 ```python
