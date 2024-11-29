@@ -59,6 +59,37 @@ con.close()
 print("Data inserted successfully.")
 ```
 
+Use pandas library.
+
+```python
+import pandas as pd
+import sqlite3
+import requests
+import io
+
+# URL of the CSV file
+url = 'https://webcode.me/users.csv'
+
+# Download the CSV content
+response = requests.get(url)
+content = response.content.decode('utf-8')
+
+# Read the CSV content into a pandas DataFrame
+data = pd.read_csv(io.StringIO(content))
+
+# Connect to the SQLite database (or create it if it doesn't exist)
+con = sqlite3.connect('test.db')
+
+# Write the DataFrame to the users2 table in the SQLite database
+data.to_sql('users2', con, if_exists='replace', index=False)
+
+# Close the connection
+con.close()
+
+print("Data inserted successfully.")
+```
+
+
 
 
 ```SQL
