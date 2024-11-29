@@ -33,6 +33,27 @@ for user in root.findall("ns:user", namespace):
     print(first_name, last_name, occupation)
 ```
 
+Using minidom. 
+
+```python
+from xml.dom import minidom
+import requests
+
+url = 'https://webcode.me/users.xml'
+
+resp = requests.get(url)
+content = resp.content.decode('utf8')
+
+doc = minidom.parseString(content)
+root = doc.documentElement
+
+for product in root.getElementsByTagName("user"):
+  first_name = product.getElementsByTagName("firstname")[0].firstChild.nodeValue
+  last_name = product.getElementsByTagName("lastname")[0].firstChild.nodeValue
+  occupation = product.getElementsByTagName("occupation")[0].firstChild.nodeValue
+  print(first_name, last_name, occupation)
+```
+
 
 ## Read CSV data
 
