@@ -33,9 +33,6 @@ Here's a simple example of how to use the `sqlite3` module:
 ## Version 
 
 ```python
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import sqlite3
 import sys
 
