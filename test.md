@@ -1,5 +1,39 @@
 # Priklady
 
+
+## Read XML
+
+Using xml module.  
+
+```python
+import xml.etree.ElementTree as ET
+import requests
+import io
+
+url = 'https://webcode.me/users.xml'
+
+resp = requests.get(url)
+content = resp.content.decode('utf8')
+
+data = io.StringIO(content)
+
+tree = ET.parse(data)
+root = tree.getroot()
+
+# Define the namespace
+namespace = {'ns': 'zetcode.com'}
+
+# print(root)
+
+for user in root.findall("ns:user", namespace):
+    # print(user)
+    first_name = user.find("ns:firstname", namespace).text
+    last_name = user.find("ns:lastname", namespace).text
+    occupation = user.find("ns:occupation", namespace).text
+    print(first_name, last_name, occupation)
+```
+
+
 ## Read CSV data
 
 ```python
