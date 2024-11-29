@@ -23,8 +23,6 @@ root = tree.getroot()
 # Define the namespace
 namespace = {'ns': 'zetcode.com'}
 
-# print(root)
-
 for user in root.findall("ns:user", namespace):
     # print(user)
     first_name = user.find("ns:firstname", namespace).text
@@ -48,10 +46,10 @@ doc = minidom.parseString(content)
 root = doc.documentElement
 
 for product in root.getElementsByTagName("user"):
-  first_name = product.getElementsByTagName("firstname")[0].firstChild.nodeValue
-  last_name = product.getElementsByTagName("lastname")[0].firstChild.nodeValue
-  occupation = product.getElementsByTagName("occupation")[0].firstChild.nodeValue
-  print(first_name, last_name, occupation)
+    first_name = product.getElementsByTagName("firstname")[0].firstChild.nodeValue
+    last_name = product.getElementsByTagName("lastname")[0].firstChild.nodeValue
+    occupation = product.getElementsByTagName("occupation")[0].firstChild.nodeValue
+    print(first_name, last_name, occupation)
 ```
 
 
