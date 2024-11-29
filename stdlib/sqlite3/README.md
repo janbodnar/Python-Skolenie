@@ -24,10 +24,81 @@ Here are some key features and functions of the `sqlite3` module:
   by passing parameters as a tuple to the `execute` method.  
 - **Transaction Management:** By default, SQLite is in autocommit mode. However, you can manage  
    transactions using `commit()` and `rollback()` methods to ensure data integrity.  
-- **Data Fetching:** You can retrieve data using methods like `fetchone()`, `fetchall()`, and
+- **Data Fetching:** You can retrieve data using methods like `fetchone()`, `fetchall()`, and  
   `fetchmany(size)` to get query results.  
 
 Here's a simple example of how to use the `sqlite3` module:
 
 
+## Version 
 
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import sqlite3
+import sys
+
+con = None
+
+try:
+    con = sqlite3.connect('test.db')
+    
+    cur = con.cursor()    
+    cur.execute('SELECT SQLITE_VERSION()')
+    
+    version = cur.fetchone()
+    
+    print("SQLite version: {}".format(version[0])) 
+    
+except sqlite3.Error as e:
+    
+    print("Error {}:".format(e.args[0]))
+    sys.exit(1)
+    
+finally:
+    
+    if con:
+        con.close()
+```
+
+
+```python
+import sqlite3
+import sys
+
+con = sqlite3.connect('test.db')
+
+with con:
+    
+    cur = con.cursor()    
+    cur.execute('SELECT SQLITE_VERSION()')
+    
+    version = cur.fetchone()
+    
+    print("SQLite version: {}".format(version[0]))
+```
+
+## Create table
+
+```python
+import sqlite3
+
+con = sqlite3.connect('test.db')
+
+with con:
+    
+    cur = con.cursor()    
+    cur.execute("CREATE TABLE cities(id INTEGER PRIMARY KEY, name TEXT, population INT)")
+    cur.execute("INSERT INTO cities(name, population) VALUES('Bratislava', 432000)")
+
+    cur.execute("INSERT INTO cities(name, population) VALUES('Budapest', 1759000)")
+    cur.execute("INSERT INTO cities(name, population) VALUES('Prague', 1280000)")
+    cur.execute("INSERT INTO cities(name, population) VALUES('Warsaw', 1748000)")
+    cur.execute("INSERT INTO cities(name, population) VALUES('Los Angeles', 3971000)")
+    cur.execute("INSERT INTO cities(name, population) VALUES('New York', 8550000)")
+    cur.execute("INSERT INTO cities(name, population) VALUES('Edinburgh', 464000)")
+    cur.execute("INSERT INTO cities(name, population) VALUES('Suzhou', 4327066)")
+    cur.execute("INSERT INTO cities(name, population) VALUES('Zhengzhou', 4122087)")
+    cur.execute("INSERT INTO cities(name, population) VALUES('Berlin', 3671000)")
+```
