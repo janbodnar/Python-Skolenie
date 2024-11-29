@@ -24,6 +24,40 @@ print(len(values))
 print(sum(values))
 ```
 
+## Find user by id in CSV file
+
+```python
+import csv
+
+# Read the CSV data into a list
+data = []
+with open('users.csv', mode='r', newline='') as file:
+    csv_reader = csv.reader(file)
+    next(csv_reader)  # Skip the header row
+    for row in csv_reader:
+        data.append(row)
+
+# Function to find a row by id
+def find_row_by_id(data, id):
+    for row in data:
+        if row[0] == id:  # Assuming the id is in the first column
+            return row
+    return None
+
+# Get user input for the id
+user_id = input("Enter the id: ")
+
+# Find the row
+result = find_row_by_id(data, user_id)
+
+# Print the result
+if result:
+    print("Row found:", result)
+else:
+    print("No row found with id:", user_id)
+```
+
+
 
 ## GTP4All
 
