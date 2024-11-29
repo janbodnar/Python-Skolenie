@@ -1,5 +1,66 @@
 # Priklady
 
+
+## Read from URL and write to database
+
+```python
+import csv
+import sqlite3
+import requests
+import io
+
+# URL of the CSV file
+url = "https://webcode.me/users.csv"
+
+# Download the CSV content
+response = requests.get(url)
+content = response.content.decode("utf-8")
+
+# Read the CSV content
+data = io.StringIO(content)
+csv_reader = csv.reader(data)
+
+# Connect to the SQLite database (or create it if it doesn't exist)
+con = sqlite3.connect("test.db")
+cur = con.cursor()
+
+# Create the users2 table if it doesn't exist
+cur.execute(
+    """
+    CREATE TABLE IF NOT EXISTS users2 (
+        id INTEGER PRIMARY KEY,
+        first_name TEXT,
+        last_name TEXT,
+        occupation TEXT
+    )
+"""
+)
+
+# Skip the header row
+next(csv_reader)
+
+# Insert CSV data into the users2 table
+for row in csv_reader:
+    if row != None and row != []:
+        cur.execute(
+            """
+          INSERT INTO users2 (id, first_name, last_name, occupation) 
+          VALUES (?, ?, ?, ?)
+      """,
+            row,
+        )
+
+# Commit the transaction
+con.commit()
+
+# Close the connection
+con.close()
+
+print("Data inserted successfully.")
+```
+
+
+
 ```SQL
 CREATE TABLE users(id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, city TEXT);
 ```
