@@ -250,18 +250,13 @@ with con:
 
     cur = con.cursor()    
 
-    cur.execute("UPDATE cities SET population=? WHERE name=?", (population, name))        
-    con.commit()
-    
+    cur.execute("UPDATE cities SET population=? WHERE name=?", (population, name))           
     print("Number of rows updated: {}".format(cur.rowcount))
 ```
 
 ## Named placeholders
 
 ```python
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import sqlite3
 import sys
 
@@ -274,8 +269,6 @@ with con:
     cur = con.cursor()    
 
     cur.execute("SELECT name, population FROM cities WHERE id=:id", {"id": uid})        
-    con.commit()
-    
     row = cur.fetchone()
     print(row[0], row[1])
 ```
