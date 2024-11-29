@@ -1,6 +1,28 @@
 # Priklady
 
+## Read CSV data
 
+```python
+import csv
+
+file_name = 'numbers.csv'
+
+values = []
+
+with open(file_name, 'r') as f:
+
+    reader = csv.reader(f)
+
+    for row in reader:
+        for e in row:
+            values.append(int(e))
+        # row2 = [int(e) for e in row]
+        # values.append(row2)
+
+print(values)            
+print(len(values))
+print(sum(values))
+```
 
 
 ## GTP4All
