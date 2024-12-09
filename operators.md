@@ -474,7 +474,7 @@ print("Adult: {0}".format(adult))
 In many countries the adulthood is based on your age. You are adult if you are older  
 than a certain age. This is a situation for a ternary operator.
 
-```
+```python
 adult = True if age >= 18 else False
 ```
 
