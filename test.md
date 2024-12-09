@@ -1,6 +1,29 @@
 # Priklady
 
 
+## Nested lists
+
+```python
+nums = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+mysum = 0
+
+for nested in nums:
+
+    for e in nested:
+        mysum += e
+        print(e, end=' ')
+
+    print()
+
+print(mysum)
+```
+
+
 ## Ternary operator 
 
 ```python
