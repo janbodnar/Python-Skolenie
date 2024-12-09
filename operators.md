@@ -103,8 +103,6 @@ The following is a table of arithmetic operators:
 The following example shows arithmetic operations.
 
 ```python
-#!/usr/bin/python
-
 # arithmetic.py
 
 a = 10
@@ -133,8 +131,6 @@ $ ./arithmetic.py
 There are three operators dealing with division.
 
 ```python
-#!/usr/bin/python
-
 # division.py
 
 print(9 / 3)
@@ -204,8 +200,6 @@ In Python, we have and, or and not boolean operators. With boolean operators we 
 logical operations. These are most often used with `if` and `while` keywords.
 
 ```python
-#!/usr/bin/python
-
 # andop.py
 
 print(True and True)
@@ -228,8 +222,6 @@ False
 The logical or operator evaluates to `True` if either of the operands is `True`.
 
 ```python
-#!/usr/bin/python
-
 # orop.py
 
 print(True or True)
@@ -251,8 +243,6 @@ False
 The negation operator not makes `True` `False` and `False` `True`.
 
 ```python
-#!/usr/bin/python
-
 # negation.py
 
 print(not False)
@@ -278,8 +268,6 @@ to true, the overall value must be true.
 The following example demonstrates the short curcuit evaluation.
 
 ```python
-#!/usr/bin/python
-
 # short_circuit.py
 
 x = 10
@@ -349,9 +337,7 @@ TypeError: unorderable types: str() > int()
 
 It is not possible to use relational operators on different data types. This code leads to a TypeError.
 
-```
-#!/usr/bin/python
-
+```python
 # compare.py
 
 print('a' < 'b')
@@ -388,8 +374,6 @@ a way does not make much sense, of course. But it is technically possible.
 The object identity operators, `is` and `not is`, check if its operatos are the same object.
 
 ```python
-#!/usr/bin/python
-
 # object_identity.py
 
 print(None == None)
@@ -431,8 +415,6 @@ no harm can be done.
 The membership operators, `in` and `not in`, test for membership in a sequence, such as strings, lists, or tuples.
 
 ```python
-#!/usr/bin/python
-
 # membership.py
 
 items = ("coin", "book", "pencil", "spoon", "paper")
@@ -480,8 +462,6 @@ If condition is true, exp1 is evaluated and the result is returned. If the condi
 is false, exp2 is evaluated and its result is returned.
 
 ```python
-#!/usr/bin/python
-
 # ternary.py
 
 age = 31
@@ -593,8 +573,6 @@ bit pattern. It determines whether some property is set or not.
 Let's have an example from GUI programming.
 
 ```python
-#!/usr/bin/python
-
 # bitwise_or.py
 
 import wx
@@ -708,8 +686,6 @@ The operators on the same row have the same level of precedence. The precedence 
 from bottom to top.
 
 ```python
-#!/usr/bin/python
-
 # precedence.py
 
 print(3 + 5 * 5)
@@ -749,8 +725,6 @@ False
 The relational operators have a higher precedence than logical operators.
 
 ```python
-#!/usr/bin/python
-
 # positive.py
 
 a = 1
