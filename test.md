@@ -1,5 +1,18 @@
 # Priklady
 
+## Quotes
+
+```python
+print("There are many stars.")
+print("He said, \"Which one is your favourite?\"")
+
+print('There are many stars.')
+print('He said, "Which one is your favourite?"')
+
+print('The film was \'great\'')
+print("The film was 'great'")
+```
+
 
 ## Nested lists
 
