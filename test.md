@@ -1,5 +1,16 @@
 # Priklady
 
+
+## Strings 
+
+```python
+word = 'eagle'
+
+print(word + " has " + str(len(word)) + " characters")
+print(word, "has", len(word), "characters")
+print(f'{word} has {len(word)} characters')
+```
+
 ## Quotes
 
 ```python
