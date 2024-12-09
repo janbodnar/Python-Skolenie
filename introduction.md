@@ -95,8 +95,6 @@ programs to be run on Unix, too.
 
 
 ```python
-#!/usr/bin/python
-
 # simple.py
 
 print("The Python tutorial")
@@ -187,8 +185,6 @@ if present.
 
 
 ```python
-#!/usr/bin/python
-
 # read_input.py
 
 name = input("Enter your name:")
@@ -200,7 +196,7 @@ The example prints a prompt and reads a name from the console. Then it prints a 
 to the console.
 
 
-```python
+```
 $ ./read_input.py 
 Enter your name:Peter
 Hello Peter
@@ -214,8 +210,6 @@ the script name; the remaining elements are arguments passed to the script.
  
 
 ```python
-#!/usr/bin/python
-
 # command_line_arguments.py
 
 import sys
