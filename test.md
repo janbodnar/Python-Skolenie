@@ -1,6 +1,31 @@
 # Priklady
 
 
+## Ternary operator 
+
+```python
+# ternary.py
+
+age = 31
+
+# adult = True if age >= 18 else False
+#
+# print("Adult: {0}".format(adult))
+# print(f"Adult: {adult}")
+
+if age >= 18:
+    adult = True
+else:
+    adult = False
+
+print("Adult: {0}".format(adult))
+print(f"Adult: {adult}")
+```
+
+
+## Booleans
+
+
 ```python
 words = ['sky', 'blue', 'war', 'water', 'system', 'small']
 # print all words starting with 's' or 'w'
