@@ -1,6 +1,62 @@
 # Priklady
 
 
+
+## List of math functions 
+
+Certainly! The `math` module in Python provides a variety of mathematical functions. Here are some of   
+the commonly used functions in the standard `math` module:
+
+1. **Arithmetic functions**:
+    - `math.ceil(x)`: Returns the smallest integer greater than or equal to x.
+    - `math.floor(x)`: Returns the largest integer less than or equal to x.
+    - `math.trunc(x)`: Truncates x to the nearest integer towards zero.
+    - `math.factorial(x)`: Returns the factorial of x.
+    - `math.fmod(x, y)`: Returns the remainder of x divided by y.
+
+2. **Power and logarithmic functions**:
+    - `math.exp(x)`: Returns e raised to the power of x.
+    - `math.log(x[, base])`: Returns the logarithm of x to the given base.
+    - `math.log10(x)`: Returns the base-10 logarithm of x.
+    - `math.sqrt(x)`: Returns the square root of x.
+
+3. **Trigonometric functions**:
+    - `math.sin(x)`: Returns the sine of x (x is in radians).
+    - `math.cos(x)`: Returns the cosine of x (x is in radians).
+    - `math.tan(x)`: Returns the tangent of x (x is in radians).
+    - `math.asin(x)`: Returns the arc sine of x.
+    - `math.acos(x)`: Returns the arc cosine of x.
+    - `math.atan(x)`: Returns the arc tangent of x.
+    - `math.atan2(y, x)`: Returns atan(y / x), in radians.
+
+4. **Hyperbolic functions**:
+    - `math.sinh(x)`: Returns the hyperbolic sine of x.
+    - `math.cosh(x)`: Returns the hyperbolic cosine of x.
+    - `math.tanh(x)`: Returns the hyperbolic tangent of x.
+    - `math.asinh(x)`: Returns the inverse hyperbolic sine of x.
+    - `math.acosh(x)`: Returns the inverse hyperbolic cosine of x.
+    - `math.atanh(x)`: Returns the inverse hyperbolic tangent of x.
+
+5. **Angle conversion functions**:
+    - `math.degrees(x)`: Converts angle x from radians to degrees.
+    - `math.radians(x)`: Converts angle x from degrees to radians.
+
+6. **Special functions**:
+    - `math.gamma(x)`: Returns the Gamma function at x.
+    - `math.lgamma(x)`: Returns the natural logarithm of the absolute value of the Gamma function at x.
+
+7. **Constants**:
+    - `math.pi`: The mathematical constant π.
+    - `math.e`: The mathematical constant e.
+
+
+
+
+
+
+
+
+
 ## Read and clean words
 
 ```python
