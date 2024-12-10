@@ -2,6 +2,22 @@
 
 
 
+## Table of math functions
+
+Table summarizing the functions available in the `math` module of Python:
+
+| **Category**                | **Function**                                                   |
+|-----------------------------|----------------------------------------------------------------|
+| **Arithmetic functions**    | `math.ceil(x)`, `math.floor(x)`, `math.trunc(x)`, `math.factorial(x)`, `math.fmod(x, y)` |
+| **Power and logarithmic functions** | `math.exp(x)`, `math.log(x[, base])`, `math.log10(x)`, `math.sqrt(x)` |
+| **Trigonometric functions** | `math.sin(x)`, `math.cos(x)`, `math.tan(x)`, `math.asin(x)`, `math.acos(x)`, `math.atan(x)`, `math.atan2(y, x)` |
+| **Hyperbolic functions**    | `math.sinh(x)`, `math.cosh(x)`, `math.tanh(x)`, `math.asinh(x)`, `math.acosh(x)`, `math.atanh(x)` |
+| **Angle conversion functions** | `math.degrees(x)`, `math.radians(x)`                      |
+| **Special functions**       | `math.gamma(x)`, `math.lgamma(x)`                             |
+| **Constants**               | `math.pi`, `math.e`                                           |
+
+
+
 ## List of math functions 
 
 Certainly! The `math` module in Python provides a variety of mathematical functions. Here are some of   
