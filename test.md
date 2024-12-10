@@ -1,6 +1,40 @@
 # Priklady
 
 
+```python
+# nacitat subor words.txt
+# filtrovat slova majuce 3 znaky -> words_3c zoznam
+# odstranit duplicity
+
+# open
+# for loop
+# odstranit bliele znaky pomocou strip
+# aplikovat filter funkciu
+
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+
+    lines = []
+
+    for line in f:
+        lines.append(line.strip())
+
+    # lines = f.readlines()
+    # print(lines)
+
+    # words = list(map(str.strip, lines))
+    # print(words)
+
+    words_3c = list(filter(lambda e: len(e) == 3, lines))
+    print(words_3c)
+
+    unique_words = set(words_3c)
+    print(unique_words)
+```
+
+
+
 ## lambda functions
 
 ```python
