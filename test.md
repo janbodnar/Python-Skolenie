@@ -1,5 +1,25 @@
 # Priklady
 
+
+## Read and clean words
+
+```python
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+
+    lines = f.readlines()
+    print(lines)
+
+    cleaned = []
+
+    for line in lines:
+        cleaned.append(line.strip())
+
+    print(cleaned)
+```
+
+
 ## Word frequencies
 
 ```python
