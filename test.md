@@ -1,5 +1,18 @@
 # Priklady
 
+## filter words
+
+```python
+def has_three_chars(e):
+    return len(e) == 3
+
+words = ['sky', 'war', 'water', 'cloud', 'pen', 'rock', 'book']
+
+words_3c = list(filter(has_three_chars, words))
+print(words_3c)
+```
+
+
 ## Filter numbers 
 
 ```python
