@@ -1,6 +1,20 @@
 # Priklady
 
 
+## Read and clean words
+
+```python
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+    lines = f.readlines()
+    print(lines)
+
+    words = list(map(str.strip, lines))
+    print(words)
+```
+
+
 ## map function
 
 ```python
