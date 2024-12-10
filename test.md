@@ -1,6 +1,26 @@
 # Priklady
 
 
+
+```python
+# print message with fstring
+# John Doe is 45 years old and he is a gardener
+name = 'John Doe'
+age = 45
+occupation = 'gardener'
+
+
+# print 1,2, last element
+words = ['sky', 'den', 'war', 'town', 'rock']
+
+# calculate sum using for loop
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# create a list of values 500 - 1000 and sum it
+```
+
+
+
 ## Strings 
 
 ```python
