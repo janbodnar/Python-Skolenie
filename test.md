@@ -1,6 +1,34 @@
 # Priklady
 
 
+## Filter & unique with Pandas
+
+```python
+import pandas as pd
+
+file_name = 'words.txt'
+
+# Načítaj súbor do DataFrame
+df = pd.read_csv(file_name, header=None, names=['word'])
+
+print(df)
+
+# Odstráň medzery okolo slov
+df['word'] = df['word'].str.strip()
+
+# Filtrovanie slov s presne 3 písmenami
+words_3c = df.query('word.str.len() == 3')['word']
+#
+# # Odstránenie duplicít
+unique_words = words_3c.drop_duplicates()
+#
+# print(words_3c.tolist())
+print(unique_words.tolist())
+```
+
+
+## Filter & unique with basic Python
+
 ```python
 # nacitat subor words.txt
 # filtrovat slova majuce 3 znaky -> words_3c zoznam
