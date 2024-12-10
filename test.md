@@ -1,5 +1,26 @@
 # Priklady
 
+## Word frequencies
+
+```python
+from collections import Counter
+
+# Read the file
+with open('thermopylae.txt', 'r') as file:
+    text = file.read()
+
+# Split the text into words
+words = text.split()
+
+# Calculate the frequency of each word
+word_frequencies = Counter(words)
+
+# Print the frequencies
+for word, frequency in word_frequencies.items():
+    print(f"{word}: {frequency}")
+```
+
+
 
 ```
 # vypis 11 pomocou indexacie
