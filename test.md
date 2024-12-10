@@ -19,6 +19,17 @@ with open(file_name, 'r') as f:
     print(cleaned)
 ```
 
+```python
+file_name = 'words.txt'
+
+with open(file_name, 'r') as f:
+    cleaned = []
+    for line in f:
+        cleaned.append(line.strip())
+
+    print(cleaned)
+```
+
 
 ## Word frequencies
 
