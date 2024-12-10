@@ -1,5 +1,25 @@
 # Priklady
 
+## Filter numbers 
+
+```python
+def is_positive(e):
+    return e > 0
+
+def is_negative(e):
+    return e < 0
+
+
+vals = [-3, 0, 1, 2, 3, -7, -5, 9, 8]
+
+positive = list(filter(is_positive, vals))
+print(positive)
+
+negative = list(filter(is_negative, vals))
+print(negative)
+```
+
+
 ## Sum of CSV data
 
 ```python
