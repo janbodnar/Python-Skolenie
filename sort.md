@@ -216,12 +216,17 @@ When sorting dictionaries, we can choose the property by which the sorting is pe
 
 ```python
 users = [
-  {'name': 'John Doe', 'date_of_birth': 1987},
-  {'name': 'Jane Doe', 'date_of_birth': 1996},
-  {'name': 'Robert Brown', 'date_of_birth': 1977},
-  {'name': 'Lucia Smith', 'date_of_birth': 2002},
-  {'name': 'Patrick Dempsey', 'date_of_birth': 1994}
+    {'date_of_birth': 1987, 'first_name': 'John', 'last_name': 'Doe'},
+    {'date_of_birth': 1996, 'first_name': 'Jane', 'last_name': 'Doe'},
+    {'date_of_birth': 1977, 'first_name': 'Robert', 'last_name': 'Brown'},
+    {'date_of_birth': 2002, 'first_name': 'Lucia', 'last_name': 'Smith'},
+    {'date_of_birth': 1994, 'first_name': 'Patrick', 'last_name': 'Dempsey'}
 ]
+
+users.sort(reverse=True, key=lambda e: e['last_name'])
+
+for user in users:
+    print(user)
 
 users.sort(reverse=True, key=lambda e: e['date_of_birth'])
 
