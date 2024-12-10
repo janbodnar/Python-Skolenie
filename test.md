@@ -1,5 +1,41 @@
 # Priklady
 
+## Sum of CSV data
+
+```python
+values = []
+
+with open(file_name, 'r') as f:
+
+    for line in f:
+        stripped_line = line.strip()
+        fields = stripped_line.split(',')
+        values.extend(list(map(int, fields)))
+
+
+    print(values)
+    # words = list(map(str.strip, lines))
+    # print(words)
+
+    print(sum(values))
+```
+
+Using Pandas
+
+
+```python
+import pandas as pd
+
+file_name = 'data.csv'
+df = pd.read_csv(file_name, header=None)
+
+print(df.to_string(index=False, header=False))
+
+total_sum = df.values.sum()
+print(total_sum)
+```
+
+
 
 ## Read and clean words
 
