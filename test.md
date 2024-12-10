@@ -1,5 +1,28 @@
 # Priklady
 
+
+## lambda functions
+
+```python
+def has_three_chars(e):
+    return len(e) == 3
+
+def starts_with_w_or_c(word):
+    # return word.startswith('w') or word.startswith('c')
+    return word.startswith(('w', 'c'))
+
+words = ['sky', 'war', 'water', 'cloud', 'pen', 'rock', 'book']
+
+words_3c = list(filter(lambda e: len(e) == 3, words))
+print(words_3c)
+
+words_w_c = list(filter(lambda e: e.startswith(('w', 'c')), words))
+print(words_w_c)
+```
+
+
+
+
 ## filter words
 
 ```python
