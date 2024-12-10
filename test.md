@@ -20,6 +20,16 @@ data = list(map(cube, vals))
 print(data)
 ```
 
+---
+
+```python
+words = ['sky\n', 'cloud\n', 'new\n', 'book\n', 'forest\n']
+
+data = list(map(str.strip, words))
+print(words)
+print(data)
+```
+
 
 
 
