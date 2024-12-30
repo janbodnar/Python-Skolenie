@@ -277,3 +277,34 @@ b'ch\xc3\xa2teau'
 0b110001101101000110000111010001001110100011001010110000101110101
 château
 ```
+
+## Summary
+
+```python
+import binascii
+
+data = b"Hello there!"  # Example byte data
+print(data)
+print(data.hex())
+print(data.decode('utf-8'))
+
+data2 = [hex(byte) for byte in data]
+print(data2)
+
+data3 = [byte for byte in data]
+print(data3)
+
+
+hex_output = binascii.hexlify(data, ',').decode('utf-8')
+print(hex_output)
+
+
+data = [0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x20, 0x74, 0x68, 0x65, 0x72, 0x65, 0x21]
+print(bytes(data))
+# print(binascii.hexlify(bytes(data)).decode('utf-8'))
+
+byte_string = b"Hello there!"
+hex_values = [hex(byte) for byte in byte_string]
+print(hex_values)
+```
+
