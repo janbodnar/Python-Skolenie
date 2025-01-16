@@ -1,5 +1,20 @@
 # Priklady
 
+## startswith funkcia
+
+```python
+total_chars_w = 0
+
+words = ['sky', 'war', 'water', 'coin', 'warm', 'forest']
+
+for word in words:
+
+    if word.startswith('w'):
+        total_chars_w += len(word)
+    
+
+print(total_chars_w)
+```
 
 ## total chars
 
