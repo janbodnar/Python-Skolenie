@@ -19,6 +19,20 @@ for word in words:
 print(total_chars_3c)
 ```
 
+---
+
+```python
+total_chars_3c = 0
+
+words = ['sky', 'war', 'Water', 'coin', 'WARM', 'forest']
+
+for word in words:
+
+    if word.startswith('w') or word.startswith('W'):
+        total_chars_3c += len(word)
+
+print(total_chars_3c)
+```
 
 
 ## startswith funkcia
