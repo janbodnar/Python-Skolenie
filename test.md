@@ -1,5 +1,7 @@
 # Priklady
 
+## if conditions
+
 ```python
 import random
 
