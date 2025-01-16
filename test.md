@@ -1,5 +1,26 @@
 # Priklady
 
+
+## Case
+
+```python
+total_chars_3c = 0
+
+words = ['sky', 'war', 'Water', 'coin', 'WARM', 'forest']
+
+for word in words:
+
+    # if word.lower().startswith('w'):
+    #     total_chars_3c += len(word)
+
+    if word.startswith(('w', 'W')):
+        total_chars_3c += len(word)
+
+print(total_chars_3c)
+```
+
+
+
 ## startswith funkcia
 
 ```python
