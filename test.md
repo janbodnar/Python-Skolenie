@@ -1,5 +1,17 @@
 # Priklady
 
+## String formatting
+
+```python
+name = 'Peter'
+age = 23
+weight = 56.7
+
+# Peter is 23 years old, his weight is 56.7
+print('%s is %d years old, his weight is %.3f' % (name, age, weight))
+print('{} is {} years old, his weight is {}'.format(name, age, weight))
+print(f'{name} is {age} years old, his weight is {weight:.2f}')
+```
 
 ## Case
 
