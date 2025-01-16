@@ -1,5 +1,23 @@
 # Priklady
 
+## Pretypovanie
+
+```python
+x = 2
+word = " apples"
+
+# '2' + " apples"
+msg = str(x) + word
+
+print(msg)
+
+x = '10'
+y = '11'
+
+print(int(x) + int(y))
+```
+
+
 ## if conditions
 
 ```python
