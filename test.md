@@ -16,6 +16,21 @@ for word in words:
 print(total_chars_w)
 ```
 
+---
+
+```python
+total_chars_3c = 0
+
+words = ['sky', 'war', 'water', 'coin', 'warm', 'forest']
+
+for word in words:
+
+    if len(word) == 3:
+        total_chars_3c += len(word)
+
+print(total_chars_3c)
+```
+
 ## total chars
 
 ```python
