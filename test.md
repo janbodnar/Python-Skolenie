@@ -1,5 +1,20 @@
 # Priklady
 
+
+## total chars
+
+```python
+total_chars = 0
+
+words = ['sky', 'war', 'water', 'coin', 'forest']
+
+for word in words:
+    total_chars = total_chars + len(word)
+
+print(total_chars)
+```
+
+
 ## Unique words
 
 ```python
