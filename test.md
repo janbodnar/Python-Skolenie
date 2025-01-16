@@ -1,5 +1,18 @@
 # Priklady
 
+
+## not operator
+
+```python
+words = ['sky', 'war', 'rock']
+
+if 'sky' in words:
+    print('word sky is in the list')
+
+if 'water' not in words:
+    print('word water is not in the list')
+```
+
 ## Pretypovanie
 
 ```python
