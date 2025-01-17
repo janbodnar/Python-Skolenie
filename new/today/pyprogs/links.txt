@@ -1,0 +1,19 @@
+GITHUB:
+https://github.com/janbodnar?tab=repositories
+
+EXTERNAL LIBRARIES:
+https://pypi.org/
+
+
+BUILD FUNCTIONS:
+https://docs.python.org/3/library/functions.html
+
+
+PY COURSES:
+https://www.youtube.com/watch?reload=9&v=H2EJuAcrZYU
+
+https://www.youtube.com/watch?v=JZDQKj9BOoc
+
+
+COPILOT:
+https://copilot.microsoft.com/chats/YqqCfVHTVo82xFwGCSMsD
