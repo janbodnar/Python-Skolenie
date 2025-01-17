@@ -1,5 +1,17 @@
 # Priklady
 
+
+## print first negative value
+
+```python
+vals = [1, 2, 3, 5, -4, 5, -6, -9]
+
+for val in vals:
+    if val < 0:
+        print(val)
+        break
+```
+
 ## print value 11
 
 ```python
