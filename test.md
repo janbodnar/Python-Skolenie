@@ -3,10 +3,11 @@
 ## Opakovanie
 
 ```python
-
 # print first, fourth, last, last but one character
 msg = 'and old falcon in the sky'
 
+# print first, second, last, last but one word
+msg2 = 'and old falcon in the sky'
 
 # create message John Doe is a gardener
 # and lives in New York
