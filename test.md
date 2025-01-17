@@ -22,6 +22,59 @@ vals = [1, 0, -3, 4, 5, -6, -7, 3, -1]
 words = ['sky', 'cup', 'water', 'warm', 'spy', 'cloud', 'necessity']
 ```
 
+### Riesenia
+
+```python
+
+# print first, fourth, last, last but one character
+msg = 'and old falcon in the sky'
+print(msg[0])
+print(msg[3])
+print(msg[-1])
+print(msg[-2])
+
+
+# print first, second, last, last but one word
+# funkcia split
+msg2 = 'an old falcon in the sky'
+mywords = msg2.split(' ')
+print(mywords[0])
+print(mywords[1])
+print(mywords[-1])
+print(mywords[-2])
+
+
+# create message John Doe is a gardener
+# and lives in New York
+# fstring
+name = "John Doe"
+occupation = "gardener"
+city = 'New York'
+
+msg = f'{name} is a {occupation} and lives in {city}'
+print(msg)
+
+# calculate the sum of positive values
+vals = [1, 0, -3, 4, 5, -6, -7, 3, -1]
+
+mysum = 0
+
+for val in vals:
+    if val > 0:
+        mysum += val
+
+print(mysum)
+
+# print words that start with w or c
+words = ['sky', 'cup', 'water', 'warm', 'spy', 'cloud', 'necessity']
+
+for word in words:
+    # if word.startswith(('w', 'c')):
+    #     print(word)
+
+    if word.startswith('w') or word.startswith('c'):
+        print(word)
+```
 
 
 
