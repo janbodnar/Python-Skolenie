@@ -1,5 +1,29 @@
 # Priklady
 
+## Opakovanie
+
+```python
+
+# print first, fourth, last, last but one character
+msg = 'and old falcon in the sky'
+
+
+# create message John Doe is a gardener
+# and lives in New York
+name = "John Doe"
+occupation = "gardener"
+city = 'New York'
+
+# calculate the sum of positive values
+vals = [1, 0, -3, 4, 5, -6, -7, 3, -1]
+
+# print words that start with w or c
+words = ['sky', 'cup', 'water', 'warm', 'spy', 'cloud', 'necessity']
+```
+
+
+
+
 ## String formatting
 
 ```python
