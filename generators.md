@@ -42,9 +42,14 @@ Generators can be defined in two ways:
 - Processing large datasets (files, streams).  
 - Working with infinite sequences (e.g., Fibonacci numbers).  
 - Memory-constrained environments (e.g., IoT devices).  
-   
+
+Generators are handy for working with large datasets or streams of data where  
+generating and storing the entire sequence at once would be impractical.  
   
 ## Generator function example:  
+
+In this example, `count_up_to` is a generator function that yields numbers from 1 up    
+to a specified maximum. 
   
 ```python  
 def count_up_to(max):  
@@ -59,12 +64,10 @@ for number in counter:
     print(number)  # Outputs: 1, 2, 3, 4, 5  
 ```  
   
-In this example, `count_up_to` is a generator function that yields numbers from  
-1 up to a specified maximum. The `for` loop iterates over the generator,  
+The `for` loop iterates over the generator,  
 printing each number one at a time.  
   
-Generators are handy for working with large datasets or streams of data where  
-generating and storing the entire sequence at once would be impractical.  
+
 
   
 ## List vs generator comparison 
