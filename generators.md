@@ -84,6 +84,46 @@ print(f"Max memory usage (generator): {max(gen_mem_usage)} MiB")
 print(f"Max memory usage (list): {max(list_mem_usage)} MiB")
 ```
 
+## Chaining of operations
+
+```python
+from memory_profiler import memory_usage
+
+def generator_chain(n):
+    numbers = (i for i in range(n) if i % 2 == 0)
+    squares = (i**2 for i in numbers)
+    return sum(squares)
+
+def list_chain(n):
+    numbers = [i for i in range(n) if i % 2 == 0]
+    squares = [i**2 for i in numbers]
+    return sum(squares)
+
+if __name__ == "__main__":
+    n = 10_000_000
+
+    gen_mem_usage = memory_usage((generator_chain, (n,)), interval=0.1)
+    list_mem_usage = memory_usage((list_chain, (n,)), interval=0.1)
+
+    print(f"Max memory usage (generator): {max(gen_mem_usage)} MiB")
+    print(f"Max memory usage (list): {max(list_mem_usage)} MiB")
+```
+
+1. **Memory Efficiency**:   
+    - **Generators**: Generators are more memory-efficient as they generate  
+      items on-the-fly and do not store the entire list in memory. This is  
+      particularly useful when dealing with large datasets.  
+    - **Lists**: Lists store all elements in memory, which can lead to high  
+      memory usage and potential memory errors for large datasets.  
+  
+2. **Performance**:  
+    - **Generators**: Generators have a slight overhead due to yielding values  
+      one at a time, but the difference is usually negligible compared to the  
+      memory benefits.  
+    - **Lists**: List comprehensions can be faster for smaller datasets because  
+      they avoid the generator overhead, but they are impractical for large  
+      datasets due to memory constraints.  
+
 ## Reading large files
 
 When working with large files, loading the entire file into memory can be inefficient  
