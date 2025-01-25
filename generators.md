@@ -27,7 +27,17 @@ Key points about generators:
    time the generator's `__next__()` method is called (either implicitly via a  
    loop or explicitly), it resumes execution from where it left off and  
    continues until it encounters another `yield` statement or the function  
-   completes.  
+   completes.
+
+## Syntax 
+
+Generators can be defined in two ways:
+
+- Generator Functions: Use yield instead of return.
+- Generator Expressions: Similar to list comprehensions but with `()`.
+
+
+   
   
 Here's a simple example of a generator function:  
   
