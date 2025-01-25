@@ -84,13 +84,19 @@ print(f"Max memory usage (generator): {max(gen_mem_usage)} MiB")
 print(f"Max memory usage (list): {max(list_mem_usage)} MiB")
 ```
 
-Memory usage for lists:  
+## Reading large files
 
-- The list `numbers` stores **10 million integers** in memory.  
-- Memory footprint: ~76 MB (for 10M integers).  
-- Measured with `sys.getsizeof(numbers)`: ~85,000,000 bytes.
+When working with large files, loading the entire file into memory can be inefficient  
+and impractical. Instead, you can use a generator to read the file line-by-line:  
 
-Memory usage for generators: 
+```python
+def read_large_file(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            yield line
 
-- Generators produce values **on-demand**, keeping only the current value in memory.  
-- Memory footprint: **<1 KB** (constant, regardless of `n`).  
+# Usage
+file_path = 'large_file.txt'
+for line in read_large_file(file_path):
+    process(line)  # Replace with your processing logic
+```
