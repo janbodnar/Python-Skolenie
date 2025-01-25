@@ -37,9 +37,14 @@ Generators can be defined in two ways:
 - Generator Expressions: Similar to list comprehensions but with `()`.
 
 
+## When to Use Generators
+
+- Processing large datasets (files, streams).  
+- Working with infinite sequences (e.g., Fibonacci numbers).  
+- Memory-constrained environments (e.g., IoT devices).  
    
   
-Here's a simple example of a generator function:  
+## Generator function example:  
   
 ```python  
 def count_up_to(max):  
@@ -62,14 +67,7 @@ Generators are handy for working with large datasets or streams of data where
 generating and storing the entire sequence at once would be impractical.  
 
   
-## When to Use Generators
-
-- Processing large datasets (files, streams).  
-- Working with infinite sequences (e.g., Fibonacci numbers).  
-- Memory-constrained environments (e.g., IoT devices).  
-
-
-## Example 
+## List vs generator comparison 
 
 The script measures and prints the maximum memory usage of both  
 the generator-based and list-based functions, allowing you to compare  
