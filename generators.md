@@ -86,6 +86,8 @@ print(f"Max memory usage (list): {max(list_mem_usage)} MiB")
 
 ## Chaining of operations
 
+Generators can be combined for efficient data transformations.  
+
 ```python
 from memory_profiler import memory_usage
 
