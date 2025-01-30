@@ -1,6 +1,41 @@
 # Priklady
 
 
+## Lambda functions
+
+```python
+# map
+# filter
+
+# negative_vals = []
+
+vals = [-3, 4, 0, 2, -1, 0, 9, -9]
+
+# def is_negative(e):
+#     if e < 0:
+#         return True
+
+# def is_negative(e):
+#     if e < 0:
+#         return True
+
+
+def is_positive(e):
+    return e > 0
+
+
+# for val in vals:
+#     if val < 0:
+#         negative_vals.append(val)
+
+neg_vals = list(filter(lambda e: e < 0, vals))
+print(neg_vals)
+
+pos_vals = list(filter(lambda e: e > 0, vals))
+print(pos_vals)
+```
+
+
 ## Opakovanie
 
 
