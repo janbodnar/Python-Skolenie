@@ -1,5 +1,7 @@
 # Priklady
 
+## Filtering users in file
+
 ```python
 file_name = 'users.csv'
 
@@ -11,13 +13,14 @@ with open(file_name, 'r') as f:
     for line in f:
         fields = line.rstrip().split(',')
         all.append(fields)
-        if fields[0].startswith('W'):
+        if fields[1].startswith('W'):
             users_w.append(fields)
 
 
     print(users_w)
 
-    filtered = list(filter(lambda x: x[0].startswith('W'), all))
+    filtered = list(filter(lambda x: x[1].startswith('W'), all))
+    # filtered = list(filter(lambda x: x[1][0] == 'W', all))
     print(filtered)
 
     print(users_w == filtered)
