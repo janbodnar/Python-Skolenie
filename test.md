@@ -1,5 +1,28 @@
 # Priklady
 
+```python
+file_name = 'users.csv'
+
+all = []
+users_w = []
+
+with open(file_name, 'r') as f:
+
+    for line in f:
+        fields = line.rstrip().split(',')
+        all.append(fields)
+        if fields[0].startswith('W'):
+            users_w.append(fields)
+
+
+    print(users_w)
+
+    filtered = list(filter(lambda x: x[0].startswith('W'), all))
+    print(filtered)
+
+    print(users_w == filtered)
+```
+
 
 ```python
 import faker
