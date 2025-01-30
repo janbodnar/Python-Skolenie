@@ -36,6 +36,27 @@ print(pos_vals)
 ```
 
 
+```python
+words = ['apple', 'cup', 'war', 'banana', 'cherry', 'date', 'water', 'elderberry', 'fig', 'grape']
+
+# def starts_with_w(word):
+#     if word[0] == 'w':
+#         return True
+    # return word[0] == 'w'
+
+# words_w = list(filter(starts_with_w, words))
+# print(words_w)
+
+# words_w_c = list(filter(lambda word: word[0] == 'w' or word[0] == 'c', words))
+words_w_c = list(filter(lambda word: word[0] in ('w', 'c'), words))
+print(words_w_c)
+
+# words_w = list(filter(lambda w: w[0] == 'w', words))
+# print(words_w)
+```
+
+
+
 ## Opakovanie
 
 
