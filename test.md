@@ -55,6 +55,19 @@ print(words_w_c)
 # print(words_w)
 ```
 
+```python
+def twice(x):
+    return x * 2
+
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# vals2 = list(map(twice, vals))
+vals2 = list(map(lambda e: e * 2, vals))
+
+print(vals2)
+print(vals)
+```
+
 
 
 ## Opakovanie
