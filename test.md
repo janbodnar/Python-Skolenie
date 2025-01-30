@@ -68,6 +68,15 @@ print(vals2)
 print(vals)
 ```
 
+```python
+# sum vals
+data = '1,2,3,4,5,6,7,8,9,10'
+
+fields = data.split(',')
+mysum = sum(map(int, fields))
+print(mysum)
+```
+
 
 
 ## Opakovanie
