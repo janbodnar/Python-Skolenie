@@ -1,5 +1,32 @@
 # Priklady
 
+
+## utils module
+
+The `utils.py`:
+
+```python
+def filter_len_4(words):
+    return list(filter(lambda word: len(word) == 4, words))
+    # return filtered
+    # return [word for word in words if len(word) == 4]
+```
+
+The `main.py`:
+
+```python
+import utils
+
+# filter all words having length 4
+
+words = ['cat', 'window', 'word', 'defenestrate', 'cats', 'window', 'cup', 'war', 'rock']
+
+print(utils.filter_len_4(words))
+```
+
+Run `python main.py`.  
+
+
 ## Filtering users in file
 
 ```python
