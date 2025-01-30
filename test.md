@@ -1,6 +1,34 @@
 # Priklady
 
 
+```python
+import faker
+
+faker = faker.Faker()
+
+first_name = faker.first_name()
+last_name = faker.last_name()
+city = faker.city()
+state = faker.state()
+email = faker.email()
+
+print(first_name, last_name, city, state, email)
+
+file_name = 'users.csv'
+
+with open(file_name, 'w') as f:
+    f.write('first_name,last_name,city,state,email\n')
+    for _ in range(1000):
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        city = faker.city()
+        state = faker.state()
+        email = faker.email()
+
+        f.write(f'{first_name},{last_name},{city},{state},{email}\n')
+```
+
+
 ## Lambda functions
 
 ```python
