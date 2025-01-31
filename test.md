@@ -64,7 +64,14 @@ with open(file_name, 'r') as f:
         user = User(fields[0], fields[1], fields[2], fields[3], int(fields[4]))
         all_users.append(user)
 
-    print(all_users[:11])
+    # print(all_users[:11])
+
+
+    users_w = [user for user in all_users if user.last_name.startswith('W')]
+    print(len(users_w))
+
+    for user in users_w[:21]:
+        print(user)
 ```
 
 
