@@ -37,6 +37,12 @@ users = [
     User("John", "Smith", "broker", 29),
     User("Rob", "Roe", "dancer", 55),
 ]
+
+users_w = [user for user in users if user.lname.startswith('W')]
+print(users_w)
+
+users_older_40 = [user for user in users if user.age > 40]
+print(users_older_40)
 ```
 
 
