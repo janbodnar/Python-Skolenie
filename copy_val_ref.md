@@ -157,3 +157,23 @@ print(vals2)
 Chaning the copied object does not affect the original data.  
 
 
+## Table 
+
+| **Type**       | **Example**           | **Copied By** |
+|----------------|-----------------------|---------------|
+| Integer        | `42`                  | Value         |
+| Float          | `3.14`                | Value         |
+| String         | `"hello"`             | Value         |
+| Tuple          | `(1, 2, 3)`           | Value         |
+| List           | `[1, 2, 3]`           | Reference     |
+| Dictionary     | `{"key": "value"}`    | Reference     |
+| Set            | `{1, 2, 3}`           | Reference     |
+| Custom Object  | `MyClass()`           | Reference     |
+
+In this table:
+- **Copied By Value** means that when you assign the value to another variable, a new copy of the value is created.  
+- **Copied By Reference** means that when you assign the value to another variable, both variables refer to
+- the same object in memory.
+
+
+
