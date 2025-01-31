@@ -1,5 +1,37 @@
 # Priklady
 
+## Opakovanie
+
+```python
+# create a list of integers only
+vals = [1, 2, 3, 4, 5, "12", 4, "21", -1, "3"]
+
+# filter numbers from the list
+mixed = [True, False, 1, 0, "True", "False", "1", "0", -1, "1", 11.5, 12, 1.2]
+
+# filter tuples with sum > 10
+data = ((3, 4, 2), (3, 3, 4), (4, 4, 4), (3, 3, 3), (1, 1, 1), (1, 2, 3))
+
+
+# filter users with age > 40
+users = [
+    {"first_name": "John", "last_name": "Doe", "age": 30},
+    {"first_name": "Jane", "last_name": "Doe", "age": 25},
+    {"first_name": "John", "last_name": "Smith", "age": 43},
+    {"first_name": "Jane", "last_name": "Smith", "age": 35},
+    {"first_name": "John", "last_name": "Doe", "age": 20},
+    {"first_name": "Paul", "last_name": "Black", "age": 55},
+    {"first_name": "John", "last_name": "Smith", "age": 60},
+    {"first_name": "Robert", "last_name": "Smith", "age": 5},
+]
+```
+
+
+
+
+
+
+
 
 ## utils module
 
