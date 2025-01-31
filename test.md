@@ -13,6 +13,33 @@ positive = [val for val in nums if val > 0]
 print(positive)
 ```
 
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    fname: str
+    lname: str
+    occupation: str
+    age: int
+
+
+users = [
+    User("John", "Doe", "gardener", 56),
+    User("Adam", "Roe", "student", 33),
+    User("Jane", "Doe", "teacher", 28),
+    User("Roger", "Roe", "driver", 67),
+    User("Leo", "Abramovic", "singer", 12),
+    User("Tomas", "Wager", "programmer", 58),
+    User("John", "Adams", "dentist", 33),
+    User("Sam", "Brown", "actor", 22),
+    User("John", "Smith", "broker", 29),
+    User("Rob", "Roe", "dancer", 55),
+]
+```
+
+
 
 ## Rectangle 
 
