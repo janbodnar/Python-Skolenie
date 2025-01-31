@@ -14,6 +14,9 @@ faker = faker.Faker()
 
 with open(file_name, 'w') as f:
 
+    headers = 'first_name,last_name,job,city,salary\n'
+    f.write(headers)
+
     for _ in range(1000_000):
 
         fname = faker.first_name()
@@ -25,6 +28,10 @@ with open(file_name, 'w') as f:
         row = f'{fname},{lname},{job},{city},{salary}\n'
 
         f.write(row)
+
+
+
+# print(fname, lname, job, city)
 ```
 
 
