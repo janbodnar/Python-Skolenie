@@ -12,6 +12,8 @@ mixed = [True, False, 1, 0, "True", "False", "1", "0", -1, "1", 11.5, 12, 1.2]
 # filter tuples with sum > 10
 data = ((3, 4, 2), (3, 3, 4), (4, 4, 4), (3, 3, 3), (1, 1, 1), (1, 2, 3))
 
+# transform the list into lowercased strings
+words = ["apple", "Banana", "cherry", "orangE", "KIWI", "maNgo"]
 
 # filter users with age > 40
 users = [
