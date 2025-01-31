@@ -1,6 +1,34 @@
 # Priklady
 
 
+## Generate fake user data
+
+```python
+import faker
+
+
+file_name = 'users.csv'
+
+faker = faker.Faker()
+
+
+with open(file_name, 'w') as f:
+
+    for _ in range(1000_000):
+
+        fname = faker.first_name()
+        lname = faker.last_name()
+        job = faker.job()
+        city = faker.city()
+        salary = faker.random_int(850, 5500, 50)
+        
+        row = f'{fname},{lname},{job},{city},{salary}\n'
+
+        f.write(row)
+```
+
+
+
 ## list comprehensions
 
 ```python
