@@ -1,5 +1,41 @@
 # Priklady
 
+
+## Rectangle 
+
+```python
+class Rectangle:
+    
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+    
+    def set_width(self, width):
+        self.width = width
+    
+    def set_height(self, height):
+        self.height = height
+
+    def get_width(self):
+        return self.width
+
+    def get_height(self):
+        return self.height
+
+
+r1 = Rectangle(10, 20)
+print(r1.area())
+
+r1.set_width(30)
+r1.set_height(40)
+
+print(r1.area())
+```
+
+
 ## Dynamic attributes
 
 ```python
