@@ -34,6 +34,40 @@ with open(file_name, 'w') as f:
 # print(fname, lname, job, city)
 ```
 
+Read CSV data into  list of user objects.
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    first_name: str
+    last_name: str
+    job: str
+    city: str
+    salary: int
+
+
+file_name = 'users.csv'
+all_users = []
+
+
+with open(file_name, 'r') as f:
+
+    next(f)
+
+    for line in f:
+        # print(repr(line))
+        row = line.rstrip()
+        fields = row.split(';')
+    
+        user = User(fields[0], fields[1], fields[2], fields[3], int(fields[4]))
+        all_users.append(user)
+
+    print(all_users[:11])
+```
+
+
 
 
 ## list comprehensions
