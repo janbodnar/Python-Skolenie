@@ -28,6 +28,49 @@ users = [
 ]
 ```
 
+Riesenie
+
+```python
+# transform to a list of integers
+vals = [1, 2, 3, 4, 5, "12", 4, "21", -1, "3"]
+
+vals_cleaned = list(map(int, vals))
+print(vals_cleaned)
+
+
+# filter numbers from the list
+mixed = [True, False, 1, 0, "True", "False", "1", "0", -1, "1", 11.5, 12, 1.2]
+
+numbers = list(filter(lambda e: type(e) == int or type(e) == float, mixed))
+print(numbers)
+
+# filter tuples with sum > 10
+data = ((3, 4, 2), (3, 3, 4), (4, 4, 4), (3, 3, 3), (1, 1, 1), (1, 2, 3))
+
+filtered = list(filter(lambda e: sum(e) > 10, data))
+print(filtered)
+
+# transform the list into lowercased strings
+words = ["apple", "Banana", "cherry", "orangE", "KIWI", "maNgo"]
+words_lower = list(map(lambda e: e.lower(), words))
+print(words_lower)
+
+# filter users with age > 40
+users = [
+    {"first_name": "John", "last_name": "Doe", "age": 30},
+    {"first_name": "Jane", "last_name": "Doe", "age": 25},
+    {"first_name": "John", "last_name": "Smith", "age": 43},
+    {"first_name": "Jane", "last_name": "Smith", "age": 35},
+    {"first_name": "John", "last_name": "Doe", "age": 20},
+    {"first_name": "Paul", "last_name": "Black", "age": 55},
+    {"first_name": "John", "last_name": "Smith", "age": 60},
+    {"first_name": "Robert", "last_name": "Smith", "age": 5},
+]
+
+users_older_40 = list(filter(lambda user: user["age"] > 40, users))
+print(users_older_40)
+```
+
 
 
 
