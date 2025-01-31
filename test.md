@@ -1,5 +1,26 @@
 # Priklady
 
+## Dynamic attributes
+
+```python
+class Person:
+    pass
+
+p = Person()
+p.age = 24
+p.name = "Peter"
+p.occupation = "teacher"
+
+print("{0} is {1} years old an is a {2}".format(p.name, p.age, p.occupation))
+
+p2 = Person()
+p2.age = 44
+p2.name = "Jozef"
+p2.occupation = "programmer"
+
+print("{0} is {1} years old an is a {2}".format(p2.name, p2.age, p2.occupation))
+```
+
 ## Opakovanie
 
 ```python
