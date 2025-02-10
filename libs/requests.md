@@ -172,4 +172,197 @@ if __name__ == "__main__":
     get_webpage_title(target_url)
 ```
 
+## Button click
+
+Headless example:  
+
+```python
+import requests
+
+def click_button_on_page(url):
+    # Define the base URL for the ChromeDriver REST API
+    chromedriver_url = "http://localhost:9515"
+
+    try:
+        # Step 1: Create a new session
+        session_response = requests.post(f"{chromedriver_url}/session", json={
+            "capabilities": {
+                "alwaysMatch": {
+                    "browserName": "chrome",
+                    "goog:chromeOptions": {
+                        "args": ["--headless"]  # Run in headless mode (optional)
+                    }
+                }
+            }
+        })
+        session_response.raise_for_status()
+        session_data = session_response.json()
+        session_id = session_data["value"]["sessionId"]
+
+        print(f"Session created with ID: {session_id}")
+
+        # Step 2: Navigate to the specified URL
+        navigate_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/url",
+            json={"url": url}
+        )
+        navigate_response.raise_for_status()
+
+        print(f"Navigated to: {url}")
+
+        # Step 3: Find the button element by its tag name
+        find_element_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/element",
+            json={"using": "tag name", "value": "button"}
+        )
+        find_element_response.raise_for_status()
+        element_data = find_element_response.json()
+        value = element_data['value']
+        print('value', value)
+        element = list(element_data['value'].keys())[0]
+        print('element', element)
+
+        element_id = value[element]
+        print('element_id', element_id)
+        # button_element_id = element_data["value"]["element-6066-11e4-a52e-4f735466cecf"]
+        button_element_id = element_data["value"]["element-6066-11e4-a52e-4f735466cecf"]
+
+        print(f"Button element found with ID: {button_element_id}")
+        print(find_element_response.json())
+
+        # Step 4: Click the button
+        click_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/element/{button_element_id}/click",
+            json={}
+        )
+        click_response.raise_for_status()
+
+        print("Button clicked successfully.")
+
+        # Step 5: Retrieve the output content from the div with id="output"
+        execute_script_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/execute/sync",
+            json={
+                "script": 'return document.getElementById("output").innerText',
+                "args": []
+            }
+        )
+        execute_script_response.raise_for_status()
+        output_data = execute_script_response.json()
+        output_content = output_data["value"]
+
+        print(f"Output content after clicking the button: {output_content}")
+
+        # Step 6: Delete the session (cleanup)
+        delete_session_response = requests.delete(f"{chromedriver_url}/session/{session_id}")
+        delete_session_response.raise_for_status()
+
+        print("Session deleted successfully.")
+
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred while interacting with ChromeDriver: {e}")
+
+if __name__ == "__main__":
+    target_url = "https://webcode.me/click.html"  # Replace with the actual URL of your HTML page
+    click_button_on_page(target_url)
+```
+
+
+UI example:  
+
+```python
+import requests
+import time
+
+
+def click_button_on_page(url):
+    # Define the base URL for the ChromeDriver REST API
+    chromedriver_url = "http://localhost:9515"
+
+    try:
+        # Step 1: Create a new session
+        session_response = requests.post(f"{chromedriver_url}/session", json={
+            "capabilities": {
+                "alwaysMatch": {
+                    "browserName": "chrome",
+                    "goog:chromeOptions": {
+                        # Open DevTools for debugging
+                        "args": ["--auto-open-devtools-for-tabs"],
+                    }
+                }
+            }
+        })
+
+        session_response.raise_for_status()
+        session_data = session_response.json()
+        session_id = session_data["value"]["sessionId"]
+
+        print(f"Session created with ID: {session_id}")
+
+        # Step 2: Navigate to the specified URL
+        navigate_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/url",
+            json={"url": url}
+        )
+        navigate_response.raise_for_status()
+
+        print(f"Navigated to: {url}")
+
+        # Step 3: Find the button element by its tag name
+        find_element_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/element",
+            json={"using": "tag name", "value": "button"}
+        )
+        find_element_response.raise_for_status()
+        element_data = find_element_response.json()
+        button_element_id = element_data["value"]["element-6066-11e4-a52e-4f735466cecf"]
+
+        print(f"Button element found with ID: {button_element_id}")
+
+        time.sleep(5)
+
+        # Step 4: Click the button
+        click_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/element/{button_element_id}/click",
+            json={}
+        )
+        print(click_response.json())
+        click_response.raise_for_status()
+
+        print("Button clicked successfully.")
+
+        # Step 5: Retrieve the output content from the div with id="output"
+        execute_script_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/execute/sync",
+            json={
+                "script": 'return document.getElementById("output").innerText',
+                "args": []
+            }
+        )
+        execute_script_response.raise_for_status()
+        output_data = execute_script_response.json()
+        output_content = output_data["value"]
+
+        print(f"Output content after clicking the button: {output_content}")
+
+        time.sleep(5)
+
+        # Step 6: Delete the session (cleanup)
+        delete_session_response = requests.delete(
+            f"{chromedriver_url}/session/{session_id}")
+        delete_session_response.raise_for_status()
+
+        print("Session deleted successfully.")
+
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred while interacting with ChromeDriver: {e}")
+
+
+if __name__ == "__main__":
+    # Replace with the actual URL of your HTML page
+    target_url = "https://webcode.me/click.html"
+    click_button_on_page(target_url)
+```
+
+
 
