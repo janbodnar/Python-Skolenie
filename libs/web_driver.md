@@ -451,6 +451,81 @@ if __name__ == "__main__":
     get_webpage_screenshot(target_url)
 ```
 
+## Get CSS Value
+
+```python
+import requests
+
+def get_element_css_value(url, element_selector, css_property):
+    # Define the base URL for the ChromeDriver REST API
+    chromedriver_url = "http://localhost:9515"
+
+    try:
+        # Step 1: Create a new session
+        session_response = requests.post(f"{chromedriver_url}/session", json={
+            "capabilities": {
+                "alwaysMatch": {
+                    "browserName": "chrome",
+                    "goog:chromeOptions": {
+                        "args": ["--headless"]  # Run in headless mode
+                    }
+                }
+            }
+        })
+        session_response.raise_for_status()
+        session_data = session_response.json()
+        session_id = session_data["value"]["sessionId"]
+
+        print(f"Session created with ID: {session_id}")
+
+        # Step 2: Navigate to the specified URL
+        navigate_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/url",
+            json={"url": url}
+        )
+        navigate_response.raise_for_status()
+
+        print(f"Navigated to: {url}")
+
+        # Step 3: Find the element by CSS selector
+        find_element_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/element",
+            json={"using": "css selector", "value": element_selector}
+        )
+        find_element_response.raise_for_status()
+        element_data = find_element_response.json()
+        # element_id = element_data["value"]["element-6066-11e4-a52e-4f735466cecf"]
+        element_id = list(element_data["value"].values())[0]
+
+
+        # Step 4: Get the CSS value of the element
+        css_value_response = requests.get(
+            f"{chromedriver_url}/session/{session_id}/element/{element_id}/css/{css_property}"
+        )
+        css_value_response.raise_for_status()
+        css_value_data = css_value_response.json()
+        css_value = css_value_data["value"]
+
+        print(f'The CSS value of "{css_property}" for the element "{element_selector}" is: {css_value}')
+
+        # Step 5: Delete the session (cleanup)
+        delete_session_response = requests.delete(
+            f"{chromedriver_url}/session/{session_id}")
+        delete_session_response.raise_for_status()
+
+        print("Session deleted successfully.")
+
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred while interacting with ChromeDriver: {e}")
+
+
+if __name__ == "__main__":
+    target_url = "https://webcode.me/"
+    element_css_selector = "body"  # Example: CSS selector for the <body> element
+    css_property_name = "color"  # Example: CSS property to get the value for
+    get_element_css_value(target_url, element_css_selector, css_property_name)
+```
+
 ## Maximize window 
 
 Maximize window with *POST	/session/{session id}/window/maximize* endpoint
