@@ -67,15 +67,16 @@ for post in posts:
     print(f"Body: {post['body']}")
 ```
 
-## Driver status
+## Chrome Driver 
 
 Download:  
 
 `https://googlechromelabs.github.io/chrome-for-testing/#stable`
 
-
 Chromedriver status implementation:  
 `https://chromium.googlesource.com/chromium/src/+/master/docs/chromedriver_status.md`
+
+Get driver status    
 
 ```python
 import requests
