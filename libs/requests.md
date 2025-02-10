@@ -5,23 +5,52 @@ It allows you to send HTTP/1.1 requests, with methods such as `GET`, `POST`, `PU
 
 Features:  
 
-- **Simplicity**: The `requests` library simplifies making HTTP requests and handling responses.
+- **Simplicity**: The `requests` library simplifies making HTTP requests and handling responses.  
   It's designed to be user-friendly and intuitive.  
-- **Features**: It provides support for features like keeping connections open, managing sessions,
+- **Features**: It provides support for features like keeping connections open, managing sessions,  
   handling cookies, and managing request headers.  
-- **Error Handling**: `requests` helps manage exceptions and errors, making it easier to debug and
-  handle different HTTP response statuses.
-- **API**: It offers a straightforward API to work with JSON, XML, and other formats returned  
+- **Error Handling**: `requests` helps manage exceptions and errors, making it easier to debug and  
+  handle different HTTP response statuses.  
+- **API**: It offers a straightforward API to work with JSON, XML, and other formats returned   
   by web servers.
 
-## Simple example
+## Status 
 
 ```python
-import requests
+import requests as req
 
-response = requests.get('https://api.example.com/data')
-print(response.status_code)
-print(response.json())
+resp = req.get("https://webcode.me")
+
+print(resp.status_code)
+print(resp.history)
+print(resp.url)
 ```
 
-This example demonstrates how to make a GET request and handle the response. If you're working with web APIs or any HTTP-based services, `requests` is an excellent tool to have in your Python toolkit!
+## Headers 
+
+```python
+import requests 
+
+resp = requests.head("https://webcode.me")
+
+print("Server: " + resp.headers['server'])
+print("Last modified: " + resp.headers['last-modified'])
+print("Content type: " + resp.headers['content-type'])
+```
+
+## Retrieve JSON data
+
+```python
+import requests 
+
+resp = requests.get('https://jsonplaceholder.typicode.com/posts')
+posts = resp.json()
+
+print(posts)
+
+for post in posts:
+    print(f"Id: {post['id']}")
+    print(f"Title: {post['title']}")
+    print(f"Body: {post['body']}")
+```
+
