@@ -67,3 +67,42 @@ for post in posts:
     print(f"Body: {post['body']}")
 ```
 
+## Driver status
+
+Download:  
+
+`https://googlechromelabs.github.io/chrome-for-testing/#stable`
+
+
+Chromedriver status implementation:  
+`https://chromium.googlesource.com/chromium/src/+/master/docs/chromedriver_status.md`
+
+```python
+import requests
+
+
+def get_chrome_driver_status():
+    url = "http://localhost:9515/status"
+
+    try:
+        # Send a GET request to the ChromeDriver status endpoint
+        response = requests.get(url)
+        print(response)
+
+        if response.status_code == 200:
+            print("OK - 200")
+        else:
+            print(f"Failed to retrieve status. HTTP Status Code: {
+                  response.status_code}")
+
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred while connecting to ChromeDriver: {e}")
+
+
+if __name__ == "__main__":
+    get_chrome_driver_status()
+```
+
+
+
+
