@@ -1,6 +1,5 @@
 # Web Driver 
 
-ebDriver specification:
 
 *WebDriver* is a remote control interface that enables introspection and control of user agents (i.e., web browsers).   
 It provides a platform and language-neutral wire protocol as a way for out-of-process programs to remotely instruct  
