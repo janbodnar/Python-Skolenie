@@ -450,3 +450,70 @@ if __name__ == "__main__":
     target_url = "https://example.com/"
     get_webpage_screenshot(target_url)
 ```
+
+## Maximize window 
+
+Maximize window with *POST	/session/{session id}/window/maximize* endpoint
+
+```python
+import requests
+import time
+
+def maximize_browser_window(url):
+    # Define the base URL for the ChromeDriver REST API
+    chromedriver_url = "http://localhost:9515"
+
+    try:
+        # Step 1: Create a new session
+        session_response = requests.post(f"{chromedriver_url}/session", json={
+            "capabilities": {
+                "alwaysMatch": {
+                    "browserName": "chrome",
+                }
+            }
+        })
+        session_response.raise_for_status()
+        session_data = session_response.json()
+        session_id = session_data["value"]["sessionId"]
+
+        print(f"Session created with ID: {session_id}")
+
+        # Step 2: Navigate to the specified URL
+        navigate_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/url",
+            json={"url": url}
+        )
+        navigate_response.raise_for_status()
+
+        print(f"Navigated to: {url}")
+
+        time.sleep(5)
+
+        # Step 3: Maximize the browser window
+        maximize_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/window/maximize",
+            json={}
+        )
+        maximize_response.raise_for_status()
+
+        print("Browser window maximized.")
+
+        time.sleep(3)
+
+        # Step 4: Delete the session (cleanup)
+        delete_session_response = requests.delete(
+            f"{chromedriver_url}/session/{session_id}")
+        delete_session_response.raise_for_status()
+
+        print("Session deleted successfully.")
+
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred while interacting with ChromeDriver: {e}")
+
+
+if __name__ == "__main__":
+    target_url = "https://example.com/"
+    maximize_browser_window(target_url)
+```
+
+
