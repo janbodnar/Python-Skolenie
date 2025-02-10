@@ -38,6 +38,19 @@ print("Last modified: " + resp.headers['last-modified'])
 print("Content type: " + resp.headers['content-type'])
 ```
 
+## Retrieve page
+
+```python
+import requests 
+
+url = 'https://webcode.me/'
+resp = requests.get(url)
+
+# print(resp.content.decode('utf-8'))
+print(resp.text)
+```
+
+
 ## Retrieve JSON data
 
 ```python
