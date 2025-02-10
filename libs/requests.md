@@ -107,6 +107,73 @@ if __name__ == "__main__":
 
 ## Get title 
 
+Get title using *GET	/session/{session id}/title* endpoint
+
+```python
+import requests
+
+
+def get_webpage_title(url):
+    # Define the base URL for the ChromeDriver REST API
+    chromedriver_url = "http://localhost:9515"
+
+    try:
+        # Step 1: Create a new session
+        session_response = requests.post(f"{chromedriver_url}/session", json={
+            "capabilities": {
+                "alwaysMatch": {
+                    "browserName": "chrome",
+                    "goog:chromeOptions": {
+                        "args": ["--headless"]  # Run in headless mode
+                    }
+                }
+            }
+        })
+        session_response.raise_for_status()
+        session_data = session_response.json()
+        session_id = session_data["value"]["sessionId"]
+
+        print(f"Session created with ID: {session_id}")
+
+        # Step 2: Navigate to the specified URL
+        navigate_response = requests.post(
+            f"{chromedriver_url}/session/{session_id}/url",
+            json={"url": url}
+        )
+
+        print(f"{chromedriver_url}/session/{session_id}/url")
+        navigate_response.raise_for_status()
+
+        print(f"Navigated to: {url}")
+
+        # Step 3: call title endpoint to get the title of the webpage
+        title_resp = requests.get(
+            f"{chromedriver_url}/session/{session_id}/title",
+        )
+
+        title_resp.raise_for_status()
+        title_data = title_resp.json()
+        title = title_data["value"]
+
+        print(f"The title of the webpage is: {title}")
+
+        # Step 4: Delete the session (cleanup)
+        delete_session_response = requests.delete(
+            f"{chromedriver_url}/session/{session_id}")
+        delete_session_response.raise_for_status()
+
+        print("Session deleted successfully.")
+
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred while interacting with ChromeDriver: {e}")
+
+
+if __name__ == "__main__":
+    target_url = "https://example.com/"
+    get_webpage_title(target_url)
+```
+
+
 Get title using JS API
 
 ```python
