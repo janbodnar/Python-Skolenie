@@ -2,8 +2,11 @@
 
 
 
-data = ['falcon', 1, 2, 0, True, 4.5, (1, 2, 3), False, 6.7, 9.0, None]
+## Opakovanie
 
+```python
+data = ['falcon', 1, 2, 0, True, 4.5, (1, 2, 3), False, 6.7, 9.0, None]
+```
 
 
 
