@@ -1,5 +1,7 @@
 # Priklady
 
+## map function
+
 ## Lambda & filter
 
 ```python
