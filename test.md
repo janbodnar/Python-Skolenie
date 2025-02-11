@@ -1,6 +1,22 @@
 # Priklady
 
 
+https://github.com/janbodnar/Python-Skolenie/blob/master/test.md
+data = ['falcon', 1, 2, 0, True, 4.5, (1, 2, 3), False, 6.7, 9.0, None]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Generate fake user data
 
 ```python
