@@ -2,6 +2,19 @@
 
 ## map function
 
+```python
+def twice(e):
+    return 2 * e
+
+
+vals = [1, -2, 3, 0, 6, -7, 9, 10, -7]
+
+# vals2 = list(map(twice, vals))
+vals2 = list(map(lambda e: 2 * e, vals))
+print(vals2)
+print(vals)
+```
+
 ## Lambda & filter
 
 ```python
