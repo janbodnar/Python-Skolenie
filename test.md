@@ -3,6 +3,45 @@
 ## Filter function
 
 ```python
+
+def has_3_letters(word):
+    if len(word) != 3:
+        return True
+    else:
+        return False
+
+
+# filter words with three letters
+words = ['sky', 'auto', 'element', 'pub', 'cup', 'cloud']
+words_3_letters = list(filter(has_3_letters, words))
+
+print(words_3_letters)
+
+
+def is_negative(e):
+    if e < 0:
+        return True
+    else:
+        return False
+
+vals = [1, -2, 3, 0, 6, -7, 9, 10, -7]
+
+negative = list(filter(is_negative, vals))
+print(negative)
+
+
+# negative = []
+
+# for val in vals:
+#     if val < 0:
+#         negative.append(val)
+#
+# print(negative)
+```
+
+
+
+```python
 def is_negative(e):
     if e < 0:
         return True
