@@ -3,13 +3,26 @@
 ## Calculate sum of values
 
 ```python
+import funcy
+
 data = """
 1,2,3,4,5
 6,7,8,9,10
 11,12,13,14,15
 """
 
-mysum = 0
+lines = data.splitlines()
+del lines[0]
+print(lines)
+
+# map(str.split, lines)
+fields = list(map(lambda line: line.split(','), lines))
+print(fields)
+fields = list(funcy.flatten(fields))
+print(fields)
+
+mysum = sum(map(int, fields))
+print(mysum)
 ```
 
 
