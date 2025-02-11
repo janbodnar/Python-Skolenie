@@ -1,5 +1,30 @@
 # Priklady
 
+## Filter function
+
+```python
+def is_negative(e):
+    if e < 0:
+        return True
+    else:
+        return False
+
+vals = [1, -2, 3, 0, 6, -7, 9, 10, -7]
+
+negative = list(filter(is_negative, vals))
+print(negative)
+
+
+# negative = []
+
+# for val in vals:
+#     if val < 0:
+#         negative.append(val)
+#
+# print(negative)
+```
+
+
 
 ```python
 mix = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
