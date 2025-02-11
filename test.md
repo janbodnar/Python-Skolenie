@@ -1,5 +1,20 @@
 # Priklady
 
+## Lambda & filter
+
+```python
+words = ['sky', 'auto', 'element', 'pub', 'cup', 'cloud']
+words_3_letters = list(filter(lambda word: len(word) == 3, words))
+
+print(words_3_letters)
+
+vals = [1, -2, 3, 0, 6, -7, 9, 10, -7]
+
+negative = list(filter(lambda e: e < 0, vals))
+print(negative)
+```
+
+
 ## Filter function
 
 ```python
