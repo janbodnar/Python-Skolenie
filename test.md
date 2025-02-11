@@ -1,5 +1,18 @@
 # Priklady
 
+## Calculate sum of values
+
+```python
+data = """
+1,2,3,4,5
+6,7,8,9,10
+11,12,13,14,15
+"""
+
+mysum = 0
+```
+
+
 ## map function
 
 ```python
