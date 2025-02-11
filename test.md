@@ -25,6 +25,23 @@ mysum = sum(map(int, fields))
 print(mysum)
 ```
 
+```python
+import funcy
+
+data = """
+1,2,3,4,5
+6,7,8,9,10
+11,12,13,14,15
+"""
+
+lines = data.splitlines()
+del lines[0]
+print(lines)
+
+mysum = sum(map(int, funcy.flatten(map(lambda line: line.split(','), lines))))
+print(mysum)
+```
+
 
 ## map function
 
