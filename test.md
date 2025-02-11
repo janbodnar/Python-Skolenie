@@ -34,12 +34,7 @@ data = """
 11,12,13,14,15
 """
 
-lines = data.splitlines()
-del lines[0]
-print(lines)
-
-mysum = sum(map(int, funcy.flatten(map(lambda line: line.split(','), lines))))
-print(mysum)
+print(sum(map(int, funcy.flatten(map(lambda line: line.split(','), data.splitlines()[1:])))))
 ```
 
 
