@@ -424,7 +424,7 @@ The `index.html` file in `templates` directory:
 
 The `style.css` in `static` directory:  
 
-```python
+```css
 /* Reset some basic elements */
 body, html {
     margin: 0;
