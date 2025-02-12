@@ -74,6 +74,32 @@ nested_list = [[1, 2], [3, 4], [5]]
 flat_list = flatten(nested_list)
 ```
 
+## merge_with
+
+```python
+from funcy import merge_with
+
+# Sales data for different stores and online
+store1_sales = {
+    'Product A': 120,
+    'Product B': 80
+}
+store2_sales = {
+    'Product A': 150,
+    'Product C': 60
+}
+online_sales = {
+    'Product B': 110,
+    'Product C': 90
+}
+
+# Merge sales data, summing up sales for each product
+total_sales = merge_with(sum, store1_sales, store2_sales, online_sales)
+
+print(total_sales)
+```
+
+
 ## walk_values & walk_keys
 
 ```python
