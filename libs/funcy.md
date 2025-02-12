@@ -176,6 +176,37 @@ print(res)
 The `count_by` function counts numbers of occurrences of values of f on elements of seq.  
 Returns defaultdict(int) of counts.  
 
+
+```python
+from dataclasses import dataclass
+from funcy import count_by
+
+@dataclass
+class User:
+    name: str
+    age: int
+    occupation: str
+
+users = [
+    User(name='Alice', age=25, occupation='pilot'),
+    User(name='Bob', age=30, occupation='driver'),
+    User(name='Charlie', age=35, occupation='teacher'),
+    User(name='David', age=40, occupation='teacher'),
+    User(name='Paul', age=44, occupation='teacher'),
+    User(name='Eva', age=25, occupation='driver'),
+    User(name='Frank', age=30, occupation='teacher'),
+    User(name='Mary', age=31, occupation='accountant')
+]
+
+
+# Count users by age group
+occupation_counts = count_by(lambda user: user.occupation, users)
+
+print(dict(occupation_counts))
+```
+
+
+
 The next example demonstrates how count_by can be used to categorize and count users by age  
 group, providing a clear breakdown of the user distribution across different age categories.  
 
