@@ -37,6 +37,46 @@ data = """
 print(sum(map(int, funcy.flatten(map(lambda line: line.split(','), data.splitlines()[1:])))))
 ```
 
+## flatten, map
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class User:
+    first_name: str
+    last_name: str
+    occupation: str
+
+
+filename = 'users.csv'
+
+users = []
+
+with open(filename) as f:
+    for line in f:
+        # first_name, last_name, occupation = line.split(",")
+        fields = line.split(",")
+        user = User(*fields)
+
+        users.append(user)
+
+users_cleaned = [User(user.first_name, user.last_name, user.occupation.strip()) for user in users]
+print(list(users_cleaned))
+
+# def flatten(mylist):
+#     return [item for sublist in mylist for item in sublist]
+
+
+# data = """
+# 1,2,3,4,5
+# 6,7,8,9,10
+# """
+
+# print(sum(map(int, flatten(map(lambda line: line.split(","), data.splitlines()[1:])))))
+```
+
 
 ## map function
 
