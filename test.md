@@ -1,5 +1,33 @@
 # Priklady
 
+## Generate users.csv
+
+```python
+import faker
+
+fake = faker.Faker()
+
+filename = 'users.csv'
+
+with open(filename, 'w') as f:
+
+    header = 'first_name,last_name,email,salary\n'
+    f.write(header)
+
+    for _ in range(1000):
+
+        first_name = fake.first_name()
+        last_name = fake.last_name()
+        email = fake.email()
+        salary = fake.random_int(850, 5500, 50)
+
+        row = f'{first_name},{last_name},{email},{salary}\n'
+        f.write(row)
+```
+
+
+
+
 ## Opakovanie
 
 ```csv
