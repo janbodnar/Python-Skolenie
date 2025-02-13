@@ -63,4 +63,14 @@ assert vals2 == [1, 2, 3, 4, 5, 6, 7, 8, 9], 'failed'
 print('passed')
 ```
 
+```python
+data = [1, 2.3, True, 'falcon', 4, -2, False, (1, 2, 3), 9]
+
+data2 = tuple(sorted([e for e in data if type(e) == int]))
+
+assert data2 == (-2, 1, 4, 9), 'failed'
+print('passed')
+```
+
+
 
