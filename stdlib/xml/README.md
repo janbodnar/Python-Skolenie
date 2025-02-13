@@ -124,6 +124,58 @@ parser.setContentHandler(ProductHandler())
 parser.parse("products.xml")
 ```
 
+```python
+import xml.sax
+
+class ProductHandler(xml.sax.ContentHandler):
+    def __init__(self):
+        self.current_data = ""
+        self.id = ""
+        self.name = ""
+        self.price = ""
+        self.quantity = ""
+
+    # Call when an element starts
+    def startElement(self, tag, attributes):
+        self.current_data = tag
+        if tag == "product":
+            print(f"\nProduct ID: {attributes['id']}")
+
+    # Call when an element ends
+    def endElement(self, tag):
+        if self.current_data == "name":
+            print(f"Name: {self.name}")
+        elif self.current_data == "price":
+            print(f"Price: {self.price}")
+        elif self.current_data == "quantity":
+            print(f"Quantity: {self.quantity}")
+        self.current_data = ""
+
+    # Call when a character is read
+    def characters(self, content):
+        if self.current_data == "name":
+            self.name = content
+        elif self.current_data == "price":
+            self.price = content
+        elif self.current_data == "quantity":
+            self.quantity = content
+
+if __name__ == "__main__":
+    # Create an XMLReader
+    parser = xml.sax.make_parser()
+    
+    # Turn off namespace
+    parser.setFeature(xml.sax.handler.feature_namespaces, 0)
+    
+    # Override the default ContextHandler
+    Handler = ProductHandler()
+    parser.setContentHandler(Handler)
+    
+    # Parse the XML file
+    parser.parse("products2.xml")
+```
+
+
 ## Third-party libraries
 
 Several powerful third-party libraries like lxml and Beautiful Soup offer extended  
