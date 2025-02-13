@@ -81,3 +81,22 @@ assert data2 == '10;9;8;7;6;5;4;3;2;1', 'failed'
 print('passed')
 ```
 
+```python
+def flatten(mylist):
+    return [e for nested in mylist for e in nested]
+
+
+data = '''
+1,2,3,4,5
+6,7,8,9,10
+11,12,13,14,15
+'''
+
+lines = data.splitlines()[1:]
+mysum = sum(map(int, flatten(map(lambda e: e.split(','), lines))))
+
+assert mysum == 120, 'failed'
+print('passed')
+```
+
+
