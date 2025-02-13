@@ -1,5 +1,47 @@
 # Priklady
 
+
+## fetch CSV data
+
+```python
+import requests
+import csv
+
+
+def dowload_data():
+
+    url = 'https://webcode.me/users.csv'
+
+    resp = requests.get(url)
+    data = resp.text
+
+    filename = 'users3.csv'
+    with open(filename, 'w') as f:
+
+        f.write(data)
+
+
+def read_users():
+
+    users = []
+
+    filename = 'users3.csv'
+    with open(filename, 'r') as f:
+
+        reader = csv.DictReader(f)
+
+        for line in reader:
+            users.append(line)
+
+
+    print(users[:11])
+
+# dowload_data()
+read_users()
+```
+
+
+
 ## Generate users.csv
 
 ```python
