@@ -122,5 +122,39 @@ with open(filename, 'r') as f:
 print(users)
 ```
 
+## JSON
+
+```python
+import requests
+import json
+
+url = 'https://webcode.me/users.json'
+
+resp = requests.get(url)
+print(resp.status_code)
+
+data = resp.text
+print(type(data))
+
+with open('users.json', 'w') as f:
+
+    f.write(data)
+```
+
+```python
+import requests, json
+url = 'https://webcode.me/users.json'
+
+resp = requests.get(url)
+print(resp.status_code)
+
+data = resp.json()
+
+with open('users2.json', 'w') as f:
+
+    json.dump(data, f, sort_keys=True, indent=4 * ' ')
+```
+
+
 
 
