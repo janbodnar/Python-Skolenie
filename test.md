@@ -99,4 +99,28 @@ assert mysum == 120, 'failed'
 print('passed')
 ```
 
+```python
+@dataclass
+class User:
+    first_name: str
+    last_name: str
+    occupation: str
+
+
+filename = 'users.csv'
+users = []
+
+with open(filename, 'r') as f:
+    
+    for line in f:
+        cleaned_line = line.strip()
+        fname, lname, occupation  = cleaned_line.split(',')
+        user = User(fname, lname, occupation)
+        users.append(user)
+
+
+print(users)
+```
+
+
 
