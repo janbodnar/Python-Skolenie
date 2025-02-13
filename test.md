@@ -52,3 +52,15 @@ print('passed')
 # Read all users into a list of User objects
 # Use data classes
 ```
+
+## Riesenia
+
+```python
+vals = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+vals2 = [e for nested in vals for e in nested]
+
+assert vals2 == [1, 2, 3, 4, 5, 6, 7, 8, 9], 'failed'
+print('passed')
+```
+
+
