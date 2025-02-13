@@ -127,7 +127,7 @@ print("Normalized keys:", normalized_keys)
 from collections import namedtuple
 from funcy import split_by
 
-City = namedtuple('City' , 'id, name population')
+City = namedtuple('City' , 'id name population')
 
 c1 = City(1, 'Bratislava', 432000)
 c2 = City(2, 'Budapest', 1759000)
