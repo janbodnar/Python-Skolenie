@@ -124,6 +124,8 @@ parser.setContentHandler(ProductHandler())
 parser.parse("products.xml")
 ```
 
+Reading also attributes:  
+
 ```python
 import xml.sax
 
