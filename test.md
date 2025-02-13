@@ -25,7 +25,32 @@ with open(filename, 'w') as f:
         f.write(row)
 ```
 
+## Basic stats
 
+```python
+import csv
+import statistics
+
+salaries = []
+
+with open('users.csv', 'r') as f:
+
+    reader = csv.DictReader(f)
+    total_salaries = 0
+
+    for row in reader:
+        salary = int(row['salary'])
+        total_salaries += salary
+        salaries.append(salary)
+
+# print(salaries)
+print('total:', total_salaries)
+print('count:', len(salaries))
+print('max:', max(salaries))
+print('min:', min(salaries))
+print('average:', statistics.mean(salaries))
+print('median:',statistics.median(salaries))
+```
 
 
 ## Opakovanie
