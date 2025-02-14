@@ -47,8 +47,8 @@ with open(filename, 'r') as f:
     ...
     number_of_words = ...
 
-assert number_of_words == 117, 'passed'
-print('failed')
+assert number_of_words == 117, 'failed'
+print('passed')
 
 # ----------------------------------------------------------
 
@@ -90,6 +90,20 @@ number_of_words = len(words)
 assert number_of_words == 26, 'failed'
 print('passed')
 ```
+
+
+```python
+filename = 'data.txt'
+
+with open(filename, 'r') as f:
+    text = f.read()
+    words = text.split()
+    number_of_words = len(words)
+
+
+assert number_of_words == 117, 'failed'
+print('passed')
+````
 
 
 
