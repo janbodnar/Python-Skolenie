@@ -1,5 +1,22 @@
 # Priklady
 
+
+## Split by two chars
+
+```python
+import re
+
+data = '1,2,3;4;5,6,7;8;9;10'
+
+pattern = re.compile(r'[;,]')
+vals = re.split(pattern, data)
+
+print(sum(map(int, vals)))
+```
+
+
+
+
 `users.csv`:
 
 ```csv
