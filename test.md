@@ -105,6 +105,38 @@ assert number_of_words == 117, 'failed'
 print('passed')
 ````
 
+```python
+import requests
+import xml.etree.ElementTree as ET
+
+# URL of the XML data
+url = 'https://webcode.me/users.xml'
+
+# Fetch the XML data
+response = requests.get(url)
+xml_data = response.content
+
+# Parse the XML data
+root = ET.fromstring(xml_data)
+
+# Define the namespace
+namespace = {'ns': 'zetcode.com'}
+
+# Iterate through each user and print their details
+for user in root.findall('ns:user', namespace):
+    user_id = user.get('id')
+    firstname = user.find('ns:firstname', namespace).text
+    lastname = user.find('ns:lastname', namespace).text
+    occupation = user.find('ns:occupation', namespace).text
+    
+    print(f'User ID: {user_id}')
+    print(f'First Name: {firstname}')
+    print(f'Last Name: {lastname}')
+    print(f'Occupation: {occupation}')
+    print('---')
+```
+
+
 
 
 ## fetch CSV data
