@@ -2,6 +2,19 @@
 
 ## Opakovanie
 
+`data.txt`:
+
+```
+I quickly followed suit, and descending into the bar-room accosted the grinning 
+landlord very pleasantly. I cherished no malice towards him, though he had been 
+skylarking with me not a little in the matter of my bedfellow.
+However, a good laugh is a mighty good thing, and rather too scarce a good thing; 
+the more’s the pity. So, if any one man, in his own proper person, afford stuff for 
+a good joke to anybody, let him not be backward, but let him cheerfully allow himself 
+to spend and be spent in that way. And the man that has anything bountifully laughable 
+about him, be sure there is more in that man than you perhaps think for.
+```
+
 
 ```python
 import somelib
