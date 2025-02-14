@@ -225,6 +225,21 @@ x
 957000
 ```
 
+```python
+with open(filename, 'r') as f:
+
+    text = f.read()
+    lines = text.split()
+
+    filtered_data = [int(item) for item in lines if item.isdigit()]
+    cleaned_data = [e for e in filtered_data if e > 10]
+
+    print(cleaned_data)
+
+    print(statistics.mean(cleaned_data))
+    print(statistics.median(cleaned_data))
+```
+
 
 
 
