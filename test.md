@@ -1,5 +1,22 @@
 # Priklady
 
+```python
+import re
+
+
+words = ['sky  ', '\t\twar', 'water\n\n', '\t\ncup', 'sky']
+cleaned = []
+pattern = re.compile(r'\s+')
+
+for word in words:
+
+    cleaned_word = re.sub(pattern, '', word)
+    cleaned.append(cleaned_word)
+
+print(words)
+print(cleaned)
+```
+
 
 ## Split by two chars
 
