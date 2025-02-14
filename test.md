@@ -1,5 +1,53 @@
 # Priklady
 
+## Opakovanie
+
+
+```python
+import somelib
+
+words = ['sky', 'dout', 'war', 'pike', 'now', 'teen']
+words3, words4 = ...
+
+assert words3 == ['sky', 'war', 'now'] and words4 == ['dout', 'pike', 'teen'], 'failed'
+print('passed')
+
+# ----------------------------------------------------------
+
+import requests
+
+url = 'https://webcode.me/words.txt'
+...
+
+number_of_words = ...
+
+
+assert number_of_words == 26, 'failed'
+print('passed')
+
+
+# ----------------------------------------------------------
+
+filename = 'data.txt'
+
+with open(filename, 'r') as f:
+    ...
+    number_of_words = ...
+
+assert number_of_words == 117, 'passed'
+print('failed')
+
+# ----------------------------------------------------------
+
+
+# write script that reads data from 
+# https://webcode.me/users.xml, use copilot
+```
+
+
+
+
+
 
 ## fetch CSV data
 
