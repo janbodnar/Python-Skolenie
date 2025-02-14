@@ -1,5 +1,18 @@
 # Priklady
 
+`users.csv`:
+
+```csv
+date_of_birth,first_name,last_name
+1987,John,Doe
+1996,Jane,Doe
+1977,Robert,Brown
+2002,Lucia,Smith
+1994,Patrick,Dempsey
+```
+
+
+
 ## Opakovanie
 
 `data.txt`:
