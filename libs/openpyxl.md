@@ -132,6 +132,32 @@ print(a2.value)
 print(a3.value)
 ```
 
+## read by column
+
+```python
+from openpyxl import load_workbook
+
+# Load the Excel file
+file_path = 'words.xlsx'  # Replace with your file path
+workbook = load_workbook(file_path)
+
+# Select the active sheet (or specify a sheet by name)
+sheet = workbook.active  # Use workbook['SheetName'] to select a specific sheet
+
+# Define the column to read (e.g., Column B)
+column_letter = 'B'  # Change this to the desired column (e.g., 'A', 'C', etc.)
+
+# Read data from the specified column
+column_data = []
+for cell in sheet[column_letter]:  # Iterate through all cells in the column
+    column_data.append(cell.value)  # Append the cell value to the list
+
+# Print the column data
+print(f"Data from Column {column_letter}:")
+for value in column_data:
+    print(value)
+```
+
 # Openpyxl read multiple cells
 
 We have the following data sheet:
