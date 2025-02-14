@@ -341,19 +341,19 @@ import openpyxl
 
 book = openpyxl.load_workbook('sheets.xlsx')
 
-print(book.get_sheet_names())
+print(book.sheetnames)
 
 active_sheet = book.active
 print(type(active_sheet))
 
-sheet = book.get_sheet_by_name("March")
+sheet = book["March"]
 print(sheet.title)
 ```
 
 The program works with Excel sheets.
 
 ```python
-print(book.get_sheet_names())
+print(book.sheetnames)
 ```
 
 The get_sheet_names method returns the names of available sheets in a workbook.
@@ -366,7 +366,7 @@ print(type(active_sheet))
 We get the active sheet and print its type to the terminal.
 
 ```python
-sheet = book.get_sheet_by_name("March")
+sheet = book["March"]
 ```
 
 We get a reference to a sheet with the get_sheet_by_name method.
