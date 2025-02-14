@@ -58,6 +58,23 @@ print('failed')
 ```
 
 
+Riesenia:
+
+```python
+import funcy
+
+words = ['sky', 'dout', 'war', 'pike', 'now', 'teen']
+# words3 = [word for word in words if len(word) == 3]
+# words4 = [word for word in words if len(word) == 4]
+words3, words4 = funcy.split(lambda word: len(word) == 3, words)
+
+words3 = list(words3)
+words4 = list(words4)
+
+assert words3 == ['sky', 'war', 'now'] and words4 == ['dout', 'pike', 'teen'], 'failed'
+print('passed')
+```
+
 
 
 
