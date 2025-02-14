@@ -231,6 +231,8 @@ elif final < 0:
 
 We can use `dateutil.relativedelta` function to calculate the age.  
 
+`pip install python-dateutil`
+
 ```python
 from datetime import date
 from dateutil.relativedelta import relativedelta
