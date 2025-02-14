@@ -75,7 +75,21 @@ assert words3 == ['sky', 'war', 'now'] and words4 == ['dout', 'pike', 'teen'], '
 print('passed')
 ```
 
+```python
+import requests
 
+url = 'https://webcode.me/words.txt'
+
+resp = requests.get(url)
+text = resp.text
+words = text.split()
+
+number_of_words = len(words)
+
+
+assert number_of_words == 26, 'failed'
+print('passed')
+```
 
 
 
