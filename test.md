@@ -11,6 +11,52 @@ date_of_birth,first_name,last_name
 1994,Patrick,Dempsey
 ```
 
+```python
+import csv
+
+filename = "users.csv"
+users = []
+
+with open(filename, "r") as f:
+
+    reader = csv.DictReader(f)
+
+    for row in reader:
+        users.append(row)
+
+
+users.sort(reverse=True, key=lambda e: e["last_name"])
+
+for user in users:
+    print(user)
+
+print("--------------------------------------------")
+
+users.sort(reverse=True, key=lambda e: e["date_of_birth"])
+
+for user in users:
+    print(user)
+```
+
+
+```python
+import csv
+
+# Read the CSV file
+with open("users.csv", mode="r") as file:
+    reader = csv.DictReader(file)
+    users = list(reader)  # Convert the CSV data into a list of dictionaries
+
+    
+# Sort the users by last_name
+sorted_users = sorted(users, key=lambda x: x["last_name"])
+
+# Print the sorted data
+print("date_of_birth,first_name,last_name")  # Print the header
+for user in sorted_users:
+    print(f"{user['date_of_birth']},{user['first_name']},{user['last_name']}")
+```
+
 
 
 ## Opakovanie
