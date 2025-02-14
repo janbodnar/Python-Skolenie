@@ -1,5 +1,22 @@
 # Priklady
 
+## Clean words
+
+```python
+import re
+filename = 'data.txt'
+
+with open(filename, 'r') as f:
+
+    text = f.read()
+    pattern = re.compile(r'[,;.]')
+
+    text_cleaned = re.sub(pattern, '', text)
+    words = text_cleaned.split()
+    print(words)
+```
+
+
 ```python
 import re
 
