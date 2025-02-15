@@ -21,10 +21,6 @@ So far, we have been talking about instance attributes. In Python there are also
 attributes. Class object attributes are same for all instances of a class. 
 
 ```python
-#!/usr/bin/python
-
-# class_attribute.py
-
 class Cat:
     species = 'mammal'
 
@@ -208,10 +204,6 @@ In practical terms, polymorphism means that if class B inherits from class A, it
 everything about class A; it can do some of the things that class A does differently.  
 
 ```python
-#!/usr/bin/python
-
-# basic_polymorphism.py
-
 a = "alfa"
 b = (1, 2, 3, 4)
 c = ['o', 'm', 'e', 'g', 'a']
@@ -278,3 +270,53 @@ $ ./polymorphism.py
 Meow!
 Woof!
 ```
+
+## Enums
+
+```python
+from enum import Enum
+import random
+
+
+class Day(Enum):
+    Monday = 0
+    Tuesday = 1
+    Wednesday = 2
+    Thursday = 3
+    Friday = 4
+    Saturday = 5
+    Sunday = 6
+
+    @staticmethod
+    def random_day():
+        return random.choice(list(Day.__members__.keys()))
+
+
+days = [Day.Monday, Day.Tuesday, Day.Wednesday,
+        Day.Thursday, Day.Friday, Day.Saturday, Day.Sunday]
+
+res = random.sample(days, 4)
+
+for e in res:
+
+    match e:
+        case Day.Monday:
+            print("monday")
+        case Day.Tuesday:
+            print("tuesday")
+        case Day.Wednesday:
+            print("wednesay")
+        case Day.Thursday:
+            print("thursday")
+        case Day.Friday:
+            print("friday")
+        case Day.Saturday:
+            print("saturday")
+        case Day.Sunday:
+            print("sunday")
+
+print('--------------------------------')
+
+print(Day.random_day())
+```
+
