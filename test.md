@@ -1,5 +1,33 @@
+## filter words from URL 
 
-## filter words
+```python
+import requests
+
+
+# with list comprehension, filter words having
+# 3 characters len(word) == 3
+
+url = 'https://webcode.me/words.txt'
+
+resp = requests.get(url)
+
+# print(resp.headers)
+# print(resp.status_code)
+# print(resp.text)
+print(repr(resp.text))
+
+content = resp.text
+content2 = content.strip()
+
+words = content2.split()
+print(words)
+
+words_3 = [word for word in words if len(word) == 3]
+print(words_3)
+```
+
+
+## filter words from local file
 
 ```python
 # with list comprehension, filter words having
