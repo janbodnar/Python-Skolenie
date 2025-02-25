@@ -1,3 +1,34 @@
+## Vowels & consonants
+
+```python
+def is_vowel(c):
+
+    vowels = 'aeiouAEIOU'
+
+    if c in vowels:
+        return True
+    else:
+        return False
+
+def is_consonant(c):
+
+    vowels = 'aeiouAEIOU .'
+
+    if c not in vowels:
+        return True
+    else:
+        return False
+
+
+sentence = 'There are eagles in the sky.'
+
+vowels = [c for c in sentence if is_vowel(c)]
+print(vowels)
+
+consonants = [c for c in sentence if is_consonant(c)]
+print(consonants)
+```
+
 
 
 ## Filtering by list comprehensions
