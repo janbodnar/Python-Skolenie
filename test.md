@@ -33,7 +33,29 @@ data = '1,2,3,4,5,6,7,8,9,10'
 filename = 'words.txt'
 ```
 
+## Riesenia
 
+```python
+#  print message, with fstring
+
+# name = 'John Doe'
+# age = 34
+
+# msg = f'{name} is {age} years old'
+# print(msg)
+
+# filter positive values
+
+def is_positive(x):
+    return x > 0
+
+
+vals = [-2, 3, 0, 9, -2, 11, 9, -5]
+
+#positive = list(filter(is_positive, vals))
+positive = list(filter(lambda x: x > 0, vals))
+print(positive)
+```
 
 
 
