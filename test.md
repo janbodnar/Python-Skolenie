@@ -1,3 +1,22 @@
+
+## filter words
+
+```python
+# with list comprehension, filter words having
+# 3 characters len(word) == 3
+
+filename = 'words.txt'
+
+
+with open(filename, 'r') as fd:
+    lines = fd.readlines()
+    print(lines)
+
+    words_3 = [line.strip().upper() for line in lines if len(line.strip()) == 3]
+    print(words_3)
+```
+
+
 ## Vowels & consonants
 
 ```python
