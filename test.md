@@ -1,3 +1,53 @@
+
+# Opakovanie
+
+the words.txt file:
+
+```
+sky
+blue
+rock
+pen
+water
+war 
+cloud
+cup
+```
+
+```python
+#  print message
+
+name = 'John Doe'
+age = 34
+
+# filter positive values
+
+vals = [-2, 3, 0, 9, -2, 11, 9, -5]
+
+# calculate sum from data
+
+data = '1,2,3,4,5,6,7,8,9,10' 
+
+# read words and select those starting with 'w'
+
+filename = 'words.txt'
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Priklady
 
 
