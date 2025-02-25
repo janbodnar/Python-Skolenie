@@ -1,4 +1,36 @@
 
+Sure! Here is a table of common Python `datetime` format specifiers:
+
+| Format | Description                | Example             |
+|--------|----------------------------|---------------------|
+| `%Y`   | Year with century          | `2025`              |
+| `%y`   | Year without century       | `25`                |
+| `%m`   | Month (zero-padded)        | `02`                |
+| `%B`   | Full month name            | `February`          |
+| `%b`   | Abbreviated month name     | `Feb`               |
+| `%d`   | Day of the month (zero-padded) | `25`            |
+| `%H`   | Hour (24-hour clock, zero-padded) | `16`        |
+| `%I`   | Hour (12-hour clock, zero-padded) | `04`        |
+| `%p`   | AM/PM                      | `PM`                |
+| `%M`   | Minute (zero-padded)       | `11`                |
+| `%S`   | Second (zero-padded)       | `59`                |
+| `%f`   | Microsecond                | `123456`            |
+| `%A`   | Full weekday name          | `Tuesday`           |
+| `%a`   | Abbreviated weekday name   | `Tue`               |
+| `%w`   | Weekday as a number (0=Sunday) | `2`            |
+| `%j`   | Day of the year (zero-padded) | `056`           |
+| `%U`   | Week number of the year (Sunday as first day of the week, zero-padded) | `08`  |
+| `%W`   | Week number of the year (Monday as first day of the week, zero-padded) | `08`  |
+| `%c`   | Locale's appropriate date and time representation | `Tue Feb 25 16:11:59 2025` |
+| `%x`   | Locale's appropriate date representation | `02/25/25` |
+| `%X`   | Locale's appropriate time representation | `16:11:59` |
+| `%%`   | A literal `%` character    | `%`                 |
+
+These format specifiers can be used with the `strftime` method to format `datetime` objects as strings:
+
+
+
+
 # Opakovanie
 
 the words.txt file:
