@@ -55,6 +55,9 @@ vals = [-2, 3, 0, 9, -2, 11, 9, -5]
 #positive = list(filter(is_positive, vals))
 positive = list(filter(lambda x: x > 0, vals))
 print(positive)
+
+for neg in filter(lambda x: x < 0, vals):
+    print(neg)
 ```
 
 
