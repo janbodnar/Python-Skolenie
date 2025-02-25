@@ -61,7 +61,26 @@ for neg in filter(lambda x: x < 0, vals):
 ```
 
 
+```python
+# calculate sum from data
 
+data = '1,2,3,4,5,6,7,8,9,10' 
+fields = data.split(',')
+print(fields)
+
+# 1)
+
+mysum = 0
+for field in fields:
+    # mysum = mysum + int(field)
+    mysum += int(field)
+
+print(mysum)
+
+# 2) map
+
+print(sum(map(int, fields)))
+```
 
 
 
