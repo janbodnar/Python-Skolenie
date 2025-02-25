@@ -1,4 +1,19 @@
 
+
+## Filtering by list comprehensions
+
+```python
+vals = [2, 2.3, 'sky', True, (), (1, 2, 3), 'war', 'cup']
+
+strings = [val for val in vals if type(val) == str]
+print(strings)
+
+tuples = [val for val in vals if type(val) == tuple]
+print(tuples)
+```
+
+
+
 Sure! Here is a table of common Python `datetime` format specifiers:
 
 | Format | Description                | Example             |
