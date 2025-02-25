@@ -60,6 +60,18 @@ for neg in filter(lambda x: x < 0, vals):
     print(neg)
 ```
 
+```python
+filename = 'words.txt'
+
+with open(filename, 'r') as fd:
+    rows = fd.readlines()
+    rows2 = list(map(lambda e: e.strip(), rows))
+
+    words_w = list(filter(lambda e: e.startswith('w'), rows2))
+    print(words_w)
+```
+
+
 
 ```python
 # calculate sum from data
