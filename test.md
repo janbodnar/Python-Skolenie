@@ -1,3 +1,8 @@
+## Pycharm cheat sheet
+
+https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf
+
+
 ## filter words from URL 
 
 ```python
