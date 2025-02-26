@@ -290,49 +290,6 @@ $ ./methods.py
 78.5398
 ```
 
-In Python, we can call methods in two ways. There are bounded and unbounded method calls.
-
-```python
-#!/usr/bin/python
-
-# bound_unbound_methods.py
-
-class Methods:
-
-    def __init__(self):
-        self.name = 'Methods'
-
-    def getName(self):
-        return self.name
-
-
-m = Methods()
-
-print(m.getName())
-print(Methods.getName(m))
-```
-
-In this example, we demostrate both method calls.
-
-```python
-print(m.getName())
-```
-
-This is the bounded method call. The Python interpreter automatically pairs the `m` instance  
-with the `self` parameter.
-
-```python
-print(Methods.getName(m))
-```
-
-And this is the unbounded method call. The instance object is explicitly given to the `getName` method.  
-
-```
-$ ./bound_unbound_methods.py 
-Methods
-Methods
-```
-
 
 ## Object equality 
 
