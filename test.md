@@ -1,4 +1,27 @@
 
+## The __str__ function for User
+
+```python
+class User:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # def __eq__(self, other):
+    #     if isinstance(other, User):
+    #         return self.name == other.name and self.age == other.age
+    #     return False
+
+u1 = u11 =  User("John Doe", 35)
+u2 = User("John Doe", 35)
+
+print(id(u1))
+print(id(u2))
+
+print(u1 == u2)
+print(u1 == u11)
+```
+
 
 ## Pandas show all data
 
