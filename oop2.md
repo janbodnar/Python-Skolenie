@@ -109,6 +109,49 @@ This approach allows for more control over how an attribute is accessed and
 modified, and can be used to implement validation and other property-specific  
 logic.
 
+## Bounded/unbounded methods
+
+In Python, we can call methods in two ways. There are bounded and unbounded method calls.
+
+```python
+# bound_unbound_methods.py
+
+class Methods:
+
+    def __init__(self):
+        self.name = 'Methods'
+
+    def getName(self):
+        return self.name
+
+
+m = Methods()
+
+print(m.getName())
+print(Methods.getName(m))
+```
+
+In this example, we demostrate both method calls.
+
+```python
+print(m.getName())
+```
+
+This is the bounded method call. The Python interpreter automatically pairs the `m` instance  
+with the `self` parameter.
+
+```python
+print(Methods.getName(m))
+```
+
+And this is the unbounded method call. The instance object is explicitly given to the `getName` method.  
+
+```
+$ ./bound_unbound_methods.py 
+Methods
+Methods
+```
+
 
 ## Ordering objects
 
