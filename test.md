@@ -1,3 +1,30 @@
+## filter users by last name
+
+```python
+import csv
+
+file_name = 'users.csv'
+users = []
+
+
+with open(file_name, 'r') as f:
+
+    reader = csv.DictReader(f)
+
+    for line in reader:
+        users.append(line)
+
+
+users_w = [user for user in users if user['last_name'].startswith('W')]
+
+print(len(users_w))
+
+for user in users_w[:50]:
+    print(user)
+```
+
+
+
 
 ## Print first 20 with tablib
 
