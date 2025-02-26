@@ -1,3 +1,27 @@
+
+
+## Pandas show all data
+
+```python
+import pandas as pd
+
+# Load your dataset
+titanic_df = pd.read_csv('titanic.csv')
+
+# Set the option to display all rows
+pd.set_option('display.max_rows', None)
+
+# Display the dataframe
+print(titanic_df)
+```
+
+
+
+
+
+
+
+
 ## Pycharm cheat sheet
 
 https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf
