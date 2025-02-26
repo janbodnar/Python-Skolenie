@@ -1,3 +1,21 @@
+
+## Print first 20 with tablib
+
+```python
+import tablib
+
+ds = tablib.Dataset()
+
+fname = 'users.csv'
+with open(fname, 'r') as f:
+
+    ds.load(f)
+
+for user in ds[:21]:
+    print(user)
+```
+
+
 ## Generate fake users
 
 ```python
