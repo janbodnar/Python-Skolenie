@@ -1,3 +1,58 @@
+## AI analyzing
+
+```python
+import os
+
+from groq import Groq
+
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
+
+
+file_name = 'typescript_arrays.html'
+
+# llama-3.3-70b-versatile
+# mixtral-8x7b-32768
+# deepseek-r1-distill-llama-70b
+model = 'mixtral-8x7b-32768'
+
+with open(file_name, 'r') as file:
+    html_template = file.read()
+
+content = f'''Write a TypeScript tutorial that convers the Union type.
+In paragraphs, try to limit the sentences to 80 chars. Don't use hello world.
+Output in HTML.
+'''
+
+content += f"Use this HTML template as a reference: {html_template}"
+
+
+messages = [
+    {'role': 'user', 'content': content},
+]
+
+print(model)
+# exit
+
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": content,
+        }
+    ],
+    temperature=0.7,
+    top_p=0.9,
+    model=model,
+    max_completion_tokens=32768
+)
+
+print(chat_completion.choices[0].message.content)
+```
+
+
+
 ## filter users by last name
 
 ```python
