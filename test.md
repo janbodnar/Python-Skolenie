@@ -1,3 +1,28 @@
+## Generate fake users
+
+```python
+from faker import Faker
+
+faker = Faker()
+
+with open("users.csv", "w") as f:
+
+    f.write("first_name,last_name,email\n")
+
+    for _ in range(1_500_000):
+
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        email = faker.email()
+        f.write(f"{first_name},{last_name},{email}\n")
+
+        # if _ % 1_000 == 0:
+        #     print(f"Done {_}")
+
+    print("Done")
+```
+
+
 
 ## The __str__ function for User
 
