@@ -2,6 +2,37 @@
 ## The __str__ function for User
 
 ```python
+
+class Circle:
+
+    pi = 3.141592
+
+    def __init__(self, radius=1):
+        self.radius = radius
+
+    def area(self):
+        return self.radius * self.radius * Circle.pi
+
+    def setRadius(self, radius):
+        self.radius = radius
+
+    def getRadius(self):
+        return self.radius
+    
+    def __str__(self):
+        return f"Circle with radius {self.radius}"
+
+
+c = Circle()
+print(c)
+
+c.setRadius(5)
+print(c)
+```
+
+## Object identity
+
+```python
 class User:
     def __init__(self, name, age):
         self.name = name
