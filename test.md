@@ -1,6 +1,18 @@
 
 # Priklady
 
+```python
+name = 'Roger Roe'
+age = 35
+job = 'programmer'
+
+# msg = name + ' is ' + str(age) + ' years old ' + ' he is a ' + job
+msg = f'{name} is {age} years old, he is a {job}'
+
+print(msg)
+```
+
+
 
 ```python
 vals = [1, 2, 3, 4, 5]
