@@ -2,6 +2,16 @@
 # Priklady
 
 ```python
+words = ['sky', 'storm', 'worm', 'war']
+
+for word in words:
+    print(word, len(word))
+
+print(len(words))
+```
+
+
+```python
 word = 'falcon'
 
 i = 0
