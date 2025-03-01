@@ -2,6 +2,17 @@
 # Priklady
 
 ```python
+n = 3
+
+n_s = str(n)
+word = 'coffees'
+
+msg = n_s + word
+print(msg)
+```
+
+
+```python
 words = ['sky', 'storm', 'worm', 'war']
 
 for word in words:
