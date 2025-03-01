@@ -3,6 +3,19 @@
 
 
 ```python
+vals = [1, 2, 3, 4, 5]
+val = 3
+
+if val in vals:
+    print('inside: ', val)
+
+val2 = 11
+if val2 not in vals:
+    print('not inside: ', val2)
+```
+
+
+```python
 vals = [1, 2, -3, 4, -5, 6, 7, 8, -9, -10, -12]
 
 for val in vals:
