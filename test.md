@@ -1,3 +1,24 @@
+
+# Priklady
+
+```python
+word = 'falcon'
+
+i = 0
+
+while i < 3:
+    print(word)
+    i = i + 1
+
+print('end')
+```
+
+
+
+
+
+
+
 ## AI analyzing
 
 ```python
