@@ -2,6 +2,13 @@
 # Priklady
 
 ```python
+x = '3'
+y = '4'
+
+print(int(x) + int(y))
+```
+
+```python
 n = 3
 
 n_s = str(n)
