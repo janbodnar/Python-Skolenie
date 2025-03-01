@@ -1,6 +1,17 @@
 
 # Priklady
 
+
+```python
+vals = [1, 2, -3, 4, -5, 6, 7, 8, -9, -10, -12]
+
+for val in vals:
+
+    if val % 2 == 0 and val > 0:
+        print(val)
+```
+
+
 ```python
 x = '3'
 y = '4'
