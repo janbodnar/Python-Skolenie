@@ -17,6 +17,33 @@ data = 'sky blue rocket war water pen black'
 ```
 
 
+```python
+
+# calculate the sum of all letters
+# for loop, len, mysum
+words = ['sky', 'cup', 'forest', 'rock']
+mysum = 0
+
+for word in words:
+    mysum += len(word)
+
+print(mysum)
+
+
+# calculate the sum of all values
+# for loop, mysum, sum
+vals = (
+    (1, 2, 3),
+    (4, 5, 6)
+)
+mysum = 0
+
+for nested in vals:
+    mysum += sum(nested)
+
+print(mysum)
+```
+
 
 
 
