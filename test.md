@@ -1,6 +1,27 @@
 # Priklady
 
 
+## Sorting data
+
+```python
+numbers = [4, 3, 6, 1, 2, 0, 5]
+
+print(numbers)
+# inplace sorting
+numbers.sort()
+print(numbers)
+
+print('----------------------------')
+print('----------------------------')
+
+vals = [5, 3, 0, 1, 2, 4]
+sorted_vals = sorted(vals)
+print(sorted_vals)
+print(vals)
+```
+
+## Nested tuples
+
 ```python
 # print value 11 using index operation
 data = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
