@@ -1,6 +1,22 @@
 # Priklady
 
 
+```python
+text = "He said: \"there are many stars\""
+print(text)
+
+text = 'He said: "there are many stars"'
+print(text)
+
+text = 'this was a \'great\' movie'
+print(text)
+
+text = "this was a 'great' movie"
+print(text)
+```
+
+
+
 ## Opakovanie
 
 ```python
