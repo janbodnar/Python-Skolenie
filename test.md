@@ -4,6 +4,22 @@
 ## Opakovanie
 
 ```python
+name = "Peter"
+print(name)
+print(type(name))
+
+age = 56
+print(age)
+print(type(age))
+
+vals = (1, 2, 3)
+print(type(vals))
+
+vals2 = [4, 5, 6]
+print(type(vals2))
+```
+
+```python
 # create a fstring message from variables:
 # 'John Doe is a driver and lives in New York'
 name = 'John Doe'
