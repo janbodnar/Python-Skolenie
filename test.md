@@ -1,5 +1,26 @@
 # Priklady
 
+## Finish
+
+```python
+# calculate the sum of all letters
+words = ['sky', 'cup', 'forest', 'rock']
+
+# calculate the sum of all values
+vals = ((1, 2, 3), (4, 5, 6))
+
+# calculate the sum of positive values
+vals2 = [-3, -4, 0, 1, 2, -9, 11, 12, 9]
+
+# split and sort the words
+data = 'sky blue rocket war water pen black'
+```
+
+
+
+
+
+
 ## Dictionaries
 
 ```python
