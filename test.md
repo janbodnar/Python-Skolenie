@@ -1,6 +1,12 @@
 # Priklady
 
 
+```python
+# print value 11 using index operation
+data = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
+```
+
+
 ## calculate sum of CSV values
 
 ```python
