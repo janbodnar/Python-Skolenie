@@ -54,6 +54,14 @@ for val in vals2:
         mysum += val
 
 print(mysum)
+
+# split and sort the words
+# split sort
+data = 'sky blue rocket war water pen black'
+
+words = data.split()
+words.sort()
+print(words)
 ```
 
 
