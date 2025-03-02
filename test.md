@@ -1,5 +1,18 @@
 # Priklady
 
+## Dictionaries
+
+```python
+words = { 'girl': 'Maedchen', 'house': 'Haus', 'death': 'Tod' }
+print(words)
+
+words['car'] = 'Wagen'
+print(words)
+
+words['house'] = 'das Haus'
+print(words)
+```
+
 
 ## typle/list
 
