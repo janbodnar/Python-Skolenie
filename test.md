@@ -1,5 +1,29 @@
-
 # Priklady
+
+
+## Opakovanie
+
+```python
+# create a fstring message from variables:
+# 'John Doe is a driver and lives in New York'
+name = 'John Doe'
+occupation = 'driver'
+city = 'New York'
+
+# print values using loop
+# print the count of the values
+vals = [3, 4, 5, 6, 3, 5, 9, 10]
+
+# print the string 6 times
+word = 'falcon'
+
+# print positive values
+# use for loop and if condition
+vals2 = (-3, 4, 0, 5, 9, -2, -1, 9, 11, -2)
+```
+
+
+
 
 ```python
 name = 'Roger Roe'
