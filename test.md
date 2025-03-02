@@ -22,6 +22,44 @@ word = 'falcon'
 vals2 = (-3, 4, 0, 5, 9, -2, -1, 9, 11, -2)
 ```
 
+## Riesenia
+
+```python
+
+# create a fstring message from variables:
+# 'John Doe is a driver and lives in New York'
+name = 'John Doe'
+occupation = 'driver'
+city = 'New York'
+
+print(f'{name} is a {occupation} and lives in {city}')
+
+# print values using loop
+# print the count of the values
+vals = [3, 4, 5, 6, 3, 5, 9, 10]
+
+for element in vals:
+    print(element)
+
+print(len(vals))
+
+# print the string 6 times
+word = 'falcon'
+
+# print(word * 6)
+for i in range(6):
+    print(word, end=' ')
+
+
+# print positive values
+# use for loop and if condition
+vals2 = (-3, 4, 0, 5, 9, -2, -1, 9, 11, -2)
+
+for val in vals:
+    if val > 0:
+        print(val)
+```
+
 
 
 
