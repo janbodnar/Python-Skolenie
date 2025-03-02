@@ -1,6 +1,23 @@
 # Priklady
 
 
+## calculate sum of CSV values
+
+```python
+data = '1,2,3,4,5,6,7,8,9,10'
+
+fields = data.split(',')
+print(fields)
+
+mysum = 0
+
+for field in fields:
+    mysum += int(field)
+
+print(mysum)
+```
+
+
 ```python
 text = "He said: \"there are many stars\""
 print(text)
