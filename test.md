@@ -42,6 +42,18 @@ for nested in vals:
     mysum += sum(nested)
 
 print(mysum)
+
+# calculate the sum of positive values
+# for loop, mysum, if condition
+vals2 = [-3, -4, 0, 1, 2, -9, 11, 12, 9]
+
+mysum = 0
+
+for val in vals2:
+    if val > 0:
+        mysum += val
+
+print(mysum)
 ```
 
 
