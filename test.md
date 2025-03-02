@@ -55,7 +55,7 @@ for i in range(6):
 # use for loop and if condition
 vals2 = (-3, 4, 0, 5, 9, -2, -1, 9, 11, -2)
 
-for val in vals:
+for val in vals2:
     if val > 0:
         print(val)
 ```
