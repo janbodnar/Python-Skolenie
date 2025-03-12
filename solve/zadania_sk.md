@@ -63,7 +63,7 @@ Pokús sa vyriešiť nasledovné zadania:
     obrat.  
 39. Naištaluj si pomocou nástroja pip modul psutil a zisti pomocou neho veľkosť  
     operačnej pamäte svojho počítača.  
-40. Vypíš obsah titulku zo stránky learnpython.pro (zo značky title).  
+40. Vypíš obsah titulku zo stránky webcode.me (zo značky title).  
 41. Vypíš hexadecimálny výstup z malého PNG obrázka. Výstup bude mať desať  
     stĺpcov oddelených medzerou.  
 42. Načítaj súbor *thermopylae.txt* a zisti počet jeho slov.  
