@@ -5,7 +5,7 @@ complex than the simple ones, involving nested structures, multiple operations,
 conditionals, and some common algorithmic patterns.
 
 
-## Medium Task 1
+## Task 1
 
 ```python
 data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -16,7 +16,7 @@ assert odd_positions_sum == 20  # 2 + 4 + 6 + 8 = 20
 print('passed')
 ```
 
-## Medium Task 2
+## Task 2
 
 ```python
 text = "apple banana cherry apple banana"
@@ -27,7 +27,7 @@ assert word_counts == {'apple': 2, 'banana': 2, 'cherry': 1}
 print('passed')
 ```
 
-## Medium Task 3
+## Task 3
 
 ```python
 numbers = [1, -2, 3, -4, 5, -6]
@@ -38,7 +38,7 @@ assert alternating_sum == 9  # 1 - (-2) + 3 - (-4) + 5 - (-6) = 1 + 2 + 3 + 4 + 
 print('passed')
 ```
 
-## Medium Task 4
+## Task 4
 
 ```python
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
@@ -49,7 +49,7 @@ assert diagonal_sum == 15  # 1 + 5 + 9
 print('passed')
 ```
 
-## Medium Task 5
+## Task 5
 
 ```python
 data = "1a2b3c4d5e"
@@ -61,7 +61,7 @@ assert (digits, letters) == ('12345', 'abcde')
 print('passed')
 ```
 
-## Medium Task 6
+## Task 6
 
 ```python
 numbers = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -72,7 +72,7 @@ assert pairs_product == [2, 12, 30, 56]
 print('passed')
 ```
 
-## Medium Task 7
+## Task 7
 
 ```python
 records = {'Alice': [85, 90, 88], 'Bob': [78, 82, 80], 'Charlie': [95, 92, 90]}
@@ -83,7 +83,7 @@ assert averages == {'Alice': 87.67, 'Bob': 80.0, 'Charlie': 92.33}
 print('passed')
 ```
 
-## Medium Task 8
+## Task 8
 
 ```python
 text = "Hello World Python Programming"
@@ -94,7 +94,7 @@ assert vowel_count == 8  # H(e)ll(o) W(o)rld P(y)th(o)n Pr(o)gr(a)mm(i)ng
 print('passed')
 ```
 
-## Medium Task 9
+## Task 9
 
 ```python
 numbers = [5, 2, 8, 1, 9, 3]
@@ -105,7 +105,7 @@ assert second_largest == 8
 print('passed')
 ```
 
-## Medium Task 10
+## Task 10
 
 ```python
 data = [(1, 'a'), (2, 'b'), (3, 'c')]
@@ -116,7 +116,7 @@ assert swapped == [('a', 1), ('b', 2), ('c', 3)]
 print('passed')
 ```
 
-## Medium Task 11
+## Task 11
 
 ```python
 matrix = [[1, 2], [3, 4], [5, 6]]
@@ -127,7 +127,7 @@ assert transposed == [[1, 3, 5], [2, 4, 6]]
 print('passed')
 ```
 
-## Medium Task 12
+## Task 12
 
 ```python
 numbers = [1, 2, 2, 3, 3, 3, 4]
@@ -138,7 +138,7 @@ assert unique_counts == {1: 1, 2: 2, 3: 3, 4: 1}
 print('passed')
 ```
 
-## Medium Task 13
+## Task 13
 
 ```python
 text = "racecar level eye"
@@ -149,7 +149,7 @@ assert palindromes == ['racecar', 'level', 'eye']
 print('passed')
 ```
 
-## Medium Task 14
+## Task 14
 ```python
 data = [10, 20, 30, 40, 50]
 
@@ -159,7 +159,7 @@ assert cumulative_sum == [10, 30, 60, 100, 150]
 print('passed')
 ```
 
-## Medium Task 15
+## Task 15
 ```python
 pairs = [(1, 2), (3, 5), (4, 4), (6, 7)]
 
@@ -169,7 +169,7 @@ assert equal_pairs == [(4, 4)]
 print('passed')
 ```
 
-## Medium Task 16
+## Task 16
 ```python
 numbers = [1, 2, 3, 4, 5]
 
@@ -179,7 +179,7 @@ assert rotated == [4, 5, 1, 2, 3]
 print('passed')
 ```
 
-## Medium Task 17
+## Task 17
 
 ```python
 data = {'a': 1, 'b': 2, 'c': 3}
@@ -190,7 +190,7 @@ assert inverted == {1: 'a', 2: 'b', 3: 'c'}
 print('passed')
 ```
 
-## Medium Task 18
+## Task 18
 
 ```python
 text = "the quick brown fox jumps"
@@ -201,7 +201,7 @@ assert longest_word == 'quick'
 print('passed')
 ```
 
-## Medium Task 19
+## Task 19
 
 ```python
 numbers = [1, 3, 5, 7, 2, 4, 6]
@@ -212,7 +212,7 @@ assert odds_evens_separated == ([1, 3, 5, 7], [2, 4, 6])
 print('passed')
 ```
 
-## Medium Task 20
+## Task 20
 
 ```python
 data = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
