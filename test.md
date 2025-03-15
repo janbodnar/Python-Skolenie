@@ -27,7 +27,28 @@ data2 = [True, 10, 0.1, -3, None, (2, 3), 'falcon', {3, 4},
 ```
 
 
+## Riesenia
 
+```python
+# vypis 'John Doe is a gardener and is 45 years old'
+name = 'John Doe'
+occupation = 'gardener'
+age = 45
+
+msg = f'{name} is a {occupation} and is {age} years old'
+print(msg)
+
+# calculate sum using for loop
+vals = ['2', '1', '3', '5', '4']
+# print(sum(vals))
+
+mysum = 0
+
+for e in vals:
+    mysum += int(e)
+
+print(mysum)
+```
 
 
 
