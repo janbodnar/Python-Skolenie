@@ -1,5 +1,21 @@
 # Priklady
 
+
+## Write to Documents directory
+
+```python
+filename = "C:\\Users\\bodnar\\Documents\\words2.txt"
+words = ['sky', 'loop', 'nice', 'town', 'up']
+
+with open(filename, 'a') as fd:
+
+    for word in words:
+        fd.write(f'{word}\n')
+```
+
+
+
+
 ## append to file
 
 ```python
