@@ -48,6 +48,19 @@ for e in vals:
     mysum += int(e)
 
 print(mysum)
+
+
+
+data = '1,2,3,4,5,6,7,8,9,10'
+fields = data.split(',')
+print(fields)
+mysum = 0
+
+for e in fields:
+    mysum += int(e)
+
+print(mysum)
+
 ```
 
 
