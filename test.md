@@ -61,6 +61,13 @@ for e in fields:
 
 print(mysum)
 
+
+vals2 = [4, -5, 2, -1, -9, 0, 5, 7, -3]
+
+for val in vals2:
+    if val < 0:
+        print(val)
+
 ```
 
 
