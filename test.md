@@ -1,5 +1,54 @@
 # Priklady
 
+
+## Opakovanie
+
+
+```python
+# vypis 'John Doe is a gardener and is 45 years old'
+name = 'John Doe'
+occupation = 'gardener'
+age = 45
+
+# calculate sum using for loop
+vals = [2, 1, 3, 5, 4]
+
+# calculate sum
+data = '1,2,3,4,5,6,7,8,9,10'
+
+# print negative values
+vals2 = [4, -5, 2, -1, -9, 0, 5, 7, -3]
+
+# print all strings
+data2 = [True, 10, 0.1, -3, None, (2, 3), 'falcon', {3, 4},
+         False, 'bark', 9.3, ]
+
+# create a list of 100 random numbers
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Finish
 
 ```python
