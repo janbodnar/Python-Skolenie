@@ -77,6 +77,20 @@ for val in data2:
     if type(val) == str:
         print(val)
 
+
+
+import random
+
+randvals = []
+
+for e in range(1, 101):
+    r = random.randint(1, 101)
+    randvals.append(r)
+
+print(len(randvals))
+print(randvals[:11])
+print(randvals[-11:])
+
 ```
 
 
