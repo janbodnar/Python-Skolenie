@@ -1,5 +1,40 @@
 # Priklady
 
+## map function
+
+```python
+def twice(e):
+    return 2 * e
+
+def cube(e):
+    return e * e * e
+
+vals = [-2, 3, 0, 9, -1, 3, -5]
+vals2 = list(map(twice, vals))
+vals3 = list(map(cube, vals))
+
+print(vals2)
+print(vals3)
+print(vals)
+
+# vals2 = []
+#
+# for val in vals:
+#     vals2.append(val * 2)
+
+# print(vals2)
+
+words = ['sky', 'blue', 'nord', 'war', 'water']
+
+def to_title(e):
+    return e.title()
+
+
+# words_titled = list(map(lambda e: e.title(), words))
+words_titled = list(map(to_title, words))
+print(words_titled)
+```
+
 
 ## filter function
 
