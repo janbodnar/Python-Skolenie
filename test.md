@@ -35,6 +35,26 @@ words_titled = list(map(to_title, words))
 print(words_titled)
 ```
 
+## map with lambdas
+
+```python
+vals = [-2, 3, 0, 9, -1, 3, -5]
+vals2 = list(map(lambda e: e * 2, vals))
+vals3 = list(map(lambda e: e * e * e, vals))
+
+print(vals2)
+print(vals3)
+print(vals)
+
+words = ['sky', 'blue', 'nord', 'war', 'water']
+
+words_titled = list(map(lambda e: e.title(), words))
+print(words_titled)
+
+words_uppered = list(map(lambda e: e.upper(), words))
+print(words_uppered)
+```
+
 
 ## filter function
 
