@@ -1,6 +1,39 @@
 # Priklady
 
 
+## Chart for GDP of EU countries 
+
+```python
+import matplotlib.pyplot as plt
+
+countries = [
+    'Germany', 'France', 'Italy', 'Spain', 'Netherlands', 'Poland', 'Belgium',
+    'Sweden', 'Ireland', 'Austria', 'Denmark', 'Romania', 'Czech Republic',
+    'Finland', 'Portugal', 'Greece', 'Hungary', 'Slovakia', 'Bulgaria',
+    'Luxembourg', 'Croatia', 'Lithuania', 'Slovenia', 'Latvia', 'Estonia',
+    'Cyprus', 'Malta'
+]
+
+gdp = [4526, 3052, 2301, 1620, 1154, 809, 645, 585, 551, 512, 407, 351, 343,
+       296, 289, 244, 212, 133, 102, 85.76, 84.39, 79.79, 69.15, 42.25, 41.29,
+       33.89, 22.33]
+
+data = list(zip(countries, gdp))
+sorted_data = sorted(data, key=lambda x: x[1], reverse=True)
+sorted_countries, sorted_gdp = zip(*sorted_data)
+
+plt.figure(figsize=(10, 15))
+plt.barh(sorted_countries, sorted_gdp)
+plt.title('GDP of European Union Countries (USD Billion) as of December 2023')
+plt.ylabel('Country')
+plt.xlabel('GDP (USD Billion)')
+plt.grid(axis='x')
+plt.show()
+```
+
+
+
+
 ## Write to Documents directory
 
 ```python
