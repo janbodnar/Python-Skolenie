@@ -5,7 +5,7 @@
 
 
 ```python
-# vypis 'John Doe is a gardener and is 45 years old'
+# vypis 'John Doe is a gardener and is 45 years old', pouzi fstring
 name = 'John Doe'
 occupation = 'gardener'
 age = 45
