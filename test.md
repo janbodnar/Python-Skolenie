@@ -68,6 +68,15 @@ for val in vals2:
     if val < 0:
         print(val)
 
+data2 = [True, 10, 0.1, -3, None, (2, 3), 'falcon', {3, 4},
+         False, 'bark', 9.3 ]
+
+print(type(3))
+
+for val in data2:
+    if type(val) == str:
+        print(val)
+
 ```
 
 
