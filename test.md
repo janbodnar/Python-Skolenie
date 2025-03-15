@@ -1,5 +1,20 @@
 # Priklady
 
+
+## sum values
+
+```python
+# calculate sum, without for loop
+data = '1,2,3,4,5,6,7,8,9,10'
+
+# fields = data.split(',')
+# print(fields)
+
+suma = sum(map(int, data.split(',')))
+print(suma)
+```
+
+
 ## filter words starting with w/W
 
 ```python
