@@ -1,5 +1,18 @@
 # Priklady
 
+## write to file
+
+```python
+filename = 'words2.txt'
+words = ['sky', 'loop', 'nice', 'town', 'up']
+
+with open(filename, 'w') as fd:
+
+    for word in words:
+        fd.write(f'{word}\n')
+```
+
+
 
 ## Read words 
 
