@@ -1,6 +1,36 @@
 # Priklady
 
 
+## fiter function
+
+```python
+vals = [-2, 3, 0, 9, -1, 3, -5]
+
+def is_negative(e):
+    if e < 0:
+        return True
+
+def is_positive(e):
+    if e > 0:
+        return True
+
+negatives = list(filter(is_negative, vals))
+print(negatives)
+
+positives = list(filter(is_positive, vals))
+print(positives)
+
+def has3chars(e):
+    if len(e) == 3:
+        return True
+
+words = ['sky', 'blue', 'nord', 'war', 'water']
+
+words_3 = list(filter(has3chars, words))
+print(words_3)
+```
+
+
 ## Chart for GDP of EU countries 
 
 ```python
