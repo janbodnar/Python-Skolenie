@@ -1,5 +1,20 @@
 # Priklady
 
+## filter words starting with w/W
+
+```python
+# filter all words starting with 'w'
+words = ['sky', 'warm', 'blue', 'nord', 'war', 'water', 'Wrong', 'Wrath']
+
+# words_w = list(filter(lambda word: word.lower().startswith('w'), words))
+# words_w = list(filter(lambda word: word.startswith('w') or word.startswith('W'), words))
+# words_w = list(filter(lambda word: word.startswith(('w', 'W')), words))
+words_w = list(filter(lambda word: word[0] == 'W' or word[0] == 'w', words))
+
+print(words_w)
+```
+
+
 ## map function
 
 ```python
