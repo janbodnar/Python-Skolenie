@@ -1,7 +1,7 @@
 # Priklady
 
 
-## fiter function
+## filter function
 
 ```python
 vals = [-2, 3, 0, 9, -1, 3, -5]
@@ -27,6 +27,23 @@ def has3chars(e):
 words = ['sky', 'blue', 'nord', 'war', 'water']
 
 words_3 = list(filter(has3chars, words))
+print(words_3)
+```
+
+## Lambda functions with filter
+
+```python
+vals = [-2, 3, 0, 9, -1, 3, -5]
+
+negatives = list(filter(lambda e: e < 0, vals))
+print(negatives)
+
+positives = list(filter(lambda e: e > 0, vals))
+print(positives)
+
+words = ['sky', 'blue', 'nord', 'war', 'water']
+
+words_3 = list(filter(lambda word: len(word) == 3, words))
 print(words_3)
 ```
 
