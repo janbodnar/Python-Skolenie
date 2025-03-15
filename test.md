@@ -1,6 +1,17 @@
 # Priklady
 
 
+```python
+import pandas as pd
+
+filename = 'data.csv'
+
+df = pd.read_csv(filename, header=None)
+total_sum = df.values.sum()  # Sum all elements
+print("Total sum of all values:", total_sum)
+```
+
+
 ## sum values
 
 ```python
