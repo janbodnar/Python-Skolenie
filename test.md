@@ -1,6 +1,38 @@
 # Priklady
 
 
+## Read words 
+
+The 'words.txt' file:  
+
+```
+sky
+word
+out
+blue
+war
+cup
+soup
+food
+```
+
+
+```python
+filename = 'words.txt'
+cleaned_words = []
+
+with open(filename) as fd:
+
+    for line in fd:
+        cleaned_words.append(line.strip())
+
+print(cleaned_words)
+````
+
+
+
+
+
 ## Opakovanie
 
 
