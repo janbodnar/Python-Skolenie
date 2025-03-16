@@ -52,6 +52,15 @@ words = ['sky', 'war', 'portal', 'earth', 'small']
 words_l = list(filter(lambda word: word[-1] == 'l', words))
 print(words_l)
 
+words2 = ['spy', 'rust', 'tomorrow', 'water', 'war', 'cup']
+
+words2_r = list(filter(lambda word: 'r' in word, words2))
+print(words2_r)
+
+words2_r = list(filter(lambda word: word.find('r') != -1, words2))
+print(words2_r)
+
+
 ```
 
 
