@@ -6,11 +6,6 @@
 from faker import Faker
 
 faker = Faker()
-
-print(faker.first_name())
-print(faker.last_name())
-print(faker.city())
-
 filename = 'users.csv'
 
 with open(filename, 'w') as fd:
