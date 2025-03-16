@@ -45,6 +45,13 @@ vals = [2, -3, -1, 0, 2, 3, 9, 3, -9]
 
 vals2 = list(map(abs, vals))
 print(vals2)
+
+# filter out all words ending in 'l'
+words = ['sky', 'war', 'portal', 'earth', 'small']
+# words_l = list(filter(lambda word: word.endswith('l'), words))
+words_l = list(filter(lambda word: word[-1] == 'l', words))
+print(words_l)
+
 ```
 
 
