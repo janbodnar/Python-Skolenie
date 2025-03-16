@@ -4,7 +4,6 @@
 ## Opakovanie
 
 ```python
-
 # transform this list to a list of positive values
 vals = [2, -3, -1, 0, 2, 3, 9, 3, -9]
 
@@ -22,7 +21,7 @@ words2 = ['spy', 'rust', 'tomorrow', 'water', 'war', 'cup']
 
 
 
-
+## Pandas
 
 
 ```python
