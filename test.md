@@ -1,5 +1,43 @@
 # Priklady
 
+```python
+import csv
+from dataclasses import dataclass
+
+# Define the User dataclass
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    city: str
+
+# List to store User instances
+users = []
+
+# Read the CSV file
+
+with open('users.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        # Convert the row into a User instance
+        # Ensure id is converted to int, others remain strings
+        user = User(
+            id=int(row[0]),
+            first_name=row[1],
+            last_name=row[2],
+            city=row[3]
+        )
+        users.append(user)
+
+# Print all users to verify
+for user in users[:11]:
+    print(user)
+```
+
+
+
+
 ## Fake data generation
 
 ```python
