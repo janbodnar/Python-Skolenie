@@ -30,6 +30,23 @@ soup
 food
 ```
 
+## Riesenia
+
+```python
+# transform this list to a list of positive values
+vals = [2, -3, -1, 0, 2, 3, 9, 3, -9]
+
+# def transform(e):
+#     if e < 0:
+#         return -e
+#     else:
+#         return e
+
+
+vals2 = list(map(abs, vals))
+print(vals2)
+```
+
 
 
 ## Pandas
