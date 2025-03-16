@@ -1,5 +1,14 @@
 # Priklady
 
+## SQL for users
+
+```sql
+CREATE TABLE users(id serial PRIMARY KEY, first_name VARCHAR(255), last_name VARCHAR(255), city VARCHAR(255));
+```
+
+## Dataclass
+
+
 ```python
 import csv
 from dataclasses import dataclass
