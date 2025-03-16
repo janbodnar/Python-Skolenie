@@ -1,6 +1,30 @@
 # Priklady
 
 
+## Dataclass
+
+```python
+from dataclasses import dataclass
+
+@dataclass()
+class User:
+    first_name: str
+    last_name: str
+    email: str
+
+
+users = [
+    User('John', 'Doe', 'john.doe@example.com'),
+    User('Roger', 'Roe', 'roger.roe@example.com'),
+    User('Lucy', 'Smith', 'lucy.smith@example.com'),
+]
+
+for user in users:
+    print(user)
+```
+
+
+
 ## Opakovanie
 
 ```python
