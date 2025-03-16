@@ -1,5 +1,29 @@
 # Priklady
 
+## Fake data generation
+
+```python
+from faker import Faker
+
+faker = Faker()
+
+print(faker.first_name())
+print(faker.last_name())
+print(faker.city())
+
+filename = 'users.csv'
+
+with open(filename, 'w') as fd:
+
+    for idx in range(1, 10_001):
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        city = faker.city()
+
+        fd.write(f'{idx},{first_name},{last_name},{city}\n')
+```
+
+
 
 ## Dataclass
 
