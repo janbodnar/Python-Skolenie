@@ -23,6 +23,31 @@ for user in users:
     print(user)
 ```
 
+## Without dataclass
+
+```python
+class User:
+    def __init__(self, first_name, last_name, email):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
+
+    def __str__(self):
+        # Mimics dataclass default string representation
+        return f"User(first_name='{self.first_name}', last_name='{self.last_name}', email='{self.email}')"
+
+
+# Create list of User instances
+users = [
+    User('John', 'Doe', 'john.doe@example.com'),
+    User('Roger', 'Roe', 'roger.roe@example.com'),
+    User('Lucy', 'Smith', 'lucy.smith@example.com'),
+]
+
+# Print each user
+for user in users:
+    print(user)
+```
 
 
 ## Opakovanie
