@@ -60,7 +60,18 @@ print(words2_r)
 words2_r = list(filter(lambda word: word.find('r') != -1, words2))
 print(words2_r)
 
+# read words from 'words.txt' file, remove new lines and sort them
 
+filename = 'words.txt'
+words = []
+with open(filename, 'r') as fd:
+
+    for line in fd:
+        words.append(line.strip())
+
+print(words)
+words.sort()
+print(words)
 ```
 
 
