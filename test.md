@@ -17,7 +17,18 @@ words2 = ['spy', 'rust', 'tomorrow', 'water', 'war', 'cup']
 ```
 
 
+The `words.txt` file:
 
+```
+sky
+word
+out
+blue
+war
+cup
+soup
+food
+```
 
 
 
