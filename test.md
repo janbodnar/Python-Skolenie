@@ -1,6 +1,30 @@
 # Priklady
 
 
+## Opakovanie
+
+```python
+
+# transform this list to a list of positive values
+vals = [2, -3, -1, 0, 2, 3, 9, 3, -9]
+
+# filter out all words ending in 'l'
+words = ['sky', 'war', 'portal', 'earth', 'small']
+
+# filter all words that have r character
+words2 = ['spy', 'rust', 'tomorrow', 'water', 'war', 'cup']
+
+# read words from 'words.txt' file, remove new lines and sort them
+```
+
+
+
+
+
+
+
+
+
 ```python
 import pandas as pd
 
