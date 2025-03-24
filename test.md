@@ -1,5 +1,15 @@
 # Priklady
 
+
+## not in operator
+
+```python
+vals = [1, 2, 3, 4, 5]
+
+print(6 not in vals)
+```
+
+
 ## input & repr
 
 ```python
