@@ -1,5 +1,8 @@
 # Priklady
 
+
+
+
 ## Type casting
 
 ```python
@@ -10,7 +13,17 @@ word = 'falcon'
 print(str(n) + ' ' + word + 's')
 ```
 
+```python
+x = '6'
+y = '8'
 
+# string addition
+print(x + y)
+
+# integer addition
+# type casting to int
+print(int(x) + int(y))
+```
 
 ## Operators
 
