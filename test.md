@@ -1,5 +1,17 @@
 # Priklady
 
+## Type casting
+
+```python
+n = 6
+word = 'falcon'
+
+# 6 -> '6'
+print(str(n) + ' ' + word + 's')
+```
+
+
+
 ## Operators
 
 ```python
