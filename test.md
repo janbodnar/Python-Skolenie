@@ -1,6 +1,22 @@
 # Priklady
 
 
+## While cycle
+
+```python
+msg = 'an old falcon'
+
+i = 0
+
+while i < 7:
+    print(msg)
+
+    i = i + 1
+
+print('program finished')
+```
+
+
 ## Podmienky
 
 ```python
