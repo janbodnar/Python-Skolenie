@@ -1,6 +1,16 @@
 # Priklady
 
+## input & repr
 
+```python
+x = input('enter x value: ')
+y = input('enter y value: ')
+
+print(repr(x))
+print(repr(y))
+
+print(int(x) + int(y))
+```
 
 
 ## Type casting
