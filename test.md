@@ -1,6 +1,24 @@
 # Priklady
 
 
+## open function
+
+```python
+filename = 'words.txt'
+
+with open(filename, 'r') as file:
+    content = file.read()
+    print(content)
+    # print(repr(content))
+
+    words = content.split()
+    print(words)
+
+
+print('task ...')
+```
+
+
 ## not in operator
 
 ```python
