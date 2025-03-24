@@ -18,6 +18,20 @@ with open(filename, 'r') as file:
 print('task ...')
 ```
 
+```python
+filename = 'words.txt'
+
+with open(filename, 'r') as file:
+
+    lines = file.readlines()
+    print(lines)
+
+    for line in lines:
+        print(line.strip())
+
+print('finished')
+```
+
 
 ## not in operator
 
