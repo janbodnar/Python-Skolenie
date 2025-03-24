@@ -32,6 +32,17 @@ with open(filename, 'r') as file:
 print('finished')
 ```
 
+```python
+filename = 'words.txt'
+
+with open(filename, 'r') as file:
+
+    for line in file:
+        print(line.strip())
+
+print('finished')
+```
+
 
 ## not in operator
 
