@@ -462,119 +462,6 @@ $ ./traverse.py
 Z e t C o d e
 ```
 
-## Finding substrings
-
-The `find`, `rfind`, `index` and `rindex` methods are used to find substrings in a string. They return   
-the index of the first occurrence of the substring. The find and index methods search from the  
-beginning of the string. The rfind and rindex search from the end of the string.
-
-The difference between the find and index methods is that when the substring is not found, the former 
-returns -1. The latter raises `ValueError` exception.
-
-```
-find(str, beg=0, end=len(string))
-rfind(str, beg=0, end=len(string))
-index(str, beg=0, end=len(string))
-rindex(str, beg=0, end=len(string))
-```
-
-The `str` is the substring to be searched for. The beg parameter is the starting index, by default it is 0.  
-The end parameter is the ending index. It is by default equal to the length of the string.
-
-```python
-#!/usr/bin/python
-
-# substrings.py
-
-a = "I saw a wolf in the forest. A lone wolf."
-
-print(a.find("wolf"))
-print(a.find("wolf", 10, 20))
-print(a.find("wolf", 15))
-
-print(a.rfind("wolf"))
-```
-
-We have a simple sentence. We try to find the index of a substring in the sentence.
-
-```python
-print(a.find("wolf"))
-```
-
-The line finds the first occurrence of the substring 'wolf' in the sentence. It prints 8.
-
-```python
-print(a.find("wolf", 10, 20))
-```
-
-This line tries to find a 'wolf' substring. It starts from the 10th character and searches  
-the next 20 characters. There is no such substring in this range and therefore the line  
-prints -1, as for not found.
-
-```python
-print(a.find("wolf", 15))
-```
-
-Here we search for a substring from the 15th character until the end of the string. We find  
-the second occurrence of the substring. The line prints 35.
-
-```python
-print(a.rfind("wolf"))
-```
-
-The `rfind` looks for a substring from the end. It finds the second occurrence of the 'wolf' substring.  
-The line prints 35.
-
-```
-$ ./substrings.py
-8
--1
-35
-35
-```
-
-In the second example, we use the index and `rindex` methods.
-
-```python
-#!/usr/bin/python
-
-# substrings2.py
-
-a = "I saw a wolf in the forest. A lone wolf."
-
-print(a.index("wolf"))
-print(a.rindex("wolf"))
-
-try:
-    print(a.rindex("fox"))
-except ValueError as e:
-    print("Could not find substring")
-```
-
-In the example, we search for substrings with the `index` and `rindex` methods.
-
-```python
-print(a.index("wolf"))
-print(a.rindex("wolf"))
-```
-
-These lines find the first occurrence of the 'wolf' substring from the beginning and from the end.
-
-```python
-try:
-    print(a.rindex("fox"))
-except ValueError as e:
-    print("Could not find substring")
-```
-
-When the substring is not found, the `rindex` method raises `ValueError` exception.
-
-```
-$ ./substrings2.py
-8
-35
-Could not find substring
-```
 
 ## Basic string operations
 
@@ -1169,5 +1056,120 @@ Now we have the improved formatting with the format method.
 
 for x in range(1, 11):
     print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+```
+
+
+## Finding substrings
+
+The `find`, `rfind`, `index` and `rindex` methods are used to find substrings in a string. They return   
+the index of the first occurrence of the substring. The find and index methods search from the  
+beginning of the string. The rfind and rindex search from the end of the string.
+
+The difference between the find and index methods is that when the substring is not found, the former 
+returns -1. The latter raises `ValueError` exception.
+
+```
+find(str, beg=0, end=len(string))
+rfind(str, beg=0, end=len(string))
+index(str, beg=0, end=len(string))
+rindex(str, beg=0, end=len(string))
+```
+
+The `str` is the substring to be searched for. The beg parameter is the starting index, by default it is 0.  
+The end parameter is the ending index. It is by default equal to the length of the string.
+
+```python
+#!/usr/bin/python
+
+# substrings.py
+
+a = "I saw a wolf in the forest. A lone wolf."
+
+print(a.find("wolf"))
+print(a.find("wolf", 10, 20))
+print(a.find("wolf", 15))
+
+print(a.rfind("wolf"))
+```
+
+We have a simple sentence. We try to find the index of a substring in the sentence.
+
+```python
+print(a.find("wolf"))
+```
+
+The line finds the first occurrence of the substring 'wolf' in the sentence. It prints 8.
+
+```python
+print(a.find("wolf", 10, 20))
+```
+
+This line tries to find a 'wolf' substring. It starts from the 10th character and searches  
+the next 20 characters. There is no such substring in this range and therefore the line  
+prints -1, as for not found.
+
+```python
+print(a.find("wolf", 15))
+```
+
+Here we search for a substring from the 15th character until the end of the string. We find  
+the second occurrence of the substring. The line prints 35.
+
+```python
+print(a.rfind("wolf"))
+```
+
+The `rfind` looks for a substring from the end. It finds the second occurrence of the 'wolf' substring.  
+The line prints 35.
+
+```
+$ ./substrings.py
+8
+-1
+35
+35
+```
+
+In the second example, we use the index and `rindex` methods.
+
+```python
+#!/usr/bin/python
+
+# substrings2.py
+
+a = "I saw a wolf in the forest. A lone wolf."
+
+print(a.index("wolf"))
+print(a.rindex("wolf"))
+
+try:
+    print(a.rindex("fox"))
+except ValueError as e:
+    print("Could not find substring")
+```
+
+In the example, we search for substrings with the `index` and `rindex` methods.
+
+```python
+print(a.index("wolf"))
+print(a.rindex("wolf"))
+```
+
+These lines find the first occurrence of the 'wolf' substring from the beginning and from the end.
+
+```python
+try:
+    print(a.rindex("fox"))
+except ValueError as e:
+    print("Could not find substring")
+```
+
+When the substring is not found, the `rindex` method raises `ValueError` exception.
+
+```
+$ ./substrings2.py
+8
+35
+Could not find substring
 ```
 
