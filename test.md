@@ -61,6 +61,18 @@ with open(filename, 'r') as fd:
 ```
 
 
+## fstrings
+
+```python
+name = "John Doe"
+age = 34
+occupation = 'gardener'
+
+msg = f'{name} is {age} years old and he is a {occupation}'
+print(msg)
+```
+
+
 
 
 ## open function
