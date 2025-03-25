@@ -1,6 +1,22 @@
 # Priklady
 
 
+## Opakovanie
+
+```python
+# calculate sum using for/while loop
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# calculate minimum, maximum, number of els, sum, mean
+# use functions
+vals2 = [1, -2, 13, 24, 5, 9]
+
+# read the words.txt file and print all words in uppercase
+```
+
+
+
+
 ## open function
 
 ```python
