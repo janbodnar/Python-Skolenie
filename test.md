@@ -17,6 +17,12 @@ vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 vals2 = [1, -2, 13, 24, 5, 9]
 
 # read the words.txt file and print all words in uppercase
+
+filename = 'words.txt'
+
+with open(filename, 'r') as fd:
+    for line in fd:
+        print(line.strip().upper())
 ```
 
 ## Riesenia
