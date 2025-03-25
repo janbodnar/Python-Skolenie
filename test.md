@@ -1,5 +1,19 @@
 # Priklady
 
+## jednotkova ntica
+
+```python
+x = (3 + 5) * 6
+print(x)
+
+n = (556,)
+print(type(n))
+
+n = (550) * 1 
+print(type(n))
+```
+
+
 ## vypis 11
 
 ```python
