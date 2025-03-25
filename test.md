@@ -1,5 +1,23 @@
 # Priklady
 
+## read words
+
+```python
+words = []
+
+filename = 'words.txt'
+
+with open(filename) as fd:
+
+   for line in fd:
+      cleaned_line = line.strip()
+      words.append(cleaned_line)
+
+print(words)
+words.sort()
+print(words)
+```
+
 
 ## reverse vs reversed
 
