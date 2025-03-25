@@ -19,6 +19,41 @@ vals2 = [1, -2, 13, 24, 5, 9]
 # read the words.txt file and print all words in uppercase
 ```
 
+## Riesenia
+
+```python
+import statistics
+
+
+# print message: John Doe is 34 years old and he is a gardener
+name = "John Doe"
+age = 34
+occupation = 'gardener'
+
+msg = name + ' is ' + str(age) + ' years old and he is a ' + occupation
+print(msg)
+
+# calculate sum using for/while loop
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+mysum = 0
+for val in vals:
+    mysum += val
+
+print('the sum is', mysum)
+
+# calculate minimum, maximum, number of els, sum, mean
+# use functions
+vals2 = [1, -2, 13, 24, 5, 9]
+print(min(vals2))
+print(max(vals2))
+print(len(vals2))
+print(sum(vals2))
+
+print(sum(vals2)/len(vals2))
+print(statistics.mean(vals2))
+```
+
 
 
 
