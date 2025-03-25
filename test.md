@@ -1,5 +1,24 @@
 # Priklady
 
+
+## reverse vs reversed
+
+```python
+numbers = [4, 3, 6, 1, 2, 0, 5]
+
+print(numbers)
+numbers.reverse()
+print(numbers)
+
+print('--------------------------------')
+
+numbers2 = (-4, 3, 16, 11, 21, 0, -5)
+numbers2_reversed = tuple(reversed(numbers2))
+print(numbers2_reversed)
+print(numbers2)
+```
+
+
 ## sort vs sorted
 
 ```python
