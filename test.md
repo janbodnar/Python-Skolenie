@@ -1,5 +1,24 @@
 # Priklady
 
+
+## for with break
+
+```python
+import random
+
+for num in range(1000_000):
+
+    r = random.randint(0, 30)
+
+    print(r, end=' ')
+
+    if r == 22:
+        break
+
+print()
+```
+
+
 ## range/list/tuple
 
 ```python
