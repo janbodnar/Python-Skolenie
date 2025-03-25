@@ -1,5 +1,23 @@
 # Priklady
 
+## sort vs sorted
+
+```python
+numbers = [4, 3, 6, 1, 2, 0, 5]
+
+print(numbers)
+numbers.sort()
+print(numbers)
+
+print('--------------------------------')
+
+numbers2 = (-4, 3, 16, 11, 21, 0, -5)
+numbers2_sorted = sorted(numbers2)
+print(numbers2_sorted)
+print(numbers2)
+```
+
+
 ## jednotkova ntica
 
 ```python
