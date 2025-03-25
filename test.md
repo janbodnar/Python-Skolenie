@@ -1,5 +1,18 @@
 # Priklady
 
+
+## String indexing
+
+```python
+msg = 'and old falcon in the sky'
+
+print(msg[8:14])
+print(msg[22:25])
+print(msg[-3:])
+```
+
+
+
 ## String formatting
 
 ```python
