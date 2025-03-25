@@ -1,5 +1,21 @@
 # Priklady
 
+## range/list/tuple
+
+```python
+for n in range(10, 56, 5):
+    print(n)
+
+print(range(10, 56, 5))
+
+vals = list(range(10, 56, 5))
+print(vals)
+
+vals = tuple(range(10, 56, 5))
+print(vals)
+```
+
+
 
 ## Opakovanie
 
