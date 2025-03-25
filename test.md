@@ -4,6 +4,11 @@
 ## Opakovanie
 
 ```python
+# print message: John Doe is 34 years old and he is a gardener
+name = "John Doe"
+age = 34
+occupation = 'gardener'
+
 # calculate sum using for/while loop
 vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
