@@ -1,6 +1,30 @@
 # Priklady
 
 
+## read JSON from webpage
+
+```python
+import requests
+
+
+url = 'https://webcode.me/users.json'
+
+resp = requests.get(url)
+content = resp.json()
+
+print(content)
+print(type(content))
+
+for user in content['users']:
+
+    print(user['first_name'])
+    print(user['last_name'])
+    print(user['email'])
+
+    print('--------------------------------')
+```
+
+
 ## Multiple JSON users
 
 ```python
