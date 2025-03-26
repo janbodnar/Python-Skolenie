@@ -1,5 +1,58 @@
 # Priklady
 
+
+## Multiple JSON users
+
+```python
+import json
+
+data = [
+    {"name": "Jane", "age": 17},
+    {"name": "Mike", "age": 23},
+    {"name": "Sarah", "age": 19},
+    {"name": "Tom", "age": 25},
+    {"name": "Emily", "age": 21},
+    {"name": "Alex", "age": 28},
+    {"name": "Lisa", "age": 20},
+    {"name": "John", "age": 24},
+    {"name": "Kelly", "age": 18},
+    {"name": "David", "age": 27},
+    {"name": "Anna", "age": 22},
+    {"name": "Peter", "age": 26},
+    {"name": "Rachel", "age": 19},
+    {"name": "Mark", "age": 30},
+    {"name": "Julia", "age": 21},
+    {"name": "Ben", "age": 23},
+    {"name": "Sophie", "age": 20},
+    {"name": "Chris", "age": 25},
+    {"name": "Laura", "age": 18},
+    {"name": "James", "age": 29},
+    {"name": "Emma", "age": 22}
+]
+
+fname = 'friends.json'
+with open(fname, 'w') as f:
+    json.dump(data, f)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## read words
 
 ```python
