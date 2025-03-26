@@ -67,4 +67,41 @@ for post in posts:
     print(f"Body: {post['body']}")
 ```
 
+## Download JPG file
+
+```python
+import requests
+
+def download_jpg(url, filename):
+    try:
+        # Send a GET request to the URL
+        response = requests.get(url, stream=True)
+        
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Ensure the content is actually a PNG by checking the content-type
+            if 'image/jpeg' in response.headers.get('content-type', ''):
+                # Open a file in binary write mode
+                with open(filename, 'wb') as file:
+                    # Write the content to the file
+                    file.write(response.content)
+                print(f"JPG file successfully downloaded as {filename}")
+            else:
+                print("Error: The URL doesn't point to a JPG file")
+        else:
+            print(f"Error: Failed to download file. Status code: {response.status_code}")
+            
+    except requests.exceptions.RequestException as e:
+        print(f"Error: An exception occurred - {str(e)}")
+
+# Example usage
+if __name__ == "__main__":
+    # Replace with your JPG URL
+    url = "https://i.pinimg.com/736x/b9/07/56/b907566d35ff114a61e2636e0f4eca61.jpg"
+    # Specify the output filename
+    output_filename = "sid.jpg"
+    
+    download_jpg(url, output_filename)
+```
+
 
