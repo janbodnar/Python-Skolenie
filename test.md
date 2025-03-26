@@ -1,5 +1,163 @@
 # Priklady
 
+## Minesweeper
+
+```python
+import pygame
+import random
+
+# Initialize Pygame
+pygame.init()
+
+# Constants
+WIDTH = 600
+HEIGHT = 600
+GRID_SIZE = 10  # 10x10 grid
+CELL_SIZE = WIDTH // GRID_SIZE
+MINES = 10
+FONT = pygame.font.Font(None, 36)
+
+# Colors
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GRAY = (150, 150, 150)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+
+# Set up display
+screen = pygame.display.set_mode((WIDTH, HEIGHT + 50))  # Extra space for status
+pygame.display.set_caption("Minesweeper")
+
+# Cell states
+HIDDEN = 0
+REVEALED = 1
+FLAGGED = 2
+
+class Minesweeper:
+    def __init__(self):
+        self.grid = [[HIDDEN for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
+        self.values = [[0 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
+        self.mines = set()
+        self.game_over = False
+        self.won = False
+        self.place_mines()
+        self.calculate_numbers()
+
+    def place_mines(self):
+        # Randomly place mines
+        while len(self.mines) < MINES:
+            x = random.randint(0, GRID_SIZE - 1)
+            y = random.randint(0, GRID_SIZE - 1)
+            self.mines.add((x, y))
+
+    def calculate_numbers(self):
+        # Calculate numbers based on nearby mines
+        for y in range(GRID_SIZE):
+            for x in range(GRID_SIZE):
+                if (x, y) in self.mines:
+                    self.values[y][x] = -1  # Mine
+                else:
+                    count = 0
+                    for dy in [-1, 0, 1]:
+                        for dx in [-1, 0, 1]:
+                            nx, ny = x + dx, y + dy
+                            if 0 <= nx < GRID_SIZE and 0 <= ny < GRID_SIZE and (nx, ny) in self.mines:
+                                count += 1
+                    self.values[y][x] = count
+
+    def reveal(self, x, y):
+        if not (0 <= x < GRID_SIZE and 0 <= y < GRID_SIZE) or self.grid[y][x] != HIDDEN:
+            return
+        
+        self.grid[y][x] = REVEALED
+        if self.values[y][x] == -1:  # Hit a mine
+            self.game_over = True
+            return
+        elif self.values[y][x] == 0:  # Empty cell, reveal neighbors
+            for dy in [-1, 0, 1]:
+                for dx in [-1, 0, 1]:
+                    self.reveal(x + dx, y + dy)
+
+    def flag(self, x, y):
+        if 0 <= x < GRID_SIZE and 0 <= y < GRID_SIZE:
+            if self.grid[y][x] == HIDDEN:
+                self.grid[y][x] = FLAGGED
+            elif self.grid[y][x] == FLAGGED:
+                self.grid[y][x] = HIDDEN
+
+    def check_win(self):
+        revealed_count = sum(row.count(REVEALED) for row in self.grid)
+        return revealed_count == GRID_SIZE * GRID_SIZE - MINES
+
+    def draw(self, surface):
+        # Draw grid
+        for y in range(GRID_SIZE):
+            for x in range(GRID_SIZE):
+                rect = pygame.Rect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE)
+                if self.grid[y][x] == HIDDEN:
+                    pygame.draw.rect(surface, GRAY, rect)
+                elif self.grid[y][x] == FLAGGED:
+                    pygame.draw.rect(surface, BLUE, rect)
+                    pygame.draw.polygon(surface, WHITE, 
+                                      [(x * CELL_SIZE + CELL_SIZE // 4, y * CELL_SIZE + CELL_SIZE // 4),
+                                       (x * CELL_SIZE + CELL_SIZE // 2, y * CELL_SIZE + CELL_SIZE * 3 // 4),
+                                       (x * CELL_SIZE + CELL_SIZE * 3 // 4, y * CELL_SIZE + CELL_SIZE // 4)], 2)
+                elif self.grid[y][x] == REVEALED:
+                    pygame.draw.rect(surface, WHITE, rect)
+                    if self.values[y][x] == -1:
+                        pygame.draw.circle(surface, RED, rect.center, CELL_SIZE // 3)
+                    elif self.values[y][x] > 0:
+                        text = FONT.render(str(self.values[y][x]), True, BLACK)
+                        surface.blit(text, text.get_rect(center=rect.center))
+                pygame.draw.rect(surface, BLACK, rect, 1)  # Grid lines
+
+        # Draw status bar
+        status_rect = pygame.Rect(0, HEIGHT, WIDTH, 50)
+        pygame.draw.rect(surface, BLACK, status_rect)
+        if self.game_over:
+            status_text = FONT.render("Game Over! Press R to Restart", True, RED)
+        elif self.won:
+            status_text = FONT.render("You Won! Press R to Restart", True, BLUE)
+        else:
+            flags_left = MINES - sum(row.count(FLAGGED) for row in self.grid)
+            status_text = FONT.render(f"Flags Left: {flags_left}", True, WHITE)
+        surface.blit(status_text, status_text.get_rect(center=status_rect.center))
+
+def main():
+    clock = pygame.time.Clock()
+    game = Minesweeper()
+    running = True
+    
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.MOUSEBUTTONDOWN and not game.game_over and not game.won:
+                x, y = event.pos[0] // CELL_SIZE, event.pos[1] // CELL_SIZE
+                if event.button == 1:  # Left click to reveal
+                    game.reveal(x, y)
+                elif event.button == 3:  # Right click to flag
+                    game.flag(x, y)
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_r:
+                game = Minesweeper()  # Restart game
+        
+        # Check win condition
+        if not game.game_over and game.check_win():
+            game.won = True
+        
+        # Draw everything
+        screen.fill(BLACK)
+        game.draw(screen)
+        pygame.display.flip()
+        clock.tick(60)
+
+    pygame.quit()
+
+if __name__ == "__main__":
+    main()
+```
+
+
 ## Matrix animation
 
 ```python
