@@ -72,13 +72,11 @@ print(repr(body.html))
 Create HTTP GET request with `httpx` module and fetch the `title` tag. 
 
 ```python
-#!/usr/bin/python
-
 from selectolax.parser import HTMLParser
 
-import httpx 
+import requests 
 
-r = httpx.get('http://webcode.me')
+r = requests.get('http://webcode.me')
 html = r.text
 
 tree = HTMLParser(html)
