@@ -1,5 +1,30 @@
 # Priklady
 
+## 17. riadok tabulky
+
+```python
+from selectolax.parser import HTMLParser
+
+import requests 
+
+url = 'https://webcode.me/countries.html'
+
+r = requests.get(url)
+html = r.text
+
+tree = HTMLParser(html)
+
+n  = 17
+
+nth_p = tree.css(f'tr:nth-child({n})')
+print(nth_p)
+if nth_p:
+    print(f"Paragraph {n}: {nth_p[0].text().strip()}")
+else:
+    print(f"No paragraph found at position {n}")
+```
+
+
 
 ## read JSON from webpage
 
