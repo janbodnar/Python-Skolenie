@@ -23,7 +23,7 @@ can depend on other tasks. Key components include:
 
 ## Create Your First Luigi Pipeline
 
-Let’s build a simple pipeline with two tasks:
+Let's build a simple pipeline with two tasks:
 
 1. A task to generate a list of numbers and save it to a file.
 2. A task to sum those numbers and save the result.
@@ -37,6 +37,7 @@ import json
 
 # Task 1: Generate a list of numbers
 class GenerateNumbers(luigi.Task):
+
     def output(self):
         # Define where the output will be saved
         return LocalTarget("numbers.json")
@@ -51,6 +52,7 @@ class GenerateNumbers(luigi.Task):
 
 # Task 2: Sum the numbers
 class SumNumbers(luigi.Task):
+
     def requires(self):
         # This task depends on GenerateNumbers
         return GenerateNumbers()
@@ -76,7 +78,8 @@ if __name__ == "__main__":
     luigi.run()
 ```
 
-#### Step 4: Run the Pipeline
+## Run the Pipeline
+
 To execute the pipeline, open your terminal, navigate to the directory containing `luigi_intro.py`, and run:
 ```bash
 python luigi_intro.py SumNumbers --local-scheduler
@@ -158,6 +161,7 @@ if __name__ == "__main__":
 ```
 
 Run it with:
+
 ```bash
 python luigi_intro.py AverageNumbers --local-scheduler
 ```
