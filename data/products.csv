@@ -1,0 +1,78 @@
+id,product_name,category,unit_price,units_in_stock
+1,Chai,Beverages,18.0,39
+2,Chang,Beverages,19.0,17
+3,Aniseed Syrup,Condiments,10.0,13
+4,Chef Anton's Cajun Seasoning,Condiments,22.0,53
+5,Chef Anton's Gumbo Mix,Condiments,21.35,0
+6,Grandma's Boysenberry Spread,Condiments,25.0,120
+7,Uncle Bob's Organic Dried Pears,Produce,30.0,15
+8,Northwoods Cranberry Sauce,Condiments,40.0,6
+9,Mishi Kobe Niku,Meat/Poultry,97.0,29
+10,Ikura,Seafood,31.0,31
+11,Queso Cabrales,Dairy Products,21.0,22
+12,Queso Manchego La Pastora,Dairy Products,38.0,86
+13,Konbu,Seafood,6.0,24
+14,Tofu,Produce,23.25,35
+15,Genen Shouyu,Condiments,15.5,39
+16,Pavlova,Confections,17.45,29
+17,Alice Mutton,Meat/Poultry,39.0,0
+18,Carnarvon Tigers,Seafood,62.5,42
+19,Teatime Chocolate Biscuits,Confections,9.2,25
+20,Sir Rodney's Marmalade,Confections,81.0,40
+21,Sir Rodney's Scones,Confections,10.0,3
+22,Gustaf's Knäckebröd,Grains/Cereals,21.0,104
+23,Tunnbröd,Grains/Cereals,9.0,61
+24,Guaraná Fantástica,Beverages,4.5,20
+25,NuNuCa Nuß-Nougat-Creme,Confections,14.0,76
+26,Gumbär Gummibärchen,Confections,31.23,15
+27,Schoggi Schokolade,Confections,43.9,49
+28,Rössle Sauerkraut,Produce,45.6,26
+29,Thüringer Rostbratwurst,Meat/Poultry,123.79,0
+30,Nord-Ost Matjeshering,Seafood,25.89,10
+31,Gorgonzola Telino,Dairy Products,12.5,0
+32,Mascarpone Fabioli,Dairy Products,32.0,9
+33,Geitost,Dairy Products,2.5,112
+34,Sasquatch Ale,Beverages,14.0,111
+35,Steeleye Stout,Beverages,18.0,20
+36,Inlagd Sill,Seafood,19.0,112
+37,Gravad lax,Seafood,26.0,11
+38,Côte de Blaye,Beverages,263.5,17
+39,Chartreuse verte,Beverages,18.0,69
+40,Boston Crab Meat,Seafood,18.4,123
+41,Jack'England Clam Chowder,Seafood,9.65,85
+42,Singaporean Hokkien Fried Mee,Grains/Cereals,14.0,26
+43,Ipoh Coffee,Beverages,46.0,17
+44,Gula Malacca,Condiments,19.45,27
+45,Rogede sild,Seafood,9.5,5
+46,Spegesild,Seafood,12.0,95
+47,Zaanse koeken,Confections,9.5,36
+48,Chocolade,Confections,12.75,15
+49,Maxilaku,Confections,20.0,10
+50,Valkoinen suklaa,Confections,16.25,65
+51,Manjimup Dried Apples,Produce,53.0,20
+52,Filo Mix,Grains/Cereals,7.0,38
+53,Perth Pasties,Meat/Poultry,32.8,0
+54,Tourtière,Meat/Poultry,7.45,21
+55,Pâté chinois,Meat/Poultry,24.0,115
+56,Gnocchi di nonna Alice,Grains/Cereals,38.0,21
+57,Ravioli Angelo,Grains/Cereals,19.5,36
+58,Escargots de Bourgogne,Seafood,13.25,62
+59,Raclette Courdavault,Dairy Products,55.0,79
+60,Camembert Pierrot,Dairy Products,34.0,19
+61,Sirop d'érable,Condiments,28.5,113
+62,Tarte au sucre,Confections,49.3,17
+63,Vegie-spread,Condiments,43.9,24
+64,Wimmers gute Semmelknödel,Grains/Cereals,33.25,22
+65,Louisiana Fiery Hot Pepper Sauce,Condiments,21.05,76
+66,Louisiana Hot Spiced Okra,Condiments,17.0,4
+67,Laughing Lumberjack Lager,Beverages,14.0,52
+68,Scottish Longbreads,Confections,12.5,6
+69,Gudbrandsdalsost,Dairy Products,36.0,26
+70,Outback Lager,Beverages,15.0,15
+71,Flotemysost,Dairy Products,21.5,26
+72,Mozzarella di Giovanni,Dairy Products,34.8,14
+73,Röd Kaviar,Seafood,15.0,101
+74,Longlife Tofu,Produce,10.0,4
+75,Rhönbräu Klosterbier,Beverages,7.75,125
+76,Lakkalikööri,Beverages,18.0,57
+77,Original Frankfurter grüne Soße,Condiments,13.0,32
