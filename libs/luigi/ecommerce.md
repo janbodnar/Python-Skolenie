@@ -1,7 +1,8 @@
 # E-commerce Workflow with Luigi and Faker
 
-## **1. Overview**
-In this tutorial, we’ll:
+
+In this tutorial, we will:
+
 1. Use the **Faker** library to generate realistic test data for an e-commerce platform.
 2. Build a workflow using **Luigi** to process, transform, and analyze the data.
 3. Automate the ETL pipeline and generate a report with key analytics.
