@@ -17,8 +17,6 @@ Make sure you have the following installed:
   pip install luigi pandas faker
   ```
 
----
-
 ## Generate Test Data with Faker**
 
 Creating realistic datasets:
