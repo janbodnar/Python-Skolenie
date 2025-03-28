@@ -187,7 +187,7 @@ During this step, the pipeline performs essential data cleaning, such as normali
 ensuring all datasets are compatible for downstream analysis. The transformed data is saved in a  
 new CSV file, making it easier to inspect and use for analytics.
 
-Finally, the **analytics phase** (`AnalyticsTask`) takes over. In this task, the pipeline reads the 
+Finally, the **analytics phase** (`AnalyticsTask`) takes over. In this task, the pipeline reads the  
 transformed dataset and calculates two key insights: the total revenue generated from all sales and  
 the most popular product based on the number of occurrences in the dataset. These results are written  
 into an analytics report, providing actionable insights that an e-commerce business could use to make  
