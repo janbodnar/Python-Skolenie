@@ -1,10 +1,37 @@
 # Luigi
 
-Luigi is an open-source Python library developed by Spotify to manage complex workflows  
-and data pipelines. It’s particularly useful for batch processing, dependency resolution,  
-and orchestrating tasks that need to run in a specific order. In this tutorial, we’ll walk  
-through the basics of Luigi by building a simple pipeline.  
 
+The Python Luigi library is a framework for building complex pipelines of batch jobs.  
+It helps users organize their workflows by handling dependencies between tasks in a clear,  
+programmatic way. Luigi is particularly useful for tasks like data processing,  
+ETL (Extract, Transform, Load) operations, and other batch processing workflows.
+
+Key features of Luigi include:
+
+- **Task Dependency Management:** You can define dependencies between tasks, and Luigi ensures they run in the correct order.
+- **Workflow Visualization:** It provides a web interface to monitor workflows, making it easy to debug and visualize your pipelines.
+- **Retry and Failure Handling:** It retries failed tasks and provides insights into the reasons for failure.
+- **Custom Task Definition:** You can define custom tasks and easily integrate them into your workflows.
+
+If you're working with a lot of data or building pipelines that require complex dependencies,  
+Luigi can help simplify and streamline the process.
+
+
+
+1. **Workflow**: A workflow is a sequence of tasks or processes designed to achieve a specific goal.
+   It outlines how individual tasks are structured, how they depend on each other, and how they
+   progress step by step within a system.
+
+2. **Orchestration**: Orchestration involves coordinating and managing multiple workflows or tasks
+   to ensure they operate together efficiently. In technology, it often refers to the automation
+   of processes, such as managing servers, services, or data pipelines, to work harmoniously.
+
+4. **ETL (Extract, Transform, Load)**: ETL is a process in data integration. 
+    - **Extract**: Collect data from multiple sources.
+    - **Transform**: Clean, modify, and standardize the data to fit your desired format or requirements.
+    - **Load**: Store the processed data into a target system, such as a database or data warehouse.
+
+## Installation
 
 First, install Luigi using pip:
 
