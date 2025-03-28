@@ -22,18 +22,18 @@ Luigi can help simplify and streamline the process.
 
 
 
-1. **Workflow**: A workflow is a sequence of tasks or processes designed to achieve a specific goal.
-   It outlines how individual tasks are structured, how they depend on each other, and how they
-   progress step by step within a system.
+1. **Workflow**: A workflow is a sequence of tasks or processes designed to achieve a specific goal.  
+   It outlines how individual tasks are structured, how they depend on each other, and how they  
+   progress step by step within a system.  
 
-2. **Orchestration**: Orchestration involves coordinating and managing multiple workflows or tasks
-   to ensure they operate together efficiently. In technology, it often refers to the automation
-   of processes, such as managing servers, services, or data pipelines, to work harmoniously.
+2. **Orchestration**: Orchestration involves coordinating and managing multiple workflows or tasks  
+   to ensure they operate together efficiently. In technology, it often refers to the automation  
+   of processes, such as managing servers, services, or data pipelines, to work harmoniously.  
 
-4. **ETL (Extract, Transform, Load)**: ETL is a process in data integration. 
-    - **Extract**: Collect data from multiple sources.
-    - **Transform**: Clean, modify, and standardize the data to fit your desired format or requirements.
-    - **Load**: Store the processed data into a target system, such as a database or data warehouse.
+4. **ETL (Extract, Transform, Load)**: ETL is a process in data integration.  
+    - **Extract**: Collect data from multiple sources.  
+    - **Transform**: Clean, modify, and standardize the data to fit your desired format or requirements.  
+    - **Load**: Store the processed data into a target system, such as a database or data warehouse.  
 
 ## Installation
 
