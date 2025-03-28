@@ -8,10 +8,14 @@ ETL (Extract, Transform, Load) operations, and other batch processing workflows.
 
 Key features of Luigi include:
 
-- **Task Dependency Management:** You can define dependencies between tasks, and Luigi ensures they run in the correct order.
-- **Workflow Visualization:** It provides a web interface to monitor workflows, making it easy to debug and visualize your pipelines.
-- **Retry and Failure Handling:** It retries failed tasks and provides insights into the reasons for failure.
-- **Custom Task Definition:** You can define custom tasks and easily integrate them into your workflows.
+- **Task Dependency Management:** You can define dependencies between tasks, and Luigi  
+  ensures they run in the correct order.
+- **Workflow Visualization:** It provides a web interface to monitor workflows, making  
+  it easy to debug and visualize your pipelines.
+- **Retry and Failure Handling:** It retries failed tasks and provides insights into  
+  the reasons for failure.
+- **Custom Task Definition:** You can define custom tasks and easily integrate them  
+  into your workflows.
 
 If you're working with a lot of data or building pipelines that require complex dependencies,  
 Luigi can help simplify and streamline the process.
