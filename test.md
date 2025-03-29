@@ -1,5 +1,25 @@
 # Priklady
 
+
+```python
+import pandas as pd
+
+# pip install pandas lxml
+
+# URL of the JSON data
+url = 'https://webcode.me/users.json'
+
+# Read the JSON data into a DataFrame
+df = pd.read_json(url)
+
+# Export the DataFrame directly to an XML file
+df.to_xml("users.xml", root_name="users", row_name="user")
+
+print("XML data has been written directly to 'users.xml'.")
+```
+
+
+
 ## Read JSON into XML
 
 ```python
