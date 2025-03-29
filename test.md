@@ -1,5 +1,23 @@
 # Priklady
 
+## compare two files
+
+```python
+import filecmp
+
+# Paths to the files
+file1 = 'words1.txt'
+file2 = 'words2.txt'
+
+# Compare the files
+are_files_equal = filecmp.cmp(file1, file2, shallow=False)
+
+if are_files_equal:
+    print("The files are identical.")
+else:
+    print("The files are different.")
+```
+
 
 ```python
 import pandas as pd
