@@ -130,6 +130,26 @@ print(min(random_vals))
 print(max(random_vals))
 
 print(random_vals)
+
+
+# create a new list of words a) having 3 letters b) starting with w or c
+words = ['sky', 'blue', 'rock', 'small', 'nice', 'cup', 'war', 'tomorrow']
+
+# filter, len, startswith
+
+# filter
+# list comprehensions
+
+words_3 = list(filter(lambda word: len(word) == 3, words))
+print(words_3)
+
+words_3_1 = [word for word in words if len(word) == 3]
+print(words_3_1)
+
+
+# words_w_c = [word for word in words if word.startswith('c') or word.startswith('w')]
+words_w_c = [word for word in words if word.startswith(('c', 'w'))]
+print(words_w_c)
 ```
 
 
