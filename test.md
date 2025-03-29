@@ -73,7 +73,19 @@ sample_nums = random.sample(numbers, 3)
 print(sample_nums)
 print(sum(sample_nums))
 
+import funcy
 
+# create nums2 that contains unique values
+nums = [2, 2, 3, 4, 5, 5, 5, 6, 7, 7, 8, 9, 9]
+
+# nums2 = set(nums)
+# nums2_l = list(nums2)
+# print(nums2)
+# print(nums2_l)
+
+
+nums_unique = list(funcy.distinct(nums))
+print(nums_unique)
 ```
 
 
