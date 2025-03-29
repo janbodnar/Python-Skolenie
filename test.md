@@ -150,6 +150,23 @@ print(words_3_1)
 # words_w_c = [word for word in words if word.startswith('c') or word.startswith('w')]
 words_w_c = [word for word in words if word.startswith(('c', 'w'))]
 print(words_w_c)
+
+
+filename = 'words.txt'
+words = []
+
+with open(filename, 'r') as fd:
+
+    for line in fd:
+
+        word = line.rstrip().lower()
+        words.append(word)
+
+
+print(words)
+
+words_n = tuple(words)
+print(words_n)
 ```
 
 
