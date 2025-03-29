@@ -1,5 +1,53 @@
 # Priklady
 
+## Opakovanie
+
+The `words.txt` file:
+
+```
+war
+Water
+small
+NICE
+rock
+final
+loW
+```
+
+
+```python
+# print all vowels
+text = 'there are many stars in the sky'
+
+# remove punctunation characters (?!.) from the text
+text2 = 'And old falcon? Yes! Stars in the sky.'
+
+
+# pick 3 numbers randomly and calculate sum
+# sort values in asc/desc orders
+numbers = [2, 3, 1, 6, 7, 8, 3, 4, 9, 2, 9]
+
+
+# create nums2 that contains unique values
+nums = [2, 2, 3, 4, 5, 5, 5, 6, 7, 7, 8, 9, 9]
+
+# calculate sum
+# transform into (1, 2, 3, 4, 5, 6, 7, 8, 9)
+vals = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+
+# create a list of random integers from <1, 100>
+# calculate len, sum, min, max from the list
+
+
+# create a new list of words a) having 3 letters b) starting with w or c
+words = ['sky', 'blue', 'rock', 'small', 'nice', 'cup', 'war', 'tomorrow']
+
+
+# read words from words.txt file and transform them into tuple, all in lowercase
+```
+
+
+
 ## Minesweeper
 
 ```python
