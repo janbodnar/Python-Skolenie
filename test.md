@@ -46,6 +46,22 @@ words = ['sky', 'blue', 'rock', 'small', 'nice', 'cup', 'war', 'tomorrow']
 # read words from words.txt file and transform them into tuple, all in lowercase
 ```
 
+## Riesenia
+
+```python
+# print all vowels
+text = 'there are many stars in the sky'
+# vowels = ["a", "e", "i", "o", "u", "y"]
+vowels = 'aeiouy'
+
+for c in text:
+
+    if c in vowels:
+        print(c)
+
+```
+
+
 
 
 ## Minesweeper
