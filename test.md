@@ -1,5 +1,44 @@
 # Priklady
 
+## Read JSON into XML
+
+```python
+import requests
+import xml.etree.ElementTree as ET
+
+# URL of the JSON data
+url = 'https://webcode.me/users.json'
+
+# Fetch JSON data from the URL
+response = requests.get(url)
+data = response.json()
+
+# Create the root XML element
+root = ET.Element("users")
+
+# Iterate through the users and populate the XML tree
+for user in data['users']:
+    user_element = ET.SubElement(root, "user")
+    ET.SubElement(user_element, "id").text = str(user["id"])
+    ET.SubElement(user_element, "first_name").text = user["first_name"]
+    ET.SubElement(user_element, "last_name").text = user["last_name"]
+    ET.SubElement(user_element, "email").text = user["email"]
+
+# Convert the XML tree to a string
+xml_data = ET.tostring(root, encoding='utf-8', method='xml').decode()
+
+# Save the XML data to a file (optional)
+with open("users.xml", "w") as xml_file:
+    xml_file.write(xml_data)
+
+print("XML data:")
+print(xml_data)
+```
+
+
+
+
+
 ## Dump users to file
 
 ```python
