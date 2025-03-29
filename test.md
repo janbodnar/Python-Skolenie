@@ -65,6 +65,9 @@ text2 = 'And old falcon? Yes! Stars in the sky.'
 replaced = text2.replace('!', '').replace('?', '').replace('.', '')
 print(replaced)
 
+
+import random
+
 numbers = [2, 3, 1, 6, 7, 8, 3, 4, 9, 2, 9]
 sample_nums = random.sample(numbers, 3)
 print(sample_nums)
