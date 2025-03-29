@@ -1,5 +1,19 @@
 # Priklady
 
+
+## Sum script arguments
+
+```python
+import sys
+
+data = sys.argv[1:]
+
+suma = sum(map(int, data))
+print(suma)
+```
+
+
+
 ## Opakovanie
 
 The `words.txt` file:
