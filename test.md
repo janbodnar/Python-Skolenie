@@ -1,5 +1,24 @@
 # Priklady
 
+## Read CSV with different number of rows in Pandas
+
+```python
+import pandas as pd
+
+# Read the file with flexible parsing
+df = pd.read_csv('numbers.csv', 
+                 sep='[;,]', 
+                 engine='python',  # Python engine is more flexible
+                 names=['c1','c2','c3','c4','c5','c6','c7'],  # Explicitly set column names
+                 header=0)  # Use first row as header
+
+# Fill missing values with NaN or another value if needed
+df = df.fillna(0)  # or df.fillna(0) for zeros
+
+print(df)
+```
+
+
 ## compare two files
 
 ```python
