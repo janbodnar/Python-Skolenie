@@ -1,5 +1,44 @@
 # Priklady
 
+## Dump users to file
+
+```python
+import json
+
+# Create a list of 20 users
+data = [
+    {"name": "Jane", "age": 17},
+    {"name": "John", "age": 22},
+    {"name": "Alice", "age": 19},
+    {"name": "Bob", "age": 25},
+    {"name": "Mary", "age": 20},
+    {"name": "Tom", "age": 18},
+    {"name": "Lucy", "age": 23},
+    {"name": "Mark", "age": 21},
+    {"name": "Nina", "age": 24},
+    {"name": "James", "age": 26},
+    {"name": "Linda", "age": 19},
+    {"name": "David", "age": 22},
+    {"name": "Sophia", "age": 27},
+    {"name": "Chris", "age": 20},
+    {"name": "Emma", "age": 23},
+    {"name": "Andrew", "age": 21},
+    {"name": "Olivia", "age": 28},
+    {"name": "Peter", "age": 18},
+    {"name": "Chloe", "age": 24},
+    {"name": "Tommy", "age": 25}
+]
+
+fname = 'friends.json'
+
+# Write the list of users to a JSON file
+with open(fname, 'w') as f:
+    json.dump(data, f, indent='    ')
+
+print(f'{len(data)} users have been written to {fname}.')
+```
+
+
 
 ## Sum script arguments
 
