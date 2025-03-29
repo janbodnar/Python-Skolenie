@@ -59,6 +59,13 @@ for c in text:
     if c in vowels:
         print(c)
 
+# remove punctunation characters (?!.) from the text
+text2 = 'And old falcon? Yes! Stars in the sky.'
+
+replaced = text2.replace('!', '').replace('?', '').replace('.', '')
+print(replaced)
+
+
 ```
 
 
