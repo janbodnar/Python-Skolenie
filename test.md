@@ -86,6 +86,30 @@ nums = [2, 2, 3, 4, 5, 5, 5, 6, 7, 7, 8, 9, 9]
 
 nums_unique = list(funcy.distinct(nums))
 print(nums_unique)
+
+# calculate sum
+# transform into (1, 2, 3, 4, 5, 6, 7, 8, 9)
+vals = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+mysum = 0
+
+
+# for nested in vals:
+
+#     for e in nested:
+#         mysum += e
+
+
+for nested in vals:
+    mysum += sum(nested)
+
+print(mysum)
+
+
+
+import funcy
+
+flattened = tuple(funcy.flatten(vals))
+print(flattened)
 ```
 
 
