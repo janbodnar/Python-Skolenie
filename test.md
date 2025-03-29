@@ -110,6 +110,26 @@ import funcy
 
 flattened = tuple(funcy.flatten(vals))
 print(flattened)
+
+
+import random
+
+random_vals = []
+
+# for loop/range, random.randint, append 
+
+for e in range(100):
+    r = random.randrange(1, 101)
+
+    random_vals.append(r)
+
+
+print(len(random_vals))
+print(sum(random_vals))
+print(min(random_vals))
+print(max(random_vals))
+
+print(random_vals)
 ```
 
 
