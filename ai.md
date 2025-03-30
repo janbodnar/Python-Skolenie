@@ -229,7 +229,6 @@ print(completion.choices[0].message.content)
 ```python
 from openai import OpenAI
 
-import yaml
 from pathlib import Path
 import os
 import time
