@@ -97,6 +97,21 @@ url = "https://webcode.me"
 
 resp = requests.get(url)
 print(resp.text)
+
+# ----------------------------
+
+import os
+
+text = os.environ.get("PATH")
+print(text)
+
+folders = text.split(';')
+for folder in folders:
+    print(folder)
+
+
+
+
 ```
 
 
