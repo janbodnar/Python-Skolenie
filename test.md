@@ -1,5 +1,97 @@
 # Priklady
 
+
+## Opakovanie
+
+
+```python
+# read HTML data from https://webcode.me
+
+# print all directories from PATH environment variable, (os.environ.get)
+
+
+# calculate min, max, sum, avg of user salaries
+
+import sqlite3
+
+# Using with statement for automatic connection management
+with sqlite3.connect('test.db') as conn:
+    cursor = conn.cursor()
+    
+    # Single executescript with all statements and data
+    cursor.executescript('''
+        DROP TABLE IF EXISTS users;
+        CREATE TABLE users (
+            id INTEGER PRIMARY KEY,
+            first_name TEXT NOT NULL,
+            last_name TEXT NOT NULL,
+            email TEXT NOT NULL UNIQUE,
+            salary REAL NOT NULL
+        );
+        
+        INSERT INTO users (id, first_name, last_name, email, salary) VALUES
+            (1, 'John', 'Smith', 'john.smith@example.com', 55000.00),
+            (2, 'Emma', 'Johnson', 'emma.johnson@example.com', 62000.00),
+            (3, 'Michael', 'Williams', 'michael.williams@example.com', 48000.00),
+            (4, 'Sophie', 'Brown', 'sophie.brown@example.com', 75000.00),
+            (5, 'William', 'Jones', 'william.jones@example.com', 68000.00),
+            (6, 'Olivia', 'Garcia', 'olivia.garcia@example.com', 52000.00),
+            (7, 'James', 'Miller', 'james.miller@example.com', 89000.00),
+            (8, 'Ava', 'Davis', 'ava.davis@example.com', 47000.00),
+            (9, 'Alexander', 'Rodriguez', 'alexander.rodriguez@example.com', 65000.00),
+            (10, 'Isabella', 'Martinez', 'isabella.martinez@example.com', 71000.00),
+            (11, 'Daniel', 'Hernandez', 'daniel.hernandez@example.com', 58000.00),
+            (12, 'Mia', 'Lopez', 'mia.lopez@example.com', 63000.00),
+            (13, 'Thomas', 'Gonzalez', 'thomas.gonzalez@example.com', 79000.00),
+            (14, 'Charlotte', 'Wilson', 'charlotte.wilson@example.com', 54000.00),
+            (15, 'David', 'Anderson', 'david.anderson@example.com', 86000.00),
+            (16, 'Amelia', 'Thomas', 'amelia.thomas@example.com', 61000.00),
+            (17, 'Joseph', 'Taylor', 'joseph.taylor@example.com', 72000.00),
+            (18, 'Emily', 'Moore', 'emily.moore@example.com', 67000.00),
+            (19, 'Robert', 'Jackson', 'robert.jackson@example.com', 93000.00),
+            (20, 'Grace', 'Martin', 'grace.martin@example.com', 59000.00);
+    ''')
+
+# calculate min, max, sum, avg for CSV data
+
+import csv
+
+# Write to CSV file
+with open('users_2.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    
+    # Write header
+    writer.writerow(['id', 'first_name', 'last_name', 'email', 'salary'])
+    
+    # Write 20 specific users
+    writer.writerows([
+        [1, 'John', 'Smith', 'john.smith@example.com', 55000.00],
+        [2, 'Emma', 'Johnson', 'emma.johnson@example.com', 62000.00],
+        [3, 'Michael', 'Williams', 'michael.williams@example.com', 48000.00],
+        [4, 'Sophie', 'Brown', 'sophie.brown@example.com', 75000.00],
+        [5, 'William', 'Jones', 'william.jones@example.com', 68000.00],
+        [6, 'Olivia', 'Garcia', 'olivia.garcia@example.com', 52000.00],
+        [7, 'James', 'Miller', 'james.miller@example.com', 89000.00],
+        [8, 'Ava', 'Davis', 'ava.davis@example.com', 47000.00],
+        [9, 'Alexander', 'Rodriguez', 'alexander.rodriguez@example.com', 65000.00],
+        [10, 'Isabella', 'Martinez', 'isabella.martinez@example.com', 71000.00],
+        [11, 'Daniel', 'Hernandez', 'daniel.hernandez@example.com', 58000.00],
+        [12, 'Mia', 'Lopez', 'mia.lopez@example.com', 63000.00],
+        [13, 'Thomas', 'Gonzalez', 'thomas.gonzalez@example.com', 79000.00],
+        [14, 'Charlotte', 'Wilson', 'charlotte.wilson@example.com', 54000.00],
+        [15, 'David', 'Anderson', 'david.anderson@example.com', 86000.00],
+        [16, 'Amelia', 'Thomas', 'amelia.thomas@example.com', 61000.00],
+        [17, 'Joseph', 'Taylor', 'joseph.taylor@example.com', 72000.00],
+        [18, 'Emily', 'Moore', 'emily.moore@example.com', 67000.00],
+        [19, 'Robert', 'Jackson', 'robert.jackson@example.com', 93000.00],
+        [20, 'Grace', 'Martin', 'grace.martin@example.com', 59000.00]
+    ])
+```
+
+
+
+
+
 ## Read CSV with different number of rows in Pandas
 
 ```python
