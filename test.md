@@ -109,7 +109,24 @@ folders = text.split(';')
 for folder in folders:
     print(folder)
 
+# ----------------------------
 
+import sqlite3
+import statistics
+
+salaries = []
+
+with sqlite3.connect('test.db') as con:
+
+    cur = con.cursor()
+
+    sql = 'SELECT salary from users'
+    cur.execute(sql)
+
+    for row in cur:
+        salaries.append(row[0])
+
+print(min(salaries), max(salaries), sum(salaries), statistics.mean(salaries))
 
 
 ```
