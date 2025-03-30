@@ -190,6 +190,32 @@ INSERT INTO users(name, occupation) VALUES('John Williams', 'accountant');
 INSERT INTO users(name, occupation) VALUES('Martin Bielik', 'programmer');
 ```
 
+```python
+import sqlite3
+
+# Using with statement for automatic connection management
+with sqlite3.connect('users.db') as conn:
+    cursor = conn.cursor()
+    
+    # Single executescript with table creation and all inserts
+    cursor.executescript('''
+        DROP TABLE IF EXISTS users;
+        CREATE TABLE users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            occupation TEXT
+        );
+        INSERT INTO users (name, occupation) VALUES
+            ('John Doe', 'gardener'),
+            ('Roger Doe', 'driver'),
+            ('Paul Novak', 'teacher'),
+            ('Lucia Smith', 'teacher'),
+            ('John Williams', 'accountant'),
+            ('Martin Bielik', 'programmer');
+    ''')
+```
+
+
 The `app.py` file. 
 
 ```python
