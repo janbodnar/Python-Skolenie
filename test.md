@@ -1,5 +1,22 @@
 # Priklady
 
+## Read all li tags
+
+```python
+from selectolax.parser import HTMLParser
+
+with open('index.html', 'r') as f:
+
+    html = f.read()
+
+    tree = HTMLParser(html)
+    li_tags = tree.css('li')
+
+    for li in li_tags:
+        print(li.text())
+```
+
+
 
 ## Read hydro data
 
