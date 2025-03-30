@@ -168,6 +168,10 @@ class AnalyticsTask(luigi.Task):
             f.write(f"Total Revenue: {total_revenue}\n")
             f.write(f"Most Popular Product: {popular_product}\n")
         print("Analytics report generated!")
+
+# Optional: Run this task directly via command line
+if __name__ == "__main__":
+    luigi.run()        
 ```
 
 The `ecommerce_workflow.py` script is a pipeline built using **Luigi**, designed to automate  
