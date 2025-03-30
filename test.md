@@ -88,7 +88,16 @@ with open('users_2.csv', 'w', newline='') as file:
     ])
 ```
 
+## Riesenia
 
+```python
+import requests
+
+url = "https://webcode.me"
+
+resp = requests.get(url)
+print(resp.text)
+```
 
 
 
