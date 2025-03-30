@@ -1,5 +1,27 @@
 # Priklady
 
+## Real all p tags from sme.sk
+
+```python
+from selectolax.parser import HTMLParser
+import requests
+
+url = 'https://sme.sk'
+
+resp = requests.get(url)
+html = resp.text
+
+tree = HTMLParser(html)
+
+p_tags = tree.css('p')
+
+for p in p_tags:
+    print(p.text())
+```
+
+
+
+
 ## Read all li tags
 
 ```python
