@@ -128,6 +128,22 @@ with sqlite3.connect('test.db') as con:
 
 print(min(salaries), max(salaries), sum(salaries), statistics.mean(salaries))
 
+# -----------------------------
+
+import csv 
+import statistics
+
+filename = 'users_2.csv'
+salaries = []
+
+with open(filename, 'r') as fd:
+
+    reader = csv.DictReader(fd)
+
+    for row in reader:
+        salaries.append(round(float(row['salary'])))
+
+print(min(salaries), max(salaries), sum(salaries), statistics.mean(salaries))
 
 ```
 
