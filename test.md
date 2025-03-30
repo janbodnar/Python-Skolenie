@@ -1,6 +1,20 @@
 # Priklady
 
 
+## Read hydro data
+
+```python
+import pandas as pd
+
+url = 'https://www.shmu.sk/sk/?page=1&id=ran_sprav'
+tables = pd.read_html(url)
+df = tables[0]
+
+print(df)
+```
+
+
+
 ## Opakovanie
 
 
