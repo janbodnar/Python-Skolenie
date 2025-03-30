@@ -114,6 +114,10 @@ for folder in folders:
 
 ```
 
+```sql
+SELECT MIN(salary), MAX(salary), SUM(salary), AVG(salary) FROM users;
+```
+
 
 
 ## Read CSV with different number of rows in Pandas
