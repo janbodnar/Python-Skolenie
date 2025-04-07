@@ -76,6 +76,16 @@ print(sum(vals2))
 print(sum(vals2)/len(vals2))
 print(statistics.mean(vals2))
 
+
+vals3 = [2, -3, -1, 0, 2, 3, 9, 3, -9]
+
+vals_pos = []
+
+for val in vals3:
+    vals_pos.append(abs(val))
+
+print(vals_pos)
+
 ```
 
 
