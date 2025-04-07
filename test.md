@@ -12,6 +12,17 @@ with open(filename, 'a') as fd:
     fd.write('warm\n')
 ```
 
+## writelines function
+
+```python
+filename = 'words2.txt'
+
+words = ['new\n', 'red\n', 'brown\n']
+
+with open(filename, 'a') as fd:
+
+    fd.writelines(words)
+```
 
 
 ## read line by line
