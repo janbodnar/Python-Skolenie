@@ -16,7 +16,7 @@ falcon
 
 
 
-```
+```python
 # print message: John Doe is 34 years old and he is a gardener
 name = "John Doe"
 age = 34
