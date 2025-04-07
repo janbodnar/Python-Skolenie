@@ -23,6 +23,19 @@ print(result)
 ```
 
 
+abs function
+
+```python
+vals = [1, 2, -3, -4, 5, -6]
+print(vals)
+
+
+result = list(map(lambda val: abs(val), vals))
+
+print(vals)
+print(result)
+```
+
 
 
 ## filter
