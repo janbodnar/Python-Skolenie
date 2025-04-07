@@ -1,5 +1,43 @@
 # Priklady
 
+
+## filter
+
+filter funkcia
+
+```python
+# positives
+vals = [-2, 2, 0, 1, 9, 8, -7, 3]
+
+def is_pos(val):
+    if val > 0:
+        return True
+    else:
+        return False
+
+# vals_pos = list(filter(is_pos, vals))
+vals_pos = list(filter(lambda e: e > 0, vals))
+print(vals_pos)
+
+# negatives
+
+def is_neg(val):
+    if val < 0:
+        return True
+    else:
+        return False
+
+# vals_neg = list(filter(is_neg, vals))
+vals_neg = list(filter(lambda e: e < 0, vals))
+print(vals_neg)
+```
+
+
+
+
+
+
+
 ## Opakovanie
 
 
