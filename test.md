@@ -109,6 +109,18 @@ def ends_in_l(e):
 words_l2 = list(filter(lambda word: word.endswith('l'), words))
 print(words_l2)
 
+
+# filter all words that have r character
+words2 = ['spy', 'rust', 'tomorrow', 'water', 'war', 'cup']
+
+words2_r = []
+
+for word in words2:
+    if 'r' in word:
+        words2_r.append(word)
+
+print(words2_r)
+
 ```
 
 
