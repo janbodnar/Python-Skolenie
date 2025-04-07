@@ -1,5 +1,30 @@
 # Priklady
 
+## importing modules
+
+```python
+#!/usr/bin/python
+
+# import math
+
+# print(math.pi.__doc__)
+# print(math.cos.__doc__)
+# print(math.sin.__doc__)
+# print(math.log.__doc__)
+# print(math.floor.__doc__)
+# print(math.exp.__doc__)
+
+from math import pi, cos, sin, log, floor, exp
+
+print(pi.__doc__)
+print(cos.__doc__)
+print(sin.__doc__)
+print(log.__doc__)
+print(floor.__doc__)
+print(exp.__doc__)
+```
+
+
 
 ## Read CSV file
 
