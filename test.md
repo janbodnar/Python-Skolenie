@@ -1,5 +1,22 @@
 # Priklady
 
+## split/map
+
+```python
+data = "1,2,3,4,5,6,7,8,9,10"
+
+fields = data.split(',')
+print(fields)
+
+vals2 = list(map(int, fields))
+print(vals2)
+print(sum(vals2))
+print(len(vals2))
+print(max(vals2))
+```
+
+
+
 
 ## Map function
 
