@@ -1,6 +1,30 @@
 # Priklady
 
 
+## Map function
+
+
+```python
+vals = [1, 2, 3, 4, 5, 6]
+print(vals)
+
+def twice(val):
+    return 2 * val
+
+def cube(val):
+    return val * val * val
+
+
+# result = list(map(cube, vals))
+result = list(map(lambda val: val ** 3, vals))
+
+print(vals)
+print(result)
+```
+
+
+
+
 ## filter
 
 filter funkcia
@@ -65,6 +89,8 @@ def starts_w_c(word):
 words_3 = list(filter(lambda word: word.startswith(('w', 'c')), words))
 print(words_3)
 ```
+
+
 
 
 
