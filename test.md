@@ -1,6 +1,43 @@
 # Priklady
 
 
+## Read CSV file
+
+```python
+
+import pandas as pd
+
+# Read the CSV file into a Pandas DataFrame
+df = pd.read_csv('data.csv', header=None)
+
+print(df)
+
+# Calculate the total sum using df.values.sum()
+total_sum = df.values.sum()
+
+print("Sum of all values:", total_sum)
+
+
+
+# filename = 'data.csv'
+#
+# vals = []
+#
+# with open(filename, 'r') as fd:
+#
+#     for line in fd:
+#         fields = line.strip().split(',')
+#         # print(fields)
+#         nums = list(map(int, fields))
+#         vals.extend(nums)
+#
+#     print(vals)
+#     print(len(vals))
+#     print(sum(vals))
+#     print(max(vals))
+```
+
+
 ## write function
 
 ```python
