@@ -32,6 +32,24 @@ vals_neg = list(filter(lambda e: e < 0, vals))
 print(vals_neg)
 ```
 
+Filtering words
+
+```python
+words = ['small', 'true', 'sky', 'bye', 'raw', 'ten', 'forest', 'cloud', 'war']
+
+
+def has_3_chars(word):
+    if len(word) == 3:
+        return True
+    else:
+        return False
+
+# len/filter
+
+# words_3 = list(filter(has_3_chars, words))
+words_3 = list(filter(lambda word: len(word) == 3, words))
+print(words_3)
+```
 
 
 
