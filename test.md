@@ -1,6 +1,19 @@
 # Priklady
 
 
+## write function
+
+```python
+filename = 'words2.txt'
+with open(filename, 'a') as fd:
+
+    fd.write('war\n')
+    fd.write('water\n')
+    fd.write('warm\n')
+```
+
+
+
 ## read line by line
 
 ```python
