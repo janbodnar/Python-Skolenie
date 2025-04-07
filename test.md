@@ -1,5 +1,57 @@
 # Priklady
 
+## Opakovanie
+
+
+```
+sky
+blue
+supper
+new
+bod
+raw
+forest
+falcon
+```
+
+
+
+```
+# print message: John Doe is 34 years old and he is a gardener
+name = "John Doe"
+age = 34
+occupation = 'gardener'
+
+# calculate sum using for/while loop
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# calculate minimum, maximum, number of els, sum, mean
+# use functions
+vals2 = [1, -2, 13, 24, 5, 9]
+
+# transform this list to a list of positive values
+vals3 = [2, -3, -1, 0, 2, 3, 9, 3, -9]
+
+# filter out all words ending in 'l'
+words = ['sky', 'war', 'portal', 'earth', 'small']
+
+# filter all words that have r character
+words2 = ['spy', 'rust', 'tomorrow', 'water', 'war', 'cup']
+
+
+# read the words.txt file and print all words in uppercase
+```
+
+
+
+
+
+
+
+
+
+
+
 ## Real all p tags from sme.sk
 
 ```python
