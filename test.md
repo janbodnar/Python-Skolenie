@@ -51,7 +51,20 @@ words_3 = list(filter(lambda word: len(word) == 3, words))
 print(words_3)
 ```
 
+```python
+words = ['small', 'true', 'sky', 'bye', 'raw', 'ten', 'forest', 'cloud', 'war']
+# starting w or c
 
+def starts_w_c(word):
+    if word.startswith(('w', 'c')):
+        return True
+    else:
+        return False
+
+# words_3 = list(filter(starts_w_c, words))
+words_3 = list(filter(lambda word: word.startswith(('w', 'c')), words))
+print(words_3)
+```
 
 
 
