@@ -86,6 +86,29 @@ for val in vals3:
 
 print(vals_pos)
 
+
+# filter out all words ending in 'l'
+words = ['sky', 'war', 'portal', 'earth', 'small']
+words_l = []
+
+for word in words:
+    if word.endswith('l'):
+        words_l.append(word)
+
+print(words_l)
+
+# ---------------------------------------------
+
+def ends_in_l(e):
+    if e.endswith('l'):
+        return True
+    else:
+        return False
+
+# words_l2 = list(filter(ends_in_l, words))
+words_l2 = list(filter(lambda word: word.endswith('l'), words))
+print(words_l2)
+
 ```
 
 
