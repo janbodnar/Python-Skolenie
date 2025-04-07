@@ -1,5 +1,24 @@
 # Priklady
 
+
+## read words
+
+```python
+filename = 'words.txt'
+with open(filename, 'r') as fd:
+
+    lines = fd.readlines()
+    print(lines)
+
+    cleaned_lines = list(map(lambda line: line.strip(), lines))
+    print(cleaned_lines)
+
+    for line in cleaned_lines:
+        print(line)
+```
+
+
+
 ## split/map
 
 ```python
