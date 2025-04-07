@@ -1,6 +1,21 @@
 # Priklady
 
 
+## read line by line
+
+```python
+lines = []
+
+filename = 'words.txt'
+with open(filename, 'r') as fd:
+
+    for line in fd:
+        lines.append(line.strip())
+
+print(lines)
+```
+
+
 ## read words
 
 ```python
