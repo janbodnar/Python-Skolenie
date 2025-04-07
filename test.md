@@ -43,7 +43,25 @@ words2 = ['spy', 'rust', 'tomorrow', 'water', 'war', 'cup']
 ```
 
 
+## Riesenia
 
+```python
+name = "John Doe"
+age = 34
+occupation = 'gardener'
+
+print(f'{name} is {age} years old and he is a {occupation}')
+
+# calculate sum using for/while loop
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+mysum = 0
+
+for val in vals:
+    mysum += val
+
+print('the sum of values is:', mysum)
+```
 
 
 
