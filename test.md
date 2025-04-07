@@ -61,6 +61,21 @@ for val in vals:
     mysum += val
 
 print('the sum of values is:', mysum)
+
+import statistics
+
+# calculate minimum, maximum, number of elements, sum, mean
+# use functions
+vals2 = [1, -2, 13, 24, 5, 9]
+
+print(min(vals2))
+print(max(vals2))
+print(len(vals2))
+print(sum(vals2))
+
+print(sum(vals2)/len(vals2))
+print(statistics.mean(vals2))
+
 ```
 
 
