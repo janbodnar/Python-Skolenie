@@ -60,6 +60,20 @@ data2 = ["row\n", "  small", "own  ", "tomorrow\t\t", " basic "]
 
 cleaned_data = list(map(lambda e: e.strip(), data2))
 print(cleaned_data)
+
+# create flattened tuple  (1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+flattened = []
+
+vals2 = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+
+for nested in vals2:
+    flattened.append(nested)
+
+print(flattened)
+
+vals3 = tuple(flattened)
+print(vals3)
 ```
 
 
