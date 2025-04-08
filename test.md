@@ -1,6 +1,49 @@
 # Priklady
 
 
+## Rectangle class
+
+```python
+class Rectangle:
+
+    def __init__(self, width, height):
+
+        self.width = width
+        self.height = height
+
+    def area(self):
+
+        return self.width * self.height
+
+    def set_width(self, width):
+
+        self.width = width
+
+    def get_width(self):
+
+        return self.width
+
+    def set_height(self, height):
+
+        self.height = height
+
+    def height(self):
+
+        return self.height
+
+
+r = Rectangle(10, 10)
+print(r.area())
+
+r.set_height(20)
+r.set_width(30)
+
+print(r.area())
+```
+
+
+
+
 ## The __str__ method
 
 ```python
