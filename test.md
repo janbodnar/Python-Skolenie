@@ -1,5 +1,25 @@
 # Priklady
 
+## Read web page
+
+```python
+import requests
+
+url = 'https://webcode.me'
+
+resp = requests.get(url)
+content = resp.text
+
+# print(content)
+
+filename = 'webcode_home.html'
+
+with open(filename, 'w') as fd:
+
+    fd.write(content)
+```
+
+
 ## Generate fake data
 
 ```python
