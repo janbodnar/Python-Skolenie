@@ -55,6 +55,11 @@ print(sum(vals))
 print(len(vals))
 print(min(vals))
 print(max(vals))
+
+data2 = ["row\n", "  small", "own  ", "tomorrow\t\t", " basic "]
+
+cleaned_data = list(map(lambda e: e.strip(), data2))
+print(cleaned_data)
 ```
 
 
