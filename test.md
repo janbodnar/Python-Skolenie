@@ -102,6 +102,21 @@ print(flattened)
 
 vals3 = tuple(flattened)
 print(vals3)
+
+
+# from the words.txt file creat list ["auto", "sky", "town", "war", "word"]
+
+filename = 'words.txt'
+
+words = []
+
+with open(filename, 'r') as fd:
+
+    for line in fd:
+        words.append(line.strip().lower())
+        
+    words.sort()
+    print(words)
 ```
 
 
