@@ -1,5 +1,78 @@
 # Priklady
 
+## User objects from a CSV file
+
+```csv
+First Name,Last Name,Email
+John,Doe,john.doe@example.com
+Jane,Smith,jane.smith@example.com
+Alice,Brown,alice.brown@example.com
+Bob,Johnson,bob.johnson@example.com
+Emily,Davis,emily.davis@example.com
+Michael,Williams,michael.williams@example.com
+Sarah,Miller,sarah.miller@example.com
+David,Wilson,david.wilson@example.com
+Laura,Anderson,laura.anderson@example.com
+Chris,Moore,chris.moore@example.com
+Jessica,Taylor,jessica.taylor@example.com
+Daniel,Thomas,daniel.thomas@example.com
+Sophia,Jackson,sophia.jackson@example.com
+Ethan,White,ethan.white@example.com
+Emma,Harris,emma.harris@example.com
+Matthew,Martin,matthew.martin@example.com
+Olivia,Thompson,olivia.thompson@example.com
+James,Garcia,james.garcia@example.com
+Liam,Martinez,liam.martinez@example.com
+Isabella,Robinson,isabella.robinson@example.com
+```
+
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class User:
+    first_name: str
+    last_name: str
+    email: str
+
+import csv
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class User:
+    first_name: str
+    last_name: str
+    email: str
+
+# Read users from the CSV file and create User objects
+def read_users_from_csv(file_name):
+    users = []
+    with open(file_name, mode='r', newline='', encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            user = User(
+                first_name=row["First Name"],
+                last_name=row["Last Name"],
+                email=row["Email"]
+            )
+            users.append(user)
+    return users
+
+# Example usage
+file_name = "users.csv"  # Replace with your CSV file name
+user_list = read_users_from_csv(file_name)
+
+# Print the list of User objects
+for user in user_list:
+    print(user)
+```
+
+
+
+
+
 
 ## Rectangle class
 
