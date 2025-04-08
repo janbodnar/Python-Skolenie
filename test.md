@@ -1,5 +1,38 @@
 # Priklady
 
+
+## Opakovanie
+
+The `words.txt` file:
+
+```
+sky
+wOrd
+waR
+TOWN
+AuTo
+```
+
+
+```python
+# filter odd numbers
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# filter out words containing k or w
+words = ['sky', 'pen', 'know', 'town', 'own', 'kit', 'clown']
+
+# calculate sum, len, max, min from numbers
+data = '1;2;3;4;5;6;7;8;9;10'
+
+# clean data
+data2 = ["row\n", "  small", "own  ", "tomorrow\t\t", " basic "]
+
+# create flattened tuple  (1, 2, 3, 4, 5, 6, 7, 8, 9)
+vals2 = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+
+# from the words.txt file creat list ["auto", "sky", "town", "war", "word"]
+```
+
 ## importing modules
 
 ```python
