@@ -40,6 +40,11 @@ vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 odd_vals = list(filter(lambda val: val % 2 == 1, vals))
 print(odd_vals)
+
+words = ["sky", "pen", "know", "town", "own", "kit", "clown"]
+
+words_k_w = list(filter(lambda word: "k" in word or "w" in word, words))
+print(words_k_w)
 ```
 
 
