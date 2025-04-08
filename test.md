@@ -1,5 +1,31 @@
 # Priklady
 
+
+## The __str__ method
+
+```python
+class Cat:
+
+    def __init__(self, name, age):
+
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f'Cat: Name {self.name}, Age {self.age}'
+
+missy = Cat('Missy', 5)
+lucky = Cat('Lucky', 8)
+
+print(missy)
+print(lucky)
+
+print(missy.name, missy.age)
+print(lucky.name, lucky.age)
+```
+
+
+
 ## id of objects
 
 ```python
