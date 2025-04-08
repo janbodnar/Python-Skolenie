@@ -33,6 +33,17 @@ vals2 = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
 # from the words.txt file creat list ["auto", "sky", "town", "war", "word"]
 ```
 
+## Riesenia
+
+```python
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+odd_vals = list(filter(lambda val: val % 2 == 1, vals))
+print(odd_vals)
+```
+
+
+
 ## importing modules
 
 ```python
