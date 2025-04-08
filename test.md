@@ -1,5 +1,33 @@
 # Priklady
 
+## funcy library
+
+Functional programming
+
+```python
+import funcy
+
+# create flattened tuple  (1, 2, 3, 4, 5, 6, 7, 8, 9)
+vals2 = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+
+flattened = tuple(funcy.flatten(vals2))
+print(flattened)
+
+# unique values
+data = (1, 1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 7)
+uniques = tuple(funcy.distinct(data))
+print(uniques)
+
+
+# divide into positive & negative
+vals = [1, -2, 2, -3, 4, 5, -6]
+positive, negative = funcy.split(lambda x: x > 0, vals)
+
+print(list(positive))
+print(list(negative))
+```
+
+
 
 ## Opakovanie
 
