@@ -1,5 +1,28 @@
 # Priklady
 
+## Generate fake data
+
+```python
+from faker import Faker
+
+faker = Faker()
+
+filename = 'users.csv'
+
+with open(filename, 'w') as fd:
+
+    for idx in range(1, 100_001):
+
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        email = faker.email()
+        city = faker.city()
+
+        fd.write(f"{idx},{first_name},{last_name},{email},{city}\n")
+```
+
+
+
 ## User objects from a CSV file
 
 ```csv
