@@ -29,16 +29,7 @@ Isabella,Robinson,isabella.robinson@example.com
 
 ```python
 from dataclasses import dataclass
-
-
-@dataclass(frozen=True)
-class User:
-    first_name: str
-    last_name: str
-    email: str
-
 import csv
-from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class User:
