@@ -45,6 +45,16 @@ words = ["sky", "pen", "know", "town", "own", "kit", "clown"]
 
 words_k_w = list(filter(lambda word: "k" in word or "w" in word, words))
 print(words_k_w)
+
+# calculate sum, len, max, min from numbers
+data = '1;2;3;4;5;6;7;8;9;10'
+ 
+vals = list(map(int, data.split(';')))
+print(vals)
+print(sum(vals))
+print(len(vals))
+print(min(vals))
+print(max(vals))
 ```
 
 
