@@ -1,5 +1,22 @@
 # Priklady
 
+## id of objects
+
+```python
+class Being:
+
+    def __init__(self):
+        print("Being is initialized")
+
+b1 = Being()
+print(id(b1))
+
+b2 = Being()
+print(id(b2))
+```
+
+
+
 ## funcy library
 
 Functional programming
