@@ -1,5 +1,20 @@
 # Priklady
 
+
+```python
+# calculate min/max and mean of salaries
+users = [
+    {"first_name": "John", "last_name": "Doe", "salary": 2300},
+    {"first_name": "Roger", "last_name": "Roe", "salary": 1800},
+    {"first_name": "Paul", "last_name": "Smith", "salary": 2100},
+    {"first_name": "Roman", "last_name": "Novak", "salary": 800},
+    {"first_name": "Lucia", "last_name": "Black", "salary": 3200},
+]
+```
+
+
+
+
 ## Read web page
 
 ```python
