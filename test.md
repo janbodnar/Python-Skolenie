@@ -1,5 +1,31 @@
 # Priklady
 
+
+```python
+from faker import Faker
+
+faker = Faker()
+
+filename = "users.csv"
+with open(filename, "w") as file:
+
+    for idx in range(1, 1000_001):
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        email = faker.email()
+        salary = faker.random_int(min=1000, max=10_000, step=100)
+
+        row = f"{idx},{first_name},{last_name},{email},{salary}\n"
+
+        file.write(row)
+
+        if idx % 100_000 == 0:
+            print(f"Processed {idx} rows")
+
+print(f"Finished writing {filename} with {idx} rows")
+```
+
+
 ```sql
 CREATE TABLE cars2(id SERIAL PRIMARY KEY, name VARCHAR(255), price INT);
 ```
