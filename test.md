@@ -1,6 +1,44 @@
 # Priklady
 
 
+## Fetch cars from database
+
+```python
+import psycopg
+from collections import namedtuple
+
+Car = namedtuple('Car', ['id', 'name', 'price'])
+
+cs = "dbname='testdb' user='postgres' password='postgres'"
+cars = []
+
+with psycopg.connect(cs) as con:
+        
+        with con.cursor() as cur:
+    
+            cur.execute("SELECT id, name, price FROM cars")
+            rows = cur.fetchall()
+
+            # print(rows)
+
+            for row in rows:
+                car = Car(id=row[0], name=row[1], price=row[2])
+                cars.append(car)
+
+
+# print(cars)
+
+filtered_cars = [car for car in cars if car.price < 30_000]
+# print(filtered_cars)
+
+for car in filtered_cars:
+     print(car)
+```
+
+
+
+
+
 ```python
 # calculate min/max and mean of salaries
 users = [
