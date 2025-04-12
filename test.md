@@ -1,5 +1,9 @@
 # Priklady
 
+```sql
+CREATE TABLE cars2(id SERIAL PRIMARY KEY, name VARCHAR(255), price INT);
+```
+
 
 ## Fetch cars from database
 
