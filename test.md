@@ -22,6 +22,7 @@ with psycopg.connect(cs) as con:
             # print(rows)
 
             for row in rows:
+                # car = Car(*row)
                 car = Car(id=row[0], name=row[1], price=row[2])
                 cars.append(car)
 
