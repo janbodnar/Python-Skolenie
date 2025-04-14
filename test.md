@@ -1,5 +1,22 @@
 # Priklady
 
+## filter file types
+
+```python
+import os 
+
+files = os.listdir('.')
+# print(files)
+
+pyfiles = [file for file in files if file.endswith('py')]
+print(pyfiles)
+
+csv_files = [file for file in files if file.endswith('csv')]
+print(csv_files)
+```
+
+
+
 ## file paths
 
 ```python
