@@ -101,6 +101,23 @@ print(data3)
 
 data3 = tuple(funcy.flatten(data))
 print(data3)
+
+
+import random
+
+rand_data = []
+
+for i in range(20):
+    r = random.randint(1, 100)
+    rand_data.append(r)
+
+
+rand_data2 = tuple(rand_data)
+print(rand_data2)
+
+print(random.choice(rand_data2))
+print(random.choices(rand_data2, k=3))
+
 ```
 
 
