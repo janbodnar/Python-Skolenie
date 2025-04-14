@@ -142,6 +142,24 @@ print(cleaned2)
 
 # msg5 = msg4.replace(',', '')
 # print(msg5)
+
+
+
+import funcy
+
+filename = 'thermopylae.txt'
+
+with open(filename, 'r') as fd:
+
+    content = fd.read()
+    cleaned = content.replace(',', '').replace('.', '')
+    words = cleaned.split()
+    print(words)
+
+    print(len(words))
+    print(len(set(words)))
+    print(len(list(funcy.distinct(words))))
+
 ```
 
 
