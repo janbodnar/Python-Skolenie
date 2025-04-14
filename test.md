@@ -160,6 +160,30 @@ with open(filename, 'r') as fd:
     print(len(set(words)))
     print(len(list(funcy.distinct(words))))
 
+
+# filter words that contain 'r'
+words = [
+    "word",
+    "sky",
+    "tomorrow",
+    "cat",
+    "dog",
+    "apple",
+    "orange",
+    "banana",
+    "small",
+    "terrific",
+    "alternative",
+    "book",
+    "dictionary",
+    "word",
+]
+
+
+words2 = list(filter(lambda word: "r" in word, words))
+print(words2)
+
+
 ```
 
 
