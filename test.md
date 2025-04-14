@@ -32,7 +32,15 @@ words_w_c = [word for word in words if word.startswith(('w', 'c'))]
 print(words_w_c)
 ```
 
+```python
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+words = ['SKY', 'war', 'water', 'SMALL', 'wow', 'Cup', 'cloud']
+
+words_small = [word.lower() for word in words] 
+print(words_small)
+print(words)
+```
 
 
 
