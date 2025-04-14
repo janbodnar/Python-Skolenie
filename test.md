@@ -41,7 +41,22 @@ words = ['word', 'sky', 'tomorrow', 'cat', 'dog', 'apple', 'orange', 'banana',
 ```
 
 
+## Riesenia
 
+```python
+# calculate sum
+data = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
+data2 = []
+
+for val in data:
+    data2.append(int(val))
+
+print(data2)
+print(sum(data2))
+
+print(sum(map(int, data)))
+```
 
 
 ```sql
