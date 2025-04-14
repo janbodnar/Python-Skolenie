@@ -1,6 +1,31 @@
 # Priklady
 
 
+## csv module
+
+```python
+import csv
+
+vals = []
+
+filename = "numbers.csv"
+with open(filename, "r") as f:
+
+    reader = csv.reader(f)
+
+    # print(list(reader))
+
+    for row in reader:
+
+        for e in row:
+            vals.append(int(e))
+
+
+print(vals)
+```
+
+
+
 ## List comprehensions
 
 ```python
