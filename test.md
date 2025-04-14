@@ -78,6 +78,29 @@ data2 = list(filter(lambda e: type(e) == int, data))
 # data2 = list(filter(is_int, data))
 print(data2)
 print(sum(data2))
+
+import funcy
+
+# create flattened tuple
+data = (1, 2, 3, (4, 5, 6), (7, 8, 9), (10))
+data2 = []
+
+# data2.extend(data)
+# print(data2)
+
+for val in data:
+    if type(val) == int:
+        data2.append(val)
+    elif type(val) == tuple:
+        data2.extend(val)
+
+
+data3 = tuple(data2)
+print(data3)
+
+
+data3 = tuple(funcy.flatten(data))
+print(data3)
 ```
 
 
