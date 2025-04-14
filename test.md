@@ -42,6 +42,12 @@ print(words_small)
 print(words)
 ```
 
+```python
+vals = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
+vals2 = [int(val) for val in vals]
+print(vals2)
+```
 
 
 
