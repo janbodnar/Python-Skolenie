@@ -1,5 +1,23 @@
 # Priklady
 
+## file paths
+
+```python
+import os 
+
+# oldname = 'C:\\Users\\bodnar\\Documents\\pyprogs2\\words2.txt'
+# newname = 'C:\\Users\\bodnar\\Documents\\pyprogs2\\words.txt'
+
+# oldname = 'C:/Users/bodnar/Documents/pyprogs2/words2.txt'
+# newname = 'C:/Users/bodnar/Documents/pyprogs2/words.txt'
+
+oldname = r'C:\Users\bodnar\Documents\pyprogs2\words.txt'
+newname = r'C:\Users\bodnar\Documents\pyprogs2\words2.txt'
+
+os.rename(oldname, newname)
+```
+
+
 ## generate data with related emails
 
 ```python
