@@ -1,7 +1,3 @@
-
-
-
-
 # Priklady
 
 ```
@@ -28,23 +24,21 @@ data = (1, 2, 3, (4, 5, 6), (7, 8, 9), (10))
 # randomly pick three values from the tuple
 
 
-# read thermopylae.txt file
+# The Battle of Thermopylae was fought between an alliance of Greek city-states, 
+# led by King Leonidas of Sparta, and the Persian Empire of Xerxes I over the 
+# course of three days, during the second Persian invasion of Greece.
+
+# read file
 # count the number of words
 # count the number of unique words
+
+# clean the message from these chars: ?,~.
+msg = 'there ?are !three falcons. in the sky,'
 
 # filter words that contain 'r'
 words = ['word', 'sky', 'tomorrow', 'cat', 'dog', 'apple', 'orange', 'banana', 
          'small', 'terrific', 'alternative', 'book', 'dictionary', 'word']
 ```
-
-
-
-
-
-
-
-
-
 
 
 
