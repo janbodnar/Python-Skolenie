@@ -1,5 +1,42 @@
 # Priklady
 
+## generate data with related emails
+
+```python
+from faker import Faker
+import random
+
+faker = Faker()
+filename = "users.csv"
+
+email_domains = (
+    "example.com",
+    "gmail.com",
+    "hotmail.com",
+    "simplemail.com",
+    "yahoo.com",
+)
+
+
+with open(filename, "w") as fd:
+
+    fd.write("id,first_name,last_name,email,salary\n")
+
+    for idx in range(1, 10_001):
+
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        email = f'{first_name}.{last_name}@{random.choice(email_domains)}'
+        salary = faker.random_int(1200, 5000)
+
+        line = f"{idx},{first_name},{last_name},{email},{salary}\n"
+
+        fd.write(line)
+
+print('program finished')
+```
+
+
 
 ## read users
 
