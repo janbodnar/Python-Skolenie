@@ -23,6 +23,11 @@ data = [1, True, 2, 'hello', 3, 4, 5, 'water', 6, 7, 8, 9, 10]
 # create flattened tuple
 data = (1, 2, 3, (4, 5, 6), (7, 8, 9), (10))
 
+# generate a tuple of random 20 value between 1 .. 100
+# randomly pick a value from the tuple
+# randomly pick three values from the tuple
+
+
 # read thermopylae.txt file
 # count the number of words
 # count the number of unique words
