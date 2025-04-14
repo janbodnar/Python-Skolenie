@@ -1,5 +1,26 @@
 # Priklady
 
+## Dictionary reader
+
+```python
+import csv
+
+vals = []
+
+filename = "users.csv"
+with open(filename, "r") as f:
+
+    reader = csv.DictReader(f)
+
+    for row in reader:
+
+        print(row['first_name'], row['last_name'], row['salary'])
+        vals.append(row)
+
+
+print(vals)
+```
+
 
 ## csv module
 
