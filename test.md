@@ -1,5 +1,37 @@
 # Priklady
 
+
+## List comprehensions
+
+```python
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+evens = [val for val in vals if val % 2 == 0]
+print(evens)
+
+odds = [val for val in vals if val % 2 == 1]
+print(odds)
+
+# evens = list(filter(lambda e: e % 2 == 0, vals))
+# print(evens)
+
+# odds = list(filter(lambda e: e % 2 == 1, vals))
+# print(odds)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 The Battle of Thermopylae was fought between an alliance of Greek city-states, 
 led by King Leonidas of Sparta, and the Persian Empire of Xerxes I over the 
