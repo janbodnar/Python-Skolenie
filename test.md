@@ -1,4 +1,49 @@
+
+
+
+
 # Priklady
+
+```
+The Battle of Thermopylae was fought between an alliance of Greek city-states, 
+led by King Leonidas of Sparta, and the Persian Empire of Xerxes I over the 
+course of three days, during the second Persian invasion of Greece.
+```
+
+
+## Opakovanie
+
+```python
+# calculate sum
+data = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
+# calculate sum
+data = [1, True, 2, 'hello', 3, 4, 5, 'water', 6, 7, 8, 9, 10]
+
+# create flattened tuple
+data = (1, 2, 3, (4, 5, 6), (7, 8, 9), (10))
+
+# read thermopylae.txt file
+# count the number of words
+# count the number of unique words
+
+# filter words that contain 'r'
+words = ['word', 'sky', 'tomorrow', 'cat', 'dog', 'apple', 'orange', 'banana', 
+         'small', 'terrific', 'alternative', 'book', 'dictionary', 'word']
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```sql
 CREATE TABLE users(id SERIAL PRIMARY KEY, first_name VARCHAR(255), last_name VARCHAR(255), email VARCHAR(255), salary INT);
