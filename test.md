@@ -20,7 +20,17 @@ print(odds)
 # print(odds)
 ```
 
+```python
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+words = ['sky', 'war', 'water', 'small', 'wow', 'cup', 'cloud']
 
+words_w = [word for word in words if word.startswith('w')]
+print(words_w)
+
+# words_w_c = [word for word in words if word.startswith('w') or word.startswith('c')]
+words_w_c = [word for word in words if word.startswith(('w', 'c'))]
+print(words_w_c)
+```
 
 
 
