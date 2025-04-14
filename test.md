@@ -1,5 +1,36 @@
 # Priklady
 
+
+## read users
+
+```python
+
+import csv
+
+
+filename = 'users.csv'
+users = []
+
+
+with open(filename, 'r') as fd:
+
+    reader = csv.DictReader(fd)
+
+    for row in reader:
+        users.append(row)
+
+# print(users[:11])
+# print(users[-11:])
+
+users_salary_gt_4500 = [user for user in users if int(user['salary']) > 4500]
+print(len(users_salary_gt_4500))
+
+users_last_name_w = [user for user in users if user['last_name'].startswith('W')]
+print(len(users_last_name_w))
+```
+
+
+
 ## generate fake users
 
 ```python
