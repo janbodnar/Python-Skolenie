@@ -1,5 +1,33 @@
 # Priklady
 
+## generate fake users
+
+```python
+from faker import Faker
+
+faker = Faker()
+filename = "users.csv"
+
+with open(filename, "w") as fd:
+
+    fd.write("id,first_name,last_name,email,salary\n")
+
+    for idx in range(1, 10_001):
+
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        email = faker.email()
+        salary = faker.random_int(1200, 5000)
+
+        line = f"{idx},{first_name},{last_name},{email},{salary}\n"
+
+        fd.write(line)
+
+print('program finished')
+```
+
+
+
 ## Dictionary reader
 
 ```python
