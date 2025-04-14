@@ -118,6 +118,30 @@ print(rand_data2)
 print(random.choice(rand_data2))
 print(random.choices(rand_data2, k=3))
 
+
+import re
+
+# clean the message from these chars: ?,~.
+msg = 'there ?are !three falcons. in the sky,'
+
+cleaned = msg.replace('?', '').replace('!', '').replace('.', '').replace(',', '')
+print(cleaned)
+
+cleaned2 = re.sub(r'[,.!?]', '', msg)
+print(cleaned2)
+
+
+# msg2 = msg.replace('?', '')
+# print(msg2)
+
+# msg3 = msg2.replace('!', '')
+# print(msg3)
+
+# msg4 = msg3.replace('.', '')
+# print(msg4)
+
+# msg5 = msg4.replace(',', '')
+# print(msg5)
 ```
 
 
