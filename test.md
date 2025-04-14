@@ -63,6 +63,21 @@ data = [1, True, 2, 'hello', 3, 4, 5, 'water', 6, 7, 8, 9, 10]
 data2 = list(filter(lambda e: type(e) == int, data))
 print(data2)
 print(sum(data2))
+
+def is_int(e):
+    if type(e) == int:
+        return True
+    else:
+        return False
+
+
+# calculate sum
+data = [1, True, 2, 'hello', 3, 4, 5, 'water', 6, 7, 8, 9, 10]
+
+data2 = list(filter(lambda e: type(e) == int, data))
+# data2 = list(filter(is_int, data))
+print(data2)
+print(sum(data2))
 ```
 
 
