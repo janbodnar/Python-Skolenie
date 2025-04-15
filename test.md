@@ -61,7 +61,19 @@ words = ['sky', 'Water', 'warm', 'OLD', 'small', 'war', 'forest', 'WRONG']
 ```
 
 
+## Riesenia
 
+```python
+# filter words starting with 'w', case insensitive
+# transform into a list of words with lowercase letters
+words = ['sky', 'Water', 'warm', 'OLD', 'small', 'war', 'forest', 'WRONG']
+
+words_w = [word for word in words if word.startswith(('w', 'W'))]
+print(words_w)
+
+words_lowercase = [word.lower() for word in words]
+print(words_lowercase)
+```
 
 
 
