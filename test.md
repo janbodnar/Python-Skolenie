@@ -1,5 +1,73 @@
 # Priklady
 
+The `mumbers.csv` file:
+
+```
+1,2,3,4,5,6,7,8,9,10
+11,12,13,14,15,16,17,18,19,20
+```
+
+
+The `users.csv` file:
+
+```
+id,first_name,last_name,occupation,salary
+1,John,Doe,gardener,1200
+2,Roger,Roe,driver,2300
+3,Jane,Smith,teacher,2500
+4,Emily,Jones,nurse,2700
+5,Michael,Brown,chef,2200
+6,Jessica,Davis,engineer,3000
+7,David,Wilson,artist,1800
+8,Laura,Moore,scientist,3200
+9,James,Taylor,writer,2100
+10,Anna,Anderson,lawyer,3500
+11,Robert,Thomas,doctor,4000
+12,Patricia,Jackson,architect,3300
+13,Charles,White,mechanic,2400
+14,Barbara,Harris,pharmacist,2900
+15,Daniel,Martin,accountant,2800
+16,Elizabeth,Thompson,designer,2600
+17,Matthew,Garcia,plumber,2300
+18,Susan,Martinez,manager,3100
+19,Christopher,Robinson,lawyer,3400
+20,Mary,Clark,analyst,3700
+21,Anthony,Rodriguez,consultant,3600
+22,Linda,Lewis,therapist,3800
+23,Mark,Lee,technician,2500
+24,Jennifer,Walker,lawyer,3000
+25,Paul,Hall,teacher,2700
+```
+
+
+
+```python
+# filter words starting with 'w', case insensitive
+# transform into a list of words with lowercase letters
+words = ['sky', 'Water', 'warm', 'OLD', 'small', 'war', 'forest', 'WRONG']
+
+# from numbers.csv file, calculate sum, len, min, max
+
+# read users.csv and filter all doctors and lawyers
+# extract the salaries column and calculate sum, min, max
+
+# read users from https://webcode.me/users.json and filter out those 
+# with last name starting with 'B'
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## filter file types
 
 ```python
