@@ -137,6 +137,25 @@ users = data['users']
 users_b = [user for user in users if user['last_name'][0] == 'B']
 print(users_b)
 
+
+
+import random
+
+filename = 'rand_vals.csv'
+
+with open(filename, 'w') as fd:
+
+    for idx in range(10_000):
+        rand_line = []
+
+        for idx2 in range(10):
+            r = random.randint(0, 100)
+            rand_line.append(r)
+
+        rand_line_s = [str(e) for e in rand_line]
+        row = ','.join(rand_line_s) + "\n"
+        
+        fd.write(row)
 ```
 
 
