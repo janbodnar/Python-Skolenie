@@ -1,5 +1,8 @@
 # Priklady
 
+
+## Opakovanie
+
 The `mumbers.csv` file:
 
 ```
@@ -46,8 +49,6 @@ id,first_name,last_name,occupation,salary
 # transform into a list of words with lowercase letters
 words = ['sky', 'Water', 'warm', 'OLD', 'small', 'war', 'forest', 'WRONG']
 
-# generate CSV file having 10_000 lines of random values, 10 per line
-
 # from numbers.csv file, calculate sum, len, min, max
 
 # read users.csv and filter all doctors and lawyers
@@ -55,6 +56,8 @@ words = ['sky', 'Water', 'warm', 'OLD', 'small', 'war', 'forest', 'WRONG']
 
 # read users from https://webcode.me/users.json and filter out those 
 # with last name starting with 'B'
+
+# generate CSV file having 10_000 lines of random values, 10 per line
 ```
 
 
