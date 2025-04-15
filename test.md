@@ -94,6 +94,35 @@ print(len(vals))
 print(min(vals))
 print(max(vals))
 print(sum(vals))
+
+
+
+import csv
+
+filename = "users.csv"
+users = []
+
+with open(filename, "r") as fd:
+
+    reader = csv.DictReader(fd)
+
+    for line in reader:
+        users.append(line)
+
+# print(users)
+
+users_doctors_lawyers = [
+    user for user in users if user["occupation"] in ("doctor", "lawyer")
+]
+
+print(users_doctors_lawyers)
+
+salaries = [int(user['salary']) for user in users]
+print(salaries)
+print(min(salaries))
+print(max(salaries))
+print(sum(salaries))
+print(len(salaries))
 ```
 
 
