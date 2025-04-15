@@ -123,6 +123,20 @@ print(min(salaries))
 print(max(salaries))
 print(sum(salaries))
 print(len(salaries))
+
+
+
+import requests
+
+url = 'https://webcode.me/users.json'
+resp = requests.get(url)
+
+data = resp.json()
+users = data['users']
+
+users_b = [user for user in users if user['last_name'][0] == 'B']
+print(users_b)
+
 ```
 
 
