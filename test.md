@@ -46,6 +46,8 @@ id,first_name,last_name,occupation,salary
 # transform into a list of words with lowercase letters
 words = ['sky', 'Water', 'warm', 'OLD', 'small', 'war', 'forest', 'WRONG']
 
+# generate CSV file having 10_000 lines of random values, 10 per line
+
 # from numbers.csv file, calculate sum, len, min, max
 
 # read users.csv and filter all doctors and lawyers
