@@ -1,5 +1,28 @@
 # Priklady
 
+## Excel sheets
+
+```python
+import openpyxl
+
+book = openpyxl.load_workbook('sheets.xlsx')
+
+print(book.sheetnames)
+
+sheet1 = book["January"]
+sheet1['A1'] = 22
+
+sheet2 = book["March"]
+print(sheet2.title)
+
+sheet2['B4'] = 11
+
+book.save('sheets2.xlsx')
+```
+
+
+
+
 ```python
 import re
 
