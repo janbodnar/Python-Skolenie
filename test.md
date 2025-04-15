@@ -73,6 +73,27 @@ print(words_w)
 
 words_lowercase = [word.lower() for word in words]
 print(words_lowercase)
+
+
+
+import csv
+
+filename = 'numbers.csv'
+vals = []
+
+with open(filename, 'r') as fd:
+
+    reader = csv.reader(fd)
+
+    for line in reader:
+        line_ints = [int(e) for e in line]
+        vals.extend(line_ints)
+
+print(vals)
+print(len(vals))
+print(min(vals))
+print(max(vals))
+print(sum(vals))
 ```
 
 
