@@ -1,6 +1,13 @@
 # Info
 
 
+PyCharm, populárny IDE pre Python, sa od verzie 2025.1 transformuje na jeden unifikovaný  
+produkt. Predtým existovali dve edície: Community Edition (zadarmo) a Professional Edition   
+(s rozšírenými funkciami). Teraz sú obe zlúčené do jedného produktu, pričom základné funkcie,  
+vrátane podpory Jupyter Notebookov, zostávajú bezplatné2. Používatelia majú možnosť vyskúšať  
+Pro funkcie na mesiac zdarma a následne si zvoliť predplatné alebo pokračovať v používaní  
+základných funkcií. Tento krok zjednodušuje prístup k nástrojom a zlepšuje kvalitu produktu  
+
 ## Start PostgreSQL database on Windows
 
 ```
