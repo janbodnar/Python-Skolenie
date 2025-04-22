@@ -1,5 +1,30 @@
 # Priklady
 
+
+```python
+name = "John Doe"
+age = 34
+occupation = "gardener"
+
+print(f'{name} is {age} years old and he is a {occupation}')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Excel sheets
 
 ```python
