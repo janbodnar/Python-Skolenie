@@ -1,5 +1,26 @@
 # Priklady
 
+
+```python
+print(r'hello\nthere')
+
+
+# filename = 'C:/Users/bodnar/Documents/words.txt'
+filename = 'data/words.txt'
+
+# C:\Users\bodnar\Documents\pyprogs4\data\words.txt
+# C:\Users\bodnar\PycharmProjects\SecondEx\words.txt
+
+with open(filename, 'r') as fd:
+
+    for line in fd:
+        print(line.strip())
+
+
+print('finished ')
+```
+
+
 ```python
 filename = 'data/words.txt'
 with open(filename, 'r') as fd:
