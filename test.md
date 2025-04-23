@@ -1,6 +1,30 @@
 # Priklady
 
 
+## Opakovanie
+
+```python
+
+# print output using fstring: John Doe is 34 years old and he is a gardener
+name = 'John Doe'
+age = 34
+occupation = 'gardener'
+
+
+# compute sum using for loop
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# In the text, replace all 'r' with 'R'
+text = 'There are many stars in the night sky.'
+
+# calculate the number of vowels in the text
+text2 = 'and old falcon in the sky'
+```
+
+
+
+
+
 ```python
 nums = "1,5,6,8,2,3,1,9"
 
