@@ -4,6 +4,21 @@
 ## map function
 
 ```python
+# def toabs(e):
+#     if e < 0:
+#         return -e
+#     else:
+#         return e
+
+vals = [1, 2, 3, -4, 5, -6, 7, -8, 9, 10]
+
+# vals_abs = list(map(lambda e: abs(e) , vals))
+vals_abs = list(map(abs , vals))
+print(vals_abs)
+```
+
+
+```python
 def twice(e):
     return 2 * e
 
