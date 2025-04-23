@@ -1,5 +1,18 @@
 # Priklady
 
+## type function
+
+```python
+items = ("oranges", 1, 2, True, "apples", False, "bananas", 2.3, (1, 2))
+
+print(items)
+
+for item in items:
+
+   if type(item) == str:
+      print(item)
+```
+
 
 ## Opakovanie
 
