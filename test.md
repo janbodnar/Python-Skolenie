@@ -1,5 +1,22 @@
 # Priklady
 
+## numpy
+
+```python
+import numpy as np
+
+# Create a NumPy array
+array = np.array([1, 2, 3, 4, 5])
+
+# Multiply each element by 3
+result = array * 3
+
+print("Original array:", array)
+print("Array after multiplication:", result)
+```
+
+
+
 ## type function
 
 ```python
