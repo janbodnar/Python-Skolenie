@@ -5,6 +5,18 @@
 ## lambda functions
 
 ```python
+words = ['sky', 'blue', 'war', 'cup', 'atom', 'forest', 'new', 'water', 'top']
+
+words_w = list(filter(lambda word: word.startswith('w') , words))
+print(words_w)
+
+words_w = list(filter(lambda word: word[0] == 'w' , words))
+print(words_w)
+```
+
+
+
+```python
 vals = [1, 2, -3, 4, 5, 6, -5, -2]
 
 negatives = list(filter(lambda e: e < 0 , vals))
