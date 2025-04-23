@@ -21,6 +21,49 @@ text = 'There are many stars in the night sky.'
 text2 = 'and old falcon in the sky'
 ```
 
+## Riesenia
+
+```python
+
+# print output using fstring: John Doe is 34 years old and he is a gardener
+name = 'John Doe'
+age = 34
+occupation = 'gardener'
+
+msg = f'{name} is {age} years old and he is a {occupation}'
+print(msg)
+
+
+# compute sum using for loop
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+mysum = 0
+
+for val in vals:
+   mysum += val
+
+print(mysum)
+
+# In the text, replace all 'r' with 'R'
+text = 'There are many stars in the night sky.'
+
+text_modified = text.replace('r', 'R')
+print(text_modified)
+
+
+# calculate the number of vowels in the text
+
+n_vowels = 0
+vowels = 'aeiouy'
+
+text2 = 'and old falcon in the sky'
+
+for character in text2:
+   if character in vowels:
+      n_vowels += 1
+
+print(n_vowels)
+`
 
 ## Splitting
 
