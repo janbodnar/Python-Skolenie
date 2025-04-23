@@ -1,5 +1,24 @@
 # Priklady
 
+```python
+filename = 'data/words.txt'
+with open(filename, 'r') as fd:
+
+    lines = fd.readlines()
+    print(lines)
+
+    words = list(map(lambda word: word.strip(), lines))
+    words.pop()
+    print(words)
+
+    for word in words:
+        print(word, end=' ')
+
+print()
+print('finished ')
+```
+
+
 ## calculate sum
 
 ```python
