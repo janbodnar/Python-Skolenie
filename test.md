@@ -1,5 +1,17 @@
 # Priklady
 
+## calculate sum
+
+```python
+# calculate sum
+data = '1,2,3,4,5,6,7,8,9,10'
+
+print(sum(map(int, data.split(','))))
+
+vals = list(map(int, data.split(',')))
+print(vals)
+```
+
 
 ## map function
 
