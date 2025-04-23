@@ -15,6 +15,24 @@ evens = list(filter(lambda e: e % 2 == 0, vals))
 print(evens)
 ```
 
+```python
+def has_three_chars(word):
+    if len(word) == 3:
+        return True
+    else:
+        return False
+
+
+words = ['sky', 'blue', 'cup', 'atom', 'forest', 'new', 'top']
+
+
+words_3c = list(filter(lambda word: len(word) == 3 , words))
+print(words_3c)
+
+words_3c = list(filter(has_three_chars, words))
+print(words_3c)
+```
+
 
 ## filter
 
