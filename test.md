@@ -1,5 +1,21 @@
 # Priklady
 
+
+
+## lambda functions
+
+```python
+vals = [1, 2, -3, 4, 5, 6, -5, -2]
+
+negatives = list(filter(lambda e: e < 0 , vals))
+print(negatives)
+
+
+evens = list(filter(lambda e: e % 2 == 0, vals))
+print(evens)
+```
+
+
 ## filter
 
 ```python
