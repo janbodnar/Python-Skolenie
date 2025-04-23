@@ -1,6 +1,26 @@
 # Priklady
 
 
+## map function
+
+```python
+def twice(e):
+    return 2 * e
+
+
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+vals_2x = list(map(lambda e: 2 * e , vals))
+print(vals_2x)
+
+vals_2x = list(map(twice , vals))
+print(vals_2x)
+
+print(vals)
+```
+
+
+
 
 ## lambda functions
 
