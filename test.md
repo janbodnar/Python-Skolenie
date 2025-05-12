@@ -2,6 +2,19 @@
 
 
 ```python
+vals = [1, 2, 3, 4, 5]
+print(vals)
+
+for val in vals:
+    print(val)
+
+words = ['sky', 'book', 'war', 'cup']
+print(words)
+```
+
+
+
+```python
 print(r'hello\nthere')
 
 
