@@ -1,5 +1,23 @@
 # Priklady
 
+
+## common functions
+
+```python
+import statistics
+
+vals = [-2, 0, 3, -1, 9, 11, -8]
+
+print(sum(vals))
+print(len(vals))
+print(min(vals))
+print(max(vals))
+
+print(statistics.mean(vals))
+print(statistics.median(vals))
+```
+
+
 ## message generation
 
 ```python
