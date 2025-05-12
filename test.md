@@ -1,7 +1,7 @@
 # Priklady
 
 
-## intput function
+## input function
 
 ```python
 x = input("enter first number: ")
