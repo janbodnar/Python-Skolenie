@@ -40,7 +40,7 @@ r = random.randint(-5, 5)
 
 We generate a random integer between -5 .. 5.
 
-```
+```python
 if r > 0:
     print('The r variable is positive')
 ```
