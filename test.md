@@ -1,5 +1,21 @@
 # Priklady
 
+
+## intput function
+
+```python
+x = input("enter first number: ")
+y = input("enter second number: ")
+
+# "5", "3"
+
+print(type(x))
+print(type(y))
+
+print(int(x) + int(y))
+```
+
+
 ## while cycle
 
 ```python
