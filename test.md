@@ -1,5 +1,20 @@
 # Priklady
 
+## membership operators
+
+```python
+vals = [1, 2, 3, 4, 5]
+
+if 1 in vals:
+    print('1 is present')
+else:
+    print('1 is not present')
+
+if -1 not in vals:
+    print('-1 is not present')
+else:
+    print('-1 is present')
+```
 
 ## input function
 
