@@ -1,5 +1,17 @@
 # Priklady
 
+## while cycle
+
+```python
+msg = 'an old falcon'
+i = 8
+
+while i > 0:
+    print(msg)
+    i -= 1
+
+print('end of program')
+```
 
 
 ## if/elif/else
@@ -20,6 +32,7 @@ else:
 
 print('end of program')
 ```
+
 
 
 
