@@ -1,5 +1,18 @@
 # Priklady
 
+## message generation
+
+```python
+name = "John Doe"
+age = 45
+occupation = "gardener"
+
+msg = name + " is " + str(age) + ' years old and he is a ' + occupation
+print(msg)
+```
+
+
+
 ## membership operators
 
 ```python
