@@ -1,5 +1,16 @@
 # Priklady
 
+## Filter by type
+
+```python
+data = [1, 4.5, True, 1.2, 'falcon', (1, 2, 3), 5, None, 'war', 11]
+
+for e in data:
+    if type(e) == float:
+        print(e)
+```
+
+
 
 ## type function
 
