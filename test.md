@@ -1,5 +1,23 @@
 # Priklady
 
+
+## function definition
+
+```python
+def twice(e):
+    return 2 * e
+
+def cube(e):
+    return e * e * e
+
+print(twice(10))
+print(twice(7))
+
+print(cube(10))
+print(cube(22))
+```
+
+
 ## print 11
 
 ```python
