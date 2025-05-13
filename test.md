@@ -1,6 +1,19 @@
 # Priklady
 
 
+## Two param function
+
+```python
+def show_n_times(n, msg):
+
+    for i in range(n):
+        print(msg)
+
+show_n_times(3, 'hello there')
+show_n_times(10, 'hi!')
+```
+
+
 ## function definition
 
 ```python
