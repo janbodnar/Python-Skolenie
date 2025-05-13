@@ -14,6 +14,14 @@ for word in words:
     #     print(word)
 ```
 
+```python
+words = ['sky', 'war', 'cup', 'water', 'ocean', 'warm', 'small', 'cloud', 'wry']
+
+for word in words:
+    if word.startswith('w') and len(word) == 3:
+        print(word)
+```
+
 ## calculate sum of CSV data
 
 ```python
