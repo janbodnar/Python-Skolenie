@@ -1,5 +1,19 @@
 # Priklady
 
+
+## startswith
+
+```python
+words = ['sky', 'war', 'cup', 'water', 'ocean', 'warm', 'small', 'cloud']
+
+for word in words:
+    if word.startswith('w') or word.startswith('c'):
+        print(word)
+
+    # if word.startswith(('w', 'c')):
+    #     print(word)
+```
+
 ## calculate sum of CSV data
 
 ```python
