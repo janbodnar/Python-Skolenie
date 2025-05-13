@@ -1,5 +1,13 @@
 # Priklady
 
+## print 11
+
+```python
+# print 11 
+mix = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
+```
+
+
 ## Filter by type
 
 ```python
