@@ -1,5 +1,22 @@
 # Priklady
 
+# len of strings
+
+```python
+# Strings with varying character encoding
+text1 = "Namaste"  # Regular string
+text2 = "नमस्ते"  # Hindi version (Unicode)
+text3 = "你好"  # Chinese characters
+text4 = "🚀🌍"  # Emojis
+
+# Print lengths to compare
+print(len(text1))  # Expected: 7
+print(len(text2))  # May not match character count visually!
+print(len(text3))  # Length depends on encoding
+print(len(text4))  # Emojis may count as multiple characters# Strings with varying character encoding
+```
+
+
 
 ## Two param function
 
