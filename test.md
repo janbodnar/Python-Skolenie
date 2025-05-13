@@ -1,6 +1,23 @@
 # Priklady
 
 
+## type function
+
+```python
+x = 1
+y = 5.6
+z = True
+w = 'falcon'
+v = (1, 2, 3)
+
+print(type(x))
+print(type(y))
+print(type(z))
+print(type(w))
+print(type(v))
+```
+
+
 ## Opakovanie
 
 ```python
@@ -64,7 +81,6 @@ while i < 6:
 
 print(6 * (message + "\n"))
 ```
-
 
 
 ## common functions
