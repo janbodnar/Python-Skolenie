@@ -1,6 +1,34 @@
 # Priklady
 
 
+## Opakovanie
+
+```python
+
+# print message: Roger Roe is 34 years old, he is a driver and
+# lives in Prague
+name = "Roger Doe"
+age = 34
+occupation = 'driver'
+city = "Prague"
+
+# print min, max, sum, len of values
+# print first, second, last, last but one values
+
+vals = [4, -2, 0, 3, 9, -11, 44, 99, 12, -5]
+
+# print message 6 times
+message = 'an old falcon'
+
+# calculate sum of numbers with for or while loop
+numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+```
+
+
+
+
+
+
 ## common functions
 
 ```python
