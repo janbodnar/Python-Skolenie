@@ -24,8 +24,18 @@ message = 'an old falcon'
 numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 ```
 
+## Riesenie
 
+```python
+# print message: Roger Roe is 34 years old, he is a driver and
+# lives in Prague
+name = "Roger Doe"
+age = 34
+occupation = 'driver'
+city = "Prague"
 
+print(f"{name} is {age} years old, he is a {occupation} and lives in {city}")
+```
 
 
 
