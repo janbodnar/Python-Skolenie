@@ -1,5 +1,20 @@
 # Priklady
 
+## String formatting
+
+```python
+name = 'Peter'
+age = 23
+occupation = 'teacher'
+
+# Peter is 23 years old, he is a teacher
+
+print('%s is %d years old, he is a %s' % (name, age, occupation))
+print('{} is {} years old, he is a {}'.format(name, age, occupation))
+print(f'{name} is {age} years old, he is a {occupation}')
+```
+
+
 # len of strings
 
 ```python
