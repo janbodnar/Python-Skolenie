@@ -1,5 +1,16 @@
 # Priklady
 
+## replace
+
+```python
+text = 'an old falcon'
+
+replaced_text = text.replace('a', 'A')
+
+print(replaced_text)
+print(text)
+```
+
 ## String formatting
 
 ```python
