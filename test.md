@@ -50,6 +50,19 @@ print(vals[0])
 print(vals[1])
 print(vals[-1])
 print(vals[-2])
+
+
+# print message 6 times
+message = 'an old falcon'
+
+i = 0
+
+while i < 6:
+    print(message)
+    i += 1
+
+
+print(6 * (message + "\n"))
 ```
 
 
