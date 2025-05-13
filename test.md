@@ -35,6 +35,21 @@ occupation = 'driver'
 city = "Prague"
 
 print(f"{name} is {age} years old, he is a {occupation} and lives in {city}")
+
+# print min, max, sum, len of values
+# print first, second, last, last but one values
+
+vals = [4, -2, 0, 3, 9, -11, 44, 99, 12, -5]
+
+print(min(vals))
+print(max(vals))
+print(sum(vals))
+print(len(vals))
+
+print(vals[0])
+print(vals[1])
+print(vals[-1])
+print(vals[-2])
 ```
 
 
