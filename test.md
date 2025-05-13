@@ -1,5 +1,19 @@
 # Priklady
 
+## cleaning data
+
+```python
+words = [' sky ', ' war', '\ncup', 'water', 'ocean', 'warm', 'ten\t', 'cloud', 'wry ']
+words_cleaned = []
+
+
+for word in words:
+    words_cleaned.append(word.strip())
+
+print(words)
+print(words_cleaned)
+```
+
 
 ## startswith
 
