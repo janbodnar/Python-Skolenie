@@ -1,6 +1,31 @@
 # Priklady
 
 
+```python
+from collections import namedtuple
+
+User = namedtuple('User', 'id first_name last_name occupation salary')
+filename = 'users.csv'
+
+users = []
+
+with open(filename, 'r') as fd:
+
+    text = fd.read()
+    rows = text.split()
+    # print(rows)
+
+    for row in rows[1:]:
+        fields = row.split(',')
+        user = User(int(fields[0]), fields[1], fields[2], fields[3], int(fields[4]))
+        users.append(user)
+
+    # print(repr(text))
+
+print(users)
+```
+
+
 ## namedtuples
 
 ```python
