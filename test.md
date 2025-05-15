@@ -68,6 +68,22 @@ for word in words:
     count_chars += len(word)
 
 print(count_chars)
+
+# print all vowels from the text
+# count them
+n_of_vowels = 0
+
+text = 'there is an old falcon in the sky'
+
+vowels = {'a', 'e', 'i', 'o', 'u'}
+
+for char in text:
+    if char in vowels:
+        print(char)
+        n_of_vowels += 1
+
+print(n_of_vowels)
+
 ```
 
 
