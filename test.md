@@ -1,5 +1,29 @@
 # Priklady
 
+
+## Opakovanie
+
+```python
+# print message using fstring: John Doe is 23 years old, he is a gardener
+name = "John Doe"
+age = 23
+occupation = "gardener"
+
+# calculate sum using for loop
+# print first, second, last, last but one elements
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+# print all words starting in 'w'
+# sort words
+# calculate the sum of all ASCII characters
+words = ['small', 'new', 'test', 'sky', 'blue', 'war', 'water']
+
+# print all vowels from the text
+text = 'there is an old falcon in the sky'
+```
+
+
+
 ## cleaning data
 
 ```python
