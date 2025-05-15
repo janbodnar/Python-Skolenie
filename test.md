@@ -2,6 +2,25 @@
 
 
 ```python
+from collections import namedtuple
+
+User = namedtuple('User', 'first_name last_name occupation salary')
+
+u1 = User('John', 'Doe', 'gardener', 1230)
+u2 = User('Roger', 'Roe', 'driver', 2230)
+
+print(u1)
+print(u2)
+
+print(u1.first_name)
+print(u1.last_name)
+print(u1.occupation)
+print(u1.salary)
+```
+
+
+
+```python
 data = ['atom', -4, 2, True, 'war', -1, 3.4, (), None, 'water', 12, -3]
 
 b = [e for e in data if ... ]
