@@ -49,6 +49,25 @@ print(vals[0])
 print(vals[1])
 print(vals[-1])
 print(vals[-2])
+
+# print all words starting in 'w'
+# sort words
+# calculate the sum of all ASCII characters
+words = ['small', 'new', 'test', 'sky', 'blue', 'war', 'water']
+
+for word in words:
+    if word.startswith('w'):
+        print(word)
+
+words.sort()
+print(words)
+
+count_chars = 0
+
+for word in words:
+    count_chars += len(word)
+
+print(count_chars)
 ```
 
 
