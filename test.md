@@ -26,6 +26,15 @@ users = read_csv_to_namedtuple(file_path)
 # Print the parsed data
 for user in users:
     print(user)
+
+total = sum(user.salary for user in users)
+print(total)
+
+min_salary = min(user.salary for user in users)
+print(min_salary)
+
+max_salary = max(user.salary for user in users)
+print(max_salary)
 ```
 
 ```
