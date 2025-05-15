@@ -22,6 +22,34 @@ words = ['small', 'new', 'test', 'sky', 'blue', 'war', 'water']
 text = 'there is an old falcon in the sky'
 ```
 
+## Riesenia
+
+```python
+# print message using fstring: John Doe is 23 years old, he is a gardener
+name = "John Doe"
+age = 23
+occupation = "gardener"
+
+msg = f'{name} is {age} years old, he is a {occupation}'
+print(msg)
+
+# calculate sum using for loop
+# print first, second, last, last but one elements
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+print(sum(vals))
+
+mysum = 0
+
+for val in vals:
+    mysum += val
+
+print(mysum)
+
+print(vals[0])
+print(vals[1])
+print(vals[-1])
+print(vals[-2])
+```
 
 
 ## cleaning data
