@@ -1,6 +1,50 @@
 # Priklady
 
 
+## namedtuples
+
+```python
+import csv
+from collections import namedtuple
+
+# Define the namedtuple
+User = namedtuple('User', ['first_name', 'last_name', 'occupation', 'salary'])
+
+# Read the CSV file and parse data into a list of namedtuples
+def read_csv_to_namedtuple(file_path):
+    users = []
+    with open(file_path, newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            users.append(User(row['first_name'], row['last_name'], row['occupation'], row['salary']))
+    return users
+
+# Example usage
+file_path = 'users.csv'  # Replace with your actual file path
+users = read_csv_to_namedtuple(file_path)
+
+# Print the parsed data
+for user in users:
+    print(user)
+```
+
+```
+id,first_name,last_name,occupation,salary
+1,John,Doe,gardener,1230
+2,Jane,Smith,teacher,2400
+3,Michael,Johnson,engineer,3800
+4,Emily,Davis,doctor,5200
+5,David,Brown,chef,3100
+6,Laura,Wilson,designer,2900
+7,Robert,Martinez,lawyer,4500
+8,Susan,Clark,nurse,2800
+9,James,Lewis,developer,4000
+10,Linda,Hall,accountant,3500
+```
+
+
+
+
 ```python
 from collections import namedtuple
 
