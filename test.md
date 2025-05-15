@@ -1,6 +1,14 @@
 # Priklady
 
 
+```python
+data = ['atom', -4, 2, True, 'war', -1, 3.4, (), None, 'water', 12, -3]
+
+b = [e for e in data if ... ]
+```
+
+
+
 ## Opakovanie
 
 ```python
