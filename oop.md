@@ -226,31 +226,27 @@ to the database. We only know that it is used to connect to a database. This is 
 in programming, especially in large applications.
 
 ```python
-#!/usr/bin/python
-
-# methods.py
+import math
 
 class Circle:
-
-    pi = 3.141592
 
     def __init__(self, radius=1):
         self.radius = radius
 
     def area(self):
-        return self.radius * self.radius * Circle.pi
+        return self.radius * self.radius * math.pi
 
-    def setRadius(self, radius):
+    def set_radius(self, radius):
         self.radius = radius
 
-    def getRadius(self):
+    def get_radius(self):
         return self.radius
 
 
 c = Circle()
 
-c.setRadius(5)
-print(c.getRadius())
+c.set_radius(5)
+print(c.get_radius())
 print(c.area())
 ```
 
@@ -258,27 +254,27 @@ In the code example, we have a `Circle` class. We define three new methods.
 
 ```python
 def area(self):
-    return self.radius * self.radius * Circle.pi
+    return self.radius * self.radius * math.pi
 ```
 
 The area method returns the area of a circle.
 
 ```python
-def setRadius(self, radius):
+def set_radius(self, radius):
     self.radius = radius
 ```
 
 The `setRadius` method sets a new value for the radius attribute.
 
 ```python
-def getRadius(self):
+def get_radius(self):
     return self.radius
 ```
 
-The `getRadius` method returns the current radius.  
+The `get_radius` method returns the current radius.  
 
 ```python
-c.setRadius(5)
+c.set_radius(5)
 ```
 
 The method is called on an instance object. The c object is paired with the `self` parameter  
