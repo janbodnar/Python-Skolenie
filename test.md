@@ -59,6 +59,13 @@ import random
 
 randvals = [random.randint(1, 101) for _ in range(100)]
 print(randvals)
+
+# filter out words with length 3 and ending in 't'
+words2 = ["sky", "war", "put", "out", "ocean", 'os', 'season', 'arch']
+# words3 = [word for word in words2 if len(word) == 3 and word.endswith('t')]
+words3 = [word for word in words2 if len(word) == 3 and word[-1] == 't']
+
+print(words3)
 ```
 
 
