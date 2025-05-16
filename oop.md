@@ -264,7 +264,7 @@ def set_radius(self, radius):
     self.radius = radius
 ```
 
-The `setRadius` method sets a new value for the radius attribute.
+The `set_radius` method sets a new value for the radius attribute.
 
 ```python
 def get_radius(self):
