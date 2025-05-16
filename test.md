@@ -37,3 +37,16 @@ words2 = ["sky", "war", "put", "out", "ocean", 'os', 'season', 'arch']
 
 # read words.txt into a list and sort it
 ```
+
+## Riesenia
+
+```python
+# transform to lowercase using list comprehension
+words = ["skY", "NEW", "Output", "blue", "SMart", 'oceaN']
+
+words2 = [word.lower() for word in words]
+print(words2)
+```
+
+
+
