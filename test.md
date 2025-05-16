@@ -1,5 +1,17 @@
 # Opakovanie
 
+```python
+
+import sys
+
+vals = sys.argv[1:]
+print(vals)
+
+total = sum(int(val) for val in vals)
+print(total)
+```
+
+
 
 ## Generate fake users.csv file
 
