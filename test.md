@@ -1,5 +1,32 @@
 # Opakovanie
 
+
+```python
+import sys
+from faker import Faker
+
+filename = sys.argv[1]
+n = int(sys.argv[2])
+
+faker = Faker()
+
+with open(filename, 'w') as fd:
+
+    headers = 'id,first_name,last_name,email,city\n'
+    fd.write(headers)
+
+    for uid in range(1, n+1):
+
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        email = faker.email()
+        city = faker.city()
+        row = f'{uid},{first_name},{last_name},{email},{city}\n'
+
+        fd.write(row)
+```
+
+
 ```python
 
 import sys
