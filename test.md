@@ -26,6 +26,9 @@ words = ["skY", "NEW", "Output", "blue", "SMart", 'oceaN']
 # filter even vals using list comprehension
 vals = [3, 4, 2, 1, 9, 11, 10, 8, 7, 6, 3]
 
+# using a list comprehension, generate a list of random values
+# between 1 .. 100. 
+
 # calculate sum
 data = "1;2;3;4;5;6,7;8;9;10"
 
