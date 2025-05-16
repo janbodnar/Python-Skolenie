@@ -1,5 +1,18 @@
 # Opakovanie
 
+## Append to file
+
+```python
+
+filename = "words2.txt"
+
+with open(filename, 'a') as fd:
+
+    fd.write('cup\n')
+    fd.write('cloud\n')
+```
+
+
 ## reading files
 
 ```python
