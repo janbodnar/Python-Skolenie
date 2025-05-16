@@ -53,6 +53,12 @@ vals = [3, 4, 2, 1, 9, 11, 10, 8, 7, 6, 3]
 evens = [val for val in vals if val % 2 == 0]
 print(evens)
 
+# using a list comprehension, generate a list of 100 random values
+# between 1 .. 100. 
+import random
+
+randvals = [random.randint(1, 101) for _ in range(100)]
+print(randvals)
 ```
 
 
