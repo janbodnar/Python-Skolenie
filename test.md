@@ -1,5 +1,24 @@
 # Opakovanie
 
+## reading files
+
+```python
+filename = "words.txt"
+
+with open(filename, 'r') as fd:
+
+    # content = fd.read()
+    # print(content.split())
+
+    # lines = fd.readlines()
+    # print(lines)
+
+    for line in fd:
+        print(line.strip())
+```
+
+
+
 ## dataclasses and namedtuples
 
 ```python
