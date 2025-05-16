@@ -75,6 +75,22 @@ with open(filename, 'r') as fd:
     lines_cleaned = [line.strip() for line in lines]
 
     print(lines_cleaned)
+
+# calculate sum
+data = "1;2;3;4;5;6,7;8;9;10"
+
+data2 = data.replace(',', ';')
+print(data2)
+
+fields = data2.split(';')
+print(fields)
+
+print(sum(int(field) for field in fields))
+
+# vals = [int(field) for field in fields]
+# print(vals)
+# 
+# print(sum(vals))
 ```
 
 
