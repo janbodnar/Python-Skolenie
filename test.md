@@ -1,6 +1,33 @@
 # Opakovanie
 
 
+## Generate fake users.csv file
+
+```python
+
+from faker import Faker
+
+faker = Faker()
+filename = "users.csv"
+
+with open(filename, 'w') as fd:
+
+    headers = 'id,first_name,last_name,email,city\n'
+    fd.write(headers)
+
+    for uid in range(1, 100_001):
+
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        email = faker.email()
+        city = faker.city()
+        row = f'{uid},{first_name},{last_name},{email},{city}\n'
+
+        fd.write(row)
+```
+
+
+
 ## Write to file
 
 ```python
