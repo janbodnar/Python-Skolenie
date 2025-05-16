@@ -1,5 +1,42 @@
 # Opakovanie
 
+## Objects
+
+```python
+
+
+class Cat:
+
+    def __init__(self, name, age):
+
+        self.name = name
+        self.age = age
+
+missy = Cat('Missy', 3)
+lucky = Cat('Lucky', 4)
+mercy = Cat('Mercy', 1)
+
+print(missy.name, missy.age)
+print(lucky.name, lucky.age)
+print(mercy.name, mercy.age)
+
+# procedural style:
+
+# cat_name1 = 'Missy'
+# cat_age1 = 3
+# 
+# cat_name2 = 'Lucky'
+# cat_age2 = 4
+# 
+# cat_name3 = 'Mercy'
+# cat_age3 = 1
+```
+
+
+
+
+
+
 
 The `words.txt` file:
 
