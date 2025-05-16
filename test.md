@@ -1,5 +1,41 @@
 # Opakovanie
 
+## dataclasses and namedtuples
+
+```python
+
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    occupation: str
+    salary: int
+
+
+u = User(1, 'Roger', 'Roe', 'driver', 1780)
+
+print(u.last_name)
+print(u.salary)
+
+print(u)
+
+
+# from collections import namedtuple
+#
+# User = namedtuple('User', 'id first_name last_name occupation salary')
+#
+# u1 = User(1, "John", "Doe", "gardener", 2300)
+# print(u1)
+```
+
+
+
+
+
+
 ## Rectangle
 
 ```python
