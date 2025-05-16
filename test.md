@@ -3,6 +3,49 @@
 ## Rectangle
 
 ```python
+import sys
+
+class Rectangle:
+
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def set_width(self, width):
+        self.width = width
+
+    def get_width(self):
+        return self.width
+
+    def set_height(self, height):
+        self.height = height
+
+    def get_height(self):
+        return self.height
+
+    def area(self):
+
+        return self.width * self.height
+
+
+# print(sys.argv)
+
+
+width = sys.argv[1]
+height = sys.argv[2]
+
+
+r = Rectangle(int(width), int(height))
+print(r.area())
+print(r.get_width(), r.get_height())
+
+r.set_height(40)
+print(r.area())
+```
+
+
+
+```python
 class Rectangle:
 
     def __init__(self, width, height):
