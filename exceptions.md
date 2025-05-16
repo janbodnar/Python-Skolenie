@@ -315,7 +315,7 @@ except InvalidAgeError as e:
 
 ## Multiple exceptions 
 
-Multiple exceptions can be handled by multiple `catch` arms.  
+Multiple exceptions can be handled by multiple `except` arms.  
 
 ```python
 class InvalidAgeError(Exception):
