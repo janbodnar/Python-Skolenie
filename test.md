@@ -66,6 +66,15 @@ words2 = ["sky", "war", "put", "out", "ocean", 'os', 'season', 'arch']
 words3 = [word for word in words2 if len(word) == 3 and word[-1] == 't']
 
 print(words3)
+
+# read words.txt into a list and sort it
+filename = 'words.txt'
+with open(filename, 'r') as fd:
+
+    lines = fd.readlines()
+    lines_cleaned = [line.strip() for line in lines]
+
+    print(lines_cleaned)
 ```
 
 
