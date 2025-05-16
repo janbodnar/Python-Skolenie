@@ -46,6 +46,13 @@ words = ["skY", "NEW", "Output", "blue", "SMart", 'oceaN']
 
 words2 = [word.lower() for word in words]
 print(words2)
+
+# filter even vals using list comprehension
+vals = [3, 4, 2, 1, 9, 11, 10, 8, 7, 6, 3]
+
+evens = [val for val in vals if val % 2 == 0]
+print(evens)
+
 ```
 
 
