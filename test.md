@@ -1,5 +1,19 @@
 # Opakovanie
 
+
+## Write to file
+
+```python
+filename = "words2.txt"
+
+with open(filename, 'w') as fd:
+
+    fd.write('atom\n')
+    fd.write('new\n')
+    fd.write('small\n')
+```
+
+
 ## Append to file
 
 ```python
