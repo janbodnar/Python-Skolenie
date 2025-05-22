@@ -75,6 +75,25 @@ words = [' blue', '\nred', '',  'green', '\t\tyellow', 'purple\n',
 
 words_cleaned = [word.strip() for word in words if word.strip()]
 print(words_cleaned)
+
+import random
+# using list comprehension, generate a list of 100 random numbers 
+# from 1, 100 
+# print first 10 and last 10 numbers
+
+random_numbers = [random.randint(1, 100) for _ in range(100)]
+print("First 10 numbers:", random_numbers[:10])
+print("Last 10 numbers:", random_numbers[-10:])
+
+
+rand_nums = []
+
+for _ in range(100):
+    rand_nums.append(random.randint(1, 100))
+
+print("First 10 numbers:", rand_nums[:10])
+print("Last 10 numbers:", rand_nums[-10:])
+
 ```
 
 
