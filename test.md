@@ -1,5 +1,34 @@
 # Priklady
 
+## CSV to JSON
+
+```python
+import csv
+import json
+
+# Define input and output file names
+csv_filename = "test_users.csv"
+json_filename = "test_users.json"
+
+# Read CSV and convert to JSON
+data = []
+with open(csv_filename, newline='', encoding='utf-8') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        # Convert salary from string to integer
+        row["salary"] = int(row["salary"])
+        data.append(row)
+
+# Write JSON data to file
+with open(json_filename, "w", encoding="utf-8") as jsonfile:
+    json.dump(data, jsonfile, indent=4)
+
+print(f"CSV data successfully written to {json_filename}")
+```
+
+
+
+
 ## process CSV data
 
 ```python
