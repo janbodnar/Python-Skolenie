@@ -1,5 +1,32 @@
 # Priklady
 
+## Transform JSON into CSV
+
+```python
+import requests
+import csv
+
+url = 'https://webcode.me/users.json'
+
+resp = requests.get(url)
+
+if resp.status_code == 200:
+    data = resp.json()
+
+    print(data)
+
+    file_name = 'users.csv'
+    headers = ['id', 'first_name', 'last_name', 'email']
+    with open(file_name, 'w') as fd:
+        writer = csv.DictWriter(fd, fieldnames=headers, lineterminator='\n')
+
+        writer.writeheader()
+        for user in data["users"]:
+            writer.writerow(user)
+```
+
+
+
 ## read users.csv file
 
 ```python
