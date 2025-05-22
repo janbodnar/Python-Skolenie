@@ -1,5 +1,71 @@
 # Opakovanie
 
+```python
+
+# genrate a list of cubes using list comprehension
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# filter all numbers
+data = ['test', 3.0, 5, True, (1, 2), 3.14, None, {'us': 'United States'}, 
+        [1, 2, 3], 'hello', 42]
+
+# clean the words, remove leading and trailing spaces, and filter out empty strings
+words = [' blue', '\nred', '',  'green', '\t\tyellow', 'purple\n', 
+         'sky', 'pawn', 'rock\n', '  ', 'paper', '\t\tscissors']
+
+# using list comprehension, generate a list of random numbers 
+# from 1, 100 
+# print first 10 and last 10 numbers
+
+
+# filter users youger than 30 years old
+# filter users with last name starting with 'W'
+from collections import namedtuple
+
+User = namedtuple('User', ['first_name', 'last_name', 'age', 'email'])
+
+users = [
+    User('John', 'Doe', 34, 'john.doe@example.com'),
+    User('Jane', 'Smith', 28, 'jane.smith@example.com'),
+    User('Alice', 'Johnson', 45, 'alice.johnson@example.com'),
+    User('Bob', 'Brown', 50, 'bob.brown@example.com'),
+    User('Charlie', 'Davis', 22, 'charlie.davis@example.com'),
+    User('Emily', 'Wilson', 30, 'emily.wilson@example.com'),
+    User('Frank', 'White', 27, 'frank.white@example.com'),
+    User('Grace', 'Hall', 38, 'grace.hall@example.com'),
+    User('Henry', 'Lewis', 29, 'henry.lewis@example.com'),
+    User('Ivy', 'Young', 40, 'ivy.young@example.com'),
+    User('Jack', 'Martin', 33, 'jack.martin@example.com'),
+    User('Karen', 'King', 26, 'karen.king@example.com'),
+    User('Leo', 'Scott', 35, 'leo.scott@example.com'),
+    User('Mia', 'Turner', 24, 'mia.turner@example.com'),
+    User('Nathan', 'Adams', 37, 'nathan.adams@example.com'),
+    User('Olivia', 'Baker', 31, 'olivia.baker@example.com'),
+    User('Paul', 'Carter', 42, 'paul.carter@example.com'),
+    User('Quinn', 'Flores', 23, 'quinn.flores@example.com'),
+    User('Ryan', 'Hill', 48, 'ryan.hill@example.com'),
+    User('Sophia', 'Reed', 29, 'sophia.reed@example.com')
+]
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```python
 import sys
