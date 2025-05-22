@@ -1,4 +1,5 @@
-# Opakovanie
+# Priklady
+
 
 ## Reading JSON file
 
@@ -21,6 +22,7 @@ with open(fname) as f:
 
 
 
+## Opakovanie
 
 ```python
 # genrate a list of cubes using list comprehension
