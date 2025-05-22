@@ -1,5 +1,35 @@
 # Priklady
 
+## generate test CSV data
+
+```python
+from faker import Faker
+import csv
+
+faker = Faker()
+
+with open('test_users.csv', 'w', newline='') as f:
+
+    fieldnames = ['id', 'first_name', 'last_name', 'occupation', 'salary']
+    writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+    writer.writeheader()
+
+    for i in range(1, 100_000):
+
+        _id = i
+        fname = faker.first_name()
+        lname = faker.last_name()
+        occupation = faker.job()
+        salary = faker.random_int(min=800, max=8000, step=100)
+
+        writer.writerow({'id': _id, 'first_name': fname, 
+            'last_name': lname, 'occupation': occupation, 'salary': salary})
+```
+
+
+
+
 ## Transform JSON into CSV
 
 ```python
