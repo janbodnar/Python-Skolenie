@@ -35,7 +35,7 @@ given CSV file.
 ```
 16,6,4,12,81
 11,12,11,13,12
-4,3,2,1,5,6,7
+4,3,2,1,5
 ```
 
 The `numbers.csv` file contains numbers.
