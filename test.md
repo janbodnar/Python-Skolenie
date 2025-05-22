@@ -57,6 +57,10 @@ users = [
 ```python
 ##
 
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+vals_cubed = [x**3 for x in vals]
+print(vals_cubed)
+
 ```
 
 
