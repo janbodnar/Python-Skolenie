@@ -1,5 +1,22 @@
 # Priklady
 
+
+## Retrieve and write HTML page
+
+```python
+import requests 
+
+url = 'https://webcode.me/'
+resp = requests.get(url)
+
+# print(resp.content.decode('utf-8'))
+content = resp.text
+
+with open('home_page.html', 'w') as fd:
+    fd.write(content)
+```
+
+
 ## Read JSON from URL
 
 ```python
