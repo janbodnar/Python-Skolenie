@@ -94,6 +94,14 @@ for _ in range(100):
 print("First 10 numbers:", rand_nums[:10])
 print("Last 10 numbers:", rand_nums[-10:])
 
+
+
+data2 = '1,2,3,4,5,6,7,8,9,10'
+
+res = sum(int(i) for i in data2.split(','))
+print(res)
+
+
 ```
 
 
