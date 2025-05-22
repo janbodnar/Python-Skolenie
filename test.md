@@ -1,5 +1,26 @@
 # Priklady
 
+## Read JSON from URL
+
+```python
+import requests
+
+url = "https://webcode.me/users.json"
+
+response = requests.get(url)
+data = response.json()
+
+print(data)
+
+
+for user in data['users']:
+    print(f"Name: {user['id']}, First Name: {user['first_name']}, last Name: {user['last_name']}, Email: {user['email']}")
+
+emails = [user['email'] for user in data['users']]
+
+print(emails)
+```
+
 
 ## Reading JSON file
 
