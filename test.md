@@ -1,7 +1,6 @@
 # Opakovanie
 
 ```python
-
 # genrate a list of cubes using list comprehension
 vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -17,6 +16,8 @@ words = [' blue', '\nred', '',  'green', '\t\tyellow', 'purple\n',
 # from 1, 100 
 # print first 10 and last 10 numbers
 
+# calculate the sum of all numbers in the list
+data2 = '1,2,3,4,5,6,7,8,9,10'
 
 # filter users youger than 30 years old
 # filter users with last name starting with 'W'
