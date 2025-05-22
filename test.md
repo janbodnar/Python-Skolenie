@@ -70,8 +70,11 @@ data_nums = [x for x in data if type(x) == int or type(x) == float]
 
 print(data_nums)
 
+words = [' blue', '\nred', '',  'green', '\t\tyellow', 'purple\n', 
+         'sky', 'pawn', 'rock\n', '  ', 'paper', '\t\tscissors']
 
-
+words_cleaned = [word.strip() for word in words if word.strip()]
+print(words_cleaned)
 ```
 
 
