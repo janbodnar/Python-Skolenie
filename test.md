@@ -1,5 +1,32 @@
 # Priklady
 
+## read users.csv file
+
+```python
+import csv
+import statistics
+
+file_name = "users.csv"
+
+with open(file_name, 'r') as f:
+
+    reader = csv.DictReader(f)
+
+    salaries = []
+
+    for row in reader:
+
+        # print(row)
+        print(row['first_name'], row['last_name'], row['salary'])
+        salaries.append(int(row['salary']))
+
+
+    print(salaries)
+    print("Average salary: ", statistics.mean(salaries))
+    print("Median salary: ", statistics.median(salaries))
+```
+
+
 
 `users.csv` file
 
