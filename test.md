@@ -1,5 +1,29 @@
 # Priklady
 
+## process CSV data
+
+```python
+import csv
+import statistics
+
+file_name = 'test_users.csv'
+
+salaries = []
+
+with open(file_name, 'r') as f:
+
+    reader = csv.DictReader(f)
+    
+    salaries = [int(row['salary']) for row in reader]
+
+    print(f"Total number of salaries: {len(salaries)}")
+    print(f"Minimum salary: {min(salaries)}")
+    print(f"Maximum salary: {max(salaries)}")
+    print(f"Average salary: {sum(salaries) / len(salaries)}")
+    print(f"Median salary: {statistics.median(salaries)}")
+```
+
+
 ## generate test CSV data
 
 ```python
