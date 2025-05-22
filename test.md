@@ -1,5 +1,20 @@
 # Priklady
 
+
+`users.csv` file
+
+```csv
+id,first_name,last_name,salary
+1,John,Doe,50000
+2,Jane,Smith,60000
+3,Bob,Johnson,55000
+4,Alice,Williams,70000
+5,Charlie,Brown,45000
+```
+
+
+
+
 ## CSV read file
 
 ```python
