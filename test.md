@@ -25,6 +25,32 @@ if resp.status_code == 200:
             writer.writerow(user)
 ```
 
+---
+
+```python
+import csv
+import json
+
+
+def read_json_file(file_name):
+    with open(file_name, 'r') as fd:
+        data = json.load(fd)
+        return data
+
+def write_json_file(file_name, data):
+
+    headers = ['id', 'first_name', 'last_name', 'email']
+    with open(file_name, 'w') as fd:
+        writer = csv.DictWriter(fd, fieldnames=headers, lineterminator='\n')
+
+        writer.writeheader()
+        for user in data["users"]:
+            writer.writerow(user)
+
+
+data = read_json_file('users.json')
+write_json_file('users.csv', data)
+```
 
 
 ## read users.csv file
