@@ -1,5 +1,28 @@
 # Priklady
 
+## CSV read file
+
+```python
+import csv
+
+file_name = "data.csv"
+
+with open(file_name, 'r') as f:
+
+    reader = csv.reader(f)
+
+    suma = 0
+    for row in reader:
+
+        # print(row)
+
+        for field in row:
+            suma += int(field)
+            
+    print(suma)
+```
+
+
 
 ## Retrieve and write HTML page
 
