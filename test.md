@@ -1,5 +1,27 @@
 # Opakovanie
 
+## Reading JSON file
+
+```python
+import json
+
+fname = 'products.json'
+with open(fname) as f:
+
+    data = json.load(f)
+    total_sales = 0
+
+    for product in data['products']:
+        print(product)
+
+        total_sales = total_sales + float(product['price']) * int(product['quantity'])
+
+    print(f'Total sales: {total_sales}')
+```
+
+
+
+
 ```python
 # genrate a list of cubes using list comprehension
 vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
