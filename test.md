@@ -61,6 +61,17 @@ vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 vals_cubed = [x**3 for x in vals]
 print(vals_cubed)
 
+# filter all numbers
+data = ['test', 3.0, 5, True, (1, 2), 3.14, None, {'us': 'United States'}, 
+        [1, 2, 3], 'hello', 42]
+
+data_nums = [x for x in data if type(x) == int or type(x) == float]
+# data_nums = [x for x in data if type(x) in (int, float)]
+
+print(data_nums)
+
+
+
 ```
 
 
