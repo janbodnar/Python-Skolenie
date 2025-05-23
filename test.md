@@ -1,5 +1,83 @@
 # Priklady
 
+## Opakovanie
+
+`users_20.csv`
+
+```
+id,first_name,last_name,occupation,salary
+1,Ashley,Curtis,International aid/development worker,6300
+2,Christine,Bowman,Immunologist,4200
+3,Juan,Howe,Holiday representative,3700
+4,Craig,Jordan,Television floor manager,3200
+5,Roy,Allen,Engineering geologist,6700
+6,Shelly,Rodriguez,Art gallery manager,1100
+7,Latoya,Cameron,Geographical information systems officer,6300
+8,Renee,Thompson,"Designer, blown glass/stained glass",6800
+9,Steven,Mcmillan,Pathologist,6200
+10,Jasmine,Holland,"Teacher, adult education",2200
+11,Tracy,Wagner,"Solicitor, Scotland",7800
+12,Bonnie,Harvey,Systems developer,2600
+13,Michael,Roberts,Hydrogeologist,3400
+14,Susan,Vaughn,Data processing manager,3300
+15,Jessica,Miller,"Designer, exhibition/display",1200
+16,Ryan,Jimenez,Chartered accountant,7300
+17,Alex,Martinez,"Nurse, children's",4300
+18,John,Simmons,"Scientist, audiological",7200
+19,Samuel,Francis,Oncologist,1600
+20,Eric,Hicks,Podiatrist,3300
+```
+
+
+```python
+# get status code of https://example.com
+
+import requests
+url = "https://example.com"
+...
+
+# ==========================================================
+
+# get home page of https://something.com 
+# and save it to home.html
+import requests
+url = "https://something.com"
+...
+
+
+# ==========================================================
+
+
+# read users_20.csv and print the first 5 rows the followng way
+# Ashley Curtis is International aid/development worker with salary 6300
+
+# ==========================================================
+
+
+# print first 5 and last 5 todos from https://jsonplaceholder.typicode.com/todos
+import requests
+
+url = "https://jsonplaceholder.typicode.com/todos"
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## CSV to JSON
 
 ```python
