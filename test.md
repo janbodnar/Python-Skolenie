@@ -29,6 +29,17 @@ words_3c = [word for word in words if len(word) == 3]
 print(words_3c)
 ```
 
+procedural style:
+
+```python
+words_3c = []
+
+for word in words:
+    if len(word) == 3:
+        words_3c.append(word)
+
+print(words_3c)
+```
 
 
 
