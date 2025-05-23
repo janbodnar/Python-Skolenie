@@ -99,6 +99,18 @@ status_code = resp.status_code
 print(status_code)
 
 
+# get home page of https://something.com 
+# and save it to home.html
+import requests
+url = "https://something.com"
+
+resp = requests.get(url)
+file_name = 'home.html'
+
+content = resp.text
+
+with open(file_name, 'w') as fd:
+    fd.write(content)
 ```
 
 
