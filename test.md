@@ -1,6 +1,32 @@
 # Priklady
 
 
+```sql
+-- Create the 'people' table
+CREATE TABLE IF NOT EXISTS people (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT,
+    last_name TEXT,
+    occupation TEXT
+);
+
+-- Insert data into the table
+INSERT INTO people (first_name, last_name, occupation) VALUES 
+    ('John', 'Doe', 'gardener'),
+    ('Roger', 'Doe', 'driver'),
+    ('Adam', 'Novak', 'teacher'),
+    ('Paul', 'Novak', 'programmer'),
+    ('Roman', 'Meszaros', 'programmer'),
+    ('Tomas', 'Bruzik', 'driver'),
+    ('Lucia', 'Smith', 'teacher'),
+    ('Jane', 'Smith', 'teacher');
+```
+
+
+
+
+
+
 ## Functional programming
 
 ```python
