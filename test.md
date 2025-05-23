@@ -111,6 +111,15 @@ content = resp.text
 
 with open(file_name, 'w') as fd:
     fd.write(content)
+
+prices = [1.5, 2.0, 3.75, 4.25]
+
+
+total_with_tax = sum(prices) * 1.1
+
+assert total_with_tax == 12.65
+print('passed')
+
 ```
 
 
