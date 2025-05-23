@@ -15,8 +15,19 @@ vals_2 = list(map(lambda e: e * 2, vals))
 
 print(vals)
 print(vals_2)
+
+vals_3 = [val * 2 for val in vals]
+print(vals_3)
 ```
 
+```python
+words = ['hello', 'one', 'world', 'python', 'rocks', 'sky', 'cupcake']
+
+words_3c = list(filter(lambda e: len(e) == 3, words))
+print(words_3c)
+words_3c = [word for word in words if len(word) == 3]
+print(words_3c)
+```
 
 
 
