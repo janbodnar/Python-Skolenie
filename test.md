@@ -1,5 +1,22 @@
 # Priklady
 
+## Funcy
+
+```python
+import funcy
+
+# Sample list of values
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Split into even and odd numbers
+evens, odds = funcy.split(lambda x: x % 2 == 0, vals)
+
+print(list(evens))
+print(list(odds))
+```
+
+
+
 
 ```sql
 -- Create the 'people' table
