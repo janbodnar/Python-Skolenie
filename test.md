@@ -1,8 +1,33 @@
 # Priklady
 
+
+## SQL INJECTION
+
+```python
+import sqlite3
+
+name = 'Bratislava'
+population = 432000
+
+con = sqlite3.connect('test.db')
+
+with con:
+
+    cur = con.cursor()    
+
+    # DO NOT DO THIS, IT IS DANGEROUS, SQL INJECTION
+    # print(f"UPDATE cities SET population={population} WHERE name='{name}'")
+    # cur.execute(f"UPDATE cities SET population={population} WHERE name='{name}'")
+    # cur.execute("UPDATE cities SET population=" + str(population) + " WHERE name= " + name)
+
+    # parameterized query
+    cur.execute("UPDATE cities SET population=? WHERE name=?", (population, name))           
+    print("Number of rows updated: {}".format(cur.rowcount))
+```
+
+
+
 ## Opakovanie
-
-
 
 `users_20.csv`
 
