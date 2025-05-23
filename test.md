@@ -66,6 +66,13 @@ print('passed')
 
 # read users_20.csv and print the first 5 rows the followng way
 # Ashley Curtis is International aid/development worker with salary 6300
+import csv
+
+file_name = 'users_20.csv'
+
+with open(file_name, 'r') as fd:
+    reader = csv.reader(fd)
+    ...
 
 # ==========================================================
 
