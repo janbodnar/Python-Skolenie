@@ -177,6 +177,23 @@ for users in users[:5]:
     print(f"{first_name} {last_name} is {job} with salary {salary}")
 
 
+
+
+# print first 5 and last 5 todos from https://jsonplaceholder.typicode.com/todos
+import requests
+
+url = "https://jsonplaceholder.typicode.com/todos"
+
+response = requests.get(url)
+todos = response.json()
+
+print("First 5 todos:")
+print(todos[:5])
+
+print("\nLast 5 todos:")
+print(todos[-5:])
+
+
 ```
 
 
