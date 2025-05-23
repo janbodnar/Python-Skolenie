@@ -155,6 +155,28 @@ for users in users[:5]:
     print(f"{first_name} {last_name} is {job} with salary {salary}")
 
 
+# read users_20.csv and print the first 5 rows the followng way
+# Ashley Curtis is International aid/development worker with salary 6300
+import csv
+
+file_name = 'users_20.csv'
+
+users = []
+with open(file_name, 'r') as fd:
+    reader = csv.DictReader(fd)
+    
+    for row in reader:
+        users.append(row)
+
+for users in users[:5]:
+
+    first_name = users['first_name']
+    last_name = users['last_name']
+    job = users['occupation']
+    salary = users['salary']
+    print(f"{first_name} {last_name} is {job} with salary {salary}")
+
+
 ```
 
 
