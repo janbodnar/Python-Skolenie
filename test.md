@@ -120,6 +120,15 @@ total_with_tax = sum(prices) * 1.1
 assert total_with_tax == 12.65
 print('passed')
 
+
+
+items = {'apple': 2, 'banana': 3, 'orange': 1}
+
+total_items = sum(items.values())
+
+assert total_items == 6
+print('passed')
+
 ```
 
 
