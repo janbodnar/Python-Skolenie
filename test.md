@@ -129,6 +129,32 @@ total_items = sum(items.values())
 assert total_items == 6
 print('passed')
 
+
+
+# read users_20.csv and print the first 5 rows the followng way
+# Ashley Curtis is International aid/development worker with salary 6300
+import csv
+
+file_name = 'users_20.csv'
+
+users = []
+with open(file_name, 'r') as fd:
+    reader = csv.reader(fd)
+    
+    next(reader)  # skip header
+
+    for row in reader:
+        users.append(row)
+
+for users in users[:5]:
+
+    first_name = users[1]
+    last_name = users[2]
+    job = users[3]
+    salary = users[4]
+    print(f"{first_name} {last_name} is {job} with salary {salary}")
+
+
 ```
 
 
