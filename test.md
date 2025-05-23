@@ -44,9 +44,25 @@ import requests
 url = "https://something.com"
 ...
 
+# ==========================================================
+
+prices = [1.5, 2.0, 3.75, 4.25]
+
+total_with_tax = ...  # Add 10% tax to sum of prices
+
+assert total_with_tax == 13.75
+print('passed')
 
 # ==========================================================
 
+items = {'apple': 2, 'banana': 3, 'orange': 1}
+
+total_items = ...
+
+assert total_items == 6
+print('passed')
+
+# ==========================================================
 
 # read users_20.csv and print the first 5 rows the followng way
 # Ashley Curtis is International aid/development worker with salary 6300
