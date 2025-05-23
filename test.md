@@ -1,6 +1,113 @@
 # Priklady
 
 
+```
+id,first_name,last_name,occupation,salary
+1,Ashley,Curtis,International aid/development worker,6300
+2,Christine,Bowman,Immunologist,4200
+3,Juan,Howe,Holiday representative,3700
+4,Craig,Jordan,Television floor manager,3200
+5,Roy,Allen,Engineering geologist,6700
+6,Shelly,Rodriguez,Art gallery manager,1100
+7,Latoya,Cameron,Geographical information systems officer,6300
+8,Renee,Thompson,"Designer, blown glass/stained glass",6800
+9,Steven,Mcmillan,Pathologist,6200
+10,Jasmine,Holland,"Teacher, adult education",2200
+11,Tracy,Wagner,"Solicitor, Scotland",7800
+12,Bonnie,Harvey,Systems developer,2600
+13,Michael,Roberts,Hydrogeologist,3400
+14,Susan,Vaughn,Data processing manager,3300
+15,Jessica,Miller,"Designer, exhibition/display",1200
+16,Ryan,Jimenez,Chartered accountant,7300
+17,Alex,Martinez,"Nurse, children's",4300
+18,John,Simmons,"Scientist, audiological",7200
+19,Samuel,Francis,Oncologist,1600
+20,Eric,Hicks,Podiatrist,3300
+21,Billy,Santos,Medical laboratory scientific officer,2800
+22,Grant,Johnson,Occupational therapist,4100
+23,Stephen,Jimenez,Adult nurse,900
+24,Ashley,Garcia,Materials engineer,7700
+25,Emily,Brown,"Scientist, research (maths)",6700
+26,Catherine,Lopez,Theatre stage manager,1300
+27,Jacob,Weeks,"Lecturer, further education",3400
+28,Jaime,Smith,Writer,5500
+29,Ryan,Hughes,Print production planner,2700
+30,Nicole,Graham,Barista,6000
+31,Daniel,Galvan,Personal assistant,7500
+32,Sarah,Hayes,Advertising account executive,5700
+33,Matthew,Hawkins,"Designer, fashion/clothing",2400
+34,Bruce,Stewart,Freight forwarder,4700
+35,Michele,English,Secretary/administrator,2200
+36,Daniel,Martin,Games developer,3600
+37,Ashley,Smith,Theme park manager,7200
+38,Chris,Gonzalez,Product manager,6600
+39,Kristen,Miller,Marine scientist,6800
+40,Cindy,Silva,General practice doctor,4300
+41,Melissa,Stone,Research scientist (physical sciences),4200
+42,Jean,Wilson,Child psychotherapist,7300
+43,Marcus,Carlson,Transport planner,6300
+44,Scott,Gordon,"Engineer, automotive",3300
+45,Susan,Wells,Lobbyist,2800
+46,Victoria,French,Operational researcher,7100
+47,Joseph,Henry,Farm manager,6500
+48,Patrick,Collins,Nature conservation officer,5200
+49,Joann,Ross,Research scientist (maths),7200
+50,Bob,Romero,Operational researcher,7800
+51,Wayne,Marks,Nature conservation officer,4500
+52,Lori,Thompson,Environmental consultant,4200
+53,Duane,Barber,Veterinary surgeon,4500
+54,Emily,Lutz,Field seismologist,4600
+55,Theresa,Cook,Psychiatric nurse,2800
+56,Danielle,Ramos,Community education officer,4300
+57,Kendra,Vazquez,"Merchandiser, retail",4800
+58,Christopher,Gordon,"Engineer, broadcasting (operations)",4200
+59,Gabriel,Nguyen,Theme park manager,5900
+60,Chad,Thompson,"Solicitor, Scotland",3800
+61,Kevin,Ramirez,Aeronautical engineer,6300
+62,Chad,Bell,"Surveyor, rural practice",3200
+63,Tina,Hull,Licensed conveyancer,5500
+64,Kristin,Brown,Primary school teacher,1700
+65,Stacy,Peterson,"Therapist, speech and language",4900
+66,Cheryl,Wu,Homeopath,1400
+67,Ernest,Howard,Agricultural consultant,3700
+68,Teresa,Andersen,Architectural technologist,6900
+69,Amber,Guzman,Haematologist,5100
+70,Michelle,Porter,"Therapist, music",3900
+71,Douglas,Wood,"Embryologist, clinical",1000
+72,Emily,Salazar,Higher education lecturer,6600
+73,Daniel,Roberts,Aeronautical engineer,5700
+74,Chad,Powell,Phytotherapist,4500
+75,Calvin,Roach,"Editor, commissioning",5200
+76,Daniel,Rodriguez,Network engineer,2100
+77,David,Bradford,Transport planner,4500
+78,Stanley,Weber,Rural practice surveyor,5800
+79,Whitney,Macias,Landscape architect,4800
+80,Deborah,Berry,Theme park manager,5700
+81,Debra,Buchanan,Lawyer,6300
+82,Eric,Willis,"Psychologist, forensic",5000
+83,Mark,Cox,Ecologist,6700
+84,Justin,Jones,Television floor manager,1300
+85,Christopher,Flores,Financial trader,3200
+86,Sarah,Ward,"Accountant, chartered management",3300
+87,Jared,Norris,Press sub,5300
+88,Blake,Henry,"Programmer, systems",1200
+89,Michael,Watkins,Hydrogeologist,4900
+90,Charles,Warren,Purchasing manager,1600
+91,Madison,Clark,Museum/gallery conservator,2000
+92,Lisa,Mullins,Broadcast journalist,5000
+93,Erik,Curry,Broadcast journalist,2500
+94,Katherine,Cooper,Immunologist,3600
+95,Kelly,Gonzalez,Ship broker,5400
+96,Kristin,Friedman,Site engineer,4000
+97,Dustin,Huynh,Pension scheme manager,2100
+98,Jon,Perez,Insurance account manager,3800
+99,Anthony,Duncan,Geographical information systems officer,7500
+100,John,Andrews,"Clinical scientist, histocompatibility and immunogenetics",3700
+```
+
+
+
+
 ```sql
 CREATE TABLE users(id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, occupation TEXT, salary INT);
 ```
