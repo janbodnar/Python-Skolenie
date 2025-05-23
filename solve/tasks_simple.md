@@ -201,7 +201,7 @@ prices = [1.5, 2.0, 3.75, 4.25]
 
 total_with_tax = ...  # Add 10% tax to sum of prices
 
-assert total_with_tax == 13.75
+assert total_with_tax == 12.65
 print('passed')
 ```
 
