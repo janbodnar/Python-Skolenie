@@ -2,6 +2,8 @@
 
 ## Opakovanie
 
+
+
 `users_20.csv`
 
 ```
@@ -86,6 +88,18 @@ url = "https://jsonplaceholder.typicode.com/todos"
 
 
 
+## Riesenia
+
+```python
+import requests
+url = "https://example.com"
+
+resp = requests.get(url)
+status_code = resp.status_code
+print(status_code)
+
+
+```
 
 
 
