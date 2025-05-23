@@ -1,6 +1,12 @@
 # Priklady
 
 
+```sql
+CREATE TABLE users(id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, occupation TEXT, salary INT);
+```
+
+
+
 ## SQL INJECTION
 
 ```python
