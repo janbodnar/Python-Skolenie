@@ -1,6 +1,27 @@
 # Priklady
 
 
+## Functional programming
+
+```python
+# def twice(e):
+#     return e * 2
+
+
+vals = [1, 2, 3, 4, 5]
+
+# vals_2 = list(map(twice, vals))
+vals_2 = list(map(lambda e: e * 2, vals))
+
+print(vals)
+print(vals_2)
+```
+
+
+
+
+
+
 ```
 id,first_name,last_name,occupation,salary
 1,Ashley,Curtis,International aid/development worker,6300
