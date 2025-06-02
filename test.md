@@ -51,7 +51,22 @@ print(vals_doubled_tuple)
 vals2 = tuple(map(lambda x: x * 2, vals))
 print(vals2)
 
+# compute the sum of these values
+data = "1,2,3,4,5,6,7,8,9,10"
 
+vals = []
+
+fields = data.split(",")
+print(fields)
+
+for e in fields:
+    vals.append(int(e))
+
+print(vals)
+print(sum(vals))
+
+# print(sum(map(lambda e: int(e), fields)))
+print(sum(map(int, fields)))
 ```
 
 
