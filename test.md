@@ -67,6 +67,26 @@ print(sum(vals))
 
 # print(sum(map(lambda e: int(e), fields)))
 print(sum(map(int, fields)))
+
+
+# filter words starting with 'w'
+words = ["sky", "word", "worm", "car", "type", "car", "water", "world"]
+
+words_w = list(filter(lambda word: word[0] == 'w', words))
+print(words_w)
+
+words_w = list(filter(lambda word: word.startswith('w'), words))
+print(words_w)
+
+
+words_w_c = list(filter(lambda word: word[0] == 'w' or word[0] == 'c', words))
+print(words_w_c)
+
+words_w_c = list(filter(lambda word: word[0] in ('w', 'c'), words))
+print(words_w_c)
+
+words_w_c = list(filter(lambda word: word.startswith(('w', 'c')), words))
+print(words_w_c)
 ```
 
 
