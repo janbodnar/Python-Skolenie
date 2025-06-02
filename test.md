@@ -26,6 +26,35 @@ rvals = []
 # start either with 'w' or 'c'
 ```
 
+## riesenia
+
+```python
+# print message using fstring
+first_name = 'Roger'
+last_name = 'Roe'
+occupation = 'gardener'
+
+print(f'{first_name} {last_name} is a {occupation}.')
+
+
+# create new tuple with elements doubled
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+vals_doubled = []
+
+for val in vals:
+    vals_doubled.append(val * 2)
+
+vals_doubled_tuple = tuple(vals_doubled)
+print(vals_doubled_tuple)
+
+vals2 = tuple(map(lambda x: x * 2, vals))
+print(vals2)
+
+
+```
+
+
 
 
 
