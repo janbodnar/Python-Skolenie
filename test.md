@@ -116,6 +116,23 @@ for i in range(100):
 
 print(rvals)
 
+file_name = 'words.txt'
+
+with open(file_name, 'r') as fd:
+    
+    lines = fd.readlines()
+    print(lines)
+    print(type(lines))
+
+    for line in lines:
+        print(line.strip())
+
+
+    cleaned_lines = list(map(lambda line: line.strip(), lines))
+    print(cleaned_lines)
+
+    words_w_c = list(filter(lambda word: word.startswith(('w', 'c')), cleaned_lines))
+    print(words_w_c)
 ```
 
 
