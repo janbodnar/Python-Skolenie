@@ -1,6 +1,24 @@
 # Priklady
 
+
 ## Opakovanie
+
+`words.txt`
+
+```
+sky
+blue
+dog
+spy
+corridor
+prime
+snow
+cold
+warm
+risk
+war
+```
+
 
 ```python
 # print message using fstring
