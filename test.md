@@ -1,5 +1,34 @@
 # Priklady
 
+## Opakovanie
+
+```python
+# print message using fstring
+first_name = 'Roger'
+last_name = 'Roe'
+occupation = 'gardener'
+
+# create new tuple with elements doubled
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+# compute the sum of these values
+data = '1,2,3,4,5,6,7,8,9,10'
+
+# filter words starting with 'w'
+words = ['sky', 'word', 'worm', 'car', 'type', 
+         'car', 'water', 'world']
+
+
+# create a list of 100 random values
+rvals = []
+
+# read words.txt file and print all that 
+# start either with 'w' or 'c'
+```
+
+
+
+
 ## Funcy
 
 ```python
