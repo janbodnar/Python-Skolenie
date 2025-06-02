@@ -87,6 +87,17 @@ print(words_w_c)
 
 words_w_c = list(filter(lambda word: word.startswith(('w', 'c')), words))
 print(words_w_c)
+
+import random
+
+# create a list of 100 random values, in ranage 1 - 100
+rvals = []
+
+for i in range(100):
+    rvals.append(random.randint(1, 100))
+
+print(rvals)
+
 ```
 
 
