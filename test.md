@@ -4,7 +4,7 @@
 ## Opakovanie
 
 ```python
-# genrate a list of cubes using list comprehension
+# generate a list of cubes
 vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # filter all numbers
