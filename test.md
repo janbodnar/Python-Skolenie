@@ -1,5 +1,27 @@
 # Priklady
 
+`words.txt'
+
+```
+sky
+blue
+dog
+spy
+Spy
+corridor
+prime
+PRIME
+SNOW
+cold
+warm
+RISK
+war
+WAR
+cup
+CUP
+```
+
+
 
 ## Opakovanie
 
