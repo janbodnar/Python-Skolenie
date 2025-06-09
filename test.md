@@ -1,5 +1,40 @@
 # Priklady
 
+
+## Opakovanie
+
+```python
+
+# generate a list of 500 random salaries from 850 - 1550
+# calculate sum, min, max, mean, avg of the salaries
+
+
+# using map function, transform into a tuple of integers
+
+vals = [" 23 ", "1", "4", "99\n", "43\t", "12  "]
+
+
+# calculate sum
+data = """
+1,2,3,4,5
+6,7,8,9,10
+"""
+
+# read the users.csv file and generate a list of dataclass objects
+# filter all teachers from the list
+
+
+
+# generate a CSV file with faker, with 1250 rows, with these 
+# columns: id, first_name, last_name, email, salary
+```
+
+
+
+
+
+
+
 `words.txt`
 
 
