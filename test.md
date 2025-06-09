@@ -3,6 +3,23 @@
 
 ## Opakovanie
 
+`users.csv`
+
+```
+Roger,Roe,gardener
+Peter,Smith,plumber
+Paul,Johnson,teacher
+Mary,Johnson,teacher
+Carol,Smith,doctor
+John,Doe,engineer
+Richard,Smith,doctor
+Susan,Johnson,teacher
+Alex,Johnson,engineer
+Roman,Walker,programmer
+Alice,Wen,artist
+```
+
+
 ```python
 
 # generate a list of 500 random salaries from 850 - 1550
