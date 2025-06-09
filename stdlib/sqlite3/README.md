@@ -233,9 +233,6 @@ with con:
 ## Parameterized query
 
 ```python
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import sqlite3
 
 name = 'Bratislava'
