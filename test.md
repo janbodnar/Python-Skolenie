@@ -22,7 +22,7 @@ Alice,Wen,artist
 
 ```python
 
-# generate a list of 500 random salaries from 850 - 1550
+# generate a list of 500 random salaries from 850 - 1550 with step 50
 # calculate sum, min, max, mean, avg of the salaries
 
 # transform to lowercase using list comprehension
