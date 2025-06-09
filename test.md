@@ -25,10 +25,20 @@ Alice,Wen,artist
 # generate a list of 500 random salaries from 850 - 1550
 # calculate sum, min, max, mean, avg of the salaries
 
+# transform to lowercase using list comprehension
+words = ["skY", "NEW", "Output", "blue", "SMart", 'oceaN']
 
-# using map function, transform into a tuple of integers
+# filter even vals using list comprehension
+vals = [3, 4, 2, 1, 9, 11, 10, 8, 7, 6, 3]
 
-vals = [" 23 ", "1", "4", "99\n", "43\t", "12  "]
+# using a list comprehension, generate a list of random values
+# between 1 .. 100. 
+
+# calculate sum using list comprehension
+data = "1;2;3;4;5;6,7;8;9;10"
+
+# filter out words with length 3 and ending in 't'
+words2 = ["sky", "war", "put", "out", "ocean", 'os', 'season', 'arch']
 
 
 # calculate sum
@@ -37,17 +47,14 @@ data = """
 6,7,8,9,10
 """
 
+
 # read the users.csv file and generate a list of dataclass objects
 # filter all teachers from the list
-
 
 
 # generate a CSV file with faker, with 1250 rows, with these 
 # columns: id, first_name, last_name, email, salary
 ```
-
-
-
 
 
 
