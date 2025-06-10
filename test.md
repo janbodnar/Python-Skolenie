@@ -1,5 +1,24 @@
 # Priklady
 
+## Opakovanie
+
+```python
+# generate a list of 1000 users with id, first_name, last_name, salary 
+# with faker
+
+# read into users of dictionaries list
+# extract salaries into salaries list 
+# calculate min/max/sum/len/mean/median
+
+# using AI model transform the CSV into SQLite SQL and 
+# create a database table
+
+# using Python, read the users from the table into a list 
+# and print first 20 and last 20 users.
+```
+
+
+
 
 ## Opakovanie
 
