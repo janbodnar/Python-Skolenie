@@ -412,6 +412,31 @@ All four words match the pattern.
 The alternation operator `|` creates a regular expression with several choices. 
 
 ```python
+import re
+
+words = (
+    "a gray bird",
+    "grey hair",
+    "leet",
+    "feet",
+    "meet",
+    "great look",
+    "book",
+    "cool",
+    "moot",
+)
+
+pattern = re.compile(r"ee|oo")
+
+for word in words:
+
+    if re.search(pattern, word):
+        print(f"{word} matches")
+```
+
+
+
+```python
 #!/usr/bin/python
 
 # alternations.py
