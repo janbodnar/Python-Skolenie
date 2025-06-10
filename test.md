@@ -1,5 +1,28 @@
 # Priklady
 
+## Calculate sum
+
+```python
+import re
+
+text = """
+Product A -> 2312 |
+Product B -> 120 |
+Procuct C -> 3450 |
+Product D -> 12300 |
+"""
+
+pattern = re.compile(r'[0-9]+')
+
+found = re.findall(pattern, text)
+
+if found:
+    print(f'There are {len(found)} numbers')
+    print(found)
+```
+
+
+
 ## Opakovanie
 
 ```python
