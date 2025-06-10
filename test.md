@@ -20,6 +20,49 @@ found = re.findall(pattern, text)
 print(found)
 ```
 
+```python
+import funcy
+import re
+
+text = """
+Name      | price  | stock |
+Product A |      3 | 2312  |
+Product B |     12 | 120   |
+Procuct C |     21 | 3450  |
+Product D |     11 | 12300 |
+"""
+
+
+pattern = re.compile(r'\d+')
+
+found = re.findall(pattern, text)
+
+vals = [int(val) for val in found]
+print(vals)
+
+# Using funcy to pair values
+pairs = list(funcy.partition(2, vals))
+
+total = 0
+for price, stock in pairs:
+    total += price * stock
+print(f'Total value of products: {total}')
+
+# n = len(vals) // 2
+# products = [vals[i:i + 2] for i in range(0, len(vals), 2)]
+
+# prices = [product[0] for product in products]
+# print(prices)
+# stocks = [product[1] for product in products]
+# print(stocks)
+
+# products = [{'price': price, 'stock': stock} for price, stock in zip(prices, stocks)]
+# for i, product in enumerate(products):
+#     product['name'] = f'Product {chr(65 + i)}'
+
+# print(products)
+```
+
 
 ## Calculate sum
 
