@@ -1,5 +1,26 @@
 # Priklady
 
+## Calculate total sales
+
+```python
+import re
+
+text = """
+Name      | price  | stock |
+Product A |      3 | 2312  |
+Product B |     12 | 120   |
+Procuct C |     21 | 3450  |
+Product D |     11 | 12300 |
+"""
+
+
+pattern = re.compile(r'\d+')
+
+found = re.findall(pattern, text)
+print(found)
+```
+
+
 ## Calculate sum
 
 ```python
