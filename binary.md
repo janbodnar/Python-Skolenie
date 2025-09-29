@@ -1853,11 +1853,2029 @@ func isTextFile(data []byte) bool {
     return float64(printable)/float64(len(data)) > 0.8
 }
 
-func min(a, b int) int {
     if a < b {
         return a
     }
     return b
 }
+```
+
+---
+
+## Bitwise Operations and Bit Manipulation
+
+### Example 21: Basic Bitwise Operations
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    // Basic bitwise operations with bytes
+    a := byte(0b10101010) // 170 in decimal
+    b := byte(0b11110000) // 240 in decimal
+    
+    fmt.Printf("a = %08b (%d)\n", a, a)
+    fmt.Printf("b = %08b (%d)\n", b, b)
+    fmt.Println()
+    
+    // AND operation
+    and_result := a & b
+    fmt.Printf("a & b  = %08b (%d)\n", and_result, and_result)
+    
+    // OR operation
+    or_result := a | b
+    fmt.Printf("a | b  = %08b (%d)\n", or_result, or_result)
+    
+    // XOR operation
+    xor_result := a ^ b
+    fmt.Printf("a ^ b  = %08b (%d)\n", xor_result, xor_result)
+    
+    // NOT operation
+    not_a := ^a
+    fmt.Printf("^a     = %08b (%d)\n", not_a, not_a)
+    
+    // Left shift
+    left_shift := a << 2
+    fmt.Printf("a << 2 = %08b (%d)\n", left_shift, left_shift)
+    
+    // Right shift
+    right_shift := a >> 2
+    fmt.Printf("a >> 2 = %08b (%d)\n", right_shift, right_shift)
+    
+    // Practical examples
+    fmt.Println("\nPractical bit operations:")
+    
+    // Check if a bit is set
+    bit_position := 3
+    is_set := (a & (1 << bit_position)) != 0
+    fmt.Printf("Bit %d in a is set: %t\n", bit_position, is_set)
+    
+    // Set a bit
+    set_bit := a | (1 << bit_position)
+    fmt.Printf("Set bit %d: %08b -> %08b\n", bit_position, a, set_bit)
+    
+    // Clear a bit
+    clear_bit := a &^ (1 << bit_position)
+    fmt.Printf("Clear bit %d: %08b -> %08b\n", bit_position, a, clear_bit)
+    
+    // Toggle a bit
+    toggle_bit := a ^ (1 << bit_position)
+    fmt.Printf("Toggle bit %d: %08b -> %08b\n", bit_position, a, toggle_bit)
+}
+```
+
+### Example 22: Bit Manipulation Functions and Utilities
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+// Bit manipulation utility functions
+func setBit(value byte, position uint) byte {
+    return value | (1 << position)
+}
+
+func clearBit(value byte, position uint) byte {
+    return value &^ (1 << position)
+}
+
+func toggleBit(value byte, position uint) byte {
+    return value ^ (1 << position)
+}
+
+func isBitSet(value byte, position uint) bool {
+    return (value & (1 << position)) != 0
+}
+
+func countBits(value byte) int {
+    count := 0
+    for value != 0 {
+        count += int(value & 1)
+        value >>= 1
+    }
+    return count
+}
+
+func reverseBits(value byte) byte {
+    result := byte(0)
+    for i := 0; i < 8; i++ {
+        if (value & (1 << i)) != 0 {
+            result |= (1 << (7 - i))
+        }
+    }
+    return result
+}
+
+func rotateLeft(value byte, positions uint) byte {
+    positions %= 8 // Ensure positions is within 0-7
+    return (value << positions) | (value >> (8 - positions))
+}
+
+func rotateRight(value byte, positions uint) byte {
+    positions %= 8
+    return (value >> positions) | (value << (8 - positions))
+}
+
+func main() {
+    value := byte(0b10110101) // 181 in decimal
+    
+    fmt.Printf("Original value: %08b (%d)\n", value, value)
+    fmt.Println()
+    
+    // Test bit manipulation functions
+    fmt.Println("Bit manipulation functions:")
+    
+    // Set bit 2
+    result := setBit(value, 2)
+    fmt.Printf("Set bit 2:     %08b -> %08b\n", value, result)
+    
+    // Clear bit 5
+    result = clearBit(value, 5)
+    fmt.Printf("Clear bit 5:   %08b -> %08b\n", value, result)
+    
+    // Toggle bit 3
+    result = toggleBit(value, 3)
+    fmt.Printf("Toggle bit 3:  %08b -> %08b\n", value, result)
+    
+    // Check if bit 7 is set
+    isSet := isBitSet(value, 7)
+    fmt.Printf("Bit 7 is set: %t\n", isSet)
+    
+    // Count set bits
+    count := countBits(value)
+    fmt.Printf("Number of set bits: %d\n", count)
+    
+    // Reverse bits
+    reversed := reverseBits(value)
+    fmt.Printf("Reversed:      %08b -> %08b\n", value, reversed)
+    
+    // Rotate operations
+    fmt.Println("\nRotation operations:")
+    rotLeft := rotateLeft(value, 3)
+    fmt.Printf("Rotate left 3:  %08b -> %08b\n", value, rotLeft)
+    
+    rotRight := rotateRight(value, 3)
+    fmt.Printf("Rotate right 3: %08b -> %08b\n", value, rotRight)
+    
+    // Working with multiple bytes
+    fmt.Println("\nMultiple byte operations:")
+    data := []byte{0b11110000, 0b00001111, 0b10101010}
+    
+    fmt.Printf("Original: ")
+    for _, b := range data {
+        fmt.Printf("%08b ", b)
+    }
+    fmt.Println()
+    
+    // XOR all bytes together
+    xorResult := byte(0)
+    for _, b := range data {
+        xorResult ^= b
+    }
+    fmt.Printf("XOR result: %08b (%d)\n", xorResult, xorResult)
+    
+    // Count total set bits
+    totalBits := 0
+    for _, b := range data {
+        totalBits += countBits(b)
+    }
+    fmt.Printf("Total set bits: %d\n", totalBits)
+}
+```
+
+### Example 23: Bit Fields and Packed Data Structures
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+// Example: RGB color packed into a single uint32
+// Format: AARRGGBB (Alpha, Red, Green, Blue)
+type Color uint32
+
+func NewColor(alpha, red, green, blue byte) Color {
+    return Color(uint32(alpha)<<24 | uint32(red)<<16 | uint32(green)<<8 | uint32(blue))
+}
+
+func (c Color) Alpha() byte {
+    return byte(c >> 24)
+}
+
+func (c Color) Red() byte {
+    return byte(c >> 16)
+}
+
+func (c Color) Green() byte {
+    return byte(c >> 8)
+}
+
+func (c Color) Blue() byte {
+    return byte(c)
+}
+
+func (c Color) String() string {
+    return fmt.Sprintf("ARGB(%d,%d,%d,%d)", c.Alpha(), c.Red(), c.Green(), c.Blue())
+}
+
+// Example: File permissions packed into a single byte
+type Permissions byte
+
+const (
+    ReadOwner   Permissions = 1 << 0
+    WriteOwner  Permissions = 1 << 1
+    ExecOwner   Permissions = 1 << 2
+    ReadGroup   Permissions = 1 << 3
+    WriteGroup  Permissions = 1 << 4
+    ExecGroup   Permissions = 1 << 5
+    ReadOthers  Permissions = 1 << 6
+    WriteOthers Permissions = 1 << 7
+)
+
+func (p Permissions) HasPermission(perm Permissions) bool {
+    return (p & perm) != 0
+}
+
+func (p *Permissions) GrantPermission(perm Permissions) {
+    *p |= perm
+}
+
+func (p *Permissions) RevokePermission(perm Permissions) {
+    *p &^= perm
+}
+
+func (p Permissions) String() string {
+    var result string
+    
+    // Owner permissions
+    if p.HasPermission(ReadOwner) {
+        result += "r"
+    } else {
+        result += "-"
+    }
+    if p.HasPermission(WriteOwner) {
+        result += "w"
+    } else {
+        result += "-"
+    }
+    if p.HasPermission(ExecOwner) {
+        result += "x"
+    } else {
+        result += "-"
+    }
+    
+    // Group permissions
+    if p.HasPermission(ReadGroup) {
+        result += "r"
+    } else {
+        result += "-"
+    }
+    if p.HasPermission(WriteGroup) {
+        result += "w"
+    } else {
+        result += "-"
+    }
+    if p.HasPermission(ExecGroup) {
+        result += "x"
+    } else {
+        result += "-"
+    }
+    
+    // Others permissions
+    if p.HasPermission(ReadOthers) {
+        result += "r"
+    } else {
+        result += "-"
+    }
+    if p.HasPermission(WriteOthers) {
+        result += "w"
+    } else {
+        result += "-"
+    }
+    
+    return result
+}
+
+func main() {
+    // Color example
+    fmt.Println("Color bit field example:")
+    
+    color := NewColor(255, 128, 64, 32)
+    fmt.Printf("Color: %s\n", color)
+    fmt.Printf("Raw value: 0x%08X\n", uint32(color))
+    fmt.Printf("Binary: %032b\n", uint32(color))
+    
+    fmt.Printf("Alpha: %d (0x%02X)\n", color.Alpha(), color.Alpha())
+    fmt.Printf("Red:   %d (0x%02X)\n", color.Red(), color.Red())
+    fmt.Printf("Green: %d (0x%02X)\n", color.Green(), color.Green())
+    fmt.Printf("Blue:  %d (0x%02X)\n", color.Blue(), color.Blue())
+    
+    // Permissions example
+    fmt.Println("\nPermissions bit field example:")
+    
+    perms := Permissions(0)
+    fmt.Printf("Initial permissions: %s (%08b)\n", perms, byte(perms))
+    
+    // Grant some permissions
+    perms.GrantPermission(ReadOwner | WriteOwner | ExecOwner)
+    perms.GrantPermission(ReadGroup)
+    fmt.Printf("After granting: %s (%08b)\n", perms, byte(perms))
+    
+    // Check specific permissions
+    fmt.Printf("Owner can read: %t\n", perms.HasPermission(ReadOwner))
+    fmt.Printf("Owner can write: %t\n", perms.HasPermission(WriteOwner))
+    fmt.Printf("Others can read: %t\n", perms.HasPermission(ReadOthers))
+    
+    // Revoke a permission
+    perms.RevokePermission(WriteOwner)
+    fmt.Printf("After revoking write: %s (%08b)\n", perms, byte(perms))
+    
+    // Network packet header example
+    fmt.Println("\nNetwork packet header example:")
+    
+    // Simplified TCP header flags (8 bits)
+    var tcpFlags byte = 0
+    
+    const (
+        FIN byte = 1 << 0 // Finish
+        SYN byte = 1 << 1 // Synchronize
+        RST byte = 1 << 2 // Reset
+        PSH byte = 1 << 3 // Push
+        ACK byte = 1 << 4 // Acknowledgment
+        URG byte = 1 << 5 // Urgent
+        ECE byte = 1 << 6 // ECN Echo
+        CWR byte = 1 << 7 // Congestion Window Reduced
+    )
+    
+    // Set SYN and ACK flags (connection establishment)
+    tcpFlags |= SYN | ACK
+    
+    fmt.Printf("TCP Flags: %08b\n", tcpFlags)
+    fmt.Printf("SYN set: %t\n", (tcpFlags & SYN) != 0)
+    fmt.Printf("ACK set: %t\n", (tcpFlags & ACK) != 0)
+    fmt.Printf("FIN set: %t\n", (tcpFlags & FIN) != 0)
+    
+    // Clear SYN flag
+    tcpFlags &^= SYN
+    fmt.Printf("After clearing SYN: %08b\n", tcpFlags)
+}
+```
+
+### Example 24: Bitwise Algorithms and Tricks
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    // Power of 2 detection
+    fmt.Println("Power of 2 detection:")
+    numbers := []int{1, 2, 3, 4, 8, 15, 16, 32, 33}
+    
+    for _, n := range numbers {
+        isPowerOf2 := n > 0 && (n & (n - 1)) == 0
+        fmt.Printf("%d is power of 2: %t\n", n, isPowerOf2)
+    }
+    
+    // Fast multiplication and division by powers of 2
+    fmt.Println("\nFast multiplication/division:")
+    value := 13
+    fmt.Printf("Original: %d\n", value)
+    fmt.Printf("Multiply by 4 (<<2): %d\n", value << 2)
+    fmt.Printf("Multiply by 8 (<<3): %d\n", value << 3)
+    fmt.Printf("Divide by 2 (>>1): %d\n", value >> 1)
+    fmt.Printf("Divide by 4 (>>2): %d\n", value >> 2)
+    
+    // Swap without temporary variable
+    fmt.Println("\nXOR swap:")
+    a, b := 42, 73
+    fmt.Printf("Before swap: a=%d, b=%d\n", a, b)
+    
+    a ^= b
+    b ^= a
+    a ^= b
+    
+    fmt.Printf("After swap: a=%d, b=%d\n", a, b)
+    
+    // Find the only non-duplicate number
+    fmt.Println("\nFind unique number (XOR trick):")
+    duplicates := []int{1, 2, 3, 2, 1, 4, 3} // 4 is unique
+    unique := 0
+    for _, num := range duplicates {
+        unique ^= num
+    }
+    fmt.Printf("Unique number: %d\n", unique)
+    
+    // Count trailing zeros
+    fmt.Println("\nCount trailing zeros:")
+    testNumbers := []byte{8, 12, 16, 24, 32}
+    
+    for _, num := range testNumbers {
+        zeros := countTrailingZeros(num)
+        fmt.Printf("%d (%08b) has %d trailing zeros\n", num, num, zeros)
+    }
+    
+    // Next power of 2
+    fmt.Println("\nNext power of 2:")
+    testVals := []uint32{5, 8, 13, 31, 32, 100}
+    
+    for _, val := range testVals {
+        next := nextPowerOf2(val)
+        fmt.Printf("Next power of 2 after %d: %d\n", val, next)
+    }
+    
+    // Bit interleaving (Morton encoding)
+    fmt.Println("\nBit interleaving (Morton encoding):")
+    x, y := byte(5), byte(3)
+    morton := mortonEncode(x, y)
+    fmt.Printf("Morton encode(%d, %d) = %d (%016b)\n", x, y, morton, morton)
+    
+    decoded_x, decoded_y := mortonDecode(morton)
+    fmt.Printf("Morton decode(%d) = (%d, %d)\n", morton, decoded_x, decoded_y)
+    
+    // Gray code conversion
+    fmt.Println("\nGray code conversion:")
+    for i := byte(0); i < 8; i++ {
+        gray := binaryToGray(i)
+        binary := grayToBinary(gray)
+        fmt.Printf("Binary %d (%03b) -> Gray %d (%03b) -> Binary %d (%03b)\n", 
+            i, i, gray, gray, binary, binary)
+    }
+}
+
+func countTrailingZeros(value byte) int {
+    if value == 0 {
+        return 8
+    }
+    
+    count := 0
+    for (value & 1) == 0 {
+        value >>= 1
+        count++
+    }
+    return count
+}
+
+func nextPowerOf2(value uint32) uint32 {
+    if value == 0 {
+        return 1
+    }
+    
+    value--
+    value |= value >> 1
+    value |= value >> 2
+    value |= value >> 4
+    value |= value >> 8
+    value |= value >> 16
+    value++
+    
+    return value
+}
+
+func mortonEncode(x, y byte) uint16 {
+    var result uint16
+    
+    for i := 0; i < 8; i++ {
+        result |= uint16((x & (1 << i)) << i)
+        result |= uint16((y & (1 << i)) << (i + 1))
+    }
+    
+    return result
+}
+
+func mortonDecode(morton uint16) (byte, byte) {
+    var x, y byte
+    
+    for i := 0; i < 8; i++ {
+        x |= byte((morton & (1 << (i * 2))) >> i)
+        y |= byte((morton & (1 << (i * 2 + 1))) >> (i + 1))
+    }
+    
+    return x, y
+}
+
+func binaryToGray(binary byte) byte {
+    return binary ^ (binary >> 1)
+}
+
+func grayToBinary(gray byte) byte {
+    binary := gray
+    for gray >>= 1; gray != 0; gray >>= 1 {
+        binary ^= gray
+    }
+    return binary
+}
+```
+
+### Example 25: Bit Vectors and Sets
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+// BitSet represents a set of integers using bit manipulation
+type BitSet struct {
+    bits []uint64
+    size int
+}
+
+// NewBitSet creates a new bit set with the specified maximum size
+func NewBitSet(size int) *BitSet {
+    wordCount := (size + 63) / 64 // Round up to nearest multiple of 64
+    return &BitSet{
+        bits: make([]uint64, wordCount),
+        size: size,
+    }
+}
+
+// Set sets the bit at the given position
+func (bs *BitSet) Set(pos int) {
+    if pos < 0 || pos >= bs.size {
+        return
+    }
+    wordIndex := pos / 64
+    bitIndex := pos % 64
+    bs.bits[wordIndex] |= (1 << bitIndex)
+}
+
+// Clear clears the bit at the given position
+func (bs *BitSet) Clear(pos int) {
+    if pos < 0 || pos >= bs.size {
+        return
+    }
+    wordIndex := pos / 64
+    bitIndex := pos % 64
+    bs.bits[wordIndex] &^= (1 << bitIndex)
+}
+
+// Test checks if the bit at the given position is set
+func (bs *BitSet) Test(pos int) bool {
+    if pos < 0 || pos >= bs.size {
+        return false
+    }
+    wordIndex := pos / 64
+    bitIndex := pos % 64
+    return (bs.bits[wordIndex] & (1 << bitIndex)) != 0
+}
+
+// Count returns the number of set bits
+func (bs *BitSet) Count() int {
+    count := 0
+    for _, word := range bs.bits {
+        count += popcount(word)
+    }
+    return count
+}
+
+// Union performs bitwise OR with another BitSet
+func (bs *BitSet) Union(other *BitSet) *BitSet {
+    result := NewBitSet(bs.size)
+    minWords := len(bs.bits)
+    if len(other.bits) < minWords {
+        minWords = len(other.bits)
+    }
+    
+    for i := 0; i < minWords; i++ {
+        result.bits[i] = bs.bits[i] | other.bits[i]
+    }
+    
+    // Copy remaining bits if one set is larger
+    if len(bs.bits) > minWords {
+        copy(result.bits[minWords:], bs.bits[minWords:])
+    }
+    
+    return result
+}
+
+// Intersection performs bitwise AND with another BitSet
+func (bs *BitSet) Intersection(other *BitSet) *BitSet {
+    result := NewBitSet(bs.size)
+    minWords := len(bs.bits)
+    if len(other.bits) < minWords {
+        minWords = len(other.bits)
+    }
+    
+    for i := 0; i < minWords; i++ {
+        result.bits[i] = bs.bits[i] & other.bits[i]
+    }
+    
+    return result
+}
+
+// String returns a string representation of the bit set
+func (bs *BitSet) String() string {
+    result := "{"
+    first := true
+    
+    for i := 0; i < bs.size; i++ {
+        if bs.Test(i) {
+            if !first {
+                result += ", "
+            }
+            result += fmt.Sprintf("%d", i)
+            first = false
+        }
+    }
+    
+    result += "}"
+    return result
+}
+
+// popcount counts the number of set bits in a uint64
+func popcount(x uint64) int {
+    count := 0
+    for x != 0 {
+        count++
+        x &= x - 1 // Clear the lowest set bit
+    }
+    return count
+}
+
+func main() {
+    fmt.Println("BitSet operations:")
+    
+    // Create bit sets
+    set1 := NewBitSet(100)
+    set2 := NewBitSet(100)
+    
+    // Add some elements to set1
+    elements1 := []int{1, 5, 10, 15, 20, 25}
+    for _, elem := range elements1 {
+        set1.Set(elem)
+    }
+    
+    // Add some elements to set2
+    elements2 := []int{5, 10, 30, 35, 40}
+    for _, elem := range elements2 {
+        set2.Set(elem)
+    }
+    
+    fmt.Printf("Set1: %s\n", set1)
+    fmt.Printf("Set2: %s\n", set2)
+    fmt.Printf("Set1 count: %d\n", set1.Count())
+    fmt.Printf("Set2 count: %d\n", set2.Count())
+    
+    // Test membership
+    fmt.Printf("5 in set1: %t\n", set1.Test(5))
+    fmt.Printf("7 in set1: %t\n", set1.Test(7))
+    
+    // Set operations
+    union := set1.Union(set2)
+    fmt.Printf("Union: %s (count: %d)\n", union, union.Count())
+    
+    intersection := set1.Intersection(set2)
+    fmt.Printf("Intersection: %s (count: %d)\n", intersection, intersection.Count())
+    
+    // Practical example: Sieve of Eratosthenes
+    fmt.Println("\nSieve of Eratosthenes using BitSet:")
+    
+    limit := 100
+    sieve := NewBitSet(limit + 1)
+    
+    // Initially, assume all numbers are prime
+    for i := 2; i <= limit; i++ {
+        sieve.Set(i)
+    }
+    
+    // Sieve algorithm
+    for i := 2; i*i <= limit; i++ {
+        if sieve.Test(i) {
+            // Mark multiples of i as composite
+            for j := i * i; j <= limit; j += i {
+                sieve.Clear(j)
+            }
+        }
+    }
+    
+    // Collect primes
+    var primes []int
+    for i := 2; i <= limit; i++ {
+        if sieve.Test(i) {
+            primes = append(primes, i)
+        }
+    }
+    
+    fmt.Printf("Primes up to %d: %v\n", limit, primes[:20]) // Show first 20
+    fmt.Printf("Total primes found: %d\n", len(primes))
+    
+    // Bloom filter simulation
+    fmt.Println("\nSimple Bloom Filter simulation:")
+    
+    bloomSize := 1000
+    bloom := NewBitSet(bloomSize)
+    
+    // Simple hash functions
+    hash1 := func(s string) int {
+        h := 0
+        for _, c := range s {
+            h = (h*31 + int(c)) % bloomSize
+        }
+        return h
+    }
+    
+    hash2 := func(s string) int {
+        h := 0
+        for _, c := range s {
+            h = (h*37 + int(c)) % bloomSize
+        }
+        return h
+    }
+    
+    // Add items to bloom filter
+    items := []string{"apple", "banana", "cherry", "date"}
+    for _, item := range items {
+        bloom.Set(hash1(item))
+        bloom.Set(hash2(item))
+    }
+    
+    // Test membership
+    testItems := []string{"apple", "grape", "banana", "kiwi"}
+    for _, item := range testItems {
+        inFilter := bloom.Test(hash1(item)) && bloom.Test(hash2(item))
+        fmt.Printf("'%s' might be in set: %t\n", item, inFilter)
+    }
+}
+```
+
+### Example 26: Bit Streaming and Bit-Level I/O
+
+```go
+package main
+
+import (
+    "fmt"
+    "io"
+    "strings"
+)
+
+// BitWriter allows writing individual bits to a stream
+type BitWriter struct {
+    writer   io.Writer
+    buffer   byte
+    bitCount int
+}
+
+func NewBitWriter(w io.Writer) *BitWriter {
+    return &BitWriter{writer: w}
+}
+
+// WriteBit writes a single bit (0 or 1)
+func (bw *BitWriter) WriteBit(bit byte) error {
+    if bit != 0 {
+        bw.buffer |= (1 << (7 - bw.bitCount))
+    }
+    bw.bitCount++
+    
+    if bw.bitCount == 8 {
+        _, err := bw.writer.Write([]byte{bw.buffer})
+        bw.buffer = 0
+        bw.bitCount = 0
+        return err
+    }
+    
+    return nil
+}
+
+// WriteBits writes multiple bits from a byte
+func (bw *BitWriter) WriteBits(value byte, numBits int) error {
+    for i := numBits - 1; i >= 0; i-- {
+        bit := (value >> i) & 1
+        if err := bw.WriteBit(bit); err != nil {
+            return err
+        }
+    }
+    return nil
+}
+
+// Flush writes any remaining bits in the buffer
+func (bw *BitWriter) Flush() error {
+    if bw.bitCount > 0 {
+        _, err := bw.writer.Write([]byte{bw.buffer})
+        bw.buffer = 0
+        bw.bitCount = 0
+        return err
+    }
+    return nil
+}
+
+// BitReader allows reading individual bits from a stream
+type BitReader struct {
+    reader   io.Reader
+    buffer   byte
+    bitCount int
+}
+
+func NewBitReader(r io.Reader) *BitReader {
+    return &BitReader{reader: r}
+}
+
+// ReadBit reads a single bit
+func (br *BitReader) ReadBit() (byte, error) {
+    if br.bitCount == 0 {
+        data := make([]byte, 1)
+        n, err := br.reader.Read(data)
+        if err != nil {
+            return 0, err
+        }
+        if n == 0 {
+            return 0, io.EOF
+        }
+        br.buffer = data[0]
+        br.bitCount = 8
+    }
+    
+    bit := (br.buffer >> (br.bitCount - 1)) & 1
+    br.bitCount--
+    
+    return bit, nil
+}
+
+// ReadBits reads multiple bits into a byte
+func (br *BitReader) ReadBits(numBits int) (byte, error) {
+    var result byte
+    
+    for i := 0; i < numBits; i++ {
+        bit, err := br.ReadBit()
+        if err != nil {
+            return 0, err
+        }
+        result = (result << 1) | bit
+    }
+    
+    return result, nil
+}
+
+func main() {
+    fmt.Println("Bit-level I/O operations:")
+    
+    // Create a buffer to write to
+    var buffer strings.Builder
+    
+    // Write some bits
+    bitWriter := NewBitWriter(&buffer)
+    
+    // Write individual bits: 1, 0, 1, 1, 0, 1, 0, 0
+    bits := []byte{1, 0, 1, 1, 0, 1, 0, 0}
+    fmt.Printf("Writing bits: ")
+    for _, bit := range bits {
+        fmt.Printf("%d", bit)
+        bitWriter.WriteBit(bit)
+    }
+    fmt.Println()
+    
+    // Write some multi-bit values
+    bitWriter.WriteBits(0b101, 3)  // Write 3 bits: 101
+    bitWriter.WriteBits(0b1100, 4) // Write 4 bits: 1100
+    bitWriter.WriteBits(0b1, 1)    // Write 1 bit: 1
+    
+    bitWriter.Flush()
+    
+    // Read the data back
+    written := buffer.String()
+    fmt.Printf("Written data: %v\n", []byte(written))
+    fmt.Printf("As binary: ")
+    for _, b := range []byte(written) {
+        fmt.Printf("%08b ", b)
+    }
+    fmt.Println()
+    
+    // Read bits back
+    bitReader := NewBitReader(strings.NewReader(written))
+    
+    fmt.Printf("Reading bits: ")
+    for i := 0; i < len(bits); i++ {
+        bit, err := bitReader.ReadBit()
+        if err != nil {
+            break
+        }
+        fmt.Printf("%d", bit)
+    }
+    fmt.Println()
+    
+    // Read multi-bit values
+    val1, _ := bitReader.ReadBits(3)
+    val2, _ := bitReader.ReadBits(4)
+    val3, _ := bitReader.ReadBits(1)
+    
+    fmt.Printf("Read 3 bits: %03b (%d)\n", val1, val1)
+    fmt.Printf("Read 4 bits: %04b (%d)\n", val2, val2)
+    fmt.Printf("Read 1 bit:  %01b (%d)\n", val3, val3)
+    
+    // Practical example: Simple compression
+    fmt.Println("\nSimple bit-based compression:")
+    
+    // Compress a string where each character is represented by fewer bits
+    text := "AAABBBCCC"
+    compressed := compressString(text)
+    decompressed := decompressString(compressed)
+    
+    fmt.Printf("Original: %s (%d bytes)\n", text, len(text))
+    fmt.Printf("Compressed: %v (%d bytes)\n", compressed, len(compressed))
+    fmt.Printf("Decompressed: %s\n", decompressed)
+    fmt.Printf("Compression ratio: %.2f%%\n", float64(len(compressed))/float64(len(text))*100)
+}
+
+// Simple compression: A=00, B=01, C=10, D=11
+func compressString(s string) []byte {
+    var buffer strings.Builder
+    bitWriter := NewBitWriter(&buffer)
+    
+    for _, c := range s {
+        switch c {
+        case 'A':
+            bitWriter.WriteBits(0b00, 2)
+        case 'B':
+            bitWriter.WriteBits(0b01, 2)
+        case 'C':
+            bitWriter.WriteBits(0b10, 2)
+        case 'D':
+            bitWriter.WriteBits(0b11, 2)
+        }
+    }
+    
+    bitWriter.Flush()
+    return []byte(buffer.String())
+}
+
+func decompressString(data []byte) string {
+    bitReader := NewBitReader(strings.NewReader(string(data)))
+    var result strings.Builder
+    
+    for {
+        bits, err := bitReader.ReadBits(2)
+        if err != nil {
+            break
+        }
+        
+        switch bits {
+        case 0b00:
+            result.WriteByte('A')
+        case 0b01:
+            result.WriteByte('B')
+        case 0b10:
+            result.WriteByte('C')
+        case 0b11:
+            result.WriteByte('D')
+        }
+    }
+    
+    return result.String()
+}
+```
+
+### Example 27: Hamming Codes and Error Detection
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+// HammingCode implements simple Hamming(7,4) error correction
+type HammingCode struct{}
+
+func NewHammingCode() *HammingCode {
+    return &HammingCode{}
+}
+
+// Encode encodes 4 data bits into 7 bits with parity
+func (h *HammingCode) Encode(data byte) byte {
+    // Extract 4 data bits (assume they're in lower 4 bits)
+    d1 := (data >> 0) & 1
+    d2 := (data >> 1) & 1
+    d3 := (data >> 2) & 1
+    d4 := (data >> 3) & 1
+    
+    // Calculate parity bits
+    p1 := d1 ^ d2 ^ d4         // Parity for positions 1,2,4
+    p2 := d1 ^ d3 ^ d4         // Parity for positions 1,3,4
+    p3 := d2 ^ d3 ^ d4         // Parity for positions 2,3,4
+    
+    // Construct 7-bit codeword: p1 p2 d1 p3 d2 d3 d4
+    result := byte(0)
+    result |= p1 << 6
+    result |= p2 << 5
+    result |= d1 << 4
+    result |= p3 << 3
+    result |= d2 << 2
+    result |= d3 << 1
+    result |= d4 << 0
+    
+    return result
+}
+
+// Decode decodes 7 bits and corrects single-bit errors
+func (h *HammingCode) Decode(codeword byte) (byte, bool) {
+    // Extract bits from codeword
+    p1 := (codeword >> 6) & 1
+    p2 := (codeword >> 5) & 1
+    d1 := (codeword >> 4) & 1
+    p3 := (codeword >> 3) & 1
+    d2 := (codeword >> 2) & 1
+    d3 := (codeword >> 1) & 1
+    d4 := (codeword >> 0) & 1
+    
+    // Calculate syndrome (error detection)
+    s1 := p1 ^ d1 ^ d2 ^ d4
+    s2 := p2 ^ d1 ^ d3 ^ d4
+    s3 := p3 ^ d2 ^ d3 ^ d4
+    
+    syndrome := (s3 << 2) | (s2 << 1) | s1
+    
+    corrected := false
+    if syndrome != 0 {
+        // Error detected, correct it
+        errorPos := syndrome
+        codeword ^= (1 << (7 - errorPos))
+        corrected = true
+        
+        // Re-extract corrected data bits
+        d1 = (codeword >> 4) & 1
+        d2 = (codeword >> 2) & 1
+        d3 = (codeword >> 1) & 1
+        d4 = (codeword >> 0) & 1
+    }
+    
+    // Reconstruct original 4-bit data
+    data := (d4 << 3) | (d3 << 2) | (d2 << 1) | d1
+    
+    return data, corrected
+}
+
+// Simple checksum functions
+func calculateChecksum8(data []byte) byte {
+    var sum byte
+    for _, b := range data {
+        sum += b
+    }
+    return ^sum + 1 // Two's complement
+}
+
+func calculateCRC8(data []byte) byte {
+    const polynomial byte = 0xD5 // x^8 + x^7 + x^6 + x^4 + x^2 + 1
+    
+    crc := byte(0)
+    for _, b := range data {
+        crc ^= b
+        for i := 0; i < 8; i++ {
+            if (crc & 0x80) != 0 {
+                crc = (crc << 1) ^ polynomial
+            } else {
+                crc <<= 1
+            }
+        }
+    }
+    
+    return crc
+}
+
+// Parity calculation functions
+func calculateEvenParity(data byte) byte {
+    parity := byte(0)
+    temp := data
+    
+    for temp != 0 {
+        parity ^= 1
+        temp &= temp - 1 // Remove rightmost set bit
+    }
+    
+    return parity
+}
+
+func calculateOddParity(data byte) byte {
+    return calculateEvenParity(data) ^ 1
+}
+
+func main() {
+    fmt.Println("Error detection and correction:")
+    
+    // Hamming code example
+    hamming := NewHammingCode()
+    
+    originalData := byte(0b1011) // 4-bit data: 11 in decimal
+    encoded := hamming.Encode(originalData)
+    
+    fmt.Printf("Original data: %04b (%d)\n", originalData, originalData)
+    fmt.Printf("Encoded: %07b\n", encoded)
+    
+    // Simulate transmission without error
+    decoded, corrected := hamming.Decode(encoded)
+    fmt.Printf("Decoded: %04b (%d), corrected: %t\n", decoded, decoded, corrected)
+    
+    // Simulate single-bit error
+    corruptedBit := 3 // Flip bit at position 3
+    corrupted := encoded ^ (1 << corruptedBit)
+    fmt.Printf("Corrupted (bit %d flipped): %07b\n", corruptedBit, corrupted)
+    
+    decoded, corrected = hamming.Decode(corrupted)
+    fmt.Printf("Decoded after correction: %04b (%d), corrected: %t\n", decoded, decoded, corrected)
+    
+    // Checksum examples
+    fmt.Println("\nChecksum calculations:")
+    
+    testData := []byte{0x12, 0x34, 0x56, 0x78}
+    fmt.Printf("Test data: %v\n", testData)
+    
+    checksum8 := calculateChecksum8(testData)
+    fmt.Printf("8-bit checksum: 0x%02X\n", checksum8)
+    
+    // Verify checksum
+    dataWithChecksum := append(testData, checksum8)
+    verifySum := calculateChecksum8(dataWithChecksum)
+    fmt.Printf("Verification (should be 0): 0x%02X\n", verifySum)
+    
+    crc8 := calculateCRC8(testData)
+    fmt.Printf("CRC-8: 0x%02X\n", crc8)
+    
+    // Parity examples
+    fmt.Println("\nParity calculations:")
+    
+    parityTestData := []byte{0b10110100, 0b11111111, 0b00000001, 0b10101010}
+    
+    for _, data := range parityTestData {
+        evenParity := calculateEvenParity(data)
+        oddParity := calculateOddParity(data)
+        
+        fmt.Printf("Data: %08b, Even parity: %d, Odd parity: %d\n", 
+            data, evenParity, oddParity)
+    }
+    
+    // Error detection simulation
+    fmt.Println("\nError detection simulation:")
+    
+    message := []byte("Hello")
+    originalCRC := calculateCRC8(message)
+    
+    fmt.Printf("Original message: %s\n", string(message))
+    fmt.Printf("Original CRC: 0x%02X\n", originalCRC)
+    
+    // Simulate corruption
+    corruptedMessage := make([]byte, len(message))
+    copy(corruptedMessage, message)
+    corruptedMessage[1] ^= 0x01 // Flip one bit
+    
+    corruptedCRC := calculateCRC8(corruptedMessage)
+    
+    fmt.Printf("Corrupted message: %s\n", string(corruptedMessage))
+    fmt.Printf("Corrupted CRC: 0x%02X\n", corruptedCRC)
+    fmt.Printf("Error detected: %t\n", originalCRC != corruptedCRC)
+}
+```
+
+### Example 28: Bitwise Cryptographic Operations
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+// Simple XOR cipher implementation
+func xorCipher(data []byte, key []byte) []byte {
+    result := make([]byte, len(data))
+    keyLen := len(key)
+    
+    for i, b := range data {
+        result[i] = b ^ key[i%keyLen]
+    }
+    
+    return result
+}
+
+// Linear feedback shift register (LFSR) for pseudorandom number generation
+type LFSR struct {
+    state    uint16
+    taps     uint16
+    period   int
+    position int
+}
+
+func NewLFSR(seed uint16, taps uint16) *LFSR {
+    return &LFSR{
+        state: seed,
+        taps:  taps,
+    }
+}
+
+func (l *LFSR) Next() byte {
+    // Calculate feedback bit
+    feedback := l.state & l.taps
+    
+    // Count number of 1s in feedback (parity)
+    parity := byte(0)
+    for feedback != 0 {
+        parity ^= 1
+        feedback &= feedback - 1
+    }
+    
+    // Shift register and insert feedback bit
+    l.state = (l.state >> 1) | (uint16(parity) << 15)
+    l.position++
+    
+    return byte(l.state & 0xFF)
+}
+
+// Simple substitution cipher using bit manipulation
+func substitutionEncrypt(data []byte, sbox [256]byte) []byte {
+    result := make([]byte, len(data))
+    for i, b := range data {
+        result[i] = sbox[b]
+    }
+    return result
+}
+
+func substitutionDecrypt(data []byte, sbox [256]byte) []byte {
+    // Create inverse S-box
+    var invSbox [256]byte
+    for i := 0; i < 256; i++ {
+        invSbox[sbox[i]] = byte(i)
+    }
+    
+    result := make([]byte, len(data))
+    for i, b := range data {
+        result[i] = invSbox[b]
+    }
+    return result
+}
+
+// Feistel network structure (simplified)
+func feistelRound(left, right uint32, key uint32) (uint32, uint32) {
+    // Simple F function using XOR and rotation
+    f := ((right ^ key) << 3) | ((right ^ key) >> 29)
+    newLeft := right
+    newRight := left ^ f
+    return newLeft, newRight
+}
+
+func feistelEncrypt(block uint64, keys []uint32) uint64 {
+    left := uint32(block >> 32)
+    right := uint32(block & 0xFFFFFFFF)
+    
+    for _, key := range keys {
+        left, right = feistelRound(left, right, key)
+    }
+    
+    return (uint64(left) << 32) | uint64(right)
+}
+
+func feistelDecrypt(block uint64, keys []uint32) uint64 {
+    left := uint32(block >> 32)
+    right := uint32(block & 0xFFFFFFFF)
+    
+    // Apply keys in reverse order
+    for i := len(keys) - 1; i >= 0; i-- {
+        left, right = feistelRound(left, right, keys[i])
+    }
+    
+    return (uint64(left) << 32) | uint64(right)
+}
+
+func main() {
+    fmt.Println("Bitwise cryptographic operations:")
+    
+    // XOR cipher example
+    fmt.Println("1. XOR Cipher:")
+    plaintext := []byte("Secret Message")
+    key := []byte("KEY")
+    
+    fmt.Printf("Plaintext: %s\n", string(plaintext))
+    fmt.Printf("Key: %s\n", string(key))
+    
+    encrypted := xorCipher(plaintext, key)
+    fmt.Printf("Encrypted: %v\n", encrypted)
+    fmt.Printf("Encrypted (hex): %x\n", encrypted)
+    
+    decrypted := xorCipher(encrypted, key) // XOR is self-inverse
+    fmt.Printf("Decrypted: %s\n", string(decrypted))
+    
+    // LFSR pseudorandom generator
+    fmt.Println("\n2. LFSR Pseudorandom Generator:")
+    
+    // 16-bit LFSR with taps at positions 16, 14, 13, 11 (polynomial: x^16 + x^14 + x^13 + x^11 + 1)
+    lfsr := NewLFSR(0xACE1, 0xB400)
+    
+    fmt.Print("Random bytes: ")
+    for i := 0; i < 16; i++ {
+        fmt.Printf("%02X ", lfsr.Next())
+    }
+    fmt.Println()
+    
+    // One-time pad simulation
+    fmt.Println("\n3. One-Time Pad:")
+    
+    message := []byte("TOP SECRET")
+    pad := make([]byte, len(message))
+    
+    // Generate random pad using LFSR
+    lfsr2 := NewLFSR(0x1337, 0xB400)
+    for i := range pad {
+        pad[i] = lfsr2.Next()
+    }
+    
+    fmt.Printf("Message: %s\n", string(message))
+    fmt.Printf("Pad: %x\n", pad)
+    
+    otpEncrypted := xorCipher(message, pad)
+    fmt.Printf("OTP Encrypted: %x\n", otpEncrypted)
+    
+    otpDecrypted := xorCipher(otpEncrypted, pad)
+    fmt.Printf("OTP Decrypted: %s\n", string(otpDecrypted))
+    
+    // Substitution cipher
+    fmt.Println("\n4. Substitution Cipher:")
+    
+    // Create a simple substitution box (S-box)
+    var sbox [256]byte
+    for i := 0; i < 256; i++ {
+        sbox[i] = byte((i * 37 + 123) % 256) // Simple permutation
+    }
+    
+    subMessage := []byte("Hello World")
+    fmt.Printf("Original: %s\n", string(subMessage))
+    
+    subEncrypted := substitutionEncrypt(subMessage, sbox)
+    fmt.Printf("Substitution encrypted: %x\n", subEncrypted)
+    
+    subDecrypted := substitutionDecrypt(subEncrypted, sbox)
+    fmt.Printf("Substitution decrypted: %s\n", string(subDecrypted))
+    
+    // Feistel network
+    fmt.Println("\n5. Feistel Network:")
+    
+    keys := []uint32{0x12345678, 0x9ABCDEF0, 0x87654321, 0x0FEDCBA9}
+    block := uint64(0x123456789ABCDEF0)
+    
+    fmt.Printf("Original block: %016X\n", block)
+    
+    encrypted := feistelEncrypt(block, keys)
+    fmt.Printf("Encrypted: %016X\n", encrypted)
+    
+    decrypted := feistelDecrypt(encrypted, keys)
+    fmt.Printf("Decrypted: %016X\n", decrypted)
+    
+    // Bit permutation
+    fmt.Println("\n6. Bit Permutation:")
+    
+    data := byte(0b10110100)
+    fmt.Printf("Original: %08b\n", data)
+    
+    // Simple bit permutation: reverse the bits
+    permuted := byte(0)
+    for i := 0; i < 8; i++ {
+        if (data & (1 << i)) != 0 {
+            permuted |= (1 << (7 - i))
+        }
+    }
+    
+    fmt.Printf("Bit-reversed: %08b\n", permuted)
+    
+    // More complex permutation table
+    permTable := []int{7, 3, 5, 1, 6, 2, 4, 0} // Permutation of bit positions
+    permuted2 := byte(0)
+    
+    for i := 0; i < 8; i++ {
+        if (data & (1 << i)) != 0 {
+            permuted2 |= (1 << permTable[i])
+        }
+    }
+    
+    fmt.Printf("Table permuted: %08b\n", permuted2)
+}
+```
+
+### Example 29: Binary Data Compression Techniques
+
+```go
+package main
+
+import (
+    "fmt"
+    "sort"
+)
+
+// Run-length encoding
+func runLengthEncode(data []byte) []byte {
+    if len(data) == 0 {
+        return nil
+    }
+    
+    var result []byte
+    count := 1
+    current := data[0]
+    
+    for i := 1; i < len(data); i++ {
+        if data[i] == current && count < 255 {
+            count++
+        } else {
+            result = append(result, byte(count), current)
+            current = data[i]
+            count = 1
+        }
+    }
+    
+    // Add the last run
+    result = append(result, byte(count), current)
+    return result
+}
+
+func runLengthDecode(data []byte) []byte {
+    var result []byte
+    
+    for i := 0; i < len(data); i += 2 {
+        if i+1 >= len(data) {
+            break
+        }
+        
+        count := data[i]
+        value := data[i+1]
+        
+        for j := 0; j < int(count); j++ {
+            result = append(result, value)
+        }
+    }
+    
+    return result
+}
+
+// Huffman coding structures
+type HuffmanNode struct {
+    Value     byte
+    Frequency int
+    Left      *HuffmanNode
+    Right     *HuffmanNode
+}
+
+type HuffmanTree struct {
+    Root  *HuffmanNode
+    Codes map[byte]string
+}
+
+func buildHuffmanTree(frequencies map[byte]int) *HuffmanTree {
+    // Create leaf nodes
+    var nodes []*HuffmanNode
+    for value, freq := range frequencies {
+        nodes = append(nodes, &HuffmanNode{
+            Value:     value,
+            Frequency: freq,
+        })
+    }
+    
+    // Sort by frequency
+    sort.Slice(nodes, func(i, j int) bool {
+        return nodes[i].Frequency < nodes[j].Frequency
+    })
+    
+    // Build tree
+    for len(nodes) > 1 {
+        left := nodes[0]
+        right := nodes[1]
+        nodes = nodes[2:]
+        
+        parent := &HuffmanNode{
+            Frequency: left.Frequency + right.Frequency,
+            Left:      left,
+            Right:     right,
+        }
+        
+        // Insert parent in sorted order
+        inserted := false
+        for i := 0; i < len(nodes); i++ {
+            if parent.Frequency <= nodes[i].Frequency {
+                nodes = append(nodes[:i], append([]*HuffmanNode{parent}, nodes[i:]...)...)
+                inserted = true
+                break
+            }
+        }
+        if !inserted {
+            nodes = append(nodes, parent)
+        }
+    }
+    
+    tree := &HuffmanTree{
+        Root:  nodes[0],
+        Codes: make(map[byte]string),
+    }
+    
+    // Generate codes
+    tree.generateCodes(tree.Root, "")
+    
+    return tree
+}
+
+func (ht *HuffmanTree) generateCodes(node *HuffmanNode, code string) {
+    if node == nil {
+        return
+    }
+    
+    if node.Left == nil && node.Right == nil {
+        // Leaf node
+        ht.Codes[node.Value] = code
+        if code == "" {
+            ht.Codes[node.Value] = "0" // Single character case
+        }
+        return
+    }
+    
+    ht.generateCodes(node.Left, code+"0")
+    ht.generateCodes(node.Right, code+"1")
+}
+
+func calculateFrequencies(data []byte) map[byte]int {
+    frequencies := make(map[byte]int)
+    for _, b := range data {
+        frequencies[b]++
+    }
+    return frequencies
+}
+
+// Delta encoding
+func deltaEncode(data []byte) []byte {
+    if len(data) == 0 {
+        return nil
+    }
+    
+    result := make([]byte, len(data))
+    result[0] = data[0]
+    
+    for i := 1; i < len(data); i++ {
+        result[i] = data[i] - data[i-1]
+    }
+    
+    return result
+}
+
+func deltaDecode(data []byte) []byte {
+    if len(data) == 0 {
+        return nil
+    }
+    
+    result := make([]byte, len(data))
+    result[0] = data[0]
+    
+    for i := 1; i < len(data); i++ {
+        result[i] = result[i-1] + data[i]
+    }
+    
+    return result
+}
+
+// Bit packing for small integers
+func packBits(values []byte, bitsPerValue int) []byte {
+    if bitsPerValue <= 0 || bitsPerValue > 8 {
+        return nil
+    }
+    
+    totalBits := len(values) * bitsPerValue
+    resultSize := (totalBits + 7) / 8 // Round up to byte boundary
+    result := make([]byte, resultSize)
+    
+    bitPos := 0
+    for _, value := range values {
+        // Mask to ensure we only use the specified number of bits
+        mask := byte((1 << bitsPerValue) - 1)
+        value &= mask
+        
+        // Pack bits
+        for i := 0; i < bitsPerValue; i++ {
+            if (value & (1 << (bitsPerValue - 1 - i))) != 0 {
+                byteIndex := bitPos / 8
+                bitIndex := bitPos % 8
+                result[byteIndex] |= (1 << (7 - bitIndex))
+            }
+            bitPos++
+        }
+    }
+    
+    return result
+}
+
+func unpackBits(data []byte, bitsPerValue int, numValues int) []byte {
+    if bitsPerValue <= 0 || bitsPerValue > 8 {
+        return nil
+    }
+    
+    result := make([]byte, numValues)
+    bitPos := 0
+    
+    for i := 0; i < numValues; i++ {
+        value := byte(0)
+        
+        for j := 0; j < bitsPerValue; j++ {
+            byteIndex := bitPos / 8
+            bitIndex := bitPos % 8
+            
+            if byteIndex >= len(data) {
+                break
+            }
+            
+            if (data[byteIndex] & (1 << (7 - bitIndex))) != 0 {
+                value |= (1 << (bitsPerValue - 1 - j))
+            }
+            bitPos++
+        }
+        
+        result[i] = value
+    }
+    
+    return result
+}
+
+func main() {
+    fmt.Println("Binary data compression techniques:")
+    
+    // Run-length encoding
+    fmt.Println("1. Run-Length Encoding:")
+    
+    rleData := []byte{0xAA, 0xAA, 0xAA, 0xBB, 0xBB, 0xCC, 0xCC, 0xCC, 0xCC}
+    fmt.Printf("Original: %v (%d bytes)\n", rleData, len(rleData))
+    
+    rleEncoded := runLengthEncode(rleData)
+    fmt.Printf("RLE encoded: %v (%d bytes)\n", rleEncoded, len(rleEncoded))
+    
+    rleDecoded := runLengthDecode(rleEncoded)
+    fmt.Printf("RLE decoded: %v\n", rleDecoded)
+    fmt.Printf("Compression ratio: %.2f%%\n", float64(len(rleEncoded))/float64(len(rleData))*100)
+    
+    // Huffman coding
+    fmt.Println("\n2. Huffman Coding:")
+    
+    huffmanData := []byte("ABRACADABRA")
+    fmt.Printf("Original: %s (%d bytes)\n", string(huffmanData), len(huffmanData))
+    
+    frequencies := calculateFrequencies(huffmanData)
+    fmt.Printf("Frequencies: %v\n", frequencies)
+    
+    huffmanTree := buildHuffmanTree(frequencies)
+    fmt.Printf("Huffman codes: %v\n", huffmanTree.Codes)
+    
+    // Calculate compressed size
+    compressedBits := 0
+    for _, b := range huffmanData {
+        compressedBits += len(huffmanTree.Codes[b])
+    }
+    compressedBytes := (compressedBits + 7) / 8
+    
+    fmt.Printf("Compressed size: %d bits (%d bytes)\n", compressedBits, compressedBytes)
+    fmt.Printf("Compression ratio: %.2f%%\n", float64(compressedBytes)/float64(len(huffmanData))*100)
+    
+    // Delta encoding
+    fmt.Println("\n3. Delta Encoding:")
+    
+    deltaData := []byte{10, 12, 15, 16, 18, 20, 21, 23}
+    fmt.Printf("Original: %v\n", deltaData)
+    
+    deltaEncoded := deltaEncode(deltaData)
+    fmt.Printf("Delta encoded: %v\n", deltaEncoded)
+    
+    deltaDecoded := deltaDecode(deltaEncoded)
+    fmt.Printf("Delta decoded: %v\n", deltaDecoded)
+    
+    // Bit packing
+    fmt.Println("\n4. Bit Packing:")
+    
+    // Pack values that only need 3 bits each (0-7)
+    packData := []byte{0, 1, 2, 3, 4, 5, 6, 7}
+    fmt.Printf("Original (8 bytes): %v\n", packData)
+    
+    packed := packBits(packData, 3)
+    fmt.Printf("Packed (3 bits each): %v (%d bytes)\n", packed, len(packed))
+    
+    unpacked := unpackBits(packed, 3, len(packData))
+    fmt.Printf("Unpacked: %v\n", unpacked)
+    fmt.Printf("Compression ratio: %.2f%%\n", float64(len(packed))/float64(len(packData))*100)
+    
+    // Demonstration with binary representation
+    fmt.Println("\nBit packing visualization:")
+    fmt.Printf("Original values (3 bits each): ")
+    for _, v := range packData {
+        fmt.Printf("%03b ", v)
+    }
+    fmt.Println()
+    
+    fmt.Printf("Packed bytes: ")
+    for _, b := range packed {
+        fmt.Printf("%08b ", b)
+    }
+    fmt.Println()
+}
+```
+
+### Example 30: Advanced Bit Manipulation Patterns
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+// Bit twiddling hacks and optimization patterns
+
+// Check if a number is a power of 2
+func isPowerOfTwo(n uint32) bool {
+    return n != 0 && (n&(n-1)) == 0
+}
+
+// Find the next power of 2 greater than or equal to n
+func nextPowerOfTwo(n uint32) uint32 {
+    if n == 0 {
+        return 1
+    }
+    n--
+    n |= n >> 1
+    n |= n >> 2
+    n |= n >> 4
+    n |= n >> 8
+    n |= n >> 16
+    n++
+    return n
+}
+
+// Count leading zeros
+func countLeadingZeros(n uint32) int {
+    if n == 0 {
+        return 32
+    }
+    
+    count := 0
+    if n <= 0x0000FFFF {
+        count += 16
+        n <<= 16
+    }
+    if n <= 0x00FFFFFF {
+        count += 8
+        n <<= 8
+    }
+    if n <= 0x0FFFFFFF {
+        count += 4
+        n <<= 4
+    }
+    if n <= 0x3FFFFFFF {
+        count += 2
+        n <<= 2
+    }
+    if n <= 0x7FFFFFFF {
+        count += 1
+    }
+    
+    return count
+}
+
+// Population count (count set bits) - Brian Kernighan's algorithm
+func popCount(n uint32) int {
+    count := 0
+    for n != 0 {
+        n &= n - 1 // Clear the lowest set bit
+        count++
+    }
+    return count
+}
+
+// Parallel bit counting
+func popCountParallel(n uint32) int {
+    // SWAR (SIMD Within A Register) technique
+    n = n - ((n >> 1) & 0x55555555)
+    n = (n & 0x33333333) + ((n >> 2) & 0x33333333)
+    n = (n + (n >> 4)) & 0x0F0F0F0F
+    n = n + (n >> 8)
+    n = n + (n >> 16)
+    return int(n & 0x3F)
+}
+
+// Reverse bits in a 32-bit integer
+func reverseBits32(n uint32) uint32 {
+    n = ((n & 0xAAAAAAAA) >> 1) | ((n & 0x55555555) << 1)
+    n = ((n & 0xCCCCCCCC) >> 2) | ((n & 0x33333333) << 2)
+    n = ((n & 0xF0F0F0F0) >> 4) | ((n & 0x0F0F0F0F) << 4)
+    n = ((n & 0xFF00FF00) >> 8) | ((n & 0x00FF00FF) << 8)
+    n = (n >> 16) | (n << 16)
+    return n
+}
+
+// Find the position of the least significant set bit
+func findLSB(n uint32) int {
+    if n == 0 {
+        return -1
+    }
+    
+    // Isolate the rightmost set bit
+    isolated := n & (-n)
+    
+    // Count trailing zeros
+    count := 0
+    for isolated > 1 {
+        isolated >>= 1
+        count++
+    }
+    
+    return count
+}
+
+// Find the position of the most significant set bit
+func findMSB(n uint32) int {
+    if n == 0 {
+        return -1
+    }
+    
+    position := 0
+    if n >= 1<<16 {
+        n >>= 16
+        position += 16
+    }
+    if n >= 1<<8 {
+        n >>= 8
+        position += 8
+    }
+    if n >= 1<<4 {
+        n >>= 4
+        position += 4
+    }
+    if n >= 1<<2 {
+        n >>= 2
+        position += 2
+    }
+    if n >= 1<<1 {
+        position += 1
+    }
+    
+    return position
+}
+
+// Multiply by 3/4 using bit operations
+func multiplyBy3Div4(n uint32) uint32 {
+    return (n + (n >> 1)) >> 1
+}
+
+// Check if two numbers have opposite signs
+func oppositeSigns(x, y int32) bool {
+    return (x ^ y) < 0
+}
+
+// Conditionally set or clear a bit
+func conditionalBit(value uint32, position int, condition bool) uint32 {
+    mask := uint32(1) << position
+    if condition {
+        return value | mask // Set bit
+    }
+    return value &^ mask // Clear bit
+}
+
+// Compute absolute value without branching
+func abs(x int32) int32 {
+    mask := x >> 31        // Arithmetic shift right
+    return (x ^ mask) - mask
+}
+
+// Find minimum of two integers without branching
+func min(x, y int32) int32 {
+    return y ^ ((x ^ y) & -(boolToInt(x < y)))
+}
+
+func boolToInt(b bool) int32 {
+    if b {
+        return 1
+    }
+    return 0
+}
+
+// Bit interleaving for Z-order curve (Morton order)
+func interleave16(x, y uint16) uint32 {
+    // Expand x and y to 32 bits with zeros in between
+    var expandedX, expandedY uint32
+    
+    expandedX = uint32(x)
+    expandedX = (expandedX | (expandedX << 8)) & 0x00FF00FF
+    expandedX = (expandedX | (expandedX << 4)) & 0x0F0F0F0F
+    expandedX = (expandedX | (expandedX << 2)) & 0x33333333
+    expandedX = (expandedX | (expandedX << 1)) & 0x55555555
+    
+    expandedY = uint32(y)
+    expandedY = (expandedY | (expandedY << 8)) & 0x00FF00FF
+    expandedY = (expandedY | (expandedY << 4)) & 0x0F0F0F0F
+    expandedY = (expandedY | (expandedY << 2)) & 0x33333333
+    expandedY = (expandedY | (expandedY << 1)) & 0x55555555
+    
+    return expandedX | (expandedY << 1)
+}
+
+func main() {
+    fmt.Println("Advanced bit manipulation patterns:")
+    
+    // Power of 2 operations
+    fmt.Println("1. Power of 2 operations:")
+    testNumbers := []uint32{1, 2, 3, 4, 8, 15, 16, 32, 33, 64}
+    
+    for _, n := range testNumbers {
+        isPow2 := isPowerOfTwo(n)
+        nextPow2 := nextPowerOfTwo(n)
+        fmt.Printf("%d: isPowerOf2=%t, nextPowerOf2=%d\n", n, isPow2, nextPow2)
+    }
+    
+    // Bit counting operations
+    fmt.Println("\n2. Bit counting:")
+    bitTestNumbers := []uint32{0, 1, 7, 15, 255, 0xAAAAAAAA, 0xFFFFFFFF}
+    
+    for _, n := range bitTestNumbers {
+        popCnt := popCount(n)
+        popCntPar := popCountParallel(n)
+        leadingZeros := countLeadingZeros(n)
+        lsb := findLSB(n)
+        msb := findMSB(n)
+        
+        fmt.Printf("0x%08X: popCount=%d, popCountParallel=%d, leadingZeros=%d, LSB=%d, MSB=%d\n",
+            n, popCnt, popCntPar, leadingZeros, lsb, msb)
+    }
+    
+    // Bit reversal
+    fmt.Println("\n3. Bit reversal:")
+    reverseTestNumbers := []uint32{0x12345678, 0xAAAAAAAA, 0x80000001}
+    
+    for _, n := range reverseTestNumbers {
+        reversed := reverseBits32(n)
+        fmt.Printf("0x%08X -> 0x%08X\n", n, reversed)
+    }
+    
+    // Arithmetic operations using bit manipulation
+    fmt.Println("\n4. Arithmetic with bit operations:")
+    
+    testValue := uint32(100)
+    result := multiplyBy3Div4(testValue)
+    fmt.Printf("%d * 3/4 = %d (expected: %d)\n", testValue, result, testValue*3/4)
+    
+    // Sign operations
+    fmt.Println("\n5. Sign operations:")
+    signTestPairs := [][2]int32{{5, -3}, {-7, 2}, {4, 8}, {-1, -5}}
+    
+    for _, pair := range signTestPairs {
+        x, y := pair[0], pair[1]
+        opposite := oppositeSigns(x, y)
+        absX := abs(x)
+        absY := abs(y)
+        minVal := min(x, y)
+        
+        fmt.Printf("x=%d, y=%d: oppositeSigns=%t, abs(x)=%d, abs(y)=%d, min=%d\n",
+            x, y, opposite, absX, absY, minVal)
+    }
+    
+    // Conditional bit operations
+    fmt.Println("\n6. Conditional bit operations:")
+    
+    value := uint32(0b10110100)
+    fmt.Printf("Original: %08b\n", value)
+    
+    // Set bit 2 conditionally
+    value = conditionalBit(value, 2, true)
+    fmt.Printf("Set bit 2: %08b\n", value)
+    
+    // Clear bit 5 conditionally
+    value = conditionalBit(value, 5, false)
+    fmt.Printf("Clear bit 5: %08b\n", value)
+    
+    // Bit interleaving
+    fmt.Println("\n7. Bit interleaving (Morton order):")
+    
+    x, y := uint16(5), uint16(3)
+    morton := interleave16(x, y)
+    fmt.Printf("Interleave(%d, %d) = %d (0x%08X)\n", x, y, morton, morton)
+    fmt.Printf("x=%04b, y=%04b -> morton=%016b\n", x, y, morton)
+    
+    // Practical applications
+    fmt.Println("\n8. Practical applications:")
+    
+    // Fast modulo for powers of 2
+    number := uint32(123)
+    powerOf2 := uint32(16)
+    fastMod := number & (powerOf2 - 1)
+    slowMod := number % powerOf2
+    
+    fmt.Printf("Fast modulo: %d %% %d = %d (standard: %d)\n", 
+        number, powerOf2, fastMod, slowMod)
+    
+    // Alignment checking
+    address := uint32(0x12345678)
+    alignment := uint32(8)
+    isAligned := (address & (alignment - 1)) == 0
+    
+    fmt.Printf("Address 0x%08X is %d-byte aligned: %t\n", 
+        address, alignment, isAligned)
+}
+```
 ```
 ```
