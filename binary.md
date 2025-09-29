@@ -3877,5 +3877,3005 @@ func main() {
         address, alignment, isAligned)
 }
 ```
+
+---
+
+## Encoding and Decoding
+
+### Example 31: Base64 Encoding and Decoding
+
+```go
+package main
+
+import (
+    "encoding/base64"
+    "fmt"
+    "strings"
+)
+
+func main() {
+    fmt.Println("Base64 Encoding and Decoding:")
+    
+    // Original data
+    data := []byte("Hello, World! This is a test message for Base64 encoding.")
+    fmt.Printf("Original data: %s\n", string(data))
+    fmt.Printf("Original bytes: %v\n", data)
+    fmt.Printf("Length: %d bytes\n", len(data))
+    
+    // Standard Base64 encoding
+    fmt.Println("\n1. Standard Base64:")
+    encoded := base64.StdEncoding.EncodeToString(data)
+    fmt.Printf("Encoded: %s\n", encoded)
+    fmt.Printf("Encoded length: %d characters\n", len(encoded))
+    
+    // Decode back
+    decoded, err := base64.StdEncoding.DecodeString(encoded)
+    if err != nil {
+        fmt.Printf("Error decoding: %v\n", err)
+        return
+    }
+    fmt.Printf("Decoded: %s\n", string(decoded))
+    fmt.Printf("Data integrity: %t\n", string(data) == string(decoded))
+    
+    // URL-safe Base64 encoding
+    fmt.Println("\n2. URL-safe Base64:")
+    urlEncoded := base64.URLEncoding.EncodeToString(data)
+    fmt.Printf("URL encoded: %s\n", urlEncoded)
+    
+    urlDecoded, err := base64.URLEncoding.DecodeString(urlEncoded)
+    if err != nil {
+        fmt.Printf("Error decoding URL-safe: %v\n", err)
+        return
+    }
+    fmt.Printf("URL decoded: %s\n", string(urlDecoded))
+    
+    // Raw Base64 (no padding)
+    fmt.Println("\n3. Raw Base64 (no padding):")
+    rawEncoded := base64.RawStdEncoding.EncodeToString(data)
+    fmt.Printf("Raw encoded: %s\n", rawEncoded)
+    
+    rawDecoded, err := base64.RawStdEncoding.DecodeString(rawEncoded)
+    if err != nil {
+        fmt.Printf("Error decoding raw: %v\n", err)
+        return
+    }
+    fmt.Printf("Raw decoded: %s\n", string(rawDecoded))
+    
+    // Custom Base64 alphabet
+    fmt.Println("\n4. Custom Base64 alphabet:")
+    customEncoding := base64.NewEncoding("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/")
+    customEncoded := customEncoding.EncodeToString(data)
+    fmt.Printf("Custom encoded: %s\n", customEncoded)
+    
+    customDecoded, err := customEncoding.DecodeString(customEncoded)
+    if err != nil {
+        fmt.Printf("Error decoding custom: %v\n", err)
+        return
+    }
+    fmt.Printf("Custom decoded: %s\n", string(customDecoded))
+    
+    // Manual Base64 implementation for educational purposes
+    fmt.Println("\n5. Manual Base64 implementation:")
+    manualEncoded := manualBase64Encode(data)
+    fmt.Printf("Manual encoded: %s\n", manualEncoded)
+    
+    manualDecoded := manualBase64Decode(manualEncoded)
+    fmt.Printf("Manual decoded: %s\n", string(manualDecoded))
+    
+    // Binary data encoding
+    fmt.Println("\n6. Binary data encoding:")
+    binaryData := []byte{0x00, 0x01, 0x02, 0x03, 0xFF, 0xFE, 0xFD, 0xFC}
+    fmt.Printf("Binary data: %v\n", binaryData)
+    
+    binaryEncoded := base64.StdEncoding.EncodeToString(binaryData)
+    fmt.Printf("Binary encoded: %s\n", binaryEncoded)
+    
+    binaryDecoded, _ := base64.StdEncoding.DecodeString(binaryEncoded)
+    fmt.Printf("Binary decoded: %v\n", binaryDecoded)
+}
+
+func manualBase64Encode(data []byte) string {
+    alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    var result strings.Builder
+    
+    for i := 0; i < len(data); i += 3 {
+        // Take up to 3 bytes
+        var bytes [3]byte
+        bytesUsed := 0
+        
+        for j := 0; j < 3 && i+j < len(data); j++ {
+            bytes[j] = data[i+j]
+            bytesUsed++
+        }
+        
+        // Convert to 4 6-bit values
+        val := (uint32(bytes[0]) << 16) | (uint32(bytes[1]) << 8) | uint32(bytes[2])
+        
+        // Extract 6-bit values
+        chars := [4]byte{
+            alphabet[(val>>18)&63],
+            alphabet[(val>>12)&63],
+            alphabet[(val>>6)&63],
+            alphabet[val&63],
+        }
+        
+        // Add padding if necessary
+        switch bytesUsed {
+        case 1:
+            chars[2] = '='
+            chars[3] = '='
+        case 2:
+            chars[3] = '='
+        }
+        
+        result.Write(chars[:])
+    }
+    
+    return result.String()
+}
+
+func manualBase64Decode(encoded string) []byte {
+    alphabet := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    
+    // Create reverse lookup table
+    lookup := make(map[byte]int)
+    for i, c := range alphabet {
+        lookup[byte(c)] = i
+    }
+    
+    var result []byte
+    
+    for i := 0; i < len(encoded); i += 4 {
+        if i+4 > len(encoded) {
+            break
+        }
+        
+        // Get 4 characters
+        chars := encoded[i : i+4]
+        
+        // Convert to 6-bit values
+        var vals [4]int
+        validBytes := 4
+        
+        for j, c := range chars {
+            if c == '=' {
+                vals[j] = 0
+                validBytes = j
+                break
+            }
+            vals[j] = lookup[byte(c)]
+        }
+        
+        // Combine into 24-bit value
+        val := (vals[0] << 18) | (vals[1] << 12) | (vals[2] << 6) | vals[3]
+        
+        // Extract bytes
+        bytes := []byte{
+            byte(val >> 16),
+            byte(val >> 8),
+            byte(val),
+        }
+        
+        // Add appropriate number of bytes
+        switch validBytes {
+        case 4:
+            result = append(result, bytes...)
+        case 3:
+            result = append(result, bytes[:2]...)
+        case 2:
+            result = append(result, bytes[:1]...)
+        }
+    }
+    
+    return result
+}
+```
+
+### Example 32: Hexadecimal Encoding and Decoding
+
+```go
+package main
+
+import (
+    "encoding/hex"
+    "fmt"
+    "strings"
+)
+
+func main() {
+    fmt.Println("Hexadecimal Encoding and Decoding:")
+    
+    // Test data
+    data := []byte("Hello, World! 🌍")
+    fmt.Printf("Original data: %s\n", string(data))
+    fmt.Printf("Original bytes: %v\n", data)
+    
+    // Standard hex encoding
+    fmt.Println("\n1. Standard hex encoding:")
+    hexString := hex.EncodeToString(data)
+    fmt.Printf("Hex encoded: %s\n", hexString)
+    fmt.Printf("Length: %d characters (%d bytes original -> %d chars)\n", 
+        len(hexString), len(data), len(hexString))
+    
+    // Decode back
+    decoded, err := hex.DecodeString(hexString)
+    if err != nil {
+        fmt.Printf("Error decoding: %v\n", err)
+        return
+    }
+    fmt.Printf("Decoded: %s\n", string(decoded))
+    fmt.Printf("Data integrity: %t\n", string(data) == string(decoded))
+    
+    // Uppercase hex
+    fmt.Println("\n2. Uppercase hex:")
+    upperHex := strings.ToUpper(hexString)
+    fmt.Printf("Uppercase hex: %s\n", upperHex)
+    
+    // Decode uppercase (case insensitive)
+    decodedUpper, err := hex.DecodeString(upperHex)
+    if err != nil {
+        fmt.Printf("Error decoding uppercase: %v\n", err)
+        return
+    }
+    fmt.Printf("Decoded uppercase: %s\n", string(decodedUpper))
+    
+    // Hex with separators
+    fmt.Println("\n3. Hex with separators:")
+    hexWithSpaces := formatHexWithSeparator(data, " ")
+    hexWithColons := formatHexWithSeparator(data, ":")
+    hexWithHyphens := formatHexWithSeparator(data, "-")
+    
+    fmt.Printf("With spaces: %s\n", hexWithSpaces)
+    fmt.Printf("With colons: %s\n", hexWithColons)
+    fmt.Printf("With hyphens: %s\n", hexWithHyphens)
+    
+    // Parse hex with separators
+    parsedFromSpaces := parseHexWithSeparator(hexWithSpaces, " ")
+    fmt.Printf("Parsed from spaces: %s\n", string(parsedFromSpaces))
+    
+    // Dumper-style hex output
+    fmt.Println("\n4. Hex dump style:")
+    hexDump(data)
+    
+    // Manual hex implementation
+    fmt.Println("\n5. Manual hex implementation:")
+    manualHex := manualHexEncode(data)
+    fmt.Printf("Manual hex: %s\n", manualHex)
+    
+    manualDecoded := manualHexDecode(manualHex)
+    fmt.Printf("Manual decoded: %s\n", string(manualDecoded))
+    
+    // Binary data
+    fmt.Println("\n6. Binary data hex encoding:")
+    binaryData := []byte{0x00, 0x0F, 0xFF, 0xAB, 0xCD, 0xEF, 0x12, 0x34, 0x56, 0x78}
+    fmt.Printf("Binary data: %v\n", binaryData)
+    
+    binaryHex := hex.EncodeToString(binaryData)
+    fmt.Printf("Binary hex: %s\n", binaryHex)
+    
+    // Hex validation
+    fmt.Println("\n7. Hex validation:")
+    testStrings := []string{
+        "deadbeef",
+        "DEADBEEF", 
+        "DeAdBeEf",
+        "123456789ABCDEF0",
+        "invalid hex string",
+        "123G", // Invalid character
+        "123", // Odd length
+    }
+    
+    for _, testStr := range testStrings {
+        isValid := isValidHex(testStr)
+        fmt.Printf("'%s' is valid hex: %t\n", testStr, isValid)
+    }
+}
+
+func formatHexWithSeparator(data []byte, separator string) string {
+    hexString := hex.EncodeToString(data)
+    var result strings.Builder
+    
+    for i := 0; i < len(hexString); i += 2 {
+        if i > 0 {
+            result.WriteString(separator)
+        }
+        result.WriteString(hexString[i:i+2])
+    }
+    
+    return result.String()
+}
+
+func parseHexWithSeparator(hexStr, separator string) []byte {
+    // Remove separators
+    cleaned := strings.ReplaceAll(hexStr, separator, "")
+    
+    // Decode
+    decoded, err := hex.DecodeString(cleaned)
+    if err != nil {
+        return nil
+    }
+    
+    return decoded
+}
+
+func hexDump(data []byte) {
+    const bytesPerLine = 16
+    
+    for offset := 0; offset < len(data); offset += bytesPerLine {
+        // Print offset
+        fmt.Printf("%08x: ", offset)
+        
+        // Print hex values
+        for i := 0; i < bytesPerLine; i++ {
+            if offset+i < len(data) {
+                fmt.Printf("%02x ", data[offset+i])
+            } else {
+                fmt.Print("   ")
+            }
+            
+            // Add extra space in the middle
+            if i == 7 {
+                fmt.Print(" ")
+            }
+        }
+        
+        // Print ASCII representation
+        fmt.Print(" |")
+        for i := 0; i < bytesPerLine && offset+i < len(data); i++ {
+            b := data[offset+i]
+            if b >= 32 && b <= 126 {
+                fmt.Printf("%c", b)
+            } else {
+                fmt.Print(".")
+            }
+        }
+        fmt.Println("|")
+    }
+}
+
+func manualHexEncode(data []byte) string {
+    hexChars := "0123456789abcdef"
+    var result strings.Builder
+    
+    for _, b := range data {
+        result.WriteByte(hexChars[b>>4])   // High nibble
+        result.WriteByte(hexChars[b&0x0F]) // Low nibble
+    }
+    
+    return result.String()
+}
+
+func manualHexDecode(hexStr string) []byte {
+    if len(hexStr)%2 != 0 {
+        return nil // Invalid length
+    }
+    
+    var result []byte
+    
+    for i := 0; i < len(hexStr); i += 2 {
+        high := hexCharToValue(hexStr[i])
+        low := hexCharToValue(hexStr[i+1])
+        
+        if high == -1 || low == -1 {
+            return nil // Invalid hex character
+        }
+        
+        result = append(result, byte(high<<4|low))
+    }
+    
+    return result
+}
+
+func hexCharToValue(c byte) int {
+    switch {
+    case c >= '0' && c <= '9':
+        return int(c - '0')
+    case c >= 'a' && c <= 'f':
+        return int(c - 'a' + 10)
+    case c >= 'A' && c <= 'F':
+        return int(c - 'A' + 10)
+    default:
+        return -1
+    }
+}
+
+func isValidHex(s string) bool {
+    if len(s)%2 != 0 {
+        return false
+    }
+    
+    for _, c := range s {
+        if !((c >= '0' && c <= '9') || 
+             (c >= 'a' && c <= 'f') || 
+             (c >= 'A' && c <= 'F')) {
+            return false
+        }
+    }
+    
+    return true
+}
+```
+
+### Example 33: URL Encoding and Decoding
+
+```go
+package main
+
+import (
+    "fmt"
+    "net/url"
+    "strings"
+)
+
+func main() {
+    fmt.Println("URL Encoding and Decoding:")
+    
+    // Test data with various special characters
+    testStrings := []string{
+        "Hello World",
+        "user@example.com",
+        "path/to/file.txt",
+        "query=value&param=123",
+        "special chars: !@#$%^&*()",
+        "unicode: 你好世界 🌍",
+        "spaces and\ttabs\nand newlines",
+    }
+    
+    // Standard URL encoding
+    fmt.Println("1. Standard URL encoding:")
+    for _, s := range testStrings {
+        encoded := url.QueryEscape(s)
+        decoded, err := url.QueryUnescape(encoded)
+        
+        fmt.Printf("Original: %q\n", s)
+        fmt.Printf("Encoded:  %q\n", encoded)
+        if err != nil {
+            fmt.Printf("Decode error: %v\n", err)
+        } else {
+            fmt.Printf("Decoded:  %q\n", decoded)
+            fmt.Printf("Match: %t\n", s == decoded)
+        }
+        fmt.Println()
+    }
+    
+    // Path encoding vs Query encoding
+    fmt.Println("2. Path encoding vs Query encoding:")
+    testPath := "path/with spaces/and+plus"
+    
+    pathEncoded := url.PathEscape(testPath)
+    queryEncoded := url.QueryEscape(testPath)
+    
+    fmt.Printf("Original: %q\n", testPath)
+    fmt.Printf("Path encoded:  %q\n", pathEncoded)
+    fmt.Printf("Query encoded: %q\n", queryEncoded)
+    
+    pathDecoded, _ := url.PathUnescape(pathEncoded)
+    queryDecoded, _ := url.QueryUnescape(queryEncoded)
+    
+    fmt.Printf("Path decoded:  %q\n", pathDecoded)
+    fmt.Printf("Query decoded: %q\n", queryDecoded)
+    
+    // Manual URL encoding implementation
+    fmt.Println("\n3. Manual URL encoding:")
+    manualTest := "Hello World & Friends!"
+    manualEncoded := manualURLEncode(manualTest)
+    manualDecoded := manualURLDecode(manualEncoded)
+    
+    fmt.Printf("Original: %q\n", manualTest)
+    fmt.Printf("Manual encoded: %q\n", manualEncoded)
+    fmt.Printf("Manual decoded: %q\n", manualDecoded)
+    
+    // Form encoding
+    fmt.Println("\n4. Form data encoding:")
+    formData := url.Values{
+        "name":     {"John Doe"},
+        "email":    {"john@example.com"},
+        "message":  {"Hello, World! This is a test message."},
+        "tags":     {"go", "programming", "web"},
+    }
+    
+    encoded := formData.Encode()
+    fmt.Printf("Form encoded: %s\n", encoded)
+    
+    parsed, err := url.ParseQuery(encoded)
+    if err != nil {
+        fmt.Printf("Parse error: %v\n", err)
+    } else {
+        fmt.Printf("Parsed form data:\n")
+        for key, values := range parsed {
+            fmt.Printf("  %s: %v\n", key, values)
+        }
+    }
+    
+    // URL parsing with encoding
+    fmt.Println("\n5. Complete URL parsing:")
+    testURL := "https://example.com/path with spaces?query=hello world&param=value%20with%20encoding"
+    
+    parsed, err = url.Parse(testURL)
+    if err != nil {
+        fmt.Printf("URL parse error: %v\n", err)
+    } else {
+        fmt.Printf("Original URL: %s\n", testURL)
+        fmt.Printf("Scheme: %s\n", parsed.Scheme)
+        fmt.Printf("Host: %s\n", parsed.Host)
+        fmt.Printf("Path: %s\n", parsed.Path)
+        fmt.Printf("RawQuery: %s\n", parsed.RawQuery)
+        
+        // Parse query parameters
+        queryParams := parsed.Query()
+        fmt.Printf("Query parameters:\n")
+        for key, values := range queryParams {
+            fmt.Printf("  %s: %v\n", key, values)
+        }
+    }
+    
+    // Custom encoding for specific characters
+    fmt.Println("\n6. Custom encoding patterns:")
+    customTest := "file name with spaces.txt"
+    
+    // Different encoding strategies
+    strategies := map[string]func(string) string{
+        "Replace spaces with underscores": func(s string) string {
+            return strings.ReplaceAll(s, " ", "_")
+        },
+        "Replace spaces with hyphens": func(s string) string {
+            return strings.ReplaceAll(s, " ", "-")
+        },
+        "URL encode": func(s string) string {
+            return url.QueryEscape(s)
+        },
+        "Custom encode": func(s string) string {
+            return customURLEncode(s, " !@#$%^&*()")
+        },
+    }
+    
+    fmt.Printf("Original: %q\n", customTest)
+    for name, strategy := range strategies {
+        encoded := strategy(customTest)
+        fmt.Printf("%s: %q\n", name, encoded)
+    }
+}
+
+func manualURLEncode(s string) string {
+    var result strings.Builder
+    
+    for _, r := range s {
+        switch {
+        case r >= 'A' && r <= 'Z':
+            result.WriteRune(r)
+        case r >= 'a' && r <= 'z':
+            result.WriteRune(r)
+        case r >= '0' && r <= '9':
+            result.WriteRune(r)
+        case r == '-' || r == '_' || r == '.' || r == '~':
+            result.WriteRune(r)
+        default:
+            // Encode as UTF-8 bytes
+            utf8Bytes := []byte(string(r))
+            for _, b := range utf8Bytes {
+                result.WriteString(fmt.Sprintf("%%%02X", b))
+            }
+        }
+    }
+    
+    return result.String()
+}
+
+func manualURLDecode(s string) string {
+    var result strings.Builder
+    
+    for i := 0; i < len(s); i++ {
+        if s[i] == '%' && i+2 < len(s) {
+            // Parse hex value
+            var value byte
+            for j := 1; j <= 2; j++ {
+                c := s[i+j]
+                var digit byte
+                switch {
+                case c >= '0' && c <= '9':
+                    digit = c - '0'
+                case c >= 'A' && c <= 'F':
+                    digit = c - 'A' + 10
+                case c >= 'a' && c <= 'f':
+                    digit = c - 'a' + 10
+                default:
+                    // Invalid encoding, treat as literal
+                    result.WriteByte(s[i])
+                    goto nextChar
+                }
+                value = value*16 + digit
+            }
+            result.WriteByte(value)
+            i += 2
+        } else {
+            result.WriteByte(s[i])
+        }
+        nextChar:
+    }
+    
+    return result.String()
+}
+
+func customURLEncode(s string, charsToEncode string) string {
+    var result strings.Builder
+    
+    for _, r := range s {
+        if strings.ContainsRune(charsToEncode, r) {
+            // Encode this character
+            utf8Bytes := []byte(string(r))
+            for _, b := range utf8Bytes {
+                result.WriteString(fmt.Sprintf("%%%02X", b))
+            }
+        } else {
+            result.WriteRune(r)
+        }
+    }
+    
+    return result.String()
+}
+```
+
+### Example 34: JSON Binary Data Encoding
+
+```go
+package main
+
+import (
+    "encoding/base64"
+    "encoding/json"
+    "fmt"
+)
+
+// BinaryData represents binary data that can be JSON marshaled
+type BinaryData struct {
+    Name string `json:"name"`
+    Data []byte `json:"data"`
+}
+
+// Custom JSON marshaling for binary data
+func (bd BinaryData) MarshalJSON() ([]byte, error) {
+    type Alias BinaryData
+    return json.Marshal(&struct {
+        Data string `json:"data"`
+        *Alias
+    }{
+        Data:  base64.StdEncoding.EncodeToString(bd.Data),
+        Alias: (*Alias)(&bd),
+    })
+}
+
+// Custom JSON unmarshaling for binary data
+func (bd *BinaryData) UnmarshalJSON(data []byte) error {
+    type Alias BinaryData
+    aux := &struct {
+        Data string `json:"data"`
+        *Alias
+    }{
+        Alias: (*Alias)(bd),
+    }
+    
+    if err := json.Unmarshal(data, &aux); err != nil {
+        return err
+    }
+    
+    decoded, err := base64.StdEncoding.DecodeString(aux.Data)
+    if err != nil {
+        return err
+    }
+    
+    bd.Data = decoded
+    return nil
+}
+
+// Message with binary attachments
+type Message struct {
+    ID          int            `json:"id"`
+    Subject     string         `json:"subject"`
+    Body        string         `json:"body"`
+    Attachments []BinaryData   `json:"attachments"`
+    Metadata    map[string]any `json:"metadata"`
+}
+
+// File with binary content
+type File struct {
+    Name     string `json:"name"`
+    Size     int64  `json:"size"`
+    MimeType string `json:"mime_type"`
+    Content  []byte `json:"content"`
+}
+
+func (f File) MarshalJSON() ([]byte, error) {
+    type Alias File
+    return json.Marshal(&struct {
+        Content string `json:"content"`
+        *Alias
+    }{
+        Content: base64.StdEncoding.EncodeToString(f.Content),
+        Alias:   (*Alias)(&f),
+    })
+}
+
+func (f *File) UnmarshalJSON(data []byte) error {
+    type Alias File
+    aux := &struct {
+        Content string `json:"content"`
+        *Alias
+    }{
+        Alias: (*Alias)(f),
+    }
+    
+    if err := json.Unmarshal(data, &aux); err != nil {
+        return err
+    }
+    
+    decoded, err := base64.StdEncoding.DecodeString(aux.Content)
+    if err != nil {
+        return err
+    }
+    
+    f.Content = decoded
+    return nil
+}
+
+func main() {
+    fmt.Println("JSON Binary Data Encoding:")
+    
+    // Create test binary data
+    binaryData1 := BinaryData{
+        Name: "image.png",
+        Data: []byte{0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A}, // PNG header
+    }
+    
+    binaryData2 := BinaryData{
+        Name: "document.pdf",
+        Data: []byte{0x25, 0x50, 0x44, 0x46, 0x2D, 0x31, 0x2E, 0x34}, // PDF header
+    }
+    
+    // Test single binary data object
+    fmt.Println("1. Single binary data object:")
+    jsonData, err := json.MarshalIndent(binaryData1, "", "  ")
+    if err != nil {
+        fmt.Printf("Error marshaling: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("JSON: %s\n", string(jsonData))
+    
+    // Unmarshal back
+    var decoded BinaryData
+    err = json.Unmarshal(jsonData, &decoded)
+    if err != nil {
+        fmt.Printf("Error unmarshaling: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Decoded name: %s\n", decoded.Name)
+    fmt.Printf("Decoded data: %v\n", decoded.Data)
+    fmt.Printf("Data integrity: %t\n", string(binaryData1.Data) == string(decoded.Data))
+    
+    // Test complex message with multiple attachments
+    fmt.Println("\n2. Message with binary attachments:")
+    
+    message := Message{
+        ID:      123,
+        Subject: "Test message with attachments",
+        Body:    "This message contains binary attachments",
+        Attachments: []BinaryData{binaryData1, binaryData2},
+        Metadata: map[string]any{
+            "priority": "high",
+            "encrypted": false,
+            "timestamp": 1642608000,
+        },
+    }
+    
+    messageJSON, err := json.MarshalIndent(message, "", "  ")
+    if err != nil {
+        fmt.Printf("Error marshaling message: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Message JSON: %s\n", string(messageJSON))
+    
+    // Unmarshal message
+    var decodedMessage Message
+    err = json.Unmarshal(messageJSON, &decodedMessage)
+    if err != nil {
+        fmt.Printf("Error unmarshaling message: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Decoded message ID: %d\n", decodedMessage.ID)
+    fmt.Printf("Decoded subject: %s\n", decodedMessage.Subject)
+    fmt.Printf("Number of attachments: %d\n", len(decodedMessage.Attachments))
+    
+    for i, attachment := range decodedMessage.Attachments {
+        fmt.Printf("Attachment %d: %s (%d bytes)\n", 
+            i+1, attachment.Name, len(attachment.Data))
+    }
+    
+    // Test file object
+    fmt.Println("\n3. File object with binary content:")
+    
+    file := File{
+        Name:     "test.bin",
+        Size:     8,
+        MimeType: "application/octet-stream",
+        Content:  []byte{0x00, 0x01, 0x02, 0x03, 0xFF, 0xFE, 0xFD, 0xFC},
+    }
+    
+    fileJSON, err := json.MarshalIndent(file, "", "  ")
+    if err != nil {
+        fmt.Printf("Error marshaling file: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("File JSON: %s\n", string(fileJSON))
+    
+    // Unmarshal file
+    var decodedFile File
+    err = json.Unmarshal(fileJSON, &decodedFile)
+    if err != nil {
+        fmt.Printf("Error unmarshaling file: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Decoded file name: %s\n", decodedFile.Name)
+    fmt.Printf("Decoded file size: %d\n", decodedFile.Size)
+    fmt.Printf("Decoded content: %v\n", decodedFile.Content)
+    fmt.Printf("Content integrity: %t\n", string(file.Content) == string(decodedFile.Content))
+    
+    // Alternative approach using raw JSON
+    fmt.Println("\n4. Raw JSON approach:")
+    
+    rawData := map[string]any{
+        "name": "raw_binary.dat",
+        "data": base64.StdEncoding.EncodeToString([]byte{0xDE, 0xAD, 0xBE, 0xEF}),
+        "size": 4,
+    }
+    
+    rawJSON, err := json.MarshalIndent(rawData, "", "  ")
+    if err != nil {
+        fmt.Printf("Error marshaling raw data: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Raw JSON: %s\n", string(rawJSON))
+    
+    // Parse raw JSON
+    var parsedRaw map[string]any
+    err = json.Unmarshal(rawJSON, &parsedRaw)
+    if err != nil {
+        fmt.Printf("Error unmarshaling raw data: %v\n", err)
+        return
+    }
+    
+    // Decode base64 data
+    if dataStr, ok := parsedRaw["data"].(string); ok {
+        decodedRawData, err := base64.StdEncoding.DecodeString(dataStr)
+        if err != nil {
+            fmt.Printf("Error decoding base64: %v\n", err)
+        } else {
+            fmt.Printf("Decoded raw data: %v\n", decodedRawData)
+        }
+    }
+    
+    // JSON with embedded binary in different formats
+    fmt.Println("\n5. Different binary encoding formats in JSON:")
+    
+    testData := []byte{0x48, 0x65, 0x6C, 0x6C, 0x6F} // "Hello"
+    
+    formats := map[string]string{
+        "base64":     base64.StdEncoding.EncodeToString(testData),
+        "hex":        fmt.Sprintf("%x", testData),
+        "decimal":    fmt.Sprintf("%v", testData),
+        "base64url":  base64.URLEncoding.EncodeToString(testData),
+    }
+    
+    formatsJSON, err := json.MarshalIndent(formats, "", "  ")
+    if err != nil {
+        fmt.Printf("Error marshaling formats: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Different formats JSON: %s\n", string(formatsJSON))
+}
+```
+
+### Example 35: ASCII and Binary Conversion
+
+```go
+package main
+
+import (
+    "fmt"
+    "strconv"
+    "strings"
+)
+
+func main() {
+    fmt.Println("ASCII and Binary Conversion:")
+    
+    // Test string
+    text := "Hello, World! 123"
+    fmt.Printf("Original text: %s\n", text)
+    
+    // ASCII to binary conversion
+    fmt.Println("\n1. ASCII to binary conversion:")
+    
+    fmt.Printf("Character breakdown:\n")
+    for i, char := range text {
+        fmt.Printf("  [%d] '%c' -> ASCII %d -> Binary %08b\n", 
+            i, char, char, char)
+    }
+    
+    // Convert entire string to binary representation
+    binaryString := stringToBinary(text)
+    fmt.Printf("\nFull binary: %s\n", binaryString)
+    
+    // Convert back from binary
+    reconstructed := binaryToString(binaryString)
+    fmt.Printf("Reconstructed: %s\n", reconstructed)
+    fmt.Printf("Match: %t\n", text == reconstructed)
+    
+    // ASCII table demonstration
+    fmt.Println("\n2. ASCII table (printable characters):")
+    fmt.Println("Dec  Hex  Bin      Char")
+    fmt.Println("-------------------------")
+    
+    for i := 32; i <= 126; i++ {
+        if i%10 == 2 || i <= 42 { // Show first few and every 10th
+            fmt.Printf("%3d  %02X   %08b  '%c'\n", i, i, i, i)
+        }
+    }
+    fmt.Println("... (showing sample of printable ASCII)")
+    
+    // Control characters
+    fmt.Println("\n3. Common control characters:")
+    controlChars := map[byte]string{
+        0:  "NULL",
+        7:  "BELL",
+        8:  "BACKSPACE",
+        9:  "TAB", 
+        10: "LINE FEED (LF)",
+        13: "CARRIAGE RETURN (CR)",
+        27: "ESCAPE",
+        32: "SPACE",
+        127: "DELETE",
+    }
+    
+    for code, name := range controlChars {
+        fmt.Printf("  %3d (0x%02X) %08b - %s\n", code, code, code, name)
+    }
+    
+    // Extended ASCII and UTF-8
+    fmt.Println("\n4. Extended ASCII vs UTF-8:")
+    
+    extendedChars := "café naïve résumé"
+    fmt.Printf("Text with accents: %s\n", extendedChars)
+    
+    // Show byte representation
+    bytes := []byte(extendedChars)
+    fmt.Printf("UTF-8 bytes: %v\n", bytes)
+    fmt.Printf("UTF-8 hex: %x\n", bytes)
+    
+    fmt.Printf("Byte breakdown:\n")
+    for i, b := range bytes {
+        if b < 128 {
+            fmt.Printf("  [%d] %02X (%3d) %08b - ASCII '%c'\n", i, b, b, b, b)
+        } else {
+            fmt.Printf("  [%d] %02X (%3d) %08b - UTF-8 continuation byte\n", i, b, b, b)
+        }
+    }
+    
+    // Binary arithmetic
+    fmt.Println("\n5. Binary arithmetic visualization:")
+    
+    a, b := byte(25), byte(30)
+    fmt.Printf("a = %d (%08b)\n", a, a)
+    fmt.Printf("b = %d (%08b)\n", b, b)
+    fmt.Printf("a + b = %d (%08b)\n", a+b, a+b)
+    fmt.Printf("a - b = %d (%08b)\n", a-b, a-b) 
+    fmt.Printf("a * 2 = %d (%08b)\n", a*2, a*2)
+    fmt.Printf("a / 2 = %d (%08b)\n", a/2, a/2)
+    
+    // Bit shifts as multiplication/division
+    fmt.Printf("\nBit shift arithmetic:\n")
+    fmt.Printf("a << 1 (a * 2) = %d (%08b)\n", a<<1, a<<1)
+    fmt.Printf("a << 2 (a * 4) = %d (%08b)\n", a<<2, a<<2)
+    fmt.Printf("a >> 1 (a / 2) = %d (%08b)\n", a>>1, a>>1)
+    fmt.Printf("a >> 2 (a / 4) = %d (%08b)\n", a>>2, a>>2)
+    
+    // Binary pattern analysis
+    fmt.Println("\n6. Binary pattern analysis:")
+    
+    patterns := []byte{
+        0b00000000, // All zeros
+        0b11111111, // All ones
+        0b10101010, // Alternating 1,0
+        0b01010101, // Alternating 0,1
+        0b11110000, // High nibble set
+        0b00001111, // Low nibble set
+        0b10000001, // Corner bits
+    }
+    
+    for _, pattern := range patterns {
+        fmt.Printf("Pattern %08b (%3d, 0x%02X): ", pattern, pattern, pattern)
+        
+        // Analyze pattern
+        if pattern == 0 {
+            fmt.Print("All zeros")
+        } else if pattern == 0xFF {
+            fmt.Print("All ones")
+        } else if pattern == 0xAA {
+            fmt.Print("Alternating 10")
+        } else if pattern == 0x55 {
+            fmt.Print("Alternating 01")
+        } else if (pattern & 0xF0) == 0xF0 && (pattern & 0x0F) == 0 {
+            fmt.Print("High nibble set")
+        } else if (pattern & 0xF0) == 0 && (pattern & 0x0F) == 0x0F {
+            fmt.Print("Low nibble set")
+        } else {
+            fmt.Printf("%d bits set", popCount(pattern))
+        }
+        fmt.Println()
+    }
+    
+    // ASCII art using binary patterns
+    fmt.Println("\n7. ASCII art from binary patterns:")
+    
+    binaryArt := []byte{
+        0b11111111,
+        0b10000001,
+        0b10111101,
+        0b10100101,
+        0b10111101,
+        0b10000001,
+        0b11111111,
+    }
+    
+    fmt.Println("Binary smiley face:")
+    for i, row := range binaryArt {
+        fmt.Printf("Row %d: %08b -> ", i, row)
+        for bit := 7; bit >= 0; bit-- {
+            if (row & (1 << bit)) != 0 {
+                fmt.Print("█")
+            } else {
+                fmt.Print(" ")
+            }
+        }
+        fmt.Println()
+    }
+}
+
+func stringToBinary(s string) string {
+    var result strings.Builder
+    
+    for i, char := range []byte(s) {
+        if i > 0 {
+            result.WriteString(" ")
+        }
+        result.WriteString(fmt.Sprintf("%08b", char))
+    }
+    
+    return result.String()
+}
+
+func binaryToString(binary string) string {
+    parts := strings.Split(binary, " ")
+    var result strings.Builder
+    
+    for _, part := range parts {
+        if len(part) == 8 {
+            if value, err := strconv.ParseUint(part, 2, 8); err == nil {
+                result.WriteByte(byte(value))
+            }
+        }
+    }
+    
+    return result.String()
+}
+
+func popCount(x byte) int {
+    count := 0
+    for x != 0 {
+        count++
+        x &= x - 1
+    }
+    return count
+}
+```
+
+### Example 36: Gob Encoding for Go Data Structures
+
+```go
+package main
+
+import (
+    "bytes"
+    "encoding/gob"
+    "fmt"
+    "time"
+)
+
+// Person represents a person with various data types
+type Person struct {
+    Name      string
+    Age       int
+    Email     string
+    Active    bool
+    Score     float64
+    Tags      []string
+    Metadata  map[string]interface{}
+    CreatedAt time.Time
+}
+
+// BinaryDocument represents a document with binary content
+type BinaryDocument struct {
+    ID       int64
+    Title    string
+    Content  []byte
+    Checksum uint32
+}
+
+// ComplexData demonstrates nested structures
+type ComplexData struct {
+    ID      string
+    Persons []Person
+    Docs    []BinaryDocument
+    Config  map[string]string
+    Raw     []byte
+}
+
+func main() {
+    fmt.Println("Gob Encoding for Go Data Structures:")
+    
+    // Create test data
+    person := Person{
+        Name:      "Alice Johnson",
+        Age:       30,
+        Email:     "alice@example.com", 
+        Active:    true,
+        Score:     95.5,
+        Tags:      []string{"developer", "golang", "expert"},
+        Metadata:  map[string]interface{}{"level": 5, "department": "engineering"},
+        CreatedAt: time.Now(),
+    }
+    
+    // Basic Gob encoding
+    fmt.Println("1. Basic Gob encoding:")
+    
+    var buffer bytes.Buffer
+    encoder := gob.NewEncoder(&buffer)
+    
+    err := encoder.Encode(person)
+    if err != nil {
+        fmt.Printf("Error encoding: %v\n", err)
+        return
+    }
+    
+    encoded := buffer.Bytes()
+    fmt.Printf("Original struct: %+v\n", person)
+    fmt.Printf("Encoded size: %d bytes\n", len(encoded))
+    fmt.Printf("Encoded data (first 50 bytes): %v\n", encoded[:min(50, len(encoded))])
+    
+    // Decode back
+    decoder := gob.NewDecoder(bytes.NewReader(encoded))
+    var decodedPerson Person
+    
+    err = decoder.Decode(&decodedPerson)
+    if err != nil {
+        fmt.Printf("Error decoding: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Decoded struct: %+v\n", decodedPerson)
+    fmt.Printf("Data integrity: %t\n", person.Name == decodedPerson.Name && person.Age == decodedPerson.Age)
+    
+    // Binary document encoding
+    fmt.Println("\n2. Binary document encoding:")
+    
+    doc := BinaryDocument{
+        ID:       12345,
+        Title:    "Binary Test Document",
+        Content:  []byte{0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00}, // PNG-like header
+        Checksum: 0xDEADBEEF,
+    }
+    
+    var docBuffer bytes.Buffer
+    docEncoder := gob.NewEncoder(&docBuffer)
+    
+    err = docEncoder.Encode(doc)
+    if err != nil {
+        fmt.Printf("Error encoding document: %v\n", err)
+        return
+    }
+    
+    docEncoded := docBuffer.Bytes()
+    fmt.Printf("Document encoded size: %d bytes\n", len(docEncoded))
+    fmt.Printf("Original content: %v\n", doc.Content)
+    
+    // Decode document
+    docDecoder := gob.NewDecoder(bytes.NewReader(docEncoded))
+    var decodedDoc BinaryDocument
+    
+    err = docDecoder.Decode(&decodedDoc)
+    if err != nil {
+        fmt.Printf("Error decoding document: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Decoded content: %v\n", decodedDoc.Content)
+    fmt.Printf("Content match: %t\n", bytes.Equal(doc.Content, decodedDoc.Content))
+    
+    // Complex nested structure
+    fmt.Println("\n3. Complex nested structure:")
+    
+    complex := ComplexData{
+        ID:      "complex-001",
+        Persons: []Person{person},
+        Docs:    []BinaryDocument{doc},
+        Config: map[string]string{
+            "version": "1.0",
+            "mode":    "production",
+        },
+        Raw: []byte{0x01, 0x02, 0x03, 0x04, 0xFF},
+    }
+    
+    var complexBuffer bytes.Buffer
+    complexEncoder := gob.NewEncoder(&complexBuffer)
+    
+    err = complexEncoder.Encode(complex)
+    if err != nil {
+        fmt.Printf("Error encoding complex data: %v\n", err)
+        return
+    }
+    
+    complexEncoded := complexBuffer.Bytes()
+    fmt.Printf("Complex data encoded size: %d bytes\n", len(complexEncoded))
+    
+    // Decode complex data
+    complexDecoder := gob.NewDecoder(bytes.NewReader(complexEncoded))
+    var decodedComplex ComplexData
+    
+    err = complexDecoder.Decode(&decodedComplex)
+    if err != nil {
+        fmt.Printf("Error decoding complex data: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Decoded complex ID: %s\n", decodedComplex.ID)
+    fmt.Printf("Decoded persons count: %d\n", len(decodedComplex.Persons))
+    fmt.Printf("Decoded docs count: %d\n", len(decodedComplex.Docs))
+    fmt.Printf("Decoded config: %v\n", decodedComplex.Config)
+    fmt.Printf("Decoded raw: %v\n", decodedComplex.Raw)
+    
+    // Multiple objects in single stream
+    fmt.Println("\n4. Multiple objects in single stream:")
+    
+    var streamBuffer bytes.Buffer
+    streamEncoder := gob.NewEncoder(&streamBuffer)
+    
+    // Encode multiple objects
+    objects := []interface{}{
+        "Hello, World!",
+        42,
+        []int{1, 2, 3, 4, 5},
+        map[string]int{"a": 1, "b": 2},
+        person,
+    }
+    
+    for i, obj := range objects {
+        err = streamEncoder.Encode(obj)
+        if err != nil {
+            fmt.Printf("Error encoding object %d: %v\n", i, err)
+            return
+        }
+    }
+    
+    streamData := streamBuffer.Bytes()
+    fmt.Printf("Stream encoded size: %d bytes\n", len(streamData))
+    
+    // Decode multiple objects
+    streamDecoder := gob.NewDecoder(bytes.NewReader(streamData))
+    
+    var str string
+    var num int
+    var slice []int
+    var mapData map[string]int
+    var personData Person
+    
+    decodedObjects := []interface{}{&str, &num, &slice, &mapData, &personData}
+    
+    for i, obj := range decodedObjects {
+        err = streamDecoder.Decode(obj)
+        if err != nil {
+            fmt.Printf("Error decoding object %d: %v\n", i, err)
+            return
+        }
+    }
+    
+    fmt.Printf("Decoded string: %s\n", str)
+    fmt.Printf("Decoded number: %d\n", num)
+    fmt.Printf("Decoded slice: %v\n", slice)
+    fmt.Printf("Decoded map: %v\n", mapData)
+    fmt.Printf("Decoded person: %s\n", personData.Name)
+    
+    // Gob vs other formats comparison
+    fmt.Println("\n5. Gob encoding comparison:")
+    
+    testData := []Person{person}
+    
+    // Gob encoding
+    var gobBuffer bytes.Buffer
+    gobEnc := gob.NewEncoder(&gobBuffer)
+    gobEnc.Encode(testData)
+    gobSize := len(gobBuffer.Bytes())
+    
+    // JSON encoding for comparison
+    import "encoding/json"
+    jsonData, _ := json.Marshal(testData)
+    jsonSize := len(jsonData)
+    
+    fmt.Printf("Gob size: %d bytes\n", gobSize)
+    fmt.Printf("JSON size: %d bytes\n", jsonSize)
+    fmt.Printf("Gob vs JSON: %.2f%% of JSON size\n", float64(gobSize)/float64(jsonSize)*100)
+    
+    // Type registration for interfaces
+    fmt.Println("\n6. Interface type registration:")
+    
+    // Register types that might be stored in interface{}
+    gob.Register(map[string]interface{}{})
+    gob.Register([]interface{}{})
+    
+    interfaceData := map[string]interface{}{
+        "string": "hello",
+        "number": 42,
+        "float":  3.14,
+        "bool":   true,
+        "slice":  []interface{}{1, 2, 3},
+        "map":    map[string]interface{}{"nested": "value"},
+    }
+    
+    var ifaceBuffer bytes.Buffer
+    ifaceEncoder := gob.NewEncoder(&ifaceBuffer)
+    
+    err = ifaceEncoder.Encode(interfaceData)
+    if err != nil {
+        fmt.Printf("Error encoding interface data: %v\n", err)
+        return
+    }
+    
+    // Decode interface data
+    ifaceDecoder := gob.NewDecoder(bytes.NewReader(ifaceBuffer.Bytes()))
+    var decodedIface map[string]interface{}
+    
+    err = ifaceDecoder.Decode(&decodedIface)
+    if err != nil {
+        fmt.Printf("Error decoding interface data: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Decoded interface data: %+v\n", decodedIface)
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+```
+
+### Example 37: Protocol Buffers-style Binary Encoding
+
+```go
+package main
+
+import (
+    "encoding/binary"
+    "fmt"
+    "io"
+    "math"
+)
+
+// Varint encoding (variable-length integer)
+func encodeVarint(value uint64) []byte {
+    var buf []byte
+    
+    for value >= 0x80 {
+        buf = append(buf, byte(value)|0x80)
+        value >>= 7
+    }
+    buf = append(buf, byte(value))
+    
+    return buf
+}
+
+func decodeVarint(data []byte) (uint64, int) {
+    var value uint64
+    var shift uint
+    
+    for i, b := range data {
+        value |= uint64(b&0x7F) << shift
+        
+        if b&0x80 == 0 {
+            return value, i + 1
+        }
+        
+        shift += 7
+        if shift >= 64 {
+            return 0, 0 // Overflow
+        }
+    }
+    
+    return 0, 0 // Incomplete
+}
+
+// ZigZag encoding for signed integers
+func encodeZigZag32(value int32) uint32 {
+    return uint32((value << 1) ^ (value >> 31))
+}
+
+func decodeZigZag32(value uint32) int32 {
+    return int32((value >> 1) ^ -(value & 1))
+}
+
+func encodeZigZag64(value int64) uint64 {
+    return uint64((value << 1) ^ (value >> 63))
+}
+
+func decodeZigZag64(value uint64) int64 {
+    return int64((value >> 1) ^ -(value & 1))
+}
+
+// Wire types for protocol buffer-style encoding
+const (
+    WireVarint  = 0
+    WireFixed64 = 1
+    WireLength  = 2
+    WireFixed32 = 5
+)
+
+// Tag encoding (field number + wire type)
+func encodeTag(fieldNumber int, wireType int) uint64 {
+    return uint64(fieldNumber<<3) | uint64(wireType)
+}
+
+func decodeTag(tag uint64) (int, int) {
+    return int(tag >> 3), int(tag & 7)
+}
+
+// Binary message encoder
+type MessageEncoder struct {
+    buf []byte
+}
+
+func NewMessageEncoder() *MessageEncoder {
+    return &MessageEncoder{}
+}
+
+func (e *MessageEncoder) WriteVarint(fieldNumber int, value uint64) {
+    tag := encodeTag(fieldNumber, WireVarint)
+    e.buf = append(e.buf, encodeVarint(tag)...)
+    e.buf = append(e.buf, encodeVarint(value)...)
+}
+
+func (e *MessageEncoder) WriteSignedVarint(fieldNumber int, value int64) {
+    zigzag := encodeZigZag64(value)
+    e.WriteVarint(fieldNumber, zigzag)
+}
+
+func (e *MessageEncoder) WriteFixed32(fieldNumber int, value uint32) {
+    tag := encodeTag(fieldNumber, WireFixed32)
+    e.buf = append(e.buf, encodeVarint(tag)...)
+    
+    fixed := make([]byte, 4)
+    binary.LittleEndian.PutUint32(fixed, value)
+    e.buf = append(e.buf, fixed...)
+}
+
+func (e *MessageEncoder) WriteFixed64(fieldNumber int, value uint64) {
+    tag := encodeTag(fieldNumber, WireFixed64)
+    e.buf = append(e.buf, encodeVarint(tag)...)
+    
+    fixed := make([]byte, 8)
+    binary.LittleEndian.PutUint64(fixed, value)
+    e.buf = append(e.buf, fixed...)
+}
+
+func (e *MessageEncoder) WriteFloat32(fieldNumber int, value float32) {
+    bits := math.Float32bits(value)
+    e.WriteFixed32(fieldNumber, bits)
+}
+
+func (e *MessageEncoder) WriteFloat64(fieldNumber int, value float64) {
+    bits := math.Float64bits(value)
+    e.WriteFixed64(fieldNumber, bits)
+}
+
+func (e *MessageEncoder) WriteString(fieldNumber int, value string) {
+    e.WriteBytes(fieldNumber, []byte(value))
+}
+
+func (e *MessageEncoder) WriteBytes(fieldNumber int, value []byte) {
+    tag := encodeTag(fieldNumber, WireLength)
+    e.buf = append(e.buf, encodeVarint(tag)...)
+    e.buf = append(e.buf, encodeVarint(uint64(len(value)))...)
+    e.buf = append(e.buf, value...)
+}
+
+func (e *MessageEncoder) WriteBool(fieldNumber int, value bool) {
+    var val uint64
+    if value {
+        val = 1
+    }
+    e.WriteVarint(fieldNumber, val)
+}
+
+func (e *MessageEncoder) Bytes() []byte {
+    return e.buf
+}
+
+// Binary message decoder
+type MessageDecoder struct {
+    buf []byte
+    pos int
+}
+
+func NewMessageDecoder(data []byte) *MessageDecoder {
+    return &MessageDecoder{buf: data}
+}
+
+func (d *MessageDecoder) ReadTag() (int, int, error) {
+    if d.pos >= len(d.buf) {
+        return 0, 0, io.EOF
+    }
+    
+    tag, consumed := decodeVarint(d.buf[d.pos:])
+    if consumed == 0 {
+        return 0, 0, fmt.Errorf("invalid varint")
+    }
+    
+    d.pos += consumed
+    fieldNumber, wireType := decodeTag(tag)
+    return fieldNumber, wireType, nil
+}
+
+func (d *MessageDecoder) ReadVarint() (uint64, error) {
+    if d.pos >= len(d.buf) {
+        return 0, io.EOF
+    }
+    
+    value, consumed := decodeVarint(d.buf[d.pos:])
+    if consumed == 0 {
+        return 0, fmt.Errorf("invalid varint")
+    }
+    
+    d.pos += consumed
+    return value, nil
+}
+
+func (d *MessageDecoder) ReadSignedVarint() (int64, error) {
+    value, err := d.ReadVarint()
+    if err != nil {
+        return 0, err
+    }
+    
+    return decodeZigZag64(value), nil
+}
+
+func (d *MessageDecoder) ReadFixed32() (uint32, error) {
+    if d.pos+4 > len(d.buf) {
+        return 0, io.EOF
+    }
+    
+    value := binary.LittleEndian.Uint32(d.buf[d.pos:])
+    d.pos += 4
+    return value, nil
+}
+
+func (d *MessageDecoder) ReadFixed64() (uint64, error) {
+    if d.pos+8 > len(d.buf) {
+        return 0, io.EOF
+    }
+    
+    value := binary.LittleEndian.Uint64(d.buf[d.pos:])
+    d.pos += 8
+    return value, nil
+}
+
+func (d *MessageDecoder) ReadFloat32() (float32, error) {
+    bits, err := d.ReadFixed32()
+    if err != nil {
+        return 0, err
+    }
+    
+    return math.Float32frombits(bits), nil
+}
+
+func (d *MessageDecoder) ReadFloat64() (float64, error) {
+    bits, err := d.ReadFixed64()
+    if err != nil {
+        return 0, err
+    }
+    
+    return math.Float64frombits(bits), nil
+}
+
+func (d *MessageDecoder) ReadBytes() ([]byte, error) {
+    length, err := d.ReadVarint()
+    if err != nil {
+        return nil, err
+    }
+    
+    if d.pos+int(length) > len(d.buf) {
+        return nil, io.EOF
+    }
+    
+    value := make([]byte, length)
+    copy(value, d.buf[d.pos:d.pos+int(length)])
+    d.pos += int(length)
+    
+    return value, nil
+}
+
+func (d *MessageDecoder) ReadString() (string, error) {
+    bytes, err := d.ReadBytes()
+    if err != nil {
+        return "", err
+    }
+    
+    return string(bytes), nil
+}
+
+func (d *MessageDecoder) ReadBool() (bool, error) {
+    value, err := d.ReadVarint()
+    if err != nil {
+        return false, err
+    }
+    
+    return value != 0, nil
+}
+
+func (d *MessageDecoder) Skip(wireType int) error {
+    switch wireType {
+    case WireVarint:
+        _, err := d.ReadVarint()
+        return err
+    case WireFixed32:
+        _, err := d.ReadFixed32()
+        return err
+    case WireFixed64:
+        _, err := d.ReadFixed64()
+        return err
+    case WireLength:
+        bytes, err := d.ReadBytes()
+        _ = bytes
+        return err
+    default:
+        return fmt.Errorf("unknown wire type: %d", wireType)
+    }
+}
+
+// Example message structure
+type Person struct {
+    ID       int64
+    Name     string
+    Email    string
+    Age      int32
+    Score    float32
+    Active   bool
+    Tags     []string
+    Metadata []byte
+}
+
+func (p *Person) Encode() []byte {
+    encoder := NewMessageEncoder()
+    
+    encoder.WriteSignedVarint(1, p.ID)      // field 1: ID
+    encoder.WriteString(2, p.Name)          // field 2: Name
+    encoder.WriteString(3, p.Email)         // field 3: Email
+    encoder.WriteSignedVarint(4, int64(p.Age)) // field 4: Age
+    encoder.WriteFloat32(5, p.Score)        // field 5: Score
+    encoder.WriteBool(6, p.Active)          // field 6: Active
+    
+    // Encode tags (repeated string field)
+    for _, tag := range p.Tags {
+        encoder.WriteString(7, tag)         // field 7: Tags (repeated)
+    }
+    
+    encoder.WriteBytes(8, p.Metadata)      // field 8: Metadata
+    
+    return encoder.Bytes()
+}
+
+func (p *Person) Decode(data []byte) error {
+    decoder := NewMessageDecoder(data)
+    p.Tags = nil // Reset tags slice
+    
+    for {
+        fieldNumber, wireType, err := decoder.ReadTag()
+        if err == io.EOF {
+            break
+        }
+        if err != nil {
+            return err
+        }
+        
+        switch fieldNumber {
+        case 1: // ID
+            if wireType != WireVarint {
+                return fmt.Errorf("wrong wire type for ID")
+            }
+            value, err := decoder.ReadSignedVarint()
+            if err != nil {
+                return err
+            }
+            p.ID = value
+            
+        case 2: // Name
+            if wireType != WireLength {
+                return fmt.Errorf("wrong wire type for Name")
+            }
+            value, err := decoder.ReadString()
+            if err != nil {
+                return err
+            }
+            p.Name = value
+            
+        case 3: // Email
+            if wireType != WireLength {
+                return fmt.Errorf("wrong wire type for Email")
+            }
+            value, err := decoder.ReadString()
+            if err != nil {
+                return err
+            }
+            p.Email = value
+            
+        case 4: // Age
+            if wireType != WireVarint {
+                return fmt.Errorf("wrong wire type for Age")
+            }
+            value, err := decoder.ReadSignedVarint()
+            if err != nil {
+                return err
+            }
+            p.Age = int32(value)
+            
+        case 5: // Score
+            if wireType != WireFixed32 {
+                return fmt.Errorf("wrong wire type for Score")
+            }
+            value, err := decoder.ReadFloat32()
+            if err != nil {
+                return err
+            }
+            p.Score = value
+            
+        case 6: // Active
+            if wireType != WireVarint {
+                return fmt.Errorf("wrong wire type for Active")
+            }
+            value, err := decoder.ReadBool()
+            if err != nil {
+                return err
+            }
+            p.Active = value
+            
+        case 7: // Tags (repeated)
+            if wireType != WireLength {
+                return fmt.Errorf("wrong wire type for Tags")
+            }
+            value, err := decoder.ReadString()
+            if err != nil {
+                return err
+            }
+            p.Tags = append(p.Tags, value)
+            
+        case 8: // Metadata
+            if wireType != WireLength {
+                return fmt.Errorf("wrong wire type for Metadata")
+            }
+            value, err := decoder.ReadBytes()
+            if err != nil {
+                return err
+            }
+            p.Metadata = value
+            
+        default:
+            // Skip unknown field
+            err := decoder.Skip(wireType)
+            if err != nil {
+                return err
+            }
+        }
+    }
+    
+    return nil
+}
+
+func main() {
+    fmt.Println("Protocol Buffers-style Binary Encoding:")
+    
+    // Test varint encoding
+    fmt.Println("1. Varint encoding test:")
+    testValues := []uint64{0, 1, 127, 128, 16383, 16384, 2097151}
+    
+    for _, val := range testValues {
+        encoded := encodeVarint(val)
+        decoded, consumed := decodeVarint(encoded)
+        
+        fmt.Printf("Value: %d -> Encoded: %v (%d bytes) -> Decoded: %d (consumed: %d)\n",
+            val, encoded, len(encoded), decoded, consumed)
+    }
+    
+    // Test ZigZag encoding
+    fmt.Println("\n2. ZigZag encoding test:")
+    signedValues := []int64{0, -1, 1, -2, 2, -64, 64, -1000, 1000}
+    
+    for _, val := range signedValues {
+        zigzag := encodeZigZag64(val)
+        decoded := decodeZigZag64(zigzag)
+        
+        fmt.Printf("Value: %d -> ZigZag: %d -> Decoded: %d\n", val, zigzag, decoded)
+    }
+    
+    // Test message encoding
+    fmt.Println("\n3. Message encoding test:")
+    
+    person := Person{
+        ID:       12345,
+        Name:     "Alice Johnson",
+        Email:    "alice@example.com",
+        Age:      -30, // Negative to test ZigZag
+        Score:    95.5,
+        Active:   true,
+        Tags:     []string{"developer", "golang", "expert"},
+        Metadata: []byte{0xDE, 0xAD, 0xBE, 0xEF},
+    }
+    
+    fmt.Printf("Original: %+v\n", person)
+    
+    // Encode
+    encoded := person.Encode()
+    fmt.Printf("Encoded size: %d bytes\n", len(encoded))
+    fmt.Printf("Encoded data: %v\n", encoded)
+    fmt.Printf("Encoded hex: %x\n", encoded)
+    
+    // Decode
+    var decodedPerson Person
+    err := decodedPerson.Decode(encoded)
+    if err != nil {
+        fmt.Printf("Error decoding: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Decoded: %+v\n", decodedPerson)
+    
+    // Verify
+    fmt.Printf("\nVerification:\n")
+    fmt.Printf("ID match: %t\n", person.ID == decodedPerson.ID)
+    fmt.Printf("Name match: %t\n", person.Name == decodedPerson.Name)
+    fmt.Printf("Email match: %t\n", person.Email == decodedPerson.Email)
+    fmt.Printf("Age match: %t\n", person.Age == decodedPerson.Age)
+    fmt.Printf("Score match: %t\n", person.Score == decodedPerson.Score)
+    fmt.Printf("Active match: %t\n", person.Active == decodedPerson.Active)
+    fmt.Printf("Tags match: %t\n", fmt.Sprintf("%v", person.Tags) == fmt.Sprintf("%v", decodedPerson.Tags))
+    fmt.Printf("Metadata match: %t\n", string(person.Metadata) == string(decodedPerson.Metadata))
+}
+```
+
+### Example 38: Custom Binary Format Design
+
+```go
+package main
+
+import (
+    "encoding/binary"
+    "fmt"
+    "io"
+    "time"
+)
+
+// Custom binary format for a simple database record
+// Format: MAGIC(4) + VERSION(1) + FLAGS(1) + TIMESTAMP(8) + DATA_LENGTH(4) + DATA(variable)
+
+const (
+    MAGIC_NUMBER    = 0x12345678
+    FORMAT_VERSION  = 1
+    FLAG_COMPRESSED = 1 << 0
+    FLAG_ENCRYPTED  = 1 << 1
+    FLAG_CHECKSUM   = 1 << 2
+)
+
+// Record represents a data record in our custom format
+type Record struct {
+    Magic     uint32
+    Version   uint8
+    Flags     uint8
+    Timestamp uint64
+    Data      []byte
+    Checksum  uint32 // Optional, based on flags
+}
+
+// BinaryWriter helps write binary data in our custom format
+type BinaryWriter struct {
+    data []byte
+}
+
+func NewBinaryWriter() *BinaryWriter {
+    return &BinaryWriter{}
+}
+
+func (w *BinaryWriter) WriteUint8(value uint8) {
+    w.data = append(w.data, value)
+}
+
+func (w *BinaryWriter) WriteUint16(value uint16) {
+    buf := make([]byte, 2)
+    binary.LittleEndian.PutUint16(buf, value)
+    w.data = append(w.data, buf...)
+}
+
+func (w *BinaryWriter) WriteUint32(value uint32) {
+    buf := make([]byte, 4)
+    binary.LittleEndian.PutUint32(buf, value)
+    w.data = append(w.data, buf...)
+}
+
+func (w *BinaryWriter) WriteUint64(value uint64) {
+    buf := make([]byte, 8)
+    binary.LittleEndian.PutUint64(buf, value)
+    w.data = append(w.data, buf...)
+}
+
+func (w *BinaryWriter) WriteBytes(data []byte) {
+    w.data = append(w.data, data...)
+}
+
+func (w *BinaryWriter) WriteString(s string) {
+    w.WriteUint32(uint32(len(s)))
+    w.WriteBytes([]byte(s))
+}
+
+func (w *BinaryWriter) Bytes() []byte {
+    return w.data
+}
+
+// BinaryReader helps read binary data from our custom format
+type BinaryReader struct {
+    data []byte
+    pos  int
+}
+
+func NewBinaryReader(data []byte) *BinaryReader {
+    return &BinaryReader{data: data}
+}
+
+func (r *BinaryReader) ReadUint8() (uint8, error) {
+    if r.pos+1 > len(r.data) {
+        return 0, io.EOF
+    }
+    value := r.data[r.pos]
+    r.pos++
+    return value, nil
+}
+
+func (r *BinaryReader) ReadUint16() (uint16, error) {
+    if r.pos+2 > len(r.data) {
+        return 0, io.EOF
+    }
+    value := binary.LittleEndian.Uint16(r.data[r.pos:])
+    r.pos += 2
+    return value, nil
+}
+
+func (r *BinaryReader) ReadUint32() (uint32, error) {
+    if r.pos+4 > len(r.data) {
+        return 0, io.EOF
+    }
+    value := binary.LittleEndian.Uint32(r.data[r.pos:])
+    r.pos += 4
+    return value, nil
+}
+
+func (r *BinaryReader) ReadUint64() (uint64, error) {
+    if r.pos+8 > len(r.data) {
+        return 0, io.EOF
+    }
+    value := binary.LittleEndian.Uint64(r.data[r.pos:])
+    r.pos += 8
+    return value, nil
+}
+
+func (r *BinaryReader) ReadBytes(length int) ([]byte, error) {
+    if r.pos+length > len(r.data) {
+        return nil, io.EOF
+    }
+    value := make([]byte, length)
+    copy(value, r.data[r.pos:r.pos+length])
+    r.pos += length
+    return value, nil
+}
+
+func (r *BinaryReader) ReadString() (string, error) {
+    length, err := r.ReadUint32()
+    if err != nil {
+        return "", err
+    }
+    bytes, err := r.ReadBytes(int(length))
+    if err != nil {
+        return "", err
+    }
+    return string(bytes), nil
+}
+
+func (r *BinaryReader) Position() int {
+    return r.pos
+}
+
+func (r *BinaryReader) Remaining() int {
+    return len(r.data) - r.pos
+}
+
+// Calculate simple checksum
+func calculateChecksum(data []byte) uint32 {
+    var sum uint32
+    for _, b := range data {
+        sum = sum*31 + uint32(b)
+    }
+    return sum
+}
+
+// Encode record to binary format
+func (r *Record) Encode() []byte {
+    writer := NewBinaryWriter()
+    
+    // Header
+    writer.WriteUint32(r.Magic)
+    writer.WriteUint8(r.Version)
+    writer.WriteUint8(r.Flags)
+    writer.WriteUint64(r.Timestamp)
+    
+    // Data length and data
+    writer.WriteUint32(uint32(len(r.Data)))
+    writer.WriteBytes(r.Data)
+    
+    // Optional checksum
+    if r.Flags&FLAG_CHECKSUM != 0 {
+        checksum := calculateChecksum(r.Data)
+        writer.WriteUint32(checksum)
+    }
+    
+    return writer.Bytes()
+}
+
+// Decode record from binary format
+func (r *Record) Decode(data []byte) error {
+    reader := NewBinaryReader(data)
+    
+    // Read header
+    magic, err := reader.ReadUint32()
+    if err != nil {
+        return fmt.Errorf("failed to read magic: %v", err)
+    }
+    if magic != MAGIC_NUMBER {
+        return fmt.Errorf("invalid magic number: 0x%08X", magic)
+    }
+    r.Magic = magic
+    
+    version, err := reader.ReadUint8()
+    if err != nil {
+        return fmt.Errorf("failed to read version: %v", err)
+    }
+    if version != FORMAT_VERSION {
+        return fmt.Errorf("unsupported version: %d", version)
+    }
+    r.Version = version
+    
+    flags, err := reader.ReadUint8()
+    if err != nil {
+        return fmt.Errorf("failed to read flags: %v", err)
+    }
+    r.Flags = flags
+    
+    timestamp, err := reader.ReadUint64()
+    if err != nil {
+        return fmt.Errorf("failed to read timestamp: %v", err)
+    }
+    r.Timestamp = timestamp
+    
+    // Read data
+    dataLength, err := reader.ReadUint32()
+    if err != nil {
+        return fmt.Errorf("failed to read data length: %v", err)
+    }
+    
+    data, err := reader.ReadBytes(int(dataLength))
+    if err != nil {
+        return fmt.Errorf("failed to read data: %v", err)
+    }
+    r.Data = data
+    
+    // Read optional checksum
+    if r.Flags&FLAG_CHECKSUM != 0 {
+        if reader.Remaining() < 4 {
+            return fmt.Errorf("missing checksum")
+        }
+        
+        checksum, err := reader.ReadUint32()
+        if err != nil {
+            return fmt.Errorf("failed to read checksum: %v", err)
+        }
+        
+        expectedChecksum := calculateChecksum(r.Data)
+        if checksum != expectedChecksum {
+            return fmt.Errorf("checksum mismatch: got %08X, expected %08X", 
+                checksum, expectedChecksum)
+        }
+        r.Checksum = checksum
+    }
+    
+    return nil
+}
+
+// File format with multiple records
+type FileFormat struct {
+    Header  FileHeader
+    Records []Record
+}
+
+type FileHeader struct {
+    Signature   [8]byte // File signature
+    Version     uint16
+    RecordCount uint32
+    Reserved    [6]byte // Reserved for future use
+}
+
+func (f *FileFormat) Encode() []byte {
+    writer := NewBinaryWriter()
+    
+    // Write file header
+    writer.WriteBytes(f.Header.Signature[:])
+    writer.WriteUint16(f.Header.Version)
+    writer.WriteUint32(f.Header.RecordCount)
+    writer.WriteBytes(f.Header.Reserved[:])
+    
+    // Write records
+    for _, record := range f.Records {
+        recordData := record.Encode()
+        writer.WriteUint32(uint32(len(recordData))) // Record length prefix
+        writer.WriteBytes(recordData)
+    }
+    
+    return writer.Bytes()
+}
+
+func (f *FileFormat) Decode(data []byte) error {
+    reader := NewBinaryReader(data)
+    
+    // Read file header
+    signature, err := reader.ReadBytes(8)
+    if err != nil {
+        return fmt.Errorf("failed to read signature: %v", err)
+    }
+    copy(f.Header.Signature[:], signature)
+    
+    version, err := reader.ReadUint16()
+    if err != nil {
+        return fmt.Errorf("failed to read version: %v", err)
+    }
+    f.Header.Version = version
+    
+    recordCount, err := reader.ReadUint32()
+    if err != nil {
+        return fmt.Errorf("failed to read record count: %v", err)
+    }
+    f.Header.RecordCount = recordCount
+    
+    reserved, err := reader.ReadBytes(6)
+    if err != nil {
+        return fmt.Errorf("failed to read reserved: %v", err)
+    }
+    copy(f.Header.Reserved[:], reserved)
+    
+    // Read records
+    f.Records = make([]Record, 0, recordCount)
+    for i := uint32(0); i < recordCount; i++ {
+        recordLength, err := reader.ReadUint32()
+        if err != nil {
+            return fmt.Errorf("failed to read record %d length: %v", i, err)
+        }
+        
+        recordData, err := reader.ReadBytes(int(recordLength))
+        if err != nil {
+            return fmt.Errorf("failed to read record %d data: %v", i, err)
+        }
+        
+        var record Record
+        err = record.Decode(recordData)
+        if err != nil {
+            return fmt.Errorf("failed to decode record %d: %v", i, err)
+        }
+        
+        f.Records = append(f.Records, record)
+    }
+    
+    return nil
+}
+
+func main() {
+    fmt.Println("Custom Binary Format Design:")
+    
+    // Create test records
+    fmt.Println("1. Creating test records:")
+    
+    record1 := Record{
+        Magic:     MAGIC_NUMBER,
+        Version:   FORMAT_VERSION,
+        Flags:     FLAG_CHECKSUM,
+        Timestamp: uint64(time.Now().Unix()),
+        Data:      []byte("Hello, this is the first record!"),
+    }
+    
+    record2 := Record{
+        Magic:     MAGIC_NUMBER,
+        Version:   FORMAT_VERSION,
+        Flags:     FLAG_COMPRESSED | FLAG_CHECKSUM,
+        Timestamp: uint64(time.Now().Unix()),
+        Data:      []byte("This is the second record with compression flag."),
+    }
+    
+    fmt.Printf("Record 1: Magic=0x%08X, Flags=%02X, Data=%q\n", 
+        record1.Magic, record1.Flags, string(record1.Data))
+    fmt.Printf("Record 2: Magic=0x%08X, Flags=%02X, Data=%q\n", 
+        record2.Magic, record2.Flags, string(record2.Data))
+    
+    // Test single record encoding/decoding
+    fmt.Println("\n2. Single record encoding/decoding:")
+    
+    encoded1 := record1.Encode()
+    fmt.Printf("Record 1 encoded size: %d bytes\n", len(encoded1))
+    fmt.Printf("Encoded data (hex): %x\n", encoded1)
+    
+    var decoded1 Record
+    err := decoded1.Decode(encoded1)
+    if err != nil {
+        fmt.Printf("Error decoding record 1: %v\n", err)
+        return
+    }
+    
+    fmt.Printf("Decoded record 1: Data=%q, Checksum=0x%08X\n", 
+        string(decoded1.Data), decoded1.Checksum)
+    fmt.Printf("Data integrity: %t\n", string(record1.Data) == string(decoded1.Data))
+    
+    // Test file format with multiple records
+    fmt.Println("\n3. File format with multiple records:")
+    
+    fileFormat := FileFormat{
+        Header: FileHeader{
+            Signature:   [8]byte{'C', 'U', 'S', 'T', 'F', 'M', 'T', '1'},
+            Version:     1,
+            RecordCount: 2,
+        },
+        Records: []Record{record1, record2},
+    }
+    
+    fileData := fileFormat.Encode()
+    fmt.Printf("File format encoded size: %d bytes\n", len(fileData))
+    
+    // Decode file format
+    var decodedFile FileFormat
+    err = decodedFile.Decode(fileData)
+    if err != nil {
+        fmt.Printf("Error decoding file: %v", err)
+        return
+    }
+    
+    fmt.Printf("Decoded file signature: %s\n", string(decodedFile.Header.Signature[:]))
+    fmt.Printf("Decoded file version: %d\n", decodedFile.Header.Version)
+    fmt.Printf("Decoded record count: %d\n", decodedFile.Header.RecordCount)
+    fmt.Printf("Actual records decoded: %d\n", len(decodedFile.Records))
+    
+    for i, record := range decodedFile.Records {
+        fmt.Printf("Record %d: Data=%q, Flags=%02X\n", 
+            i+1, string(record.Data), record.Flags)
+    }
+    
+    // Format analysis
+    fmt.Println("\n4. Format analysis:")
+    
+    fmt.Printf("File header size: %d bytes\n", 8+2+4+6) // signature + version + count + reserved
+    
+    totalRecordSize := 0
+    for i, record := range decodedFile.Records {
+        encoded := record.Encode()
+        fmt.Printf("Record %d size: %d bytes\n", i+1, len(encoded))
+        totalRecordSize += len(encoded) + 4 // +4 for length prefix
+    }
+    
+    fmt.Printf("Total record data size: %d bytes\n", totalRecordSize)
+    fmt.Printf("Total file size: %d bytes\n", len(fileData))
+    
+    // Error handling test
+    fmt.Println("\n5. Error handling test:")
+    
+    // Test with corrupted magic number
+    corruptedData := make([]byte, len(encoded1))
+    copy(corruptedData, encoded1)
+    corruptedData[0] = 0xFF // Corrupt magic number
+    
+    var corruptedRecord Record
+    err = corruptedRecord.Decode(corruptedData)
+    fmt.Printf("Corrupted magic test - Error (expected): %v\n", err)
+    
+    // Test with corrupted checksum
+    record3 := Record{
+        Magic:     MAGIC_NUMBER,
+        Version:   FORMAT_VERSION,
+        Flags:     FLAG_CHECKSUM,
+        Timestamp: uint64(time.Now().Unix()),
+        Data:      []byte("Test data for checksum"),
+    }
+    
+    encoded3 := record3.Encode()
+    encoded3[len(encoded3)-1] ^= 0xFF // Corrupt checksum
+    
+    var corruptedRecord3 Record
+    err = corruptedRecord3.Decode(encoded3)
+    fmt.Printf("Corrupted checksum test - Error (expected): %v\n", err)
+    
+    // Format version info
+    fmt.Println("\n6. Format specification:")
+    fmt.Printf("Magic Number: 0x%08X\n", MAGIC_NUMBER)
+    fmt.Printf("Format Version: %d\n", FORMAT_VERSION)
+    fmt.Printf("Supported Flags:\n")
+    fmt.Printf("  FLAG_COMPRESSED: 0x%02X\n", FLAG_COMPRESSED)
+    fmt.Printf("  FLAG_ENCRYPTED:  0x%02X\n", FLAG_ENCRYPTED)
+    fmt.Printf("  FLAG_CHECKSUM:   0x%02X\n", FLAG_CHECKSUM)
+    fmt.Printf("\nRecord Structure:\n")
+    fmt.Printf("  Magic (4 bytes) + Version (1 byte) + Flags (1 byte)\n")
+    fmt.Printf("  + Timestamp (8 bytes) + Data Length (4 bytes) + Data (variable)\n")
+    fmt.Printf("  + Optional Checksum (4 bytes if FLAG_CHECKSUM is set)\n")
+}
+```
+
+### Example 39: Text Encoding Transformations
+
+```go
+package main
+
+import (
+    "fmt"
+    "strings"
+    "unicode"
+    "unicode/utf8"
+)
+
+func main() {
+    fmt.Println("Text Encoding Transformations:")
+    
+    // UTF-8 analysis
+    fmt.Println("1. UTF-8 Analysis:")
+    
+    testStrings := []string{
+        "Hello",                    // ASCII
+        "café",                     // Latin extended
+        "你好",                     // Chinese
+        "🌍🚀✨",                  // Emojis
+        "Здравствуй мир",          // Cyrillic
+        "العربية",                 // Arabic
+    }
+    
+    for _, s := range testStrings {
+        fmt.Printf("\nText: %s\n", s)
+        fmt.Printf("  String length: %d characters\n", len([]rune(s)))
+        fmt.Printf("  Byte length: %d bytes\n", len(s))
+        fmt.Printf("  UTF-8 valid: %t\n", utf8.ValidString(s))
+        
+        // Show byte representation
+        bytes := []byte(s)
+        fmt.Printf("  Bytes: %v\n", bytes)
+        fmt.Printf("  Hex: %x\n", bytes)
+        
+        // Show rune breakdown
+        fmt.Printf("  Runes:\n")
+        for i, r := range s {
+            size := utf8.RuneLen(r)
+            fmt.Printf("    [%d] U+%04X '%c' (%d bytes)\n", i, r, r, size)
+        }
+    }
+    
+    // Character case transformations
+    fmt.Println("\n2. Case Transformations:")
+    
+    testText := "Hello, World! Café naïve résumé 123"
+    fmt.Printf("Original: %s\n", testText)
+    fmt.Printf("Upper: %s\n", strings.ToUpper(testText))
+    fmt.Printf("Lower: %s\n", strings.ToLower(testText))
+    fmt.Printf("Title: %s\n", strings.Title(testText))
+    
+    // Manual case conversion
+    fmt.Printf("Manual upper: %s\n", manualToUpper(testText))
+    fmt.Printf("Manual lower: %s\n", manualToLower(testText))
+    
+    // ROT13 transformation
+    fmt.Println("\n3. ROT13 Transformation:")
+    
+    rot13Text := "Hello, World!"
+    encoded := rot13(rot13Text)
+    decoded := rot13(encoded) // ROT13 is self-inverse
+    
+    fmt.Printf("Original: %s\n", rot13Text)
+    fmt.Printf("ROT13: %s\n", encoded)
+    fmt.Printf("Decoded: %s\n", decoded)
+    
+    // Caesar cipher
+    fmt.Println("\n4. Caesar Cipher:")
+    
+    caesarText := "HELLO WORLD"
+    for shift := 1; shift <= 25; shift += 6 {
+        encrypted := caesarCipher(caesarText, shift)
+        decrypted := caesarCipher(encrypted, -shift)
+        fmt.Printf("Shift %2d: %s -> %s -> %s\n", shift, caesarText, encrypted, decrypted)
+    }
+    
+    // Morse code
+    fmt.Println("\n5. Morse Code:")
+    
+    morseText := "HELLO WORLD"
+    morse := textToMorse(morseText)
+    decoded = morseToText(morse)
+    
+    fmt.Printf("Text: %s\n", morseText)
+    fmt.Printf("Morse: %s\n", morse)
+    fmt.Printf("Decoded: %s\n", decoded)
+    
+    // Unicode normalization examples
+    fmt.Println("\n6. Unicode Normalization:")
+    
+    // Different representations of the same character
+    composed := "é"                    // Single character é
+    decomposed := "e\u0301"           // e + combining acute accent
+    
+    fmt.Printf("Composed: %q (len=%d, bytes=%v)\n", composed, len(composed), []byte(composed))
+    fmt.Printf("Decomposed: %q (len=%d, bytes=%v)\n", decomposed, len(decomposed), []byte(decomposed))
+    fmt.Printf("Equal: %t\n", composed == decomposed)
+    fmt.Printf("Visually same: %t\n", normalizeForComparison(composed) == normalizeForComparison(decomposed))
+    
+    // Character frequency analysis
+    fmt.Println("\n7. Character Frequency Analysis:")
+    
+    analysisText := "The quick brown fox jumps over the lazy dog. This pangram contains every letter of the alphabet."
+    frequencies := analyzeCharacterFrequency(analysisText)
+    
+    fmt.Printf("Text: %s\n", analysisText)
+    fmt.Printf("Character frequencies (top 10):\n")
+    
+    type charFreq struct {
+        char  rune
+        count int
+    }
+    
+    var freqList []charFreq
+    for char, count := range frequencies {
+        freqList = append(freqList, charFreq{char, count})
+    }
+    
+    // Simple sort by frequency (descending)
+    for i := 0; i < len(freqList); i++ {
+        for j := i + 1; j < len(freqList); j++ {
+            if freqList[j].count > freqList[i].count {
+                freqList[i], freqList[j] = freqList[j], freqList[i]
+            }
+        }
+    }
+    
+    for i := 0; i < 10 && i < len(freqList); i++ {
+        char := freqList[i].char
+        count := freqList[i].count
+        if unicode.IsPrint(char) {
+            fmt.Printf("  '%c': %d\n", char, count)
+        } else {
+            fmt.Printf("  U+%04X: %d\n", char, count)
+        }
+    }
+    
+    // Text statistics
+    fmt.Printf("\nText statistics:\n")
+    fmt.Printf("  Total characters: %d\n", utf8.RuneCountInString(analysisText))
+    fmt.Printf("  Total bytes: %d\n", len(analysisText))
+    fmt.Printf("  Letters: %d\n", countLetters(analysisText))
+    fmt.Printf("  Digits: %d\n", countDigits(analysisText))
+    fmt.Printf("  Spaces: %d\n", countSpaces(analysisText))
+    fmt.Printf("  Punctuation: %d\n", countPunctuation(analysisText))
+}
+
+func manualToUpper(s string) string {
+    var result strings.Builder
+    for _, r := range s {
+        if r >= 'a' && r <= 'z' {
+            result.WriteRune(r - 32)
+        } else {
+            result.WriteRune(r)
+        }
+    }
+    return result.String()
+}
+
+func manualToLower(s string) string {
+    var result strings.Builder
+    for _, r := range s {
+        if r >= 'A' && r <= 'Z' {
+            result.WriteRune(r + 32)
+        } else {
+            result.WriteRune(r)
+        }
+    }
+    return result.String()
+}
+
+func rot13(s string) string {
+    var result strings.Builder
+    for _, r := range s {
+        switch {
+        case r >= 'A' && r <= 'Z':
+            result.WriteRune((r-'A'+13)%26 + 'A')
+        case r >= 'a' && r <= 'z':
+            result.WriteRune((r-'a'+13)%26 + 'a')
+        default:
+            result.WriteRune(r)
+        }
+    }
+    return result.String()
+}
+
+func caesarCipher(s string, shift int) string {
+    var result strings.Builder
+    for _, r := range s {
+        switch {
+        case r >= 'A' && r <= 'Z':
+            shifted := (int(r-'A')+shift+26)%26 + int('A')
+            result.WriteRune(rune(shifted))
+        case r >= 'a' && r <= 'z':
+            shifted := (int(r-'a')+shift+26)%26 + int('a')
+            result.WriteRune(rune(shifted))
+        default:
+            result.WriteRune(r)
+        }
+    }
+    return result.String()
+}
+
+func textToMorse(s string) string {
+    morseCode := map[rune]string{
+        'A': ".-", 'B': "-...", 'C': "-.-.", 'D': "-..", 'E': ".",
+        'F': "..-.", 'G': "--.", 'H': "....", 'I': "..", 'J': ".---",
+        'K': "-.-", 'L': ".-..", 'M': "--", 'N': "-.", 'O': "---",
+        'P': ".--.", 'Q': "--.-", 'R': ".-.", 'S': "...", 'T': "-",
+        'U': "..-", 'V': "...-", 'W': ".--", 'X': "-..-", 'Y': "-.--",
+        'Z': "--..", '0': "-----", '1': ".----", '2': "..---",
+        '3': "...--", '4': "....-", '5': ".....", '6': "-....",
+        '7': "--...", '8': "---..", '9': "----.", ' ': "/",
+    }
+    
+    var result strings.Builder
+    for _, r := range strings.ToUpper(s) {
+        if code, ok := morseCode[r]; ok {
+            if result.Len() > 0 && code != "/" {
+                result.WriteString(" ")
+            }
+            result.WriteString(code)
+        }
+    }
+    return result.String()
+}
+
+func morseToText(morse string) string {
+    morseToChar := map[string]rune{
+        ".-": 'A', "-...": 'B', "-.-.": 'C', "-..": 'D', ".": 'E',
+        "..-.": 'F', "--.": 'G', "....": 'H', "..": 'I', ".---": 'J',
+        "-.-": 'K', ".-..": 'L', "--": 'M', "-.": 'N', "---": 'O',
+        ".--.": 'P', "--.-": 'Q', ".-.": 'R', "...": 'S', "-": 'T',
+        "..-": 'U', "...-": 'V', ".--": 'W', "-..-": 'X', "-.--": 'Y',
+        "--..": 'Z', "-----": '0', ".----": '1', "..---": '2',
+        "...--": '3', "....-": '4', ".....": '5', "-....": '6',
+        "--...": '7', "---..": '8', "----.": '9', "/": ' ',
+    }
+    
+    var result strings.Builder
+    codes := strings.Split(morse, " ")
+    
+    for _, code := range codes {
+        if char, ok := morseToChar[code]; ok {
+            result.WriteRune(char)
+        }
+    }
+    
+    return result.String()
+}
+
+func normalizeForComparison(s string) string {
+    // Simple normalization - remove combining characters
+    var result strings.Builder
+    for _, r := range s {
+        if !unicode.Is(unicode.Mn, r) { // Mn = Nonspacing marks (combining characters)
+            result.WriteRune(r)
+        }
+    }
+    return result.String()
+}
+
+func analyzeCharacterFrequency(s string) map[rune]int {
+    frequencies := make(map[rune]int)
+    for _, r := range s {
+        frequencies[r]++
+    }
+    return frequencies
+}
+
+func countLetters(s string) int {
+    count := 0
+    for _, r := range s {
+        if unicode.IsLetter(r) {
+            count++
+        }
+    }
+    return count
+}
+
+func countDigits(s string) int {
+    count := 0
+    for _, r := range s {
+        if unicode.IsDigit(r) {
+            count++
+        }
+    }
+    return count
+}
+
+func countSpaces(s string) int {
+    count := 0
+    for _, r := range s {
+        if unicode.IsSpace(r) {
+            count++
+        }
+    }
+    return count
+}
+
+func countPunctuation(s string) int {
+    count := 0
+    for _, r := range s {
+        if unicode.IsPunct(r) {
+            count++
+        }
+    }
+    return count
+}
+```
+
+### Example 40: MIME and Content Encoding
+
+```go
+package main
+
+import (
+    "encoding/base64"
+    "fmt"
+    "mime"
+    "mime/quotedprintable"
+    "net/textproto"
+    "strings"
+)
+
+func main() {
+    fmt.Println("MIME and Content Encoding:")
+    
+    // MIME type detection
+    fmt.Println("1. MIME Type Detection:")
+    
+    files := map[string][]byte{
+        "document.pdf":  {0x25, 0x50, 0x44, 0x46},                             // PDF
+        "image.png":     {0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A},   // PNG
+        "image.jpg":     {0xFF, 0xD8, 0xFF, 0xE0},                             // JPEG
+        "archive.zip":   {0x50, 0x4B, 0x03, 0x04},                             // ZIP
+        "text.txt":      {0x48, 0x65, 0x6C, 0x6C, 0x6F},                      // Text
+        "binary.exe":    {0x4D, 0x5A},                                          // PE executable
+    }
+    
+    for filename, data := range files {
+        // Detect MIME type by extension
+        mimeType := mime.TypeByExtension(getFileExtension(filename))
+        if mimeType == "" {
+            mimeType = "application/octet-stream"
+        }
+        
+        // Detect by content (simple magic number detection)
+        detectedType := detectMimeByContent(data)
+        
+        fmt.Printf("File: %s\n", filename)
+        fmt.Printf("  By extension: %s\n", mimeType)
+        fmt.Printf("  By content: %s\n", detectedType)
+        fmt.Printf("  Data: %v\n", data)
+        fmt.Println()
+    }
+    
+    // Quoted-Printable encoding
+    fmt.Println("2. Quoted-Printable Encoding:")
+    
+    qpText := "Café naïve résumé with special characters: àáâãäåæçèéêë"
+    fmt.Printf("Original: %s\n", qpText)
+    
+    var qpBuffer strings.Builder
+    qpWriter := quotedprintable.NewWriter(&qpBuffer)
+    qpWriter.Write([]byte(qpText))
+    qpWriter.Close()
+    
+    qpEncoded := qpBuffer.String()
+    fmt.Printf("Quoted-Printable: %s\n", qpEncoded)
+    
+    // Decode quoted-printable
+    qpReader := quotedprintable.NewReader(strings.NewReader(qpEncoded))
+    qpDecoded := make([]byte, len(qpText)*2) // Buffer with extra space
+    n, _ := qpReader.Read(qpDecoded)
+    qpDecoded = qpDecoded[:n]
+    
+    fmt.Printf("Decoded: %s\n", string(qpDecoded))
+    fmt.Printf("Match: %t\n", qpText == string(qpDecoded))
+    
+    // Email message with MIME encoding
+    fmt.Println("\n3. Email Message with MIME Encoding:")
+    
+    email := createMIMEEmail(
+        "sender@example.com",
+        "recipient@example.com",
+        "Test Email with Attachments",
+        "This is a test email with binary attachments.",
+        []Attachment{
+            {
+                Filename:    "test.png",
+                ContentType: "image/png",
+                Data:        []byte{0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00},
+            },
+            {
+                Filename:    "document.pdf",
+                ContentType: "application/pdf",
+                Data:        []byte{0x25, 0x50, 0x44, 0x46, 0x2D, 0x31, 0x2E, 0x34},
+            },
+        },
+    )
+    
+    fmt.Printf("MIME Email:\n%s\n", email)
+    
+    // Content-Transfer-Encoding examples
+    fmt.Println("4. Content-Transfer-Encoding Examples:")
+    
+    binaryData := []byte{0x00, 0x01, 0x02, 0x03, 0xFF, 0xFE, 0xFD, 0xFC}
+    fmt.Printf("Binary data: %v\n", binaryData)
+    
+    // Base64 encoding
+    base64Encoded := base64.StdEncoding.EncodeToString(binaryData)
+    fmt.Printf("Base64: %s\n", base64Encoded)
+    
+    // 7bit encoding (for ASCII text)
+    asciiText := "Hello, World!"
+    fmt.Printf("7bit (ASCII): %s\n", asciiText)
+    
+    // 8bit encoding (for extended ASCII)
+    extendedText := "Café naïve"
+    fmt.Printf("8bit (Extended): %s\n", extendedText)
+    fmt.Printf("8bit (Bytes): %v\n", []byte(extendedText))
+    
+    // Binary encoding (same as 8bit but semantically different)
+    fmt.Printf("Binary: %v\n", binaryData)
+    
+    // MIME header encoding
+    fmt.Println("\n5. MIME Header Encoding:")
+    
+    headers := []string{
+        "Simple ASCII Header",
+        "Header with Café",
+        "Заголовок на русском",
+        "日本語のヘッダー",
+        "🌍 Emoji Header 🚀",
+    }
+    
+    for _, header := range headers {
+        encoded := encodeMIMEHeader(header)
+        decoded := decodeMIMEHeader(encoded)
+        
+        fmt.Printf("Original: %s\n", header)
+        fmt.Printf("Encoded:  %s\n", encoded)
+        fmt.Printf("Decoded:  %s\n", decoded)
+        fmt.Printf("Match:    %t\n", header == decoded)
+        fmt.Println()
+    }
+    
+    // Content-Disposition header
+    fmt.Println("6. Content-Disposition Header:")
+    
+    dispositions := []struct {
+        disposition string
+        filename    string
+    }{
+        {"attachment", "document.pdf"},
+        {"inline", "image.png"},
+        {"attachment", "файл.txt"},        // Cyrillic filename
+        {"attachment", "文档.pdf"},         // Chinese filename
+    }
+    
+    for _, disp := range dispositions {
+        header := createContentDisposition(disp.disposition, disp.filename)
+        fmt.Printf("Disposition: %s, Filename: %s\n", disp.disposition, disp.filename)
+        fmt.Printf("Header: %s\n", header)
+        fmt.Println()
+    }
+}
+
+type Attachment struct {
+    Filename    string
+    ContentType string
+    Data        []byte
+}
+
+func getFileExtension(filename string) string {
+    parts := strings.Split(filename, ".")
+    if len(parts) > 1 {
+        return "." + parts[len(parts)-1]
+    }
+    return ""
+}
+
+func detectMimeByContent(data []byte) string {
+    if len(data) < 4 {
+        return "application/octet-stream"
+    }
+    
+    // Simple magic number detection
+    switch {
+    case data[0] == 0x25 && data[1] == 0x50 && data[2] == 0x44 && data[3] == 0x46:
+        return "application/pdf"
+    case data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47:
+        return "image/png"
+    case data[0] == 0xFF && data[1] == 0xD8 && data[2] == 0xFF:
+        return "image/jpeg"
+    case data[0] == 0x50 && data[1] == 0x4B && data[2] == 0x03 && data[3] == 0x04:
+        return "application/zip"
+    case data[0] == 0x4D && data[1] == 0x5A:
+        return "application/x-msdownload"
+    default:
+        // Check if it's text
+        for _, b := range data {
+            if b > 127 || (b < 32 && b != 9 && b != 10 && b != 13) {
+                return "application/octet-stream"
+            }
+        }
+        return "text/plain"
+    }
+}
+
+func createMIMEEmail(from, to, subject, body string, attachments []Attachment) string {
+    boundary := "----=_NextPart_000_001A_01D8E4B5.12345678"
+    
+    var email strings.Builder
+    
+    // Headers
+    email.WriteString(fmt.Sprintf("From: %s\n", from))
+    email.WriteString(fmt.Sprintf("To: %s\n", to))
+    email.WriteString(fmt.Sprintf("Subject: %s\n", subject))
+    email.WriteString("MIME-Version: 1.0\n")
+    email.WriteString(fmt.Sprintf("Content-Type: multipart/mixed; boundary=%q\n", boundary))
+    email.WriteString("\n")
+    
+    // Body
+    email.WriteString(fmt.Sprintf("--%s\n", boundary))
+    email.WriteString("Content-Type: text/plain; charset=utf-8\n")
+    email.WriteString("Content-Transfer-Encoding: 8bit\n")
+    email.WriteString("\n")
+    email.WriteString(body)
+    email.WriteString("\n\n")
+    
+    // Attachments
+    for _, attachment := range attachments {
+        email.WriteString(fmt.Sprintf("--%s\n", boundary))
+        email.WriteString(fmt.Sprintf("Content-Type: %s\n", attachment.ContentType))
+        email.WriteString("Content-Transfer-Encoding: base64\n")
+        email.WriteString(fmt.Sprintf("Content-Disposition: attachment; filename=%q\n", attachment.Filename))
+        email.WriteString("\n")
+        
+        // Encode attachment data as base64
+        encoded := base64.StdEncoding.EncodeToString(attachment.Data)
+        // Split into lines of 76 characters (MIME requirement)
+        for i := 0; i < len(encoded); i += 76 {
+            end := i + 76
+            if end > len(encoded) {
+                end = len(encoded)
+            }
+            email.WriteString(encoded[i:end])
+            email.WriteString("\n")
+        }
+        email.WriteString("\n")
+    }
+    
+    // End boundary
+    email.WriteString(fmt.Sprintf("--%s--\n", boundary))
+    
+    return email.String()
+}
+
+func encodeMIMEHeader(text string) string {
+    // Simple RFC 2047 encoding
+    if isASCII(text) {
+        return text
+    }
+    
+    encoded := base64.StdEncoding.EncodeToString([]byte(text))
+    return fmt.Sprintf("=?UTF-8?B?%s?=", encoded)
+}
+
+func decodeMIMEHeader(encoded string) string {
+    // Simple RFC 2047 decoding
+    if !strings.HasPrefix(encoded, "=?") || !strings.HasSuffix(encoded, "?=") {
+        return encoded
+    }
+    
+    // Parse =?charset?encoding?encoded-text?=
+    parts := strings.Split(encoded[2:len(encoded)-2], "?")
+    if len(parts) != 3 {
+        return encoded
+    }
+    
+    charset := parts[0]
+    encoding := parts[1]
+    encodedText := parts[2]
+    
+    if charset != "UTF-8" || encoding != "B" {
+        return encoded
+    }
+    
+    decoded, err := base64.StdEncoding.DecodeString(encodedText)
+    if err != nil {
+        return encoded
+    }
+    
+    return string(decoded)
+}
+
+func createContentDisposition(disposition, filename string) string {
+    if isASCII(filename) {
+        return fmt.Sprintf("%s; filename=%q", disposition, filename)
+    }
+    
+    // RFC 2231 encoding for non-ASCII filenames
+    encoded := fmt.Sprintf("UTF-8''%s", urlEncode(filename))
+    return fmt.Sprintf("%s; filename*=%s", disposition, encoded)
+}
+
+func isASCII(s string) bool {
+    for _, r := range s {
+        if r > 127 {
+            return false
+        }
+    }
+    return true
+}
+
+func urlEncode(s string) string {
+    var result strings.Builder
+    for _, b := range []byte(s) {
+        if (b >= 'A' && b <= 'Z') || (b >= 'a' && b <= 'z') || (b >= '0' && b <= '9') ||
+           b == '-' || b == '_' || b == '.' || b == '~' {
+            result.WriteByte(b)
+        } else {
+            result.WriteString(fmt.Sprintf("%%%02X", b))
+        }
+    }
+    return result.String()
+}
+```
+```
+```
 ```
 ```
