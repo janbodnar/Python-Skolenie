@@ -273,5 +273,5 @@ Create custom snippets: File → Preferences → Configure User Snippets
 - Stage changes by clicking `+` next to files
 - Commit with message in the Source Control panel
 - View diffs by clicking modified files
-- `Ctrl + Shift + G H` - View commit history (requires Git History extension)
+- View commit history: Use Command Palette → "Git: View History" (requires Git History extension)
 
