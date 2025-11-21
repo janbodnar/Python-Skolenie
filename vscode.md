@@ -164,8 +164,8 @@ Create a `.vscode/launch.json` file for custom debug configurations. You can deb
 
 Integrated terminal shortcuts:
 
-- `` Ctrl + ` `` - Toggle integrated terminal
-- `` Ctrl + Shift + ` `` - Create new terminal
+- **Ctrl + `** - Toggle integrated terminal (backtick key)
+- **Ctrl + Shift + `** - Create new terminal (backtick key)
 - `Ctrl + Shift + 5` - Split terminal
 - `Ctrl + PageUp/PageDown` - Switch between terminals
 
@@ -269,9 +269,11 @@ Create custom snippets: File → Preferences → Configure User Snippets
 ## Version control (Git)
 
 - `Ctrl + Shift + G` - Open Source Control panel
-- GitLens extension provides inline blame, history, and graph visualization
 - Stage changes by clicking `+` next to files
 - Commit with message in the Source Control panel
 - View diffs by clicking modified files
-- View file history: Right-click file → "Git: View File History" (requires Git History extension)
+
+**Recommended extensions:**
+- **GitLens**: Provides inline blame, file/line history, and advanced Git features
+- **Git History**: Browse and search Git log, view file history, compare branches
 
