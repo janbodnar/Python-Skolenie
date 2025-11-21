@@ -269,9 +269,9 @@ Create custom snippets: File → Preferences → Configure User Snippets
 ## Version control (Git)
 
 - `Ctrl + Shift + G` - Open Source Control panel
-- `Ctrl + Shift + G G` - Git: Show Git Graph
-- Git lens extension provides inline blame and history
+- GitLens extension provides inline blame, history, and graph visualization
 - Stage changes by clicking `+` next to files
 - Commit with message in the Source Control panel
 - View diffs by clicking modified files
+- `Ctrl + Shift + G H` - View commit history (requires Git History extension)
 
