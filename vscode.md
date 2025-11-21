@@ -164,8 +164,8 @@ Create a `.vscode/launch.json` file for custom debug configurations. You can deb
 
 Integrated terminal shortcuts:
 
-- Ctrl + ` (backtick) - Toggle integrated terminal
-- Ctrl + Shift + ` (backtick) - Create new terminal
+- `Ctrl + backtick` - Toggle integrated terminal
+- `Ctrl + Shift + backtick` - Create new terminal
 - `Ctrl + Shift + 5` - Split terminal
 - `Ctrl + PageUp/PageDown` - Switch between terminals
 
