@@ -182,7 +182,7 @@ Run Python files directly:
 - `Ctrl + K Ctrl + W` - Close all files
 - `Ctrl + Shift + T` - Reopen closed file
 - `Ctrl + K R` - Reveal active file in Explorer
-- `Alt + Left/Right` - Navigate backward/forward
+- `Alt + Left/Right arrow` - Navigate backward/forward
 - `Ctrl + G` - Go to line number
 - `Ctrl + Shift + O` - Go to symbol in file
 - `Ctrl + T` - Go to symbol in workspace
