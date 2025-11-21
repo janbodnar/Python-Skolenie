@@ -1,6 +1,21 @@
 # VS Code
 
+Visual Studio Code (VS Code) is a free, open-source code editor developed by Microsoft.  
+It has become one of the most popular development environments for Python programming due to  
+its lightweight nature, extensive extension ecosystem, and powerful features. VS Code provides  
+intelligent code completion, built-in Git integration, debugging capabilities, and excellent  
+Python support through extensions.
+
+Unlike full IDEs, VS Code strikes a balance between simplicity and functionality, making it  
+ideal for both beginners and experienced developers. Its customizable interface and keyboard-centric  
+workflow allow developers to work efficiently without leaving the keyboard.
+
+This guide covers essential shortcuts, tips, and configurations to help you become productive  
+with VS Code for Python development.
+
 Great tutorial: https://code.visualstudio.com/docs/editor/codebasics
+
+## Quick navigation
 
 - `Ctrl + P` - search for symbols
 - `Ctrl + Shift + P` - open command palette
@@ -113,4 +128,150 @@ get http://webcode.me/thermopylae.txt
 get http://webcode.me/os.html
 get http://webcode.me/countries.html
 ```
+
+## Python-specific features
+
+VS Code offers powerful Python-specific features through the Python extension:
+
+- **IntelliSense**: Autocomplete suggestions for variables, functions, and modules
+- **Linting**: Automatic code analysis to catch errors and style issues (pylint, flake8)
+- **Type checking**: Static type checking with mypy or Pyright
+- **Auto-imports**: Automatically add import statements when using modules
+- **Refactoring**: Rename symbols across files, extract methods, and more
+
+Select Python interpreter with `Ctrl + Shift + P` → "Python: Select Interpreter"
+
+
+## Debugging
+
+VS Code has excellent built-in debugging support:
+
+- `F5` - Start debugging
+- `F9` - Toggle breakpoint
+- `F10` - Step over
+- `F11` - Step into
+- `Shift + F11` - Step out
+- `Shift + F5` - Stop debugging
+
+Create a `.vscode/launch.json` file for custom debug configurations. You can debug:
+- Python scripts
+- Django/Flask applications
+- Unit tests
+- Remote applications
+
+
+## Terminal integration
+
+Integrated terminal shortcuts:
+
+- `` Ctrl + ` `` - Toggle integrated terminal
+- `Ctrl + Shift + ` ` - Create new terminal
+- `Ctrl + Shift + 5` - Split terminal
+- `Ctrl + PageUp/PageDown` - Switch between terminals
+
+Run Python files directly:
+- Right-click in editor → "Run Python File in Terminal"
+- Or use the play button in the top-right corner
+
+
+## File navigation tips
+
+- `Ctrl + Tab` - Switch between open files
+- `Ctrl + \` - Split editor
+- `Ctrl + W` - Close current file
+- `Ctrl + K Ctrl + W` - Close all files
+- `Ctrl + Shift + T` - Reopen closed file
+- `Ctrl + K R` - Reveal active file in Explorer
+- `Alt + Left/Right` - Navigate backward/forward
+- `Ctrl + G` - Go to line number
+- `Ctrl + Shift + O` - Go to symbol in file
+- `Ctrl + T` - Go to symbol in workspace
+
+
+## Code editing productivity
+
+- `Ctrl + Space` - Trigger IntelliSense/autocomplete
+- `Ctrl + .` - Quick fix (show code actions)
+- `Shift + Alt + I` - Insert cursor at end of each selected line
+- `Ctrl + U` - Undo last cursor operation
+- `Ctrl + /` - Toggle line comment
+- `Shift + Alt + A` - Toggle block comment
+- `Ctrl + K Ctrl + C` - Add line comment
+- `Ctrl + K Ctrl + U` - Remove line comment
+- `Ctrl + ]` - Indent line
+- `Ctrl + [` - Outdent line
+- `Ctrl + Shift + [` - Fold code block
+- `Ctrl + Shift + ]` - Unfold code block
+- `Ctrl + K Ctrl + 0` - Fold all
+- `Ctrl + K Ctrl + J` - Unfold all
+
+
+## Search and replace
+
+- `Ctrl + F` - Find in current file
+- `Ctrl + H` - Replace in current file
+- `Ctrl + Shift + F` - Find in all files
+- `Ctrl + Shift + H` - Replace in all files
+- `Alt + Enter` (during search) - Select all occurrences of find match
+- `F3` / `Shift + F3` - Find next/previous
+
+
+## Zen mode and focus
+
+- `Ctrl + K Z` - Enter Zen mode (distraction-free coding)
+- `Ctrl + B` - Toggle sidebar visibility
+- `Ctrl + J` - Toggle panel (terminal, problems, output)
+- `F11` - Toggle full screen
+
+These shortcuts help you focus on code by hiding UI elements.
+
+
+## Useful productivity tips
+
+1. **Peek definition**: `Alt + F12` - View function/class definition in a popup
+2. **Go to definition**: `F12` - Jump to where a symbol is defined
+3. **Find all references**: `Shift + F12` - Find all usages of a symbol
+4. **Rename symbol**: `F2` - Rename variable/function across entire project
+5. **Breadcrumbs**: Enable breadcrumbs to navigate code structure (View → Show Breadcrumbs)
+6. **Minimap**: The minimap on the right side helps navigate large files
+7. **Problems panel**: `Ctrl + Shift + M` - View linting errors and warnings
+8. **Output panel**: View extension outputs and logs
+9. **Sticky scroll**: Shows nested scopes at the top while scrolling
+
+
+## Working with Python virtual environments
+
+VS Code automatically detects virtual environments:
+
+1. Create venv: `python -m venv venv`
+2. VS Code will detect it and offer to select it
+3. Or manually select: `Ctrl + Shift + P` → "Python: Select Interpreter"
+4. Activate in terminal: `.\venv\Scripts\activate` (Windows) or `source venv/bin/activate` (Linux/Mac)
+
+The selected environment appears in the status bar (bottom-left).
+
+
+## Snippets
+
+Type these prefixes and press `Tab` to expand:
+
+- `for` - for loop
+- `if` - if statement
+- `def` - function definition
+- `class` - class definition
+- `try` - try-except block
+- `with` - with statement
+- `ifmain` - if __name__ == '__main__'
+
+Create custom snippets: File → Preferences → Configure User Snippets
+
+
+## Version control (Git)
+
+- `Ctrl + Shift + G` - Open Source Control panel
+- `Ctrl + Shift + G G` - Git: Show Git Graph
+- Git lens extension provides inline blame and history
+- Stage changes by clicking `+` next to files
+- Commit with message in the Source Control panel
+- View diffs by clicking modified files
 
