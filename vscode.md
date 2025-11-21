@@ -15,7 +15,7 @@ with VS Code for Python development.
 
 Great tutorial: https://code.visualstudio.com/docs/editor/codebasics
 
-## Quick navigation
+## Essential shortcuts
 
 - `Ctrl + P` - search for symbols
 - `Ctrl + Shift + P` - open command palette
@@ -165,7 +165,7 @@ Create a `.vscode/launch.json` file for custom debug configurations. You can deb
 Integrated terminal shortcuts:
 
 - `` Ctrl + ` `` - Toggle integrated terminal
-- `Ctrl + Shift + ` ` - Create new terminal
+- `` Ctrl + Shift + ` `` - Create new terminal
 - `Ctrl + Shift + 5` - Split terminal
 - `Ctrl + PageUp/PageDown` - Switch between terminals
 
@@ -273,5 +273,5 @@ Create custom snippets: File → Preferences → Configure User Snippets
 - Stage changes by clicking `+` next to files
 - Commit with message in the Source Control panel
 - View diffs by clicking modified files
-- View commit history: Use Command Palette → "Git: View History" (requires Git History extension)
+- View file history: Right-click file → "Git: View File History" (requires Git History extension)
 
