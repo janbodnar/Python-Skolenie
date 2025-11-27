@@ -1,5 +1,28 @@
 # Priklady
 
+## Bar chart
+
+```python
+import matplotlib.pyplot as plt
+
+# Simple dataset
+categories = ['Apple', 'Banana', 'Cherry', 'Date']
+values = [10, 15, 7, 12]
+
+# Create bar chart
+plt.bar(categories, values)
+
+# Add labels and title
+plt.xlabel('Fruits')
+plt.ylabel('Quantity')
+plt.title('Fruit Quantities')
+
+# Save the chart as PNG
+plt.savefig('bar_chart.png')
+
+print("Bar chart saved as bar_chart.png")
+```
+
 
 ## OPenRouter test file
 
