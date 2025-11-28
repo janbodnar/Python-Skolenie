@@ -1,5 +1,38 @@
 # Priklady
 
+
+## Fetch web page
+
+
+```python
+import requests
+
+def fetch_homepage():
+    """
+    Fetches the homepage of https://something.com
+    """
+    url = "https://something.com"
+    
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raises an HTTPError for bad responses (4xx or 5xx)
+        
+        print(f"Status Code: {response.status_code}")
+        print(f"Response Headers: {dict(response.headers)}")
+        print("\nPage Content:")
+        print(response.text)
+        
+        return response.text
+        
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred while fetching the page: {e}")
+        return None
+
+if __name__ == "__main__":
+    fetch_homepage()
+```
+
+
 ## Bar chart
 
 ```python
