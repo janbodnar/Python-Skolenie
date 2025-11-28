@@ -1,6 +1,24 @@
 # Priklady
 
 
+## Sum of CSV data
+
+
+```python
+data = '1,2,3,4,5,6,7,8,9,10'
+
+# parts = data.split(',')
+# print(parts)
+
+# nums = [int(part) for part in parts]
+
+# print(sum(nums))
+
+print(sum(int(e) for e in data.split(',')))
+```
+
+
+
 ## Fetch web page
 
 
