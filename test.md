@@ -1,6 +1,41 @@
 # Priklady
 
 
+## Lambdas
+
+```python
+
+
+nums = [1, 2, 3, 4, 5, 6]
+
+print(min(nums))
+print(max(nums))
+
+
+# def get_price(c):
+#     return c.price    
+
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Car:
+    name: str
+    price: int
+    production_year: int
+
+cars = [
+    Car("Audi", 52642, 2018), Car("Mercedes", 57127, 2019), Car("Skoda", 9000, 2015),
+    Car("Volvo", 29000, 2017), Car("Bentley", 350000, 2020), Car("Citroen", 21000, 2016),
+    Car("Hummer", 41400, 2014), Car("Volkswagen", 21601, 2013)
+]
+
+n = min(cars, key=lambda c: c.production_year)
+print(n)
+
+n = max(cars, key=lambda c: c.production_year)
+print(n)
+```
+
 ## Sum of CSV data
 
 
