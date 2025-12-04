@@ -4,8 +4,6 @@
 ## Lambdas
 
 ```python
-
-
 nums = [1, 2, 3, 4, 5, 6]
 
 print(min(nums))
@@ -34,6 +32,26 @@ print(n)
 
 n = max(cars, key=lambda c: c.production_year)
 print(n)
+```
+
+sorting
+
+```python
+#!/usr/bin/python
+
+# cut name into first_name and last_name
+users = [
+  {'first_name': 'John', 'last_name': 'Doe', 'date_of_birth': 1987},
+  {'first_name': 'Jane', 'last_name': 'Doe', 'date_of_birth': 1996},
+  {'first_name': 'Robert', 'last_name': 'Brown', 'date_of_birth': 1977},
+  {'first_name': 'Lucia', 'last_name': 'Smith', 'date_of_birth': 2002},
+  {'first_name': 'Patrick', 'last_name': 'Dempsey', 'date_of_birth': 1994}
+]
+
+users.sort(reverse=False, key=lambda user: user['last_name'])
+
+for user in users:
+    print(user)
 ```
 
 ## Sum of CSV data
