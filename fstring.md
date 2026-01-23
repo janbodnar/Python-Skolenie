@@ -252,7 +252,7 @@ print(f'This was a \'great\' film')
 
 To escape a curly bracket, we double the character. A single quote is escaped with a backslash character.
 
-```python
+```
 $ python escaping.py
 Python uses {} to evaludate variables in f-strings
 This was a 'great' film
