@@ -370,7 +370,7 @@ for x in range(1, 11):
 The example prints three columns. Each of the columns has a predefined width. The first column uses  
 0 to fill shorter values.
 
-```python
+```
 $ python format_width.py
 01   1    1
 02   4    8
