@@ -1,6 +1,7 @@
 # Python-Skolenie
 
 Materiály a príklady pre školenie jazyka Python.   [English version](#python-course)
+Kontakt na školiteľa: jan.bodnar(@)gmail.com, 0903 102 418.
 
 ![Python](images/python2.jpg)
 
@@ -44,11 +45,6 @@ Pri inštalácii Pythonu (platí pre Windows), nezabudnite zaškrnúť voľbu *a
 - Jupyter notebooky
 - Štandardná knižnica jazyka Python
   
-
-Kontakt na školiteľa: jan.bodnar(@)gmail.com, 0903 102 418.
-
-
-
 
 ## Python Course
 
