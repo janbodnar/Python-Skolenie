@@ -18,6 +18,7 @@ in collections, or passed as arguments. This brings additional flexibility to th
 [Function definition](#function-definition)  
 [Kinds of functions](#kinds-of-functions)  
 [Third-party functions](#third-party-functions)  
+[Docstrings](#docstrings)  
 [Instance, class, plain, inner functions](#instance-class-plain-inner-functions)    
 [Functions are objects](#functions-are-objects)  
 [Function scope](#function-scope)  
@@ -97,6 +98,39 @@ print(r_vals2)
 r_vals3 = np.random.randint(5, size=(2, 4))
 print(r_vals3)
 ```
+
+## Docstrings
+
+A docstring is a string literal placed as the first statement inside a function,  
+class, or module. It describes what the function does, its parameters, its return  
+value, and any exceptions it may raise. The conventions follow PEP 257.  
+
+```python
+#!/usr/bin/python
+
+# docstrings.py
+
+def celsius_to_fahrenheit(celsius):
+    """
+    Convert temperature from Celsius to Fahrenheit.
+
+    Args:
+        celsius (float): Temperature in degrees Celsius.
+
+    Returns:
+        float: Temperature in degrees Fahrenheit.
+    """
+    return celsius * 9/5 + 32
+
+# Accessing the docstring
+print(celsius_to_fahrenheit.__doc__)
+
+# The built-in help() function displays the docstring nicely.
+help(celsius_to_fahrenheit)
+```
+
+Good docstrings make code more readable and enable tools like pydoc or IDE  
+hints to provide instant documentation.  
 
 ## Instance, class, plain, inner functions
 
