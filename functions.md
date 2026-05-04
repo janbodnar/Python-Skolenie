@@ -361,7 +361,6 @@ fn2(*vals)
 fn3(*vals, e=7, f=8)
 ```
 
-Unpacking keyworded arguments
 
 The `**kwargs` defines a keyworded, variable-length argument list
 
