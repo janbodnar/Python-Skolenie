@@ -395,6 +395,50 @@ display(**u1)
 display(**u2)
 ```
 
+## Positional and keyword only
+
+Python 3.8 introduced the / parameter to specify that all parameters before it  
+must be passed positionally. Similarly, a single * marks the beginning of  
+keyword-only parameters. This allows API designers to enforce a strict  
+calling convention.  
+
+```python
+#!/usr/bin/python
+
+# position_only_example.py
+
+def describe_person(first, last, /, title='', *, age, city):
+    """
+    Print a person's description.
+    first, last  -> positional-only (before /)
+    title        -> optional, positional or keyword (between / and *)
+    age, city    -> keyword-only, required (after *)
+    """
+    full = f"{title + ' ' if title else ''}{first} {last}"
+    print(f"{full}, age {age}, from {city}")
+
+# Valid calls
+describe_person("Jane", "Doe", "Dr.", age=30, city="New York")  # title passed positionally
+describe_person("John", "Smith", age=45, city="London")          # title omitted, uses default ''
+
+# Invalid calls
+# describe_person(first="Jane", last="Doe", age=30, city="NY")   # Error: first and last are positional-only
+# describe_person("Jane", "Doe", 30, "NY")                       # Error: age and city must be passed as keywords
+```
+
+The function signature `def describe_person(first, last, /, title='', *, age, city)`  
+demonstrates all three parameter zones in one definition. first and last sit   
+before the /, making them positional-only — they cannot be passed by name. title    
+sits between / and *, meaning it's flexible and can be passed either positionally    
+or as a keyword, and since it has a default value of '' it's also optional.   
+age and city come after the bare *, making them keyword-only — they must always    
+be passed by name like age=30, and since they have no defaults, they are required.   
+ 
+Using / and * together gives API designers precise control over how a function   
+must be called, prevents accidental reliance on parameter names that might change   
+in future versions, and makes the intended calling convention immediately visible   
+from the signature itself.  
+
 
 ## Passing by reference 
 
@@ -710,7 +754,7 @@ print(greet("Alice", 2))
 print(greet("Bob"))          # uses default times=1
 
 # Annotations are stored in the __annotations__ attribute
-print(greet.__annotations__)  # {'name': <class 'str'>, 'times': <class 'int'>, 'return': <class 'str'>}
+print(greet.__annotations__)  
 ```
 
 Annotations can be any Python expression, not just types, though type hints are  
