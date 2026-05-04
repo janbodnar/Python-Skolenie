@@ -252,8 +252,9 @@ print(power(5, 5))
 
 ## Unpacking 
 
-Unpacking is cutting an object (such as a list) into its elements. It is also called destructuring.  
-The _ operator is used to ignore the value. The * operator eagerly takes all elements until the next  
+Unpacking is cutting an object (such as a list) into its elements.  
+It is also called destructuring.  The _ operator is used to ignore the  
+value. The * operator eagerly takes all elements until the next  
 argument.  
 
 Unpacking function return values
@@ -381,6 +382,13 @@ must come **first**, followed by `*args`, and finally `**kwargs` must always be
 unambiguously separate plain values, extra positional values, and named values  
 from one another when the function is called.
 
+---
+
+This code demonstrates using `**` to **unpack a dictionary** directly into  
+a function call. The `display` function expects three named parameters —  
+`name`, `occupation`, and `age` — and when called with `**u1`, Python unpacks  
+the dictionary so that each key maps to its matching parameter by name. 
+
 ```python
 #!/usr/bin/python
 
@@ -394,6 +402,13 @@ u2 = {'name': 'Jone Doe', 'occupation': 'gardener', 'age': 35}
 display(**u1)
 display(**u2)
 ```
+
+This is essentially the reverse of `**kwargs` — instead of collecting keyword  
+arguments into a dictionary inside the function, here you're spreading  
+a dictionary out into keyword arguments at the call site. It's a clean and  
+practical pattern when your data is already stored in a dictionary and matches  
+the function's parameter names, saving you from having to write `display(name=u1['name'], occupation=u1['occupation'], age=u1['age'])` manually.
+
 
 ## Positional and keyword only
 
