@@ -341,6 +341,18 @@ def display(**user):
 display(name='Lary Jones', age=43, sex='M')
 display(name='Jone Doe', occupation='gardener', age=35)
 ```
+
+In Python, a function defined with only `**kwargs` like `def display(**user)`  
+accepts any number of keyword arguments and stores them as a **dictionary**.  
+Inside the function, `user.items()` is used to iterate over the dictionary,  
+returning each key-value pair as `k` and `v`, which are then printed using an f-string.  
+
+The real power here is **flexibility** — notice that the two calls to `display()` don't  
+need to pass the same arguments. The first call passes `name`, `age`, and `sex`, while  
+the second passes `name`, `occupation`, and `age`. The function handles both without  
+any changes, because `**kwargs` doesn't care how many or which keyword arguments are  
+passed — it simply captures whatever is given into a dictionary and works with it dynamically.  
+
 --- 
 
 ```python
