@@ -686,6 +686,34 @@ h(f)
 h(g)
 ```
 
+## Annotations
+
+Python allows you to annotate the parameters and return value of a function with  
+arbitrary expressions. When used to specify expected data types, they are called  
+type hints (standardised in PEP 484). The Python runtime does not enforce  
+type hints, but they serve as live documentation and are checked by static  
+analysers like `mypy`.  
+
+```python
+#!/usr/bin/python
+
+# annotations.py
+
+def greet(name: str, times: int = 1) -> str:
+    """Return a greeting repeated *times* times."""
+    return (f"Hello, {name}!\n" * times).rstrip()
+
+print(greet("Alice", 2))
+print(greet("Bob"))          # uses default times=1
+
+# Annotations are stored in the __annotations__ attribute
+print(greet.__annotations__)  # {'name': <class 'str'>, 'times': <class 'int'>, 'return': <class 'str'>}
+```
+
+Annotations can be any Python expression, not just types, though type hints are  
+by far the most common use case. They improve code clarity and enable better  
+autocompletion and linting in modern editors.  
+
 ## Closures 
 
 A *closure* is a function that has access to variables in its outer (enclosing) function's scope,  
