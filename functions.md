@@ -33,6 +33,7 @@ in collections, or passed as arguments. This brings additional flexibility to th
 [Function redefinition](#function-redefinition)  
 [No function hoisting](#no-function-hoisting)  
 [Collection of functions](#collection-of-functions)  
+[Annotations](#annotations)  
 [Closures](#closures)  
 
 ## Function definition
@@ -693,6 +694,8 @@ arbitrary expressions. When used to specify expected data types, they are called
 type hints (standardised in PEP 484). The Python runtime does not enforce  
 type hints, but they serve as live documentation and are checked by static  
 analysers like `mypy`.  
+
+Enforce type checking in VS Code with `"python.analysis.typeCheckingMode": "basic"`. 
 
 ```python
 #!/usr/bin/python
