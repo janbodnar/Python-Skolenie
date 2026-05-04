@@ -133,6 +133,37 @@ f()
 g()
 ```
 
+`self` is a reference to the current instance of a class. It's how an  
+object refers to itself, allowing each instance to access its own data  
+and methods.
+
+```python
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+    def circumference(self):
+        return 2 * 3.14 * self.radius
+
+
+c = Circle(5)
+print("Area:", c.area())
+print("Circumference:", c.circumference())
+
+c2 = Circle(10)
+print("Area of c2:", c2.area())
+print("Circumference of c2:", c2.circumference())
+```
+
+`self` must be the first parameter in every instance method — it's a   
+Python convention (you could name it anything, but self is universal)  
+You never pass it manually — Python injects it automatically when you call `c.area()`  
+It's not a keyword — it's just a strongly followed naming convention.
+
+
 ## Functions are objects 
 
 Object attributes are accessed with the dot operator.  
