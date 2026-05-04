@@ -101,6 +101,20 @@ door
 Finished looping
 ```
 
+```python
+words = ["cup", "star", "monkey", "bottle", "paper", "door"] 
+
+for word in words:
+
+    print(word)
+    if word == "monkey":
+        break
+else:
+    print("finished looping")
+
+print("end of program")
+```
+
 ## Loop with range
 
 Python range function generates a sequence of numbers. 
