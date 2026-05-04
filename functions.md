@@ -354,6 +354,20 @@ def show(a, *args, **kwargs):
 show(1, 2, 3, 4, 5, 6, name='John Doe', occupation='gardener', age=34)
 ```
 
+In Python, functions can be made highly flexible using `*args` and `**kwargs`.  
+When defining a function like `def show(a, *args, **kwargs)`, the regular parameter `a`  
+captures the first positional argument, `*args` collects any additional positional  
+arguments into a **tuple**, and `**kwargs` collects any keyword (named) arguments  
+into a **dictionary**. So calling `show(1, 2, 3, name='John')` would  
+give `a=1`, `args=(2, 3)`, and `kwargs={'name': 'John'}`. 
+
+When it comes to positioning, the order strictly matters — regular parameters  
+must come **first**, followed by `*args`, and finally `**kwargs` must always be  
+**last**. Writing them in any other order, such as placing `**kwargs` before  
+`*args`, will raise a `SyntaxError`. This ordering rule ensures Python can  
+unambiguously separate plain values, extra positional values, and named values  
+from one another when the function is called.
+
 ```python
 #!/usr/bin/python
 
