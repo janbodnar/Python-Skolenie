@@ -35,7 +35,7 @@ in collections, or passed as arguments. This brings additional flexibility to th
 [No function hoisting](#no-function-hoisting)  
 [Collection of functions](#collection-of-functions)  
 [Annotations](#annotations)  
-[Closures](#closures)  
+<!--[Closures](#closures)  -->
 
 ## Function definition
 
@@ -809,6 +809,7 @@ Annotations can be any Python expression, not just types, though type hints are
 by far the most common use case. They improve code clarity and enable better  
 autocompletion and linting in modern editors.  
 
+<!--
 ## Closures 
 
 A *closure* is a function that has access to variables in its outer (enclosing) function's scope,  
@@ -855,5 +856,5 @@ Common Use Cases:
   modify the behavior of other functions.  
 - Memoization: Closures can be used to implement memoization techniques, which can improve  
   performance by caching the results of function calls.  
-
+-->
 
