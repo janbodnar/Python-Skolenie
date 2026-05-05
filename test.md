@@ -1,5 +1,156 @@
 # Priklady
 
+
+## File attributes
+
+`python file_attribures.py words.txt`
+
+```python
+#!/usr/bin/env python3
+"""
+file_attributes.py – Read and display detailed attributes of a file or
+directory. Usage: python file_attributes.py <path>
+"""
+
+import os
+import sys
+import stat
+import time
+import hashlib
+import platform
+from pathlib import Path
+
+
+def format_size(size_bytes: int) -> str:
+    """Convert bytes to a human-readable string."""
+    for unit in ("B", "KB", "MB", "GB", "TB"):
+        if size_bytes < 1024:
+            return f"{size_bytes:.2f} {unit}"
+        size_bytes /= 1024
+    return f"{size_bytes:.2f} PB"
+
+
+def format_time(ts: float) -> str:
+    """Convert a Unix timestamp to a readable local datetime string."""
+    return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(ts))
+
+
+def get_permissions(mode: int) -> str:
+    """Return a Unix-style permission string, e.g. -rwxr-xr-x."""
+    return stat.filemode(mode)
+
+
+def get_checksum(path: Path, algorithm: str = "sha256") -> str:
+    """Compute a checksum of the file content."""
+    h = hashlib.new(algorithm)
+    try:
+        with open(path, "rb") as f:
+            for chunk in iter(lambda: f.read(65536), b""):
+                h.update(chunk)
+        return h.hexdigest()
+    except (OSError, PermissionError) as e:
+        return f"<unavailable: {e}>"
+
+
+def read_attributes(path_str: str) -> None:
+    path = Path(path_str).resolve()
+
+    if not path.exists():
+        print(f"Error: '{path}' does not exist.")
+        sys.exit(1)
+
+    s = path.stat()
+    mode = s.st_mode
+
+    print("=" * 60)
+    print(f"  FILE ATTRIBUTES: {path.name}")
+    print("=" * 60)
+
+    # --- Basic info ---
+    print("\n[General]")
+    print(f"  Full path    : {path}")
+    print(f"  Name         : {path.name}")
+    print(f"  Stem         : {path.stem}")
+    print(f"  Suffix/Ext   : {path.suffix or '(none)'}")
+    print(f"  Parent dir   : {path.parent}")
+
+    # --- Type ---
+    print("\n[Type]")
+    if path.is_symlink():
+        print(f"  Type         : Symbolic link → {os.readlink(path)}")
+    elif path.is_dir():
+        print("  Type         : Directory")
+    elif path.is_file():
+        print("  Type         : Regular file")
+    else:
+        print("  Type         : Special / other")
+
+    # --- Size ---
+    print("\n[Size]")
+    if path.is_file():
+        print(f"  Size         : {format_size(s.st_size)}  ({s.st_size:,} bytes)")
+    else:
+        print("  Size         : N/A (not a regular file)")
+
+    # --- Timestamps ---
+    print("\n[Timestamps]")
+    print(f"  Modified     : {format_time(s.st_mtime)}")
+    print(f"  Accessed     : {format_time(s.st_atime)}")
+    print(f"  Metadata chg : {format_time(s.st_ctime)}")
+
+    # macOS has birth time via st_birthtime
+    if hasattr(s, "st_birthtime"):
+        print(f"  Created      : {format_time(s.st_birthtime)}")
+
+    # --- Permissions ---
+    print("\n[Permissions]")
+    print(f"  Mode (octal) : {oct(stat.S_IMODE(mode))}")
+    print(f"  Mode (string): {get_permissions(mode)}")
+    print(f"  Readable     : {os.access(path, os.R_OK)}")
+    print(f"  Writable     : {os.access(path, os.W_OK)}")
+    print(f"  Executable   : {os.access(path, os.X_OK)}")
+
+    # --- Ownership (Unix only) ---
+    if platform.system() != "Windows":
+        import pwd, grp
+        try:
+            owner = pwd.getpwuid(s.st_uid).pw_name
+        except KeyError:
+            owner = str(s.st_uid)
+        try:
+            group = grp.getgrgid(s.st_gid).gr_name
+        except KeyError:
+            group = str(s.st_gid)
+        print(f"  Owner        : {owner} (uid={s.st_uid})")
+        print(f"  Group        : {group} (gid={s.st_gid})")
+
+    # --- Filesystem info ---
+    print("\n[Filesystem]")
+    print(f"  Inode        : {s.st_ino}")
+    print(f"  Device       : {s.st_dev}")
+    print(f"  Hard links   : {s.st_nlink}")
+
+    # --- Checksum (files only) ---
+    if path.is_file():
+        print("\n[Checksum]")
+        print(f"  MD5          : {get_checksum(path, 'md5')}")
+        print(f"  SHA-256      : {get_checksum(path, 'sha256')}")
+
+    print("\n" + "=" * 60)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        # Default to the script itself if no argument is given
+        target = __file__
+        print(f"No path provided. Using script itself as demo: {target}\n")
+    else:
+        target = sys.argv[1]
+
+    read_attributes(target)
+```
+
+
 mix = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
 
 ## Lambdas
