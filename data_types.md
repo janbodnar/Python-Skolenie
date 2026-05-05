@@ -328,9 +328,15 @@ No overflow errors occur unless memory is exhausted.
 
 ### Floats
 
-Floating-point numbers (`float`) represent real numbers using double-precision (64-bit) encoding as defined by the IEEE 754 standard. They can express very large (≈1.8×10³⁰⁸) and very small (≈2.2×10⁻³⁰⁸) values, but with finite precision — meaning not every decimal number can be stored exactly in binary. This is the fundamental trade-off that makes floats fast and memory-efficient while occasionally surprising in arithmetic comparisons.
+Floating-point numbers (`float`) represent real numbers using double-precision (64-bit)  
+encoding as defined by the IEEE 754 standard. They can express very large (≈1.8×10³⁰⁸)  
+and very small (≈2.2×10⁻³⁰⁸) values, but with finite precision — meaning not every decimal  
+number can be stored exactly in binary. This is the fundamental trade-off that makes floats  
+fast and memory-efficient while occasionally surprising in arithmetic comparisons.
 
-Floating-point numbers are used whenever a value measures a continuous quantity — distance, temperature, speed, weight, or time. For example, if a sprinter runs 100 m in 9.87 s, we can compute their average speed in km/h:
+Floating-point numbers are used whenever a value measures a continuous quantity — distance,  
+temperature, speed, weight, or time. For example, if a sprinter runs 100 m in 9.87 s, we can  
+compute their average speed in km/h:
 
 ```python
 #!/usr/bin/python
@@ -350,7 +356,8 @@ $ ./sprinter.py
 The average speed of a sprinter is 36.47416413373962 km/h
 ```
 
-The result `36.47416413373962` is a float. To present it more cleanly, you can control decimal precision directly in the f-string without changing the stored value:
+The result `36.47416413373962` is a float. To present it more cleanly, you can  
+control decimal precision directly in the f-string without changing the stored value:
 
 ```python
 print(f'The average speed of a sprinter is {speed:.2f} km/h')
@@ -359,7 +366,8 @@ print(f'The average speed of a sprinter is {speed:.2f} km/h')
 
 #### Scientific notation
 
-Floats can be written using scientific notation with `e` or `E`, which is convenient for very large or very small values:
+Floats can be written using scientific notation with `e` or `E`, which is  
+convenient for very large or very small values:
 
 ```python
 tiny = 1.5e-3    # 0.0015
@@ -367,7 +375,8 @@ huge = 6.022E23  # Avogadro's number: 6.022e+23
 print(tiny, huge)
 ```
 
-Python also displays floats in scientific notation automatically when the value is extreme enough:
+Python also displays floats in scientific notation automatically when the value  
+is extreme enough:
 
 ```python
 print(1.5e-320)  # 1.5e-320
@@ -376,14 +385,16 @@ print(1.8e308)   # inf  (exceeds the max representable float)
 
 #### Floating-point precision and `math.isclose`
 
-Because floats are stored in binary, some decimal values cannot be represented exactly. The classic example is `0.1 + 0.2`:
+Because floats are stored in binary, some decimal values cannot be represented  
+exactly. The classic example is `0.1 + 0.2`:
 
 ```python
 print(0.1 + 0.2)        # 0.30000000000000004
 print(0.1 + 0.2 == 0.3) # False
 ```
 
-This is not a Python bug — it is an inherent property of IEEE 754 arithmetic. The workaround is to compare floats within a tolerance using `math.isclose`:
+This is not a Python bug — it is an inherent property of IEEE 754 arithmetic.  
+The workaround is to compare floats within a tolerance using `math.isclose`:
 
 ```python
 import math
@@ -395,11 +406,39 @@ print(math.isclose(a, b, rel_tol=1e-9))           # True (relative tolerance)
 print(math.isclose(a, b, abs_tol=1e-9))           # True (absolute tolerance)
 ```
 
-`rel_tol` (default `1e-9`) scales the tolerance relative to the size of the numbers — useful for large values. `abs_tol` sets a fixed margin — better when comparing values near zero. For financial or exact decimal arithmetic, use the `decimal` module instead, which avoids binary rounding entirely.
+`rel_tol` (default `1e-9`) scales the tolerance relative to the size of the  
+numbers — useful for large values. `abs_tol` sets a fixed margin — better when  
+comparing values near zero. For financial or exact decimal arithmetic, use the  
+`decimal` module instead, which avoids binary rounding entirely.
+
+
+For financial or exact decimal arithmetic, use the `decimal` module instead, which avoids  
+binary rounding entirely by passing values as strings:
+
+```python
+from decimal import Decimal
+
+a = Decimal('0.1') + Decimal('0.2')
+b = Decimal('0.3')
+
+print(a)        # 0.3
+print(a == b)   # True
+```
+
+Notice that strings are passed to `Decimal` rather than float literals. If you write  
+`Decimal(0.1)`, Python first creates the imprecise float and then converts it, carrying  
+the rounding error along:
+
+```python
+print(Decimal(0.1))   # 0.1000000000000000055511151231257827021181583404541015625
+print(Decimal('0.1')) # 0.1
+```
+
 
 #### Rounding
 
-The built-in `round()` function rounds a float to a given number of decimal places. If the second argument is omitted, it returns an `int`:
+The built-in `round()` function rounds a float to a given number of decimal places.  
+If the second argument is omitted, it returns an `int`:
 
 ```python
 pi = 3.1415926535
@@ -412,7 +451,8 @@ print(round(2.5))    # 2  — banker's rounding: ties go to the nearest even num
 print(round(3.5))    # 4
 ```
 
-Banker's rounding (round half to even) is the IEEE 754 default and reduces cumulative bias in large datasets. If you need ceiling, floor, or truncation instead:
+Banker's rounding (round half to even) is the IEEE 754 default and reduces cumulative  
+bias in large datasets. If you need ceiling, floor, or truncation instead:
 
 ```python
 import math
