@@ -1221,18 +1221,34 @@ Other methods like `sort()`, `reverse()`, and `extend()` also return `None`.
 
 ### `None` as default argument – careful with mutables
 
-Using `None` as a default value for mutable parameters (like lists or dictionaries) is a common idiom  
-to avoid unwanted sharing across function calls.
+Using `None` as a default value for mutable parameters (like lists or dictionaries)  
+is a common idiom  to avoid unwanted sharing across function calls.
+
+Default arguments are part of the function object, not re‑evaluated each call.
+This makes them: a) faster, b) predictable, c) consistent with how Python treats objects.
+But it also means you must avoid mutable defaults unless you want shared state.
 
 ```python
-def add_item(item, target_list=None):
-    if target_list is None:
-        target_list = []    # fresh list per call
-    target_list.append(item)
-    return target_list
+def append_safely(item, lst=None):
+    if lst is None:
+        lst = []    # fresh list per call
+    lst.append(item)
+    return lst
 
-print(add_item(1))          # [1]
-print(add_item(2))          # [2]  (not [1, 2])
+print(append_safely(1))          # [1]
+print(append_safely(2))          # [2]  (not [1, 2])
+
+# WRONG: using a mutable default value
+def append_unsafely(item, lst=[]):
+    lst.append(item)
+    return lst
+
+data = [-1, 0]
+
+print(append_unsafely(1, data))       # [-1, 0, 1, 1]  (data is modified)
+print(append_unsafely(2, data))       # [-1, 0, 1, 1, 2]  (data is modified again)
+print(append_unsafely(3))             # [3]  (unexpectedly, the default list is modified)
+print(append_unsafely(4))             # [3, 4]  (unexpectedly, the default list is modified again)
 ```
 
 Without the `None` sentinel, using `target_list=[]` would reuse the same list object across  
