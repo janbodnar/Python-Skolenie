@@ -328,143 +328,169 @@ No overflow errors occur unless memory is exhausted.
 
 ### Floats
 
-Floating point numbers (`float`) represent real numbers using double‑precision  
-(64‑bit) as defined by the IEEE 754 standard. They can express very large  
-(≈1.8×10³⁰⁸) and very small (≈2.2×10⁻³⁰⁸) values, but with finite precision.
+Floating-point numbers (`float`) represent real numbers using double-precision (64-bit) encoding as defined by the IEEE 754 standard. They can express very large (≈1.8×10³⁰⁸) and very small (≈2.2×10⁻³⁰⁸) values, but with finite precision — meaning not every decimal number can be stored exactly in binary. This is the fundamental trade-off that makes floats fast and memory-efficient while occasionally surprising in arithmetic comparisons.
 
-Floating point numbers represent real numbers in computing. Real numbers measure continuous  
-quantities. Let's say a sprinter for 100m ran 9.87s. What is his speed in km/h?  
+Floating-point numbers are used whenever a value measures a continuous quantity — distance, temperature, speed, weight, or time. For example, if a sprinter runs 100 m in 9.87 s, we can compute their average speed in km/h:
 
 ```python
 #!/usr/bin/python
-
 # sprinter.py
 
 # 100 m is 0.1 km
-
 distance = 0.1
-
-# 9.87 s is 9.87/60*60 h
-
+# 9.87 s converted to hours
 time = 9.87 / 3600
 
 speed = distance / time
-
 print(f'The average speed of a sprinter is {speed} km/h')
 ```
-
-To get the speed, we divide the distance by the time.
-
-```python
-print(f'The average speed of a sprinter is {speed} km/h')
-```
-
-We build the message with the format function and print it to the console.
 
 ```
 $ ./sprinter.py
-The average speed of a sprinter is  36.4741641337 km/h
+The average speed of a sprinter is 36.47416413373962 km/h
 ```
 
-This is the output of the `sprinter.py` script. Value `36.4741641337` is a floating point number.
+The result `36.47416413373962` is a float. To present it more cleanly, you can control decimal precision directly in the f-string without changing the stored value:
+
+```python
+print(f'The average speed of a sprinter is {speed:.2f} km/h')
+# The average speed of a sprinter is 36.47 km/h
+```
 
 #### Scientific notation
 
-Floats can be expressed using scientific notation with `e` or `E`:
+Floats can be written using scientific notation with `e` or `E`, which is convenient for very large or very small values:
 
 ```python
-tiny = 1.5e-3   # 0.0015
-huge = 6.022E23 # 6.022e+23
+tiny = 1.5e-3    # 0.0015
+huge = 6.022E23  # Avogadro's number: 6.022e+23
 print(tiny, huge)
 ```
 
-#### Floating‑point precision and `math.isclose`
+Python also displays floats in scientific notation automatically when the value is extreme enough:
 
-Floating‑point arithmetic often introduces tiny rounding errors because some  
-decimal values cannot be represented exactly in binary. For example, `0.1 + 0.2`  
-does not equal exactly `0.3`.
+```python
+print(1.5e-320)  # 1.5e-320
+print(1.8e308)   # inf  (exceeds the max representable float)
+```
 
-The `math.isclose` function is used to determine whether two floating-point numbers are  
-close to each other, within a specified tolerance. This is particularly useful for comparing  
-floating-point numbers, which can often have small differences due to the imprecision of  
-floating-point arithmetic.
+#### Floating-point precision and `math.isclose`
+
+Because floats are stored in binary, some decimal values cannot be represented exactly. The classic example is `0.1 + 0.2`:
+
+```python
+print(0.1 + 0.2)        # 0.30000000000000004
+print(0.1 + 0.2 == 0.3) # False
+```
+
+This is not a Python bug — it is an inherent property of IEEE 754 arithmetic. The workaround is to compare floats within a tolerance using `math.isclose`:
 
 ```python
 import math
 
 a = 0.1 + 0.2
 b = 0.3
-tolerance = 1e-9
 
-print(math.isclose(a, b, abs_tol=tolerance))  # Output: True
-print(a == b)  # False (typical)
+print(math.isclose(a, b, rel_tol=1e-9))           # True (relative tolerance)
+print(math.isclose(a, b, abs_tol=1e-9))           # True (absolute tolerance)
 ```
+
+`rel_tol` (default `1e-9`) scales the tolerance relative to the size of the numbers — useful for large values. `abs_tol` sets a fixed margin — better when comparing values near zero. For financial or exact decimal arithmetic, use the `decimal` module instead, which avoids binary rounding entirely.
 
 #### Rounding
 
-You can round floats to a given number of decimal places using the built‑in `round()` function.  
-It returns a new `float` (for most values) or an `int` if the second argument is omitted.
+The built-in `round()` function rounds a float to a given number of decimal places. If the second argument is omitted, it returns an `int`:
 
 ```python
 pi = 3.1415926535
-print(round(pi, 2))   # 3.14
-print(round(pi))      # 3
-print(round(2.5))     # 2 (banker's rounding: ties to nearest even number)
+
+print(round(pi, 4))  # 3.1416
+print(round(pi, 2))  # 3.14
+print(round(pi))     # 3
+
+print(round(2.5))    # 2  — banker's rounding: ties go to the nearest even number
+print(round(3.5))    # 4
 ```
 
-For formatted output without changing the number itself, use string formatting:
+Banker's rounding (round half to even) is the IEEE 754 default and reduces cumulative bias in large datasets. If you need ceiling, floor, or truncation instead:
 
 ```python
-print(f"{pi:.2f}")    # 3.14
+import math
+
+print(math.floor(3.9))   # 3  — always rounds down
+print(math.ceil(3.1))    # 4  — always rounds up
+print(math.trunc(-3.9))  # -3 — strips the decimal, toward zero
+print(int(-3.9))         # -3 — same as trunc
 ```
 
-#### Special floating‑point values
+#### Special floating-point values
 
-The `float` type can represent `inf` (infinity), `-inf` (negative infinity), and `nan`  
-(not a number). These usually arise from mathematical edge cases.
+The `float` type can represent three special values: `inf`, `-inf`, and `nan`.  
+These arise from mathematical edge cases and overflow:
 
 ```python
-positive_inf = float('inf')
-negative_inf = float('-inf')
-not_a_number = float('nan')
+import math
 
-print(1e500)                # inf
-print(1 / positive_inf)     # 0.0
-print(math.isinf(positive_inf))  # True
-print(math.isnan(not_a_number))  # True
+pos_inf = float('inf')
+neg_inf = float('-inf')
+nan     = float('nan')
+
+print(1e309)              # inf  (overflow)
+print(-1e309)             # -inf
+print(1 / pos_inf)        # 0.0
+print(pos_inf + 1)        # inf
+print(pos_inf - pos_inf)  # nan
+
+print(math.isinf(pos_inf))  # True
+print(math.isnan(nan))      # True
 ```
 
-`nan` is special because it is not equal to anything, even itself.  
-Use `math.isnan()` to check for it.
+`nan` is particularly unusual — it is not equal to anything, including itself:
+
+```python
+print(nan == nan)       # False
+print(nan is nan)       # True  (same object, but value comparison always fails)
+```
+
+Always use `math.isnan()` to test for `nan` rather than `==`.
 
 #### Type conversion
 
-Floats can be created from integers, strings, or other floating‑point values.
+Floats can be created from integers, strings, booleans, or other numeric types:
 
 ```python
-print(float(42))          # 42.0
-print(float("   -3.14\n")) # -3.14
-print(float("1e-4"))      # 0.0001
+print(float(42))           # 42.0
+print(float(True))         # 1.0
+print(float("  -3.14\n")) # -3.14  (strips surrounding whitespace)
+print(float("1e-4"))       # 0.0001
 ```
 
-Attempting to convert a non‑numeric string raises a `ValueError`.
-
-#### Converting between integers and floats
-
-Implicit conversion happens when an integer and a float are used together — the  
-integer is promoted to a float.
+Passing a non-numeric string raises a `ValueError`:
 
 ```python
-result = 3 + 4.5   # result is 7.5 (float)
+float("hello")  # ValueError: could not convert string to float: 'hello'
 ```
 
-To keep the result as an integer, you must explicitly cast:
+#### Implicit and explicit conversion with integers
+
+When an integer and a float are used together in an expression, Python automatically   
+promotes the integer to a float to avoid losing precision:
 
 ```python
-result = int(3 + 4.5)   # 7
+result = 3 + 4.5   # 7.5 — result is a float
+print(type(result)) # <class 'float'>
 ```
 
-But be careful: `int()` truncates toward zero, not rounding.
+Going the other direction requires an explicit cast. Keep in mind that `int()` always  
+truncates toward zero — it does not round:
+
+```python
+print(int(7.9))   #  7  — truncated, not rounded
+print(int(-7.9))  # -7  — truncated toward zero, not -8
+print(round(7.9)) #  8  — rounded
+```
+
+Use `round()` when you want true rounding, and `int()` only when truncation is intentional.
 
 ## Strings
 
