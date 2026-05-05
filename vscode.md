@@ -113,6 +113,7 @@ Common useful commands:
 "emmet.triggerExpansionOnTab": true,
 "workbench.tree.renderIndentGuides": "onHover",
 "editor.fontSize": 13,
+"python.analysis.typeCheckingMode": "basic",
 ```
 
 ## REST client
