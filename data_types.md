@@ -41,7 +41,9 @@ Here is the data you provided in a markdown table format:
 ## Booleans
 
 In Python programming language, the Boolean datatype is a primitive datatype  
-having one of two values: `True` or `False`. This is a fundamental data type.
+having one of two values: `True` or `False`. This is a fundamental data type.  
+Booleans are a subclass of integers — `True` behaves like `1` and `False` like `0`  
+in numeric contexts, though they have their own `bool` type.
 
 Happy parents are waiting a child to be born. They have chosen a name for both possibilities.  
 If it is going to be a boy, they might have chosen John. If it is going to be a girl,  
@@ -89,6 +91,45 @@ else:
 We print the name. The if keyword works with boolean values. If the male is `True`,  
 we print the `"We will use name John"` to the console. If it has a `False` value, we print the other string.
 
+### Boolean operators
+
+Python provides three logical operators: `and`, `or`, and `not`. They operate on  
+boolean expressions and return boolean results. The `and` operator evaluates to  
+`True` only if both operands are true. The `or` operator evaluates to `True` if at  
+least one operand is true. The `not` operator inverts the boolean value.
+
+```python
+#!/usr/bin/python
+
+# bool_ops.py
+
+x = 5
+y = 10
+
+print(x > 3 and y < 20)   # True
+print(x > 3 and y < 5)    # False
+print(x > 10 or y > 5)    # True
+print(not x > 3)          # False
+```
+
+Short‑circuit evaluation is used: if the first operand determines the result, the  
+second is not evaluated. For `and`, if the left side is `False`, the right side is  
+ignored. For `or`, if the left side is `True`, the right side is skipped.
+
+### Truthiness and falsiness
+
+Many objects in Python can be tested for truth value even if they are not  
+explicitly `bool`. Values that are considered `False` in a boolean context:
+
+- `None`
+- `False`
+- zero of any numeric type: `0`, `0.0`, `0j`
+- any empty sequence: `''`, `()`, `[]`
+- any empty mapping: `{}`
+- instances of user‑defined classes that define a `__bool__` or `__len__` method returning `False` or `0`
+
+Everything else is considered `True`.
+
 The following script shows some common values that are considered to be True or False.
 
 ```python
@@ -122,11 +163,66 @@ True
 False
 ```
 
+### Boolean in arithmetic
+
+Because `bool` is a subclass of `int`, `True` equals `1` and `False` equals `0`.  
+This allows booleans to be used directly in arithmetic operations.
+
+```python
+#!/usr/bin/python
+
+# bool_int.py
+
+print(True + True)          # 2
+print(True + False)         # 1
+print(False * 100)          # 0
+print(3 * True - 2)         # 1
+```
+
+While possible, using booleans as numbers often reduces code clarity.  
+Explicit conversions are preferred in most situations.
+
+### Comparison operators
+
+Comparison operators return boolean values. They include:
+
+| Operator | Meaning                  |
+|----------|--------------------------|
+| `==`     | equal                    |
+| `!=`     | not equal                |
+| `<`      | less than                |
+| `>`      | greater than             |
+| `<=`     | less than or equal       |
+| `>=`     | greater than or equal    |
+| `is`     | object identity          |
+| `is not` | negated object identity  |
+| `in`     | membership               |
+| `not in` | negated membership       |
+
+```python
+#!/usr/bin/python
+
+# comparisons.py
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)      # True  (same content)
+print(a is b)      # False (different objects)
+print(2 in a)      # True
+print(5 not in a)  # True
+```
 
 ## Numbers
 
 In Python programming language, we have integer numbers, floating point numbers, and complex numbers.  
 If we work with integers, we deal with discrete entities. We would use integers to count apples.  
+
+### Integers
+
+Integers (`int`) represent whole numbers without a fractional part. They have  
+arbitrary precision — Python automatically handles numbers as large as the  
+available memory allows.
 
 ```python
 #!/usr/bin/python
@@ -151,6 +247,90 @@ In our script, we count the total amount of apples. We use the multiplication op
 $ ./apples.py
 There are total of 384 apples
 ```
+
+#### Integer literals
+
+You can write integers in several bases:
+
+```python
+decimal = 255         # decimal (base 10)
+binary  = 0b11111111  # binary (base 2)
+octal   = 0o377       # octal (base 8)
+hexa    = 0xFF        # hexadecimal (base 16)
+
+print(decimal, binary, octal, hexa)  # 255 255 255 255
+```
+
+Underscores can be used as visual separators in large numbers: `1_000_000` is the  
+same as `1000000`.
+
+#### Integer operations
+
+Standard arithmetic operators work as expected:
+
+```python
+#!/usr/bin/python
+
+# int_operations.py
+
+x = 17
+y = 5
+
+print(x + y)         # addition: 22
+print(x - y)         # subtraction: 12
+print(x * y)         # multiplication: 85
+print(x / y)         # true division (always returns float): 3.4
+print(x // y)        # floor division (integer, rounded towards minus infinity): 3
+print(x % y)         # modulo (remainder): 2
+print(x ** y)        # exponentiation: 1419857
+print(abs(-x))       # absolute value: 17
+print(pow(x, y))     # equivalent to x ** y
+print(divmod(x, y))  # returns (quotient, remainder) as tuple: (3, 2)
+```
+
+Bitwise operators are also available:
+
+```python
+a = 0b1100   # 12
+b = 0b1010   # 10
+
+print(bin(a & b))   # AND:      0b1000 (8)
+print(bin(a | b))   # OR:       0b1110 (14)
+print(bin(a ^ b))   # XOR:      0b0110 (6)
+print(bin(~a))      # NOT:      -0b1101 (two's complement)
+print(bin(a << 2))  # left shift:  0b110000 (48)
+print(bin(a >> 2))  # right shift: 0b11 (3)
+```
+
+#### Type conversion and rounding
+
+Integers can be constructed from other types with the `int()` function.  
+Floats are truncated toward zero.
+
+```python
+print(int(9.99))        # 9
+print(int(-3.7))        # -3
+print(int("42"))        # 42
+print(int("101", 2))    # 5 (binary string)
+```
+
+#### Very large integers
+
+Python handles arbitrarily large integers seamlessly:
+
+```python
+big = 2**1000
+print(big)
+print(len(str(big)), "digits")
+```
+
+No overflow errors occur unless memory is exhausted.
+
+### Floats
+
+Floating point numbers (`float`) represent real numbers using double‑precision  
+(64‑bit) as defined by the IEEE 754 standard. They can express very large  
+(≈1.8×10³⁰⁸) and very small (≈2.2×10⁻³⁰⁸) values, but with finite precision.
 
 Floating point numbers represent real numbers in computing. Real numbers measure continuous  
 quantities. Let's say a sprinter for 100m ran 9.87s. What is his speed in km/h?  
@@ -188,6 +368,21 @@ The average speed of a sprinter is  36.4741641337 km/h
 
 This is the output of the `sprinter.py` script. Value `36.4741641337` is a floating point number.
 
+#### Scientific notation
+
+Floats can be expressed using scientific notation with `e` or `E`:
+
+```python
+tiny = 1.5e-3   # 0.0015
+huge = 6.022E23 # 6.022e+23
+print(tiny, huge)
+```
+
+#### Floating‑point precision and `math.isclose`
+
+Floating‑point arithmetic often introduces tiny rounding errors because some  
+decimal values cannot be represented exactly in binary. For example, `0.1 + 0.2`  
+does not equal exactly `0.3`.
 
 The `math.isclose` function is used to determine whether two floating-point numbers are  
 close to each other, within a specified tolerance. This is particularly useful for comparing  
@@ -202,8 +397,74 @@ b = 0.3
 tolerance = 1e-9
 
 print(math.isclose(a, b, abs_tol=tolerance))  # Output: True
+print(a == b)  # False (typical)
 ```
 
+#### Rounding
+
+You can round floats to a given number of decimal places using the built‑in `round()` function.  
+It returns a new `float` (for most values) or an `int` if the second argument is omitted.
+
+```python
+pi = 3.1415926535
+print(round(pi, 2))   # 3.14
+print(round(pi))      # 3
+print(round(2.5))     # 2 (banker's rounding: ties to nearest even number)
+```
+
+For formatted output without changing the number itself, use string formatting:
+
+```python
+print(f"{pi:.2f}")    # 3.14
+```
+
+#### Special floating‑point values
+
+The `float` type can represent `inf` (infinity), `-inf` (negative infinity), and `nan`  
+(not a number). These usually arise from mathematical edge cases.
+
+```python
+positive_inf = float('inf')
+negative_inf = float('-inf')
+not_a_number = float('nan')
+
+print(1e500)                # inf
+print(1 / positive_inf)     # 0.0
+print(math.isinf(positive_inf))  # True
+print(math.isnan(not_a_number))  # True
+```
+
+`nan` is special because it is not equal to anything, even itself.  
+Use `math.isnan()` to check for it.
+
+#### Type conversion
+
+Floats can be created from integers, strings, or other floating‑point values.
+
+```python
+print(float(42))          # 42.0
+print(float("   -3.14\n")) # -3.14
+print(float("1e-4"))      # 0.0001
+```
+
+Attempting to convert a non‑numeric string raises a `ValueError`.
+
+#### Converting between integers and floats
+
+Implicit conversion happens when an integer and a float are used together — the  
+integer is promoted to a float.
+
+```python
+result = 3 + 4.5   # result is 7.5 (float)
+```
+
+To keep the result as an integer, you must explicitly cast:
+
+```python
+result = int(3 + 4.5)   # 7
+```
+
+But be careful: `int()` truncates toward zero, not rounding.
 
 ## Strings
 
@@ -870,7 +1131,8 @@ print(function())
 ```
 
 In our example, we define a function. Functions will be covered later in the tutorial.  
-The function does nothing. It does not explicitly return any value. Such a function will implicitly return `None`.  
+The function does nothing. It does not explicitly return any value.  
+Such a function will implicitly return `None`.  
 
 ```
 $ ./none.py
