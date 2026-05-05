@@ -1117,7 +1117,16 @@ for k, v in domains.items():
 
 ## None
 
-There is another special data type — None. This data type means non existent, not known, or empty.
+There is another special data type — `None`. This data type means non existent, not known, or empty.  
+It is the sole value of the `NoneType` class. `None` is a built‑in constant that represents the  
+absence of a value, a null, or a placeholder.  
+
+`None` is falsy — when used in a boolean context, it evaluates to `False`. However, it is  
+distinct from other falsy values like `0`, `False`, `""`, or empty collections.
+
+### Functions without a return value
+
+If a function does not end with an explicit `return` statement, it returns `None` automatically.
 
 ```python
 #!/usr/bin/python
@@ -1127,14 +1136,169 @@ There is another special data type — None. This data type means non existent, 
 def function():
     pass
 
-print(function())
+print(function())    # None
 ```
 
-In our example, we define a function. Functions will be covered later in the tutorial.  
-The function does nothing. It does not explicitly return any value.  
-Such a function will implicitly return `None`.  
+In our example, we define a function. The function does nothing. It does not explicitly  
+return any value. Such a function will implicitly return `None`.  
 
+### Uses of `None`
+
+`None` is commonly used to:
+
+- initialize variables that will later hold a meaningful value
+- serve as a default argument for function parameters (but see the note on mutable defaults below)
+- indicate that a search or lookup operation found nothing
+- mark the absence of a result
+
+```python
+#!/usr/bin/python
+
+# none_initialization.py
+
+data = None
+
+# ... later in the code ...
+if some_condition:
+    data = [1, 2, 3]
+
+if data is None:
+    print("Data not yet available")
+else:
+    print("Data is ready")
 ```
-$ ./none.py
-None
+
+### Testing for `None` – the identity operator
+
+Because `None` is a singleton (there is only ever one instance of `NoneType`), the correct way  
+to check for it is by identity using the `is` operator, not by equality with `==`.
+
+```python
+x = None
+
+# Recommended way
+if x is None:
+    print("x is None")
+
+# Works, but less precise (and can be overridden if == is overloaded)
+if x == None:
+    print("x equals None")
 ```
+
+The same `is` operator is used for checking non‑null: `if x is not None:`.
+
+### Difference from other falsy values
+
+Even though `None` is falsy, it is not the same as `0`, `False`, or an empty string.  
+You should check for `None` explicitly when the absence of a value has a special meaning.
+
+```python
+value = 0
+
+if value is None:
+    print("No value")
+else:
+    print("value is zero")   # This will be printed, correctly distinguishing 0 from None
+```
+
+### Methods that return `None`
+
+Many Python methods that modify an object in place return `None` (rather than the modified object).  
+This is an important pattern — do not chain these methods thinking they return the original object.
+
+```python
+names = ["Alice", "Bob", "Charlie"]
+
+result = names.append("David")
+print(result)        # None
+print(names)         # ['Alice', 'Bob', 'Charlie', 'David']
+
+# A common mistake:
+# names = names.append("Eve")  # This would set names to None!
+```
+
+Other methods like `sort()`, `reverse()`, and `extend()` also return `None`.
+
+### `None` as default argument – careful with mutables
+
+Using `None` as a default value for mutable parameters (like lists or dictionaries) is a common idiom  
+to avoid unwanted sharing across function calls.
+
+```python
+def add_item(item, target_list=None):
+    if target_list is None:
+        target_list = []    # fresh list per call
+    target_list.append(item)
+    return target_list
+
+print(add_item(1))          # [1]
+print(add_item(2))          # [2]  (not [1, 2])
+```
+
+Without the `None` sentinel, using `target_list=[]` would reuse the same list object across  
+multiple calls, causing the list to accumulate items unexpectedly.
+
+### `None` in data structures
+
+`None` can be stored inside lists, dictionaries, or tuples to signal missing or optional data.
+
+```python
+user_info = {
+    "name": "John",
+    "email": None,          # email not provided
+    "age": 30
+}
+
+for key, val in user_info.items():
+    if val is None:
+        print(f"{key}: not set")
+    else:
+        print(f"{key}: {val}")
+```
+
+### Comparison with `null` in other languages
+
+`None` in Python is similar to `null` in Java or JavaScript, but it is a true object with a type.  
+Python’s `None` cannot be accidentally used as a number (as `null` might in some languages) because  
+Python is strongly typed and operations like `None + 1` will raise a `TypeError`.
+
+```python
+try:
+    result = None + 1
+except TypeError as e:
+    print(e)   # unsupported operand type(s) for +: 'NoneType' and 'int'
+```
+
+### Checking for `None` in expressions
+
+You can use the ternary operator to provide a fallback value when something might be `None`:
+
+```python
+name = None
+display_name = name or "Guest"
+print(display_name)   # Guest
+```
+
+However, this trick also catches other falsy values like empty strings.  
+A more precise approach uses `if`/`else` or the `a if a is not None else b` pattern:
+
+```python
+name = ""
+display_name = name if name is not None else "Guest"
+print(display_name)   # (prints empty string, not "Guest")
+```
+
+### `None` is a singleton – implications
+
+`None` is always the same object in memory, regardless of where it is referenced.
+
+```python
+a = None
+b = None
+print(a is b)   # True
+print(id(a) == id(b))  # True
+```
+
+This is why the `is` test is both correct and efficient.
+
+The section now provides a thorough understanding of `None`, its behaviour, and common usage patterns.
