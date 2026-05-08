@@ -1,5 +1,52 @@
 # Scripts
 
+## Factorials
+
+```python
+def factorial1(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial1(n - 1)
+
+
+def factorial2(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+
+def factorial3(n):
+    result = 1
+    i = 1
+    while i <= n:
+        result *= i
+        i += 1
+    return result
+
+
+def factorial4(n):
+    from math import factorial
+
+    return factorial(n)
+
+
+def factorial5(n):
+    match n:
+        case 0:
+            return 1
+        case _:
+            return n * factorial5(n - 1)
+
+
+print(factorial1(5))
+print(factorial2(5))
+print(factorial3(5))
+print(factorial4(5))
+print(factorial5(5))
+```
+
 ## Calculate total sales
 
 ```python
