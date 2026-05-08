@@ -105,6 +105,101 @@ with open(file_name, 'r') as file:
     print(freq)
 ```
 
+## Read CSV file from local server
+
+The CSV file:
+
+```csv
+id,first_name,last_name,email,occupation,salary,created_at
+1,Jana,Nováková,jana.novakova@example.com,Software Engineer,3200.00,2026-01-01
+2,Peter,Kováč,peter.kovac@example.com,Data Analyst,2800.00,2026-01-02
+3,Lucia,Horváthová,lucia.horvathova@example.com,Project Manager,3500.00,2026-01-03
+4,Martin,Tóth,martin.toth@example.com,UX Designer,3000.00,2026-01-04
+5,Simona,Varga,simona.varga@example.com,QA Engineer,2700.00,2026-01-05
+6,Marek,Polák,marek.polak@example.com,DevOps Engineer,3400.00,2026-01-06
+7,Zuzana,Bartošová,zuzana.bartosova@example.com,HR Specialist,2500.00,2026-01-07
+8,Tomáš,Urban,tomas.urban@example.com,Business Analyst,2900.00,2026-01-08
+9,Barbora,Králová,barbora.kralova@example.com,Marketing Manager,3300.00,2026-01-09
+10,Jozef,Šimek,jozef.simek@example.com,System Administrator,3100.00,2026-01-10
+11,Michaela,Dudová,michaela.dudova@example.com,Content Writer,2200.00,2026-01-11
+12,Richard,Bielik,richard.bielik@example.com,Product Owner,3600.00,2026-01-12
+13,Katarína,Farkašová,katarina.farkasova@example.com,Accountant,2600.00,2026-01-13
+14,Andrej,Gregor,andrej.gregor@example.com,Network Engineer,3200.00,2026-01-14
+15,Veronika,Kučerová,veronika.kucerova@example.com,Graphic Designer,2400.00,2026-01-15
+16,Patrik,Holub,patrik.holub@example.com,Mobile Developer,3300.00,2026-01-16
+17,Eva,Švecová,eva.svecova@example.com,Recruiter,2300.00,2026-01-17
+18,Roman,Marek,roman.marek@example.com,Database Administrator,3400.00,2026-01-18
+19,Monika,Blažeková,monika.blazekova@example.com,Scrum Master,3100.00,2026-01-19
+20,Filip,Klein,filip.klein@example.com,Web Developer,3000.00,2026-01-20
+```
+
+The server: 
+
+```python
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+CSV_PATH = "users.csv"
+
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        with open(CSV_PATH, "rb") as f:
+            data = f.read()
+
+        self.send_response(200)
+        self.send_header("Content-Type", "text/csv; charset=utf-8")
+        self.send_header("Content-Disposition", "attachment; filename=data.csv")
+        self.end_headers()
+        self.wfile.write(data)
+
+HTTPServer(("0.0.0.0", 8000), Handler).serve_forever()
+```
+
+The client:
+
+
+```python
+from decimal import Decimal
+from io import StringIO
+from dataclasses import dataclass
+
+import requests
+import csv
+
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    email: str
+    occupation: str
+    salary: Decimal
+    created_at: str
+
+    @classmethod
+    def from_row(cls, row: dict) -> "User":
+        print(cls)
+        return cls(
+            id=int(row["id"]),
+            first_name=row["first_name"],
+            last_name=row["last_name"],
+            email=row["email"],
+            occupation=row["occupation"],
+            salary=Decimal(row["salary"]),
+            created_at=row["created_at"],
+        )
+
+
+response = requests.get("http://localhost:8000/users.csv")
+response.encoding = "utf-8"
+response.raise_for_status()
+
+users = [User.from_row(row) for row in csv.DictReader(StringIO(response.text))]
+
+for user in users:
+    print(user)
+```
+
 ## Calculate total sales
 
 ```python
