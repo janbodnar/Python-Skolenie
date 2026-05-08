@@ -184,8 +184,8 @@ match n:
         print(f"{n}: positive value")
 ```
 
-The example picks a random integer. Using `match/case` with guards, we determine whether the  
-value is negative, zero, or positive.
+The example picks a random integer. Using `match/case` with guards, we  
+determine whether the value is negative, zero, or positive.
 
 ```python
 case n if n < 0:
@@ -228,7 +228,7 @@ for e in data:
             print(f'unknown')
 ```
 
-We define three data classes: `Cat`, `Dog`, and `Person`. With `match/case` we 
+We define three data classes: `Cat`, `Dog`, and `Person`. With `match/case` we  
 check the type of each object.
 
 ```python
@@ -413,6 +413,33 @@ for e in res:
 ```
 
 We define a `Day` enumeration, select four random days, and print their names.
+
+```python
+from enum import Enum
+import random
+
+Day = Enum("Day", "Monday Tuesday Wednesday Thursday Friday Saturday Sunday")
+
+days = [
+    Day.Monday,
+    Day.Tuesday,
+    Day.Wednesday,
+    Day.Thursday,
+    Day.Friday,
+    Day.Saturday,
+    Day.Sunday,
+]
+
+sample = random.sample(days, 4)
+
+for day in sample:
+    match day:
+        case Day.Saturday | Day.Sunday:
+            print(f"{day} is a weekend")
+        case _:
+            print(f"{day} is a weekday")
+```
+
 
 ## Matching maps (dictionaries)
 
