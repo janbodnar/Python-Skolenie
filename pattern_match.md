@@ -1,18 +1,19 @@
-# Pattern match
+# Pattern matching
 
-*Pattern matching* is done with `match/case` keywords. It was introduced in Python 3.10 under the name  
-structural pattern matching.
+*Pattern matching* is performed using the `match` and `case` keywords. It was introduced 
+in Python 3.10 under the name **structural pattern matching**.
 
-*Pattern matching* is a powerful control flow construct that allows us to compare a value against a series  
-of patterns and then execute code based on which pattern matches. It is a much more advanced construct  
-than the `if/else` statements or the classic switch statements.
+Pattern matching is a powerful control flow construct that allows you to compare a value  
+against a series of patterns and then execute code based on which pattern matches. It is  
+far more advanced than traditional `if/else` chains or the classic `switch` statements  
+found in other languages.
 
-In `if/else` or switch statements, each individual condition is called a branch; in pattern matching,  
-the term arm is used instead.
+In `if/else` or `switch` statements, each individual condition is called a *branch*;  
+in pattern matching, the term **arm** is used instead.
 
-## Pattern match literals
+## Matching literal values
 
-In the first example, we match againts simple literal values.
+In the first example, we match against simple literal values.
 
 ```python
 #!/usr/bin/python
@@ -42,21 +43,23 @@ for lang in langs:
             print('Hallå')
 ```
 
-We have a list of languages. We go through the list and say hello for each language.  
+We have a list of languages. We iterate through the list and greet each language by v
+printing the corresponding word for "hello".
 
 ```python
 for lang in langs:
     match lang:
 ```
 
-The `match` keywords is followed by the option we are matching and a colon.  
+The `match` keyword is followed by the value we are matching (the *subject*) and a colon.
 
 ```python
 case 'russian':
     print('привет')
 ```
 
-Each arm is started with a case, an option, and a colon.  
+Each arm begins with the keyword `case`, followed by a pattern, and then a colon.  
+If the pattern matches the subject, the indented block is executed.
 
 ```
 $ ./literals.py 
@@ -70,9 +73,9 @@ salut
 hola
 ```
 
-## Multiple options
+## Multiple options in a single arm
 
-We can have multiple options for a single line with `|`.
+You can combine several literal patterns into one arm using the `|` (OR) operator.
 
 ```python
 #!/usr/bin/python
@@ -82,7 +85,6 @@ We can have multiple options for a single line with `|`.
 grades = ['A', 'B', 'C', 'D', 'E', 'F', 'FX']
 
 for grade in grades:
-
     match grade:
         case 'A' | 'B' | 'C' | 'D' | 'E' | 'F':
             print('passed')
@@ -90,7 +92,8 @@ for grade in grades:
             print('failed')
 ```
 
-We have a list of grades. For A throug F grades, we pass the example. For the FX grade, we fail the exam.
+We have a list of grades. For grades `A` through `F`, the exam is passed. For the  
+`FX` grade, the exam is failed.
 
 ```
 $ ./grades.py 
@@ -103,10 +106,10 @@ passed
 failed
 ```
 
-## Wildcards 
+## The wildcard pattern `_`
 
-We can use the wildcard character `_` for values that do not match any specific pattern, or it also can  
-be utilized for all other patterns. 
+The wildcard character `_` matches any value but does not bind it to a name. It is typically  
+used as a default case for values that do not match any specific pattern.
 
 ```python
 #!/usr/bin/python
@@ -120,12 +123,11 @@ def factorial(n):
         case _:
             return n * factorial(n - 1)
 
-
 for i in range(17):
     print(i, factorial(i))
 ```
 
-We create a factorial function with `match/case`.  
+We implement the factorial function using `match/case`.
 
 ```python
 match n:
@@ -135,7 +137,8 @@ match n:
         return n * factorial(n - 1)
 ```
 
-For values 0 and 1, we return 1. For all other values, we recursively call the `factorial` function.  
+For values `0` and `1`, we return `1`. For any other value, we recursively call `factorial`.  
+The wildcard pattern `_` matches everything not already matched.
 
 ```
 $ ./factorial.py 
@@ -158,9 +161,10 @@ $ ./factorial.py
 16 20922789888000
 ```
 
-## Guards
+## Guards (conditional arms)
 
-Guards in the form of if conditions can be executed on an arm.
+Guards allow you to attach an `if` condition to an arm. The arm is only chosen if 
+the pattern matches **and** the guard expression evaluates to `True`.
 
 ```python
 #!/usr/bin/python
@@ -180,18 +184,20 @@ match n:
         print(f"{n}: positive value")
 ```
 
-The example chooses a random integer. With `match/case` we determine, if the value is negative, zero, or positive.  
+The example picks a random integer. Using `match/case` with guards, we determine whether the  
+value is negative, zero, or positive.
 
 ```python
 case n if n < 0:
     print(f"{n}: negative value")
 ```
 
-This arm is executed if the `n` is less than zero.  
+This arm is executed only if `n` is less than zero. Notice that the variable `n` is  
+bound before the guard is evaluated.
 
-## Matching objects
+## Matching objects (data classes)
 
-We can use pattern matching on Python objects.
+Pattern matching works seamlessly with Python objects, especially data classes.
 
 ```python
 from dataclasses import dataclass
@@ -222,28 +228,29 @@ for e in data:
             print(f'unknown')
 ```
 
-We have three classes: `Cat`, `Dog`, and `Person`. With `match/case` we check, what type of class we have.  
+We define three data classes: `Cat`, `Dog`, and `Person`. With `match/case` we 
+check the type of each object.
 
 ```python
 case Cat(name) | Dog(name):
     print(f'{name} is a pet')
 ```
 
-This arm checks either for a cat or for a dog.
+This arm matches either a `Cat` or a `Dog` and extracts the `name` attribute.
 
 ```python
 case Person(name):
     print(f'{name} is a human')
 ```
 
-This arm checks for a person object.
+This arm matches a `Person` object.
 
 ```python
 case _:
     print(f'unknown')
 ```
-  
-For an object that we cannot identify, we use the wildcard.  
+
+For any other value (like the string `'Jupiter'`), we use the wildcard.
 
 ```
 $ ./objects.py 
@@ -254,99 +261,123 @@ Peter is a human
 unknown
 ```
 
-In the next example, we work with `Point` objects.
+### Matching objects with positional patterns
+
+You can also define **positional patterns** for your classes by setting  
+`__match_args__`. This allows you to match without naming the attributes explicitly.
 
 ```python
 #!/usr/bin/python
 
-# points.py
+# positional_match.py
 
 from dataclasses import dataclass
 
 @dataclass
 class Point:
+    __match_args__ = ('x', 'y')
     x: int
     y: int
 
-
-def check(p):
-    match p:
-        case Point(x=0, y=0):
+def describe(point):
+    match point:
+        case Point(0, 0):
             print("Origin")
-        case Point(x, y) if y == 0:
-            print(f"on x axis")
-        case Point(x, y) if x == 0:
-            print(f"on y axis")
-        case Point(x, y) if x > 0 and y > 0:
-            print("Q I")
-        case Point(x, y) if x < 0 and y > 0:
-            print("Q II")
-        case Point(x, y) if x < 0 and y < 0:
-            print("Q III")
-        case Point(x, y) if x > 0 and y < 0:
-            print("Q IV")
-        case _:
-            print("Not a point")
+        case Point(0, y):
+            print(f"On Y-axis at y={y}")
+        case Point(x, 0):
+            print(f"On X-axis at x={x}")
+        case Point(x, y):
+            print(f"Point at ({x}, {y})")
 
-
-points = [Point(3, 0), Point(0, 0), Point(-4, -5), Point(-4, 0), Point(0, 5),
-          Point(4, 8), Point(-5, 3), Point(6, -4)]
-
-for p in points:
-    check(p)
+describe(Point(0, 0))
+describe(Point(0, 5))
+describe(Point(3, 0))
+describe(Point(2, 7))
 ```
 
-Depending on the coordinates, we assign the point objects to the origin, x and y axis,  
-or one of the four quadrants.  
+The `__match_args__` tuple tells the pattern matcher which attributes to use  
+for positional matching. This makes the syntax more concise.
 
-```
-$ ./points.py 
-on x axis
-Origin
-Q III
-on x axis
-on y axis
-Q I
-Q II
-Q IV
-```
+## Matching sequences (lists, tuples)
 
-## Matching types
-
-Checking basic types.  
+Pattern matching can deconstruct sequences like lists and tuples, including  
+variable-length sequences.
 
 ```python
 #!/usr/bin/python
 
-class Being:
-    pass
+# sequences.py
 
+records = [
+    ("Alice", "Engineering", 85000),
+    ("Bob", "Sales", 62000),
+    ("Charlie", "Engineering", 91000),
+    ("Diana", "HR", 55000),
+]
 
-objects = [1, -2, 3.4, None, False, [1, 2], "Python", (2, 3), Being(), {}]
+for record in records:
+    match record:
+        case (name, "Engineering", salary):
+            print(f"{name} works in Engineering and earns ${salary}")
+        case (name, dept, salary) if salary < 60000:
+            print(f"{name} from {dept} earns less than $60k")
+        case (name, dept, _):
+            print(f"{name} works in {dept}")
+```
 
-for e in objects:
-    match e:
-        case None:
-            print(f'{e} is a null value')
-        case list():
-            print(f'{e} is a list cointainer')
-        case tuple():
-            print(f'{e} is a tuple cointainer')
-        case float():
-            print(f'{e} is a float')
-        case True | False:
-            print(f'{e} is a boolean value')
-        case _val if isinstance(_val, str):
-            print(f'{e} is a string')
-        case _val if isinstance(_val, dict):
-            print(f'{e} is a dictionary')
-        case _val if isinstance(_val, int):
-            print(f'{e} is an integer')
+Tuples are matched positionally. The first arm extracts `name` and `salary` when  
+the department is exactly `"Engineering"`. The second arm uses a guard to filter  
+low salaries. The third arm uses a wildcard `_` to ignore the salary.
+
+### Variable‑length sequence patterns
+
+You can use `*rest` to match an arbitrary number of items.
+
+```python
+#!/usr/bin/python
+
+# star_pattern.py
+
+def process_first_two(items):
+    match items:
+        case [first, second, *rest]:
+            print(f"First: {first}, Second: {second}, Rest: {rest}")
+        case [first, *rest]:
+            print(f"Only first: {first}, Rest: {rest}")
+        case _:
+            print("Empty list")
+
+process_first_two([10, 20, 30, 40])
+process_first_two([5])
+process_first_two([])
+```
+
+## Using the `as` pattern
+
+The `as` keyword lets you capture the entire matched value in a variable, even 
+while destructuring parts of it.
+
+```python
+#!/usr/bin/python
+
+# as_pattern.py
+
+def inspect_command(cmd):
+    match cmd.split():
+        case ["quit"]:
+            print("Exiting...")
+        case ["load", filename] as whole:
+            print(f"Loading file '{filename}' (full command: {whole})")
+        case _:
+            print("Unknown command")
+
+inspect_command("load data.txt")
 ```
 
 ## Matching enums
 
-Pattern matching can be effectively used with enums.  
+Pattern matching is especially clean when working with enumerations.
 
 ```python
 #!/usr/bin/python
@@ -356,25 +387,21 @@ Pattern matching can be effectively used with enums.
 from enum import Enum
 import random
 
-
 Day = Enum('Day', 'Monday Tuesday Wednesday Thursday Friday Saturday Sunday')
-
 
 days = [Day.Monday, Day.Tuesday, Day.Wednesday,
         Day.Thursday, Day.Friday, Day.Saturday, Day.Sunday]
 
-
 res = random.sample(days, 4)
 
 for e in res:
-
     match e:
         case Day.Monday:
             print("monday")
         case Day.Tuesday:
             print("tuesday")
         case Day.Wednesday:
-            print("wednesay")
+            print("wednesday")
         case Day.Thursday:
             print("thursday")
         case Day.Friday:
@@ -385,101 +412,11 @@ for e in res:
             print("sunday")
 ```
 
-In the example, we define a Day enumeration.
+We define a `Day` enumeration, select four random days, and print their names.
 
-```python
-days = [Day.Monday, Day.Tuesday, Day.Wednesday,
-    Day.Thursday, Day.Friday, Day.Saturday, Day.Sunday]
+## Matching maps (dictionaries)
 
-res = random.sample(days, 4)
-```
-
-We randomly choose four days from a list.
-
-```python
-for e in res:
-
-    match e:
-        case Day.Monday:
-            print("monday")
-        case Day.Tuesday:
-            print("tuesday")
-        case Day.Wednesday:
-            print("wednesay")
-        case Day.Thursday:
-            print("thursday")
-        case Day.Friday:
-            print("friday")
-        case Day.Saturday:
-            print("saturday")
-        case Day.Sunday:
-            print("sunday")
-```
-
-We check the four chosen values and print their corresponding string representations.  
-
-```
-$ ./enums.py 
-friday
-monday
-thursday
-tuesday
-```
-
-## Matching tuples
-
-In the following example, we match tuples.
-
-```python
-#!/usr/bin/python
-
-# tuples.py
-
-users = [
-    ('John', 'Doe', 'gardener'),
-    ('Jane', 'Doe', 'teacher'),
-    ('Roger', 'Roe', 'driver'),
-    ('Martin', 'Molnar', 'programmer'),
-    ('Robert', 'Kovac', 'shopkeeper'),
-    ('Tomas', 'Novy', 'programmer'),
-]
-
-
-for user in users:
-    match user:
-        case (fname, lname, 'programmer'):
-            print(f'{fname} {lname} is a programmer')
-        case (fname, lname, 'teacher'):
-            print(f'{fname} {lname} is a teacher')
-        case (fname, lname, 'gardener'):
-            print(f'{fname} {lname} is a gardener')
-        case _:
-            print(user)
-```
-
-We have a list of tuples. Each tuple is a person and his profession. We match against the profession.  
-
-```python
-case (fname, lname, 'programmer'):
-    print(f'{fname} {lname} is a programmer')
-```
-
-This arm binds the name of the person to fname and lname variables and matches against  
-the 'programmer' value.
-
-```
-$ ./tuples.py
-John Doe is a gardener
-Jane Doe is a teacher
-('Roger', 'Roe', 'driver')
-Martin Molnar is a programmer
-('Robert', 'Kovac', 'shopkeeper')
-Tomas Novy is a programmer
-```
-
-## Matching maps 
-
-In the next example, we do pattern matching with maps.  
+Dictionaries can be matched by their keys, and you can extract values.
 
 ```python
 #!/usr/bin/python
@@ -495,22 +432,15 @@ users = [
 
 for user in users:
     match user:
-        case {'name':name, 'cols': cols}:
+        case {'name': name, 'cols': cols}:
             print(f'favourite colours of {name}:')
             for col in cols:
                 print(col)
 ```
 
-We have a list of users represented as maps.  
-
-```python
-case {'name':name, 'cols': cols}:
-    print(f'favourite colours of {name}:')
-    for col in cols:
-        print(col)
-```
-
-The case arm matches against a map and prints each user's favourite colours.  
+The pattern `{'name': name, 'cols': cols}` matches any dictionary that has at least  
+the keys `'name'` and `'cols'`. It binds the corresponding values to the  
+variables `name` and `cols`.
 
 ```
 $ ./maps.py 
@@ -527,3 +457,53 @@ favourite colours of Jan:
 blue
 green
 ```
+
+> **Note**: Dictionary patterns do **not** require every key in the dictionary
+> to be specified. Missing keys are simply ignored. If you want to match an
+> exact set of keys, you can add `**rest` to capture any extra items.
+
+## Nested patterns
+
+Patterns can be nested arbitrarily. This allows you to destructure complex  
+data structures in a single match.
+
+```python
+#!/usr/bin/python
+
+# nested.py
+
+data = [
+    ("user", {"id": 1, "role": "admin"}),
+    ("user", {"id": 2, "role": "editor"}),
+    ("guest", {"token": "abc123"}),
+]
+
+for item in data:
+    match item:
+        case ("user", {"role": "admin", "id": user_id}):
+            print(f"Admin user with id {user_id}")
+        case ("user", {"role": "editor"}):
+            print("Editor user")
+        case ("guest", {"token": token}):
+            print(f"Guest with token {token}")
+        case _:
+            print("Unknown item")
+```
+
+Here we match a tuple whose second element is a dictionary, and we further  
+match inside that dictionary.
+
+## Summary
+
+Python’s structural pattern matching (`match/case`) is a versatile tool that  
+goes far beyond simple value equality. It can:
+
+- Match literals, sequences, mappings, and objects.
+- Capture sub‑values into variables.
+- Combine patterns with `|` (OR).
+- Use guards to add extra conditions.
+- Use wildcards (`_`) to ignore parts or provide a fallback.
+- Nest patterns to destructure complex data.
+
+When you need to inspect the shape and content of data, pattern matching often  
+produces much clearer and more maintainable code than a cascade of `if/else` statements.
