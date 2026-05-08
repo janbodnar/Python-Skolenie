@@ -1,6 +1,6 @@
 # Pattern matching
 
-*Pattern matching* is performed using the `match` and `case` keywords. It was introduced 
+*Pattern matching* is performed using the `match` and `case` keywords. It was introduced  
 in Python 3.10 under the name **structural pattern matching**.
 
 Pattern matching is a powerful control flow construct that allows you to compare a value  
