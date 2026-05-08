@@ -47,6 +47,64 @@ print(factorial4(5))
 print(factorial5(5))
 ```
 
+## Word count
+
+```python
+import re
+
+file_name = 'thermopylae.txt'
+
+pattern = re.compile(r'\w+')
+
+freq = {}
+print(type(freq))
+
+with open(file_name, 'r') as file:
+    
+    content = file.read()
+
+    words = re.findall(pattern, content)
+    print(words)
+
+    for word in words:
+        if word in freq:
+            freq[word] += 1
+        else:
+            freq[word] = 1
+
+    print(freq)
+
+    freq = {}
+    # Alternative using get method
+    for word in words:
+        freq[word] = freq.get(word, 0) + 1
+    
+    print(freq)
+
+    # Alternative using setdefault method Note: setdefault returns the value of
+    # the key if it is in the dictionary, otherwise it inserts the key with a
+    # value of default and returns default.
+    for word in words:
+        freq[word] = freq.setdefault(word, 0) + 1
+
+    print(freq)
+
+    # Alternative using defaultdict from collections module defaultdict is a
+    # subclass of dict that calls a factory function to supply missing values.
+    # The default_factory is called without arguments to produce a new value
+    # when a key is not found. If default_factory is None, then a KeyError is
+    # raised when a missing key is accessed.
+    from collections import defaultdict 
+    freq = defaultdict(int)
+    for word in words:
+        freq[word] += 1
+
+    # Alternative using Counter from collections module
+    from collections import Counter
+    freq = Counter(words)
+    print(freq)
+```
+
 ## Calculate total sales
 
 ```python
