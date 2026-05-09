@@ -50,17 +50,21 @@ print(factorial5(5))
 ## Register/login
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import sqlite3
-from typing import Optional
+from contextlib import closing
 
 import typer
 import bcrypt
 
 DB_NAME = "users.db"
 
-app = typer.Typer(help="Simple user register/login CLI using sqlite and passlib")
+# Pre-computed sentinel used in login to keep timing consistent whether or
+# not the username exists, preventing user-enumeration via response time.
+_DUMMY_HASH: bytes = bcrypt.hashpw(b"dummy-sentinel", bcrypt.gensalt())
+
+app = typer.Typer(help="Simple user register/login CLI using sqlite and bcrypt")
 
 
 def get_conn() -> sqlite3.Connection:
@@ -77,9 +81,15 @@ def init_db(conn: sqlite3.Connection) -> None:
     conn.commit()
 
 
+@app.callback()
+def startup() -> None:
+    with closing(get_conn()) as conn:
+        init_db(conn)
+
+
 @app.command()
 def register(
-    username: Optional[str] = typer.Option(
+    username: str | None = typer.Option(
         None, "-u", "--username", help="Username to register"
     )
 ) -> None:
@@ -92,27 +102,22 @@ def register(
     # bcrypt.hashpw returns bytes; decode for storage
     hashed = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
-    conn = get_conn()
-    init_db(conn)
-    try:
-        conn.execute(
-            "INSERT INTO users (username, password_hash) VALUES (?, ?)",
-            (username, hashed),
-        )
-        conn.commit()
-        typer.secho("Registration successful.", fg=typer.colors.GREEN)
-    except sqlite3.IntegrityError:
-        typer.secho("Username already exists.", fg=typer.colors.RED)
-    finally:
-        conn.close()
+    with closing(get_conn()) as conn:
+        try:
+            conn.execute(
+                "INSERT INTO users (username, password_hash) VALUES (?, ?)",
+                (username, hashed),
+            )
+            conn.commit()
+            typer.secho("Registration successful.", fg=typer.colors.GREEN)
+        except sqlite3.IntegrityError:
+            typer.secho("Username already exists.", fg=typer.colors.RED)
 
 
 @app.command()
 def list_users() -> None:
     """List all registered users (for demonstration purposes)."""
-    conn = get_conn()
-    init_db(conn)
-    try:
+    with closing(get_conn()) as conn:
         cur = conn.execute("SELECT username FROM users")
         users = cur.fetchall()
         if users:
@@ -121,13 +126,11 @@ def list_users() -> None:
                 typer.echo(f"- {user['username']}")
         else:
             typer.secho("No registered users found.", fg=typer.colors.YELLOW)
-    finally:
-        conn.close()
 
 
 @app.command()
 def login(
-    username: Optional[str] = typer.Option(
+    username: str | None = typer.Option(
         None, "-u", "--username", help="Username to login"
     )
 ) -> None:
@@ -137,19 +140,13 @@ def login(
 
     password = typer.prompt("Password", hide_input=True)
 
-    conn = get_conn()
-    init_db(conn)
-    try:
+    with closing(get_conn()) as conn:
         cur = conn.execute(
             "SELECT password_hash FROM users WHERE username = ?", (username,)
         )
         row = cur.fetchone()
 
-        if row:
-            stored = row["password_hash"].encode("utf-8")
-        else:
-            # Perform a dummy hash to avoid timing-based user enumeration
-            stored = bcrypt.hashpw(b"dummy", bcrypt.gensalt())
+        stored = row["password_hash"].encode("utf-8") if row else _DUMMY_HASH
 
         # bcrypt.checkpw expects bytes
         ok = bcrypt.checkpw(password.encode("utf-8"), stored)
@@ -158,13 +155,49 @@ def login(
             typer.secho("Login successful.", fg=typer.colors.GREEN)
         else:
             typer.secho("Invalid username or password.", fg=typer.colors.RED)
-    finally:
-        conn.close()
 
 
 if __name__ == "__main__":
     app()
 ```
+
+The script implements three CLI commands — `register`, `login`, and `list-users` —  
+backed by a local SQLite database. Every command that touches the database wraps  
+its connection in `contextlib.closing`, which guarantees the connection is  
+released even if an exception is raised mid-command. SQLite's own context manager  
+only handles transaction boundaries (commit or rollback), so the explicit  
+`closing` wrapper is necessary to avoid connection leaks. Database initialisation  
+is handled once via Typer's `@app.callback()`, which runs before any sub-command,  
+ensuring the `users` table exists without redundantly issuing 
+`CREATE TABLE IF NOT EXISTS` on every invocation.  
+
+Password storage is handled correctly. `bcrypt.hashpw` is called with a freshly  
+generated salt via `bcrypt.gensalt()`, meaning each registration produces a  
+unique digest even if two users choose the same password. The resulting bytes are  
+decoded to a UTF-8 string for storage, then re-encoded when retrieved for  
+verification. This round-trip is safe because bcrypt digests are ASCII-clean.  
+The parameterised query `INSERT INTO users … VALUES (?, ?)` delegates value  
+escaping to the SQLite driver, eliminating any SQL injection surface. The  
+`UNIQUE` constraint on the `username` column enforces uniqueness at the database  
+level, and the `IntegrityError` catch translates that constraint violation into a  
+user-facing message without leaking internal details.  
+
+The login flow contains a deliberate defence against timing-based user  
+enumeration. If an attacker submits a username that does not exist, a naive  
+implementation would return immediately, whereas a successful lookup would spend  
+time running `bcrypt.checkpw`. That timing difference is enough to distinguish  
+valid from invalid usernames at scale. The fix is to always call `checkpw`  
+regardless of whether a row was found. When no row exists, `checkpw` is called  
+against `_DUMMY_HASH`, a bcrypt digest computed once at module load time. This  
+keeps both code paths at roughly the same cost. The final gate `if ok and row`  
+ensures that even if `checkpw` somehow returned `True` against the dummy hash,  
+the login would still be rejected because no real row was retrieved.  
+
+One limitation worth noting is that `list-users` exposes all registered usernames  
+with no authentication gate, which is acceptable only because the docstring  
+explicitly marks it as a demonstration feature. In a production setting this  
+command would either be removed or protected.  
+
 
 ## Word count
 
