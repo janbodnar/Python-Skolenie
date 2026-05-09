@@ -47,6 +47,125 @@ print(factorial4(5))
 print(factorial5(5))
 ```
 
+## Register/login
+
+```python
+#!/usr/bin/python
+
+import sqlite3
+from typing import Optional
+
+import typer
+import bcrypt
+
+DB_NAME = "users.db"
+
+app = typer.Typer(help="Simple user register/login CLI using sqlite and passlib")
+
+
+def get_conn() -> sqlite3.Connection:
+    conn = sqlite3.connect(DB_NAME)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def init_db(conn: sqlite3.Connection) -> None:
+    conn.execute("""CREATE TABLE IF NOT EXISTS users
+           (id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE NOT NULL,
+            password_hash TEXT NOT NULL)""")
+    conn.commit()
+
+
+@app.command()
+def register(
+    username: Optional[str] = typer.Option(
+        None, "-u", "--username", help="Username to register"
+    )
+) -> None:
+    """Register a new user. Prompts for username if not provided."""
+    if username is None:
+        username = typer.prompt("Username")
+
+    password = typer.prompt("Password", hide_input=True, confirmation_prompt=True)
+
+    # bcrypt.hashpw returns bytes; decode for storage
+    hashed = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+    conn = get_conn()
+    init_db(conn)
+    try:
+        conn.execute(
+            "INSERT INTO users (username, password_hash) VALUES (?, ?)",
+            (username, hashed),
+        )
+        conn.commit()
+        typer.secho("Registration successful.", fg=typer.colors.GREEN)
+    except sqlite3.IntegrityError:
+        typer.secho("Username already exists.", fg=typer.colors.RED)
+    finally:
+        conn.close()
+
+
+@app.command()
+def list_users() -> None:
+    """List all registered users (for demonstration purposes)."""
+    conn = get_conn()
+    init_db(conn)
+    try:
+        cur = conn.execute("SELECT username FROM users")
+        users = cur.fetchall()
+        if users:
+            typer.secho("Registered users:", fg=typer.colors.GREEN)
+            for user in users:
+                typer.echo(f"- {user['username']}")
+        else:
+            typer.secho("No registered users found.", fg=typer.colors.YELLOW)
+    finally:
+        conn.close()
+
+
+@app.command()
+def login(
+    username: Optional[str] = typer.Option(
+        None, "-u", "--username", help="Username to login"
+    )
+) -> None:
+    """Login an existing user. Prompts for username if not provided."""
+    if username is None:
+        username = typer.prompt("Username")
+
+    password = typer.prompt("Password", hide_input=True)
+
+    conn = get_conn()
+    init_db(conn)
+    try:
+        cur = conn.execute(
+            "SELECT password_hash FROM users WHERE username = ?", (username,)
+        )
+        row = cur.fetchone()
+
+        if row:
+            stored = row["password_hash"].encode("utf-8")
+        else:
+            # Perform a dummy hash to avoid timing-based user enumeration
+            stored = bcrypt.hashpw(b"dummy", bcrypt.gensalt())
+
+        # bcrypt.checkpw expects bytes
+        ok = bcrypt.checkpw(password.encode("utf-8"), stored)
+
+        if ok and row:
+            typer.secho("Login successful.", fg=typer.colors.GREEN)
+        else:
+            typer.secho("Invalid username or password.", fg=typer.colors.RED)
+    finally:
+        conn.close()
+
+
+if __name__ == "__main__":
+    app()
+```
+
 ## Word count
 
 ```python
