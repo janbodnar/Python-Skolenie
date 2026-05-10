@@ -735,7 +735,7 @@ def showMessage(msg):
 showMessage('Processing.')
 ```
 
-## Method Overloading in Python
+## Function Overloading
 
 Python does not support traditional method overloading as found in Java or C#. In those  
 languages, you can define multiple methods with the same name as long as their parameter  
