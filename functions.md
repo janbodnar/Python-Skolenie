@@ -734,6 +734,204 @@ def showMessage(msg):
 showMessage('Processing.')
 ```
 
+## Method Overloading in Python
+
+Python does not support traditional method overloading as found in Java or C#. In those  
+languages, you can define multiple methods with the same name as long as their parameter  
+types or counts differ, and the compiler picks the right one at call time. Python, being  
+dynamically typed and interpreted, takes a different approach: **the last definition wins**.
+
+
+```python
+class A:
+    def foo(self, x):
+        print("one argument")
+
+    def foo(self, x, y):      # silently replaces the first foo
+        print("two arguments")
+
+a = A()
+a.foo(1)      # TypeError: foo() missing 1 required positional argument: 'y'
+a.foo(1, 2)   # "two arguments"
+```
+
+The class body is just a namespace dict. Assigning `foo` twice simply overwrites the key.  
+There is no signature table to dispatch from.
+
+
+### Idiomatic Alternatives
+
+#### 1. Default Arguments — the go-to approach
+
+The simplest and most Pythonic solution. Mark optional parameters with a sentinel  
+default (usually `None`) and branch inside the method.
+
+```python
+class Formatter:
+    def render(self, text, width=None, align="left"):
+        if width is None:
+            return text
+        return f"{text:{align}{width}}"
+
+f = Formatter()
+print(f.render("hello"))           # "hello"
+print(f.render("hello", 10))       # "hello     "
+print(f.render("hello", 10, ">"))  # "     hello"
+```
+
+**When to use:** whenever callers share a common "simple" case and a richer "extended" case.
+
+
+#### 2. `*args` / `**kwargs` — flexible arity
+
+Accept any number of positional or keyword arguments and dispatch on their count or content.
+
+```python
+class Vector:
+    def __init__(self, *args):
+        if len(args) == 2:
+            self.x, self.y, self.z = *args, 0
+        elif len(args) == 3:
+            self.x, self.y, self.z = args
+        else:
+            raise TypeError(f"Expected 2 or 3 arguments, got {len(args)}")
+
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y}, {self.z})"
+
+print(Vector(1, 2))      # Vector(1, 2, 0)
+print(Vector(1, 2, 3))   # Vector(1, 2, 3)
+```
+
+**When to use:** when argument count varies naturally, or when you are wrapping another  
+callable. Avoid overusing it — it erases type information and makes signatures harder to understand.
+
+
+#### 3. `typing.overload` — type-safe signatures (no runtime dispatch)
+
+The `@overload` decorator lets you declare multiple typed signatures for type checkers  
+(mypy, Pyright) while keeping a single runtime implementation. It provides **no** dispatch  
+logic — it is purely a static-analysis tool.
+
+```python
+from typing import overload
+
+class Parser:
+    @overload
+    def parse(self, data: str) -> list[str]: ...
+    @overload
+    def parse(self, data: bytes) -> list[bytes]: ...
+
+    def parse(self, data):          # actual implementation — no decorator
+        if isinstance(data, bytes):
+            return data.split(b",")
+        return data.split(",")
+
+p = Parser()
+print(p.parse("a,b,c"))            # ['a', 'b', 'c']
+print(p.parse(b"a,b,c"))          # [b'a', b'b', b'c']
+```
+
+The overloaded stubs (ending in `...`) are invisible at runtime — only the final, undecorated  
+definition executes. Type checkers use the stubs to validate call sites and infer return types correctly.
+
+**When to use:** any time the return type depends on argument types. This is the standard  
+approach in well-typed library code.
+
+
+#### 4. `functools.singledispatch` — runtime type dispatch for functions
+
+`singledispatch` registers separate implementations per argument type and selects  
+the right one at call time based on the type of the **first** argument.
+
+```python
+from functools import singledispatch
+
+@singledispatch
+def serialize(value):
+    raise NotImplementedError(f"No serializer for {type(value)}")
+
+@serialize.register
+def _(value: int) -> str:
+    return str(value)
+
+@serialize.register
+def _(value: list) -> str:
+    return "[" + ", ".join(serialize(v) for v in value) + "]"
+
+@serialize.register
+def _(value: str) -> str:
+    return f'"{value}"'
+
+print(serialize(42))              # "42"
+print(serialize("hi"))            # '"hi"'
+print(serialize([1, "two", 3]))   # '[1, "two", 3]'
+```
+
+New types can be registered from outside the module, making this pattern ideal for extensible  
+plugin-style APIs. **When to use:** library or framework code where callers need to register  
+handlers for their own types.
+
+
+#### 5. `singledispatchmethod` — same idea, for methods (Python 3.8+)
+
+`singledispatch` does not work on methods directly because the dispatcher sees `self` as the 
+first argument. `singledispatchmethod` handles this correctly.
+
+```python
+from functools import singledispatchmethod
+
+class Renderer:
+    @singledispatchmethod
+    def draw(self, shape):
+        raise NotImplementedError(f"Cannot draw {type(shape)}")
+
+    @draw.register
+    def _(self, shape: int):          # stand-in for a Circle radius
+        print(f"Drawing circle with radius {shape}")
+
+    @draw.register
+    def _(self, shape: str):          # stand-in for a named shape
+        print(f"Drawing shape: {shape}")
+
+r = Renderer()
+r.draw(5)        # Drawing circle with radius 5
+r.draw("star")   # Drawing shape: star
+```
+
+**When to use:** the same scenarios as `singledispatch`, but inside a class. Still relatively  
+uncommon — prefer `@overload` + isinstance branching for simpler cases.
+
+
+## Comparison at a Glance
+
+| Technique | Runtime dispatch | Type checker support | Extensible externally | Best for |
+|---|---|---|---|---|
+| Default arguments | No | ✓ (with `@overload`) | No | Simple optional params |
+| `*args` / `**kwargs` | Manual | Partial | No | Variable arity |
+| `typing.overload` | No | ✓✓ | No | Typed signatures |
+| `singledispatch` | Yes | ✓ | **Yes** | Library / plugin APIs |
+| `singledispatchmethod` | Yes | ✓ | **Yes** | Same, inside a class |
+
+
+#### What Python Developers Actually Do
+
+In practice, most Python code reaches for **default arguments** first, because:  
+
+- The signature stays readable.
+- IDEs and type checkers handle it well.
+- There is no indirection to trace through.
+
+`@overload` is the right next step when the return type changes with the input type and  
+you care about static correctness. `singledispatch` earns its place in extensible library  
+code. `*args`/`**kwargs` are valuable but should come with clear documentation, since  
+they erase the signature.
+
+The deeper Python philosophy is **duck typing**: rather than dispatching on a type,  
+write code that works with any object that supports the needed protocol. A function that  
+calls `.read()` on its argument does not need to dispatch on `File` vs `BytesIO` vs `StringIO` — it just  
+calls `.read()` and lets the object sort it out.
+
 ## No function hoisting 
 
 Functions must be defined before being called. Python does not support  
