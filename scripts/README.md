@@ -257,6 +257,57 @@ with open(file_name, 'r') as file:
     print(freq)
 ```
 
+## HTTPS request
+
+Here’s your content **cleanly stripped into Markdown**, ready to paste into your README.
+
+---
+
+## Socket communication
+
+When writing network code, the walrus operator can simplify loops that read  
+data in chunks until the connection is closed. In this example we connect to a  
+web server and receive the response piece by piece.  
+
+```python
+import socket
+import ssl
+
+HOST = "example.com"
+PORT = 443  # HTTPS default port
+
+# Create a default SSL context (loads trusted CA certificates)
+context = ssl.create_default_context()
+
+# Build the request
+request = (
+    f"GET / HTTP/1.1\r\n"
+    f"Host: {HOST}\r\n"
+    f"Connection: close\r\n"
+    f"\r\n"
+).encode("utf-8")
+
+# Establish the connection
+with socket.create_connection((HOST, PORT)) as sock:
+
+    # Wrap the raw socket with SSL
+    # 'server_hostname' is required for the SSL handshake (SNI)
+    with context.wrap_socket(sock, server_hostname=HOST) as ssock:
+        ssock.sendall(request)
+
+        # Use the walrus operator to read the encrypted stream
+        while chunk := ssock.recv(4096):
+            print(chunk.decode("utf-8", errors="ignore"), end="")
+```
+
+The call to `s.recv(4096)` returns a bytes object of up to 4096  
+bytes. When the server closes the connection, `recv()` returns an  
+empty bytes object (`b''`), which is falsy. By using the walrus  
+operator in the loop condition, we capture each chunk in the variable  
+`line` and immediately evaluate it. The loop terminates  
+automatically once the empty chunk signals the end of the response.
+
+
 ## Read CSV file from local server
 
 The CSV file:
