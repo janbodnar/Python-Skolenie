@@ -1,11 +1,11 @@
 # aiohttp — Build Async HTTP Clients & Servers in Python
 
-`aiohttp` is a modern asynchronous HTTP framework for both
-**client** and **server** side. It lets you write high‑performance
-web services and applications using Python’s `async`/`await` syntax.
-Unlike the built‑in `http.server`, `aiohttp` is non‑blocking, handles
-thousands of concurrent connections effortlessly, and provides a rich
-set of features out of the box.
+`aiohttp` is a modern asynchronous HTTP framework for both  
+**client** and **server** side. It lets you write high‑performance  
+web services and applications using Python’s `async`/`await` syntax.  
+Unlike the built‑in `http.server`, `aiohttp` is non‑blocking, handles  
+thousands of concurrent connections effortlessly, and provides a rich  
+set of features out of the box.  
 
 In this tutorial you’ll learn:
 
