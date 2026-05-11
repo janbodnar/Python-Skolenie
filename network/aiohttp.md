@@ -485,26 +485,32 @@ first 100 characters of each response:
 import aiohttp
 import asyncio
 
-async def fetch_title(url):
+
+async def fetch_title(session, url):
     try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, timeout=10) as resp:
-                text = await resp.text()
-                return url, text[:100]
+        async with session.get(
+            url, timeout=aiohttp.ClientTimeout(total=10)
+        ) as resp:
+            text = await resp.text()
+            return url, text[:100]
     except Exception as e:
         return url, f"Error: {e}"
+
 
 async def main():
     urls = [
         "http://example.com",
-        "http://httpbin.org/get",
+        "http://something.com",
         "http://httpbin.org/delay/1",
         "http://httpbin.org/status/404",
     ]
-    tasks = [fetch_title(u) for u in urls]
-    results = await asyncio.gather(*tasks)
+    async with aiohttp.ClientSession() as session:
+        tasks = [fetch_title(session, u) for u in urls]
+        results = await asyncio.gather(*tasks)
+
     for url, snippet in results:
         print(f"{url}: {snippet}")
+
 
 asyncio.run(main())
 ```
