@@ -163,9 +163,7 @@ if __name__ == "__main__":
 xh http://localhost:8000/api/items
 ```
 
----
-
-## 6. Serving static files
+## Serving static files
 
 `aiohttp` can serve static files from a directory with `web.static()`.
 
@@ -369,9 +367,8 @@ hey -c 5 -z 5s http://localhost:8000/slow
 
 All requests will complete in ~2 seconds, showing true concurrency.
 
----
 
-## 11. Testing your server with `xh` and `hey`
+## Testing your server with `xh` and `hey`
 
 ### `xh` – Fast and friendly HTTP client
 
