@@ -1,4 +1,4 @@
-# aiohttp — Build Async HTTP Clients & Servers in Python
+# aiohttp — Async HTTP Clients & Servers
 
 `aiohttp` is a modern asynchronous HTTP framework for both  
 **client** and **server** side. It lets you write high‑performance  
