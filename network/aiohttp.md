@@ -1,9 +1,11 @@
-# aiohttp — Build Async HTTP Servers in Python
+# aiohttp — Build Async HTTP Clients & Servers in Python
 
-`aiohttp` is a modern asynchronous HTTP framework for both **client** and **server** side. It lets  
-you write high‑performance web services and applications using Python’s `async`/`await` syntax. Unlike  
-the built‑in `http.server`, `aiohttp` is non‑blocking, handles thousands of concurrent connections  
-effortlessly, and provides a rich set of features out of the box.
+`aiohttp` is a modern asynchronous HTTP framework for both
+**client** and **server** side. It lets you write high‑performance
+web services and applications using Python’s `async`/`await` syntax.
+Unlike the built‑in `http.server`, `aiohttp` is non‑blocking, handles
+thousands of concurrent connections effortlessly, and provides a rich
+set of features out of the box.
 
 In this tutorial you’ll learn:
 
@@ -12,19 +14,22 @@ In this tutorial you’ll learn:
 - Reading query parameters, forms, and JSON
 - Streaming uploads and downloads
 - Serving static files
-- Testing your server with `xh` (a friendly HTTPie‑like tool) and load testing with `hey`
+- **Using `aiohttp` as an async HTTP client**
+- Testing your server with `xh` and load testing with `hey`
 - Important security considerations
 
 
 ## Installation
 
-`aiohttp` is not part of the standard library, so you need to install it first:
+`aiohttp` is not part of the standard library, so you need to install
+it first:
 
 ```bash
 pip install aiohttp
 ```
 
-All examples in this tutorial require Python 3.7 or newer. Verify your installation:
+All examples in this tutorial require Python 3.7 or newer. Verify your
+installation:
 
 ```bash
 python -c "import aiohttp; print(aiohttp.__version__)"
@@ -68,7 +73,8 @@ You’ll see the response `Hello, World!`.
 - `web.get("/", hello)` binds a GET handler to the path `/`.
 - `web.run_app(app)` starts the event loop and runs the app on port 8000.
 
-Every handler must be an `async` function that receives a `request` object and returns a `web.Response`.
+Every handler must be an `async` function that receives a `request`
+object and returns a `web.Response`.
 
 
 ## Routing multiple endpoints
@@ -108,13 +114,14 @@ xh http://localhost:8000/health
 xh http://localhost:8000/nonexistent    # returns 404
 ```
 
-You can also use the decorator syntax, but `app.add_routes` keeps everything in  
-one place and is easier to read.
+You can also use the decorator syntax, but `app.add_routes` keeps
+everything in one place and is easier to read.
 
 
 ## Parsing query parameters
 
-Query parameters are available via `request.query`, which behaves like a multi‑dict.
+Query parameters are available via `request.query`, which behaves like
+a multi‑dict.
 
 ```python
 from aiohttp import web
@@ -140,7 +147,8 @@ xh "http://localhost:8000/greet?name=Ada"
 
 ## Returning JSON
 
-Use `web.json_response()` to automatically set the correct content type and serialize Python objects.
+Use `web.json_response()` to automatically set the correct content type
+and serialize Python objects.
 
 ```python
 from aiohttp import web
@@ -162,6 +170,7 @@ if __name__ == "__main__":
 ```bash
 xh http://localhost:8000/api/items
 ```
+
 
 ## Serving static files
 
@@ -185,10 +194,11 @@ if __name__ == "__main__":
     web.run_app(app, port=8000)
 ```
 
-Make sure the `static` folder exists, then visit `http://localhost:8000/static/logo.png`.
+Make sure the `static` folder exists, then visit
+`http://localhost:8000/static/logo.png`.
 
 
-##  Handling POST requests
+## Handling POST requests
 
 ### Reading plain text or binary body
 
@@ -240,7 +250,8 @@ xh POST http://localhost:8000/items name=laptop price:=999.99
 
 ### Parsing form data
 
-For standard HTML forms (`application/x-www-form-urlencoded` or `multipart/form-data`) use `await request.post()`.
+For standard HTML forms (`application/x-www-form-urlencoded` or
+`multipart/form-data`) use `await request.post()`.
 
 ```python
 from aiohttp import web
@@ -262,6 +273,7 @@ Test with `xh` (it sends `application/x-www-form-urlencoded` by default):
 ```bash
 xh --form POST http://localhost:8000/form username=Ada
 ```
+
 
 ## File downloads (streaming a file)
 
@@ -289,14 +301,16 @@ if __name__ == "__main__":
     web.run_app(app, port=8000)
 ```
 
-`web.FileResponse` handles chunked sending efficiently without blocking the event loop. If  
-you need more control, you can manually stream using `web.StreamResponse`.
+`web.FileResponse` handles chunked sending efficiently without blocking
+the event loop. If you need more control, you can manually stream using
+`web.StreamResponse`.
 
 
 ## Streaming uploads (advanced)
 
-The original example shows how to receive a stream of chunks from the client and process them  
-on the fly, without buffering the entire body. This is useful for large uploads or real‑time data.
+The original example shows how to receive a stream of chunks from the
+client and process them on the fly, without buffering the entire body.
+This is useful for large uploads or real‑time data.
 
 ```python
 from aiohttp import web
@@ -326,21 +340,24 @@ dd if=/dev/urandom of=test.bin bs=1M count=10   # create a 10 MB file
 xh --timeout 0 POST http://localhost:8000/upload < test.bin
 ```
 
-You’ll see the server printing how many bytes it received per chunk. The client receives  
-`Stream received` after the whole file is transferred.
+You’ll see the server printing how many bytes it received per chunk.
+The client receives `Stream received` after the whole file is
+transferred.
 
 **How it works:**
 
 - `request.content` is an `aiohttp.StreamReader`.
-- `reader.read(4096)` reads up to 4096 bytes at a time, returning an empty `bytes` when the stream ends.
-- The coroutine `process_chunk` is called for each chunk, so you can store, transform, or forward
-  the data without holding everything in memory.
+- `reader.read(4096)` reads up to 4096 bytes at a time, returning an
+  empty `bytes` when the stream ends.
+- The coroutine `process_chunk` is called for each chunk, so you can
+  store, transform, or forward the data without holding everything in
+  memory.
 
 
 ## Concurrency – async all the way
 
-Because `aiohttp` is built on `asyncio`, it handles many connections concurrently without threads.  
-Let’s simulate a slow handler:
+Because `aiohttp` is built on `asyncio`, it handles many connections
+concurrently without threads. Let’s simulate a slow handler:
 
 ```python
 from aiohttp import web
@@ -357,8 +374,8 @@ if __name__ == "__main__":
     web.run_app(app, port=8000)
 ```
 
-While one request is sleeping, the server can still serve others. Test with  
-`hey` (a simple load generator):
+While one request is sleeping, the server can still serve others. Test
+with `hey` (a simple load generator):
 
 ```bash
 # Send 5 concurrent requests, 2 seconds apart
@@ -368,12 +385,178 @@ hey -c 5 -z 5s http://localhost:8000/slow
 All requests will complete in ~2 seconds, showing true concurrency.
 
 
+## Using aiohttp as an async HTTP client
+
+`aiohttp` is not only a server framework – it also provides a powerful
+asynchronous HTTP client. The client lets you make thousands of
+concurrent requests without threads, perfect for scraping, API
+aggregation, or microservice communication.
+
+### Basic GET request
+
+Create a script `client_get.py`:
+
+```python
+import aiohttp
+import asyncio
+
+async def fetch(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            print(f"Status: {response.status}")
+            html = await response.text()
+            print(f"Body length: {len(html)}")
+
+asyncio.run(fetch("http://httpbin.org/get"))
+```
+
+**Explanation:**
+
+- `ClientSession` manages a connection pool and cookies.
+- Using `async with` ensures the session and response are closed
+  properly.
+- `response.text()` reads the entire body as a decoded string. For
+  binary data use `response.read()`.
+
+### Fetching JSON from an API
+
+The client can decode JSON directly:
+
+```python
+async def get_json(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as resp:
+            data = await resp.json()
+            print(data)
+
+asyncio.run(get_json("http://httpbin.org/json"))
+```
+
+`resp.json()` parses and returns the JSON body. For very large
+responses, consider streaming (see below).
+
+### Posting data
+
+You can send POST requests with different payload types:
+
+```python
+async def post_json():
+    payload = {"key": "value", "count": 42}
+    async with aiohttp.ClientSession() as session:
+        async with session.post("http://httpbin.org/post", json=payload) as resp:
+            print(await resp.json())
+
+async def post_form():
+    data = {"username": "Ada", "password": "secret"}
+    async with aiohttp.ClientSession() as session:
+        async with session.post("http://httpbin.org/post", data=data) as resp:
+            print(await resp.json())
+```
+
+- `json=payload` automatically serialises the object and sets the
+  `Content-Type` header.
+- `data=data` sends form‑encoded data (the default).
+
+### Streaming the response body
+
+To avoid loading a huge response into memory, iterate over the
+response content chunk by chunk:
+
+```python
+async def stream_download(url, dest):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as resp:
+            with open(dest, "wb") as f:
+                async for chunk in resp.content.iter_chunked(8192):
+                    f.write(chunk)
+
+asyncio.run(stream_download("http://httpbin.org/bytes/1024", "test.bin"))
+```
+
+`resp.content` is an async iterator of `bytes` chunks.
+
+### Making many requests concurrently
+
+The real power of the client is running hundreds of requests at once.
+Here’s an example that fetches several URLs concurrently and prints the
+first 100 characters of each response:
+
+```python
+import aiohttp
+import asyncio
+
+async def fetch_title(url):
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, timeout=10) as resp:
+                text = await resp.text()
+                return url, text[:100]
+    except Exception as e:
+        return url, f"Error: {e}"
+
+async def main():
+    urls = [
+        "http://example.com",
+        "http://httpbin.org/get",
+        "http://httpbin.org/delay/1",
+        "http://httpbin.org/status/404",
+    ]
+    tasks = [fetch_title(u) for u in urls]
+    results = await asyncio.gather(*tasks)
+    for url, snippet in results:
+        print(f"{url}: {snippet}")
+
+asyncio.run(main())
+```
+
+All requests run in parallel – the delays do not sum up.
+
+### Client‑side testing of your aiohttp server
+
+You can combine client and server in the same code base. For example,
+write a small integration test that starts your app and uses the
+aiohttp client to hit it:
+
+```python
+from aiohttp import web, ClientSession
+
+async def handler(request):
+    return web.json_response({"hello": "world"})
+
+app = web.Application()
+app.router.add_get("/api", handler)
+
+async def test_client():
+    # Use a temporary unused port
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, "localhost", 8765)
+    await site.start()
+
+    async with ClientSession() as session:
+        async with session.get("http://localhost:8765/api") as resp:
+            assert resp.status == 200
+            data = await resp.json()
+            assert data == {"hello": "world"}
+            print("Test passed")
+
+    await runner.cleanup()
+
+import asyncio
+asyncio.run(test_client())
+```
+
+This pattern is useful for writing fast, async integration tests
+without external tools.
+
+
 ## Testing your server with `xh` and `hey`
 
 ### `xh` – Fast and friendly HTTP client
 
-`xh` is a modern alternative to `curl`, written in Rust. Install it via your package manager  
-or download from [github.com/ducaale/xh](https://github.com/ducaale/xh).
+`xh` is a modern alternative to `curl`, written in Rust. Install it via
+your package manager or download from
+[github.com/ducaale/xh](https://github.com/ducaale/xh).
 
 Examples:
 
@@ -396,8 +579,8 @@ xh POST http://localhost:8000/upload < large_file.bin
 
 ### `hey` – Lightweight load testing
 
-`hey` sends a number of concurrent requests and reports statistics. Install from  
-[github.com/rakyll/hey](https://github.com/rakyll/hey).
+`hey` sends a number of concurrent requests and reports statistics.
+Install from [github.com/rakyll/hey](https://github.com/rakyll/hey).
 
 ```bash
 # 200 requests, 50 concurrent
@@ -406,15 +589,18 @@ hey -n 200 -c 50 http://localhost:8000/
 
 Use these tools to validate your endpoints during development.
 
+
 ## Security considerations
 
-`aiohttp` itself does **not** provide HTTPS. In production you must place a reverse proxy  
-like Nginx or Caddy in front, or use `aiohttp`’s ASGI mode with an ASGI server that  
-supports SSL (e.g., `uvicorn` with SSL certificates).
+`aiohttp` itself does **not** provide HTTPS. In production you must
+place a reverse proxy like Nginx or Caddy in front, or use `aiohttp`’s
+ASGI mode with an ASGI server that supports SSL (e.g., `uvicorn` with
+SSL certificates).
 
 Other points:
 
-- **CORS:** For browser‑based access, add appropriate headers. You can write a simple middleware:
+- **CORS:** For browser‑based access, add appropriate headers. You can
+  write a simple middleware:
   ```python
   from aiohttp import web
 
@@ -426,30 +612,39 @@ Other points:
 
   app = web.Application(middlewares=[cors_middleware])
   ```
-- **Input validation:** Always validate and sanitize user input (paths, query params, JSON).  
-  Use libraries like `pydantic` for robust data validation.
-- **File uploads:** Limit upload size either in your code or via the reverse proxy to  
-  prevent resource exhaustion.
-- **Authentication / Authorization:** Not built‑in; implement it yourself with middleware  
-  or use an established library like `aiohttp-session` + `aiohttp-security`.
+- **Input validation:** Always validate and sanitize user input (paths,
+  query params, JSON). Use libraries like `pydantic` for robust data
+  validation.
+- **File uploads:** Limit upload size either in your code or via the
+  reverse proxy to prevent resource exhaustion.
+- **Authentication / Authorization:** Not built‑in; implement it
+  yourself with middleware or use an established library like
+  `aiohttp-session` + `aiohttp-security`.
 
-Never expose an `aiohttp` development server directly to the internet without a secure proxy in front.
+Never expose an `aiohttp` development server directly to the internet
+without a secure proxy in front.
+
 
 ## Summary
 
-`aiohttp` brings the power of `async`/`await` to web servers, making it ideal for:
+`aiohttp` brings the power of `async`/`await` to both HTTP clients and
+servers, making it ideal for:
 
 - High‑concurrency APIs and websockets
 - Streaming large payloads in both directions
 - Building fast, lightweight web services
 - Asynchronous microservices and backends
+- Writing efficient HTTP clients for scraping or service communication
 
-It gives you fine‑grained control while remaining Pythonic and well‑documented.
+It gives you fine‑grained control while remaining Pythonic and well‑
+documented.
 
 ### When to consider alternatives
 
-- If you prefer a higher‑level framework with automatic OpenAPI docs, try **FastAPI** (built on `Starlette`, itself
-  often using `aiohttp` underneath for testing).
-- For traditional synchronous WSGI apps, **Flask** or **Django** are more appropriate.
-- For very simple development‑only servers, the standard library’s `http.server` works without any extra dependencies.
-
+- If you prefer a higher‑level framework with automatic OpenAPI docs,
+  try **FastAPI** (built on `Starlette`, itself often using `aiohttp`
+  underneath for testing).
+- For traditional synchronous WSGI apps, **Flask** or **Django** are
+  more appropriate.
+- For very simple development‑only servers, the standard library’s
+  `http.server` works without any extra dependencies.
