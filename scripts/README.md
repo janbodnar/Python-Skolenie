@@ -47,6 +47,43 @@ print(factorial4(5))
 print(factorial5(5))
 ```
 
+## Compress/decompress gzip
+
+```python
+import gzip
+
+def compress_stream(src, dst):
+    with gzip.open(dst, "wb") as gz:
+        while chunk := src.read(8192):
+            gz.write(chunk)
+
+# --- DEMO ---
+
+# 1) create test file
+with open("input.txt", "w", encoding="utf-8") as f:
+    f.write("Hello world!\n" * 5)
+
+# 2) compress input.txt → output.gz
+with open("input.txt", "rb") as src:
+    compress_stream(src, "output.gz")
+
+print("Compressed to output.gz")
+
+# 3) decompress for verification
+with gzip.open("output.gz", "rb") as gz:
+    data = gz.read()
+
+with open("uncompressed.txt", "wb") as f:
+    f.write(data)
+
+print("Decompressed to uncompressed.txt")
+
+# 4) verify content
+with open("uncompressed.txt", "r", encoding="utf-8") as f:
+    print("--- uncompressed content ---")
+    print(f.read())
+```
+
 ## Register/login
 
 ```python
