@@ -1,537 +1,274 @@
-# Modules
+# Python Modules — Organizing Code Like a Pro
 
-A *module* is a file containing Python code. Python modules have the `.py` extension.  
+A **module** is a Python file containing definitions, statements, and optionally executable code.  
+By grouping related functions, classes, and variables into modules, you transform sprawling scripts  
+into maintainable, reusable, and testable components.
 
-Python code can be managed using:  
+Python organizes code hierarchically:
+- **Functions** → atomic units of behavior
+- **Classes** → encapsulate state and methods
+- **Modules** → individual `.py` files
+- **Packages** → directories containing modules, forming a structured namespace
 
-- functions
-- classes
-- modules
-- packages
-
-Python modules are used to organize Python code. For example, database related code is placed  
-inside a database module, security code in a security module etc. Smaller Python scripts can have  
-one module. But larger programs are split into several modules. Modules are grouped together  
-to form packages.  
-
-
+When a script exceeds a few dozen lines, splitting it into modules becomes essential. For instance,  
+database interactions belong in a `db.py` module, authentication logic in `auth.py`, and configuration  
+parsing in `config.py`. Related modules are grouped into **packages** to create a clean, scalable architecture.
 
 
-## Python module names
+## 1. Module Names and the `__name__` Variable
 
-A module name is the file name with the `.py` extension. When we have a file called `empty.py`, empty  
-is the module name. The `__name__` is a variable that holds the name of the module being referenced.  
-The current module, the module being executed (called also the main module) has a special name: `'__main__'`.  
-With this name it can be referenced from the Python code. 
+Every module carries a unique name. For a file named `empty.py`, the module name is `empty`.  
+Python automatically sets the special variable `__name__` to the module's name. When you run  
+a file directly as a script, Python assigns `__name__` the value `'__main__'`.
 
-We have two files in the current working directory: `empty.py` and `test_empty.py`. The second module is the  
-main module, which is executed. It imports the first module. Modules are imported using the import keyword.  
-
+**empty.py**
 ```python
-"""
-An empty module
-"""
+"""An intentionally minimal module."""
 ```
 
-This is `empty.py` module. 
-
+**test_empty.py**
 ```python
-#!/usr/bin/python
-
-# test_empty.py
-
 import empty
 import sys
 
-print(__name__)
-print(empty.__name__)
-print(sys.__name__)
+print(__name__)        # __main__
+print(empty.__name__)  # empty
+print(sys.__name__)    # sys
 ```
 
-In this code example we import two modules: the built-in module `sys` and one custom  
-module `empty`. We print the names of modules to the console.  
-
-```
-$ ./test_empty.py
+Running the script:
+```bash
+$ python test_empty.py
 __main__
 empty
 sys
 ```
 
-The name of the module, which is being executed is always `'__main__'`. Other modules are named after  
-the file name. Modules can be imported into other modules using the `import` keyword.  
+This dual-identity mechanism enables a single file to act as both a reusable library  
+and a standalone script. The `if __name__ == '__main__':` idiom (covered later)  
+leverages this behavior.
 
 
-## Python locating modules
+## 2. How Python Finds Modules
 
-When a module is imported the interpreter first searches for a built-in module with that name.  
-If not found, it then searches in a list of directories given by the variable `sys.path`.  
-The `sys.path` is a list of strings that specifies the search path for modules. It consists of the  
-current working directory, directory names specified in the `PYTHONPATH` environment variable,  
-and some additional installation dependent directories. If the module is not found, an `ImportError`  
-is raised.
+When you execute `import mymodule`, Python follows a deterministic search order:
 
+1. **Built-in modules** (compiled into the interpreter, e.g., `sys`, `math`)
+2. **`sys.modules` cache** (prevents re-importing and speeds up execution)
+3. **File system search** via `sys.path`
+
+`sys.path` is a list of directory strings assembled from:
+- The directory containing the entry script (or `''` for interactive mode, meaning the current working directory)
+- Directories specified in the `PYTHONPATH` environment variable
+- Installation-specific paths (e.g., `site-packages` managed by `pip` or `venv`)
+
+You can inspect your search path:
 ```python
-#!/usr/bin/python
-
-# locating_modules.py
-
 import sys
 import textwrap
 
-sp = sorted(sys.path)
-dnames = ', '.join(sp)
-
-print(textwrap.fill(dnames))
+print(textwrap.fill(', '.join(sys.path), width=80))
 ```
 
-The script prints all directories from `sys.path` variable.
+**Sample output:**
+```
+/home/user/project, /usr/lib/python310.zip, /usr/lib/python3.10, 
+/usr/lib/python3.10/lib-dynload, /home/user/.local/lib/python3.10/site-packages, 
+/usr/lib/python3/dist-packages
+```
 
+⚠️ While you can modify `sys.path` at runtime (`sys.path.insert(0, '/custom/lib')`), it's generally discouraged. Prefer virtual environments, `PYTHONPATH`, or proper packaging (`pyproject.toml` + `pip install -e .`) for predictable dependency resolution.
+
+If a module isn't found, Python raises `ModuleNotFoundError` (a subclass of `ImportError`, introduced in Python 3.6).
+
+---
+
+## 3. Name Clashes: The Shadowing Problem
+
+A common beginner mistake is naming a script after a standard library or third-party package. If you create `requests.py` in your project root, `import requests` will load *your file* instead of the actual `requests` library, because the script's directory appears first in `sys.path`.
+
+**Example of accidental shadowing:**
 ```python
-import textwrap
+# File: json.py (don't do this!)
+import json  # Imports itself! Raises AttributeError on json.loads()
+
+data = '{"name": "Alice"}'
+print(json.loads(data))  # Fails: module has no attribute 'loads'
 ```
 
-The `textwrap` module is used for easy formatting of paragraphs.  
+**How to avoid it:**
+- Never reuse names of built-in or popular third-party modules.
+- Use linters (`flake8`, `pylint`, `ruff`) which flag shadowed imports automatically.
+- Verify imports in a clean REPL before committing code.
 
+---
+
+## 4. Import Styles & PEP 8 Guidelines
+
+Python provides flexible import syntax. Choosing the right style improves readability and prevents namespace pollution.
+
+| Style | Syntax | When to Use |
+|-------|--------|-------------|
+| **Full module import** | `import math` | Preferred. Explicit, avoids collisions, self-documenting. |
+| **Selective import** | `from math import pi, sin` | When using only a few names repeatedly. |
+| **Aliased import** | `import numpy as np` | For long names or resolving conflicts. |
+| **Wildcard import** | `from math import *` | **Discouraged**. Only for interactive exploration. |
+
+**Multiline imports** (PEP 8 compliant):
 ```python
-sp = sorted(sys.path)
+from datetime import (
+    datetime,
+    timedelta,
+    timezone
+)
 ```
 
-We retrieve a list of directories from the `sys.path` variable and sort them.
-
+**Aliasing for readability:**
 ```python
-dnames = ', '.join(sp)
+from very.long.package.name.utils import helper as util_helper
 ```
 
-We make a string out of the list.
+---
 
-```
-$ ./locating_modules.py
-/home/jano/.local/lib/python3.10/site-packages, /home/jano/tmp/py,
-/usr/lib/python3.10, /usr/lib/python3.10/lib-dynload,
-/usr/lib/python3/dist-packages, /usr/lib/python310.zip,
-/usr/local/lib/python3.10/dist-packages
-```
+## 5. Wildcard Imports & Namespace Pollution
 
-## Name clashes
+Wildcard imports (`from module import *`) inject all public names into the current namespace. This can silently overwrite variables, confuse readers, and break static analyzers.
 
-A common beginner error is to name the program after the standard library, such as Tkinter.  
-If we name the following script `tkinter.py`, then the program fails with  
-`ModuleNotFoundError: No module named 'tkinter.messagebox'; 'tkinter' is not a package`. This is  
-because in `sys.path` the current working directory precedes the standard library locations and the  
-program tries to import itself and fails.  
-
+**Example of shadowing:**
 ```python
-#!/usr/bin/python
-
-import tkinter
-import tkinter.messagebox
-import datetime
-
-def showDate():
-    
-    now = datetime.datetime.now()
-    msg = 'Today is: {}'.format(now)
-    tkinter.messagebox.showinfo("Information", msg)
-
-root = tkinter.Tk()
-root.title('Message box')
-
-btn = tkinter.Button(root, text="Show date", padx=5, pady=5, width=10,
-    command=showDate)
-btn.pack(pady=10)
-
-root.geometry('300x300+300+250')
-root.mainloop()
-```
-
-
-
-## Python multiline import 
-
-We can use square brackets to enable multiline import statements.  
-
-```python
-#!/usr/bin/python
-
-from math import (pi, cos, sin, log,
-    floor, exp)
-
-print(pi.__doc__)
-print(cos.__doc__)
-print(sin.__doc__)
-print(log.__doc__)
-print(floor.__doc__)
-print(exp.__doc__)
-```
-
-
-
-
-
-## Python import keyword
-
-The `import` keyword can be used in several ways.
-
-```python
-from module import *
-```
-
-This imports all Python definitions into the namespace of another module.  
-There is one exception. Objects beginning with underscore character `_` are not imported.  
-They are expected to be used only internally by the module being imported. This way of  
-importing modules is not recommended.  
-
-```python
-#!/usr/bin/python
-
-# everything.py
-
 from math import *
-
-print(cos(3))
-print(pi)
+pi = 3.14  # Overwrites math.pi
+print(cos(0))  # Works
+print(pi)      # 3.14, not 3.1415926535...
 ```
 
-This import construct has imported all definitions from the built-in `math` module. We can call   
-the math functions directly, without referencing the math module.  
+In large codebases, this leads to subtle, hard-to-debug bugs. PEP 8 explicitly recommends against `*` imports outside of interactive sessions or very controlled internal modules.
 
-```
-$ ./everything.py
--0.9899924966004454
-3.141592653589793
+---
+
+## 6. Private Names & Controlling Exports with `__all__`
+
+Python uses naming conventions to signal visibility:
+- `_single_leading_underscore`: Internal/private. Excluded from `import *`.
+- `__double_leading_underscore`: Triggers name mangling in classes (not relevant to module imports).
+
+You can override the default `*` behavior by defining `__all__`, a list of public identifiers:
+
+**`mymodule.py`**
+```python
+__all__ = ["process_data", "VERSION"]
+
+def process_data(data: list) -> list:
+    return sorted(data)
+
+def _validate(data: list) -> bool:
+    return all(isinstance(x, (int, float)) for x in data)
+
+VERSION = "2.1.0"
 ```
 
-The use of this import construct may result in namespace pollution. We may have several objects  
-of the same name and their definitions can be overridden. 
+Now, `from mymodule import *` only exposes `process_data` and `VERSION`. Users can still explicitly import `_validate`, but doing so signals they're relying on internal implementation details that may change without notice.
+
+---
+
+## 7. Handling Import Errors Gracefully
+
+Missing modules don't have to crash your application. Use `try/except` for optional dependencies or fallback behavior:
 
 ```python
-#!/usr/bin/python
+try:
+    import orjson as json
+except ImportError:
+    import json  # Fallback to standard library
 
-# pollution.py
-
-from math import *
-
-pi = 3.14
-
-print(cos(3))
-print(pi)
+print(json.dumps({"status": "ok"}))
 ```
 
-The example prints 3.14 to the console. Which may not be what we wanted. The namespace pollution  
-may become critical in larger projects. 
-
-## Python objects that are not imported
-
-The following example shows definitions that are not being imported using this import construct.  
-
+**Checking installation without importing:**
 ```python
-#!/usr/bin/python
+import importlib.util
+import sys
 
-# names.py
-
-"""
-names is a test module
-"""
-
-_version = 1.0
-
-names = ["Paul", "Frank", "Jessica", "Thomas", "Katherine"]
-
-def show_names():
-
-    for i in names:
-       print(i)
-
-def _show_version():
-
-    print(_version)
+if importlib.util.find_spec("pandas") is not None:
+    print("pandas is installed")
+else:
+    print("pandas missing. Install with: pip install pandas")
 ```
 
-This is the `names.py` module. It has a private variable and public and a private functions.  
+This pattern is widely used in libraries that support multiple backends (e.g., `pydantic`, `httpx`).
 
+---
+
+## 8. The `__main__` Guard & Dual-Purpose Modules
+
+Modules often need to run standalone for testing or CLI usage. The `if __name__ == '__main__':` block ensures code inside it only executes when the file is the entry point.
+
+**`fibonacci.py`**
 ```python
-#!/usr/bin/python
+"""Calculate Fibonacci numbers up to n."""
 
-# test_names.py
+def fib_sequence(limit: int) -> list[int]:
+    seq = []
+    a, b = 0, 1
+    while a < limit:
+        seq.append(a)
+        a, b = b, a + b
+    return seq
 
-from names import *
-
-print(locals())
-
-show_names()
+if __name__ == "__main__":
+    import sys
+    try:
+        n = int(sys.argv[1])
+    except (IndexError, ValueError):
+        n = 100
+    print(f"Fibonacci up to {n}:", fib_sequence(n))
 ```
 
-The `_version` variable and the `_show_version` function are not imported into the `test_names`  
-module. We do not see them in the namespace. The `locals` function give us all the definitions  
-available in the module.  
+Run as script:
+```bash
+$ python fibonacci.py 50
+Fibonacci up to 50: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
 
-## Importing specific objects
-
-With the from and `import` keywords, it is possible to import only some objects.  
-
+Import as library:
 ```python
-from module import fun, var
+import fibonacci
+print(fibonacci.fib_sequence(30))
 ```
 
-This import construct imports only specific objects from a module. This way we import only  
-definitions that we need.
+💡 You can also execute modules directly using `python -m package.module`, which preserves relative imports and package context.
 
+---
+
+## 9. Introspection: `dir()`, `globals()`, and `vars()`
+
+| Function | Returns | Typical Use |
+|----------|---------|-------------|
+| `dir(obj)` | Sorted list of attributes/names | Debugging, exploring APIs |
+| `globals()` | Dict of current module's global namespace | Dynamic lookup, metaprogramming |
+| `vars(obj)` | Dict of an object's `__dict__` | Inspecting instance/state attributes |
+
+**Example:**
 ```python
-#!/usr/bin/python
-
-# import_specific.py
-
-from math import sin, pi
-
-print(sin(3))
-print(pi)
-```
-
-We import two objects from the math module. There is no way how we could reference other  
-definitions such as a `cos` function.
-
-```python
-#!/usr/bin/python
-
-# imnames.py
-
-from names import _version, _show_version
-
-print(_version)
-_show_version()
-```
-
-We could also import definitions beginning with an underscore. But this is a bad practice. 
-
-```
-$ ./imnames.py
-1.0
-1.0
-```
-
-## Python import module
-
-The last construct is most widely used.
-
-```python
-import module
-```
-
-It prevents the namespace pollution and enables to access all definitions from a module.  
-
-```python
-#!/usr/bin/python
-
-# impmod.py
-
 import math
 
-pi = 3.14
+PI_APPROX = 3.14
+names = ["Alice", "Bob"]
 
-print(math.cos(3))
-print(math.pi)
-print(math.sin(3))
-print(pi)
+print(dir())  # Includes '__builtins__', 'math', 'PI_APPROX', 'names', ...
+print(globals()['PI_APPROX'])  # 3.14
 ```
 
-In this case, we reference the definitions via the module name. As we can see, we are able to use  
-both `pi` variables. Our definition and the one from the `math` module.
+⚠️ Avoid mutating `globals()` directly. It breaks static analysis, complicates debugging, and often indicates a design flaw. Prefer dictionaries or configuration objects for dynamic state.
 
-```
-$ ./impmod.py
--0.9899924966004454
-3.141592653589793
-0.1411200080598672
-3.14
-```
+---
 
-## Python aliasing modules
+## 10. The `__module__` Attribute
 
-We can create an alias for the module with the as keyword.  
+Classes, functions, and methods store their origin module in `__module__`. This is invaluable for serialization, logging, and framework development.
 
+**`animals.py`**
 ```python
-#!/usr/bin/python
-
-# importas.py
-
-import math as m
-
-print(m.pi)
-print(m.cos(3))
-```
-
-We can change the name through which we can reference the module. To do this, we use  
-the `as` keyword.
-
-```
-$ ./importas.py
-3.14159265359
--0.9899924966
-ImportError
-```
-
-An `ImportError` is raised if a module cannot be imported.  
-
-```python
-#!/usr/bin/python
-
-# importerror.py
-
-try:
-    import empty2
-except ImportError as e:
-    print('Failed to import:', e)
-```
-
-We have not created an `empty2` module. Therefore an exception is raised. 
-
-```
-$ ./importerror.py
-Failed to import: No module named empty2
-```
-
-# Executing Python modules
-
-Modules can be imported into other modules or they can be also executed. Module authors  
-often create a testing suite to test the module. Only if the module is executed as a script,  
-the `__name__` attribute equals to `'__main__'`.
-
-We demonstrate this on a `fibonacci` module. Fibonacci numbers is a sequence of numbers,  
-where each is the sum of its two immediate predecessors. 
-
-```python
-#!/usr/bin/python
-
-# fibonacci.py
-
-"""
-A module containing the fibonacci
-function.
-"""
-
-def fib(n):
-
-    a, b = 0, 1
-
-    while b < n:
-
-        print(b, end=" ")
-        (a, b) = (b, a + b)
-
-
-# testing
-
-if __name__ == '__main__':
-    fib(500)
-```
-
-The module can be normally imported as usual. The module can be also executed.  
-
-```
-$ ./fibonacci.py
-1 1 2 3 5 8 13 21 34 55 89 144 233 377
-```
-
-If we do import the `fibonacci` module, the test is not executed automatically.  
-
-```
->>> import fibonacci as fib
->>> fib.fib(500)
-1 1 2 3 5 8 13 21 34 55 89 144 233 377
-```
-
-The `fibonacci module` is imported and the `fib` function is executed.
-
-## Python dir function
-
-The built-in `dir` function gives a sorted list of strings containing the names
-defined by a module.
-
-
-```python
-#!/usr/bin/python
-
-# dirfun.py
-
-"""
-This is dirfun module
-"""
-
-import math, sys
-
-version = 1.0
-
-names = ["Paul", "Frank", "Jessica", "Thomas", "Katherine"]
-
-def show_names():
-
-   for i in names:
-      print(i)
-
-print(dir())
-```
-
-In this module, we import two system modules. We define a variable, a list and a function.  
-
-```python
-print(dir())
-```
-
-The `dir` function returns all the names available in the current namespace of the module.  
-
-```
-$ ./dirfun.py
-['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__',
-'__package__', '__spec__', 'math', 'names', 'show_names', 'sys', 'version']
-```
-
-We can see some built-in names like `'__file__'` or `'__name__'` and all the others that we have  
-defined and imported. 
-
-## Python globals function
-
-The `globals` function returns a dictionary that represents the current global namespace. It is  
-a dictionary of global names and their values. It is the dictionary of the current module.  
-
-```python
-#!/usr/bin/python
-
-# globalsfun.py
-
-import textwrap
-
-version = 1.0
-
-def myfun():
-    pass
-
-gl = globals()
-gnames = ', '.join(gl)
-
-print(textwrap.fill(gnames))
-```
-
-We use the globals function to print all the global names of the current module.
-
-```
-$ ./globalsfun.py
-textwrap, __package__, version, __builtins__, __name__, __spec__,
-__doc__, gl, __cached__, myfun, __loader__, __file__
-These are the global names of the current module.
-```
-
-## Python __module__ attribute
-
-The `__module__` class attribute has the name of the module in which the class is defined.   
-
-```python
-"""
-module animals
-"""
-
-# animals.py
-
 class Cat:
     pass
 
@@ -539,92 +276,172 @@ class Dog:
     pass
 ```
 
-This are the contents of the `animals.py` file. We have two classes.
-
+**`main.py`**
 ```python
-#!/usr/bin/python
-
-# mclass.py
-
 from animals import Cat
 
 class Being:
     pass
 
 b = Being()
-print(b.__module__)
-
 c = Cat()
-print(c.__module__)
+
+print(b.__module__)  # __main__
+print(c.__module__)  # animals
+print(Cat.__module__)  # animals
 ```
 
-In this code we use the `__module__` attribute.
+Frameworks like `pydantic`, `sqlalchemy`, and `logging` use `__module__` to resolve types, generate documentation, or route events correctly.
+
+---
+
+## 11. Bytecode Caching (`.pyc` Files)
+
+To speed up subsequent imports, Python compiles source files into bytecode and caches them in `__pycache__/`. Files are named like `module.cpython-310.pyc`, embedding the interpreter version.
+
+Python automatically:
+- Recompiles if the `.py` file is newer than the `.pyc`
+- Skips caching if the directory isn't writable
+- Ignores stale caches if versions mismatch
+
+**View bytecode:**
+```python
+import dis
+dis.dis("def add(a, b): return a + b")
+```
+
+**Control caching:**
+```bash
+# Skip writing .pyc files
+python -B script.py
+export PYTHONDONTWRITEBYTECODE=1
+
+# Compile an entire directory
+python -m compileall lib/
+```
+
+🚫 Never commit `__pycache__/` to version control. Add it to `.gitignore`.
+
+---
+
+## 12. Packages: Regular vs. Namespace
+
+A **package** is a directory containing Python modules. Python supports two package types:
+
+### Regular Packages
+Require an `__init__.py` file (can be empty). Executed once on first import. Often used to re-export APIs:
+
+```
+mylib/
+    __init__.py
+    core.py
+    utils.py
+```
+
+**`__init__.py`**
+```python
+from .core import Engine
+from .utils import configure
+
+__all__ = ["Engine", "configure"]
+```
+
+Now users can simply do: `from mylib import Engine`
+
+### Namespace Packages (PEP 420)
+If a directory lacks `__init__.py`, Python treats it as a **namespace package**. Multiple directories across `sys.path` can contribute to the same top-level name. Widely used by large ecosystems (e.g., `google.cloud.*`, `azure.*`) to split code across separate distributions.
+
+---
+
+## 13. Relative Imports & Common Pitfalls
+
+Inside packages, use relative imports to reference siblings:
+
+```
+project/
+    pkg/
+        __init__.py
+        models.py
+        services/
+            __init__.py
+            auth.py
+            db.py
+```
+
+**`services/db.py`**
+```python
+from ..models import User      # Parent package
+from . import auth             # Sibling module
+from .auth import verify_token # Explicit submodule
+```
+
+**⚠️ Crucial Rule:** Relative imports only work when the module is executed as part of a package (`python -m pkg.services.db`). Running `db.py` directly raises:
+```
+ImportError: attempted relative import with no known parent package
+```
+
+**Fix:** Always run packaged code with `python -m`, or use absolute imports (`from project.pkg.models import User`) for top-level scripts.
+
+---
+
+## 14. Dynamic Imports with `importlib`
+
+When module names are determined at runtime (plugins, config-driven systems), use `importlib`:
 
 ```python
-from animals import Cat
+import importlib
+
+module_name = "math"
+mod = importlib.import_module(module_name)
+print(mod.sqrt(25))  # 5.0
 ```
 
-From the `animals` module, we import the `Cat` class.
-
+**Loading a module from an arbitrary file path:**
 ```python
-class Being:
-    pass
+import importlib.util
+import pathlib
+
+spec = importlib.util.spec_from_file_location(
+    "dynamic_module", pathlib.Path("/tmp/plugins/loader.py")
+)
+dynamic = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(dynamic)
+
+dynamic.run()
 ```
 
-In the current module, we define a class `Being`. 
+This pattern powers plugin architectures, test runners, and hot-reload systems.
 
+---
+
+## 15. Modern Best Practices
+
+| Practice | Why It Matters |
+|----------|----------------|
+| **Use `src/` layout** | Prevents accidental imports of local files during testing. |
+| **Define `__all__`** | Creates a stable public API; hides internals. |
+| **Avoid circular imports** | Break with interfaces, lazy imports inside functions, or dependency injection. |
+| **Prefer absolute imports in apps** | Clearer navigation, IDE-friendly, avoids relative import confusion. |
+| **Use `pyproject.toml` + `pip install -e .`** | Modern packaging standard; handles dependencies and editable installs cleanly. |
+| **Add type hints** | Improves static analysis, autocomplete, and documentation. |
+| **Never modify `sys.path` in production** | Use virtual environments or proper packaging instead. |
+
+**Avoiding circular imports example:**
 ```python
-b = Being()
-print(b.__module__)
+# ❌ BAD: a.py imports b.py, b.py imports a.py
+# ✅ GOOD: Extract shared interface to c.py, or import inside functions
+def process():
+    from .other_module import heavy_function  # Lazy import
+    return heavy_function()
 ```
 
-An instance of the `Being` class is created. We print the name of its module.
+## Conclusion
 
-```python
-c = Cat()
-print(c.__module__)
-```
+Modules and packages are the architectural foundation of Python projects. Mastering the import system,  
+understanding `__name__`, leveraging `__all__`, and respecting package boundaries transforms fragile  
+scripts into robust, scalable applications.
 
-We create an object from the `Cat` class. We also print the module where it was defined.  
-
-```
-$ ./mclass.py
-__main__
-animals
-```
-
-The current module's name is `'__main__'`. And the Cat's module name is animals.
-
-## ImportError
-
-```python
-try:
-    # Non-existent module
-    import numpy12
-except ImportError:
-    print('Module not found')
-```
-
-## The pyc file
-
-Python caches the compiled content of modules in `.pyc` files to speed up loading modules. Python  
-compiles the program source code into byte code. To improve performance, it caches the byte code on  
-the file system whenever the source file has changes.  
-
-This caching makes loading of Python modules much faster because the compilation phase can be bypassed.  
-Python caches the compiled version of each module in the `__pycache__` directory under the name  
-`module.version.pyc`.  
-
-Python checks the modification date of the source against the compiled version to see if it's out of date  
-and needs to be recompiled.  
-
-```python
-#!/usr/bin/python
-
-import compileall
-
-compileall.compile_dir('lib/', force=True)
-```
-
-The `compileall` module can be used to programtically compile Python modules.
-
+From single-file utilities to enterprise-grade systems, Python's modular design scales effortlessly when  
+you follow explicit, predictable import patterns. Combine these practices with modern tooling  
+(`ruff`, `mypy`, `pyproject.toml`, `pytest`) and your codebase will remain clean, testable,  
+and maintainable for years to come.
