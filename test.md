@@ -1,5 +1,21 @@
 # Priklady
 
+## adding script
+
+```python
+
+import sys
+
+print(sys.argv)
+
+suma = 0
+
+for arg in sys.argv[1:]:
+    suma += int(arg)
+
+print("the sum of script integer arguments is:", suma)
+```
+
 
 ## File attributes
 
