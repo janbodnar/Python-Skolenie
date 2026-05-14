@@ -1,4 +1,4 @@
-# Python Modules — Organizing Code Like a Pro
+# Python Modules 
 
 A **module** is a Python file containing definitions, statements, and optionally executable code.  
 By grouping related functions, classes, and variables into modules, you transform sprawling scripts  
@@ -225,20 +225,22 @@ if __name__ == "__main__":
 ```
 
 Run as script:
+
 ```bash
 $ python fibonacci.py 50
 Fibonacci up to 50: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 ```
 
 Import as library:
+
 ```python
 import fibonacci
 print(fibonacci.fib_sequence(30))
 ```
 
-💡 You can also execute modules directly using `python -m package.module`, which preserves relative imports and package context.
+You can also execute modules directly using `python -m package.module`, which preserves  
+relative imports and package context.
 
----
 
 ## 9. Introspection: `dir()`, `globals()`, and `vars()`
 
@@ -259,13 +261,14 @@ print(dir())  # Includes '__builtins__', 'math', 'PI_APPROX', 'names', ...
 print(globals()['PI_APPROX'])  # 3.14
 ```
 
-⚠️ Avoid mutating `globals()` directly. It breaks static analysis, complicates debugging, and often indicates a design flaw. Prefer dictionaries or configuration objects for dynamic state.
+Avoid mutating `globals()` directly. It breaks static analysis, complicates debugging,  
+and often indicates a design flaw. Prefer dictionaries or configuration objects for dynamic state.
 
----
 
 ## 10. The `__module__` Attribute
 
-Classes, functions, and methods store their origin module in `__module__`. This is invaluable for serialization, logging, and framework development.
+Classes, functions, and methods store their origin module in `__module__`. This is invaluable  
+for serialization, logging, and framework development.
 
 **`animals.py`**
 ```python
@@ -291,15 +294,18 @@ print(c.__module__)  # animals
 print(Cat.__module__)  # animals
 ```
 
-Frameworks like `pydantic`, `sqlalchemy`, and `logging` use `__module__` to resolve types, generate documentation, or route events correctly.
+Frameworks like `pydantic`, `sqlalchemy`, and `logging` use `__module__` to resolve types,  
+generate documentation, or route events correctly.
 
----
 
 ## 11. Bytecode Caching (`.pyc` Files)
 
-To speed up subsequent imports, Python compiles source files into bytecode and caches them in `__pycache__/`. Files are named like `module.cpython-310.pyc`, embedding the interpreter version.
+To speed up subsequent imports, Python compiles source files into bytecode and caches  
+them in `__pycache__/`. Files are named like `module.cpython-310.pyc`, embedding the  
+interpreter version.
 
 Python automatically:
+
 - Recompiles if the `.py` file is newer than the `.pyc`
 - Skips caching if the directory isn't writable
 - Ignores stale caches if versions mismatch
@@ -349,7 +355,10 @@ __all__ = ["Engine", "configure"]
 Now users can simply do: `from mylib import Engine`
 
 ### Namespace Packages (PEP 420)
-If a directory lacks `__init__.py`, Python treats it as a **namespace package**. Multiple directories across `sys.path` can contribute to the same top-level name. Widely used by large ecosystems (e.g., `google.cloud.*`, `azure.*`) to split code across separate distributions.
+
+If a directory lacks `__init__.py`, Python treats it as a **namespace package**. Multiple directories  
+across `sys.path` can contribute to the same top-level name. Widely used by large ecosystems  
+(e.g., `google.cloud.*`, `azure.*`) to split code across separate distributions.
 
 ---
 
@@ -375,7 +384,9 @@ from . import auth             # Sibling module
 from .auth import verify_token # Explicit submodule
 ```
 
-**⚠️ Crucial Rule:** Relative imports only work when the module is executed as part of a package (`python -m pkg.services.db`). Running `db.py` directly raises:
+**Crucial Rule:** Relative imports only work when the module is executed as part of   
+a package (`python -m pkg.services.db`). Running `db.py` directly raises:
+
 ```
 ImportError: attempted relative import with no known parent package
 ```
