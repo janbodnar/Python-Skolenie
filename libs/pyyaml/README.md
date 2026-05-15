@@ -1,3 +1,3 @@
 Working with the YAML format with the PyYAML module. 
 
-http://zetcode.com/python/yaml/
+https://zetcode.com/python/yaml/
