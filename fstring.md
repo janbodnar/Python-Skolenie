@@ -1,9 +1,14 @@
 # Python fstrings
 
 
-Python f-string is the newest Python syntax to do string formatting. It is available since Python 3.6.  
-Python f-strings provide a faster, more readable, more concise, and less error prone way  
-of formatting strings in Python.
+Python f‑strings are a modern, highly expressive way to format text, introduced in  
+**Python 3.6**. They allow you to embed expressions directly inside string literals  
+using a clear and compact syntax. Compared to older formatting techniques such as `%`  
+formatting or `str.format()`, f‑strings are **faster**, **more readable**, and  
+**less error‑prone**. Because the expressions are evaluated at runtime, they also make  
+it easy to include variables, function calls, and even inline calculations directly  
+within the string, which leads to cleaner and more maintainable code.
+
 
 The f-strings have the `f` prefix and use `{}` brackets to evaluate values.  
 
