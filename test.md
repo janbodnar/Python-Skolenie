@@ -1,5 +1,19 @@
 # Priklady
 
+
+## fstrings
+
+```python
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+msg = 'Hello, ' + name + ', you are ' + str(age) + ' years old.'
+print(msg)
+
+msg = f'Hello {name}! You are {age} years old.'
+print(msg)
+```
+
 ## adding script
 
 ```python
