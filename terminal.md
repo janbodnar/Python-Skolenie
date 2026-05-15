@@ -1,7 +1,3 @@
-Here is the improved document. It builds from simple to more advanced usage, with clear explanations and code examples for each classic Windows command-line tool.
-
----
-
 # Classic Windows Command Line Tools – Progressive Guide
 
 This guide covers essential legacy command-line tools available in the Windows Command Prompt (`cmd.exe`).  
