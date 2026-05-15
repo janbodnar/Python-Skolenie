@@ -8,7 +8,16 @@
 4. For loop
 5. Operators
 6. Fstring
+7. Data types
 
+
+## uloha
+
+vypis 11
+
+```python
+mix = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
+```
 
 ## Rich table
 
