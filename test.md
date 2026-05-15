@@ -1,5 +1,46 @@
 # Priklady
 
+## Rich table
+
+```python
+from rich.console import Console
+from rich.table import Table
+
+# 1. Initialize the Console object
+console = Console()
+
+# 2. Define a dictionary of users
+# Using IDs as keys and user details as values
+users_data = {
+    "USR001": {"name": "Alice Vance", "email": "alice@cyber.net", "role": "Lead Engineer"},
+    "USR002": {"name": "Bob Burnquist", "email": "bob@skate.org", "role": "Contributor"},
+    "USR003": {"name": "Charlie Day", "email": "charlie@paddys.pub", "role": "Maintenance"},
+    "USR004": {"name": "Diana Prince", "email": "diana@themyscira.gov", "role": "Security"},
+}
+
+# 3. Create a Table instance
+table = Table(title="System User Registry", show_header=True, header_style="bold magenta")
+
+# 4. Define the columns
+table.add_column("ID", style="dim", width=8)
+table.add_column("Name", style="cyan")
+table.add_column("Email", style="green")
+table.add_column("Role", justify="right")
+
+# 5. Iterate through the dictionary and add rows to the table
+for user_id, info in users_data.items():
+    table.add_row(
+        user_id, 
+        info["name"], 
+        info["email"], 
+        info["role"]
+    )
+
+# 6. Render the table to the console
+console.print(table)
+```
+
+
 ## rounding
 
 ```python
