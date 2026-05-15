@@ -11,6 +11,21 @@
 7. Data types
 
 
+## modifying lists
+
+```python
+actors = ["Jack Nicholson", "Antony Hopkins", "Adrien Brody"]
+
+print(actors)
+
+actors.remove("Jack Nicholson")
+print(actors)
+
+actors.append('Paul Johnson')
+print(actors)
+```
+
+
 ## uloha
 
 vypis 11
