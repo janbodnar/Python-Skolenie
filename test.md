@@ -19,6 +19,14 @@ vypis 11
 mix = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
 ```
 
+
+vypis blue a big
+
+```python
+words = ("sun", "moon", ("cat", "dog", ("red", "blue", ("fast", "slow", "big"))))
+```
+
+
 ## Rich table
 
 ```python
