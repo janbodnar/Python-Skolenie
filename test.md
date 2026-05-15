@@ -1,5 +1,24 @@
 # Priklady
 
+## rounding
+
+```python
+#!/usr/bin/python
+
+import math
+
+val = math.sin(1)
+
+print(f'{val:.2f}')
+print(f'{val:.5f}')
+print(f'{val:.9f}')
+
+print(round(val))
+print(round(val, 2))
+print(round(val, 3))
+print(round(val, 4))
+```
+
 
 ## fstrings
 
