@@ -9,6 +9,35 @@
 5. Operators
 6. Fstring
 7. Data types
+8. Dictionaries
+
+
+## Slovniky
+
+```python
+
+#!/usr/bin/python
+
+# looping.py
+
+domains = { "de": "Germany", "sk": "Slovakia", "hu": "Hungary",
+    "us": "United States", "no": "Norway" }
+
+for key in domains:
+    print(key, domains[key])
+
+print('--------------------------')
+
+for val in domains.values():
+    print(val)
+
+print('--------------------------')
+
+
+for k, v in domains.items():
+    print(k, v)
+```
+
 
 
 ## Opakovanie
