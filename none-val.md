@@ -32,13 +32,15 @@ designing ALGOL W. In 2009 he famously called it his **"billion-dollar mistake"*
 Languages like C, Java, and JavaScript all inherited some form of null
 reference, each with its own failure mode:
 
-| Language   | Null concept           | Common failure mode                             |
-| C          | `NULL` (zero pointer)  | Segmentation fault on dereference               |
-| Java       | `null`                 | `NullPointerException` at runtime               |
-| JavaScript | `null` and `undefined` | `TypeError: Cannot read property of null`       |
-| C#         | `null`                 | `NullReferenceException`                        |
-| SQL        | `NULL`                 | Three-value logic surprises                     |
-| Python     | `None`                 | `AttributeError: 'NoneType' object has no attribute ...` |
+| Language   | Null concept               | Common failure mode                               |
+|------------|----------------------------|----------------------------------------------------|
+| C          | `NULL` (zero pointer)      | Segmentation fault on dereference                 |
+| Java       | `null`                     | `NullPointerException` at runtime                 |
+| JavaScript | `null` and `undefined`     | `TypeError: Cannot read property of null`         |
+| C#         | `null`                     | `NullReferenceException`                          |
+| SQL        | `NULL`                     | Three‑value logic surprises                       |
+| Python     | `None`                     | `AttributeError: 'NoneType' object has no attribute ...` |
+
 
 Python's design philosophy embraces `None` as a **first-class, explicit,
 documented value** rather than a source of undefined behavior. You cannot
