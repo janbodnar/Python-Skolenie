@@ -14,7 +14,8 @@
 ## Opakovanie
 
 ```python
-# calculate sum of values
+
+# calculate sum of values, using for loop
 data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # calculate sum of values
@@ -33,6 +34,7 @@ people = [("John", 25), ("Jane", 30), ("Doe", 22)]
 
 # create a list of 100 random integers between 1 and 100
 # verify with len, calculate min, max, and average
+
 ```
 
 
