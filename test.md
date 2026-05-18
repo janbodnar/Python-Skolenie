@@ -13,6 +13,12 @@
 9. Strings
 
 
+## Ollama
+
+```
+ollama pull granite4.1:3b
+```
+
 ## startswith/endswith
 
 ```python
