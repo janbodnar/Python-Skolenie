@@ -148,6 +148,22 @@ print('-----------------------------')
 for name, age in people:
     msg = f'{name} is {age} years old'
     print(msg)
+
+import random
+
+# create a list of 100 random integers between 1 and 100
+# verify with len, calculate min, max, and average
+random_numbers = []
+
+for _ in range(100):
+    r = random.randint(1, 100)
+    random_numbers.append(r)
+
+
+print(len(random_numbers))    
+print(min(random_numbers))
+print(max(random_numbers))
+print(sum(random_numbers)/len(random_numbers))
 ```
 
 
