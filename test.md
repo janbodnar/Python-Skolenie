@@ -123,6 +123,21 @@ for nested in data3:
 
 print(suma)
 print(len(data3))
+
+
+data4 = (3, -2, -5, 7, -1, 0, 6, 3, -4, 2)
+
+positive = []
+negative = []
+
+for e in data4:
+    if e < 0:
+        negative.append(e)
+    elif e > 0:
+        positive.append(e)
+
+print(positive)
+print(negative)
 ```
 
 
