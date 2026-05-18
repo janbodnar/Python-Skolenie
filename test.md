@@ -86,9 +86,6 @@ for num in data2:
 
 print(suma)
 
-
-
-
 # calculate sum 
 data3 = (
     (1, 2, 3), 
@@ -138,6 +135,19 @@ for e in data4:
 
 print(positive)
 print(negative)
+
+# print messages in form John is 25 years old
+people = [("John", 25), ("Jane", 30), ("Doe", 22)]
+
+for e in people:
+    msg = f'{e[0]} is {e[1]} years old'
+    print(msg)
+
+print('-----------------------------')
+
+for name, age in people:
+    msg = f'{name} is {age} years old'
+    print(msg)
 ```
 
 
