@@ -10,7 +10,25 @@
 6. Fstring
 7. Data types
 8. Dictionaries
+9. Strings
 
+
+## startswith/endswith
+
+```python
+words = ['war', 'water', 'cup', 'boy', 'cloud', 'warm']
+
+for word in words:
+    if word.startswith('w'):
+        print(word)
+
+# print('war'.startswith('w'))
+# print('war'.endswith('c'))
+
+for word in words:
+    if word.endswith('r'):
+        print(word)
+```
 
 ## Slovniky
 
