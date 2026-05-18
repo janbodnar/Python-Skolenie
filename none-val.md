@@ -8,13 +8,13 @@ robust, bug-free code.
 
 In this tutorial we cover everything you need to know about `None`:
 
-- What `None` is, its history, and how it behaves internally.
-- How `None` compares to null/nil in other languages.
-- How to check for `None` correctly.
-- Common pitfalls and how to avoid them.
-- Best practices for using `None` in functions, collections, and classes.
-- Type hints and `Optional` typing.
-- Advanced patterns: sentinels, None-aware operators, pattern matching, and more.
+- What `None` is, its history, and how it behaves internally.  
+- How `None` compares to null/nil in other languages.  
+- How to check for `None` correctly.  
+- Common pitfalls and how to avoid them.  
+- Best practices for using `None` in functions, collections, and classes.  
+- Type hints and `Optional` typing.  
+- Advanced patterns: sentinels, None-aware operators, pattern matching, and more.  
 
 
 ## 1. A Detailed Introduction to `None`
@@ -33,7 +33,6 @@ Languages like C, Java, and JavaScript all inherited some form of null
 reference, each with its own failure mode:
 
 | Language   | Null concept           | Common failure mode                             |
--|
 | C          | `NULL` (zero pointer)  | Segmentation fault on dereference               |
 | Java       | `null`                 | `NullPointerException` at runtime               |
 | JavaScript | `null` and `undefined` | `TypeError: Cannot read property of null`       |
