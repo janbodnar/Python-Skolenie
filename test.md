@@ -11,6 +11,30 @@
 7. Data types
 
 
+## Opakovanie
+
+```python
+# calculate sum of values
+data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+data2 = [1, 2, 3, '4', 5, '6', 7, 8, '9', 10]
+
+# calculate sum 
+
+data3 = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+
+# create a list of negative an positive numbers from 
+# the list
+data4 = (3, -2, -5, 7, -1, 0, 6, 3, -4, 2)
+
+# print messages in form John is 25 years old
+people = [("John", 25), ("Jane", 30), ("Doe", 22)]
+
+# create a list of 100 random integers between 1 and 100
+# verify with len, calculate min, max, and average
+```
+
+
 ## modifying lists
 
 ```python
