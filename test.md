@@ -11,6 +11,28 @@
 7. Data types
 8. Dictionaries
 9. Strings
+10. Functions
+
+
+## open function
+
+```python
+file_name = 'words.txt'
+
+cleaned_words = []
+
+with open(file_name, mode='r+') as file:
+    
+    lines = file.readlines()
+    print(lines)
+
+    for line in lines:
+        cleaned_line = line.strip()
+        cleaned_words.append(cleaned_line)
+
+print(cleaned_words)
+```
+
 
 ## Functions
 
