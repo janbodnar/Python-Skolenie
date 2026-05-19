@@ -14,6 +14,16 @@
 10. Functions
 
 
+```python
+data = '1,2,3,4,5'
+
+mysum = sum(int(val) for val in data.split(','))
+
+assert mysum == 15
+print('passed')
+```
+
+
 data.csv
 
 ```
