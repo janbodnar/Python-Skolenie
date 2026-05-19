@@ -24,7 +24,33 @@ data.csv
 41,42,43,44,45,46,47,48,49,50
 ```
 
+Using csv module 
+
 ## calculate sum
+
+```python
+import csv
+
+file_name = 'data.csv'
+
+# read -> string
+# readlines -> list of rows
+# for -> line by line
+
+cleaned_data = []
+
+with open(file_name, mode='r') as file:
+
+    csv_reader = csv.reader(file)
+    
+    for row in csv_reader:
+        for e in row:
+            cleaned_data.append(int(e.strip()))
+
+print(sum(cleaned_data))
+```
+
+Manual operation
 
 ```python
 
