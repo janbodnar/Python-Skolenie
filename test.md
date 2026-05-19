@@ -14,6 +14,21 @@
 10. Functions
 
 
+## Task slices
+
+
+```python
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+first_three = ...
+last_two = ...
+every_second = ...
+
+assert (first_three, last_two, every_second) == (['a', 'b', 'c'], ['f', 'g'], ['a', 'c', 'e', 'g'])
+print('passed')
+```
+
+
 ```python
 data = '1,2,3,4,5'
 
@@ -22,6 +37,7 @@ mysum = sum(int(val) for val in data.split(','))
 assert mysum == 15
 print('passed')
 ```
+
 
 
 data.csv
