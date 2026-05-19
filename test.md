@@ -13,6 +13,36 @@
 9. Strings
 
 
+## Opakovanie
+
+```python
+# calculate sum
+data = "1,2,3,4,5,6,7,8,9,10"
+
+# calculate sum
+data = "1,2,3;4,5;6;7,8,9,10"
+
+# print words starting with 's'
+# print words with length == 4
+words = ['apple', 'banana', 'small', 'cherry', 'date', 'elderberry', 'war', 
+         'peace', 'love', 'happiness', 'sadness', 'joy', 'anger', 
+         'fear', 'surprise', 'disgust', 'sorrow', 'sad','happy']
+
+# prints words starting with a in case insensitive way
+words = ['Apple', 'ALPINE', 'small', 'car', 'dog', 'cat', 
+         'soup', 'salad', 'atom', 'soda', 'art']
+
+# print users older than 30
+users = [
+    {'first_name': 'John', 'last_name': 'Doe', 'age': 30},
+    {'first_name': 'Jane', 'last_name': 'Smith', 'age': 25},
+    {'first_name': 'Alice', 'last_name': 'Johnson', 'age': 28},
+    {'first_name': 'Bob', 'last_name': 'Brown', 'age': 35},
+    {'first_name': 'Charlie', 'last_name': 'Davis', 'age': 42},
+]
+```
+
+
 ## Ollama
 
 ```
