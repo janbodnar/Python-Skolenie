@@ -12,6 +12,21 @@
 8. Dictionaries
 9. Strings
 
+## Functions
+
+```python
+def g():
+    def f():
+        print ("f() inner function")
+    f()
+
+g()
+
+print(type(g))
+print(g.__name__)
+print(g.__doc__)
+```
+
 
 ## While loop
 
