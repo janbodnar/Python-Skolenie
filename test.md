@@ -42,6 +42,52 @@ users = [
 ]
 ```
 
+Riesenia
+
+```python
+# calculate sum
+data = "1,2,3,4,5,6,7,8,9,10"
+
+suma = 0
+vals = data.split(",")
+
+for val in vals:
+    suma += int(val)
+
+print(suma)
+
+
+calculate sum
+
+suma = 0
+
+data = "1,2,3;4,5;6;7,8,9,10"
+data2 = data.replace(';', ',')
+
+vals = data2.split(',')
+for val in vals:
+    suma += int(val)
+
+
+print(suma)
+
+# print words starting with 's'
+# print words with length == 4
+words = ['apple', 'banana', 'small', 'cherry', 'date', 'elderberry', 'war', 
+         'peace', 'love', 'happiness', 'sadness', 'joy', 'anger', 
+         'fear', 'surprise', 'disgust', 'sorrow', 'sad','happy']
+
+for word in words:
+    if word.startswith('s'):
+        print(word)
+
+print('-------------------')
+
+for word in words:
+    if len(word) == 4:
+        print(word)
+```
+
 
 ## Ollama
 
