@@ -33,6 +33,18 @@ with open(file_name, mode='r+') as file:
 print(cleaned_words)
 ```
 
+```python
+file_name = 'words.txt'
+
+cleaned_words = []
+
+with open(file_name, mode='r+') as  file:
+
+    for line in file:
+        cleaned_words.append(line.rstrip())
+
+print(cleaned_words)
+```
 
 ## Functions
 
