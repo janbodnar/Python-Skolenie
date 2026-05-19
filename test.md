@@ -13,6 +13,33 @@
 9. Strings
 
 
+## While loop
+
+```python
+
+# print all vowels from the text using while loop
+# y is a vowel
+msg = 'there are three falcons in the sky'
+
+vowels = 'AEIOUYaeiouy'
+# vowels = ('A', 'E', 'I', 'O', 'U', 'Y', 'a', 'e', 'i', 'o', 'u', 'y')
+
+string_len = len(msg)
+i = 0 
+
+unique_vowels = set()
+
+while i < string_len:
+    if msg[i] in vowels:
+        print(msg[i], end=' ')
+        unique_vowels.add(msg[i])
+
+    i += 1
+
+print()
+print(unique_vowels)
+```
+
 ## Opakovanie
 
 ```python
