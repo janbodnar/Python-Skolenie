@@ -40,6 +40,21 @@ users = [
     {'first_name': 'Bob', 'last_name': 'Brown', 'age': 35},
     {'first_name': 'Charlie', 'last_name': 'Davis', 'age': 42},
 ]
+
+users = [
+    {'first_name': 'John', 'last_name': 'Doe', 'age': 30},
+    {'first_name': 'Jane', 'last_name': 'Smith', 'age': 25},
+    {'first_name': 'Alice', 'last_name': 'Johnson', 'age': 28},
+    {'first_name': 'Bob', 'last_name': 'Brown', 'age': 35},
+    {'first_name': 'Charlie', 'last_name': 'Davis', 'age': 42},
+]
+
+for user in users:
+    if user['age'] > 30:
+        print(user)
+
+    if user.get('age') > 30:
+        print(user)
 ```
 
 Riesenia
