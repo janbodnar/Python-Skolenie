@@ -37,7 +37,7 @@ cleaned_values = []
 # readlines -> list of rows
 # for -> line by line
 
-with open(file_name, mode='r+') as file:
+with open(file_name, mode='r') as file:
 
     for line in file:
         line_cleaned = line.strip()
