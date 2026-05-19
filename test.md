@@ -86,6 +86,14 @@ print('-------------------')
 for word in words:
     if len(word) == 4:
         print(word)
+
+# prints words starting with a in case insensitive way
+words = ['Apple', 'ALPINE', 'small', 'car', 'dog', 'cat', 
+         'soup', 'salad', 'atom', 'soda', 'art']
+
+for word in words:
+    if word[0] == 'a' or word[0] == 'A':
+        print(word)
 ```
 
 
