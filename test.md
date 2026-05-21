@@ -90,6 +90,31 @@ for word in words:
 print(words_3)
 words_3_t = tuple(words_3)
 print(words_3_t)
+
+
+# ------------------------------------
+
+# read the file and count the number of words in the file
+file_name = 'thermopylae.txt'
+
+words = []
+with open(file_name, 'r') as fd:
+
+    for line in fd:
+        row_words = line.strip().split(' ')
+        words.extend(row_words)
+
+print(words)
+words_cleaned = []
+
+for word in words:
+    if word.count('.') > 0:
+        word = word.replace('.', '')
+    if word.count(',') > 0:
+        word = word.replace(',', '')
+    words_cleaned.append(word)
+
+print(words_cleaned)
 ```
 
 
