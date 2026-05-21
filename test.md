@@ -14,6 +14,181 @@
 10. Functions
 11. Exceptions
 
+
+## Passwords
+
+```python
+"""
+password_checker.py
+
+Checks whether a user-supplied password meets strong-password criteria
+and can generate a cryptographically strong password on request.
+"""
+
+import secrets
+import string
+import re
+
+
+# ---------------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------------
+
+MIN_LENGTH = 12
+
+SPECIAL_CHARS = "!@#$%^&*()-_=+[]{}|;:,.<>?"
+
+RULES = [
+    ("At least 12 characters",          lambda p: len(p) >= MIN_LENGTH),
+    ("At least one uppercase letter",   lambda p: bool(re.search(r"[A-Z]", p))),
+    ("At least one lowercase letter",   lambda p: bool(re.search(r"[a-z]", p))),
+    ("At least one digit",              lambda p: bool(re.search(r"\d", p))),
+    ("At least one special character",  lambda p: any(c in SPECIAL_CHARS for c in p)),
+]
+
+
+# ---------------------------------------------------------------------------
+# Core functions
+# ---------------------------------------------------------------------------
+
+def check_password(password: str) -> tuple[bool, list[str]]:
+    """
+    Evaluate *password* against every rule in RULES.
+
+    Returns
+    -------
+    passed : bool
+        True when every rule is satisfied.
+    failures : list[str]
+        Human-readable descriptions of every rule that was NOT met.
+    """
+    failures = [desc for desc, test in RULES if not test(password)]
+    return (len(failures) == 0), failures
+
+
+def generate_password(length: int = 16) -> str:
+    """
+    Return a cryptographically strong random password that satisfies all
+    rules.  Uses :func:`secrets.choice` so each character is drawn from
+    the OS CSPRNG (e.g. /dev/urandom on Linux/macOS).
+
+    The function guarantees at least one character from every required
+    category, then fills the remainder with characters drawn from the full
+    alphabet and finally shuffles the result so the mandatory characters
+    are not always at predictable positions.
+    """
+    if length < MIN_LENGTH:
+        length = MIN_LENGTH
+
+    alphabet = string.ascii_letters + string.digits + SPECIAL_CHARS
+
+    while True:
+        # Seed with one character from each mandatory category …
+        chars = [
+            secrets.choice(string.ascii_uppercase),
+            secrets.choice(string.ascii_lowercase),
+            secrets.choice(string.digits),
+            secrets.choice(SPECIAL_CHARS),
+        ]
+        # … then fill the rest from the full alphabet …
+        chars += [secrets.choice(alphabet) for _ in range(length - len(chars))]
+
+        # … shuffle so the mandatory chars are not always at index 0-3 …
+        secrets.SystemRandom().shuffle(chars)
+
+        password = "".join(chars)
+
+        # Final sanity-check (should always pass, but belt-and-braces).
+        passed, _ = check_password(password)
+        if passed:
+            return password
+
+
+# ---------------------------------------------------------------------------
+# Display helpers
+# ---------------------------------------------------------------------------
+
+RESET  = "\033[0m"
+GREEN  = "\033[32m"
+RED    = "\033[31m"
+YELLOW = "\033[33m"
+BOLD   = "\033[1m"
+
+
+def print_result(password: str) -> bool:
+    passed, failures = check_password(password)
+
+    print()
+    print(f"{BOLD}Password analysis{RESET}")
+    print("-" * 40)
+
+    for desc, test in RULES:
+        ok = test(password)
+        mark = f"{GREEN}✔{RESET}" if ok else f"{RED}✗{RESET}"
+        print(f"  {mark}  {desc}")
+
+    print("-" * 40)
+    if passed:
+        print(f"{GREEN}{BOLD}✔ Strong password — all rules satisfied.{RESET}")
+    else:
+        print(f"{RED}{BOLD}✗ Weak password — {len(failures)} rule(s) not met.{RESET}")
+    print()
+    return passed
+
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+def main() -> None:
+    print(f"\n{BOLD}=== Password Strength Checker ==={RESET}")
+    print("Rules:", ", ".join(f"({i+1}) {d}" for i, (d, _) in enumerate(RULES)))
+    print()
+
+    while True:
+        print("Options:")
+        print("  [1] Test a password")
+        print("  [2] Generate a strong password")
+        print("  [3] Quit")
+        choice = input("\nChoice: ").strip()
+
+        if choice == "1":
+            import getpass
+            pwd = getpass.getpass("Enter password to test (input hidden): ")
+            if not pwd:
+                print(f"{YELLOW}No password entered.{RESET}\n")
+                continue
+            passed = print_result(pwd)
+            if not passed:
+                suggest = input("Generate a strong password instead? [y/N]: ").strip().lower()
+                if suggest == "y":
+                    new_pwd = generate_password()
+                    print(f"\n{GREEN}Generated password:{RESET} {BOLD}{new_pwd}{RESET}\n")
+
+        elif choice == "2":
+            try:
+                raw = input("Desired length (default 16): ").strip()
+                length = int(raw) if raw else 16
+            except ValueError:
+                print(f"{YELLOW}Invalid length; using 16.{RESET}")
+                length = 16
+            pwd = generate_password(length)
+            print(f"\n{GREEN}Generated password:{RESET} {BOLD}{pwd}{RESET}")
+            print_result(pwd)
+
+        elif choice == "3":
+            print("Bye!")
+            break
+
+        else:
+            print(f"{YELLOW}Please enter 1, 2, or 3.{RESET}\n")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+
 ##
 
 ```
