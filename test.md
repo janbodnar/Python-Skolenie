@@ -75,6 +75,21 @@ print(sum(uniques))
 
 uniques = set(vals2)
 print(sum(uniques))
+
+# -----------------------------------
+
+words = ['sky', 'bye', 'hello', 'world', 'python', 'programming', 'blue', 
+         'to', 'be', 'or', 'not', 'to', 'be', 'that', 'is', 'the', 'question']
+
+words_3 = []
+
+for word in words:
+    if len(word) == 3:
+        words_3.append(word)
+
+print(words_3)
+words_3_t = tuple(words_3)
+print(words_3_t)
 ```
 
 
