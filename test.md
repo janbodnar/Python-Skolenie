@@ -15,6 +15,35 @@
 11. Exceptions
 
 
+
+## filter/map
+
+```python
+
+
+# map/filter
+
+def is_positive(e):
+
+    return e > 0
+
+def is_negative(e):
+    
+    return e < 0
+
+
+vals = [3, 4, -2, -1, 5, 33, 0, -5]
+
+positives = list(filter(is_positive, vals))
+positives = list(filter(lambda e: e > 0, vals))
+print(positives)
+
+negatives = tuple(filter(is_negative, vals))
+negatives = tuple(filter(lambda e: e < 0, vals))
+print(negatives)
+```
+
+
 ## Passwords
 
 ```python
