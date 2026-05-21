@@ -64,6 +64,22 @@ words = ["bad", "cloud", "dog", "war", "water", "cup", "ocean", "small"]
 # words_c_w = list(filter(lambda word: word[0] == "c" or word[0] == "w", words))
 words_c_w = list(filter(lambda word: word.startswith(("c", "w")), words))
 print(words_c_w)
+
+
+# def twice(e):
+
+#     return e * 2
+
+vals = [4, -3, 0, 1, -4, 0, 9, 3, 2, -3, 6]
+
+vals_doubled = list(map(lambda e: 2*e, vals))
+print(vals_doubled)
+print(vals)
+
+
+words = ['cup', "Water", "MOON", 'ALpha', 'smaLL']
+words_small = list(map(lambda e: e.lower(), words))
+print(words_small)
 ```
 
 
