@@ -49,6 +49,40 @@ print('the first 10 words are:')
 print(matched_words[0:10])
 ```
 
+## Check word frequency
+
+```python
+import sys
+
+
+# main.py filename firstletter
+
+filename = sys.argv[1]
+
+freq_words = {}
+
+try:
+    with open(filename, 'r') as fd:
+
+        for word in fd:
+            
+            firstletter = word[0]
+            if firstletter in freq_words:
+                freq_words[firstletter] += 1
+            else:
+                freq_words[firstletter] = 1
+
+except FileNotFoundError:
+    print(f'file {filename} not found')
+
+except Exception as e:
+    print(f'an error occurred: {e}')
+
+
+for key, value in freq_words.items():
+    print(f'{key}: {value}')
+```
+
 
 ## filter/map
 
