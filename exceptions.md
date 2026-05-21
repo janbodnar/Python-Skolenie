@@ -526,7 +526,7 @@ try:
 
 
 except MemoryError as e:
-    logging.error(f'error: {e}')
+    logging.critical(f'error: {e}')
 
 except FileNotFoundError as e:
     logging.error(f'error: {e}')
