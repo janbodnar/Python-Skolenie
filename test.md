@@ -41,6 +41,23 @@ print(positives)
 negatives = tuple(filter(is_negative, vals))
 negatives = tuple(filter(lambda e: e < 0, vals))
 print(negatives)
+
+
+def is_even(e):
+    
+    return e % 2 == 0
+
+
+vals = [3, 4, -2, -1, 5, 33, 0, -5]
+
+# custom def function
+evens = list(filter(is_even, vals))
+print(evens)
+
+# lambda
+odds = list(filter(lambda e: e % 2 != 0, vals))
+print(odds)
+
 ```
 
 
