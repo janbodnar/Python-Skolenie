@@ -55,7 +55,7 @@ print(matched_words[0:10])
 import sys
 
 
-# main.py filename firstletter
+# main.py filename
 
 filename = sys.argv[1]
 
