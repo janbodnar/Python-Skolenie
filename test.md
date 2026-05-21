@@ -59,8 +59,23 @@ print(negatives)
 print(sum(negatives))
 print(sum(e for e in vals if e < 0))
 
+# -----------------------------------
 
+```python
+# calculate the sum of uniq values
+uniques = []
+vals2 = (1, 1, 1, 2, 2, 1, 3, 4, 4, 4, 5, 5, 5, 5, 6, 7, 8, 9, 10)
 
+for val in vals2:
+    if val in uniques:
+        continue
+    else:
+        uniques.append(val)
+
+print(sum(uniques))
+
+uniques = set(vals2)
+print(sum(uniques))
 ```
 
 
