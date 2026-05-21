@@ -14,6 +14,24 @@
 10. Functions
 11. Exceptions
 
+##
+
+```
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+```
+
+```python
+try:
+    f = 3
+
+    for _ in range(100):
+        f = f ** 2
+        print(f)
+
+except OverflowError as err:
+    print('Overflowed after', f, err)
+```
+
 ## Opakovanie 
 
 `thermopylae.txt`
