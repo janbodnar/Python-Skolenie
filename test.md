@@ -12,7 +12,7 @@
 8. Dictionaries
 9. Strings
 10. Functions
-
+11. Exceptions
 
 ## Opakovanie 
 
