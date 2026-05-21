@@ -16,6 +16,35 @@
 
 `https://github.com/dolph/dictionary/blob/master/unix-words`
 
+
+## Generate fake data
+
+```python
+
+from faker import Faker
+
+fake = Faker()
+
+filename = 'users.csv'
+
+with open(filename, 'w') as file:
+    file.write("uid,first_name,last_name,email,city,country\n")  # Write CSV header
+    for i in range(1, 100_001):
+        uid = i
+        first_name = fake.first_name()
+        last_name = fake.last_name()
+        email = fake.email()
+        city = fake.city()
+        country = fake.country()
+
+        csv_line = f"{uid},{first_name},{last_name},{email},{city},{country}\n"
+        file.write(csv_line)
+
+
+print(f"Generated {filename} with 100,000 user records.")
+```
+
+
 ## Check word count
 
 ```python
