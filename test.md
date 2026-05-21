@@ -25,6 +25,15 @@ course of three days, during the second Persian invasion of Greece.
 ```
 
 ```python
+# negatives & positives, calculate number, sum, min, max
+# no for loops, only while loops
+data = """
+-1,0,4,-4,4,-1,0,4,-4,5
+-1,0,4,-7,5-9,-1,0,4,-4
+-1,0,4,-5,3,-1,0,4,-4,5
+-1,0,4,-2,5,5,0,4,9,5
+"""
+
 
 # calculate the sum of negative values
 vals = (1, 2, 3, 4, 5, -8, -9, -10, 4, 3, 
