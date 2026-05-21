@@ -14,6 +14,36 @@
 10. Functions
 
 
+## Opakovanie 
+
+`thermopylae.txt`
+
+```
+The Battle of Thermopylae was fought between an alliance of Greek city-states,
+led by King Leonidas of Sparta, and the Persian Empire of Xerxes I over the
+course of three days, during the second Persian invasion of Greece.
+```
+
+```python
+
+# calculate the sum of negative values
+vals = (1, 2, 3, 4, 5, -8, -9, -10, 4, 3, 
+        -2, 1, 0, -1, -2, -3, -4, -5, -6, -7, -8)
+
+
+# calculate the sum of uniq values
+vals2 = (1, 1, 1, 2, 2, 1, 3, 4, 4, 4, 5, 5, 5, 5, 6, 7, 8, 9, 10)
+
+# create a tuple of words that have length 3
+words = ['sky', 'bye', 'hello', 'world', 'python', 'programming', 'blue', 
+         'to', 'be', 'or', 'not', 'to', 'be', 'that', 'is', 'the', 'question']
+
+# read the file and count the number of words in the file
+file_name = 'thermopylae.txt'
+```
+
+
+
 ## Task slices
 
 
