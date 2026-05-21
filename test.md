@@ -42,6 +42,26 @@ words = ['sky', 'bye', 'hello', 'world', 'python', 'programming', 'blue',
 file_name = 'thermopylae.txt'
 ```
 
+## Riesenia
+
+```python
+# calculate the sum of negative values
+
+negatives = []
+vals = (1, 2, 3, 4, 5, -8, -9, -10, 4, 3, 
+        -2, 1, 0, -1, -2, -3, -4, -5, -6, -7, -8)
+
+for val in vals:
+    if val < 0:
+        negatives.append(val)
+
+print(negatives)
+print(sum(negatives))
+print(sum(e for e in vals if e < 0))
+
+
+
+```
 
 
 ## Task slices
