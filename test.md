@@ -58,6 +58,12 @@ print(evens)
 odds = list(filter(lambda e: e % 2 != 0, vals))
 print(odds)
 
+
+words = ["bad", "cloud", "dog", "war", "water", "cup", "ocean", "small"]
+
+# words_c_w = list(filter(lambda word: word[0] == "c" or word[0] == "w", words))
+words_c_w = list(filter(lambda word: word.startswith(("c", "w")), words))
+print(words_c_w)
 ```
 
 
