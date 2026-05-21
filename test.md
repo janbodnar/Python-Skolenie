@@ -16,6 +16,40 @@
 
 `https://github.com/dolph/dictionary/blob/master/unix-words`
 
+## Check word count
+
+```python
+import sys
+
+
+# main.py filename firstletter
+
+filename = sys.argv[1]
+firstletter = sys.argv[2]
+
+matched_words = []
+
+try:
+    with open(filename, 'r') as fd:
+
+        for word in fd:
+
+            if word.lower().startswith(firstletter.lower()):
+                matched_words.append(word.strip())
+except FileNotFoundError:
+    print(f'file {filename} not found')
+
+except Exception as e:
+    print(f'an error occurred: {e}')
+
+
+print(f'there are {len(matched_words)} words starting with {firstletter}')
+
+print('the first 10 words are:')
+print(matched_words[0:10])
+```
+
+
 ## filter/map
 
 ```python
