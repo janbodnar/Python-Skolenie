@@ -66,6 +66,31 @@ while i < n:
 
 print(suma)
 print(sum(map(lambda e: int(e), vals)))
+
+
+# add 3 more users and calculate sum of salaries with while loop
+
+users = [{'id': 1, 'name': 'Alice', 'salary': 4500}, 
+         {'id': 2, 'name': 'Bob', 'salary': 5500}, 
+         {'id': 3, 'name': 'Charlie', 'salary': 3000},
+         {'id': 4, 'name': 'Tom', 'salary': 2050}]
+
+users.append({'id': 5, 'name': 'Lucia', 'salary': 1230})
+users.append({'id': 6, 'name': 'Martin', 'salary': 2330})
+users.append({'id': 7, 'name': 'Marcel', 'salary': 1390})
+
+i = 0
+n = len(users)
+salaries_sum = 0 
+
+while i < n:
+    user = users[i]
+    salary = user['salary']
+    salaries_sum += salary
+
+    i += 1
+
+print(f'The sum of salaries is: {salaries_sum}')
 ```
 
 
