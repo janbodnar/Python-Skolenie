@@ -38,7 +38,7 @@ fahrenheits = (32, 68, 100, 212, 451)
 # calculate word frequency in text with dictionary
 text = 'there are seven falcons in the sky and they are flying high'
 
-# generate users with faker, id, first name, last name, email, salary
+# generate users with faker, id, first name, last name, email, salary into users.csv file
 
 # read the csv file and display the data in a table format with prettytable
 ```
