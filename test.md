@@ -40,7 +40,7 @@ text = 'there are seven falcons in the sky and they are flying high'
 
 # generate users with faker, id, first name, last name, email, salary into users.csv file
 
-# read the csv file and display the data in a table format with prettytable
+# read the csv file with csv module and display the data in a table format with prettytable
 ```
 
 
