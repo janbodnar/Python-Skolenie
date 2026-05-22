@@ -18,14 +18,32 @@
 
 
 ```python
+
 # calculat the number of vowels, consonants, punctuation, spaces and total
 # characters in a given text.
-
 text= """
 There are three coins in a box. One of them is a two-headed coin, 
 and the other two are normal coins. You pick a coin at random and flip it three
 times. All three flips come up heads. What is the probability that you picked
 the two-headed coin?
+"""
+
+# pick 10 random words from the list and add them to random_words list
+# generate a comma-separated string of the random words and print it
+
+# print 20 random words, withou duplicates, sorted alphabetically
+words = ['sky', 'cloud', 'rain', 'sun', 'snow', 
+         'wind', 'storm', 'thunder', 'lightning', 'fog', 
+         'cup', 'table', 'chair', 'book', 'pen', 'phone',
+         'computer', 'keyboard', 'mouse', 'monitor', 'printer', 
+         'desk', 'window', 'door', 'wall', 'floor', 'ceiling', 'roof', 
+         'garden', 'tree', 'flower', 'grass', 'bush', 'leaf', 
+         'branch', 'root', 'fruit',
+         'car', 'bus', 'train', 'plane', 'boat', 'bicycle', 'motorcycle', 
+         'truck', 'subway', 'tram', 'taxi', 'ship', 'ferry',
+         'dog', 'cat', 'bird', 'fish', 'hamster', 'rabbit', 'turtle', 
+         'snake', 'lizard', 'frog', 'insect', 'spider', 'ant', 'bee', 
+         'butterfly']
 """
 ```
 
