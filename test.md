@@ -23,6 +23,7 @@
 # calculate sum values with while loop
 vals = (1, 2, 3, 4, '5', 6, '7', 8, 9, 10)
 
+# add 3 more users and calculate sum of salaries wit while loop
 users = ({'id': 1, 'name': 'Alice', 'salary': 4500}, 
          {'id': 2, 'name': 'Bob', 'salary': 5500}, 
          {'id': 3, 'name': 'Charlie', 'salary': 3000},
