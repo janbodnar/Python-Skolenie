@@ -16,6 +16,26 @@
 
 `https://github.com/dolph/dictionary/blob/master/unix-words`
 
+## Sum 
+
+```python
+# calculate sum, min, max
+data = '1,2,3,4,5,6,7,8,9,10'
+parts = data.split(',')
+
+numbers = []
+
+# riesenie pomocou for
+suma = 0
+for part in parts:
+    num = int(part)
+    suma += num
+    numbers.append(num)
+
+print(suma)
+print(numbers)
+```
+
 
 ## Opakovanie
 
