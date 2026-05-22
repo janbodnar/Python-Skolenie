@@ -18,6 +18,25 @@
 
 
 ```python
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    id: int
+    first_name: str
+    last_name: str
+    email: str
+    salary: int
+
+user = User(1, 'John', 'Doe', 'john.doe@example.com', 50000)
+print(user)
+
+user2 = User(2, 'Jane', 'Smith', 'jane.smith@example.com', 60000)
+print(user2)
+```
+
+
+```python
 
 # calculat the number of vowels, consonants, punctuation, spaces and total
 # characters in a given text.
