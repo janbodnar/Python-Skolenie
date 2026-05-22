@@ -17,6 +17,19 @@
 `https://github.com/dolph/dictionary/blob/master/unix-words`
 
 
+```python
+# calculat the number of vowels, consonants, punctuation, spaces and total
+# characters in a given text.
+
+text= """
+There are three coins in a box. One of them is a two-headed coin, 
+and the other two are normal coins. You pick a coin at random and flip it three
+times. All three flips come up heads. What is the probability that you picked
+the two-headed coin?
+"""
+```
+
+
 ## Random vals
 
 ```python
