@@ -103,6 +103,22 @@ fahrenheits = (32, 68, 100, 212, 451)
 
 celsius = list(map(lambda f: round((f - 32) * 5/9, 3), fahrenheits))
 print(celsius)
+
+
+# calculate letter frequency in text with dictionary
+text = 'there are seven falcons in the sky and they are flying high'
+
+freq = {}
+
+for letter in text: 
+    if letter == ' ':
+        continue
+    if letter not in freq:
+        freq[letter] = 1
+    else:
+        freq[letter] += 1
+
+print(freq)
 ```
 
 
