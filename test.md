@@ -45,6 +45,29 @@ text = 'there are seven falcons in the sky and they are flying high'
 ```
 
 
+## Riesenia
+
+```python
+# calculate sum values with while loop
+
+suma = 0
+vals = (1, 2, 3, 4, '5', 6, '7', 8, 9, 10)
+
+i = 0
+n = len(vals)
+
+while i < n:
+    if type(vals[i]) == str:
+        suma += int(vals[i]) 
+    else:
+        suma += vals[i]
+
+    i += 1
+
+print(suma)
+print(sum(map(lambda e: int(e), vals)))
+```
+
 
 
 ## Generate fake data
