@@ -48,6 +48,45 @@ words = ['sky', 'cloud', 'rain', 'sun', 'snow',
 ```
 
 
+```python
+text= """
+There are three coins in a box. One of them is a two-headed coin, 
+and the other two are normal coins. You pick a coin at random and flip it three
+times. All three flips come up heads. What is the probability that you picked
+the two-headed coin?
+"""
+
+import string
+
+vowels = 'AEIOUYaeiouy'
+consonants = 'BCDFGHJKLMNPQRSTVWXZbcdfghjklmnpqrstvwxz'
+
+number_of_vowels = 0
+number_of_consonants = 0
+number_of_punctuation = 0
+number_of_spaces = 0
+total_characters = 0
+
+for char in text:
+
+    total_characters += 1
+    if char in string.vowels:
+        number_of_vowels += 1
+    elif char in string.punctuation:
+        number_of_punctuation += 1
+    elif char in string.whitespace:
+        number_of_spaces += 1
+    elif char in consonants:
+        number_of_consonants += 1
+
+print(f'Number of vowels: {number_of_vowels}')
+print(f'Number of consonants: {number_of_consonants}')
+print(f'Number of punctuation: {number_of_punctuation}')
+print(f'Number of spaces: {number_of_spaces}')
+print(f'Total characters: {total_characters}')
+```
+
+
 ## Random vals
 
 ```python
