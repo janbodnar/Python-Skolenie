@@ -24,10 +24,10 @@
 vals = (1, 2, 3, 4, '5', 6, '7', 8, 9, 10)
 
 # add 3 more users and calculate sum of salaries wit while loop
-users = ({'id': 1, 'name': 'Alice', 'salary': 4500}, 
+users = [{'id': 1, 'name': 'Alice', 'salary': 4500}, 
          {'id': 2, 'name': 'Bob', 'salary': 5500}, 
          {'id': 3, 'name': 'Charlie', 'salary': 3000},
-         {'id': 4, 'name': 'Tom', 'salary': 2050})
+         {'id': 4, 'name': 'Tom', 'salary': 2050]
 
 # calcuate sum of even numbers in vals with filter
 vals = (23,42,32, 56, 72, 91, 12, 15, 28, 49)
