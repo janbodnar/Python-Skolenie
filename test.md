@@ -36,7 +36,7 @@ vals = (23,42,32, 56, 72, 91, 12, 15, 28, 49)
 # formulas: C = (F - 32) * 5/9
 fahrenheits = (32, 68, 100, 212, 451)
 
-# calculate word frequency in text with dictionary
+# calculate character frequency in text with dictionary
 text = 'there are seven falcons in the sky and they are flying high'
 
 # generate users with faker, id, first name, last name, email, salary into users.csv file
