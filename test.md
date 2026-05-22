@@ -17,6 +17,35 @@
 `https://github.com/dolph/dictionary/blob/master/unix-words`
 
 
+## Opakovanie
+
+```python
+# calculate sum values with while loop
+vals = (1, 2, 3, 4, '5', 6, '7', 8, 9, 10)
+
+users = ({'id': 1, 'name': 'Alice', 'salary': 4500}, 
+         {'id': 2, 'name': 'Bob', 'salary': 5500}, 
+         {'id': 3, 'name': 'Charlie', 'salary': 3000},
+         {'id': 4, 'name': 'Tom', 'salary': 2050})
+
+# calcuate sum of even numbers in vals with filter
+vals = (23,42,32, 56, 72, 91, 12, 15, 28, 49)
+
+# convert to celsius with map
+# formulas: C = (F - 32) * 5/9
+fahrenheits = (32, 68, 100, 212, 451)
+
+# calculate word frequency in text with dictionary
+text = 'there are seven falcons in the sky and they are flying high'
+
+# generate users with faker, id, first name, last name, email, salary
+
+# read the csv file and display the data in a table format with prettytable
+```
+
+
+
+
 ## Generate fake data
 
 ```python
