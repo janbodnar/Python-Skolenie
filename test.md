@@ -34,6 +34,15 @@ for part in parts:
 
 print(suma)
 print(numbers)
+
+# calculate sum, min, max
+data = '1,2,3,4,5,6,7,8,9,10'
+
+data2 = list(map(lambda e: int(e), data.split(',')))
+
+print(sum(data2))
+print(min(data2))
+print(max(data2))
 ```
 
 
