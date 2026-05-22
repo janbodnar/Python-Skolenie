@@ -91,6 +91,13 @@ while i < n:
     i += 1
 
 print(f'The sum of salaries is: {salaries_sum}')
+
+
+# calcuate sum of even numbers in vals with filter
+vals = (23,42,32, 56, 72, 91, 12, 15, 28, 49)
+
+
+print(sum(filter(lambda e: e % 2 == 0, vals)))
 ```
 
 
