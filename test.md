@@ -16,6 +16,50 @@
 
 `https://github.com/dolph/dictionary/blob/master/unix-words`
 
+
+## Random vals
+
+```python
+from random import randint
+
+# import random
+# random.randint
+
+random_vals = []
+
+for i in range(100):
+    random_vals.append(randint(-100, 100))
+
+print(random_vals)
+print(sum(random_vals))
+
+negatives = []
+positives = []
+
+# for loop
+
+for val in random_vals:
+
+    if val > 0:
+        positives.append(val)
+    elif val < 0:
+        negatives.append(val)
+    else: 
+        print('zero not included')
+
+print(negatives)
+print(positives)
+
+# filter 
+
+negs = list(filter(lambda e: e < 0, random_vals))
+posi = list(filter(lambda e: e > 0, random_vals))
+
+print(sum(negs))
+print(sum(posi))
+```
+
+
 ## Sum 
 
 ```python
