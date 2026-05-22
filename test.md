@@ -16,6 +16,47 @@
 
 `https://github.com/dolph/dictionary/blob/master/unix-words`
 
+## Sentiment analysis
+
+```python
+import ollama
+
+slovak_movie_reviews = {
+    1: "Príbeh bol úplne pútavý a herecké výkony brilantné. Nemohol som sa odtrhnúť ani na sekundu!",
+    2: "Tempo bolo mimoriadne pomalé a postavy nemali žiadnu hĺbku. Nudil som sa už v polovici.",
+    3: "Hoci vizuálne efekty boli ohromujúce, dej pôsobil predvídateľne a bez inšpirácie.",
+    4: "Toto je filmové dielo, ktoré mi dojalo srdce. Každá scéna bola dokonalosť!",
+    5: "Dialógy boli trápne a humor úplne zlyhal. Určite to nestojí za ten humbug.",
+    6: "Bol to priemerný film – nie dobrý, ale ani úplná katastrofa. Niektoré časti ma bavili.",
+    7: "Chemia medzi hlavnými postavami bola elektrizujúca a soundtrack fenomenálny!",
+    8: "Film začal skvele, ale v druhej polovici sa úplne rozpadol. Veľké sklamanie.",
+    9: "Vizualne ohromujúci film, ktorý dokonale spája akciu a emócie. Určite odporúčam!",
+    10: "Premisa bola zaujímavá, ale realizácia bola slabá. Nedokázalo ma to zaujať."
+}
+
+for key, value in slovak_movie_reviews.items():
+    
+    content = 'On the scale of 0 to 1, write the sentiment of the following movie review, use only a number:\n'
+    content += value
+
+    response = ollama.chat(
+        model='granite4.1:3b',
+        messages=[
+            {
+                'role': 'user',
+                'content': content,
+            }
+        ],
+        options={
+            'temperature': 0.7,
+            'top_p': 0.9,
+        }
+    )
+
+    # Extract the text content from the Ollama response dictionary
+    output = response['message']['content']
+    print(key, value, output)
+```
 
 ```python
 from dataclasses import dataclass
