@@ -47,6 +47,34 @@ words = ['sky', 'cloud', 'rain', 'sun', 'snow',
 """
 ```
 
+```python
+from collections import Counter
+import string
+
+text = """
+There are three coins in a box. One of them is a two-headed coin, 
+and the other two are normal coins. You pick a coin at random and flip it three
+times. All three flips come up heads. What is the probability that you picked
+the two-headed coin?
+"""
+
+vowels = set('AEIOUYaeiouy')
+
+def categorize(char):
+    if char in vowels:         return 'vowels'
+    if char in string.punctuation: return 'punctuation'
+    if char in string.whitespace:  return 'spaces'
+    return 'consonants'
+
+counts = Counter(categorize(c) for c in text)
+
+print(f"Vowels:       {counts['vowels']}")
+print(f"Consonants:   {counts['consonants']}")
+print(f"Punctuation:  {counts['punctuation']}")
+print(f"Spaces:       {counts['spaces']}")
+print(f"Total:        {len(text)}")
+```
+
 
 ```python
 text= """
