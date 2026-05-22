@@ -104,6 +104,7 @@ fahrenheits = (32, 68, 100, 212, 451)
 celsius = list(map(lambda f: round((f - 32) * 5/9, 3), fahrenheits))
 print(celsius)
 
+# -------------------------------------------
 
 # calculate letter frequency in text with dictionary
 text = 'there are seven falcons in the sky and they are flying high'
@@ -119,6 +120,34 @@ for letter in text:
         freq[letter] += 1
 
 print(freq)
+
+# -------------------------------------------
+
+import faker 
+
+fake = faker.Faker()
+
+filename = 'users.csv' 
+
+with open(filename, 'w') as file:
+
+    file.write("id,first_name,last_name,email,salary\n")
+    for i in range(1, 1001):
+        uid = i
+        first_name  = fake.first_name()
+        last_name = fake.last_name()
+        email = fake.email()
+        salary = fake.random_int(min=30000, max=100000)
+        file.write(f"{uid},{first_name},{last_name},{email},{salary}\n")
+
+# -------------------------------------------
+
+import pandas as pd
+
+df = pd.read_csv('users.csv')
+
+print(df.head())
+print(df.tail())
 ```
 
 
