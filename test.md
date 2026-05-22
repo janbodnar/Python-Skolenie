@@ -95,9 +95,14 @@ print(f'The sum of salaries is: {salaries_sum}')
 
 # calcuate sum of even numbers in vals with filter
 vals = (23,42,32, 56, 72, 91, 12, 15, 28, 49)
-
-
 print(sum(filter(lambda e: e % 2 == 0, vals)))
+
+# convert to celsius with map
+# formulas: C = (F - 32) * 5/9
+fahrenheits = (32, 68, 100, 212, 451)
+
+celsius = list(map(lambda f: round((f - 32) * 5/9, 3), fahrenheits))
+print(celsius)
 ```
 
 
