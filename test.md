@@ -38,7 +38,7 @@ words = [' sky', 'time ', ' glow', 'small\n\n', '\tarchon', ' car\r', 'cup']
 
 Riesenia
 
-```
+```python
 words = [' sky', 'time ', ' glow', 'small\n\n', '\tarchon', ' car\r', 'cup']
 
 words_cleaned = [word.strip() for word in words]
