@@ -80,6 +80,55 @@ with open(filename, 'r') as file:
 
 ## Sentiment analysis
 
+DeepSeek:
+
+```python
+import json
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.deepseek.com",
+    api_key=os.environ.get("DEEPSEEK_API_KEY"),
+)
+
+slovak_movie_reviews = {
+    1: "Príbeh bol úplne pútavý a herecké výkony brilantné. Nemohol som sa odtrhnúť ani na sekundu!",
+    2: "Tempo bolo mimoriadne pomalé a postavy nemali žiadnu hĺbku. Nudil som sa už v polovici.",
+    3: "Hoci vizuálne efekty boli ohromujúce, dej pôsobil predvídateľne a bez inšpirácie.",
+    4: "Toto je filmové dielo, ktoré mi dojalo srdce. Každá scéna bola dokonalosť!",
+    5: "Dialógy boli trápne a humor úplne zlyhal. Určite to nestojí za ten humbug.",
+    6: "Bol to priemerný film – nie dobrý, ale ani úplná katastrofa. Niektoré časti ma bavili.",
+    7: "Chemia medzi hlavnými postavami bola elektrizujúca a soundtrack fenomenálny!",
+    8: "Film začal skvele, ale v druhej polovici sa úplne rozpadol. Veľké sklamanie.",
+    9: "Vizualne ohromujúci film, ktorý dokonale spája akciu a emócie. Určite odporúčam!",
+    10: "Premisa bola zaujímavá, ale realizácia bola slabá. Nedokázalo ma to zaujať."
+}
+
+reviews_text = "\n".join(f"{key}: {value}" for key, value in slovak_movie_reviews.items())
+
+content = (
+    "Rate the sentiment of each movie review on a scale of 0 to 1. "
+    'Reply with a JSON object in the format {"1": 0.9, "2": 0.2, ...}. '
+    "No explanation, just the JSON.\n\n"
+    + reviews_text
+)
+
+response = client.chat.completions.create(
+    model="deepseek-v4-pro",
+    messages=[{"role": "user", "content": content}],
+    response_format={"type": "json_object"},
+)
+
+results = json.loads(response.choices[0].message.content)
+for key, value in slovak_movie_reviews.items():
+    print(key, results[str(key)], value)
+```
+
+
+
+Ollama: 
+
 ```python
 import ollama
 
