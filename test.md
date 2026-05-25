@@ -45,6 +45,31 @@ words_cleaned = [word.strip() for word in words]
 print(words_cleaned)
 words_c = [word for word in words_cleaned if word.startswith('c')]
 print(words_c)
+
+# -----------------------------------------
+
+# read all words from words.txt, transform into small letters 
+# and sort them
+
+# absolute paths
+# filename = 'C:\\Users\\Admin\\Documents\\pyprogs\\test\\words.txt'
+# filename = r'C:\Users\Admin\Documents\pyprogs\test\words.txt'
+# filename = 'C:/Users/Admin/Documents/pyprogs/test/words.txt'
+
+# relative paths
+filename = 'data/words.txt'
+
+words = []
+
+with open(filename, 'r') as file:
+    
+    for line in file:
+        words.append(line.strip())
+
+    print(words)
+    words2 = [word.lower() for word in words]
+    print(sorted(words2))
+
 ```
 
 
