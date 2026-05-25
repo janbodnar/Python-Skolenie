@@ -44,6 +44,7 @@ Pri inštalácii Pythonu (platí pre Windows), nezabudnite zaškrnúť voľbu *a
 - Pip manažér
 - Jupyter notebooky
 - Štandardná knižnica jazyka Python
+- Python AI scripty s DeepSeek
   
 
 ## Python Course
