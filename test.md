@@ -36,6 +36,18 @@ words = [' sky', 'time ', ' glow', 'small\n\n', '\tarchon', ' car\r', 'cup']
 # and sort them
 ```
 
+Riesenia
+
+```
+words = [' sky', 'time ', ' glow', 'small\n\n', '\tarchon', ' car\r', 'cup']
+
+words_cleaned = [word.strip() for word in words]
+print(words_cleaned)
+words_c = [word for word in words_cleaned if word.startswith('c')]
+print(words_c)
+```
+
+
 `https://github.com/dolph/dictionary/blob/master/unix-words`
 
 ## Sentiment analysis
