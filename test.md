@@ -1,6 +1,18 @@
 # Priklady
 
+`words.txt`
 
+```
+small
+up
+Door
+rock
+Sick
+war
+water
+Old
+moat
+```
 
 ## Opakovanie
 
