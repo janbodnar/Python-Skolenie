@@ -1,18 +1,28 @@
 # Priklady
 
-## Kapitoly
 
-1. Introduction
-2. Lexis
-3. Control flow
-4. For loop
-5. Operators
-6. Fstring
-7. Data types
-8. Dictionaries
-9. Strings
-10. Functions
-11. Exceptions
+
+## Opakovanie
+
+```python
+
+# calcuate sum
+data = "1,2,3,4;5,6;7,8,9,10"
+
+# filter all positive and even values
+# use list comprehension
+vals = (-2, -3, 0, 1, 2, 9, 0, -6, 3, 2, 8, 7)
+
+# filter all words with 3 letters with list comprehension
+words = ['sky', 'time', 'glow', 'small', 'archon', 'car', 'cup']
+
+# clean the words, and print all that start with letter c
+# use list comprehensions
+words = [' sky', 'time ', ' glow', 'small\n\n', '\tarchon', ' car\r', 'cup']
+
+# read all words from words.txt, transform into small letters 
+# and sort them
+```
 
 `https://github.com/dolph/dictionary/blob/master/unix-words`
 
