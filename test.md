@@ -1,5 +1,8 @@
 # Priklady
 
+
+https://github.com/janbodnar/AI-Skolenie
+
 `words.txt`
 
 ```
