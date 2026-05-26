@@ -37,6 +37,17 @@ print(suma)
 
 suma = sum(sum(nested) for nested in data)
 print(suma)
+
+#------------------------------------
+# write a script that asks for use name and 
+# age and then prints out a message with the name and age
+
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+msg = f"Hello {name}, you are {age} years old."
+print(msg)
+
 ```
 
 https://github.com/janbodnar/AI-Skolenie  
