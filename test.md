@@ -48,6 +48,24 @@ age = input("Enter your age: ")
 msg = f"Hello {name}, you are {age} years old."
 print(msg)
 
+#------------------------------------
+# remove all the extra spaces, create a list of words
+# and sorted the words in alphabetical order, print the sorted list
+text = 'there\n\t are \t\t\t14 dogs    and \n\n 7 cats in the park'
+
+# riesenie 1
+text2 = text.replace('\n', ' ').replace('\t', ' ')
+
+parts = text2.split(' ')
+cleaned = [part for part in parts if part != '']
+print(sorted(cleaned))
+
+# riesenie 2
+text = 'there\n\t are \t\t\t14 dogs    and \n\n 7 cats in the park'
+import re
+
+parts = re.split(r'\s+', text)
+print(sorted(parts))**
 ```
 
 https://github.com/janbodnar/AI-Skolenie  
