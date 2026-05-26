@@ -1,5 +1,30 @@
 # Priklady
 
+## Opakovanie
+
+```python
+# sum the numbers in the list and print the result
+data = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+
+# write a script that asks for use name and 
+# age and then prints out a message with the name and age
+
+# remove all the extra spaces, create a list of words
+# and sorted the words in alphabetical order, print the sorted list
+text = 'there\n\t are \t\t\t14 dogs    and \n\n 7 cats in the park'
+
+# print all the even numbers from 101 to 390
+
+# generate 250 random values between -100 and 100 
+# and add them to a list, print min, max, sum of the values
+
+# read words.txt, clean the words and sort them in 
+# alphabetical in descending order, print the sorted list**
+```
+
+
+
+
 https://audio-transcriber-translator-528965810214.europe-west1.run.app  
 https://github.com/janbodnar/AI-Skolenie  
 
