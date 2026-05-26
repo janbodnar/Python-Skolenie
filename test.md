@@ -1,5 +1,25 @@
 # Priklady
 
+
+```python
+import sqlite3
+
+con = sqlite3.connect('test.db')
+
+with con:    
+    
+    cur = con.cursor()    
+    cur.execute("SELECT * FROM cities")
+
+    rows = cur.fetchall()
+
+    for row in rows:
+        # print(row)
+        print(f'{row[0]} {row[1]} {row[2]}')
+```
+
+
+
 words.txt
 
 ```
