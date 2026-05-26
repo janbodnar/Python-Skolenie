@@ -1,5 +1,22 @@
 # Priklady
 
+words.txt
+
+```
+sky
+blue
+small
+fortune
+back
+alpha
+current
+car
+belt
+vase
+plant
+```
+
+
 ## Opakovanie
 
 ```python
