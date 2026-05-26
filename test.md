@@ -37,6 +37,8 @@ text = 'there\n\t are \t\t\t14 dogs    and \n\n 7 cats in the park'
 
 # read words.txt, clean the words and sort them in 
 # alphabetical in descending order, print the sorted list**
+
+
 ```
 
 Riesenia
@@ -121,6 +123,22 @@ print("Min:", min(rand_vals))
 print("Max:", max(rand_vals))
 print("Sum:", sum(rand_vals))
 print(f'first 10 values: {rand_vals[:10]}')
+
+# ------------------------------------------
+
+# read words.txt, clean the words and sort them in 
+# alphabetical in descending order, print the sorted list
+
+filename = 'words.txt'
+
+with open(filename, 'r') as file:
+    content = file.read()
+    print(content)
+    # print(repr(content))
+    words = content.split('\n')
+    words = [word for word in words if word != '']
+    words.sort(reverse=True)
+    print(words)
 ```
 
 https://github.com/janbodnar/AI-Skolenie  
@@ -159,6 +177,8 @@ words = [' sky', 'time ', ' glow', 'small\n\n', '\tarchon', ' car\r', 'cup']
 
 # read all words from words.txt, transform into small letters 
 # and sort them
+
+
 ```
 
 Riesenia
