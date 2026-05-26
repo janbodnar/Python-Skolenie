@@ -22,12 +22,7 @@ text = 'there\n\t are \t\t\t14 dogs    and \n\n 7 cats in the park'
 # alphabetical in descending order, print the sorted list**
 ```
 
-
-
-
-https://audio-transcriber-translator-528965810214.europe-west1.run.app  
 https://github.com/janbodnar/AI-Skolenie  
-
 https://www.facebook.com/profile.php?id=61590475374227
 
 `words.txt`
