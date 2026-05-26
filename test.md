@@ -22,6 +22,23 @@ text = 'there\n\t are \t\t\t14 dogs    and \n\n 7 cats in the park'
 # alphabetical in descending order, print the sorted list**
 ```
 
+Riesenia
+
+```python
+# sum the numbers in the list and print the result
+data = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+
+suma = 0
+
+for nested in data:
+    suma += sum(nested)
+
+print(suma)
+
+suma = sum(sum(nested) for nested in data)
+print(suma)
+```
+
 https://github.com/janbodnar/AI-Skolenie  
 https://www.facebook.com/profile.php?id=61590475374227
 
