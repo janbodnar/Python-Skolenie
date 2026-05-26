@@ -76,6 +76,34 @@ for i in range(101, 390):
         print(i, end=' ')
 
 print()
+
+# ------------------------------------------
+
+# generate 250 random values between -100 and 100 
+# and add them to a list, print min, max, sum of the values
+import random
+
+random.seed(42)  # Set a seed for reproducibility
+# 1. riesenie
+rand_vals = []
+for i in range(250):
+    rand_vals.append(random.randint(-100, 100))
+
+print("Min:", min(rand_vals))
+print("Max:", max(rand_vals))
+print("Sum:", sum(rand_vals))
+print(f'first 10 values: {rand_vals[:10]}')
+
+print('---------------------------------')
+
+random.seed(42)  # Set a seed for reproducibility
+
+# 2. riesenie
+rand_vals = [random.randint(-100, 100) for i in range(250)]
+print("Min:", min(rand_vals))
+print("Max:", max(rand_vals))
+print("Sum:", sum(rand_vals))
+print(f'first 10 values: {rand_vals[:10]}')
 ```
 
 https://github.com/janbodnar/AI-Skolenie  
