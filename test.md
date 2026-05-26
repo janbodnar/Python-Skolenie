@@ -65,7 +65,17 @@ text = 'there\n\t are \t\t\t14 dogs    and \n\n 7 cats in the park'
 import re
 
 parts = re.split(r'\s+', text)
-print(sorted(parts))**
+print(sorted(parts))
+
+# ------------------------------------------
+
+# print all the even numbers from 101 to 390
+
+for i in range(101, 390):
+    if i % 2 == 0:
+        print(i, end=' ')
+
+print()
 ```
 
 https://github.com/janbodnar/AI-Skolenie  
