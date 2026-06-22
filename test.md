@@ -1,7 +1,19 @@
 # Priklady
 
 
-# Znak noveho riadku
+## Simple fstring
+
+```python
+name = 'John Doe'
+age = 34
+
+print(name, 'is', age, 'years old')
+
+msg = f'{name} is {age} years old'
+print(msg)
+```
+
+## Znak noveho riadku
 
 ```python
 x = 12
