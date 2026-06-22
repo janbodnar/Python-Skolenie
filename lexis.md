@@ -132,6 +132,8 @@ indentation comes after certain statements; a decrease in indentation signifies 
 end of the current block. The Python style guide recommends using four spaces per indentation level. 
 
 ```python
+age = 34
+
 if age > 18:
     print("adult person")
 
