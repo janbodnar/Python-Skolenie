@@ -1,5 +1,17 @@
 # Priklady
 
+## type funkcia
+
+```python
+x = 23
+print(x, type(x))
+
+x = 'falcon'
+print(x, type(x))
+
+x = 34.5
+print(x, type(x))
+```
 
 ## Pretypovanie/casting
 
