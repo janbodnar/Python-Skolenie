@@ -1,6 +1,19 @@
 # Priklady
 
 
+# Znak noveho riadku
+
+```python
+x = 12
+
+print(x, end=' ')
+print(x, end=' ')
+print(x, end=' ')
+print(x, end=' ')
+
+print('\nand old falcon\na stormy night\na new car')
+```
+
 ## Opakovanne vykovanie kodu
 
 ```python
