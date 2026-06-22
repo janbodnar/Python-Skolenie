@@ -1,5 +1,16 @@
 # Priklady
 
+
+## Velkost retazcov
+
+```python
+s4 = "čerešňa"
+print(len(s4))
+
+s5 = "नमस्ते"
+print(len(s5)) # correct is 3
+```
+
 ## String formatting
 
 ```python
