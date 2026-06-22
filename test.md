@@ -14,6 +14,13 @@ word = ' falcons'
 print(str(n) + word)
 ```
 
+```python
+x = input("Enter a number: ")
+y = input("Enter another number: ")
+
+print('x + y is:', int(x) + int(y))
+```
+
 ## input funkcia
 
 ```python
