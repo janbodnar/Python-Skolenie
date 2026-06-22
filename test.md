@@ -1,6 +1,16 @@
 # Priklady
 
 
+## input funkcia
+
+```python
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+msg = f'{name} is {age} years old'
+print(msg)
+```
+
 ## Simple fstring
 
 ```python
