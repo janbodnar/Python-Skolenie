@@ -1,5 +1,18 @@
 # Priklady
 
+## and operator
+
+```python
+age = 17
+has_driving_licence = True
+
+if age >= 18 and has_driving_licence == True:
+    print('We can drive a car')
+else:
+    print('We cannot drive a car')
+```
+
+
 ## type funkcia
 
 ```python
