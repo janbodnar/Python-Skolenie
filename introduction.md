@@ -1,8 +1,6 @@
 # Introduction
 
 
-## Python
-
 Python is a general-purpose, dynamic, object-oriented programming language.  
 The design purpose of the Python language emphasizes programmer productivity  
 and code readability.  
