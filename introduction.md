@@ -47,7 +47,8 @@ The official web site for the Python programming language is [python.org](https:
    - Software development  
    - Mathematics and scientific computing  
    - System scripting  
-   - Handling big data  
+   - Handling big data
+   - Lingua franca of AI
 7. *Cross-Platform*: Python works on various platforms (Windows, Mac, Linux, Raspberry Pi, etc.).
 8. *Fewer Lines of Code*: Python allows developers to write programs with fewer lines compared  
     to some other languages.
