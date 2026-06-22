@@ -1,5 +1,24 @@
 # Priklady
 
+
+## not operator
+
+```python
+word = 'falcon'
+
+character = 'f'
+
+if character in word:
+    print(f'{character} is in the word')
+else:
+    print(f'{character} is not in the word')
+
+if character not in word:
+    print(f'{character} is not in the word')
+else:
+    print(f'{character} is in the word')
+```
+
 ## and operator
 
 ```python
