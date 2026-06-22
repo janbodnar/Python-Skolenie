@@ -1,6 +1,6 @@
 # Control flow
 
-When a Python program is run, the code is executed from top to bottom. The flow of the  
+When a Python program is run, the code is executed from top to bottom. The flow of the    
 program can be altered with various keywords, including if/else, for, while, and match.
 
 The control flow structures can be used to executed code conditionally or multiple times.
