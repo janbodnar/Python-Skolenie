@@ -1,5 +1,20 @@
 # Priklady
 
+
+## Opakovanne vykovanie kodu
+
+```python
+i = 0
+
+msg = 'and old falcon'
+
+while i < 5:
+    print(msg)
+    i = i + 1
+```
+
+
+
 ```python
 import random
 
