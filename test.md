@@ -1,6 +1,19 @@
 # Priklady
 
 
+## Pretypovanie/casting
+
+```python
+x = '15'
+y = '15'
+print(int(x) + int(y))
+
+n = 3
+word = ' falcons'
+
+print(str(n) + word)
+```
+
 ## input funkcia
 
 ```python
