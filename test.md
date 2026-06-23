@@ -15,6 +15,44 @@ age = 34
 # spocitaj sumu cisiel 1..10 pomocou while loopu
 ```
 
+## Riesenia
+
+```python
+# napis hlasku John Doe ma 34 rokov pomocou fstringu
+
+name = "John Doe"
+age = 34
+
+print(f'{name} is {age} years old')
+
+# napis slovo falcon 7 krat pomocou while loopu
+word = "falcon"
+i = 0
+
+while i < 7:
+
+    print(word)
+    i += 1
+
+# napis skript ktory zada vyzvu Enter your name a vypise Hello name!
+
+name = input("Enter your name: ")
+print(f'Hello {name}!')
+
+# spocitaj sumu cisiel 1..10 pomocou while loopu
+
+i = 1
+suma = 0
+
+while i <= 10:
+    suma += i
+    i += 1
+
+print(suma)
+```
+
+
+
 
 
 
