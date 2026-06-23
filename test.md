@@ -1,5 +1,22 @@
 # Priklady
 
+## Opakovanie
+
+```python
+# napis hlasku John Doe ma 34 rokov pomocou fstringu
+
+name = "John Doe"
+age = 34
+
+# napis slovo falcon 7 krat pomocou while loopu
+
+# napis skript ktory zada vyzvu Enter your name a vypise Hello name!
+
+# spocitaj sumu cisiel 1..10 pomocou while loopu
+```
+
+
+
 
 ## Velkost retazcov
 
