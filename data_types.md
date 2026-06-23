@@ -1,13 +1,13 @@
 # Python data types
 
 Computer programs, such as spreadsheets, text editors, calculators, or chat clients, work with data.  
-Tools to work with various data types are essential part of a modern computer language.
+Tools to work with various data types are an essential part of a modern computer language.
 
 ## Definition
 
-Data type is a set of values and the allowable operations on those values.  
+A data type is a set of values and the allowable operations on those values.  
 Python has a great set of useful data types. Python's data types are built   
-in the core of the language. They are easy to use and straightforward.
+into the core of the language. They are easy to use and straightforward.
 
 Python data types include:
 
@@ -20,7 +20,7 @@ Python data types include:
 - Dictionaries
 - None
 
-Here is the data you provided in a markdown table format:
+Here is a summary of Python data types in a markdown table:
 
 | Data Type | Class | Category | Kind | Mutable |
 | --- | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ Here is the data you provided in a markdown table format:
 | sets | set | sets | Non-primitive | Yes |
 | frozen sets | frozenset | sets | Non-primitive | No |
 | functions | function | functions | Non-primitive | Yes |
-| NoneType | NoneType | nulls | --?-- | No |
+| NoneType | NoneType | nulls | — | No |
 
 
 ## Booleans
@@ -45,9 +45,9 @@ having one of two values: `True` or `False`. This is a fundamental data type.
 Booleans are a subclass of integers — `True` behaves like `1` and `False` like `0`  
 in numeric contexts, though they have their own `bool` type.
 
-Happy parents are waiting a child to be born. They have chosen a name for both possibilities.  
-If it is going to be a boy, they might have chosen John. If it is going to be a girl,  
-they might have chosen Victoria.
+Happy parents are expecting a child. They have chosen a name for each possibility.  
+If it is a boy, they might name him John. If it is a girl,  
+they might name her Victoria.
 
 ```python
 #!/usr/bin/python
@@ -77,8 +77,8 @@ Here we import the random module that is used to calculate random numbers.
 male = bool(random.randint(0, 1))
 ```
 
-Here we use two functions. the randint function returns a random number from  
-the given integer boundaries. In our case 0 or 1. The bool function converts  
+Here we use two functions. The `randint` function returns a random number from  
+the given integer boundaries — in our case 0 or 1. The `bool` function converts  
 the integers to boolean values.
 
 ```python
@@ -241,7 +241,7 @@ total = baskets * apples_in_basket
 print("There are total of", total, "apples")
 ```
 
-In our script, we count the total amount of apples. We use the multiplication operation.  
+In this script, we count the total number of apples using multiplication.  
 
 ```
 $ ./apples.py
@@ -408,9 +408,7 @@ print(math.isclose(a, b, abs_tol=1e-9))           # True (absolute tolerance)
 
 `rel_tol` (default `1e-9`) scales the tolerance relative to the size of the  
 numbers — useful for large values. `abs_tol` sets a fixed margin — better when  
-comparing values near zero. For financial or exact decimal arithmetic, use the  
-`decimal` module instead, which avoids binary rounding entirely.
-
+comparing values near zero.
 
 For financial or exact decimal arithmetic, use the `decimal` module instead, which avoids  
 binary rounding entirely by passing values as strings:
@@ -558,7 +556,7 @@ print(b)
 print(c)
 ```
 
-In our example we assign three string literals to a, b, and c variables.  
+In our example, we assign three string literals to the variables `a`, `b`, and `c`.  
 Then we print them to the console.
 
 ```
@@ -579,9 +577,9 @@ characters that have a specific purpose when used within a string.
 print("   bbb\raaa") # prints aaabbb
 ```
 
-The carriage return `\r` is a control character for end of line return to beginning of line.
+The carriage return `\r` is a control character that moves the cursor to the beginning of the current line.
 
-```
+```python
 #!/usr/bin/python
 
 # strophe.py
@@ -590,7 +588,7 @@ print("Incompatible, it don't matter though\n'cos someone's bound to hear my cry
 print("Speak out if you do\nYou're not easy to find")
 ```
 
-The new line is a control character which begins a new line of text.  
+The new line is a control character that begins a new line of text.  
 
 ```
 $ ./strophe.py
@@ -600,15 +598,15 @@ Speak out if you do
 You're not easy to find
 ```
 
-Next we examine the backspace control character.
+Next, we examine the backspace control character.
 
 ```python
 print("Python\b\b\booo") # prints Pytooo
 ```
 
-The backspace control character \b moves the cursor one character back.  
-In our case, we use three backspace characters to delete three letters 
-and replace them with three o characters.
+The backspace control character `\b` moves the cursor one character back.  
+In this case, we use three backspace characters to delete three letters  
+and replace them with three `o` characters.
 
 ```
 print("Towering\tinferno") # prints Towering        inferno
@@ -765,7 +763,7 @@ five[:-1] :  (1, 2, 3, 4)
 five[:9] :  (1, 2, 3, 4, 5)
 ```
 
-Tuples can contain several mix data types.
+Tuples can contain several mixed data types.
 
 ```python
 #!/usr/bin/python
@@ -810,8 +808,8 @@ print((3 + 7))
 print((3 + 7, ))
 ```
 
-In the first case we have and expression. We print number 10 to the console.  
-In the second case we deal with a tuple. We print a tuple containing number 10.
+In the first case we have an expression — we print the number 10 to the console.  
+In the second case we have a tuple — we print a tuple containing the number 10.
 
 ```
 $ ./tuple_one.py
@@ -829,7 +827,7 @@ it has some additional operations. A whole chapter is dedicated to the Python li
 actors = ["Jack Nicholson", "Antony Hopkins", "Adrien Brody"]
 ```
 
-The list is created using the square brackests `[]`.
+The list is created using square brackets `[]`.
 
 ```python
 #!/usr/bin/python
@@ -847,7 +845,7 @@ print(num + [8, 9])
 As we have stated previously, we can use the same operations on lists as on tuples.
 
 ```
-$ ./list_simple.py
+$ ./simple_list.py
 0
 [5, 4, 6, 7]
 6
@@ -897,7 +895,7 @@ print("two is here",   numbers.count(2), "time")
 print("three is here", numbers.count(3), "times")
 ```
 
-The script counts number occurrences in a list.
+The script counts the number of occurrences in a list.
 
 ```
 $ ./list_counting_elements.py
@@ -935,11 +933,11 @@ del names[0]
 print(names)
 ```
 
-In our example we first create an empty names list. We use the append function  
-to append new items to the list. The elements are appended in the consecutive way.  
-The insert function inserts new elements at a given position. The existing elements  
-are not deleted, they are relocated. The remove function removes a specific item  
-from the list. If we want to delete an item based on the index, we use the `del` keyword.
+In our example, we first create an empty names list. We use the `append` function  
+to add new items to the list consecutively.  
+The `insert` function inserts new elements at a given position — the existing elements  
+are not deleted, they are shifted. The `remove` function removes a specific item  
+from the list. To delete an item by its index, we use the `del` keyword.
 
 ```
 $ ./list_modify.py
@@ -949,7 +947,7 @@ $ ./list_modify.py
 ['Ludmila']
 ```
 
-There following program presents additional two functions.
+The following program presents two additional functions.
 
 ```python
 #!/usr/bin/python
@@ -981,7 +979,7 @@ $ ./list_modify2.py
 6
 [11, 22, 33, 4, 5]
 ```
-In the following example, we find out indexes of elements.
+In the following example, we find the indexes of elements in a list.
 
 ```python
 #!/usr/bin/python
@@ -994,8 +992,8 @@ print(numbers.index(1))
 print(numbers.index(3))
 ```
 
-To find an index in a list, we use the index method. If there are more occurrences  
-of an element, the method returns the index of the first element.
+To find an index in a list, we use the `index` method. If there are multiple occurrences  
+of an element, the method returns the index of the first one.
 
 ```
 $ ./list_index.py
@@ -1020,9 +1018,9 @@ print(first)
 print(second)
 ```
 
-We can use tuple function to create a tuple from a list and list function to create  
-a list from a tuple. Note that the original objects are not modified;  
-the functions only return those transformed collections.
+We can use the `tuple` function to create a tuple from a list and the `list` function to create  
+a list from a tuple. Note that the original objects are not modified —  
+the functions only return the transformed collections.
 
 ```
 $ ./list_transform.py
@@ -1035,11 +1033,11 @@ $ ./list_transform.py
 ## Sets
 
 A *set* is an unordered collection of data with no duplicate elements. A set supports  
-operations like union, intersection, or difference; similar as in Mathematics.
+operations like union, intersection, or difference — similar to those in mathematics.
 
-### Newer syntax
+### Creating sets
 
-Newer syntax uses `{}` to define sets, older uses the `set` function. 
+Sets can be created using curly braces `{}` or the `set()` constructor. 
 
 ```python
 set1 = {'a', 'b', 'c', 'c', 'd'}
@@ -1053,10 +1051,10 @@ print("difference: ", set1 - set2)
 print("symmetric difference: ", set1 ^ set2)
 ```
 
-In our example we have two sets. We use the set function to create sets.  
+In this example, we have two sets created with curly brace syntax.  
 The intersection operation returns elements that are both in set1 and set2.  
 The union operation returns all elements from both sets. The difference returns elements  
-that are in the set1 but not is set2. And finally, the symmetric difference returns elements  
+that are in set1 but not in set2. Finally, the symmetric difference returns elements  
 that are in set1 or set2, but not in both.
 
 
@@ -1093,8 +1091,8 @@ print(set1)
 ```
 
 The `add` method adds an item to the set. The `remove` method removes an item from a set.  
-The `clear` method removes all items from the set. The set1 is superset of set2 if every  
-element in set2 is also in set1. The set1 is a subset of set2 if every element in set1 is also in set2.
+The `clear` method removes all items from the set. A set is a superset of another if it contains  
+every element of the other set. A set is a subset of another if all its elements are contained in the other set.
 
 ```
 $ ./sets2.py
@@ -1105,7 +1103,7 @@ Is set1 superset of set2 ? : False
 set()
 ```
 
-If we need an immutable set, we can create a frozen set with the frozenset function.
+If we need an immutable set, we can create a `frozenset` with the `frozenset()` function.
 
 ```python
 fs = frozenset(['a', 'b', 'c'])
@@ -1148,7 +1146,7 @@ print(words)
 ```
 
 Our first example shows some basic usage of the dictionary data type. We print a specific value,  
-keys and values of the dictionary. The items method returns a list of dictionarie's (key, value) pairs as tuples.
+keys and values of the dictionary. The `items` method returns a list of the dictionary's (key, value) pairs as tuples.
 
 ```
 $ ./dictionary_simple.py
@@ -1161,7 +1159,7 @@ Maedchen
 {}
 ```
 
-looping  
+Looping  
 
 ```python
 #!/usr/bin/python
@@ -1183,7 +1181,7 @@ for k, v in domains.items():
 
 ## None
 
-There is another special data type — `None`. This data type means non existent, not known, or empty.  
+There is another special data type — `None`. This data type represents a nonexistent, unknown, or empty value.  
 It is the sole value of the `NoneType` class. `None` is a built‑in constant that represents the  
 absence of a value, a null, or a placeholder.  
 
