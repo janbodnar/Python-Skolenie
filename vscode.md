@@ -13,6 +13,41 @@ workflow allow developers to work efficiently without leaving the keyboard.
 This guide covers essential shortcuts, tips, and configurations to help you become productive  
 with VS Code for Python development.
 
+## DeepSeek models
+
+```json
+[
+	{
+		"name": "DeepSeek",
+		"vendor": "customendpoint",
+		"apiKey": "${input:chat.lm.secret.3767139b}",
+		"apiType": "chat-completions",
+		"models": [
+			{
+				"id": "deepseek-v4-flash",
+				"name": "DeepSeek V4 Flash",
+				"url": "https://api.deepseek.com/v1/chat/completions",
+				"toolCalling": true,
+				"vision": false,
+				"maxInputTokens": 1000000,
+				"maxOutputTokens": 384000
+			},
+			{
+				"id": "deepseek-v4-pro",
+				"name": "DeepSeek V4 Pro",
+				"url": "https://api.deepseek.com/v1/chat/completions",
+				"toolCalling": true,
+				"vision": false,
+				"maxInputTokens": 1000000,
+				"maxOutputTokens": 384000
+			}
+		]
+	}
+]
+```
+
+
+
 Great tutorial: https://code.visualstudio.com/docs/editor/codebasics
 
 ## Essential shortcuts
