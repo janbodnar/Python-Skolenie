@@ -1,11 +1,29 @@
 # Priklady
 
 
+## Opakovanie
+
 ```python
-# vypis hodnotu 11
-mix = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
-print(mix[3][3][3][1])
+# vypis 7 krat slovo falcon
+word = 'falcon'
+
+# vytvor zoznam 30 tich nahodnych 
+# cisiel z rozsahu 1-100
+random_vals = []
+
+# spocitaj sumu pomocou for loopu
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+# spocitaj sumu pomocou while loopu
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+# spocitaj pocet samohlasok 
+msg = 'and old falcon in the sky'
+
+# spocitaj pocet slov vo vete
+msg = 'There are seven falcons in the sky.'
 ```
+
 
 
 ## Opakovanie
