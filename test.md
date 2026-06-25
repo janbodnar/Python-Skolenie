@@ -1,6 +1,22 @@
 # Priklady
 
 
+
+## name clash
+
+```python
+suma = 0
+vals = (1, 2, 3, 4, 5)
+
+for val in vals:
+    suma += val
+
+print(suma)
+
+
+print(sum(vals))
+```
+
 ## Bar chart
 
 ```python
