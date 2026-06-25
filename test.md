@@ -26,10 +26,21 @@ msg = 'and old falcon in the sky'
 
 # spocitaj pocet slov vo vete
 msg = 'There are seven falcons in the sky.'
-
-
 ```
 
+Riesenia: 
+
+```
+word = 'falcon '
+
+print(word * 7)
+
+i = 1 
+
+while i <= 7:
+    print(word)
+    i += 1
+```
 
 
 ## Opakovanie
