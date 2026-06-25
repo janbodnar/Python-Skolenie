@@ -110,6 +110,13 @@ for character in msg:
 
 print(f'there are {count} vowels')
 
+
+# spocitaj pocet slov vo vete
+msg = 'There are seven falcons in the sky.'
+
+parts = msg.split()
+print(parts)
+print(len(parts))
 ```
 
 
