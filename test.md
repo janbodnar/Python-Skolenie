@@ -1,5 +1,22 @@
 # Priklady
 
+## range function
+
+```python
+#  spocitaj cisla od 500 - 850
+
+suma = 0
+
+for cislo in range(500, 851):
+    suma += cislo
+
+print(suma)
+
+print(sum(range(500, 851)))
+```
+
+
+
 ## for vs while loop
 
 ```python
