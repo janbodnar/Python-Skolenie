@@ -1,5 +1,6 @@
 # Priklady
 
+https://docs.google.com/document/d/1K81CLCzao6z_S242dqPF8dHgHFv4g31J7EQ1PYBg9aY/edit?usp=drive_link
 
 ## random funtions
 
