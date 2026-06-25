@@ -1,5 +1,24 @@
 # Priklady
 
+
+## dictionary iteration
+
+```python
+#!/usr/bin/python
+
+data = { "de": "Germany", "sk": "Slovakia", "hu": "Hungary", "ru": "Russia" }    
+
+for k in data:
+    print(k, data[k])
+
+for v in data.values():
+    print(v)
+
+for k, v in data.items():
+    
+    print(f"{k} is an abbreviation for {v}")
+```
+
 ## range function
 
 ```python
