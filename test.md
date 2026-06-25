@@ -4,8 +4,12 @@
 ## Opakovanie
 
 ```python
+
 # vypis 7 krat slovo falcon
 word = 'falcon'
+
+# spocitaj posledne tri hodnoty
+data = [11, 22, 33, 44, 55, 66, 77, 88]
 
 # vytvor zoznam 30 tich nahodnych 
 # cisiel z rozsahu 1-100
@@ -22,6 +26,8 @@ msg = 'and old falcon in the sky'
 
 # spocitaj pocet slov vo vete
 msg = 'There are seven falcons in the sky.'
+
+
 ```
 
 
