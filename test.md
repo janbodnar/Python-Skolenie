@@ -65,6 +65,28 @@ while i < 30:
     i += 1
 
 print(random_vals)
+
+# spocitaj sumu pomocou for loopu
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+suma = 0
+for val in vals:
+    suma += val
+
+print(suma)
+
+# spocitaj sumu pomocou while loopu
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+i = 0
+suma = 0
+
+while i < len(vals):
+    suma += vals[i]
+    i += 1
+
+print(suma)
+
 ```
 
 
