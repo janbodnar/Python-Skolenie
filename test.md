@@ -48,6 +48,23 @@ y = data[-2]
 z = data[-3]
 
 print(x + y + z)
+
+
+import random
+
+# vytvor zoznam 30 tich nahodnych 
+# cisiel z rozsahu 1-100
+random_vals = []
+
+i = 0
+
+while i < 30:
+    r = random.randint(1, 101)
+    random_vals.append(r)
+
+    i += 1
+
+print(random_vals)
 ```
 
 
