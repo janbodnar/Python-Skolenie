@@ -1,5 +1,24 @@
 # Priklady
 
+## for vs while loop
+
+```python
+word = 'falcon'
+
+for i in range(7):
+    print(word)
+
+
+print('-----------------------')
+
+i = 0
+
+while i < 7:
+    print(word)
+
+    i += 1
+```
+
 
 ## Opakovanie
 
