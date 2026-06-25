@@ -1,6 +1,28 @@
 # Priklady
 
 
+## random funtions
+
+```python
+import random
+
+# print(dir(random))
+
+vals = [1, 2, 3, 4, 5]
+print(vals)
+random.shuffle(vals)
+print(vals)
+
+words = ['sky', 'tower', 'small', 'blue', 'cup']
+random_word = random.choice(words)
+print(random_word)
+
+random_words = random.sample(words, 3)
+print(random_words)
+```
+
+
+
 
 ## name clash
 
