@@ -30,7 +30,7 @@ msg = 'There are seven falcons in the sky.'
 
 Riesenia: 
 
-```
+```python
 word = 'falcon '
 
 print(word * 7)
@@ -40,6 +40,14 @@ i = 1
 while i <= 7:
     print(word)
     i += 1
+
+# spocitaj posledne tri hodnoty
+data = [11, 22, 33, 44, 55, 66, 77, 88]
+x = data[-1]
+y = data[-2]
+z = data[-3]
+
+print(x + y + z)
 ```
 
 
