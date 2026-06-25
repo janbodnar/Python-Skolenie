@@ -1,6 +1,52 @@
 # Priklady
 
 
+## Bar chart
+
+```python
+import matplotlib.pyplot as plt
+
+# Sample data
+categories = ["Apples", "Bananas", "Cherries", "Dates", "Elderberries"]
+sales = [120, 90, 150, 70, 110]
+colors = ["#FF6B6B", "#FFD93D", "#FF8C94", "#6BCB77", "#4D96FF"]
+
+# Create the bar chart
+plt.figure(figsize=(8, 5))
+bars = plt.bar(categories, sales, color=colors, edgecolor="white", linewidth=1.5)
+
+# Add value labels on top of each bar
+for bar in bars:
+    plt.text(
+        bar.get_x() + bar.get_width() / 2,
+        bar.get_height() + 2,
+        str(bar.get_height()),
+        ha="center",
+        va="bottom",
+        fontsize=11,
+        fontweight="bold",
+    )
+
+# Labels and title
+plt.xlabel("Fruit", fontsize=12)
+plt.ylabel("Sales (units)", fontsize=12)
+plt.title("Fruit Sales by Category", fontsize=14, fontweight="bold", pad=15)
+
+# Remove top and right spines for a cleaner look
+plt.gca().spines["top"].set_visible(False)
+plt.gca().spines["right"].set_visible(False)
+
+# Grid for readability
+plt.grid(axis="y", linestyle="--", alpha=0.4)
+
+plt.tight_layout()
+# plt.show()
+
+plt.savefig('barchart.png')
+```
+
+
+
 ## dictionary iteration
 
 ```python
