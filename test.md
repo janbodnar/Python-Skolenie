@@ -87,6 +87,29 @@ while i < len(vals):
 
 print(suma)
 
+
+# spocitaj pocet samohlasok 
+msg = 'and old falcon in the sky'
+
+count = 0
+
+for character in msg:
+    if character == 'a' or character == 'e' or character == 'e' \
+        or character == 'i' or character == 'o' or character == 'u' \
+        or character == 'y':
+        count += 1
+
+print(f'there are {count} vowels')
+
+count = 0
+print('----------------------------------')
+
+for character in msg:
+    if character in 'aeiouy':
+        count += 1
+
+print(f'there are {count} vowels')
+
 ```
 
 
