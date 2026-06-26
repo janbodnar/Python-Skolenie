@@ -1,5 +1,17 @@
 # Priklady
 
+## map function with lambda
+
+```python
+
+vals = [1, 2, 3, 4, 5]
+
+
+vals_2 = list(map(lambda e: e * 2, vals))
+print(vals_2)
+vals_3 = list(map(lambda e: e * e * e, vals))
+print(vals_3)
+```
 
 
 ## map function
