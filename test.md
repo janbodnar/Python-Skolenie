@@ -1,5 +1,16 @@
 # Priklady
 
+## fstring fun
+
+```python
+def cube(x):
+    return x * x * x
+
+n = 10
+
+print(f'{n} cubed is: {cube(n)}')
+```
+
 
 ## Opakovanie 
 
