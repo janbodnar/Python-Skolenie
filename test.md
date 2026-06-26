@@ -61,6 +61,16 @@ vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
 three_random_vals = random.sample(vals, 3)
 print(three_random_vals)
+
+import random
+
+
+# nahodnym sposobom preusporiadaj cisla
+vals2 = (10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+vals3 = list(vals2)
+
+random.shuffle(vals3)
+print(vals3)
 ```
 
 https://docs.google.com/document/d/1K81CLCzao6z_S242dqPF8dHgHFv4g31J7EQ1PYBg9aY/edit?usp=drive_link
