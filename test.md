@@ -32,6 +32,17 @@ for word in words:
     count += len(word)
 
 print(f'# of characters: {count}')
+
+
+# spocitaj cisla
+vals = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
+suma = 0
+for val in vals:
+    suma += int(val)
+
+print(suma)
+
 ```
 
 https://docs.google.com/document/d/1K81CLCzao6z_S242dqPF8dHgHFv4g31J7EQ1PYBg9aY/edit?usp=drive_link
