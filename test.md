@@ -43,6 +43,18 @@ for val in vals:
 
 print(suma)
 
+
+# spocitaj cisla
+data = '1,2,3,4,5,6,7,8,9,10'
+parts = data.split(',')
+print(parts)
+
+suma = 0
+for part in parts:
+    suma += int(part)
+
+print(suma)
+
 ```
 
 https://docs.google.com/document/d/1K81CLCzao6z_S242dqPF8dHgHFv4g31J7EQ1PYBg9aY/edit?usp=drive_link
