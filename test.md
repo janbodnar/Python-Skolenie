@@ -1,6 +1,29 @@
 # Priklady
 
 
+## DeepSeek chat
+
+```python
+import os
+from openai import OpenAI
+
+api_key = os.getenv("DEEPSEEK_API_KEY")
+url = 'https://api.deepseek.com'
+
+client = OpenAI(api_key=api_key, base_url=url)
+
+prompt = 'Is Pluto a planet?'
+
+response = client.chat.completions.create(
+    model="deepseek-v4-flash",
+    messages=[{"role": "user", "content": prompt}]
+)
+
+print(response.choices[0].message.content)
+```
+
+
+
 ## append to file
 
 ```python
