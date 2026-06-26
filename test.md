@@ -1,5 +1,26 @@
 # Priklady
 
+
+## Opakovanie 
+
+```python
+# spocitaj pocet pismen
+words = ['sky', 'power', 'auto', 'small', 'car', 'tea', 'cup']
+
+# spocitaj cisla
+vals = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
+# spocitaj cisla
+data = '1,2,3,4,5,6,7,8,9,10'
+
+# vyber nahodne 3 cisla
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+# nahodnym sposobom preusporiadaj cisla
+vals2 = (10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+```
+
+
 https://docs.google.com/document/d/1K81CLCzao6z_S242dqPF8dHgHFv4g31J7EQ1PYBg9aY/edit?usp=drive_link
 
 ## random funtions
