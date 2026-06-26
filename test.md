@@ -55,6 +55,12 @@ for part in parts:
 
 print(suma)
 
+
+# vyber nahodne 3 cisla
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+three_random_vals = random.sample(vals, 3)
+print(three_random_vals)
 ```
 
 https://docs.google.com/document/d/1K81CLCzao6z_S242dqPF8dHgHFv4g31J7EQ1PYBg9aY/edit?usp=drive_link
