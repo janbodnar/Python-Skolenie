@@ -1,6 +1,26 @@
 # Priklady
 
 
+
+## map function
+
+```python
+vals = [1, 2, 3, 4, 5]
+
+
+def twice(e):
+    return 2 * e
+
+def cube(e):
+    return e * e * e
+
+vals_2 = list(map(twice, vals))
+print(vals_2)
+
+vals_3 = list(map(cube, vals))
+print(vals_3)
+```
+
 ## filter function with lambda
 
 ```python
