@@ -1,5 +1,20 @@
 # Priklady
 
+
+## append to file
+
+```python
+filename = 'output.txt'
+
+with open(filename, 'a') as file:
+
+    text = 'hello there 4!\n'
+    file.write(text)
+
+print('end of program')
+```
+
+
 ## read file
 
 ```python
