@@ -1,6 +1,25 @@
 # Priklady
 
 
+## filter function
+
+```python
+def is_positive(e):
+    return e > 0
+
+def is_negative(e):
+    return e < 0
+
+vals = [2, -3, 4, 9, 0, 1, -2, -4]
+
+positive_values = list(filter(is_positive, vals))
+print(positive_values)
+
+negative_values = list(filter(is_negative, vals))
+print(negative_values)
+```
+
+
 ## unnamed variable
 
 ```python
