@@ -12,8 +12,8 @@ Lucia        Dorak          programmer
 Robert       Williams       soldier            
 ```
 
-Shift + Alt + Mouse drag
-Ctrl + Shift + Alt + Cursor keys
+Shift + Alt + Mouse drag  
+Ctrl + Shift + Alt + Cursor keys  
 
 
 
