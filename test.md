@@ -1,5 +1,22 @@
 # Priklady
 
+## read file
+
+```python
+#!/usr/bin/python
+
+
+filename = 'thermopylae.txt'
+
+with open(filename, 'r') as file: 
+    content = file.read()
+    print(content)
+
+print('end of program')
+```
+
+
+
 ## map function with lambda
 
 ```python
