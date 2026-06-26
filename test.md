@@ -21,6 +21,19 @@ vals2 = (10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
 ```
 
 
+## Riesenia
+
+```python
+# spocitaj pocet pismen
+words = ['sky', 'power', 'auto', 'small', 'car', 'tea', 'cup']
+
+count = 0
+for word in words:
+    count += len(word)
+
+print(f'# of characters: {count}')
+```
+
 https://docs.google.com/document/d/1K81CLCzao6z_S242dqPF8dHgHFv4g31J7EQ1PYBg9aY/edit?usp=drive_link
 
 ## random funtions
