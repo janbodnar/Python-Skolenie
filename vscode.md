@@ -136,7 +136,7 @@ Common useful commands:
 "terminal.integrated.defaultProfile.windows": "Command Prompt",
 "terminal.integrated.enableMultiLinePasteWarning": false,
 "editor.stickyScroll.enabled": false,
-"editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+"editor.fontFamily": "'JetBrains Mono', 'Cascadia Code', Consolas, 'Courier New', monospace",
 "editor.multiCursorModifier": "ctrlCmd",
 "editor.suggest.insertMode": "replace",
 "workbench.editor.pinnedTabSizing": "compact",
