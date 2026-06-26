@@ -1,5 +1,16 @@
 # Priklady
 
+
+## unnamed variable
+
+```python
+word = 'falcon'
+
+for _ in range(1, 8):
+    print(word)
+```
+
+
 ## Column selection
 
 ```
