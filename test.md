@@ -1,5 +1,20 @@
 # Priklady
 
+## Column selection
+
+first name   last name      occupation         
+John         Doe            gardener           
+Roger        Roe            driver             
+Paul         Novak          teacher            
+Jane         Smith          accountant         
+Lucia        Dorak          programmer         
+Robert       Williams       soldier            
+
+Shift + Alt + Mouse drag
+Ctrl + Shift + Alt + Cursor keys
+
+
+
 ## rich table
 
 ```python
