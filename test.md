@@ -1,5 +1,83 @@
 # Priklady
 
+## rich table
+
+```python
+"""Simple demonstration of the rich library — creating a table."""
+
+from rich.console import Console
+from rich.table import Table
+from rich import print as rprint
+
+# ── Quick preview: rich print ──
+rprint("\n[bold cyan]📦 rich[/] [green]library demo[/]\n")
+
+# ── Create a table ──
+table = Table(title="📊 Monthly Sales Report", title_style="bold magenta")
+
+# Define columns
+table.add_column("Month", style="cyan", no_wrap=True)
+table.add_column("Revenue", justify="right", style="green")
+table.add_column("Expenses", justify="right", style="red")
+table.add_column("Profit", justify="right", style="bold yellow")
+table.add_column("Status", justify="center")
+
+# Add rows
+table.add_row("January",  "$45,200", "$32,100", "$13,100", "✅")
+table.add_row("February", "$42,800", "$30,500", "$12,300", "✅")
+table.add_row("March",    "$51,300", "$35,200", "$16,100", "✅")
+table.add_row("April",    "$38,900", "$31,800",  "$7,100", "⚠️")
+table.add_row("May",      "$47,600", "$30,100", "$17,500", "✅")
+table.add_row("June",     "$55,000", "$36,400", "$18,600", "✅")
+table.add_row("July",     "$41,200", "$33,700",  "$7,500", "⚠️")
+table.add_row("August",   "$49,800", "$32,900", "$16,900", "✅")
+table.add_row("September","$53,400", "$34,600", "$18,800", "✅")
+table.add_row("October",  "$48,100", "$31,200", "$16,900", "✅")
+table.add_row("November", "$56,700", "$37,800", "$18,900", "✅")
+table.add_row("December", "$62,300", "$40,100", "$22,200", "✅")
+
+# Add a separator row (footer summary)
+table.add_section()
+table.add_row(
+    "[bold]Total[/]",
+    "[bold]$592,300[/]",
+    "[bold]$406,400[/]",
+    "[bold]$185,900[/]",
+    "[bold]🟢[/]",
+    end_section=True,
+)
+
+# Render the table
+console = Console()
+console.print(table, justify="center")
+
+# ── Bonus: styled summary panel ──
+from rich.panel import Panel
+from rich.text import Text
+
+summary = Text()
+summary.append("\nTotal Revenue:  ", style="white")
+summary.append("$592,300\n", style="bold green")
+summary.append("Total Expenses: ", style="white")
+summary.append("$406,400\n", style="bold red")
+summary.append("Net Profit:     ", style="white")
+summary.append("$185,900\n", style="bold yellow")
+summary.append("Profit Margin:  ", style="white")
+summary.append("31.4%\n", style="bold cyan")
+
+panel = Panel(
+    summary,
+    title="[bold magenta]📈 Summary[/]",
+    border_style="blue",
+    padding=(1, 4),
+)
+console.print(panel, justify="center")
+
+rprint("\n[dim]✨ Built with [link=https://rich.readthedocs.io/]rich[/][/]\n")
+```
+
+
+
 ## fstring fun
 
 ```python
