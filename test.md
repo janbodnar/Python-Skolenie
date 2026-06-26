@@ -1,6 +1,19 @@
 # Priklady
 
 
+## filter function with lambda
+
+```python
+vals = [2, -3, 4, 9, 0, 1, -2, -4]
+
+positive_values = list(filter(lambda e: e > 0, vals))
+print(positive_values)
+
+negative_values = list(filter(lambda e: e < 0 , vals))
+print(negative_values)
+```
+
+
 ## filter function
 
 ```python
