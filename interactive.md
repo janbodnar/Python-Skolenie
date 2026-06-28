@@ -19,6 +19,7 @@ The Python tutorial
 
 
 ## Interactive interpreter
+
 Another way of running Python code is the interactive Python interpreter. The Python interpreter is very  
 useful for our explorations. When we quickly want to test some basic functionality of the Python language  
 and we don't want to write a whole script. To get the interactive interpreter, we execute the Python  
@@ -26,7 +27,7 @@ command on our favourite shell.
 
 ```
 $ python
-Python 3.10.12 (main, Jun 11 2023, 05:26:28) [GCC 11.4.0] on linux
+Python 3.14.0 (main, Oct 14 2025, 21:27:55) [Clang 20.1.4 ] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
