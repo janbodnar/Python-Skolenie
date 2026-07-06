@@ -1,5 +1,36 @@
 # Priklady
 
+
+## Faker 
+
+```python
+from faker import Faker
+
+faker = Faker('sk_SK')
+
+file_name = 'users_sk.csv'
+
+with open(file_name, 'w', encoding='utf-8') as file:
+
+    header = f'id,first_name,last_name,city,phone_number,email\n'
+    file.write(header)
+
+    for i in range(1, 100_001):
+
+
+        _id = i
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        city = faker.city()
+        phone = faker.phone_number()
+        email = faker.safe_email()
+
+        row = f'{_id},{first_name},{last_name},{city},{phone},{email}\n'
+        file.write(row)
+```
+
+
+
 ## Simple DeepSeek chat
 
 ```python
