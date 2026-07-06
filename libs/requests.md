@@ -19,7 +19,7 @@ Features:
 ```python
 import requests as req
 
-resp = req.get("https://webcode.me")
+resp = req.get("https://example.com")
 
 print(resp.status_code)
 print(resp.history)
@@ -31,7 +31,7 @@ print(resp.url)
 ```python
 import requests 
 
-resp = requests.head("https://webcode.me")
+resp = requests.head("https://example.com")
 
 print("Server: " + resp.headers['server'])
 print("Last modified: " + resp.headers['last-modified'])
@@ -43,7 +43,7 @@ print("Content type: " + resp.headers['content-type'])
 ```python
 import requests 
 
-url = 'https://webcode.me/'
+url = 'https://example.com/'
 resp = requests.get(url)
 
 # print(resp.content.decode('utf-8'))
