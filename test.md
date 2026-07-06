@@ -1,5 +1,53 @@
 # Priklady
 
+## Simple DeepSeek chat
+
+```python
+import requests
+import os
+
+api_key = os.getenv('DEEPSEEK_API_KEY')
+
+if not api_key:
+    raise ValueError("DEEPSEEK_API_KEY environment variable not set")
+
+url = 'https://api.deepseek.com/v1/chat/completions'
+model = 'deepseek-v4-flash'
+prompt = 'Is pluto a planet?'
+
+headers = {
+    'Authorization': f'Bearer {api_key}',
+    'Content-Type': 'application/json'
+}
+
+payload = {
+    'model': model,
+    'messages': [
+        {'role': 'user', 'content': prompt}
+    ],
+    'temperature': 0.7,
+    'max_tokens': 1024
+}
+
+response = requests.post(url, headers=headers, json=payload)
+response.raise_for_status()
+
+data = response.json()
+print(data['choices'][0]['message']['content'])
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## DeepSeek chat
 
