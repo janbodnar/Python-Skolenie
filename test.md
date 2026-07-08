@@ -20,7 +20,18 @@ items = (True, 'apple', 42, 3.14, None, False,
 # transform all vals into positive values
 ```
 
+## Riesenia
 
+```python
+# def is_negative(x):
+#     return x < 0
+
+# select all negative values
+vals = [-1, 0, 1, 2, 3, 4, 5, -9]
+
+negs = list(filter(lambda e: e < 0, vals))
+print(negs)
+```
 
 
 
