@@ -1,5 +1,47 @@
 # Priklady
 
+
+````
+---
+name: currenttime
+description: This skill provides the 
+  current time in a specified timezone. If no timezone is provided, it defaults to UTC.
+---
+
+
+Run the following Python code to get the current time 
+in a specified timezone. If no timezone is provided, it defaults to UTC.
+
+```python
+from datetime import datetime
+
+
+timezone = 'Europe/Bratislava'
+
+def current_datetime():
+    return datetime.now()
+
+def current_datetime_timezone(timezone):
+    return datetime.now(timezone)
+
+
+print("Current date and time:", current_datetime())
+print("Current date and time in timezone", timezone, ":", current_datetime_timezone(timezone))
+```
+````
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```python
 import json
 import requests
