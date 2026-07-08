@@ -1,5 +1,303 @@
 # Priklady
 
+
+## Custom error 404 page.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Animated background particles */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            animation: drift 20s infinite alternate ease-in-out;
+            z-index: 0;
+        }
+
+        body::before {
+            background: #7b2ff7;
+            top: -100px;
+            left: -100px;
+        }
+
+        body::after {
+            background: #00d4ff;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -10s;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, 40px) scale(1.2); }
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .error-code {
+            font-size: 160px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f093fb, #f5576c, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            letter-spacing: -8px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .error-code::after {
+            content: '404';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: linear-gradient(135deg, #f093fb, #f5576c, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.3;
+            z-index: -1;
+            filter: blur(8px);
+        }
+
+        .glitch-line {
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #f093fb, #4facfe);
+            border-radius: 2px;
+            margin: 10px auto 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scaleX(1); }
+            50% { opacity: 0.6; transform: scaleX(1.3); }
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 460px;
+            margin: 0 auto 36px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(245, 87, 108, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(245, 87, 108, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .fun-fact {
+            margin-top: 48px;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: inline-block;
+        }
+
+        .fun-fact span {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .fun-fact p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 15px;
+        }
+
+        /* Floating shapes decoration */
+        .shape {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.06;
+            z-index: 0;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+
+        .shape-1 {
+            width: 180px;
+            height: 180px;
+            background: #f093fb;
+            top: 20%;
+            right: 10%;
+            animation-delay: -4s;
+        }
+
+        .shape-2 {
+            width: 120px;
+            height: 120px;
+            background: #4facfe;
+            bottom: 25%;
+            left: 8%;
+            animation-delay: -8s;
+        }
+
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            background: #f5576c;
+            top: 60%;
+            right: 25%;
+            animation-delay: -2s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-30px) rotate(15deg); }
+        }
+
+        @media (max-width: 480px) {
+            .error-code { font-size: 100px; }
+            h1 { font-size: 24px; }
+            .subtitle { font-size: 16px; }
+            .btn { padding: 12px 24px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative shapes -->
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+
+    <div class="container">
+        <div class="error-code">404</div>
+        <span class="glitch-line"></span>
+        <h1>Lost in Space</h1>
+        <p class="subtitle">
+            The page you're looking for has drifted off into the cosmos.
+            Let's get you back to solid ground.
+        </p>
+        <div class="actions">
+            <a href="/" class="btn btn-primary">
+                <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                Go Home
+            </a>
+            <a href="javascript:history.back()" class="btn btn-secondary">
+                <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                Go Back
+            </a>
+        </div>
+        <div class="fun-fact">
+            <span>Did you know?</span>
+            <p>The HTTP 404 code was invented at CERN and the first was served in 1992.</p>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 ````
 ---
 name: disk-explorer
