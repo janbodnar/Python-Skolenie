@@ -1,5 +1,20 @@
 # Priklady
 
+```python
+# use list comprehension the get all 3 letter words
+# create upper-case list list from words starting with 'c'
+words = ['sky', 'word', 'cup', 'brown', 'eleven', 'car']
+
+
+words_3 = [word for word in words if len(word) == 3]
+print(words_3)
+
+words_c_upper = [word.upper() for word in words if word.startswith('c')]
+print(words_c_upper)
+```
+
+
+
 ## list comprehensions
 
 ```python
