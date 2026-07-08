@@ -44,6 +44,13 @@ print(words_c_w)
 
 words_c_w = list(filter(lambda word: word.startswith(('c', 'w')) , words))
 print(words_c_w)
+
+# select all boolean values from the items tuple
+items = (True, 'apple', 42, 3.14, None, False, 
+         [1, 2, 3], {'key': 'value'})
+
+bool_vals = tuple(filter(lambda item: type(item) == bool, items))
+print(bool_vals)
 ```
 
 
