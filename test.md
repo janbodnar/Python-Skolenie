@@ -1,6 +1,60 @@
 # Priklady
 
 
+## Simple HTML page
+
+```html
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Môj prvý HTML dokument</title>
+
+    <style>
+
+        h1 {
+            color: blue;
+            font-size: 44px;
+            font-family: Arial, sans-serif;
+        }
+
+        p {
+            color: green;
+            border: 1px solid black;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>
+        Môj prvý HTML dokument
+    </h1>
+
+    <p>
+        
+        Ahoj! Toto je môj prvý HTML dokument.
+    </p>
+
+    <p>
+        Je to veľmi zaujímavé.
+    </p>
+
+
+</body>
+
+
+</html>
+```
+
+
 ## Custom error 404 page.
 
 ```html
