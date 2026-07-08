@@ -51,6 +51,13 @@ items = (True, 'apple', 42, 3.14, None, False,
 
 bool_vals = tuple(filter(lambda item: type(item) == bool, items))
 print(bool_vals)
+
+
+words_titled = list(map(lambda word: word.title(), words))
+print(words_titled)
+
+vals_positive = tuple(map(lambda val: abs(val), vals))
+print(vals_positive)
 ```
 
 
