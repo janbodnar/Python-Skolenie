@@ -1,5 +1,192 @@
 # Priklady
 
+````
+---
+name: disk-explorer
+description: 'Explore disk contents using advanced coreutils commands (find, du, ls, grep, stat). Use when: locating files by name/pattern/size/date, analyzing disk usage, searching file contents, or viewing directory structures.'
+argument-hint: 'path or search query (e.g. "find all .py files over 1MB in /tmp")'
+user-invocable: true
+---
+
+# Disk Explorer
+
+Find files, analyze disk usage, and explore directory 
+structures using advanced coreutils commands. Don't use Powershell.
+Use the find command from the coreutils package which is installed 
+on the my Windows OS: It is located in 
+"C:\Program Files\coreutils\bin\find.exe"
+
+## When to Use
+
+- **Find files by name/pattern** — Locate files matching a name, glob, or regex
+- **Find files by size** — Files above/below a specific size threshold
+- **Find files by date** — Recently modified, created, or accessed files
+- **Disk usage analysis** — Show largest files/folders consuming space
+- **Search file contents** — Find files containing specific text/patterns
+- **Directory structure view** — Visualize folder hierarchy
+
+## Prerequisites
+
+- Coreutils (`find`, `du`, `ls`, `grep`, `stat`, `tree`) — preinstalled on most systems
+
+
+## Procedure
+
+### 1. Identify the target path and search criteria
+
+Ask the user:
+- Which directory to search (default: current working directory)
+- What to find (name pattern, size range, date range, file type, content)
+- Any exclusions or depth limits
+
+### 2. Choose and run the appropriate command
+
+#### Find files by name/pattern
+
+```bash
+# By exact name
+find /path -name "filename.txt"
+
+# By case-insensitive name
+find /path -iname "*.py"
+
+# By regex pattern
+find /path -regex ".*\.\(py\|js\)$"
+```
+
+#### Find files by size
+
+```bash
+# Files larger than 100MB
+find /path -type f -size +100M
+
+# Files smaller than 1KB
+find /path -type f -size -1k
+
+# Files between 10MB and 100MB
+find /path -type f -size +10M -size -100M
+
+# Empty files
+find /path -type f -empty
+```
+
+#### Find files by date
+
+```bash
+# Modified in the last 7 days
+find /path -type f -mtime -7
+
+# Modified more than 30 days ago
+find /path -type f -mtime +30
+
+# Modified in the last 24 hours (in minutes)
+find /path -type f -mmin -1440
+
+# Accessed exactly 10 days ago
+find /path -type f -atime 10
+
+# Created (born) in last 2 days (Linux 4.0+)
+find /path -type f -newerBt "2 days ago"
+```
+
+#### Find by file type
+
+```bash
+# Directories only
+find /path -type d
+
+# Regular files only
+find /path -type f
+
+# Symbolic links
+find /path -type l
+```
+
+#### Disk usage analysis
+
+```bash
+# Show directory sizes (human-readable)
+du -sh /path/*
+
+# Top 10 largest directories (depth 1)
+du -sh /path/*/ | sort -rh | head -10
+
+# Top 20 largest files
+find /path -type f -exec du -Sh {} + | sort -rh | head -20
+
+# Summary of total size per file extension
+find /path -type f | sed 's/.*\.//' | sort | uniq -c | sort -rh
+```
+
+#### Search file contents
+
+```bash
+# Recursive grep for a string
+grep -r "search_term" /path
+
+# Case-insensitive search with line numbers
+grep -rin "search_term" /path
+
+# Search only .py files
+grep -r --include="*.py" "search_term" /path
+
+# Show files with matches (not lines)
+grep -rl "search_term" /path
+```
+
+#### Directory structure view
+
+```bash
+# Tree view (if tree is installed)
+tree /path -L 2
+
+# Tree showing only directories
+tree /path -d
+
+# Indented list using find
+find /path -type f | sed 's|[^/]*/|  |g'
+
+# Full listing with sizes
+ls -lhR /path | head -50
+```
+
+#### Combined / advanced queries
+
+```bash
+# Large old log files (candidates for cleanup)
+find /path -name "*.log" -type f -size +10M -mtime +30
+
+# Count files per directory
+find /path -type d -exec sh -c 'echo "$1: $(find "$1" -maxdepth 1 -type f | wc -l)"' _ {} \;
+
+# Files with permissions 777 (security risk)
+find /path -type f -perm 0777
+
+# Find and execute action (e.g., delete old temp files)
+find /path -name "*.tmp" -type f -mtime +7 -delete
+```
+
+### 3. Present results
+
+- Summarize the findings clearly (count, total size, locations)
+- Highlight any anomalies (very large files, old cruft, permission issues)
+- Offer to refine the search or take action (delete, move, compress)
+
+## Tips
+
+- Use `-maxdepth N` to limit recursion depth and speed up searches
+- Use `-mount` (or `-xdev`) to stay on one filesystem (avoid network mounts)
+- Combine `find` with `-exec` for batch operations (delete, chmod, chown)
+- Pipe to `head` or `less` for large result sets
+- For very large directories, prefer `locate` (if mlocate/plocate is installed) over `find` for speed
+
+## Common Pitfalls
+
+- **Escaping**: Remember to quote or escape wildcards (`find . -name "*.txt"`)
+- **Permission errors**: Use `2>/dev/null` to suppress "Permission denied" noise: `find /path -type f 2>/dev/null`
+````
+
+
 
 ````
 ---
