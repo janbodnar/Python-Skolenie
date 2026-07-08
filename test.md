@@ -1,5 +1,21 @@
 # Priklady
 
+## list comprehensions
+
+```python
+#!/usr/bin/python
+
+a = ['a', 2, [-4, 5], 'c', 12, 3, 'd', [1, 2]]
+
+b = [e for e in a if type(e) == int]
+c = [e for e in a if type(e) == str]
+d = [e for e in a if type(e) == list]
+
+print(b)
+print(c)
+print(d)
+```
+
 
 ## Opakovanie
 
