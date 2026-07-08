@@ -1,6 +1,23 @@
 # Priklady
 
 ```python
+import json
+import requests
+
+url = 'http://api.open-notify.org/iss-now.json'
+
+resp = requests.get(url)
+
+data = resp.json()
+print(data)
+
+print(data['timestamp'])
+print(data['iss_position'])
+print(data['message'])
+```
+
+
+```python
 # use list comprehension the get all 3 letter words
 # create upper-case list list from words starting with 'c'
 words = ['sky', 'word', 'cup', 'brown', 'eleven', 'car']
