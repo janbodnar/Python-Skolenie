@@ -31,6 +31,19 @@ vals = [-1, 0, 1, 2, 3, 4, 5, -9]
 
 negs = list(filter(lambda e: e < 0, vals))
 print(negs)
+
+# select all words starting with the letter 'c'
+# select all words starting with the letter 'c' or 'w'
+words = ['sky', 'cloud', 'rain', 'word', 'cup', 'sun', 'wind', 'storm']
+
+words_c = list(filter(lambda word: word.startswith('c'), words))
+print(words_c)
+
+words_c_w = list(filter(lambda word: word.startswith('c') or word.startswith('w') , words))
+print(words_c_w)
+
+words_c_w = list(filter(lambda word: word.startswith(('c', 'w')) , words))
+print(words_c_w)
 ```
 
 
