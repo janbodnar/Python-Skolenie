@@ -1,6 +1,30 @@
 # Priklady
 
 
+## Opakovanie
+
+```python
+# select all negative values
+vals = [-1, 0, 1, 2, 3, 4, 5, -9]
+
+# select all words starting with the letter 'c'
+# select all words starting with the letter 'c' or 'w'
+words = ['sky', 'cloud', 'rain', 'word', 'cup', 'sun', 'wind', 'storm']
+
+
+# select all boolean values from the items tuple
+items = (True, 'apple', 42, 3.14, None, False, 
+         [1, 2, 3], {'key': 'value'})
+
+# transform all the words in the list to title case
+# transform all vals into positive values
+```
+
+
+
+
+
+
 ## Faker 
 
 ```python
