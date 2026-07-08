@@ -189,18 +189,16 @@ Read JSON from URL.
 import json
 import requests
 
-url = 'http://time.jsontest.com'
+url = 'http://api.open-notify.org/iss-now.json'
 
 resp = requests.get(url)
 
-# text = resp.content.decode("UTF8")
-# data = json.loads(text)
-
 data = resp.json()
+print(data)
 
-print(f"Unix time: {data['milliseconds_since_epoch']}")
-print(f"Time: {data['time']}")
-print(f"Date: {data['date']}")
+print(data['timestamp'])
+print(data['iss_position'])
+print(data['message'])
 ```
 
 ## Using urllib3
