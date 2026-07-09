@@ -1,4 +1,34 @@
 
+```python
+from google import genai
+from google.genai import types
+import os
+
+api_key = os.getenv("AI_STUDIO_API_KEY")
+client = genai.Client(api_key=api_key)
+model = "gemini-3.1-flash-lite"
+
+
+local_file = 'obchod.pdf'
+doc_data = open(local_file, 'rb').read()
+
+prompt = "Summarize this document"
+response = client.models.generate_content(
+    model=model,
+    contents=[
+        types.Part.from_bytes(
+            data=doc_data,
+            mime_type='application/pdf',
+        ),
+        prompt
+    ]
+)
+
+print(response.text)
+```
+
+
+
 
 ## Modern wat to work with files
 
