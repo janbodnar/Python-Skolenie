@@ -1,7 +1,7 @@
 # Priklady
 
 
-
+```
 # in the examples, use random and list comprehensions
 
 
@@ -22,6 +22,7 @@ vals = [1, -2, -3, 4, -5, 6, -7, 8, -9, 10]
 words = ['sky', 'cloud', 'rain', 'cup', 'tree', 'leaf', 'flower', 'grass',
          'sun', 'wind', 'storm', 'snow', 'fog', 'hail', 'thunder']
 
+```
 
 ## Simple HTML page
 
