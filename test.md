@@ -1,3 +1,28 @@
+
+
+
+## FileNotFoundError
+
+```python
+file_name = input('Enter the name of the file to read: ')
+
+try:
+
+    with open(file_name, 'r') as file:
+        data = file.read()
+
+        print(data)
+
+except FileNotFoundError:
+    print(f"Error: The file '{file_name}' was not found.")
+    print("Please check the file name and try again.")
+```
+
+
+
+
+
+
 # Priklady
 
 
