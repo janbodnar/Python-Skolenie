@@ -1,5 +1,24 @@
 
 
+## Modern wat to work with files
+
+
+```python
+try: 
+
+    with open('data.txt', 'r') as f:
+
+        lines = f.readlines()
+
+        for line in lines:
+            print(line.rstrip())
+
+
+except IOError as e:
+
+    print(f'Error opening file: {e}')
+```
+
 
 ## FileNotFoundError
 
