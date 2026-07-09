@@ -45,7 +45,15 @@ print(random_colours)
 colours_len_4 = [colour for colour in colours if len(colour) == 4]
 print(colours_len_4)
 
+# select negative values that are even
+# select positive values that are odd
+vals = [1, -2, -3, 4, -5, 6, -7, 8, -9, 10]
 
+res = [val for val in vals if val < 0 and val % 2 == 0]
+print(res)
+
+res2 = [val for val in vals if val > 0 if val % 2 == 1]
+print(res2)
 ```
 
 
