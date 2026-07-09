@@ -1,6 +1,28 @@
 # Priklady
 
 
+
+# in the examples, use random and list comprehensions
+
+
+# select a random colour from the list of colours
+# select two random colours from the list of colours
+# select colours which have 4 letters in their name
+colours = ['red', 'green', 'blue', 'yellow', 
+           'orange', 'purple', 'pink', 'brown', 'black', 'white']
+
+# select negative values that are even
+# select positive values that are odd
+vals = [1, -2, -3, 4, -5, 6, -7, 8, -9, 10]
+
+# select words that start with the letter 's'
+# select words that contain the letter 'f'
+# select words that start end end with the letter 'r'
+# select words that start with the letter 's' and end with the letter 'n'
+words = ['sky', 'cloud', 'rain', 'cup', 'tree', 'leaf', 'flower', 'grass',
+         'sun', 'wind', 'storm', 'snow', 'fog', 'hail', 'thunder']
+
+
 ## Simple HTML page
 
 ```html
