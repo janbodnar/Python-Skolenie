@@ -54,6 +54,27 @@ print(res)
 
 res2 = [val for val in vals if val > 0 if val % 2 == 1]
 print(res2)
+
+
+# select words that start with the letter 's'
+# select words that contain the letter 'f'
+# select words that start with 'f' end with the letter 'r'
+# select words that start with the letter 's' and end with the letter 'n'
+words = ['sky', 'cloud', 'rain', 'cup', 'tree', 'leaf', 'flower', 'grass',
+         'sun', 'wind', 'storm', 'snow', 'fog', 'hail', 'thunder']
+
+
+words_s = [word for word in words if word.startswith('s')]
+print(words_s)
+
+words_contains_f = [word for word in words if 'f' in word]
+print(words_contains_f)
+
+words_f_r = [word for word in words if word.startswith('f') and word.endswith('r')]
+print(words_f_r)
+
+words_s_n = [word for word in words if word.startswith('s') and word.endswith('n')]
+print(words_s_n)
 ```
 
 
