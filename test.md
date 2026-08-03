@@ -1,5 +1,24 @@
 # Examples
 
+## Formatting output
+
+```csv
+id,first_name,last_name,email,salary
+1,Kristine,Mcmahon,hawkinsdiane@example.net,42478
+2,Robert,Montgomery,asmith@example.com,58191
+3,Christine,Austin,smedina@example.com,87948
+4,Joshua,Cruz,mary33@example.com,68633
+5,Nicole,Todd,bradleybryant@example.com,42254
+6,Nicholas,Kline,jenniferevans@example.com,70166
+7,Tracy,Walton,kenneth19@example.com,91830
+8,Cindy,Pena,murphydeanna@example.org,60064
+9,Joshua,Serrano,davidphillips@example.net,72239
+10,Joseph,Robinson,sandra06@example.net,87451
+```
+
+
+
+
 
 ## Bar chart
 
