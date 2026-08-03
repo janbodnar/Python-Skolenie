@@ -5,6 +5,10 @@ Python is a general-purpose, dynamic, object-oriented programming language.
 The design purpose of the Python language emphasizes programmer productivity  
 and code readability.  
 
+The Story of Python
+
+https://www.youtube.com/watch?v=GfH4QL4VqJ0&themeRefresh=1
+
 Python was initially developed by Guido van Rossum.  
 
 It was first released in 1991. 
