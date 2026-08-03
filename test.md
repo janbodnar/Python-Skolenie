@@ -16,7 +16,35 @@ id,first_name,last_name,email,salary
 10,Joseph,Robinson,sandra06@example.net,87451
 ```
 
+```python
+from rich.console import Console
+from rich.table import Table
+import csv
 
+console = Console()
+
+table = Table(title="Employee Records", show_header=True, header_style="bold magenta")
+
+# Open and read data from users.csv
+with open("users.csv", mode="r", encoding="utf-8") as file:
+    reader = csv.reader(file)
+    headers = next(reader)
+    
+    # Add columns dynamically based on CSV headers
+    for header in headers:
+        table.add_column(
+            header.replace("_", " ").title(), 
+            justify="right" if header in ["id", "salary"] else "left"
+        )
+    
+    # Add rows and format the salary column with commas and a dollar sign
+    for row in reader:
+        if len(row) >= 5:
+            row[4] = f"${int(row[4]):,}"
+        table.add_row(*row)
+
+console.print(table)
+```
 
 
 
