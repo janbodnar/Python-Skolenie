@@ -51,7 +51,12 @@ print(len(rand_vals))
 
 # sort words in ascending and descending orders
 words = ['sky', 'blue', 'war', 'north', 'car', 'atom', 'yard']
-...
+
+words.sort()
+print(words)
+
+words.sort(reverse=True)
+print(words)
 ```
 
 
