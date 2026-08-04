@@ -37,9 +37,17 @@ for val in vals2:
 
 print(total)
 
+import random
+
 # create a list of 100 random integers
 rand_vals = []
-...
+
+for _ in range(100):
+    r = random.randint(1, 100)
+    rand_vals.append(r)
+
+print(rand_vals)
+print(len(rand_vals))
 
 # sort words in ascending and descending orders
 words = ['sky', 'blue', 'war', 'north', 'car', 'atom', 'yard']
