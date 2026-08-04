@@ -29,7 +29,13 @@ print(len(vals))
 
 # using for loop calculate sum of values
 vals2 = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-...
+
+total = 0
+
+for val in vals2:
+    total += val
+
+print(total)
 
 # create a list of 100 random integers
 rand_vals = []
