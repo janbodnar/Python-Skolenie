@@ -21,7 +21,11 @@ print(f'addition: {int(n1) + int(n2)}')
 
 # print min, max, sum, len of values
 vals = (1, -2, -5, 0, 9, 11, 3)
-...
+print(min(vals))
+print(max(vals))
+print(sum(vals))
+print(len(vals))
+
 
 # using for loop calculate sum of values
 vals2 = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
