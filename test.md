@@ -8,7 +8,8 @@
 name = 'John Doe'
 age = 34
 occupation = 'gardener'
-...
+
+print(f'{name} is {age} years old {occupation}')
 
 # using input function ask for two numbers and output
 # multiplication and addition of them
