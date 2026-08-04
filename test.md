@@ -14,7 +14,10 @@ print(f'{name} is {age} years old {occupation}')
 # using input function ask for two numbers and output
 # multiplication and addition of them
 n1 = input('Enter number1: ')
-...
+n2 = input('Enter number2: ')
+
+print(f'multiplication: {int(n1) * int(n2)}')
+print(f'addition: {int(n1) + int(n2)}')
 
 # print min, max, sum, len of values
 vals = (1, -2, -5, 0, 9, 11, 3)
