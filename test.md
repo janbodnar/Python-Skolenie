@@ -1,6 +1,30 @@
 # Examples
 
 
+
+## filter & map
+
+```python
+
+# map - transforming dataq
+# filter - filtering data
+
+def is_negative(e):
+    return e < 0
+
+def is_positive(e):
+    ...
+
+vals = [1, 2, -3, -4, 5]
+
+negs = list(filter(is_negative, vals))
+print(negs)
+
+pos = list(filter(...))
+print(pos)
+```
+
+
 https://www.youtube.com/watch?v=EB7dQv1ALCU&t=23s
 
 ## VS Code settings
