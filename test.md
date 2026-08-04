@@ -1,5 +1,38 @@
 # Examples
 
+
+## Recap
+
+```python
+# output with fstring: John Doe is 34 years old gardener
+name = 'John Doe'
+age = 34
+occupation = 'gardener'
+...
+
+# using input function ask for two numbers and output
+# multiplication and addition of them
+n1 = input('Enter number1: ')
+...
+
+# print min, max, sum, len of values
+vals = (1, -2, -5, 0, 9, 11, 3)
+...
+
+# using for loop calculate sum of values
+vals2 = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+...
+
+# create a list of 100 random integers
+rand_vals = []
+...
+
+# sort words in ascending and descending orders
+words = ['sky', 'blue', 'war', 'north', 'car', 'atom', 'yard']
+...
+```
+
+
 ## print 11
 
 ```python
