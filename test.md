@@ -2,6 +2,36 @@
 
 
 
+## Recap
+
+```python
+# output with fstring: John Doe is 34 years old gardener
+name = 'John Doe'
+age = 34
+occupation = 'gardener'
+
+# print min, max, sum, len of values
+vals = (1, -2, -5, 0, 9, 11, 3)
+
+# using for loop calculate sum of values
+vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+
+import random
+
+# create a list of 100 random integers
+rand_vals = []
+
+# print randomly three words from the list
+# sort words in ascending and descending orders
+# filter words starting with 'w'
+# filter words having 3 chars and starting with 's'
+# transform words into uppercase and print them
+# write these words into a file
+words = ['sky', 'blue', 'war', 'warm', 'north', 'car', 'sly', 'water', 'atom', 'yard']
+```
+
+
 ## filter & map
 
 ```python
@@ -51,63 +81,6 @@ https://www.youtube.com/watch?v=EB7dQv1ALCU&t=23s
 
 
 
-## Recap
-
-```python
-# output with fstring: John Doe is 34 years old gardener
-name = 'John Doe'
-age = 34
-occupation = 'gardener'
-
-print(f'{name} is {age} years old {occupation}')
-
-# using input function ask for two numbers and output
-# multiplication and addition of them
-n1 = input('Enter number1: ')
-n2 = input('Enter number2: ')
-
-print(f'multiplication: {int(n1) * int(n2)}')
-print(f'addition: {int(n1) + int(n2)}')
-
-# print min, max, sum, len of values
-vals = (1, -2, -5, 0, 9, 11, 3)
-print(min(vals))
-print(max(vals))
-print(sum(vals))
-print(len(vals))
-
-
-# using for loop calculate sum of values
-vals2 = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-
-total = 0
-
-for val in vals2:
-    total += val
-
-print(total)
-
-import random
-
-# create a list of 100 random integers
-rand_vals = []
-
-for _ in range(100):
-    r = random.randint(1, 100)
-    rand_vals.append(r)
-
-print(rand_vals)
-print(len(rand_vals))
-
-# sort words in ascending and descending orders
-words = ['sky', 'blue', 'war', 'north', 'car', 'atom', 'yard']
-
-words.sort()
-print(words)
-
-words.sort(reverse=True)
-print(words)
-```
 
 
 ## print 11
@@ -5155,6 +5128,65 @@ for user in data['users']:
 emails = [user['email'] for user in data['users']]
 
 print(emails)
+```
+
+
+## Recap
+
+```python
+# output with fstring: John Doe is 34 years old gardener
+name = 'John Doe'
+age = 34
+occupation = 'gardener'
+
+print(f'{name} is {age} years old {occupation}')
+
+# using input function ask for two numbers and output
+# multiplication and addition of them
+n1 = input('Enter number1: ')
+n2 = input('Enter number2: ')
+
+print(f'multiplication: {int(n1) * int(n2)}')
+print(f'addition: {int(n1) + int(n2)}')
+
+# print min, max, sum, len of values
+vals = (1, -2, -5, 0, 9, 11, 3)
+print(min(vals))
+print(max(vals))
+print(sum(vals))
+print(len(vals))
+
+
+# using for loop calculate sum of values
+vals2 = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+total = 0
+
+for val in vals2:
+    total += val
+
+print(total)
+
+import random
+
+# create a list of 100 random integers
+rand_vals = []
+
+for _ in range(100):
+    r = random.randint(1, 100)
+    rand_vals.append(r)
+
+print(rand_vals)
+print(len(rand_vals))
+
+# sort words in ascending and descending orders
+words = ['sky', 'blue', 'war', 'north', 'car', 'atom', 'yard']
+
+words.sort()
+print(words)
+
+words.sort(reverse=True)
+print(words)
 ```
 
 
