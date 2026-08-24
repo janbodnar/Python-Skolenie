@@ -20,6 +20,9 @@ vals = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 import random
 
 # create a list of 100 random integers
+# calculate sum
+# print first 10 elements
+# print last 10 elements
 rand_vals = []
 
 # print randomly three words from the list
