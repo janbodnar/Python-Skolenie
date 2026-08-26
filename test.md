@@ -1,6 +1,34 @@
 # Examples
 
 
+## Builtins
+
+```python
+x = 55
+y = -100
+
+print(abs(x))
+print(abs(y))
+
+word = 'falcon'
+print(len(word))
+
+words = ['sky','water', 'coin']
+print(len(words))
+
+print(pow(2,2))
+print(pow(2,3))
+print(pow(2,5))
+
+print(round(5.6732, 2))
+print(round(5.6721, 3))
+```
+
+
+
+
+
+
 
 ## Recap
 
