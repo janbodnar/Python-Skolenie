@@ -22,6 +22,13 @@ print(pow(2,5))
 
 print(round(5.6732, 2))
 print(round(5.6721, 3))
+
+# min, max, sum
+vals = [1, 2, 3, 4, 5]
+
+print(min(vals))
+print(max(vals))
+print(sum(vals))
 ```
 
 
