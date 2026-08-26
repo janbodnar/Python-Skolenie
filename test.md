@@ -1,5 +1,15 @@
 # Examples
 
+## Quotes and genitive
+
+```python
+print("There are many stars.")
+print("He said, \"Which one is your favourite?\"")
+print('He said, "Which one is your favourite?"')
+
+print('This is Tom\'s Lucy\'s cat')
+print("This is Tom's and Lucy's cat")
+```
 
 ## Formatting strings
 
