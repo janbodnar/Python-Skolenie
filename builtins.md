@@ -1,6 +1,131 @@
-Samozrejme, tu sú krátke ukážkové programy, ktoré demonštrujú použitie vybraných vstavaných funkcií jazyka Python. Každý program je samostatný a ilustruje konkrétnu funkciu alebo skupinu funkcií v praxi.
+### **Vstavané funkcie Pythonu**
+
+Python obsahuje množstvo funkcií, ktoré sú dostupné kdekoľvek vo vašom kóde bez nutnosti importovať žiadne moduly . Sú zoskupené podľa oblastí použitia.
+
+#### **1. Práca s číslami a matematika**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`abs(x)`** | Vráti absolútnu hodnotu čísla. Pre komplexné čísla vráti veľkosť (magnitúdu) . | `abs(-5)` vráti `5`; `abs(3+4j)` vráti `5.0`. |
+| **`divmod(a, b)`** | Vráti dvojicu čísel `(podiel, zvyšok)` po celočíselnom delení . | `divmod(10, 3)` vráti `(3, 1)`. |
+| **`max(iterable, *[, key, default])`**<br/>**`max(arg1, arg2, *args[, key])`** | Vráti najväčšiu položku z iterovateľného objektu alebo z dvoch a viac argumentov . | `max([1, 5, 2])` vráti `5`; `max(3, 7, 2)` vráti `7`. |
+| **`min(iterable, *[, key, default])`**<br/>**`min(arg1, arg2, *args[, key])`** | Vráti najmenšiu položku z iterovateľného objektu alebo z dvoch a viac argumentov . | `min([1, 5, 2])` vráti `1`; `min(3, 7, 2)` vráti `2`. |
+| **`pow(base, exp[, mod])`** | Vráti `base` umocnenú na `exp`. Ak je zadané `mod`, vráti výsledok modulo `mod` . | `pow(2, 3)` vráti `8`; `pow(2, 3, 5)` vráti `3` (pretože `8 % 5 = 3`). |
+| **`round(number[, ndigits])`** | Vráti číslo `number` zaokrúhlené na `ndigits` desatinných miest . | `round(3.14159, 2)` vráti `3.14`. |
+| **`sum(iterable, /, start=0)`** | Spočíta všetky položky v iterovateľnom objekte od počiatočnej hodnoty `start` . | `sum([1, 2, 3])` vráti `6`; `sum([1, 2, 3], 10)` vráti `16`. |
 
 ---
+
+#### **2. Konverzia typov**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`bin(x)`** | Prevedie celé číslo na binárny reťazec s predponou `'0b'` . | `bin(10)` vráti `'0b1010'`. |
+| **`bool([x])`** | Prevedie hodnotu na booleovský typ (`True` alebo `False`) podľa pravidiel pravdivosti . | `bool(0)` vráti `False`; `bool("ahoj")` vráti `True`. |
+| **`chr(i)`** | Vráti reťazec s jedným znakom, ktorého Unicode kód je celé číslo `i` . | `chr(97)` vráti `'a'`; `chr(8364)` vráti `'€'`. |
+| **`complex([real[, imag]])`** | Vytvorí komplexné číslo z reálnej a imaginárnej časti . | `complex(2, 3)` vráti `(2+3j)`. |
+| **`float([x])`** | Prevedie číslo alebo reťazec na číslo s pohyblivou rádovou čiarkou . | `float("3.14")` vráti `3.14`. |
+| **`hex(x)`** | Prevedie celé číslo na hexadecimálny reťazec s predponou `'0x'` . | `hex(255)` vráti `'0xff'`. |
+| **`int([x], base=10)`** | Prevedie číslo alebo reťazec na celé číslo. Parameter `base` určuje základ (2-36) . | `int("1010", 2)` vráti `10`; `int(3.14)` vráti `3`. |
+| **`oct(x)`** | Prevedie celé číslo na osmičkový reťazec s predponou `'0o'` . | `oct(8)` vráti `'0o10'`. |
+| **`ord(c)`** | Vráti Unicode kód znaku (reťazec dĺžky 1) . | `ord('a')` vráti `97`; `ord('€')` vráti `8364`. |
+| **`str(object='')`** | Vráti reťazcovú verziu objektu . | `str(100)` vráti `'100'`. |
+
+---
+
+#### **3. Práca s dátovými štruktúrami**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`enumerate(iterable, start=0)`** | Vráti enumerátor, ktorý generuje dvojice `(index, položka)` . | `list(enumerate(['jaro', 'leto']))` vráti `[(0, 'jaro'), (1, 'leto')]`. |
+| **`len(s)`** | Vráti dĺžku (počet položiek) objektu . | `len("ahoj")` vráti `4`; `len([1, 2, 3])` vráti `3`. |
+| **`reversed(seq)`** | Vráti iterátor, ktorý prechádza sekvenciou v opačnom poradí . | `list(reversed([1, 2, 3]))` vráti `[3, 2, 1]`. |
+| **`slice(start, stop[, step])`** | Vráti objekt reprezentujúci výrez (slice) . | `s = slice(1, 4, 2)`; `"ahoj svet"[s]` vráti `'h'`. |
+| **`sorted(iterable, /, *, key=None, reverse=False)`** | Vráti nový zoradený zoznam z položiek iterovateľného objektu . | `sorted([3, 1, 2])` vráti `[1, 2, 3]`. |
+| **`zip(*iterables, strict=False)`** | Vytvorí iterátor, ktorý agreguje prvky z viacerých iterovateľných objektov do n-íc . | `list(zip([1, 2], ['a', 'b']))` vráti `[(1, 'a'), (2, 'b')]`. |
+
+---
+
+#### **4. Vstup a výstup**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`input([prompt])`** | Prečíta riadok zo štandardného vstupu (klávesnice) a vráti ho ako reťazec . | `meno = input("Zadajte meno: ")` |
+| **`open(file, mode='r', ...)`** | Otvorí súbor a vráti príslušný objekt súboru . | `with open("subor.txt", "r") as f: obsah = f.read()` |
+| **`print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)`** | Vypíše objekty na textový výstupný prúd (zvyčajne na konzolu) . | `print("Ahoj", "svet", sep="-")` vypíše `Ahoj-svet`. |
+
+---
+
+#### **5. Logické a porovnávacie funkcie**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`all(iterable)`** | Vráti `True`, ak sú **všetky** položky v iterovateľnom objekte pravdivé (alebo je iterovateľný objekt prázdny) . | `all([True, 1, "ahoj"])` vráti `True`; `all([True, 0, "ahoj"])` vráti `False`. |
+| **`any(iterable)`** | Vráti `True`, ak **aspoň jedna** položka v iterovateľnom objekte je pravdivá . | `any([False, 0, ""])` vráti `False`; `any([False, 0, "ahoj"])` vráti `True`. |
+| **`isinstance(object, classinfo)`** | Vráti `True`, ak je `object` inštanciou triedy `classinfo` alebo jej podtriedy . | `isinstance(5, int)` vráti `True`; `isinstance("text", int)` vráti `False`. |
+| **`issubclass(class, classinfo)`** | Vráti `True`, ak je `class` podtriedou `classinfo` . | `issubclass(bool, int)` vráti `True`. |
+
+---
+
+#### **6. Dynamická kompilácia a spúšťanie kódu**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`compile(source, filename, mode, ...)`** | Skompiluje zdrojový kód na kódový alebo AST objekt pripravený na spustenie . | `code = compile('a = 5', '<string>', 'exec')`; `exec(code)` vytvorí premennú `a`. |
+| **`eval(expression, globals=None, locals=None)`** | Vyhodnotí reťazec ako Python výraz a vráti výsledok . | `eval('2 + 2')` vráti `4`; `eval('x + 1', {'x': 3})` vráti `4`. |
+| **`exec(object, globals=None, locals=None, /, *, closure=None)`** | Dynamicky spustí Python kód (reťazec alebo kódový objekt) . | `exec('print("Ahoj")')` vypíše `Ahoj`. |
+
+---
+
+#### **7. Funkcie na prácu s objektmi a atribútmi**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`delattr(object, name)`** | Zmaže atribút s názvom `name` z objektu . | `delattr(obj, 'x')` je ekvivalentné `del obj.x`. |
+| **`dir([object])`** | Vráti zoznam mien v aktuálnom lokálnom rozsahu alebo atribútov daného objektu . | `dir(str)` vráti zoznam metód reťazcov. |
+| **`getattr(object, name[, default])`** | Vráti hodnotu atribútu `name` z objektu; ak neexistuje a je zadané `default`, vráti ho . | `getattr(obj, 'x', 0)` získa hodnotu `obj.x` alebo `0` ak neexistuje. |
+| **`hasattr(object, name)`** | Vráti `True`, ak má objekt atribút s názvom `name` . | `hasattr(obj, 'x')` skontroluje, či má `obj` atribút `x`. |
+| **`id(object)`** | Vráti unikátnu identitu objektu ako celé číslo . | `id(obj)` vráti adresu objektu v pamäti (v CPythone). |
+| **`setattr(object, name, value)`** | Nastaví hodnotu atribútu `name` na `value` . | `setattr(obj, 'x', 10)` je ekvivalentné `obj.x = 10`. |
+| **`type(object)`** | Vráti typ (triedu) objektu . | `type(5)` vráti `<class 'int'>`. |
+| **`vars([object])`** | Vráti `__dict__` atribút objektu (slovník menného priestoru) . | `vars(obj)` vráti slovník atribútov objektu. |
+
+---
+
+#### **8. Funkcie pre iterátory a generátory**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`filter(function, iterable)`** | Vytvorí iterátor z prvkov `iterable`, pre ktoré `function` vráti `True` . | `list(filter(lambda x: x > 0, [-1, 0, 1]))` vráti `[1]`. |
+| **`iter(object[, sentinel])`** | Vráti iterátor. Bez `sentinel` pracuje s iterovateľnými objektmi. S `sentinel` volá `object` až kým nevráti `sentinel` . | `iter([1, 2, 3])` vráti iterátor; `iter(f.readline, '')` číta riadky zo súboru. |
+| **`map(function, iterable, ...)`** | Aplikuje `function` na každú položku z iterovateľného objektu a vráti iterátor s výsledkami . | `list(map(lambda x: x*2, [1, 2, 3]))` vráti `[2, 4, 6]`. |
+| **`next(iterator[, default])`** | Získa ďalšiu položku z iterátora. Ak je iterátor vyčerpaný a je dané `default`, vráti ho, inak vyvolá `StopIteration` . | `it = iter([1, 2])`; `next(it)` vráti `1`; `next(it, 0)` vráti `0` po vyčerpaní. |
+| **`range(stop)`**<br/>**`range(start, stop[, step])`** | Vráti nemennú postupnosť čísel, používa sa často v cykloch `for` . | `list(range(3))` vráti `[0, 1, 2]`; `list(range(1, 5, 2))` vráti `[1, 3]`. |
+
+---
+
+#### **9. Triedy a dekorátory**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`classmethod`** | Premení metódu na metódu triedy. Ako prvý argument dostáva triedu (`cls`) . | Používa sa ako dekorátor `@classmethod`. |
+| **`property(fget=None, fset=None, fdel=None, doc=None)`** | Vráti property atribút, ktorý umožňuje riadený prístup k inštančným atribútom . | Používa sa na definovanie getterov, setterov a deleterov. |
+| **`staticmethod`** | Premení metódu na statickú metódu, ktorá nedostáva automaticky ani triedu (`cls`), ani inštanciu (`self`) . | Používa sa ako dekorátor `@staticmethod`. |
+| **`super([type[, object-or-type]])`** | Vráti proxy objekt, ktorý deleguje volania metód na rodičovskú alebo súrodeneckú triedu . | Používa sa na volanie metód z nadradenej triedy. |
+
+---
+
+#### **10. Rôzne užitočné funkcie**
+
+| Funkcia | Popis | Príklad použitia |
+| :--- | :--- | :--- |
+| **`breakpoint(*args, **kws)`** | Zavolá ladiaci program na mieste, kde sa nachádza . | `breakpoint()` spustí `pdb` v bode zastavenia. |
+| **`callable(object)`** | Vráti `True`, ak je `object` možné zavolať (napr. funkcia, metóda, trieda) . | `callable(print)` vráti `True`; `callable(5)` vráti `False`. |
+| **`globals()`** | Vráti slovník reprezentujúci aktuálny globálny menný priestor . | Používa sa na prístup k globálnym premenným. |
+| **`locals()`** | Vráti slovník reprezentujúci aktuálny lokálny menný priestor . | Používa sa na prístup k lokálnym premenným. |
+| **`help([object])`** | Spustí vstavaný nápovedný systém . | `help(str)` zobrazí dokumentáciu k triede `str`. |
+| **`__import__(name, globals=None, locals=None, fromlist=(), level=0)`** | Volá sa príkazom `import` a umožňuje dynamický import modulov . | `math = __import__('math')` importuje modul `math`. |
+
 
 ### **1. Práca s číslami a matematika**
 
