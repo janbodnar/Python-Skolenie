@@ -1,6 +1,20 @@
 # Examples
 
 
+## Formatting strings
+
+```python
+name = 'Jozef'
+age = 45
+occupation = 'driver'
+
+print('%s is %d years old and he is a %s' % (name, age, occupation))
+print('{} is {} years old and he is a {}'.format(name, age, occupation))
+print(f'{name} is {age} years old and he is a {occupation}')
+```
+
+
+
 ## Builtins
 
 ```python
