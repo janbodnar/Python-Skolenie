@@ -1,5 +1,15 @@
 # Examples
 
+## Control characters
+
+```python
+msg = 'and\nold\nfalcon'
+print(msg)
+
+msg = 'and\told\tfalcon'
+print(msg)
+```
+
 ## Quotes and genitive
 
 ```python
