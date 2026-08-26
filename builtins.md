@@ -1,4 +1,4 @@
-### **Vstavané funkcie Pythonu**
+# Vstavané funkcie Pythonu
 
 Python obsahuje množstvo funkcií, ktoré sú dostupné kdekoľvek vo vašom kóde bez nutnosti importovať žiadne moduly . Sú zoskupené podľa oblastí použitia.
 
