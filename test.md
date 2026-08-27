@@ -84,6 +84,14 @@ occupation = 'gardener'
 
 msg = f"{name} is {age} years old {occupation}"
 print(msg)
+
+
+# vypis slova pomocou for cyklu a pocet ich znakov
+words = ['small', 'rock', 'nice', 'atom', 'car']
+
+for word in words:
+    print(word, len(word))
+
 ```
 
 
