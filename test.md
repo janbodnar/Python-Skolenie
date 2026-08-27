@@ -1,5 +1,26 @@
 # Examples
 
+
+## type function
+
+```python
+result = 3 + 4.5   # 7.5 — result is a float
+print(result)
+print(type(result)) # <class 'float'>
+
+
+word = 'sky'
+print(type(word))
+
+n = 34
+print(type(n))
+
+x = 5.6
+print(type(x))
+```
+
+
+
 ## Rounding
 
 ```python
