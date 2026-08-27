@@ -56,6 +56,17 @@ word = 'falcon\n'
 print(word * 15)
 
 
+# spoj slova dokopy a vypis
+w1 = 'an'
+w2 = 'old'
+w3 = 'falcon'
+
+word = w1 + ' ' + w2 + ' ' + w3
+print(word)
+
+word = f'{w1} {w2} {w3}'
+print(word)
+
 ```
 
 
