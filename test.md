@@ -1,5 +1,14 @@
 # Examples
 
+## input funkcia
+
+```python
+name = input('Enter your name:')
+
+print(f'hello {name}')
+```
+
+
 ## elif
 
 ```python
