@@ -1,5 +1,55 @@
 # Examples
 
+
+## Opakovanie
+
+```python
+
+# vypis slovo 'falcon' 15 krat
+word = 'falcon'
+...
+
+# spoj slova dokopy a vypis
+w1 = 'an'
+w2 = 'old'
+w3 = 'falcon'
+...
+
+# vypis tri nahodne cisla
+import random
+...
+
+# vypis pomocou fstringu 'John Doe is 34 years old gardener'
+name = 'John Doe'
+age = 34
+occupation = 'gardener'
+...
+
+# vypis slova pomocou for cyklu a pocet ich znakov
+words = ['small', 'rock', 'nice', 'atom', 'car']
+...
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Control characters
 
 ```python
