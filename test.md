@@ -1,5 +1,36 @@
 # Examples
 
+## membership operators
+
+```python
+# membership.py
+
+items = ("coin", "book", "pencil", "spoon", "paper")
+
+if "coin" in items:
+    print("There is a coin in the tuple")
+else:
+    print("There is no coin in the tuple")
+
+if "bowl" not in items:
+    print("There is no bowl in the tuple")
+else:
+    print("There is a bowl in the tuple")
+
+
+word = 'falcon'
+
+if 'f' in word:
+    print('f is there')
+else:
+    print('f is not there')
+
+if 'c' not in word:
+    print('c is not there')
+else:
+    print('c is there')
+```
+
 
 ## or operator
 
