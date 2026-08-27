@@ -106,9 +106,10 @@ words = ["cup", "star", "monkey", "bottle", "paper", "door"]
 
 for word in words:
 
-    print(word)
     if word == "monkey":
         break
+
+    print(word)
 else:
     print("finished looping")
 
