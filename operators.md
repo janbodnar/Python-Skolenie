@@ -468,7 +468,7 @@ age = 31
 
 adult = True if age >= 18 else False
 
-print("Adult: {0}".format(adult))
+print(f"Adult: {adult}")
 ```
 
 In many countries the adulthood is based on your age. You are adult if you are older  
