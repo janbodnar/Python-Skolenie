@@ -67,6 +67,16 @@ print(word)
 word = f'{w1} {w2} {w3}'
 print(word)
 
+
+# vypis tri nahodne cisla od 1 - 100
+import random
+
+r1 = random.randint(1, 100)
+r2 = random.randint(1, 100)
+r3 = random.randint(1, 100)
+
+print(r1, r2, r3)
+
 ```
 
 
