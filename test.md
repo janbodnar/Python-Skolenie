@@ -1,6 +1,22 @@
 # Examples
 
 
+## or operator
+
+```python
+print(True or True)
+print(True or False)
+print(False or True)
+print(False or False)
+
+words = ['apple', 'banana', 'sky', 'war', 'cup', 'coin']
+
+for word in words:
+    if word.startswith('w') or word.startswith('c'):
+        print(word)
+```
+
+
 ## Pretypovanie
 
 ```python
