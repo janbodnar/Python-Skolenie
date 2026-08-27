@@ -1,5 +1,34 @@
 # Examples
 
+## input & elif
+
+```python
+# A, B, C, D, E, FX
+grade = input('Enter your math grade:')
+
+
+if grade == 'A':
+    print('excellent')
+elif grade == 'B':
+    print('good')
+elif grade == 'C':
+    print('OK')
+elif grade == 'D':
+    print('could be better')
+elif grade == 'E':
+    print('ehm...')
+elif grade == 'FX':
+    print('failed')
+else:
+    print('not a valid grade')
+
+
+
+print('end of program')
+```
+
+
+
 ## input funkcia
 
 ```python
