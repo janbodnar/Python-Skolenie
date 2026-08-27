@@ -1,5 +1,21 @@
 # Examples
 
+## elif
+
+```python
+
+vals = (-2, 0, 1, 3, -4, 5, -9)
+
+for val in vals:
+
+    if val > 0:
+        print(val, 'positive value')
+    elif val < 0:
+        print(val, 'negative value')
+    elif val == 0:
+        print(val, 'zero')
+```
+
 
 ## type function
 
