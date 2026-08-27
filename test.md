@@ -1,5 +1,19 @@
 # Examples
 
+```python
+# spocitaj cisla od 355 ... 785 s krokovanim 5
+# 355 + 360 + 365 + ... + 785
+
+total = 0
+
+for number in range(355, 790, 5):
+    total = total + number
+
+
+print(total)
+```
+
+
 ## membership operators
 
 ```python
