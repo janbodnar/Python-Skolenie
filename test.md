@@ -32,6 +32,33 @@ words = ['small', 'rock', 'nice', 'atom', 'car']
 
 
 
+## Riesenia
+
+```python
+# vypis slovo 'falcon' 15 krat
+word = 'falcon'
+
+for i in range(15):
+    print(word)
+
+# -----------------------------
+
+i = 0
+
+while i < 15:
+    print(word)
+    i += 1
+
+# -----------------------------
+
+word = 'falcon\n'
+
+print(word * 15)
+
+
+```
+
+
 
 
 
