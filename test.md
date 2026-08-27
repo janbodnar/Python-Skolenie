@@ -1,6 +1,27 @@
 # Examples
 
 
+## Pretypovanie
+
+```python
+print(5 + 4)
+print('hello' + ' there')
+
+print(5 * 4)
+print('falcon\n' * 4)
+
+
+# 3 -> "3"
+print(str(3) + ' falcons')
+
+a = 3
+b = '4'
+
+# '4' -> 4
+print(a + int(b))
+```
+
+
 ## Opakovanie
 
 ```python
