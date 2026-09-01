@@ -2,7 +2,7 @@
 
 A **string** in Python is a sequence of characters. Strings are **immutable**—once   
 defined, they cannot be changed. Many Python methods like `replace()`, `join()`, or  
-`split()` appear to modify strings, but they actually create a new copy of the string, 
+`split()` appear to modify strings, but they actually create a new copy of the string,  
 modify it, and return the modified copy to the caller.
 
 ---
