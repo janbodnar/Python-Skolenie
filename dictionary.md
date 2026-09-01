@@ -363,7 +363,8 @@ no: Norway
 
 ## Dictionary membership testing
 
-With the `in` and `not in` operators, we can check if a key is present in a dictionary.
+With the `in` and `not in` operators, we can check if a key is present in a  
+dictionary.
 
 ```python
 
@@ -378,9 +379,61 @@ if key in domains:
     print("{0} is in the dictionary".format(domains[key]))
 ```
 
-In the example, we check whether the `sk` key is present in the dictionary with the `in` operator.
+In the example, we check whether the `sk` key is present in the dictionary with  
+the `in` operator.
 
+## Word frequency analysis
 
+In the next example, we are going to count the frequency of words in a text.  
+
+```python
+text = """Python is a great general-purpose programming language. It is
+created by Guido van Rossum."""
+
+words = {}
+
+for word in text.split():
+
+    word = word.lower().strip(".,")
+
+    if word not in words:
+        words[word] = 1
+    else:
+        words[word] += 1
+
+for word in sorted(words.keys()):
+
+    print(f"{word}: {words[word]}")
+```
+
+The example counts the frequency of words in a text. The text is stored in the  
+`text` variable.
+
+```python
+words = {}
+```
+
+We use a dictionary to store the words and their frequencies.
+
+```python
+for word in text.split():
+```
+
+We iterate over the words in the text. The `split` method splits the text into  
+words.
+
+```python
+word = word.lower().strip(".,")
+```
+
+We convert the word to lowercase and remove the dots and commas from the word.
+
+```python
+if word not in words:
+    words[word] = 1
+else:
+    words[word] += 1
+```
 
 
 ## defaultdict
@@ -444,10 +497,10 @@ for k in chars:
 ## Sorting
 
 Since Python 3.7, dictionaries preserve insertion order. This means the order in which  
-key-value pairs are added to the dictionary is kept when iterating over it.
+key-value pairs are added to the dictionary is kept when iterating over it.  
 
-We might want to sort the data in a normal or reverse order. We can sort the data by keys  
-or by values.
+We might want to sort the data in a normal or reverse order. We can sort the
+data by keys or by values.  
 
 ```python
 
@@ -592,59 +645,6 @@ bags: 1
 ```
 
 From the output we can see that this time the pairs were sorted by their values.
-
-## Word frequency analysis
-
-In the next example, we are going to count the frequency of words in a text.  
-
-```python
-text = """Python is a great general-purpose programming language. It is
-created by Guido van Rossum."""
-
-words = {}
-
-for word in text.split():
-
-    word = word.lower().strip(".,")
-
-    if word not in words:
-        words[word] = 1
-    else:
-        words[word] += 1
-
-for word in sorted(words.keys()):
-
-    print(f"{word}: {words[word]}")
-```
-
-The example counts the frequency of words in a text. The text is stored in the  
-`text` variable.
-
-```python
-words = {}
-```
-
-We use a dictionary to store the words and their frequencies.
-
-```python
-for word in text.split():
-```
-
-We iterate over the words in the text. The `split` method splits the text into  
-words.
-
-```python
-word = word.lower().strip(".,")
-```
-
-We convert the word to lowercase and remove the dots and commas from the word.
-
-```python
-if word not in words:
-    words[word] = 1
-else:
-    words[word] += 1
-```
 
 
 
