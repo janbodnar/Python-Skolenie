@@ -1,9 +1,9 @@
 # Strings in Python
 
-A **string** in Python is a sequence of characters. Strings are **immutable**—once   
-defined, they cannot be changed. Many Python methods like `replace()`, `join()`, or  
-`split()` appear to modify strings, but they actually create a new copy of the string,  
-modify it, and return the modified copy to the caller.
+A **string** in Python is a sequence of characters. Strings are **immutable**—once defined,  
+they cannot be changed. Many Python methods like `replace()`, `join()`, or `split()` appear  
+to modify strings, but they actually create a new copy of the string, modify it, and return  
+the modified copy to the caller.
 
 ---
 
@@ -30,6 +30,7 @@ print(c)
 ```
 
 **Output:**
+
 ```
 proximity alert
 evacuation
@@ -40,14 +41,15 @@ a
 tower
 ```
 
-### Unicode Strings
+## Unicode in Python
 
-Python supports Unicode natively. You can include Unicode characters directly in  
-source code or use escape sequences.
+In Python 3, **all strings are Unicode** by default. The `u'...'` prefix is optional and exists  
+only for backward compatibility with Python 2. You can include Unicode characters directly in source code.
 
 ```python
 # unicode.py
 
+# Using Unicode escape sequences
 text = u'\u041b\u0435\u0432 \u041d\u0438\u043a\u043e\u043b\u0430\
 \u0435\u0432\u0438\u0447 \u0422\u043e\u043b\u0441\u0442\u043e\u0439: \n\
 \u0410\u043d\u043d\u0430 \u041a\u0430\u0440\u0435\u043d\u0438\u043d\u0430'
@@ -56,20 +58,22 @@ print(text)
 ```
 
 **Output:**
+
 ```
 Лев Николаевич Толстой:
 Анна Каренина
 ```
 
-For direct Unicode usage in source code, ensure your file is saved with UTF-8 encoding:
+You can also use Unicode characters directly in your source code:
 
 ```python
 # unicode2.py
-# -*- coding: utf-8 -*-
 
 text = 'Лев Николаевич Толстой: Анна Каренина'
 print(text)
 ```
+
+**Note:** Python 3 assumes UTF-8 encoding by default, so no special encoding comment is needed.
 
 ---
 
@@ -92,6 +96,7 @@ print(f'{name} is {age} years old')
 ```
 
 **Output:**
+
 ```
 Peter is 23 years old
 Peter is 23 years old
@@ -132,6 +137,7 @@ print('Johnie\'s dog')
 ```
 
 **Output:**
+
 ```
 He said, "Which one is your favourite?"
 He said, "Which one is your favourite?"
@@ -143,8 +149,7 @@ Johnie's dog
 
 ## String Length
 
-The `len()` function returns the number of characters in a string, including  
-whitespace characters.
+The `len()` function returns the number of characters in a string, including whitespace characters.
 
 ```python
 # string_length.py
@@ -159,6 +164,7 @@ print(len(s3))    # 7 (spaces count)
 ```
 
 **Output:**
+
 ```
 5
 6
@@ -169,8 +175,8 @@ print(len(s3))    # 7 (spaces count)
 
 ## Stripping Whitespace Characters
 
-The `strip()`, `lstrip()`, and `rstrip()` methods remove leading and/or trailing  
-whitespace characters (spaces, tabs, newlines, etc.).
+The `strip()`, `lstrip()`, and `rstrip()` methods remove leading and/or trailing whitespace  
+characters (spaces, tabs, newlines, etc.).
 
 ```python
 # stripping.py
@@ -188,6 +194,7 @@ print(f"'{s4}' length: {len(s4)}")   # 'Eagle' length: 5
 ```
 
 **Output:**
+
 ```
 ' Eagle  ' length: 8
 ' Eagle' length: 6
@@ -199,8 +206,7 @@ print(f"'{s4}' length: {len(s4)}")   # 'Eagle' length: 5
 
 ## Escape Sequences
 
-Escape sequences are special characters that begin with a backslash (`\`) and  
-serve specific purposes within strings.
+Escape sequences are special characters that begin with a backslash (`\`) and serve specific purposes within strings.
 
 | Escape Sequence | Description |
 |-----------------|-------------|
@@ -213,30 +219,63 @@ serve specific purposes within strings.
 | `\"` | Double quote |
 
 ```python
-# Escape sequence examples
+# strophe.py
 
-# Newline
-print("Line 1\nLine 2")
-
-# Tab
-print("Name:\tJohn")
-
-# Carriage return (returns to line start)
-print("aaa\bbb")      # Output: bbbaa (backspaces delete three characters)
-
-# Raw strings (escape sequences are not interpreted)
-print(r"Raw string\n")  # Output: Raw string\n
+print("Incompatible, it don't matter though\n'cos someone's bound to hear my cry")
+print("Speak out if you do\nYou're not easy to find")
 ```
 
-**Note:** Raw strings (prefixed with `r`) treat backslashes as literal characters,  
-making them useful for file paths and regular expressions.
+**Output:**
+
+```
+Incompatible, it don't matter though
+'cos someone's bound to hear my cry
+Speak out if you do
+You're not easy to find
+```
+
+### The Backspace Control Character
+
+```python
+print("Python\b\b\booo")  # Output: Pytooo
+```
+
+The backspace control character `\b` moves the cursor one character back. In this case, we use three  
+backspace characters to delete three letters and replace them with three 'o' characters.
+
+### The Tab Character
+
+```python
+print("Towering\tinferno")  # Output: Towering        inferno
+```
+
+The horizontal tab inserts space between text.
+
+### Raw Strings
+
+If you prepend an `r` to the string, you get a **raw string** where escape sequences are not interpreted:
+
+```python
+# raw.py
+
+print(r"Another world\n")
+```
+
+**Output:**
+
+```
+Another world\n
+```
+
+With a raw string, `\n` is treated as literal backslash and 'n' characters, not as a newline.  
+Raw strings are useful for file paths and regular expressions.
 
 ---
 
 ## Comparing Strings
 
-Use the `==` operator for equality and `!=` for inequality. These operators return  
-boolean values (`True` or `False`).
+Use the `==` operator for equality and `!=` for inequality. These operators return boolean  
+values (`True` or `False`).
 
 ```python
 # comparing.py
@@ -250,6 +289,7 @@ print("efg" != "efg")    # False
 ```
 
 **Output:**
+
 ```
 True
 False
@@ -259,13 +299,16 @@ False
 ```
 
 **Lexicographic Comparison:**
-Strings can also be compared using `<`, `>`, `<=`, `>=`, which compare character by  
-character based on Unicode code points.
+
+Strings can also be compared using `<`, `>`, `<=`, `>=`, which compare character by character  
+based on Unicode code points.
 
 ```python
 print("apple" < "banana")   # True (a < b)
 print("Apple" < "apple")    # True (A < a in Unicode)
 ```
+
+---
 
 ## Accessing String Elements
 
@@ -282,7 +325,7 @@ print(s[4])    # e (fifth character)
 
 # Negative indexing (from end)
 print(s[-1])   # e (last character)
-print(s[-2])   # l (second from end)
+print(s[-2])   # l (second from last)
 
 # Slicing [start:end] (end is exclusive)
 print(s[0:4])  # Eagl (characters 0-3)
@@ -292,6 +335,7 @@ print(s[::2])  # Egl (every second character)
 ```
 
 **Output:**
+
 ```
 E
 e
@@ -310,10 +354,11 @@ Eagle
 s = "ZetCode"
 
 for char in s:
-    print(char, end=" ")  # Z e t C o d e
+    print(char, end=" ")  # Note: This produces a space after each character
 ```
 
 **Output:**
+
 ```
 Z e t C o d e
 ```
@@ -338,6 +383,7 @@ print("eagle " + "and " + "falcon")
 ```
 
 **Output:**
+
 ```
 eagle eagle eagle eagle eagle
 eagle falcon
@@ -347,6 +393,8 @@ eagle and falcon
 ### String Length
 
 ```python
+# eagle.py
+
 word = 'eagle'
 print(f"{word} has {len(word)} characters")  # eagle has 5 characters
 ```
@@ -368,12 +416,20 @@ print("There are " + str(22) + " oranges.")  # There are 22 oranges.
 print(float("22.33") + 22.55)            # 44.88
 ```
 
+**Output:**
+
+```
+24
+There are 22 oranges.
+44.88
+```
+
 ---
 
 ## Replacing Substrings
 
-The `replace()` method replaces occurrences of a substring within a string. Since  
-strings are immutable, it returns a new string.
+The `replace()` method replaces occurrences of a substring within a string. Since strings  
+are immutable, it returns a new string.
 
 ```python
 # replacing.py
@@ -384,12 +440,12 @@ a = "I saw a wolf in the forest. A lonely wolf."
 b = a.replace("wolf", "fox")
 print(b)  # I saw a fox in the forest. A lonely fox.
 
-# Replace only the first occurrence (max replace count)
+# Replace only the first occurrence (count parameter)
 c = a.replace("wolf", "fox", 1)
 print(c)  # I saw a fox in the forest. A lonely wolf.
 ```
 
-**Syntax:** `replace(old, new [, max_count])`
+**Syntax:** `replace(old, new[, count])`
 
 ---
 
@@ -502,6 +558,7 @@ print(f"Spaces: {spaces}")
 ```
 
 **Output:**
+
 ```
 Total characters: 19
 Alphabetic: 14
@@ -520,6 +577,24 @@ The `ljust()`, `rjust()`, and `center()` methods align strings within a specifie
 | `.ljust(width)` | Left-justifies the string |
 | `.rjust(width)` | Right-justifies the string |
 | `.center(width)` | Centers the string |
+
+```python
+# teams1.py
+
+print("Ajax Amsterdam" " - " "Inter Milano " "2:3")
+print("Real Madrid" " - " "AC Milano " "3:3")
+print("Dortmund" " - " "Sparta Praha " "2:1")
+```
+
+**Output:**
+
+```
+Ajax Amsterdam - Inter Milano 2:3
+Real Madrid - AC Milano 3:3
+Dortmund - Sparta Praha 2:1
+```
+
+### Improving Output with Justification
 
 ```python
 # teams2.py
@@ -541,6 +616,7 @@ for i in teams:
 ```
 
 **Output:**
+
 ```
 Ajax Amsterdam  -    Inter Milano    2:3
 Real Madrid     -    AC Milano       3:3
@@ -551,27 +627,52 @@ Dortmund        -    Sparta Praha    2:1
 
 ## Advanced String Formatting
 
-### Formatting Numbers
+### Basic Formatting with `%`
 
 ```python
-# various.py
+# oranges.py
 
-# Hexadecimal
-print("%x" % 300)      # 12c
-print("%#x" % 300)     # 0x12c
+print('There are %d oranges in the basket' % 32)
+print('There are {0} oranges in the basket'.format(32))
+```
 
-# Octal
-print("%o" % 300)      # 454
+**Output:**
 
-# Scientific notation
-print("%e" % 300000)   # 3.000000e+05
+```
+There are 32 oranges in the basket
+There are 32 oranges in the basket
+```
 
-# With .format()
-print("{:x}".format(300))      # 12c
-print("{:#x}".format(300))     # 0x12c
-print("{:b}".format(300))      # 100101100 (binary)
-print("{:o}".format(300))      # 454
-print("{:e}".format(300000))   # 3.000000e+05
+### Multiple Values
+
+```python
+# fruits.py
+
+print('There are %d oranges and %d apples in the basket' % (12, 23))
+print('There are {0} oranges and {1} apples in the basket'.format(12, 23))
+```
+
+**Output:**
+
+```
+There are 12 oranges and 23 apples in the basket
+There are 12 oranges and 23 apples in the basket
+```
+
+### Formatting Different Types
+
+```python
+# height.py
+
+print('Height: %f %s' % (172.3, 'cm'))
+print('Height: {0:f} {1:s}'.format(172.3, 'cm'))
+```
+
+**Output:**
+
+```
+Height: 172.300000 cm
+Height: 172.300000 cm
 ```
 
 ### Controlling Decimal Places
@@ -591,7 +692,72 @@ print("Height: {:.2f} cm".format(height))  # Height: 172.30 cm
 print(f"Height: {height:.2f} cm")  # Height: 172.30 cm
 ```
 
+**Output:**
+
+```
+Height: 172.30 cm
+Height: 172.30 cm
+Height: 172.30 cm
+```
+
+### Numeric Formatting
+
+```python
+# various.py
+
+# Hexadecimal
+print("%x" % 300)      # 12c
+print("%#x" % 300)     # 0x12c (adds 0x prefix)
+
+# Octal
+print("%o" % 300)      # 454
+
+# Scientific notation
+print("%e" % 300000)   # 3.000000e+05
+```
+
+**Output:**
+
+```
+12c
+0x12c
+454
+3.000000e+05
+```
+
+### Binary and Other Formats with `.format()`
+
+```python
+# various2.py
+
+# Hexadecimal
+print("{:x}".format(300))      # 12c
+print("{:#x}".format(300))     # 0x12c
+
+# Binary
+print("{:b}".format(300))      # 100101100
+
+# Octal
+print("{:o}".format(300))      # 454
+
+# Scientific
+print("{:e}".format(300000))   # 3.000000e+05
+```
+
+**Output:**
+
+```
+12c
+0x12c
+100101100
+454
+3.000000e+05
+```
+
 ### Column Formatting with Width Specifiers
+
+The width specifier defines the minimal width of the object. If the object is  
+smaller than the width, it is filled with spaces.
 
 ```python
 # columns2.py
@@ -601,6 +767,7 @@ for x in range(1, 11):
 ```
 
 **Output:**
+
 ```
  1   1    1
  2   4    8
@@ -615,11 +782,27 @@ for x in range(1, 11):
 ```
 
 Using `.format()`:
+
 ```python
 # columns3.py
 
 for x in range(1, 11):
     print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+```
+
+**Output:**
+
+```
+ 1   1    1
+ 2   4    8
+ 3   9   27
+ 4  16   64
+ 5  25  125
+ 6  36  216
+ 7  49  343
+ 8  64  512
+ 9  81  729
+10 100 1000
 ```
 
 ---
@@ -630,12 +813,13 @@ Python provides four methods for finding substrings:
 
 | Method | Search Direction | Return on Not Found |
 |--------|-----------------|---------------------|
-| `.find()` | Beginning to end | Returns `-1` |
-| `.rfind()` | End to beginning | Returns `-1` |
-| `.index()` | Beginning to end | Raises `ValueError` |
-| `.rindex()` | End to beginning | Raises `ValueError` |
+| `.find(sub[, start[, end]])` | Beginning to end | Returns `-1` |
+| `.rfind(sub[, start[, end]])` | End to beginning | Returns `-1` |
+| `.index(sub[, start[, end]])` | Beginning to end | Raises `ValueError` |
+| `.rindex(sub[, start[, end]])` | End to beginning | Raises `ValueError` |
 
-**Syntax:** `str.find(sub[, start[, end]])`
+**Note:** The `start` and `end` parameters are positional, not keyword arguments.  
+Use `a.find("wolf", 10, 20)` rather than `a.find("wolf", start=10, end=20)`.
 
 ### Using `find()` and `rfind()`
 
@@ -648,6 +832,15 @@ print(a.find("wolf"))          # 8 (first occurrence)
 print(a.find("wolf", 10, 20))  # -1 (not found in range)
 print(a.find("wolf", 15))      # 35 (second occurrence)
 print(a.rfind("wolf"))         # 35 (search from end)
+```
+
+**Output:**
+
+```
+8
+-1
+35
+35
 ```
 
 ### Using `index()` and `rindex()`
@@ -666,6 +859,7 @@ except ValueError as e:
 ```
 
 **Output:**
+
 ```
 8
 35
@@ -682,6 +876,8 @@ print("Python" in text)     # False
 print("world" not in text)  # False
 ```
 
+---
+
 ## Common String Methods Summary
 
 | Method | Description | Example |
@@ -690,14 +886,15 @@ print("world" not in text)  # False
 | `s.upper()` | Converts to uppercase | `"hi".upper()` → `"HI"` |
 | `s.lower()` | Converts to lowercase | `"HI".lower()` → `"hi"` |
 | `s.strip()` | Removes leading/trailing whitespace | `" hi ".strip()` → `"hi"` |
-| `s.replace(old, new)` | Replaces substrings | `"hi".replace("i","ello")` → `"hello"` |
-| `s.split(sep)` | Splits into list | `"a,b".split(",")` → `["a","b"]` |
+| `s.replace(old, new[, count])` | Replaces substrings | `"hi".replace("i","ello")` → `"hello"` |
+| `s.split(sep[, maxsplit])` | Splits into list | `"a,b".split(",")` → `["a","b"]` |
 | `sep.join(list)` | Joins list elements | `",".join(["a","b"])` → `"a,b"` |
 | `s.startswith(prefix)` | Checks prefix | `"Hello".startswith("He")` → `True` |
 | `s.endswith(suffix)` | Checks suffix | `"Hello".endswith("lo")` → `True` |
-| `s.find(sub)` | Finds substring index | `"Hi".find("i")` → `1` |
+| `s.find(sub[, start[, end]])` | Finds substring index | `"Hi".find("i")` → `1` |
 | `s.count(sub)` | Counts occurrences | `"aaa".count("a")` → `3` |
 
+---
 
 ## Best Practices
 
@@ -716,4 +913,5 @@ print("world" not in text)  # False
 - [Python String Methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
 
 
-*Strings are fundamental to Python programming. Mastering string operations enables efficient text processing, data parsing, and user interaction in any Python application.*
+*Strings are fundamental to Python programming. Mastering string operations enables efficient text processing, 
+data parsing, and user interaction in any Python application.*
