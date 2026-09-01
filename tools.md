@@ -1,19 +1,19 @@
 # Python Code Quality Tools
 
-Writing correct Python is only half the job — keeping it readable and free of
-silent bugs is the other half. This guide covers the two main categories of
-tools that help with that: **formatters**, which reformat your code to a
-consistent style, and **linters**, which analyze your code for errors and
-style violations. It also covers `Ruff`, a modern tool that does both, and
+Writing correct Python is only half the job — keeping it readable and free of  
+silent bugs is the other half. This guide covers the two main categories of  
+tools that help with that: **formatters**, which reformat your code to a  
+consistent style, and **linters**, which analyze your code for errors and  
+style violations. It also covers `Ruff`, a modern tool that does both, and  
 shows how to wire everything into VS Code.
 
 ## Formatters
 
-A formatter automatically rewrites your code to follow a consistent style —
-indentation, spacing, line length, quote style, and so on. You stop thinking
-about formatting and start relying on the tool to handle it.
+A formatter automatically rewrites your code to follow a consistent style —  
+indentation, spacing, line length, quote style, and so on. You stop thinking  
+about formatting and start relying on the tool to handle it.  
 
-**Example:** Black turns inconsistent spacing and quoting into a single,
+**Example:** Black turns inconsistent spacing and quoting into a single,  
 predictable style automatically.
 
 Before:
@@ -50,12 +50,12 @@ black .                    # reformat everything in the current directory
 
 ## Linters
 
-A linter analyzes your code without running it (static analysis) and flags
-problems — think of it as a spell-checker for code. It typically catches:
+A linter analyzes your code without running it (static analysis) and flags  
+problems — think of it as a spell-checker for code. It typically catches:  
 
 - **Syntax errors** — code that won't run at all
 - **Style violations** — inconsistent naming, indentation, unused imports
-- **Likely bugs** — logic issues that formatters can't detect, like an
+- **Likely bugs** — logic issues that formatters can't detect, like an  
   undefined variable or a comparison that's always false
 
 Common linters:
@@ -78,24 +78,24 @@ my_script.py:3:1: F841 local variable 'x' is assigned to but never used
 my_script.py:5:80: E501 line too long (92 > 79 characters)
 ```
 
-Linters are most useful wired into your editor, so problems are flagged as
-you type rather than after you run the tool manually.
+Linters are most useful wired into your editor, so problems are flagged as  
+you type rather than after you run the tool manually.  
 
 ## Ruff: formatter and linter in one
 
-`Ruff` is a modern tool written in Rust that combines linting and formatting
-in a single, very fast binary — commonly used as a drop-in replacement for
-Flake8, Pylint, Black, and isort together.
+`Ruff` is a modern tool written in Rust that combines linting and formatting  
+in a single, very fast binary — commonly used as a drop-in replacement for  
+Flake8, Pylint, Black, and isort together.  
 
 Key points:
 
-- **Fast** — typically 10–100x faster than the tools it replaces, which
+- **Fast** — typically 10–100x faster than the tools it replaces, which  
   matters on large codebases or in CI
-- **One tool, two jobs** — lints and formats without needing separate
+- **One tool, two jobs** — lints and formats without needing separate  
   packages
-- **700+ built-in rules**, covering style, correctness, and common bug
+- **700+ built-in rules**, covering style, correctness, and common bug  
   patterns, most with automatic fixes
-- **Single config file** — one `pyproject.toml` section instead of separate
+- **Single config file** — one `pyproject.toml` section instead of separate  
   configs for Flake8, Black, and isort
 
 Install and run Ruff:
@@ -106,15 +106,15 @@ ruff check --fix .  # lint and auto-fix what it can
 ruff format .       # format
 ```
 
-For most new projects, Ruff alone covers what Flake8 + Black + isort used to
+For most new projects, Ruff alone covers what Flake8 + Black + isort used to  
 require separately.
 
 ## Editor Integration: VS Code
 
-The settings below go in your workspace or user `settings.json`. The ones
-that actually matter for Python are the formatter binding and the line
-ruler; the rest are general editor preferences included here for
-convenience — adjust freely to your own taste.
+The settings below go in your workspace or user `settings.json`. The ones  
+that actually matter for Python are the formatter binding and the line  
+ruler; the rest are general editor preferences included here for  
+convenience — adjust freely to your own taste.  
 
 ```json
 {
@@ -137,9 +137,9 @@ convenience — adjust freely to your own taste.
 }
 ```
 
-Install the **Ruff** extension (`charliermarsh.ruff`) from the VS Code
-marketplace to get linting, formatting, and auto-fix-on-save without
-installing separate extensions for Black, Flake8, and isort.
+Install the **Ruff** extension (`charliermarsh.ruff`) from the VS Code  
+marketplace to get linting, formatting, and auto-fix-on-save without  
+installing separate extensions for Black, Flake8, and isort.  
 
 ## Summary
 
