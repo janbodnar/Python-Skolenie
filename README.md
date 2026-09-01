@@ -27,7 +27,7 @@ Pri inštalácii Pythonu (platí pre Windows), nezabudnite zaškrnúť voľbu *a
 - Lexikálna štruktúra
 - Dátové typy
 - Operátory
-- Riadenie behu programu
+- Podmienky a cykly
 - Reťazce
 - Zoznamy a slovníky
 - Funkcie
@@ -63,7 +63,7 @@ use the terminal.
 - Lexical structure
 - Data types
 - Operators
-- Control flow
+- Conditionals and loops
 - Strings
 - Lists
 - Dictionaries

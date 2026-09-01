@@ -1,9 +1,9 @@
 # Dictionary
 
-A *Python dictionary* is a container of key-value pairs. It is mutable and can contain mixed   
-types. A dictionary is an unordered collection. Python dictionaries are called associative   
-arrays or hash tables in other languages. The keys in a dictionary must be immutable objects   
-like strings or numbers. They must also be unique within a dictionary.  
+A *Python dictionary* is a mutable container of key-value pairs, also called an associative
+array or hash table in other languages. Keys must be unique and immutable, such as strings,
+numbers, or tuples; values can be of any type. Since Python 3.7, dictionaries preserve
+the insertion order of their pairs.
 
 ## Creation
 
@@ -43,7 +43,7 @@ and the "Sunday" string is a value.
 vals = dict(one=1, two=2)
 ```
 
-Dictionaries can be created using the dict function.
+Dictionaries can be created using the `dict` function.
 
 ```python
 capitals = {}
@@ -52,24 +52,24 @@ capitals["deu"] = "Berlin"
 capitals["dnk"] = "Copenhagen"
 ```
 
-In the third way an empty capitals dictionary is created. Three pairs are added to the  
-dictionary. The keys are inside the square brackets, the values are located on the right  
-side of the assignment.
+In the third way, an empty `capitals` dictionary is created and three pairs are added  
+to it. The key goes inside the square brackets; the value goes on the right side of  
+the assignment.
 
 ```python
 d = { i: object() for i in range(4) }
 ```
 
-A dictionary is created using a dictionary comprehension. The comprehension has two parts.  
-The first part is the `i:` object expression, which is executed for each cycle of a loop.  
-The second part is the `for i in range(4)` loop. The dictionary comprehension creates a dictionary  
-having four pairs, where the keys are numbers 0, 1, 2, and 3 and the values are simple objects.
+A dictionary is created using a dictionary comprehension. The comprehension has two parts:  
+the `i: object()` expression, which is evaluated on each iteration of the loop, and the  
+`for i in range(4)` loop. It creates a dictionary with four pairs, where the keys are the  
+numbers 0, 1, 2, and 3 and the values are simple objects.
 
 ```
 $ ./create_dict.py
 {'Sun': 'Sunday', 'Mon': 'Monday'}
-{'two': 2, 'one': 1}
-{'svk': 'Bratislava', 'dnk': 'Copenhagen', 'deu': 'Berlin'}
+{'one': 1, 'two': 2}
+{'svk': 'Bratislava', 'deu': 'Berlin', 'dnk': 'Copenhagen'}
 {0: <object object at 0xb76cb4a8>, 1: <object object at 0xb76cb4b0>,
 2: <object object at 0xb76cb4b8>, 3: <object object at 0xb76cb4c0>}
 ```
@@ -77,7 +77,7 @@ $ ./create_dict.py
 
 ## Basic operations
 
-The following examples shows some basic operations with dictionaries.
+The following example shows some basic operations with dictionaries.
 
 ```python
 
@@ -135,8 +135,8 @@ The value of the 'apples' key is modified. It is set to number 8.
 print(basket.get('oranges', 'undefined'))
 ```
 
-The `get` method retrieves the value of a specified key. If there is no   
-such a key, the second parameter of the method is returned.
+The `get` method retrieves the value of a specified key. If there is no such key,  
+the second parameter of the method is returned.
 
 ```python
 print(basket.get('cherries', 'undefined'))
@@ -146,7 +146,7 @@ This line returns 'undefined'. There are no cherries in the basket.
 
 ```
 $ ./basics.py
-{'bananas': 5, 'pears': 5, 'oranges': 12, 'apples': 4}
+{'oranges': 12, 'pears': 5, 'apples': 4, 'bananas': 5}
 There are 4 various items in the basket
 4
 8
@@ -164,7 +164,7 @@ The next example presents two dictionary methods: `fromkeys` and `setdefault`.
 
 basket = ('oranges', 'pears', 'apples', 'bananas')
 
-fruits = {}.fromkeys(basket, 0)
+fruits = dict.fromkeys(basket, 0)
 print(fruits)
 
 fruits['oranges'] = 12
@@ -177,23 +177,22 @@ print(fruits.setdefault('kiwis', 11))
 print(fruits)
 ```
 
-The `fromkeys` method creates a new dictionary from a list. The setdefault method  
-returns a value if a key is present. Otherwise, it inserts a key with a specified default  
-value and returns the value.
+The `fromkeys` method creates a new dictionary from a sequence of keys. The `setdefault`  
+method returns a value if a key is present; otherwise, it inserts the key with a specified  
+default value and returns that value.
 
 ```python
 basket = ('oranges', 'pears', 'apples', 'bananas')
 ```
 
-We have a list of strings. From this list a new dictionary will be constructed.
+We have a tuple of strings. From this sequence a new dictionary will be constructed.
 
 ```python
-fruits = {}.fromkeys(basket, 0)
+fruits = dict.fromkeys(basket, 0)
 ```
 
-The `fromkeys` method creates a new dictionary, where the list items will be the keys.  
-Each key will be initiated to 0. Note that the fromkeys method is a class method and  
-needs the class name, which is `{}` in our case, to be called.
+The `fromkeys` method creates a new dictionary whose keys are the items of the sequence.  
+Each key is initialized to 0. Since it is a class method, we call it via the `dict` class.
 
 ```python
 fruits['oranges'] = 12
@@ -208,17 +207,16 @@ print(fruits.setdefault('oranges', 11))
 print(fruits.setdefault('kiwis', 11))
 ```
 
-The first line prints 12 to the terminal. The 'oranges' key exists in the dictionary.  
-In such a case, the method returns the its value. In the second case, the key does  
-not exist yet. A new pair 'kiwis': 11 is inserted to the dictionary. And value 11 is  
-printed to the console.
+The first line prints 12: the 'oranges' key exists in the dictionary, so the method  
+returns its value. In the second case, the key does not exist yet; the method inserts  
+the pair 'kiwis': 11 into the dictionary and returns 11.
 
 ```python
 $ ./fruits.py
-{'bananas': 0, 'pears': 0, 'oranges': 0, 'apples': 0}
+{'oranges': 0, 'pears': 0, 'apples': 0, 'bananas': 0}
 12
 11
-{'kiwis': 11, 'bananas': 0, 'pears': 8, 'oranges': 12, 'apples': 4}
+{'oranges': 12, 'pears': 8, 'apples': 4, 'bananas': 0, 'kiwis': 11}
 ```
 
 We receive this output when we launch the fruits.py script.
@@ -249,8 +247,8 @@ The `domains2` dictionary is added to the domains dictionary with the `update` m
 
 ```
 $ ./domains.py
-{'sk': 'Slovakia', 'de': 'Germany', 'no': 'Norway',
-'us': 'United States', 'hu': 'Hungary'}
+{'de': 'Germany', 'sk': 'Slovakia', 'hu': 'Hungary',
+'us': 'United States', 'no': 'Norway'}
 ```
 
 The result shows all values.
@@ -303,18 +301,18 @@ The `clear` method clears all items from the dictionary.
 
 ```
 $ ./removing.py
-{'bags': 1, 'pens': 3, 'coins': 7, 'books': 5, 'bottles': 4, 'cups': 2}
+{'coins': 7, 'pens': 3, 'cups': 2, 'bags': 1, 'bottles': 4, 'books': 5}
 Item having value 7 was removed
-{'bags': 1, 'pens': 3, 'books': 5, 'bottles': 4, 'cups': 2}
-{'bags': 1, 'pens': 3, 'books': 5, 'cups': 2}
+{'pens': 3, 'cups': 2, 'bags': 1, 'bottles': 4, 'books': 5}
+{'pens': 3, 'cups': 2, 'bags': 1, 'books': 5}
 {}
 ```
 
 ## Dictionary keys and values
 
-A Python dictionary consists of key-value pairs. The keys method returns a list of keys  
-from a dictionary. The values method creates a list of values. And the items method returns  
-a list of key-value tuples.
+A Python dictionary consists of key-value pairs. The `keys`, `values`, and `items` methods  
+return views of the dictionary's keys, values, and key-value tuples. A view can be iterated  
+over or converted to a list.
 
 ```python
 
@@ -338,20 +336,19 @@ the `in` keyword.
 print(domains.keys())
 ```
 
-We print the list of keys of a domains dictionary with the keys method.
+We print the keys of the domains dictionary with the `keys` method.
 
 ```python
 print(domains.values())
 ```
 
-We print the list of values of a domains dictionary with the `values` method.
+We print the values of the domains dictionary with the `values` method.
 
 ```python
 print(domains.items())
 ```
 
-And finally, we print the list of key-value tuples of a domains dictionary using  
-the `items` method.
+And finally, we print the key-value tuples with the `items` method.
 
 ```python
 print("de" in domains)
@@ -363,18 +360,17 @@ The return value is either `True` or `False`.
 
 ```
 $ ./keys_values.py
-['sk', 'de', 'no', 'us', 'hu']
-['Slovakia', 'Germany', 'Norway', 'United States', 'Hungary']
-[('sk', 'Slovakia'), ('de', 'Germany'), ('no', 'Norway'),
-('us', 'United States'), ('hu', 'Hungary')]
+dict_keys(['de', 'sk', 'hu', 'us', 'no'])
+dict_values(['Germany', 'Slovakia', 'Hungary', 'United States', 'Norway'])
+dict_items([('de', 'Germany'), ('sk', 'Slovakia'), ('hu', 'Hungary'),
+('us', 'United States'), ('no', 'Norway')])
 True
 False
 ```
 
-## Loooping
+## Looping
 
-Looping through the dictionary is a common programming job. This can be done with 
-the `for` keyword. 
+Looping through a dictionary is a common task, done with the `for` keyword.
 
 ```python
 
@@ -419,26 +415,26 @@ In the third loop, all keys and values are printed.
 
 ```
 $ ./looping.py
-sk
 de
-no
-us
+sk
 hu
-Slovakia
+us
+no
 Germany
-Norway
-United States
+Slovakia
 Hungary
-sk: Slovakia
+United States
+Norway
 de: Germany
-no: Norway
-us: United States
+sk: Slovakia
 hu: Hungary
+us: United States
+no: Norway
 ```
 
 ## Dictionary membership testing
 
-With the in and not in operators we can check if an key is present in a dictionary.
+With the `in` and `not in` operators, we can check if a key is present in a dictionary.
 
 ```python
 
@@ -453,34 +449,32 @@ if key in domains:
     print("{0} is in the dictionary".format(domains[key]))
 ```
 
-In the example we check if a country is in the dictionary with the in operator.
+In the example, we check whether the `sk` key is present in the dictionary with the `in` operator.
 
 ## defaultdict
 
-A defaultdict is a specialized dictionary subclass that automatically provides a default  
-value for keys that don't exist, eliminating the need to check for key existence before  
-accessing or modifying them.
+A `defaultdict` is a dictionary subclass that automatically supplies a default value for  
+keys that do not exist. It eliminates the need to check for a key's presence before  
+accessing or modifying it.
 
-`from collections import defaultdict`
+The `defaultdict` is defined in the standard `collections` module:
 
-The `defaultdict` is located in the built-in `collections` module.  
+```python
+from collections import defaultdict
+```
 
-We create a `defaultdict` by passing a callable (function) to its constructor. This callable  
-will be used to generate the default value when a new key is accessed.  
+We create a `defaultdict` by passing a callable (such as `int`, `list`, or `set`) to its  
+constructor. When a missing key is accessed, the callable is invoked and its return value  
+becomes the default value for the key.
 
-The default value is determined by calling the callable provided to the constructor.  
+Common default factories include:
 
-Common use cases include:
+- `int`: For numeric counters or accumulators
+- `list`: For storing multiple values under one key
+- `dict`: For building nested dictionaries
+- `set`: For collecting unique values
 
-- `0`: For numeric counters or accumulators
-- `[]`: For lists to store multiple values associated with a key
-- `{}`: For dictionaries to create nested dictionaries
-- `set()`: For sets to collect unique values
-
-Unlike regular dictionaries, we don't need to check if a key exists before accessing it. The `defaultdict`  
-will automatically create the key with the default value if it doesn't exist.  
-
-Counting letters using a dictionary.  
+Counting letters with a plain dictionary:
 
 ```python
 msg = 'there is an old falcon in the sky'
@@ -497,7 +491,7 @@ for c in msg:
 print(chars)
 ```
 
-Counting letters using a `defaultdict`.  
+Counting letters with a `defaultdict`:
 
 ```python
 from collections import defaultdict
@@ -517,9 +511,8 @@ for k in chars:
 
 ## Sorting
 
-Starting from Python 3.7, dictionaries in CPython (the most common implementation of Python)  
-maintain insertion order. This means the order in which you add key-value pairs to the dictionary  
-is preserved when iterating over it or accessing elements.  
+Since Python 3.7, dictionaries preserve insertion order. This means the order in which  
+key-value pairs are added to the dictionary is kept when iterating over it.
 
 We might want to sort the data in a normal or reverse order. We can sort the data by keys  
 or by values.
@@ -538,14 +531,14 @@ for k in kitems:
     print(": ".join((k, str(items[k]))))
 ```
 
-The first example provides the simplest solution to have the data sorted by the keys.
+The first example shows the simplest way to sort the data by keys.
 
 ```python
-kitems = items.keys()
+kitems = list(items.keys())
 kitems.sort()
 ```
 
-A list of keys is obtained from the dictionary. The list is sorted with the `sort` method.
+A list of keys is obtained from the dictionary and sorted with the `sort` method.
 
 ```python
 for k in kitems:
@@ -576,7 +569,7 @@ items = { "coins": 7, "pens": 3, "cups": 2,
     "bags": 1, "bottles": 4, "books": 5 }
 
 for key in sorted(items.keys()):
-    print("%{0}: {1}".format(key, items[key]))
+    print("{0}: {1}".format(key, items[key]))
 
 print("###############")
 
@@ -589,11 +582,10 @@ order using the sorted function.
 
 ```python
 for key in sorted(items.keys()):
-    print("%{0}: {1}".format(key, items[key]))
+    print("{0}: {1}".format(key, items[key]))
 ```
 
-In this for loop, we print the pairs sorted in ascending order. The `iteritems`  
-function returns an iterator over the dictionary's (key, value) pairs.
+In this for loop, we print the pairs sorted in ascending order by keys.
 
 ```python
 for key in sorted(items.keys(), reverse=True):
@@ -643,12 +635,12 @@ for key, value in sorted(items.items(), key=lambda pair: pair[1], reverse=True):
 The example prints the data in ascending and descending order by their values.  
 
 ```python
-for key, value in sorted(items.iteritems(),
-    key=lambda (k,v): (v,k)):
+for key, value in sorted(items.items(), key=lambda pair: pair[1]):
+    print("{0}: {1}".format(key, value))
 ```
 
-Dictionary pairs are sorted by their values and printed to the console. The key parameter  
-takes a function which indicates how the data is going to be sorted.
+Dictionary pairs are sorted by their values and printed to the console. The `key` parameter  
+takes a function which determines the sort order.
 
 ```
 $ ./sorting2.py
@@ -673,19 +665,18 @@ From the output we can see that this time the pairs were sorted by their values.
 ## Dictionary comprehension
 
 A dictionary comprehension is a syntactic construct which creates a dictionary based on  
-existing dictionary.
+an existing dictionary.
 
 ```python
-D = { expression for variable in sequence [if condition] }
+D = { key: value for variable in sequence [if condition] }
 ```
 
-A dictionary comprehension is placed between two curly brackets; it has three parts:  
-for loop, condition, and expression.
+A dictionary comprehension is placed between two curly brackets; it consists of a for  
+loop, an optional condition, and a key-value expression.
 
-In the for loop, we go through the dictionary. The optional if condition specifies a  
-condition which must be met. In the end, the expression is evaluated. The expression  
-produces elements of the output dictionary from members of the input sequence that  
-satisfy the condition.
+The for loop iterates over the input sequence. The optional `if` condition filters the  
+items; only those that satisfy it are kept. For each remaining item, the expression is  
+evaluated and produces a key-value pair of the new dictionary.
 
 ```python
 
@@ -694,10 +685,10 @@ satisfy the condition.
 capitals = { "Bratislava": 424207, "Vilnius": 556723, "Lisbon": 564657,
              "Riga": 713016, "Jerusalem": 780200, "Warsaw": 1711324,
              "Budapest": 1729040, "Prague": 1241664, "Helsinki": 596661,
-             "Yokyo": 13189000, "Madrid": 3233527 }
+             "Tokyo": 13189000, "Madrid": 3233527 }
 
 
-capitals2 = { key:val for key, val in capitals.items() if val < 1000000 }
+capitals2 = { key: val for key, val in capitals.items() if val < 1000000 }
 
 print(capitals2)
 ```
@@ -708,14 +699,13 @@ In the example, we create a new dictionary from an existing dictionary.
 capitals = { "Bratislava": 424207, "Vilnius": 556723, "Lisbon": 564657,
              "Riga": 713016, "Jerusalem": 780200, "Warsaw": 1711324,
              "Budapest": 1729040, "Prague": 1241664, "Helsinki": 596661,
-             "Yokyo": 13189000, "Madrid": 3233527 }
+             "Tokyo": 13189000, "Madrid": 3233527 }
 ```
 
-We have a dictionary of capitals. The capital in a key and the population is  
-the value.
+We have a dictionary of capitals. The capital is the key and the population is the value.
 
 ```python
-capitals = { key:val for key, val in capitals.items() if val < 1000000 }
+capitals2 = { key: val for key, val in capitals.items() if val < 1000000 }
 ```
 
 A new dictionary is created using a dictionary comprehension. It contains capitals  
@@ -723,8 +713,8 @@ that have a population smaller than one million.
 
 ```
 $ ./comprehension.py
-{'Bratislava': 424207, 'Vilnius': 556723, 'Jerusalem': 780200, 'Riga': 713016,
-    'Lisbon': 564657, 'Helsinki': 596661}
+{'Bratislava': 424207, 'Vilnius': 556723, 'Lisbon': 564657, 'Riga': 713016,
+    'Jerusalem': 780200, 'Helsinki': 596661}
 ```
 
 These capitals have a population smaller than one million.
