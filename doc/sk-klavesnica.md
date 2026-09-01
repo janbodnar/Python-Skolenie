@@ -1,6 +1,9 @@
-Na písanie špeciálnych znakov na slovenskej klávesnici (vo Windowse) sa najčastejšie používa kláves **Pravý Alt (AltGr)** v kombinácii s inými písmenami.
+# Slovenská klávesnica
 
-Tu je prehľadná tabuľka pre bežné znaky a samostatná tabuľka pre úvodzovky, o ktoré si prosil.
+Na písanie špeciálnych znakov na slovenskej klávesnici (vo Windowse) sa  
+najčastejšie používa kláves **Pravý Alt (AltGr)** v kombinácii s inými  
+písmenami.
+
 
 ### 1. Bežné špeciálne znaky
 
@@ -27,9 +30,12 @@ Kláves **AltGr** sa nachádza hneď napravo od medzerníka (funguje rovnako ako
 
 ### 2. Úvodzovky (Slovenské aj anglické)
 
-Správne **slovenské úvodzovky** sú na začiatku dole a na konci hore („takto“). Zatiaľ čo programátorské/anglické sú rovné a iba hore ("takto").
+Správne **slovenské úvodzovky** sú na začiatku dole a na konci hore („takto“).  
+Zatiaľ čo programátorské/anglické sú rovné a iba hore ("takto").  
 
-Programy ako MS Word často rovné úvodzovky automaticky menia na slovenské, ale ak ich potrebuješ napísať presne a natvrdo, najistejšie sú tzv. **Alt kódy** (držíš ľavý `Alt` a na *numerickej klávesnici* vyťukáš číslo).
+Programy ako MS Word často rovné úvodzovky automaticky menia na slovenské,  
+ale ak ich potrebuješ napísať presne a natvrdo, najistejšie sú tzv. **Alt kódy** 
+ (držíš ľavý `Alt` a na *numerickej klávesnici* vyťukáš číslo).
 
 | Znak | Názov úvodzovky / znaku | Ako napísať na SK klávesnici |
 | --- | --- | --- |
