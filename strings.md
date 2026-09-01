@@ -1,18 +1,14 @@
-# Strings 
+# Strings in Python
 
+A **string** in Python is a sequence of characters. Strings are **immutable**—once defined, they cannot be changed. Many Python methods like `replace()`, `join()`, or `split()` appear to modify strings, but they actually create a new copy of the string, modify it, and return the modified copy to the caller.
 
-A *string* in Python is a sequence of characters. Strings are immutable; this means that once defined,  
-they cannot be changed. Many Python methods, such as `replace`, `join`, or `split` modify strings.  
-However, they do not modify the original string. They create a copy of a string which they modify  
-and return to the caller.
+---
 
-## String literals
+## String Literals
 
-Python strings can be created with single quotes, double quotes, or triple quotes. When we use triple  
-quotes, strings can span several lines without using the escape character.  
+Python strings can be created using **single quotes**, **double quotes**, or **triple quotes**. Triple quotes allow strings to span multiple lines without using escape characters.
 
 ```python
-
 # string_literals.py
 
 a = "proximity alert"
@@ -29,11 +25,8 @@ print(b)
 print(c)
 ```
 
-In our example we assign three string literals to a, b, and c variables. And we print them  
-to the console.
-
+**Output:**
 ```
-$ ./string_literals.py
 proximity alert
 evacuation
 
@@ -41,13 +34,13 @@ requiem
 for
 a
 tower
-Unicode in Python
 ```
 
-If we want to create Unicode strings, we add a u or U character at the beginning of the text.
+### Unicode Strings
+
+Python supports Unicode natively. You can include Unicode characters directly in source code or use escape sequences.
 
 ```python
-
 # unicode.py
 
 text = u'\u041b\u0435\u0432 \u041d\u0438\u043a\u043e\u043b\u0430\
@@ -57,308 +50,197 @@ text = u'\u041b\u0435\u0432 \u041d\u0438\u043a\u043e\u043b\u0430\
 print(text)
 ```
 
-In our example, we print Leo Tolstoy: Anna Karenina in Cyrillic.
-
+**Output:**
 ```
-$ ./unicode.py
 Лев Николаевич Толстой:
 Анна Каренина
 ```
 
-We can use the Russian letters directly.
+For direct Unicode usage in source code, ensure your file is saved with UTF-8 encoding:
 
 ```python
-
 # unicode2.py
+# -*- coding: utf-8 -*-
 
 text = 'Лев Николаевич Толстой: Анна Каренина'
-
 print(text)
 ```
 
-In this example, we use non-latin characters directly in the source code.  
-We have defined UTF-8 encoding with a encoding comment.  
+---
 
-## String formatting
+## String Formatting
 
-The following example summarizes string formatting options in Python.
+Python provides several ways to format strings. Here are the three main approaches:
 
 ```python
-
 name = 'Peter'
 age = 23
 
+# Old-style % formatting
 print('%s is %d years old' % (name, age))
+
+# str.format() method (Python 3.0+)
 print('{} is {} years old'.format(name, age))
+
+# f-strings (Python 3.6+)
 print(f'{name} is {age} years old')
 ```
 
-The example formats a string using two variables.
-
-```python
-print('%s is %d years old' % (name, age))
+**Output:**
 ```
-
-This is the oldest option. It uses the % operator and classic string format specifies such as `%s` and `%d`.
-
-```python
-print('{} is {} years old'.format(name, age))
-```
-
-Since Python 3.0, the `format` function was introduced to provide advance formatting options.
-
-```python
-print(f'{name} is {age} years old')
-```
-
-Python f-strings are available since Python 3.6. The string has the `f` prefix and uses `{}` to evaluate variables.
-
-```
-$ python formatting_string.py
 Peter is 23 years old
 Peter is 23 years old
 Peter is 23 years old
 ```
 
+**Formatting Options:**
 
-## Using quotes
+| Method | Example | When to Use |
+|--------|---------|-------------|
+| `%`-formatting | `"%s is %d" % (name, age)` | Legacy code |
+| `.format()` | `"{} is {}".format(name, age)` | Python 3.0–3.5 |
+| f-strings | `f"{name} is {age}"` | Python 3.6+ (recommended) |
 
-Strings in Python are delimited by single or double quote characters. What if we wanted to  
-display quotes, for example in a direct speech? There are two basic ways to do this. 
+---
+
+## Using Quotes Inside Strings
+
+When you need to include quotes within a string, you have two options:
+
+1. **Escape the quotes** with a backslash (`\`)
+2. **Mix single and double quotes**
 
 ```python
-
 # quotes.py
 
-print("There are many stars.")
+# Escaping quotes
 print("He said, \"Which one is your favourite?\"")
 
-print('There are many stars.')
+# Mixing quote types
 print('He said, "Which one is your favourite?"')
+
+# Using single quotes inside double quotes (no escape needed)
+print("Johnie's dog")
+
+# Escaping single quotes
+print('Johnie\'s dog')
 ```
 
-We use the `\` character to escape additional quotes. Normally the double quote character is  
-used to delimit a string literal. However, when escaped, the original meaning is suppressed.  
-It appears as a normal character and can be used within a string literal. The second way to  
-use quotes within quotes is to mix single and double quotes.
-
+**Output:**
 ```
-$ ./quotes.py
-There are many stars.
 He said, "Which one is your favourite?"
-There are many stars.
 He said, "Which one is your favourite?"
+Johnie's dog
+Johnie's dog
 ```
 
-## String length
+---
 
-The `len` method calculates the number of characters in a string. The white characters are also counted. 
+## String Length
+
+The `len()` function returns the number of characters in a string, including whitespace characters.
 
 ```python
-
 # string_length.py
 
 s1 = "Eagle"
-s2 = "Eagle\n"
-s3 = "Eagle  "
+s2 = "Eagle\n"    # Includes newline character
+s3 = "Eagle  "    # Includes two spaces
 
-print(len(s1))
-print(len(s2))
-print(len(s3))
+print(len(s1))    # 5
+print(len(s2))    # 6 (newline counts)
+print(len(s3))    # 7 (spaces count)
 ```
 
-We compute the length of three strings.
-
+**Output:**
 ```
-s1 = "Eagle"
-s2 = "Eagle\n"
-s3 = "Eagle  "
-```
-
-Three strings are defined. The second string has a new line character at its end.  
-The third has two additional space characters.
-
-```python
-print(len(s1))
-```
-
-We print the number of characters to the console.
-
-```python
-$ ./length.py
 5
 6
 7
 ```
 
-From the output we can see that the white spaces (new line character and space characters in our case)  
-are counted, too.
+---
 
-## Stripping white characters
+## Stripping Whitespace Characters
 
-In string processing, we might often end up with a string that has white characters at the beginning  
-or at the end of a string. The term white spaces (characters) refers to invisible characters  
-like new line, tab, space or other control characters. We have the `strip`, `lstrip`, and `rstrip`  
-methods to remove these characters.
+The `strip()`, `lstrip()`, and `rstrip()` methods remove leading and/or trailing whitespace characters (spaces, tabs, newlines, etc.).
 
 ```python
-
-# strippig.py
+# stripping.py
 
 s = " Eagle  "
 
-s2 = s.rstrip()
-s3 = s.lstrip()
-s4 = s.strip()
+s2 = s.rstrip()   # Remove trailing spaces
+s3 = s.lstrip()   # Remove leading spaces
+s4 = s.strip()    # Remove both
 
-print('{0} {1}'.format(s, len(s)))
-print('{0} {1}'.format(s2, len(s2)))
-print('{0} {1}'.format(s3, len(s3)))
-print('{0} {1}'.format(s4, len(s4)))
+print(f"'{s}' length: {len(s)}")     # ' Eagle  ' length: 8
+print(f"'{s2}' length: {len(s2)}")   # ' Eagle' length: 6
+print(f"'{s3}' length: {len(s3)}")   # 'Eagle  ' length: 7
+print(f"'{s4}' length: {len(s4)}")   # 'Eagle' length: 5
 ```
 
-We apply the stripping methods on a string word which has three white spaces. One space at the start and  
-two spaces at the end. Note that these methods remove any number of white spaces, not just one.  
+**Output:**
+```
+' Eagle  ' length: 8
+' Eagle' length: 6
+'Eagle  ' length: 7
+'Eagle' length: 5
+```
+
+---
+
+## Escape Sequences
+
+Escape sequences are special characters that begin with a backslash (`\`) and serve specific purposes within strings.
+
+| Escape Sequence | Description |
+|-----------------|-------------|
+| `\n` | Newline |
+| `\t` | Tab |
+| `\r` | Carriage return |
+| `\b` | Backspace |
+| `\\` | Backslash |
+| `\'` | Single quote |
+| `\"` | Double quote |
 
 ```python
-s2 = s.rstrip()
+# Escape sequence examples
+
+# Newline
+print("Line 1\nLine 2")
+
+# Tab
+print("Name:\tJohn")
+
+# Carriage return (returns to line start)
+print("aaa\bbb")      # Output: bbbaa (backspaces delete three characters)
+
+# Raw strings (escape sequences are not interpreted)
+print(r"Raw string\n")  # Output: Raw string\n
 ```
 
-The rstrip method returns a string with the trailing white space characters removed.
+**Note:** Raw strings (prefixed with `r`) treat backslashes as literal characters, making them useful for file paths and regular expressions.
+
+---
+
+## Comparing Strings
+
+Use the `==` operator for equality and `!=` for inequality. These operators return boolean values (`True` or `False`).
 
 ```python
-s3 = s.lstrip()
-```
-
-The `lstrip` method returns a string with the leading white space characters removed.
-
-```python
-s4 = s.strip()
-```
-
-The strip method returns a copy of the string with the leading and trailing characters removed.  
-
-```python
-print('{0} {1}'.format(s2, len(s2)))
-```
-
-The `format` method is used to dynamically build a string. The `{0}` is a control character referring  
-to the first parameter of the format method. The `{1}` refers to the second parameter.  
-
-```
-$ ./stripping.py
- Eagle   8
- Eagle 6
-Eagle   7
-Eagle 5
-```
-
-## Escape sequences
-
-When we work with strings, we can use escape sequences. The escape sequences are special characters have  
-a specific purpose, when used within a string.
-
-```python
-print("   bbb\raaa") # prints aaabbb
-```
-
-The carriage return `\r` is a control character for end of line return to beginning of line.
-
-```python
-
-# strophe.py
-
-print("Incompatible, it don't matter though\n'cos someone's bound to hear my cry")
-print("Speak out if you do\nYou're not easy to find")
-```
-
-The new line is a control character, which begins a new line of text.
-
-```
-$ ./strophe.py
-Incompatible, it don't matter though
-'cos someone's bound to hear my cry
-Speak out if you do
-You're not easy to find
-Next we examine the backspace control character.
-```
-
-```python
-print("Python\b\b\booo") # prints Pytooo
-```
-
-The backspace control character `\b` moves the cursor one character back. In our case,   
-we use three backspace characters to delete three letters and replace them with three o characters. 
-
-```python
-print("Towering\tinferno") # prints Towering        inferno
-```
-
-The horizontal tab puts a space between text.
-
-```
-"Johnie's dog"
-'Johnie\'s dog'
-```
-
-Single and double quotes can be nested. Or in case we use only single quotes, we can use the  
-backslash to escape the default meaning of a single quote. 
-
-If we prepend an r to the string, we get a raw string. The escape sequences are not interpreted.  
-
-```python
-
-# raw.py
-
-print(r"Another world\n")
-```
-
-```
-$ ./raw.py
-Another world\n
-```
-
-We get the string with the new line character included.
-
-## Comparing strings
-Comparing strings is a common job in programming. We can compare two strings with the `==` operator.  
-We can check the opposite with the non-equality `!=` operator. The operators return a boolean `True` or `False`.
-
-```python
-
 # comparing.py
 
-print("12" == "12")
-print("17" == "9")
-print("aa" == "ab")
+print("12" == "12")      # True
+print("17" == "9")       # False
+print("aa" == "ab")      # False
 
-print("abc" != "bce")
-print("efg" != "efg")
+print("abc" != "bce")    # True
+print("efg" != "efg")    # False
 ```
 
-In this code example, we compare some strings.
-
-```python
-print("12" == "12")
+**Output:**
 ```
-
-These two strings are equal, so the line returns True.
-
-```python
-print("aa" == "ab")
-```
-
-The first two characters of both strings are equal. Next the following characters are  
-compared. They are different so the line returns `False`.
-
-```python
-print("abc" != "bce")
-```
-
-Since the two strings are different, the line returns `True`.
-
-```python
-$ ./comparing.py
 True
 False
 False
@@ -366,644 +248,348 @@ True
 False
 ```
 
-## Accessing string elements
-
-It is possible to access string elements in Python.
+**Lexicographic Comparison:**
+Strings can also be compared using `<`, `>`, `<=`, `>=`, which compare character by character based on Unicode code points.
 
 ```python
+print("apple" < "banana")   # True (a < b)
+print("Apple" < "apple")    # True (A < a in Unicode)
+```
 
+---
+
+## Accessing String Elements
+
+Strings support indexing to access individual characters and slicing to access substrings.
+
+```python
 # string_elements.py
 
 s = "Eagle"
 
-print(s[0])
-print(s[4])
-print(s[-1])
-print(s[-2])
+# Positive indexing (0-based)
+print(s[0])    # E (first character)
+print(s[4])    # e (fifth character)
 
-print("****************")
+# Negative indexing (from end)
+print(s[-1])   # e (last character)
+print(s[-2])   # l (second from end)
 
-print(s[0:4])
-print(s[1:3])
-print(s[:])
+# Slicing [start:end] (end is exclusive)
+print(s[0:4])  # Eagl (characters 0-3)
+print(s[1:3])  # ag (characters 1-2)
+print(s[:])    # Eagle (full string)
+print(s[::2])  # Egl (every second character)
 ```
 
-An index operation is used to get elements of a string.
-
-```python
-print(s[0])
-print(s[4])
+**Output:**
 ```
-
-The first line prints the first character. The second line prints the fifth character. The indexes  
-start from zero.  
-
-```python
-print(s[-1])
-print(s[-2])
-```
-
-When the index is negative, we retrieve elements from the end of the string. In this case, we print   
-the last and last but one characters.
-
-```python
-print(s[0:4])
-```
-
-Ranges of characters can be accessed too. This line prints a range of characters starting from the   
-first and ending with the fourth character.  
-
-```python
-print(s[:])
-```
-
-This line prints all the characters from the string.
-
-```
-$ ./string_elements.py
 E
 e
 e
 l
-****************
 Eagl
 ag
 Eagle
 ```
 
-A for loop can be used to traverse all characters of a string.
+### Iterating Through a String
 
 ```python
-
 # traverse.py
 
 s = "ZetCode"
 
-for i in s:
-  print(i, " ", end="")
+for char in s:
+    print(char, end=" ")  # Z e t C o d e
 ```
 
-The script prints all the characters of a given string to the console.
-
+**Output:**
 ```
-$ ./traverse.py
 Z e t C o d e
 ```
 
+---
 
-## Basic string operations
+## Basic String Operations
 
-In the next example, we do string multiplication and concatenation.
+### Multiplication and Concatenation
 
 ```python
-
 # add_multiply.py
 
+# String repetition
 print("eagle " * 5)
 
+# Automatic concatenation of adjacent literals
 print("eagle " "falcon")
 
+# Explicit concatenation with +
 print("eagle " + "and " + "falcon")
 ```
 
-The `*` operator repeates the string n times. In our case five times. Two string literals next to  
-each other are automatically concatenated. We can also use the `+` operator to explicitly concatenate the strings.
-
+**Output:**
 ```
-$ ./add_multiply.py
 eagle eagle eagle eagle eagle
 eagle falcon
 eagle and falcon
 ```
 
-We can use the len function to calculate the length of the string in characters.
+### String Length
 
 ```python
-
-# eagle.py
-
 word = 'eagle'
-
-print(word, "has", len(word), "characters")
+print(f"{word} has {len(word)} characters")  # eagle has 5 characters
 ```
 
-In the example, we compute the number of characters in a string variable.  
+### Type Conversion
 
-```
-$ ./eagle.py
-eagle has 5 characters
-```
-
-Some programming languages enable implicit addition of strings and numbers. In Python language,  
-this is not possible. We must explicitly convert values.  
+Python does not implicitly convert between strings and numbers. You must use explicit conversion:
 
 ```python
-
 # string_number.py
 
-print(int("12") + 12)
-print("There are " + str(22) + " oranges.")
-print(float('22.33') + 22.55)
+# String to integer
+print(int("12") + 12)                    # 24
+
+# Integer to string
+print("There are " + str(22) + " oranges.")  # There are 22 oranges.
+
+# String to float
+print(float("22.33") + 22.55)            # 44.88
 ```
 
-We use a built-in int function to convert a string to integer. And there is also a built-in `str` 
-function to convert a number to a string. And we use the float function to convert a string to  
-a floating point number.
+---
 
-## Replacing strings
+## Replacing Substrings
 
-The `replace` method replaces substrings in a string with other substrings. Since strings in Python  
-are immutable, a new string is built with values replaced.
+The `replace()` method replaces occurrences of a substring within a string. Since strings are immutable, it returns a new string.
 
 ```python
-replace(old, new [, max])
-```
-
-By default, the replace method replaces all occurrences of a substring. The method takes a third argument  
-which limits the replacements to a certain number.
-
-```python
-
 # replacing.py
 
 a = "I saw a wolf in the forest. A lonely wolf."
 
+# Replace all occurrences
 b = a.replace("wolf", "fox")
-print(b)
+print(b)  # I saw a fox in the forest. A lonely fox.
 
+# Replace only the first occurrence (max replace count)
 c = a.replace("wolf", "fox", 1)
-print(c)
+print(c)  # I saw a fox in the forest. A lonely wolf.
 ```
 
-We have a sentence where we replace 'wolf' with 'fox'.
+**Syntax:** `replace(old, new [, max_count])`
+
+---
+
+## Splitting and Joining Strings
+
+### Splitting with `split()` and `rsplit()`
+
+The `split()` method divides a string into a list using a separator. `rsplit()` does the same but from the right.
 
 ```python
-b = a.replace("wolf", "fox")
-```
-
-This line replaces all occurrences of the 'wolf' with 'fox'.
-
-```python
-c = a.replace("wolf", "fox", 1)
-```
-
-Here we replace only the first occurrence.
-
-```
-$ ./replacing.py
-I saw a fox in the forest. A lonely fox.
-I saw a fox in the forest. A lonely wolf.
-```
-
-## Splitting and joining strings
-
-A string can be split with the split or the rsplit method. They return a list of strings which were  
-cut from the string using a separator. The optional second parameter is the maximum splits allowed.  
-
-```python
-
 # splitting.py
 
 nums = "1,5,6,8,2,3,1,9"
 
-k = nums.split(",")
-print(k)
+# Split all
+print(nums.split(","))        # ['1', '5', '6', '8', '2', '3', '1', '9']
 
-l = nums.split(",", 5)
-print(l)
+# Split with max splits
+print(nums.split(",", 5))     # ['1', '5', '6', '8', '2', '3,1,9']
 
-m = nums.rsplit(",", 3)
-print(m)
+# Split from the right
+print(nums.rsplit(",", 3))    # ['1,5,6,8,2', '3', '1', '9']
 ```
 
-We have a comma-delimited string. We cut the string into parts.
+### Joining with `join()`
+
+The `join()` method concatenates strings from an iterable with the separator string.
 
 ```python
-k = nums.split(",")
-```
-
-We split the string into eight parts using a comma as a separator. The method returns  
-a list of eight strings.
-
-```python
-l = nums.split(",", 5)
-```
-
-Here we split the string into six parts. There are five substrings and the remainder of the string.
-
-```python
-m = nums.rsplit(",", 3)
-```
-
-Here we split the string into four parts. This time the splitting goes from the right.
-
-```python
-$ ./splitting.py
-['1', '5', '6', '8', '2', '3', '1', '9']
-['1', '5', '6', '8', '2', '3,1,9']
-['1,5,6,8,2', '3', '1', '9']
-```
-
-Strings can be joined with the join string. It returns a string concatenated from the strings passed  
-as a parameter. The separator between elements is the string providing this method.
-
-```python
-
 # split_join.py
 
 nums = "1,5,6,8,2,3,1,9"
+parts = nums.split(",")       # ['1', '5', '6', '8', '2', '3', '1', '9']
 
-n = nums.split(",")
-print(n)
-
-m = ':'.join(n)
-print(m)
+joined = ':'.join(parts)      # 1:5:6:8:2:3:1:9
+print(joined)
 ```
 
-First we split a string into a list of strings. Then we join the strings into one string with the  
-elements being separated by the provided character.
+### The `partition()` Method
+
+The `partition()` method splits a string at the first occurrence of a separator and returns a tuple of three parts: before, separator, and after.
 
 ```python
-m = ':'.join(n)
-```
-
-The join method creates one string from a list of strings. The elements are separated by the `:` character.
-
-```
-$ ./split_join.py
-['1', '5', '6', '8', '2', '3', '1', '9']
-1:5:6:8:2:3:1:9
-```
-
-Another method which can be used for splitting strings is partition. It will split the string at the first  
-occurrence of the separator and return a 3-tuple containing the part before the separator, the separator  
-itself, and the part after the separator.
-
-```python
-
 # partition.py
 
 s = "1 + 2 + 3 = 6"
-
-a = s.partition("=")
-
-print(a)
+result = s.partition("=")
+print(result)  # ('1 + 2 + 3 ', '=', ' 6')
 ```
 
-We use the partition method in this example.
+---
+
+## String Case Conversion
+
+Python provides several methods to convert string case:
+
+| Method | Description |
+|--------|-------------|
+| `.upper()` | Converts all characters to uppercase |
+| `.lower()` | Converts all characters to lowercase |
+| `.swapcase()` | Swaps case (upper ↔ lower) |
+| `.title()` | Capitalizes first letter of each word |
+| `.capitalize()` | Capitalizes first letter only |
 
 ```python
-a = s.partition("=")
-```
-
-This will cut the string into three parts. One before the `=` character, the separator, and the right side  
-after the separator.
-
-```python
-$ ./partition.py
-('1 + 2 + 3 ', '=', ' 6')
-```
-
-## String case
-
-Python has four string methods to work with the case of the strings. These methods return  
-a new modified string.
-
-```python
-
 # convert_case.py
 
 a = "ZetCode"
 
-print(a.upper())
-print(a.lower())
-print(a.swapcase())
-print(a.title())
+print(a.upper())      # ZETCODE
+print(a.lower())      # zetcode
+print(a.swapcase())   # zETcODE
+print(a.title())      # Zetcode
+
+# Additional examples
+text = "hello world"
+print(text.capitalize())  # Hello world
 ```
 
-We have a string word on which we demonstrate the four methods.
+---
+
+## String Testing Methods
+
+Several methods check character properties:
+
+| Method | Description |
+|--------|-------------|
+| `.isalpha()` | All characters are alphabetic |
+| `.isdigit()` | All characters are digits |
+| `.isspace()` | All characters are whitespace |
+| `.isalnum()` | All characters are alphanumeric |
+| `.isupper()` | All characters are uppercase |
+| `.islower()` | All characters are lowercase |
 
 ```python
-print(a.upper())
-```
-
-The upper method returns a copy of the string where all characters are converted to uppercase.
-
-```python
-print(a.lower())
-```
-
-Here we get a copy of the string in lowercase letters.
-
-```python
-print(a.swapcase())
-```
-
-The swapcase method swaps the case of the letters. Lowercase characters will be uppercase and vice versa.
-
-```python
-print(a.title())
-```
-
-The title method returns a copy of the string, where the first character is in uppercase and the  
-remaining characters are in lowercase.
-
-```
-$ ./convert_case.py
-ZETCODE
-zetcode
-zETcODE
-Zetcode
-```
-
-## String operations
-
-There are several useful built-in functions that can be used for working with strings.
-
-```python
-
 # letters.py
 
 sentence = "There are 22 apples"
 
-alphas = 0
-digits = 0
-spaces = 0
+alphas = sum(1 for c in sentence if c.isalpha())
+digits = sum(1 for c in sentence if c.isdigit())
+spaces = sum(1 for c in sentence if c.isspace())
 
-for i in sentence:
-
-   if i.isalpha():
-      alphas += 1
-
-   if i.isdigit():
-      digits += 1
-
-   if i.isspace():
-      spaces += 1
-
-print("There are", len(sentence), "characters")
-print("There are", alphas, "alphabetic characters")
-print("There are", digits, "digits")
-print("There are", spaces, "spaces")
+print(f"Total characters: {len(sentence)}")
+print(f"Alphabetic: {alphas}")
+print(f"Digits: {digits}")
+print(f"Spaces: {spaces}")
 ```
 
-In our example, we have a string sentence. We calculate the absolute number of characters, number of  
-alphabetic characters, digits and spaces in the sentence. To do this, we use the following functions:  
-`len`, `isalpha`, `isdigit`, and `isspace`.
-
+**Output:**
 ```
-$ ./letters.py
-There are 19 characters
-There are 14 alphabetic characters
-There are 2 digits
-There are 3 spaces
+Total characters: 19
+Alphabetic: 14
+Digits: 2
+Spaces: 3
 ```
 
-In the next example, we print the results of football matches.
+---
+
+## String Justification
+
+The `ljust()`, `rjust()`, and `center()` methods align strings within a specified width.
+
+| Method | Description |
+|--------|-------------|
+| `.ljust(width)` | Left-justifies the string |
+| `.rjust(width)` | Right-justifies the string |
+| `.center(width)` | Centers the string |
 
 ```python
-
-# teams1.py
-
-print("Ajax Amsterdam" " - " "Inter Milano " "2:3")
-print("Real Madridi" " - " "AC Milano " "3:3")
-print("Dortmund" " - " "Sparta Praha " "2:1")
-```
-
-We already know that adjacent strings are concatenated.
-
-```
-$ ./teams1.py
-Ajax Amsterdam - Inter Milano 2:3
-Real Madridi - AC Milano 3:3
-Dortmund - Sparta Praha 2:1
-Next, we improve the look of the output.
-```
-
-```python
-
 # teams2.py
 
 teams = {
-      0: ("Ajax Amsterdam", "Inter Milano"),
-      1: ("Real Madrid", "AC Milano"),
-      2: ("Dortmund", "Sparta Praha")
+    0: ("Ajax Amsterdam", "Inter Milano"),
+    1: ("Real Madrid", "AC Milano"),
+    2: ("Dortmund", "Sparta Praha")
 }
 
 results = ("2:3", "3:3", "2:1")
 
 for i in teams:
-
-   line = teams[i][0].ljust(16) + "-".ljust(5) + teams[i][1].ljust(16) + results[i].ljust(3)
-   print(line)
+    line = (teams[i][0].ljust(16) +
+            "-".ljust(5) +
+            teams[i][1].ljust(16) +
+            results[i].ljust(3))
+    print(line)
 ```
 
-The `ljust` method returns a left justified string, the rjust method returns a right justified  
-string. If the string is smaller than the width that we provided, it is filled with spaces. 
-
+**Output:**
 ```
-$ ./teams2.py
 Ajax Amsterdam  -    Inter Milano    2:3
 Real Madrid     -    AC Milano       3:3
 Dortmund        -    Sparta Praha    2:1
 ```
 
-Now the output looks better.
+---
 
-## String formatting
+## Advanced String Formatting
 
-String formatting is dynamic putting of various values into a string. String formatting can be  
-achieved with the `%` operator or the format method.
-
-```python
-
-# oranges.py
-
-print('There are %d oranges in the basket' % 32)
-print('There are {0} oranges in the basket'.format(32))
-```
-
-In the code example, we dynamically build a string. We put a number in a sentence.
+### Formatting Numbers
 
 ```python
-print('There are %d oranges in the basket' % 32)
-```
-
-We use the `%d` formatting specifier. The d character means that we are expecting an integer.  
-After the string, we put a modulo operator and an argument. In this case we have an integer value.
-
-```python
-print('There are {0} oranges in the basket'.format(32))
-```
-
-The same task is achieved with the format method. This time the formatting specifier is `{0}`.
-
-```
-$ ./oranges.py
-There are 32 oranges in the basket
-There are 32 oranges in the basket
-```
-
-The next example shows how to add more values into a string.
-
-```python
-
-# fruits.py
-
-print('There are %d oranges and %d apples in the basket' % (12, 23))
-print('There are {0} oranges and {1} apples in the basket'.format(12, 23))
-```
-
-In both lines, we add two format specifiers.
-
-```
-$ ./fruits.py
-There are 12 oranges and 23 apples in the basket
-There are 12 oranges and 23 apples in the basket
-```
-
-In the next example, we build a string with a float and a string value.
-
-```python
-
-# height.py
-
-print('Height: %f %s' % (172.3, 'cm'))
-print('Height: {0:f} {1:s}'.format(172.3, 'cm'))
-```
-
-We print the height of a person.
-
-```python
-print('Height: %f %s' % (172.3, 'cm'))
-```
-
-The formatting specifier for a float value is %f and for a string `%s`.
-
-```python
-print('Height: {0:f} {1:s}'.format(172.3, 'cm'))
-```
-
-With the format method, we add f and s characters to the specifier.
-
-```python
-$ ./height.py
-Height: 172.300000 cm
-Height: 172.300000 cm
-```
-
-We might not like the fact that the number in the previous example has 6 decimal places  
-by default. We can control the number of the decimal places in the formatting specifier.
-
-```python
-
-# height2.py
-
-print('Height: %.2f %s' % (172.3, 'cm'))
-print('Height: {0:.2f} {1:s}'.format(172.3, 'cm'))
-```
-
-The decimal point followed by an integer controls the number of decimal places.  
-In our case, the number will have two decimal places.
-
-```python
-$ ./height2.py
-Height: 172.30 cm
-Height: 172.30 cm
-```
-
-The following example shows other formatting options.
-
-```python
-
 # various.py
 
-# hexadecimal
-print("%x" % 300)
-print("%#x" % 300)
+# Hexadecimal
+print("%x" % 300)      # 12c
+print("%#x" % 300)     # 0x12c
 
-# octal
-print("%o" % 300)
+# Octal
+print("%o" % 300)      # 454
 
-# scientific
-print("%e" % 300000)
+# Scientific notation
+print("%e" % 300000)   # 3.000000e+05
+
+# With .format()
+print("{:x}".format(300))      # 12c
+print("{:#x}".format(300))     # 0x12c
+print("{:b}".format(300))      # 100101100 (binary)
+print("{:o}".format(300))      # 454
+print("{:e}".format(300000))   # 3.000000e+05
 ```
 
-The first two formats work with hexadecimal numbers. The x character will format the number in  
-hexadecimal notation. The `#` character adda `0x` to the hexadecimal number. The `o` character shows the number 
-in octal format. The `e` character will show the number in scientific format.
+### Controlling Decimal Places
 
 ```python
-$ ./various.py
-12c
-0x12c
-454
-3.000000e+05
+# height2.py
+
+height = 172.3
+
+# Old-style
+print("Height: %.2f cm" % height)  # Height: 172.30 cm
+
+# str.format()
+print("Height: {:.2f} cm".format(height))  # Height: 172.30 cm
+
+# f-string
+print(f"Height: {height:.2f} cm")  # Height: 172.30 cm
 ```
 
-The format method also supports the binary format.
+### Column Formatting with Width Specifiers
 
 ```python
-
-# various2.py
-
-# hexadecimal
-print("{:x}".format(300))
-print("{:#x}".format(300))
-
-# binary
-print("{:b}".format(300))
-
-# octal
-print("{:o}".format(300))
-
-# scientific
-print("{:e}".format(300000))
-```
-
-The example prints numbers in hexadecimal, binary, octal, and scientific formats.
-
-The next example prints three columns of numbers.
-
-```python
-
-# columns1.py
-
-for x in range(1, 11):
-    print('%d %d %d' % (x, x*x, x*x*x))
-```
-
-The numbers are left justified and the output is not optimal.
-
-```
-$ ./columns1.py
-1 1 1
-2 4 8
-3 9 27
-4 16 64
-5 25 125
-6 36 216
-7 49 343
-8 64 512
-9 81 729
-10 100 1000
-```
-
-To correct this, we use the width specifier. The width specifier defines the minimal width  
-of the object. If the object is smaller than the width, it is filled with spaces.
-
-```python
-
 # columns2.py
 
 for x in range(1, 11):
     print('%2d %3d %4d' % (x, x*x, x*x*x))
 ```
 
-Now the output looks OK. Value 2 makes the first column to be 2 charactes wide.
-
+**Output:**
 ```
-$ ./columns2.py
  1   1    1
  2   4    8
  3   9   27
@@ -1016,126 +602,106 @@ $ ./columns2.py
 10 100 1000
 ```
 
-Now we have the improved formatting with the format method.
-
+Using `.format()`:
 ```python
-
 # columns3.py
 
 for x in range(1, 11):
     print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
 ```
 
+---
 
-## Finding substrings
+## Finding Substrings
 
-The `find`, `rfind`, `index` and `rindex` methods are used to find substrings in a string. They return   
-the index of the first occurrence of the substring. The find and index methods search from the  
-beginning of the string. The rfind and rindex search from the end of the string.
+Python provides four methods for finding substrings:
 
-The difference between the find and index methods is that when the substring is not found, the former 
-returns -1. The latter raises `ValueError` exception.
+| Method | Search Direction | Return on Not Found |
+|--------|-----------------|---------------------|
+| `.find()` | Beginning to end | Returns `-1` |
+| `.rfind()` | End to beginning | Returns `-1` |
+| `.index()` | Beginning to end | Raises `ValueError` |
+| `.rindex()` | End to beginning | Raises `ValueError` |
 
-```
-find(str, beg=0, end=len(string))
-rfind(str, beg=0, end=len(string))
-index(str, beg=0, end=len(string))
-rindex(str, beg=0, end=len(string))
-```
+**Syntax:** `str.find(sub[, start[, end]])`
 
-The `str` is the substring to be searched for. The beg parameter is the starting index, by default it is 0.  
-The end parameter is the ending index. It is by default equal to the length of the string.
+### Using `find()` and `rfind()`
 
 ```python
-
 # substrings.py
 
 a = "I saw a wolf in the forest. A lone wolf."
 
-print(a.find("wolf"))
-print(a.find("wolf", 10, 20))
-print(a.find("wolf", 15))
-
-print(a.rfind("wolf"))
+print(a.find("wolf"))          # 8 (first occurrence)
+print(a.find("wolf", 10, 20))  # -1 (not found in range)
+print(a.find("wolf", 15))      # 35 (second occurrence)
+print(a.rfind("wolf"))         # 35 (search from end)
 ```
 
-We have a simple sentence. We try to find the index of a substring in the sentence.
+### Using `index()` and `rindex()`
 
 ```python
-print(a.find("wolf"))
-```
-
-The line finds the first occurrence of the substring 'wolf' in the sentence. It prints 8.
-
-```python
-print(a.find("wolf", 10, 20))
-```
-
-This line tries to find a 'wolf' substring. It starts from the 10th character and searches  
-the next 20 characters. There is no such substring in this range and therefore the line  
-prints -1, as for not found.
-
-```python
-print(a.find("wolf", 15))
-```
-
-Here we search for a substring from the 15th character until the end of the string. We find  
-the second occurrence of the substring. The line prints 35.
-
-```python
-print(a.rfind("wolf"))
-```
-
-The `rfind` looks for a substring from the end. It finds the second occurrence of the 'wolf' substring.  
-The line prints 35.
-
-```
-$ ./substrings.py
-8
--1
-35
-35
-```
-
-In the second example, we use the index and `rindex` methods.
-
-```python
-
 # substrings2.py
 
 a = "I saw a wolf in the forest. A lone wolf."
 
-print(a.index("wolf"))
-print(a.rindex("wolf"))
-
 try:
-    print(a.rindex("fox"))
+    print(a.index("wolf"))   # 8
+    print(a.rindex("wolf"))  # 35
+    print(a.rindex("fox"))   # Raises ValueError
 except ValueError as e:
     print("Could not find substring")
 ```
 
-In the example, we search for substrings with the `index` and `rindex` methods.
-
-```python
-print(a.index("wolf"))
-print(a.rindex("wolf"))
+**Output:**
 ```
-
-These lines find the first occurrence of the 'wolf' substring from the beginning and from the end.
-
-```python
-try:
-    print(a.rindex("fox"))
-except ValueError as e:
-    print("Could not find substring")
-```
-
-When the substring is not found, the `rindex` method raises `ValueError` exception.
-
-```
-$ ./substrings2.py
 8
 35
 Could not find substring
 ```
 
+### Checking for Substrings with `in` and `not in`
+
+```python
+text = "Hello, world!"
+
+print("world" in text)      # True
+print("Python" in text)     # False
+print("world" not in text)  # False
+```
+
+## Common String Methods Summary
+
+| Method | Description | Example |
+|--------|-------------|---------|
+| `len(s)` | Returns string length | `len("Hello")` → `5` |
+| `s.upper()` | Converts to uppercase | `"hi".upper()` → `"HI"` |
+| `s.lower()` | Converts to lowercase | `"HI".lower()` → `"hi"` |
+| `s.strip()` | Removes leading/trailing whitespace | `" hi ".strip()` → `"hi"` |
+| `s.replace(old, new)` | Replaces substrings | `"hi".replace("i","ello")` → `"hello"` |
+| `s.split(sep)` | Splits into list | `"a,b".split(",")` → `["a","b"]` |
+| `sep.join(list)` | Joins list elements | `",".join(["a","b"])` → `"a,b"` |
+| `s.startswith(prefix)` | Checks prefix | `"Hello".startswith("He")` → `True` |
+| `s.endswith(suffix)` | Checks suffix | `"Hello".endswith("lo")` → `True` |
+| `s.find(sub)` | Finds substring index | `"Hi".find("i")` → `1` |
+| `s.count(sub)` | Counts occurrences | `"aaa".count("a")` → `3` |
+
+
+## Best Practices
+
+1. **Use f-strings** for readability in modern code (Python 3.6+)
+2. **Prefer `with` statements** for file I/O (automatic resource cleanup)
+3. **Use raw strings (`r"..."`)** for file paths and regex patterns
+4. **Check for substrings with `in`** instead of `find()` for simple checks
+5. **Use `.strip()`** to clean user input
+6. **Prefer `join()` over `+`** for concatenating many strings (performance)
+
+
+## Additional Resources
+
+- [Python String Documentation](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str)
+- [PEP 498 – Literal String Interpolation (f-strings)](https://www.python.org/dev/peps/pep-0498/)
+- [Python String Methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
+
+
+*Strings are fundamental to Python programming. Mastering string operations enables efficient text processing, data parsing, and user interaction in any Python application.*
