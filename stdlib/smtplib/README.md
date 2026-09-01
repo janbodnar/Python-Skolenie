@@ -50,7 +50,6 @@ $ python -m aiosmtpd -n
 We start the  mail server on port 8025.
 
 ```python
-#!/usr/bin/python
 
 import smtplib
 from email.mime.text import MIMEText
@@ -145,7 +144,6 @@ short code examples which show how to use the service, including smtplib,
 Django, or Flask.
 
 ```python
-#!/usr/bin/python
 
 import smtplib
 from email.mime.text import MIMEText
@@ -197,7 +195,6 @@ cloud
 We have a simple text file.
 
 ```python
-#!/usr/bin/python
 
 import smtplib
 from os.path import basename
@@ -266,7 +263,6 @@ for this purpose. It is primarily intended as a countermeasure to passive
 monitoring.  
 
 ```python
-#!/usr/bin/python
 
 import smtplib
 
@@ -309,7 +305,6 @@ The following example sends an email via SSL. A webhosting SMTP server (from
 websupport.sk) is utilized.  
 
 ```python
-#!/usr/bin/python
 
 import smtplib, ssl
 from email.mime.text import MIMEText

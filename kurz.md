@@ -55,7 +55,6 @@ toho, aby si to užívateľ uvedomil.
 ## Zopakovanie základov
 
 ```python
-#!/usr/bin/python
 
 # recapitulation
 # recap.py

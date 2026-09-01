@@ -275,7 +275,6 @@ for val in fields:
 ## Formatting
 
 ```python
-#!/usr/bin/python
 
 name = 'Peter'
 age = 23

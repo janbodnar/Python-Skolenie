@@ -147,7 +147,6 @@ print(negatives)
 ## OOP
 
 ```python
-#!/usr/bin/python
 
 import math
 

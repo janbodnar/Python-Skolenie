@@ -280,7 +280,6 @@ Solution II
 
 
 ```python
-#!/usr/bin/python
 
 import urllib, itertools
 words = urllib.urlopen('http://wiki.puzzlers.org/pub/wordlists/unixdict.txt').read().split()

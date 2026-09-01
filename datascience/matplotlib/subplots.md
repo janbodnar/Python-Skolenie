@@ -7,7 +7,6 @@ The `subplots` creates a figure and a grid of subplots with a single call,
 while providing reasonable control over how the individual plots are created. 
 
 ```python
-#!/usr/bin/python
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -37,7 +36,6 @@ The `tight_layout` function automatically maintains
 the proper space between subplots.
 
 ```python
-#!/usr/bin/python
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -63,7 +61,6 @@ plt.savefig('subpolars.png')
 We can separately create each subplot with `subplot` function.
 
 ```python
-#!/usr/bin/python
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -114,7 +111,6 @@ plt.savefig('subplots2.png')
 Setting the `sharex` option the subplots share the x axis. 
 
 ```python
-#!/usr/bin/python
 
 import matplotlib.pyplot as plt
 
@@ -137,7 +133,6 @@ With `sharey` we can share the y axis for all subplots.
 The `set_tick_params` is used to adjust the label size.  
 
 ```python
-#!/usr/bin/python
 
 import matplotlib.pyplot as plt
 
@@ -161,7 +156,6 @@ plt.savefig('subplots.png')
 ## Subplots with labels and titles
 
 ```python
-#!/usr/bin/python
 
 import matplotlib.pyplot as plt
 import numpy as np

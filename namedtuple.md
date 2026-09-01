@@ -13,7 +13,6 @@ languages (C#, Java).
 The following is a simple example with a namedtuple.
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -62,7 +61,6 @@ City(name='Budapest', population=1759000)
 The namedtuples can be accessed using indexing and their named attributes.  
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -94,7 +92,6 @@ Budapest
 The unpacking is storing iterable elements into variables or function arguments.
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -137,7 +134,6 @@ Budapest: 1759000
 ```
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -157,7 +153,6 @@ With the `**` operator, we can unpack a dictionary into arguments of a namedtupl
 Since namedtuples are built on top of regular classes, we can add functionality to them.
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 from math import sqrt
@@ -191,7 +186,6 @@ Python typing.NamedTuple
 Since Python 3.6, we can use the typing.NamedTuple to create a namedtuple.
 
 ```python
-#!/usr/bin/python
 
 from typing import NamedTuple
 
@@ -216,7 +210,6 @@ In the example, we have a `City` class that inherits from the `typing.NamedTuple
 The defaults parameter can be used to provide default values to fields.  
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 from math import sqrt
@@ -253,7 +246,6 @@ Point: x=1  y=1  hypot=1.4142135623730951
 Python provides several helper methods for a namedtuple.
 
 ```python
-#!/usr/bin/python
 
 from typing import NamedTuple
 
@@ -287,7 +279,6 @@ OrderedDict([('x', 5), ('y', 5)])
 The `_asdict` method can be used to serialize namedtuples into JSON format.
 
 ```python
-#!/usr/bin/python
 
 from typing import NamedTuple
 import json
@@ -325,7 +316,6 @@ $ ./json_output.py
 In the following example, we sort a list of namedtuples.
 
 ```python
-#!/usr/bin/python
 
 from typing import NamedTuple
 
@@ -373,7 +363,6 @@ The `_make` is method that makes a new instance of a namedtuple from
 an existing sequence or iterable.
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -408,7 +397,6 @@ Berlin, 3671000
 We have the `cities.csv` file.
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 import csv
@@ -474,7 +462,6 @@ sqlite> .read cities.sql
 With the sqlite3 command line tool, we generate the SQLite database and the cities table.
 
 ```python
-#!/usr/bin/python
 
 # read_sql.py
 

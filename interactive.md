@@ -3,7 +3,6 @@
 Python code can be launched in two basic ways. As a script or inside an interactive interpreter.
 
 ```python
-#!/usr/bin/python
 
 # first.py
 

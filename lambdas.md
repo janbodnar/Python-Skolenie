@@ -19,7 +19,6 @@ The lambda function is assigned to the z variable.
 ## Lambda & map 
 
 ```python
-#!/usr/bin/python
 
 nums = [1, 2, 3, 4, 5, 6]
 
@@ -32,7 +31,6 @@ for num in nums_squared:
 ## Lambda & min/max
 
 ```python
-#!/usr/bin/python
 
 from dataclasses import dataclass
 
@@ -57,7 +55,6 @@ print(n)
 ## Lambda & filter 
 
 ```python
-#!/usr/bin/python
 
 vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
@@ -68,7 +65,6 @@ print(list(res))
 ---
 
 ```python
-#!/usr/bin/python
 
 from products import get_products
 
@@ -83,7 +79,6 @@ for p in res:
 ## Lambda & sort 
 
 ```python
-#!/usr/bin/python
 
 users = [
   {'name': 'John Doe', 'date_of_birth': 1987},
@@ -101,7 +96,6 @@ for user in users:
 ---
 
 ```python
-#!/usr/bin/python
 
 from products import get_products
 
@@ -115,7 +109,6 @@ for p in data:
 ## Lambda & groupby
 
 ```python
-#!/usr/bin/python
 
 from itertools import groupby
 
@@ -133,7 +126,6 @@ for k, g in res:
 ## Lambda & Tkinter
 
 ```python
-#!/usr/bin/python
 
 from tkinter import Tk, BOTH, messagebox
 from tkinter.ttk import Frame, Button

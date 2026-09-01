@@ -3,7 +3,6 @@
 ## Current date and time 
 
 ```python
-#!/usr/bin/python
 
 import datetime
 
@@ -33,7 +32,6 @@ air traffic control clearances, and maps. Unlike local time, UTC does not change
 a change of seasons.
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 from datetime import timezone
@@ -79,7 +77,6 @@ custom formatting or a third-party library.
 ## basic format
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -93,7 +90,6 @@ print(iso_date)
 ### various formats
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -109,7 +105,6 @@ for fmt in fmts:
 ### week-numbering format
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -127,7 +122,6 @@ print(d)
 ## Datetime parts
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 dt = datetime(2023, 9, 15, 22, 3, 31, 355741)
@@ -142,7 +136,6 @@ print(f'timestamp: {dt.timestamp()}')
 ## Max/min representable datetimes
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -157,7 +150,6 @@ elapsed since midnight (UTC) on January 1st, 1970, which is called the Unix epoc
 
 
 ```python
-#!/usr/bin/python
 
 import time
 
@@ -168,7 +160,6 @@ print(time.time())
 ## Timestamp
 
 ```python
-#!/usr/bin/python
 
 from datetime import date
 from time import time
@@ -184,7 +175,6 @@ print(dt2)
 ## Weekday
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -223,7 +213,6 @@ function returns the proleptic Gregorian ordinal of a specified datetime instanc
 useful in computer software for identifying pre-Gregorian dates.
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime, date
 
@@ -243,7 +232,6 @@ print(day_of_year)
 We can use relational operators to compare dates.  
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 from dataclasses import dataclass
@@ -310,7 +298,6 @@ print(oldest)
 Use `strftime` function or f-strings. 
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -323,7 +310,6 @@ print(f'{now:%d. %b %Y}')
 ## Get age
 
 ```python
-#!/usr/bin/python
 
 
 from datetime import date
@@ -348,7 +334,6 @@ print(f'{calculate_age(d2)}')
 ## Difference in days
 
 ```python
-#!/usr/bin/python
 
 from datetime import date
 
@@ -362,7 +347,6 @@ print(delta.days)
 ## Timezones
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 from zoneinfo import ZoneInfo, available_timezones
@@ -387,7 +371,6 @@ print("London:", datetime_London.strftime("%m/%d/%Y, %H:%M:%S"))
 ## Days until XMas
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -409,7 +392,6 @@ elif final < 0:
 We use the `strptime` function to parse datetime objects from strings.  
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -423,7 +405,6 @@ print(dt2.time())
 ## Time deltas 
 
 ```python
-#!/usr/bin/python
 
 import datetime
 

@@ -5,7 +5,6 @@
 Generating user data with `faker` and `csv` modules.  
 
 ```python
-#!/usr/bin/python
 
 from faker import Faker
 import csv
@@ -33,7 +32,6 @@ with open('users.csv', 'w', newline='') as f:
 Using `csv` and `openpyxl` modules.  
 
 ```python
-#!/usr/bin/python
 
 from openpyxl import Workbook
 import csv
@@ -66,7 +64,6 @@ book.save('users.xlsx')
 Using `csv` and `json` modules.  
 
 ```python
-#!/usr/bin/python
 
 from openpyxl import Workbook
 import json, csv
@@ -92,7 +89,6 @@ with open('users.json', 'w') as f:
 Using `csv` and `jinja2` modules.  
 
 ```python
-#!/usr/bin/python
 
 from openpyxl import Workbook
 from jinja2 import Environment, FileSystemLoader
@@ -183,7 +179,6 @@ sqlite> select * from users;
 ### Load into database
 
 ```python
-#!/usr/bin/python
 
 import sqlite3
 import csv
@@ -215,7 +210,6 @@ with con:
 ### Fetch from database into CSV 
 
 ```python
-#!/usr/bin/python
 
 import sqlite3
 import csv
@@ -257,7 +251,6 @@ Return JSON data from a Flask application.
 `flask --app webapp run`  
 
 ```python
-#!/usr/bin/python
 
 from flask import Flask, make_response
 
@@ -290,7 +283,6 @@ Generate a HTTP GET request with httpie application.
 `$ http GET http://localhost:5000/users`
 
 ```python
-#!/usr/bin/python
 
 from openpyxl import Workbook
 import json, csv
@@ -322,7 +314,6 @@ write_data(data)
 Using `csv` and `rich` modules.  
 
 ```python
-#!/usr/bin/python
 
 import csv
 from rich import box

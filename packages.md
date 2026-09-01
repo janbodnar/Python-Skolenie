@@ -64,7 +64,6 @@ def mycube(x):
 In the `mfuns.py` module, we have a definition of a cube function.  
 
 ```python
-#!/usr/bin/python
 
 # myprog.py
 
@@ -111,7 +110,6 @@ def mycube(x):
 In the `mfuns.py` module, we have a definition of a cube function.  
 
 ```python
-#!/usr/bin/python
 
 # myprog.py
 
@@ -144,7 +142,6 @@ names = ('Jack', 'Jessica', 'Robert', 'Lucy', 'Tom')
 The `data.py` module has two tuples.
 
 ```python
-#!/usr/bin/python
 
 # read.py
 
@@ -219,7 +216,6 @@ The `myintegers` module defines a tuple of seven integers. This tuple will be ac
 from the `read.py` script.
   
 ```python
-#!/usr/bin/python
 
 # read.py
 

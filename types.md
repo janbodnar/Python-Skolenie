@@ -4,7 +4,6 @@
 ## The type function
 
 ```python
-#!/usr/bin/python
 
 import sys
 
@@ -40,7 +39,6 @@ for e in objects:
 ## The isinstance function 
 
 ```python
-#!/usr/bin/python
 
 import sys
 from typing import Callable
@@ -99,7 +97,6 @@ for e in objects:
 ## Check types
 
 ```python
-#!/usr/bin/python
 
 class Being:
     pass
@@ -133,7 +130,6 @@ for e in objects:
 ### Tuples
 
 ```python
-#!/usr/bin/python
 
 
 vals: tuple[int, ...] = (1, 2, 3, 4, 5, 4)
@@ -146,7 +142,6 @@ print(min(vals))
 ### Lists
 
 ```python
-#!/usr/bin/python
 
 from typing import Any
 
@@ -167,7 +162,6 @@ print(vals4)
 ## TypedDict
 
 ```python
-#!/usr/bin/python
 
 
 from typing import Any, TypedDict, NotRequired
@@ -198,7 +192,6 @@ user2: UserT = {
 ### Literals
 
 ```python
-#!/usr/bin/python
 
 from typing import Literal
 
@@ -216,7 +209,6 @@ print(content)
 ### Function parameters 
 
 ```python
-#!/usr/bin/python
 
 def add(x: int, y: int) -> int:
     return x + y
@@ -228,7 +220,6 @@ print(add(2, 5))
 ### Unions
 
 ```python
-#!/usr/bin/python
 
 vals: list[int | float] = [1, 3.4, 4]
 print(vals)
@@ -241,7 +232,6 @@ print(len(vals2))
 ### Type alias
 
 ```python
-#!/usr/bin/python
 
 
 type Num = int | float
@@ -253,7 +243,6 @@ print(vals)
 ### Self
 
 ```python
-#!/usr/bin/python
 
 from typing import Self
 
@@ -280,7 +269,6 @@ print(p3)
 ### Complex example
 
 ```python
-#!/usr/bin/python
 
 from dataclasses import dataclass
 from random import randint

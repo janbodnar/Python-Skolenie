@@ -568,7 +568,6 @@ elif name:
 Modify this program to take the ticker name from the command line argument.  
 
 ```python
-#!/usr/bin/python
 
 import asyncio
 import ccxt.async_support as ccxt

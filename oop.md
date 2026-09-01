@@ -13,7 +13,6 @@ interactions to design applications and computer programs.
 Everything in Python is an object. Objects are basic building blocks of a Python OOP program.  
 
 ```python
-#!/usr/bin/python
 
 # object_types.py
 
@@ -57,7 +56,6 @@ a nature of a future object. From classes we construct instances. An instance is
 object created from a particular class. For example, Huck might be an instance of a Dog class.
 
 ```python
-#!/usr/bin/python
 
 # first_object.py
 
@@ -105,7 +103,6 @@ functions defined inside a class.
 A special method called `__init__` is used to initialize an object.  
 
 ```python
-#!/usr/bin/python
 
 # object_initialization.py
 
@@ -129,7 +126,6 @@ Being is initialized
 Attributes are characteristics of an object. Attributes are set in the `__init__` method.
 
 ```python
-#!/usr/bin/python
 
 # attributes.py
 
@@ -187,7 +183,6 @@ Lucky
 The attributes can be assigned dynamically, not just during initialization. This is demonstrated by the next example.  
 
 ```python
-#!/usr/bin/python
 
 # attributes_dynamic.py
 
@@ -322,7 +317,6 @@ benefits of inheritance are code reuse and reduction of complexity of a program.
 (descendants) override or extend the functionality of base classes (ancestors).   
 
 ```python
-#!/usr/bin/python
 
 # inheritance.py
 
@@ -391,7 +385,6 @@ These methods are not called directly, but by a specific language syntax. This i
 is known as operator overloading in C++ or Ruby.
 
 ```python
-#!/usr/bin/python
 
 # special_methods.py
 
@@ -458,7 +451,6 @@ The `del` keyword deletes an object. It invokes its `__del__` method.
 In the next example we implement a vector class and demonstrate addition and substraction operations on it.
 
 ```python
-#!/usr/bin/python
 
 # vector.py
 

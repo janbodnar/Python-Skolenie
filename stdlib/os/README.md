@@ -4,7 +4,6 @@
 ## Run an external program
 
 ```python
-#!/usr/bin/python
 
 import os
 
@@ -64,7 +63,6 @@ removeDirectory('mydata')
 ## Run and read the output.
 
 ```python
-#!/usr/bin/python
 
 import os
 

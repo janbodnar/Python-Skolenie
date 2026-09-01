@@ -269,7 +269,6 @@ g
 Polymorphism is mostly used when dealing with inheritance.
 
 ```python
-#!/usr/bin/python
 
 # polymorphism.py
 

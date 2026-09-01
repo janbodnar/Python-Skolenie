@@ -5,7 +5,6 @@ Using `datetime` and `dateutil` modules.
 ## Current date and time 
 
 ```python
-#!/usr/bin/python
 
 import datetime
 
@@ -66,7 +65,6 @@ print(now.strftime('%c'))
 ## Datetime parts
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 dt = datetime(2023, 9, 15, 22, 3, 31, 355741)
@@ -81,7 +79,6 @@ print(f'timestamp: {dt.timestamp()}')
 ## Timestamp
 
 ```python
-#!/usr/bin/python
 
 from datetime import date
 from time import time
@@ -97,7 +94,6 @@ print(dt2)
 ## Weekday
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -131,7 +127,6 @@ elapsed since midnight (UTC) on January 1st, 1970, which is called the Unix epoc
 
 
 ```python
-#!/usr/bin/python
 
 import time
 
@@ -151,7 +146,6 @@ function returns the proleptic Gregorian ordinal of a specified datetime instanc
 useful in computer software for identifying pre-Gregorian dates.
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime, date
 
@@ -168,7 +162,6 @@ print(day_of_year)
 ## Max/min representable datetimes
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -179,7 +172,6 @@ print(datetime.min)
 ## Difference in days
 
 ```python
-#!/usr/bin/python
 
 from datetime import date
 
@@ -193,7 +185,6 @@ print(delta.days)
 ## Time deltas 
 
 ```python
-#!/usr/bin/python
 
 import datetime
 
@@ -210,7 +201,6 @@ print(dt2)
 ## Days until XMas
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -317,7 +307,6 @@ custom formatting or a third-party library.
 ## basic format
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -331,7 +320,6 @@ print(iso_date)
 ### various formats
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -347,7 +335,6 @@ for fmt in fmts:
 ### week-numbering format
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -396,7 +383,6 @@ print(d)
 Use `strftime` function or f-strings. 
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -473,7 +459,6 @@ print("European style:", european_style)
 We use the `strptime` function to parse datetime objects from strings.  
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -495,7 +480,6 @@ print(dt2.time())
 We can use relational operators to compare dates.  
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 from dataclasses import dataclass
@@ -531,7 +515,6 @@ print(oldest)
 ## Timezones
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 from zoneinfo import ZoneInfo, available_timezones

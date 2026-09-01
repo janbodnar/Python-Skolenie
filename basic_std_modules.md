@@ -122,7 +122,6 @@ object.
 Write dictionary to JSON file with `dump`. 
 
 ```python
-#!/usr/bin/python
 
 import json
 
@@ -136,7 +135,6 @@ with open(fname, 'w') as f:
 Read JSON from file into dictionary with `load`.
 
 ```python
-#!/usr/bin/python
 
 import json
 
@@ -152,7 +150,6 @@ with open(fname) as f:
 Pretty print 
 
 ```python
-#!/usr/bin/python
 
 import json
 
@@ -167,7 +164,6 @@ print(data)
 Read JSON into dictionary with `loads`. 
 
 ```python
-#!/usr/bin/python
 
 import json
 
@@ -204,7 +200,6 @@ print(data['message'])
 ## Using urllib3
 
 ```python
-#!/usr/bin/python
 
 import json
 import urllib3
@@ -228,7 +223,6 @@ print(f"Date: {data['date']}")
 ## urllib3
 
 ```python
-#!/usr/bin/python
 
 import urllib3
 
@@ -244,7 +238,6 @@ print(resp.status)
 GET request 
 
 ```python
-#!/usr/bin/python
 
 import urllib3
 
@@ -260,7 +253,6 @@ print(resp.data.decode('utf-8'))
 HEAD request
 
 ```python
-#!/usr/bin/python
 
 import urllib3
 
@@ -280,7 +272,6 @@ print(resp.headers['Last-Modified'])
 ## secrets 
 
 ```python
-#!/usr/bin/python
 
 
 import string
@@ -293,7 +284,6 @@ print(passwd)
 ```
 
 ```python
-#!/usr/bin/python
 
 
 import secrets
@@ -307,7 +297,6 @@ with open("unix-words.txt") as f:
 Example uses traditional `try/except/finally` keywords. 
 
 ```python
-#!/usr/bin/python
 
 import secrets
 
@@ -340,7 +329,6 @@ with zipfile.ZipFile('pyarchive.zip', 'w') as zip:
 Extract a ZIP file.  
 
 ```python
-#!/usr/bin/python
 
 import zipfile
 
@@ -351,7 +339,6 @@ with zipfile.ZipFile('output.zip', 'r') as zip_ref:
 Extract a specific file 
 
 ```python
-#!/usr/bin/python
 
 
 import zipfile
@@ -365,7 +352,6 @@ with zipfile.ZipFile('output.zip') as zip:
 List contents of a ZIP file.  
 
 ```python
-#!/usr/bin/python
 
 
 import zipfile

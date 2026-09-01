@@ -13,7 +13,6 @@ within the string, which leads to cleaner and more maintainable code.
 The f-strings have the `f` prefix and use `{}` brackets to evaluate values.  
 
 ```python
-#!/usr/bin/python
 
 name = 'John Doe'
 occupation = 'gardener'
@@ -34,7 +33,6 @@ for instance: `f'{price:.3}'`, where price is a variable name.
 The following example summarizes string formatting options in Python.
 
 ```python
-#!/usr/bin/python
 
 name = 'Peter'
 age = 23
@@ -76,7 +74,6 @@ Peter is 23 years old
 We can put expressions between the `{}` brackets.
 
 ```python
-#!/usr/bin/python
 
 bags = 3
 apples_in_bag = 12
@@ -96,7 +93,6 @@ There are total of 36 apples
 We can work with dictionaries in f-strings.
 
 ```python
-#!/usr/bin/python
 
 user = {'name': 'John Doe', 'occupation': 'gardener'}
 
@@ -115,7 +111,6 @@ John Doe is a gardener
 Python 3.8 introduced the self-documenting expression with the `=` character.
 
 ```python
-#!/usr/bin/python
 
 import math
 
@@ -138,7 +133,6 @@ math.sin(x) = 0.7173560908995228
 We can work with multiline strings.
 
 ```python
-#!/usr/bin/python
 
 name = 'John Doe'
 occupation = 'gardener'
@@ -165,7 +159,6 @@ occupation: gardener
 We can also call functions in f-strings.
 
 ```python
-#!/usr/bin/python
 
 def mymax(x, y):
 
@@ -190,7 +183,6 @@ Python f-string accepts objects as well; the objects must have either `__str__` 
 magic functions defined.
 
 ```python
-#!/usr/bin/python
 
 class User:
     def __init__(self, name, occupation):
@@ -219,7 +211,6 @@ an f-string. It allows us to define custom formatting behavior based on the form
 specifier provided within the f-string.  
 
 ```python
-#!/usr/bin/python
 
 from dataclasses import dataclass
 
@@ -249,7 +240,6 @@ We define a data object with a custom `__format__` method.
 The following example shows how to escape certain characters in f-strings.
 
 ```python
-#!/usr/bin/python
 
 print(f'Python uses {{}} to evaludate variables in f-strings')
 print(f'This was a \'great\' film')
@@ -268,7 +258,6 @@ This was a 'great' film
 The following example formats datetime.
 
 ```python
-#!/usr/bin/python
 
 import datetime
 
@@ -299,7 +288,6 @@ March
 It is possible to nest expressions within expressions.  
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 
@@ -321,7 +309,6 @@ Floating point values have the `f` suffix. We can also specify the precision: th
 The precision is a value that goes right after the dot character.
 
 ```python
-#!/usr/bin/python
 
 val = 12.3
 
@@ -344,7 +331,6 @@ The output shows the number having two and five decimal places.
 We display a decimal value as percentage using the % format specifier.
 
 ```python
-#!/usr/bin/python
 
 val = 1/7.0
 
@@ -366,7 +352,6 @@ The width specifier sets the width of the value. The value may be filled with sp
 if the value is shorter than the specified width.
 
 ```python
-#!/usr/bin/python
 
 for x in range(1, 11):
     print(f'{x:02} {x*x:3} {x*x*x:4}')
@@ -396,7 +381,6 @@ to the right. The `>` character follows the colon character. The `<` justifies t
 be omitted. The `^` centers the string.
 
 ```python
-#!/usr/bin/python
 
 words = ['sky', 'fork', 'small', 'cup', 'car', 'war']
 
@@ -440,7 +424,6 @@ $ python main.py
 Numbers can have various numeric notations, such as decadic or hexadecimal.
 
 ```python
-#!/usr/bin/python
 
 val = 300
 
@@ -476,7 +459,6 @@ $ python format_notations.py
 We can format numbers with underscore and command thousands separators.  
 
 ```python
-#!/usr/bin/python
 
 val = 1_200_400_001
 

@@ -16,7 +16,6 @@ The simplest use of `open` requires a file path and a mode. The default mode is
 `'r'` (read, text mode).
 
 ```python
-#!/usr/bin/python
 
 # simplest_open.py
 
@@ -48,7 +47,6 @@ A `'b'` suffix (e.g. `'rb'`, `'wb'`) opens the file in binary mode. A `'t'`
 suffix forces text mode (the default).
 
 ```python
-#!/usr/bin/python
 
 # modes.py
 
@@ -76,7 +74,6 @@ writing. Binary mode (`'b'`) reads and writes raw bytes without any
 translation – useful for non‑text files like images or compressed data.
 
 ```python
-#!/usr/bin/python
 
 # binary_read.py
 
@@ -95,7 +92,6 @@ avoid platform‑dependent behaviour. The default encoding is usually UTF‑8,
 but it can differ. The `encoding` parameter sets the desired character set.
 
 ```python
-#!/usr/bin/python
 
 # encoding.py
 
@@ -122,7 +118,6 @@ approach is to use the `with` statement, which acts as a context manager and
 automatically closes the file at the end of the block, even if exceptions occur.
 
 ```python
-#!/usr/bin/python
 
 # context_manager.py
 
@@ -141,7 +136,6 @@ The `.read()` method reads the whole file content and returns it as a single
 string (or bytes if in binary mode).
 
 ```python
-#!/usr/bin/python
 
 # read_all.py
 
@@ -160,7 +154,6 @@ A file object is iterable and yields each line in turn. You can also use
 lines.
 
 ```python
-#!/usr/bin/python
 
 # read_lines.py
 
@@ -183,7 +176,6 @@ The `.write()` method writes a string (or bytes) to the file. Use `'w'` to
 overwrite or `'a'` to append. You can write multiple lines with `.writelines()`.
 
 ```python
-#!/usr/bin/python
 
 # write_file.py
 
@@ -204,7 +196,6 @@ at once without inserting separators. You are responsible for including any
 newline characters in the strings.
 
 ```python
-#!/usr/bin/python
 
 # writelines.py
 
@@ -227,7 +218,6 @@ the file was opened. These are useful for debugging and for writing helper
 functions that inspect their file arguments.
 
 ```python
-#!/usr/bin/python
 
 # file_attrs.py
 
@@ -248,7 +238,6 @@ can still read from or write to the object.
 Opening with `'a'` preserves the existing content and adds new data at the end.
 
 ```python
-#!/usr/bin/python
 
 # append_file.py
 
@@ -265,7 +254,6 @@ An optional integer argument to `.read()` limits the number of characters (or
 bytes) read at once.
 
 ```python
-#!/usr/bin/python
 
 # read_chunk.py
 
@@ -283,7 +271,6 @@ When you need to process or extract only certain lines by line number, wrap the
 file iterator with `enumerate` to track the current position.
 
 ```python
-#!/usr/bin/python
 
 # read_specific_lines.py
 
@@ -305,7 +292,6 @@ characters in text mode). If `size` is omitted, the file is truncated at the
 current position. The file pointer is not moved automatically.
 
 ```python
-#!/usr/bin/python
 
 # truncate.py
 
@@ -330,7 +316,6 @@ useful in long-running scripts or when another process needs to read what has
 just been written.
 
 ```python
-#!/usr/bin/python
 
 # flush.py
 import time
@@ -355,7 +340,6 @@ In text mode, only seeks relative to the beginning are allowed (except when
 using zero offset). Binary mode supports all seek options.
 
 ```python
-#!/usr/bin/python
 
 # seek.py
 
@@ -376,7 +360,6 @@ When a file cannot be opened, Python raises an `OSError` subclass such as
 handle these exceptions gracefully.
 
 ```python
-#!/usr/bin/python
 
 # error_handling.py
 
@@ -403,7 +386,6 @@ ending to `'\n'` on input. You can set it to `''` to disable translation
 (useful when working with CSV files).
 
 ```python
-#!/usr/bin/python
 
 # newline.py
 import csv
@@ -425,7 +407,6 @@ selects line buffering (text mode only), and an integer >1 specifies a buffer
 size in bytes.
 
 ```python
-#!/usr/bin/python
 
 # buffering.py
 
@@ -445,7 +426,6 @@ touching the filesystem, or for passing file-like objects to functions that
 expect them.
 
 ```python
-#!/usr/bin/python
 
 # stringio.py
 import io
@@ -475,7 +455,6 @@ JSON is the most common format for storing structured data in text files. The
 combine naturally with `open`.
 
 ```python
-#!/usr/bin/python
 
 # json_file.py
 import json
@@ -509,7 +488,6 @@ The `pathlib` module provides an object‑oriented approach to file paths. Its
 often more convenient when you manipulate paths.
 
 ```python
-#!/usr/bin/python
 
 # pathlib_open.py
 from pathlib import Path
@@ -534,7 +512,6 @@ The following script shows a real‑world use that combines several concepts:
 reading line by line, filtering, and writing results to a new file.
 
 ```python
-#!/usr/bin/python
 
 # filter_errors.py
 

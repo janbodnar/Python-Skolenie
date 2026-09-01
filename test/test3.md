@@ -313,7 +313,6 @@ print(words_3)
 
 
 ```python
-#!/usr/bin/python
 
 class User:
 

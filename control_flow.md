@@ -20,7 +20,6 @@ then executed. The statement can be a single statement or a compound statement. 
 statement consists of multiple statements enclosed by the block.  
 
 ```python
-#!/usr/bin/python
 
 import random
 
@@ -56,7 +55,6 @@ We can use the `else` keyword to create a simple branch. If the expression follo
 evaluates to `False`, the block following the `else` keyword is automatically executed.
 
 ```python
-#!/usr/bin/python
 
 import random
 
@@ -78,7 +76,6 @@ We can create multiple branches using the `elif` keyword. It tests for another c
 the previous condition was not met. Note that we can use multiple `elif` keywords in our tests. 
 
 ```python
-#!/usr/bin/python
 
 import random
 
@@ -107,7 +104,6 @@ The `while` keyword is used to create a cycle. The statements inside the while l
 the expression evaluates to `False`.
 
 ```python
-#!/usr/bin/python
 
 # while_kwd.py
 
@@ -133,7 +129,6 @@ to zero. In the body of the loop, we decrement the counter and calculate the sum
 The `break keyword` is used to interrupt the cycle if needed.
 
 ```python
-#!/usr/bin/python
 
 # break_kwd.py
 
@@ -161,7 +156,6 @@ It initiates a new cycle.
 
 
 ```python
-#!/usr/bin/python
 
 # continue_kwd.py
 
@@ -186,7 +180,6 @@ In the example we print all numbers smaller than 1000 that cannot be divided by 
 The `for/in` keywords are used to iterate over items of a collection in order that they appear in the container.
 
 ```python
-#!/usr/bin/python
 
 # for_kwd.py
 
@@ -215,7 +208,6 @@ a series of patterns and executing code based on which pattern matches. It is a 
 advanced construct than the `if/else` statements.
 
 ```python
-#!/usr/bin/python
 
 grades = ['A', 'B', 'C', 'D', 'E', 'F', 'FX']
 

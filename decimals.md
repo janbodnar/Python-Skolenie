@@ -24,7 +24,6 @@ cannot be represented exactly in decimal floating point type.
 ## Float imprecision
 
 ```python
-#!/usr/bin/python
 
 n1 = 0.6
 n2 = 0.7
@@ -37,7 +36,6 @@ print(n1 + n2)
 The Decimal has a default precision of 28 places, while the float has 18 places. 
 
 ```python
-#!/usr/bin/python
 
 from decimal import Decimal
 
@@ -59,7 +57,6 @@ real world problems a small error is negligible, financial and monetary
 calculations must be exact.
 
 ```python
-#!/usr/bin/python
 
 from decimal import Decimal
 
@@ -89,7 +86,6 @@ we change the precision to 50 places. We compare the accuracy
 of the math.sqrt, Decimal's sqrt, and mpmath.sqrt functions. 
 
 ```python
-#!/usr/bin/python
 
 from decimal import Decimal, getcontext
 import math
@@ -127,7 +123,6 @@ The Decimal type provides several rounding options:
 
 
 ```python
-#!/usr/bin/python
 
 import decimal
 
@@ -209,7 +204,6 @@ ROUND_05UP           -0.1       -0.14      -0.142     -0.1428
 The `fractions` module provides support for rational number arithmetic. 
 
 ```python
-#!/usr/bin/python
 
 from decimal import Decimal
 from fractions import Fraction
@@ -237,7 +231,6 @@ In the example, we increase the price by 13% and calculate the sum of
 the value of all beverages.  
 
 ```python
-#!/usr/bin/python
 
 # from products2 import get_products
 from products import get_products

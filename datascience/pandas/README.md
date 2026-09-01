@@ -299,7 +299,6 @@ their labels. This makes it very flexible for selecting data based on row and
 column names rather than their integer positions.  
 
 ```python
-#!/usr/bin/python
 
 import pandas as pd
 

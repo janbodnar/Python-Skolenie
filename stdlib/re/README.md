@@ -56,7 +56,6 @@ The `match` function returns a match object if zero or more characters at the be
 of string match the regular expression pattern.
 
 ```python
-#!/usr/bin/python
 
 # match_fun.py
 
@@ -110,7 +109,6 @@ with the `'book'` term do not match. To include also these words, we use the `se
 The `fullmatch` function looks an exact match.
 
 ```python
-#!/usr/bin/python
 
 # fullmatch_fun.py
 
@@ -141,7 +139,6 @@ The `search` function looks for the first location where the regular expression
 pattern produces a match.
 
 ```python
-#!/usr/bin/python
 
 # search_fun.py
 
@@ -177,7 +174,6 @@ This time the cookbook and pocketbook words are included as well.
 The dot (.) metacharacter stands for any single character in the text.
 
 ```python
-#!/usr/bin/python
 
 # dot_meta.py
 
@@ -216,7 +212,6 @@ The question mark `(?)` meta character is a quantifier that matches the previous
 zero or one time.
 
 ```python
-#!/usr/bin/python
 
 # question_mark_meta.py
 
@@ -253,7 +248,6 @@ match must occur at the beginning of the string and when using the `$` anchor th
 must occur at the end of the string.
 
 ```python
-#!/usr/bin/python
 
 # anchors.py
 
@@ -281,7 +275,6 @@ An exact match can be performed with the `fullmatch` function or by placing the 
 the anchors: `^` and `$`.
 
 ```python
-#!/usr/bin/python
 
 # exact_match.py
 
@@ -310,7 +303,6 @@ A character class defines a set of characters, any one of which can occur in an 
 string for a match to succeed.
 
 ```python
-#!/usr/bin/python
 
 # character_class.py
 
@@ -340,7 +332,6 @@ There are some predefined character classes. The `\s` matches a whitespace chara
 `[\t\n\t\f\v]`, the `\d` a digit `[0-9]`, and the `\w` a word character `[a-zA-Z0-9_]`.
 
 ```python
-#!/usr/bin/python
 
 # named_character_class.py
 
@@ -380,7 +371,6 @@ By default, the matching of patterns is case sensitive. By passing the `re.IGNOR
 to the compile function, we can make it case insensitive.
 
 ```python
-#!/usr/bin/python
 
 # case_insensitive.py
 
@@ -437,7 +427,6 @@ for word in words:
 
 
 ```python
-#!/usr/bin/python
 
 # alternations.py
 
@@ -468,7 +457,6 @@ The `finditer` function returns an iterator yielding match objects over all
 non-overlapping matches for the pattern in a string.
 
 ```python
-#!/usr/bin/python
 
 import re
 
@@ -511,7 +499,6 @@ The capturing groups technique allows us to find out those parts of a string tha
 match the regular pattern.
 
 ```python
-#!/usr/bin/python
 
 # capturing_groups.py
 
@@ -552,7 +539,6 @@ We have found four HTML tags.
 In the following example, we create a regex pattern for checking email addresses.  
 
 ```python
-#!/usr/bin/python
 
 # emails.py
 

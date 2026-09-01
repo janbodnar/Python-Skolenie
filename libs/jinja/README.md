@@ -31,7 +31,6 @@ Jinja uses various delimiters in the template strings.
 In the first example, we create a very simple template.  
 
 ```python
-#!/usr/bin/python
 
 from jinja2 import Template
 
@@ -78,7 +77,6 @@ Hello Paul
 In the next example, we use two variables.  
 
 ```python
-#!/usr/bin/python
 
 # simple.py
 

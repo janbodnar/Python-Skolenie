@@ -38,7 +38,6 @@ is set to `True`, the assignment to fields will generate an exception.
 In a regular custom Python class, we provide a constructor and other methods such as `__repr__` manually.
 
 ```python
-#!/usr/bin/python
 
 class Person:
 
@@ -69,7 +68,6 @@ Person{name: John Doe, age: 34}
 The following example shows a simple usage of the `dataclass` decorator.
 
 ```python
-#!/usr/bin/python
 
 # simple_dataclass.py
 
@@ -118,7 +116,6 @@ Python dataclass default values
 It is possible to provide default values to the fields.
 
 ```python
-#!/usr/bin/python
 
 # default_values.py
 
@@ -165,7 +162,6 @@ Person(name='unknown', age=0)
 If the frozen parameter is set to True, we cannot assign values to fields.
 
 ```python
-#!/usr/bin/python
 
 # frozen.py
 
@@ -229,7 +225,6 @@ for e in res:
 The `asdict` function converts a dataclass instance to a dict of its fields.
 
 ```python
-#!/usr/bin/python
 
 from dataclasses import dataclass, asdict
 
@@ -262,7 +257,6 @@ The first line is the output of the `__repr__` method. The second line is the di
 With the `field` function, we can provide some additional per-field information.
 
 ```python
-#!/usr/bin/python
 
 # fields.py
 
@@ -300,7 +294,6 @@ John Doe is a Gardener
 The next example uses a data class with pattern matching syntax.
 
 ```python
-#!/usr/bin/python
 
 # points.py
 

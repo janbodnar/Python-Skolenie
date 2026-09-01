@@ -34,7 +34,6 @@ it is appended to the new list. There can be multiple for loops and if condition
 The following example transforms a list into another list with the help of the list comprehension.
 
 ```python
-#!/usr/bin/python
 
 a = [1, 2, 3, 4, 5, 6]
 
@@ -63,7 +62,6 @@ We have a list of temperatures in Celsius. We want to create a new list of tempe
 in Fahrenheit temperature.
 
 ```python
-#!/usr/bin/python
 
 celsius = [22, 28, 33, 42, 52]
 
@@ -89,7 +87,6 @@ $ ./fahrenheit_celsius.py
 In the following example, we are going to filter a list with a list comprehension.
 
 ```python
-#!/usr/bin/python
 
 a = [-4, 2, 0, -1, 12, -3]
 
@@ -114,7 +111,6 @@ $ ./filter_positive.py
 The next example filters elements by their type.
 
 ```python
-#!/usr/bin/python
 
 a = ['a', 2, 'c', 12, 3, 'd']
 
@@ -147,7 +143,6 @@ A *predicate* is a function that returns boolean value. If the condition is too 
 we can put it into a predicate.
 
 ```python
-#!/usr/bin/python
 
 def is_vowel(c):
 
@@ -196,7 +191,6 @@ $ ./predicate.py
 The if condition can be placed in the front as well. This way the data can be transformed.
 
 ```python
-#!/usr/bin/python
 
 data = ["even" if i % 2 == 0 else "odd" for i in range(7)]
 print(data)
@@ -214,7 +208,6 @@ $ ./infront.py
 It is possible to use multiple if conditions in the Python list comprehensions.
 
 ```python
-#!/usr/bin/python
 
 a = [9, 2, 18, 14, 22, 11, 7, 19, 23]
 
@@ -240,7 +233,6 @@ $ ./multiple_conditions.py
 It is possible to have multiple for loops in a Python list comprehension.
 
 ```python
-#!/usr/bin/python
 
 a = [1, 2, 3]
 b = ['A', 'B', 'C']
@@ -265,7 +257,6 @@ $ ./multiple_for_loops.py
 The next example shows how to flatten a Python list.
 
 ```python
-#!/usr/bin/python
 
 nums = [[1, 2, 3], [3, 4, 5], [6, 7, 8]]
 
@@ -309,7 +300,6 @@ print(res)
 The initial expression in a Python list comprehension can be another list comprehension.
 
 ```python
-#!/usr/bin/python
 
 M1 = [[1, 2, 3],
       [4, 5, 6],
@@ -335,7 +325,6 @@ The algorithm iteratively marks as composite (i.e., not prime) the multiples of 
 starting with the multiples of 2.
 
 ```python
-#!/usr/bin/python
 
 no_primes = [j for i in range(2, 8) for j in range(i*2, 100, i)]
 primes = [e for e in range(2, 100) if e not in no_primes]

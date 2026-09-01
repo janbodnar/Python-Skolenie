@@ -1872,7 +1872,6 @@ with open(filename, 'r') as fd:
 ## importing modules
 
 ```python
-#!/usr/bin/python
 
 # import math
 

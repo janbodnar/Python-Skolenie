@@ -16,7 +16,6 @@ in pattern matching, the term **arm** is used instead.
 In the first example, we match against simple literal values.
 
 ```python
-#!/usr/bin/python
 
 # literals.py
 
@@ -78,7 +77,6 @@ hola
 You can combine several literal patterns into one arm using the `|` (OR) operator.
 
 ```python
-#!/usr/bin/python
 
 # grades.py
 
@@ -112,7 +110,6 @@ The wildcard character `_` matches any value but does not bind it to a name. It 
 used as a default case for values that do not match any specific pattern.
 
 ```python
-#!/usr/bin/python
 
 # factorial.py
 
@@ -167,7 +164,6 @@ Guards allow you to attach an `if` condition to an arm. The arm is only chosen i
 the pattern matches **and** the guard expression evaluates to `True`.
 
 ```python
-#!/usr/bin/python
 
 # guards.py
 
@@ -267,7 +263,6 @@ You can also define **positional patterns** for your classes by setting
 `__match_args__`. This allows you to match without naming the attributes explicitly.
 
 ```python
-#!/usr/bin/python
 
 # positional_match.py
 
@@ -305,7 +300,6 @@ Pattern matching can deconstruct sequences like lists and tuples, including
 variable-length sequences.
 
 ```python
-#!/usr/bin/python
 
 # sequences.py
 
@@ -335,7 +329,6 @@ low salaries. The third arm uses a wildcard `_` to ignore the salary.
 You can use `*rest` to match an arbitrary number of items.
 
 ```python
-#!/usr/bin/python
 
 # star_pattern.py
 
@@ -359,7 +352,6 @@ The `as` keyword lets you capture the entire matched value in a variable, even
 while destructuring parts of it.
 
 ```python
-#!/usr/bin/python
 
 # as_pattern.py
 
@@ -380,7 +372,6 @@ inspect_command("load data.txt")
 Pattern matching is especially clean when working with enumerations.
 
 ```python
-#!/usr/bin/python
 
 # enums.py
 
@@ -446,7 +437,6 @@ for day in sample:
 Dictionaries can be matched by their keys, and you can extract values.
 
 ```python
-#!/usr/bin/python
 
 # maps.py
 
@@ -495,7 +485,6 @@ Patterns can be nested arbitrarily. This allows you to destructure complex
 data structures in a single match.
 
 ```python
-#!/usr/bin/python
 
 # nested.py
 

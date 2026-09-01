@@ -860,7 +860,6 @@ asyncio.run(launch())
 ```
 
 ```python
-#!/usr/bin/python
 
 from jinja2 import Environment, FileSystemLoader
 import csv

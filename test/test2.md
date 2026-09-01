@@ -169,7 +169,6 @@ print(f"{myname} is {age} years old")
 ## Datetime
 
 ```python
-#!/usr/bin/python
 
 import datetime
 

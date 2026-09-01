@@ -22,7 +22,6 @@ The above is the general syntax of the Python for statement.
 The following example uses Python for statement to go through a string.
 
 ```python
-#!/usr/bin/python
 
 word = "cloud"
 
@@ -75,7 +74,6 @@ for e in vals:
 The for loop has an optional else statement which is executed when the looping has finished.  
 
 ```python
-#!/usr/bin/python
 
 words = ["cup", "star", "monkey", "bottle", "paper", "door"]
 
@@ -136,7 +134,6 @@ included in the sequence. The step is the increment and defaults to 1 if not pro
 With the help of the `range` function, we can repeat a code block n times.
 
 ```python
-#!/usr/bin/python
 
 for i in range(1, 6):
     
@@ -157,7 +154,6 @@ Statement executed 5
 In the next example we generate two sequences of integers with for loop.
 
 ```python
-#!/usr/bin/python
 
 for n in range(1, 11):
     print(n, end=' ')
@@ -184,7 +180,6 @@ $ ./for_loop_range.py
 With Python for loop, we can easily traverse Python tuples and lists.
 
 ```python
-#!/usr/bin/python
 
 nums = (1, 2, 3, 4, 5, 6)   
 words = ["cup", "star", "monkey", "bottle"]
@@ -215,7 +210,6 @@ cup star monkey bottle
 Sometimes we need to get the index of the element as well; for this we can use the `enumerate` function.
 
 ```python
-#!/usr/bin/python
 
 words = ("cup", "star", "monkey", "bottle", "paper", "door")
 
@@ -241,7 +235,6 @@ $ ./for_loop_index.py
 In the following example, we loop over a Python dictionary.
 
 ```python
-#!/usr/bin/python
 
 data = { "de": "Germany", "sk": "Slovakia", "hu": "Hungary", "ru": "Russia" }    
 
@@ -265,7 +258,6 @@ de is an abbreviation for Germany
 It is possible to nest a for loop into another loop.
 
 ```python
-#!/usr/bin/python
 
 nums = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
@@ -292,7 +284,6 @@ $ ./for_loop_nested.py
 The `zip` function creates an iterator from the given iterables.
 
 ```python
-#!/usr/bin/python
 
 words1 = ["cup", "bottle", "table", "rock", "apple"]
 words2 = ["trousers", "nail", "head", "water", "pen"]
@@ -318,7 +309,6 @@ apple pen
 In the next example we loop over a custom iterable.
 
 ```python
-#!/usr/bin/python
 
 import random
 
@@ -357,7 +347,6 @@ $ ./for_loop_custom_iterable.py
 The break statement terminates the for loop.
 
 ```python
-#!/usr/bin/python
 
 import random
 import itertools 
@@ -394,7 +383,6 @@ The `continue` keyword is used to interrupt the current cycle, without jumping o
 whole loop. It initiates a new cycle.
 
 ```python
-#!/usr/bin/python
 
 for num in range(1000):
        

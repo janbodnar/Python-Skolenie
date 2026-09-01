@@ -159,7 +159,6 @@ languages (C#, Java).
 The following is a simple example with a namedtuple.
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -208,7 +207,6 @@ City(name='Budapest', population=1759000)
 The namedtuples can be accessed using indexing and their named attributes.  
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -240,7 +238,6 @@ Budapest
 The unpacking is storing iterable elements into variables or function arguments.
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -283,7 +280,6 @@ Budapest: 1759000
 ```
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -304,7 +300,6 @@ With the `**` operator, we can unpack a dictionary into arguments of a namedtupl
 In the following example, we sort a list of namedtuples.
 
 ```python
-#!/usr/bin/python
 
 from typing import NamedTuple
 
@@ -352,7 +347,6 @@ The `_make` is method that makes a new instance of a namedtuple from
 an existing sequence or iterable.
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 
@@ -387,7 +381,6 @@ Berlin, 3671000
 We have the `cities.csv` file.
 
 ```python
-#!/usr/bin/python
 
 from collections import namedtuple
 import csv
@@ -453,7 +446,6 @@ sqlite> .read cities.sql
 With the sqlite3 command line tool, we generate the SQLite database and the cities table.
 
 ```python
-#!/usr/bin/python
 
 # read_sql.py
 

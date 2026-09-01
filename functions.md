@@ -43,7 +43,6 @@ in collections, or passed as arguments. This brings additional flexibility to th
 Functions are defined with the `def` keyword.  
 
 ```python
-#!/usr/bin/python
 
 # fahrenheit.py
 
@@ -62,7 +61,6 @@ print(cel_to_fahr(30))
 - custom
 
 ```python
-#!/usr/bin/python
 
 from math import sqrt
 
@@ -83,7 +81,6 @@ For instance, the `numpy` module.
 
 
 ```python
-#!/usr/bin/python
 
 import numpy as np
 
@@ -107,7 +104,6 @@ class, or module. It describes what the function does, its parameters, its retur
 value, and any exceptions it may raise. The conventions follow PEP 257.  
 
 ```python
-#!/usr/bin/python
 
 # docstrings.py
 
@@ -139,7 +135,6 @@ Functions defined inside classes are member functions. They are
 often called methods.  
 
 ```python
-#!/usr/bin/python
 
 class Info:
 
@@ -207,7 +202,6 @@ The `object` is the mother of all objects in Python; every Python
 object implicitly derives from `object`.  
 
 ```python
-#!/usr/bin/python
 
 # functions in Python are objects
 
@@ -251,7 +245,6 @@ Variables defined inside a function have a function scope. They are also
 called local variables.  
 
 ```python
-#!/usr/bin/python
 
 # a local variable is valid in the 
 # function scope
@@ -269,7 +262,6 @@ f()
 ## Implicit arg value 
 
 ```python
-#!/usr/bin/python
 
 def power(x, y=2):
 
@@ -295,7 +287,6 @@ argument.
 Unpacking function return values
 
 ```python
-#!/usr/bin/python
 
 def fn():
     return [1, 2, 3, 4, 5, 6]
@@ -324,7 +315,6 @@ Unpacking function arguments
 After the star operator, only keyword arguments can be used.  
 
 ```python
-#!/usr/bin/python
 
 def fn(a, b, c, d, e, f):
     print(a, b, c, d, e, f)
@@ -344,7 +334,6 @@ fn3(1, 2, 3, 4, e=5, f=6)
 A list can be destructured into elements and passed to the function.  
 
 ```python
-#!/usr/bin/python
 
 def fn(a, b, c, d, e, f):
     print(a, b, c, d, e, f)
@@ -366,7 +355,6 @@ fn3(*vals, e=7, f=8)
 The `**kwargs` defines a keyworded, variable-length argument list
 
 ```python
-#!/usr/bin/python
 
 def display(**user):
 
@@ -392,7 +380,6 @@ passed — it simply captures whatever is given into a dictionary and works with
 --- 
 
 ```python
-#!/usr/bin/python
 
 def show(a, *args, **kwargs):
     print(a)
@@ -424,7 +411,6 @@ a function call. The `display` function expects three named parameters —
 the dictionary so that each key maps to its matching parameter by name. 
 
 ```python
-#!/usr/bin/python
 
 def display(name, occupation, age):
 
@@ -452,7 +438,6 @@ keyword-only parameters. This allows API designers to enforce a strict
 calling convention.  
 
 ```python
-#!/usr/bin/python
 
 # position_only_example.py
 
@@ -496,7 +481,6 @@ A list is passed by reference to the function. Therefore, the original list is
 modified inside a function.  
 
 ```python
-#!/usr/bin/python
 
 n = [1, 2, 3, 4, 5]
 
@@ -519,7 +503,6 @@ print('After function call:', n)
 Global variables are defined in module.  
 Global variables are automatically valid in functions.  
 ```python
-#!/usr/bin/python
 
 name = "Jack"
 
@@ -536,7 +519,6 @@ f()
  of the current scope.
 
 ```python
-#!/usr/bin/python
 
 name = "Jack"
 
@@ -557,7 +539,6 @@ print("Outside function", name)
 The `pass` keyword is used to define functions that are not yet implemented.  
 
 ```python
-#!/usr/bin/python
 
 def f():
     pass
@@ -583,7 +564,6 @@ The `return` keyword is used to return values from functions.
 A function returns `None` if no keyword is defined.  
 
 ```python
-#!/usr/bin/python
 
 # returning.py
 
@@ -609,7 +589,6 @@ print(showMessage("Ready."))
 We can return multiple values with tuples.  
 
 ```python
-#!/usr/bin/python
 
 n = [1, 2, 3, 4, 5]
 
@@ -633,7 +612,6 @@ print(mx, mn, ln, sm)
 With `*` operator, function can accept arbitrary number of arguments.  
 
 ```python
-#!/usr/bin/python
 
 def do_sum(*args):
    '''Function returns the sum 
@@ -658,7 +636,6 @@ print(do_sum(1, 2, 3, 4, 5))
 Nested/inner functions are functions defined inside other functions.  
 
 ```python
-#!/usr/bin/python
 
 # nested functions are functions defined inside other
 # functions
@@ -684,7 +661,6 @@ myfun()
 Functions can be passed to other functions as parameters. 
 
 ```python
-#!/usr/bin/python
 
 def inc(x):
     return x + 1
@@ -711,7 +687,6 @@ print(x)
 Python allows to redefine existing function definitions.  
 
 ```python
-#!/usr/bin/python
 
 # redefinition.py
 
@@ -939,7 +914,6 @@ Functions must be defined before being called. Python does not support
 function hoisting like JavaScript.  
 
 ```python
-#!/usr/bin/python
 
 def f1():
     print("f1()")
@@ -958,7 +932,6 @@ def f2():
 Python is flexible, it allows to store functions in collections.  
 
 ```python
-#!/usr/bin/python
 
 def f():
     pass
@@ -989,7 +962,6 @@ analysers like `mypy`.
 Enforce type checking in VS Code with `"python.analysis.typeCheckingMode": "basic"`. 
 
 ```python
-#!/usr/bin/python
 
 # annotations.py
 

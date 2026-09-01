@@ -22,7 +22,6 @@ hypermedia information systems. HTTP is the foundation of data communication for
 ## Status code 
 
 ```python
-#!/usr/bin/python
 
 import httpx 
 
@@ -33,7 +32,6 @@ print(r.status_code)
 ## GET request 
 
 ```python
-#!/usr/bin/python
 
 import httpx 
 
@@ -44,7 +42,6 @@ print(r.text)
 ## Async GET request 
 
 ```python
-#!/usr/bin/python
 
 import httpx
 import asyncio
@@ -60,7 +57,6 @@ asyncio.run(main())
 ## Query params 
 
 ```python
-#!/usr/bin/python
 
 import httpx 
 
@@ -72,7 +68,6 @@ print(r.text)
 ## Multiple async requests
 
 ```python
-#!/usr/bin/python
 
 import httpx
 import asyncio
@@ -100,7 +95,6 @@ asyncio.run(launch())
 Sync example
 
 ```python
-#!/usr/bin/python
 
 import httpx
 import time
@@ -121,7 +115,6 @@ print(f'Elapsed: {time.monotonic() - start_time}')
 Async example
 
 ```python
-#!/usr/bin/python
 
 import httpx
 import asyncio

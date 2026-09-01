@@ -211,7 +211,6 @@ elif r == 0:
 
 
 ```python
-#!/usr/bin/python
 
 import random
 

@@ -51,7 +51,6 @@ print(delta.days)
 ## Yougest, oldest 
 
 ```python
-#!/usr/bin/python
 
 from datetime import datetime
 from dataclasses import dataclass

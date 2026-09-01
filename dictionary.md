@@ -10,7 +10,6 @@ like strings or numbers. They must also be unique within a dictionary.
 First, we show how to create Python dictionaries.
 
 ```python
-#!/usr/bin/python
 
 weekend = { "Sun": "Sunday", "Mon": "Monday" }
 vals = dict(one=1, two=2)
@@ -81,7 +80,6 @@ $ ./create_dict.py
 The following examples shows some basic operations with dictionaries.
 
 ```python
-#!/usr/bin/python
 
 # basics.py
 
@@ -161,7 +159,6 @@ undefined
 The next example presents two dictionary methods: `fromkeys` and `setdefault`.
 
 ```python
-#!/usr/bin/python
 
 # fruits.py
 
@@ -231,7 +228,6 @@ We receive this output when we launch the fruits.py script.
 The next code example shows how to add two Python dictionaries using the update method.
 
 ```python
-#!/usr/bin/python
 
 # domains.py
 
@@ -264,7 +260,6 @@ The result shows all values.
 Now we show how to remove a pair from a dictionary.
 
 ```python
-#!/usr/bin/python
 
 # removing.py
 
@@ -322,7 +317,6 @@ from a dictionary. The values method creates a list of values. And the items met
 a list of key-value tuples.
 
 ```python
-#!/usr/bin/python
 
 # keys_values.py
 
@@ -383,7 +377,6 @@ Looping through the dictionary is a common programming job. This can be done wit
 the `for` keyword. 
 
 ```python
-#!/usr/bin/python
 
 # looping.py
 
@@ -448,7 +441,6 @@ hu: Hungary
 With the in and not in operators we can check if an key is present in a dictionary.
 
 ```python
-#!/usr/bin/python
 
 # membership.py
 
@@ -533,7 +525,6 @@ We might want to sort the data in a normal or reverse order. We can sort the dat
 or by values.
 
 ```python
-#!/usr/bin/python
 
 # simple_sort.py
 
@@ -578,7 +569,6 @@ The items dictionary is sorted by its keys.
 More efficient sorting can be done with the built-in `sorted` function.
 
 ```python
-#!/usr/bin/python
 
 # sorting.py
 
@@ -633,7 +623,6 @@ bags: 1
 In the next example, we are going to sort the items by their values.
 
 ```python
-#!/usr/bin/python
 
 # sorting2.py
 
@@ -699,7 +688,6 @@ produces elements of the output dictionary from members of the input sequence th
 satisfy the condition.
 
 ```python
-#!/usr/bin/python
 
 # comprehension.py
 

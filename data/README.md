@@ -19,7 +19,6 @@ C:\Users\Jano\opt\postgre>bin\pg_ctl.exe -D data stop
 ## fetchall & rich
 
 ```python
-#!/usr/bin/python
 
 import psycopg2
 from rich.console import Console

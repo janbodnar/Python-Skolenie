@@ -74,7 +74,6 @@ for product in root.getElementsByTagName("product"):
 Reading attributes. 
 
 ```python
-#!/usr/bin/python
 
 from xml.dom import minidom
 

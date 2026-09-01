@@ -54,7 +54,6 @@ An encoding may have multiple aliases; for instance, utf_8 has utf8 and utf-8 al
 In the first example, we encode a message containing emoji characters.
 
 ```python
-#!/usr/bin/python
 
 text = "one 🐘 and three 🐋"
 print(text)
@@ -124,7 +123,6 @@ one 🐘 and three 🐋
 We have this `data.txt` file.
 
 ```python
-#!/usr/bin/python
 
 fname = 'data.txt'
 
@@ -169,7 +167,6 @@ one 🐘 and three 🐋
 The data on the network is transmitted in the `bytes` type.
 
 ```python
-#!/usr/bin/python
 
 import requests
 

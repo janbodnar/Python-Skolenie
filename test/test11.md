@@ -85,7 +85,6 @@ with zipfile.ZipFile('myarchive.zip', 'w') as zip:
 using urllib3  
 
 ```python
-#!/usr/bin/python
 
 import json
 import urllib3
@@ -168,7 +167,6 @@ print(words_3)
 ## lambda & median
 
 ```python
-#!/usr/bin/python
 
 import math, statistics
 
@@ -220,7 +218,6 @@ print(n)
 ## map function
 
 ```python
-#!/usr/bin/python
 
 def upper_word(word):
     return word.upper()

@@ -12,7 +12,6 @@ Python strings can be created with single quotes, double quotes, or triple quote
 quotes, strings can span several lines without using the escape character.  
 
 ```python
-#!/usr/bin/python
 
 # string_literals.py
 
@@ -48,7 +47,6 @@ Unicode in Python
 If we want to create Unicode strings, we add a u or U character at the beginning of the text.
 
 ```python
-#!/usr/bin/python
 
 # unicode.py
 
@@ -70,7 +68,6 @@ $ ./unicode.py
 We can use the Russian letters directly.
 
 ```python
-#!/usr/bin/python
 
 # unicode2.py
 
@@ -87,7 +84,6 @@ We have defined UTF-8 encoding with a encoding comment.
 The following example summarizes string formatting options in Python.
 
 ```python
-#!/usr/bin/python
 
 name = 'Peter'
 age = 23
@@ -131,7 +127,6 @@ Strings in Python are delimited by single or double quote characters. What if we
 display quotes, for example in a direct speech? There are two basic ways to do this. 
 
 ```python
-#!/usr/bin/python
 
 # quotes.py
 
@@ -160,7 +155,6 @@ He said, "Which one is your favourite?"
 The `len` method calculates the number of characters in a string. The white characters are also counted. 
 
 ```python
-#!/usr/bin/python
 
 # string_length.py
 
@@ -208,7 +202,6 @@ like new line, tab, space or other control characters. We have the `strip`, `lst
 methods to remove these characters.
 
 ```python
-#!/usr/bin/python
 
 # strippig.py
 
@@ -272,7 +265,6 @@ print("   bbb\raaa") # prints aaabbb
 The carriage return `\r` is a control character for end of line return to beginning of line.
 
 ```python
-#!/usr/bin/python
 
 # strophe.py
 
@@ -315,7 +307,6 @@ backslash to escape the default meaning of a single quote.
 If we prepend an r to the string, we get a raw string. The escape sequences are not interpreted.  
 
 ```python
-#!/usr/bin/python
 
 # raw.py
 
@@ -334,7 +325,6 @@ Comparing strings is a common job in programming. We can compare two strings wit
 We can check the opposite with the non-equality `!=` operator. The operators return a boolean `True` or `False`.
 
 ```python
-#!/usr/bin/python
 
 # comparing.py
 
@@ -381,7 +371,6 @@ False
 It is possible to access string elements in Python.
 
 ```python
-#!/usr/bin/python
 
 # string_elements.py
 
@@ -445,7 +434,6 @@ Eagle
 A for loop can be used to traverse all characters of a string.
 
 ```python
-#!/usr/bin/python
 
 # traverse.py
 
@@ -468,7 +456,6 @@ Z e t C o d e
 In the next example, we do string multiplication and concatenation.
 
 ```python
-#!/usr/bin/python
 
 # add_multiply.py
 
@@ -492,7 +479,6 @@ eagle and falcon
 We can use the len function to calculate the length of the string in characters.
 
 ```python
-#!/usr/bin/python
 
 # eagle.py
 
@@ -512,7 +498,6 @@ Some programming languages enable implicit addition of strings and numbers. In P
 this is not possible. We must explicitly convert values.  
 
 ```python
-#!/usr/bin/python
 
 # string_number.py
 
@@ -538,7 +523,6 @@ By default, the replace method replaces all occurrences of a substring. The meth
 which limits the replacements to a certain number.
 
 ```python
-#!/usr/bin/python
 
 # replacing.py
 
@@ -577,7 +561,6 @@ A string can be split with the split or the rsplit method. They return a list of
 cut from the string using a separator. The optional second parameter is the maximum splits allowed.  
 
 ```python
-#!/usr/bin/python
 
 # splitting.py
 
@@ -625,7 +608,6 @@ Strings can be joined with the join string. It returns a string concatenated fro
 as a parameter. The separator between elements is the string providing this method.
 
 ```python
-#!/usr/bin/python
 
 # split_join.py
 
@@ -658,7 +640,6 @@ occurrence of the separator and return a 3-tuple containing the part before the 
 itself, and the part after the separator.
 
 ```python
-#!/usr/bin/python
 
 # partition.py
 
@@ -689,7 +670,6 @@ Python has four string methods to work with the case of the strings. These metho
 a new modified string.
 
 ```python
-#!/usr/bin/python
 
 # convert_case.py
 
@@ -741,7 +721,6 @@ Zetcode
 There are several useful built-in functions that can be used for working with strings.
 
 ```python
-#!/usr/bin/python
 
 # letters.py
 
@@ -783,7 +762,6 @@ There are 3 spaces
 In the next example, we print the results of football matches.
 
 ```python
-#!/usr/bin/python
 
 # teams1.py
 
@@ -803,7 +781,6 @@ Next, we improve the look of the output.
 ```
 
 ```python
-#!/usr/bin/python
 
 # teams2.py
 
@@ -839,7 +816,6 @@ String formatting is dynamic putting of various values into a string. String for
 achieved with the `%` operator or the format method.
 
 ```python
-#!/usr/bin/python
 
 # oranges.py
 
@@ -871,7 +847,6 @@ There are 32 oranges in the basket
 The next example shows how to add more values into a string.
 
 ```python
-#!/usr/bin/python
 
 # fruits.py
 
@@ -890,7 +865,6 @@ There are 12 oranges and 23 apples in the basket
 In the next example, we build a string with a float and a string value.
 
 ```python
-#!/usr/bin/python
 
 # height.py
 
@@ -922,7 +896,6 @@ We might not like the fact that the number in the previous example has 6 decimal
 by default. We can control the number of the decimal places in the formatting specifier.
 
 ```python
-#!/usr/bin/python
 
 # height2.py
 
@@ -942,7 +915,6 @@ Height: 172.30 cm
 The following example shows other formatting options.
 
 ```python
-#!/usr/bin/python
 
 # various.py
 
@@ -972,7 +944,6 @@ $ ./various.py
 The format method also supports the binary format.
 
 ```python
-#!/usr/bin/python
 
 # various2.py
 
@@ -995,7 +966,6 @@ The example prints numbers in hexadecimal, binary, octal, and scientific formats
 The next example prints three columns of numbers.
 
 ```python
-#!/usr/bin/python
 
 # columns1.py
 
@@ -1023,7 +993,6 @@ To correct this, we use the width specifier. The width specifier defines the min
 of the object. If the object is smaller than the width, it is filled with spaces.
 
 ```python
-#!/usr/bin/python
 
 # columns2.py
 
@@ -1050,7 +1019,6 @@ $ ./columns2.py
 Now we have the improved formatting with the format method.
 
 ```python
-#!/usr/bin/python
 
 # columns3.py
 
@@ -1079,7 +1047,6 @@ The `str` is the substring to be searched for. The beg parameter is the starting
 The end parameter is the ending index. It is by default equal to the length of the string.
 
 ```python
-#!/usr/bin/python
 
 # substrings.py
 
@@ -1133,7 +1100,6 @@ $ ./substrings.py
 In the second example, we use the index and `rindex` methods.
 
 ```python
-#!/usr/bin/python
 
 # substrings2.py
 

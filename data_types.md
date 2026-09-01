@@ -50,7 +50,6 @@ If it is a boy, they might name him John. If it is a girl,
 they might name her Victoria.
 
 ```python
-#!/usr/bin/python
 
 # kid.py
 
@@ -99,7 +98,6 @@ boolean expressions and return boolean results. The `and` operator evaluates to
 least one operand is true. The `not` operator inverts the boolean value.
 
 ```python
-#!/usr/bin/python
 
 # bool_ops.py
 
@@ -133,7 +131,6 @@ Everything else is considered `True`.
 The following script shows some common values that are considered to be True or False.
 
 ```python
-#!/usr/bin/python
 
 # bool_fun.py
 
@@ -169,7 +166,6 @@ Because `bool` is a subclass of `int`, `True` equals `1` and `False` equals `0`.
 This allows booleans to be used directly in arithmetic operations.
 
 ```python
-#!/usr/bin/python
 
 # bool_int.py
 
@@ -200,7 +196,6 @@ Comparison operators return boolean values. They include:
 | `not in` | negated membership       |
 
 ```python
-#!/usr/bin/python
 
 # comparisons.py
 
@@ -225,7 +220,6 @@ arbitrary precision — Python automatically handles numbers as large as the
 available memory allows.
 
 ```python
-#!/usr/bin/python
 
 # apples.py
 
@@ -269,7 +263,6 @@ same as `1000000`.
 Standard arithmetic operators work as expected:
 
 ```python
-#!/usr/bin/python
 
 # int_operations.py
 
@@ -339,7 +332,6 @@ temperature, speed, weight, or time. For example, if a sprinter runs 100 m in 9.
 compute their average speed in km/h:
 
 ```python
-#!/usr/bin/python
 # sprinter.py
 
 # 100 m is 0.1 km
@@ -538,7 +530,6 @@ Strings in Python can be created using single quotes, double quotes, and triple 
 When we use triple quotes, strings can span several lines without using the escape character.
 
 ```python
-#!/usr/bin/python
 
 # strings.py
 
@@ -580,7 +571,6 @@ print("   bbb\raaa") # prints aaabbb
 The carriage return `\r` is a control character that moves the cursor to the beginning of the current line.
 
 ```python
-#!/usr/bin/python
 
 # strophe.py
 
@@ -631,7 +621,6 @@ We can use the len function to calculate the length of the string in characters.
 If we append an r to the string, we get a raw string. The escape sequences are not interpreted.
 
 ```python
-#!/usr/bin/python
 
 # raw.py
 
@@ -647,7 +636,6 @@ We get the string with the new line character included.
 In the next example, we show string multiplication and concatenation.
 
 ```python
-#!/usr/bin/python
 
 # strings2.py
 
@@ -687,7 +675,6 @@ print(fruits)  # prints  ('apples', 'oranges', 'bananas')
 The parentheses are not mandatory. We can omit them.
 
 ```python
-#!/usr/bin/python
 
 # tuples.py
 
@@ -722,7 +709,6 @@ first * 3 :  (1, 2, 3, 1, 2, 3, 1, 2, 3)
 Next we do some indexing.
 
 ```python
-#!/usr/bin/python
 
 # tuples2.py
 
@@ -766,7 +752,6 @@ five[:9] :  (1, 2, 3, 4, 5)
 Tuples can contain several mixed data types.
 
 ```python
-#!/usr/bin/python
 
 # tuples_mix.py
 
@@ -800,7 +785,6 @@ and a one element tuple? The creators of the Python programming language decided
 to use a comma to denote that we are using a tuple.
 
 ```python
-#!/usr/bin/python
 
 # tuple_one.py
 
@@ -830,7 +814,6 @@ actors = ["Jack Nicholson", "Antony Hopkins", "Adrien Brody"]
 The list is created using square brackets `[]`.
 
 ```python
-#!/usr/bin/python
 
 # simple_list.py
 
@@ -855,7 +838,6 @@ $ ./simple_list.py
 Next we sort a list.
 
 ```python
-#!/usr/bin/python
 
 # list_sorting.py
 
@@ -883,7 +865,6 @@ numbers.reverse()   #  [5, 4, 3, 2, 1, 0]
 Counting elements in a list is done with the count method.
 
 ```python
-#!/usr/bin/python
 
 # list_counting_elements.py
 
@@ -908,7 +889,6 @@ three is here 4 times
 Next, we deal with inserting and deleting items from the list.
 
 ```python
-#!/usr/bin/python
 
 # list_modify.py
 
@@ -950,7 +930,6 @@ $ ./list_modify.py
 The following program presents two additional functions.
 
 ```python
-#!/usr/bin/python
 
 # list_modify2.py
 
@@ -982,7 +961,6 @@ $ ./list_modify2.py
 In the following example, we find the indexes of elements in a list.
 
 ```python
-#!/usr/bin/python
 
 # list_index.py
 
@@ -1004,7 +982,6 @@ $ ./list_index.py
 Next we do some transformations.
 
 ```python
-#!/usr/bin/python
 
 # list_transform.py
 
@@ -1071,7 +1048,6 @@ symmetric difference:  {'x', 'd', 'z', 'y', 'c'}
 Next we introduce some other operations with sets.
 
 ```python
-#!/usr/bin/python
 
 set1 = {1, 2}
 set1.add(3)
@@ -1126,7 +1102,6 @@ by keys. Keys in a dictionary are required to be unique. Because of the importan
 of the dictionary data type, a whole chapter covers the dictionary in this Python tutorial.
 
 ```python
-#!/usr/bin/python
 
 # dictionary_simple.py
 
@@ -1162,7 +1137,6 @@ Maedchen
 Looping  
 
 ```python
-#!/usr/bin/python
 
 # looping.py
 
@@ -1193,7 +1167,6 @@ distinct from other falsy values like `0`, `False`, `""`, or empty collections.
 If a function does not end with an explicit `return` statement, it returns `None` automatically.
 
 ```python
-#!/usr/bin/python
 
 # none.py
 
@@ -1216,7 +1189,6 @@ return any value. Such a function will implicitly return `None`.
 - mark the absence of a result
 
 ```python
-#!/usr/bin/python
 
 # none_initialization.py
 

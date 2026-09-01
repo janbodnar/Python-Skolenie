@@ -11,7 +11,6 @@ Comments are used by humans to clarify the source code. All comments in Python l
 follow the `#` character.
 
 ```python
-#!/usr/bin/python
 
 # Author Jan Bodnar
 # ZetCode 2023
@@ -55,7 +54,6 @@ These are examples of invalid identifiers.
 The variables are case sensitive. This means that `Price`, `price`, and `PRICE` are three different identifiers.
 
 ```python
-#!/usr/bin/python
 
 number = 10
 Number = 11
@@ -84,7 +82,6 @@ nationality = "Hungarian"
 Here we assign two literals to variables; number 29 and string "Hungarian" are literals.
 
 ```python
-#!/usr/bin/python
 
 name1 = "Jane"
 age1 = 12

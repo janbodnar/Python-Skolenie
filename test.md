@@ -1305,7 +1305,6 @@ print(words_c_upper)
 ## list comprehensions
 
 ```python
-#!/usr/bin/python
 
 a = ['a', 2, [-4, 5], 'c', 12, 3, 'd', [1, 2]]
 
@@ -1500,7 +1499,6 @@ print('end of program')
 ## read file
 
 ```python
-#!/usr/bin/python
 
 
 filename = 'thermopylae.txt'
@@ -1857,7 +1855,6 @@ plt.savefig('barchart.png')
 ## dictionary iteration
 
 ```python
-#!/usr/bin/python
 
 data = { "de": "Germany", "sk": "Slovakia", "hu": "Hungary", "ru": "Russia" }    
 
@@ -4007,7 +4004,6 @@ console.print(table)
 ## rounding
 
 ```python
-#!/usr/bin/python
 
 import math
 
@@ -4242,7 +4238,6 @@ print(n)
 sorting
 
 ```python
-#!/usr/bin/python
 
 # cut name into first_name and last_name
 users = [
