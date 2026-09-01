@@ -1,12 +1,16 @@
 # Strings in Python
 
-A **string** in Python is a sequence of characters. Strings are **immutable**—once defined, they cannot be changed. Many Python methods like `replace()`, `join()`, or `split()` appear to modify strings, but they actually create a new copy of the string, modify it, and return the modified copy to the caller.
+A **string** in Python is a sequence of characters. Strings are **immutable**—once   
+defined, they cannot be changed. Many Python methods like `replace()`, `join()`, or  
+`split()` appear to modify strings, but they actually create a new copy of the string, 
+modify it, and return the modified copy to the caller.
 
 ---
 
 ## String Literals
 
-Python strings can be created using **single quotes**, **double quotes**, or **triple quotes**. Triple quotes allow strings to span multiple lines without using escape characters.
+Python strings can be created using **single quotes**, **double quotes**, or **triple quotes**.  
+Triple quotes allow strings to span multiple lines without using escape characters.
 
 ```python
 # string_literals.py
@@ -38,7 +42,8 @@ tower
 
 ### Unicode Strings
 
-Python supports Unicode natively. You can include Unicode characters directly in source code or use escape sequences.
+Python supports Unicode natively. You can include Unicode characters directly in  
+source code or use escape sequences.
 
 ```python
 # unicode.py
@@ -138,7 +143,8 @@ Johnie's dog
 
 ## String Length
 
-The `len()` function returns the number of characters in a string, including whitespace characters.
+The `len()` function returns the number of characters in a string, including  
+whitespace characters.
 
 ```python
 # string_length.py
@@ -163,7 +169,8 @@ print(len(s3))    # 7 (spaces count)
 
 ## Stripping Whitespace Characters
 
-The `strip()`, `lstrip()`, and `rstrip()` methods remove leading and/or trailing whitespace characters (spaces, tabs, newlines, etc.).
+The `strip()`, `lstrip()`, and `rstrip()` methods remove leading and/or trailing  
+whitespace characters (spaces, tabs, newlines, etc.).
 
 ```python
 # stripping.py
@@ -192,7 +199,8 @@ print(f"'{s4}' length: {len(s4)}")   # 'Eagle' length: 5
 
 ## Escape Sequences
 
-Escape sequences are special characters that begin with a backslash (`\`) and serve specific purposes within strings.
+Escape sequences are special characters that begin with a backslash (`\`) and  
+serve specific purposes within strings.
 
 | Escape Sequence | Description |
 |-----------------|-------------|
@@ -220,13 +228,15 @@ print("aaa\bbb")      # Output: bbbaa (backspaces delete three characters)
 print(r"Raw string\n")  # Output: Raw string\n
 ```
 
-**Note:** Raw strings (prefixed with `r`) treat backslashes as literal characters, making them useful for file paths and regular expressions.
+**Note:** Raw strings (prefixed with `r`) treat backslashes as literal characters,  
+making them useful for file paths and regular expressions.
 
 ---
 
 ## Comparing Strings
 
-Use the `==` operator for equality and `!=` for inequality. These operators return boolean values (`True` or `False`).
+Use the `==` operator for equality and `!=` for inequality. These operators return  
+boolean values (`True` or `False`).
 
 ```python
 # comparing.py
@@ -249,14 +259,13 @@ False
 ```
 
 **Lexicographic Comparison:**
-Strings can also be compared using `<`, `>`, `<=`, `>=`, which compare character by character based on Unicode code points.
+Strings can also be compared using `<`, `>`, `<=`, `>=`, which compare character by  
+character based on Unicode code points.
 
 ```python
 print("apple" < "banana")   # True (a < b)
 print("Apple" < "apple")    # True (A < a in Unicode)
 ```
-
----
 
 ## Accessing String Elements
 
@@ -363,7 +372,8 @@ print(float("22.33") + 22.55)            # 44.88
 
 ## Replacing Substrings
 
-The `replace()` method replaces occurrences of a substring within a string. Since strings are immutable, it returns a new string.
+The `replace()` method replaces occurrences of a substring within a string. Since  
+strings are immutable, it returns a new string.
 
 ```python
 # replacing.py
@@ -387,7 +397,8 @@ print(c)  # I saw a fox in the forest. A lonely wolf.
 
 ### Splitting with `split()` and `rsplit()`
 
-The `split()` method divides a string into a list using a separator. `rsplit()` does the same but from the right.
+The `split()` method divides a string into a list using a separator. `rsplit()`  
+does the same but from the right.
 
 ```python
 # splitting.py
@@ -420,7 +431,8 @@ print(joined)
 
 ### The `partition()` Method
 
-The `partition()` method splits a string at the first occurrence of a separator and returns a tuple of three parts: before, separator, and after.
+The `partition()` method splits a string at the first occurrence of a separator and  
+returns a tuple of three parts: before, separator, and after.
 
 ```python
 # partition.py
