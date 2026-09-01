@@ -1,77 +1,71 @@
 # Dictionary
 
-A *Python dictionary* is a mutable container of key-value pairs, also called an associative
-array or hash table in other languages. Keys must be unique and immutable, such as strings,
-numbers, or tuples; values can be of any type. Since Python 3.7, dictionaries preserve
-the insertion order of their pairs.
+A *Python dictionary* is a mutable container of key-value pairs, also called an  
+associative array or hash table in other languages. Keys must be unique and  
+immutable, such as strings, numbers, or tuples; values can be of any type. Since  
+Python 3.7, dictionaries preserve the insertion order of their pairs.  
 
 ## Creation
 
-First, we show how to create Python dictionaries.
+First, we show how to create Python dictionaries in several ways.
+
+### Dictionary literal
+
+The dictionary literal notation is the simplest way to create a dictionary.
 
 ```python
 
 weekend = { "Sun": "Sunday", "Mon": "Monday" }
-vals = dict(one=1, two=2)
-
-capitals = {}
-capitals["svk"] = "Bratislava"
-capitals["deu"] = "Berlin"
-capitals["dnk"] = "Copenhagen"
-
-d = { i: object() for i in range(4) }
 
 print(weekend)
-print(vals)
-print(capitals)
-print(d)
 ```
 
-In the example, we create four dictionaries in four different ways. Later we print the   
-contents of these dictionaries to the console.
+The key-value pairs are enclosed by curly brackets. The pairs are separated by  
+commas. The first value of a pair is a key, which is followed by a colon  
+character and a value. The "Sun" string is a key and the "Sunday" string is a value.  
 
-```python
-weekend = { "Sun": "Sunday", "Mon": "Monday" }
+```
+$ ./literal.py
+{'Sun': 'Sunday', 'Mon': 'Monday'}
 ```
 
-We create a weekend dictionary using dictionary literal notation. The key-value pairs are  
-enclosed by curly brackets. The pairs are separated by commas. The first value of a pair  
-is a key, which is followed by a colon character and a value. The "Sun" string is a key  
-and the "Sunday" string is a value.
+### The dict constructor
+
+A dictionary can be created with the `dict` function.
 
 ```python
 vals = dict(one=1, two=2)
+
+print(vals)
 ```
 
-Dictionaries can be created using the `dict` function.
+The `dict` function takes keyword arguments; the argument names become the keys and  
+their values become the values of the dictionary.
+
+```
+$ ./dict_constructor.py
+{'one': 1, 'two': 2}
+```
+
+### Adding pairs to an empty dictionary
+
+An empty dictionary is created with an empty pair of curly brackets. New pairs are  
+added with the assignment operator.
 
 ```python
 capitals = {}
 capitals["svk"] = "Bratislava"
 capitals["deu"] = "Berlin"
 capitals["dnk"] = "Copenhagen"
+
+print(capitals)
 ```
 
-In the third way, an empty `capitals` dictionary is created and three pairs are added  
-to it. The key goes inside the square brackets; the value goes on the right side of  
-the assignment.
-
-```python
-d = { i: object() for i in range(4) }
-```
-
-A dictionary is created using a dictionary comprehension. The comprehension has two parts:  
-the `i: object()` expression, which is evaluated on each iteration of the loop, and the  
-`for i in range(4)` loop. It creates a dictionary with four pairs, where the keys are the  
-numbers 0, 1, 2, and 3 and the values are simple objects.
+The key goes inside the square brackets; the value goes on the right side of the assignment.
 
 ```
-$ ./create_dict.py
-{'Sun': 'Sunday', 'Mon': 'Monday'}
-{'one': 1, 'two': 2}
+$ ./add_pairs.py
 {'svk': 'Bratislava', 'deu': 'Berlin', 'dnk': 'Copenhagen'}
-{0: <object object at 0xb76cb4a8>, 1: <object object at 0xb76cb4b0>,
-2: <object object at 0xb76cb4b8>, 3: <object object at 0xb76cb4c0>}
 ```
 
 
@@ -154,72 +148,7 @@ There are 4 various items in the basket
 undefined
 ```
 
-## The fromkeys and setdefault methods
 
-The next example presents two dictionary methods: `fromkeys` and `setdefault`.
-
-```python
-
-# fruits.py
-
-basket = ('oranges', 'pears', 'apples', 'bananas')
-
-fruits = dict.fromkeys(basket, 0)
-print(fruits)
-
-fruits['oranges'] = 12
-fruits['pears'] = 8
-fruits['apples'] = 4
-
-print(fruits.setdefault('oranges', 11))
-print(fruits.setdefault('kiwis', 11))
-
-print(fruits)
-```
-
-The `fromkeys` method creates a new dictionary from a sequence of keys. The `setdefault`  
-method returns a value if a key is present; otherwise, it inserts the key with a specified  
-default value and returns that value.
-
-```python
-basket = ('oranges', 'pears', 'apples', 'bananas')
-```
-
-We have a tuple of strings. From this sequence a new dictionary will be constructed.
-
-```python
-fruits = dict.fromkeys(basket, 0)
-```
-
-The `fromkeys` method creates a new dictionary whose keys are the items of the sequence.  
-Each key is initialized to 0. Since it is a class method, we call it via the `dict` class.
-
-```python
-fruits['oranges'] = 12
-fruits['pears'] = 8
-fruits['apples'] = 4
-```
-
-Here we add some values to the `fruits` dictionary.
-
-```python
-print(fruits.setdefault('oranges', 11))
-print(fruits.setdefault('kiwis', 11))
-```
-
-The first line prints 12: the 'oranges' key exists in the dictionary, so the method  
-returns its value. In the second case, the key does not exist yet; the method inserts  
-the pair 'kiwis': 11 into the dictionary and returns 11.
-
-```python
-$ ./fruits.py
-{'oranges': 0, 'pears': 0, 'apples': 0, 'bananas': 0}
-12
-11
-{'oranges': 12, 'pears': 8, 'apples': 4, 'bananas': 0, 'kiwis': 11}
-```
-
-We receive this output when we launch the fruits.py script.
 
 ## The update method
 
@@ -451,6 +380,9 @@ if key in domains:
 
 In the example, we check whether the `sk` key is present in the dictionary with the `in` operator.
 
+
+
+
 ## defaultdict
 
 A `defaultdict` is a dictionary subclass that automatically supplies a default value for  
@@ -661,6 +593,127 @@ bags: 1
 
 From the output we can see that this time the pairs were sorted by their values.
 
+## Word frequency analysis
+
+In the next example, we are going to count the frequency of words in a text.  
+
+```python
+text = """Python is a great general-purpose programming language. It is
+created by Guido van Rossum."""
+
+words = {}
+
+for word in text.split():
+
+    word = word.lower().strip(".,")
+
+    if word not in words:
+        words[word] = 1
+    else:
+        words[word] += 1
+
+for word in sorted(words.keys()):
+
+    print(f"{word}: {words[word]}")
+```
+
+The example counts the frequency of words in a text. The text is stored in the  
+`text` variable.
+
+```python
+words = {}
+```
+
+We use a dictionary to store the words and their frequencies.
+
+```python
+for word in text.split():
+```
+
+We iterate over the words in the text. The `split` method splits the text into  
+words.
+
+```python
+word = word.lower().strip(".,")
+```
+
+We convert the word to lowercase and remove the dots and commas from the word.
+
+```python
+if word not in words:
+    words[word] = 1
+else:
+    words[word] += 1
+```
+
+
+
+## The fromkeys and setdefault methods
+
+The next example presents two dictionary methods: `fromkeys` and `setdefault`.
+
+```python
+
+# fruits.py
+
+basket = ('oranges', 'pears', 'apples', 'bananas')
+
+fruits = dict.fromkeys(basket, 0)
+print(fruits)
+
+fruits['oranges'] = 12
+fruits['pears'] = 8
+fruits['apples'] = 4
+
+print(fruits.setdefault('oranges', 11))
+print(fruits.setdefault('kiwis', 11))
+
+print(fruits)
+```
+
+The `fromkeys` method creates a new dictionary from a sequence of keys. The `setdefault`  
+method returns a value if a key is present; otherwise, it inserts the key with a specified  
+default value and returns that value.
+
+```python
+basket = ('oranges', 'pears', 'apples', 'bananas')
+```
+
+We have a tuple of strings. From this sequence a new dictionary will be constructed.
+
+```python
+fruits = dict.fromkeys(basket, 0)
+```
+
+The `fromkeys` method creates a new dictionary whose keys are the items of the sequence.  
+Each key is initialized to 0. Since it is a class method, we call it via the `dict` class.
+
+```python
+fruits['oranges'] = 12
+fruits['pears'] = 8
+fruits['apples'] = 4
+```
+
+Here we add some values to the `fruits` dictionary.
+
+```python
+print(fruits.setdefault('oranges', 11))
+print(fruits.setdefault('kiwis', 11))
+```
+
+The first line prints 12: the 'oranges' key exists in the dictionary, so the method  
+returns its value. In the second case, the key does not exist yet; the method inserts  
+the pair 'kiwis': 11 into the dictionary and returns 11.
+
+```python
+$ ./fruits.py
+{'oranges': 0, 'pears': 0, 'apples': 0, 'bananas': 0}
+12
+11
+{'oranges': 12, 'pears': 8, 'apples': 4, 'bananas': 0, 'kiwis': 11}
+```
+
+We receive this output when we launch the fruits.py script.
 
 ## Dictionary comprehension
 
