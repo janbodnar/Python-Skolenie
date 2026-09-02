@@ -1,5 +1,8 @@
 # Examples
 
+
+`echo %DEEPSEEK_API_KEY%`
+
 ## Filter, map file
 
 `words.txt`:
