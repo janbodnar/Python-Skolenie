@@ -104,6 +104,13 @@ print(min(data))
 print(max(data))
 print(sum(data)/len(data))
 print(len(data))
+
+# vypis frazu 9 krat
+msg = 'an old falcon'
+
+for _ in range(9):
+    print(msg)
+
 ```
 
 
