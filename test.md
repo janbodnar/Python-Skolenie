@@ -180,6 +180,21 @@ items = [2, -3, ('cool', 'hot'), 4.5, 6, 'small', True]
 for item in items:
     if type(item) == int or type(item) == float:
         print(item)
+
+# zapis tieto slova do suboru words.txt do jedneho stlpca
+# nacitaj tieto slova zo suboru spat do zoznamu
+words = ['small', 'rock', 'nice', 'raw', 'atom', 'car', 'cup', 'cloud', 'water']
+
+# with open('words.txt', 'w') as file:
+#     for word in words:
+#         file.write(word + '\n')
+
+# Ctrl + /
+
+with open('words.txt', 'r') as file:
+    words = file.readlines()
+
+print(words)
 ```
 
 
