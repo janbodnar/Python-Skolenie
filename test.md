@@ -45,6 +45,17 @@ rand_vals = []
 # zapis tieto slova do suboru words.txt do jedneho stlpca
 # nacitaj tieto slova zo suboru spat do zoznamu
 words = ['small', 'rock', 'nice', 'raw', 'atom', 'car', 'cup', 'cloud', 'water']
+
+import random
+
+# vygeneruj zoznam 100 nahodnych cisiel v rozsahu 1-100
+rand_vals = []
+
+for _ in range(100):
+    random_val = random.randint(1, 100)
+    rand_vals.append(random_val)
+
+print(rand_vals)
 ```
 
 
