@@ -24,9 +24,11 @@ with open(filename, 'r') as file:
     words = file.readlines()
     print(words)
 
-
     words_cleaned = list(map(lambda word: word.strip(), words))
     print(words_cleaned)
+
+    words_3 = list(filter(lambda word: len(word) == 3, words_cleaned))
+    print(words_3)
 ```
 
 ## filter function
