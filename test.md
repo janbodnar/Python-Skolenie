@@ -1,5 +1,26 @@
 # Examples
 
+## filter function
+
+```python
+def is_negative(e):
+    return e < 0
+
+def is_positive(e):
+    return e > 0
+
+vals = (1, 0, -1, -3, 9, 5, 6, 7, -8)
+
+negatives = list(filter(is_negative, vals))
+print(negatives)
+
+positives = list(filter(is_positive, vals))
+print(positives)
+
+print(vals)
+```
+
+
 ## Random sample
 
 ```python
