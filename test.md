@@ -49,7 +49,22 @@ words = ['small', 'rock', 'nice', 'raw', 'atom', 'car', 'cup', 'cloud', 'water']
 
 
 
+## Riesenia
 
+```python
+# vypis John Doe is 34 years old gardener pomocou fstringu
+name = "John Doe"
+age = 34
+occupation = 'gardener'
+
+print(f'{name} is {age} years old {occupation}')
+
+
+
+
+
+
+```
 
 
 
