@@ -27,6 +27,29 @@ words_len_3 = list(filter(lambda word: len(word) == 3 ,words))
 print(words_len_3)
 ```
 
+## map function
+
+```python
+# filter, map
+
+# def times10(e):
+#     return e * 10
+
+vals = [1, 2, 3, 4, 5]
+
+vals2 = list(map(lambda e: e * 10, vals))
+print(vals2)
+
+words = ['war', 'water', 'cup', 'cloud', 'sky', 'forest']
+
+words_uppercase = list(map(lambda word: word.upper(), words))
+print(words_uppercase)
+
+
+# print('falcon'.upper())
+# print('The Milky Way'.lower())
+```
+
 
 ## Random sample
 
