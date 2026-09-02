@@ -148,6 +148,19 @@ for word in words:
 for word in words:
     if word.startswith('c') or word.startswith('w'):
         print(word)
+
+
+# vypíš pre každé číslo, či je kladné, záporné, nula
+vals = (-2, 0, 1, 3, -4, 5, -9)
+
+for val in vals:
+    
+    if val < 0:
+        print(f'{val}: negative value')
+    elif val > 0:
+        print(f'{val}: positive value')
+    elif val == 0:
+        print(f'{val}: zero')
 ```
 
 
