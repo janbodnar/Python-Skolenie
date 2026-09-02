@@ -85,6 +85,25 @@ for word in words:
 
 print(total)
 
+
+# vypocitaj sumu pomocou for loopu
+# vypocitaj sumu, min, max, average, velkost pomocou built-in funkcii
+data = [2, 1, 4, 0, -1, 2, -9, 6, 7, -2, 1, -6]
+
+# for loop, suma, 
+
+suma = 0
+
+for number in data:
+    suma += number
+
+print(suma)
+
+print(sum(data))
+print(min(data))
+print(max(data))
+print(sum(data)/len(data))
+print(len(data))
 ```
 
 
