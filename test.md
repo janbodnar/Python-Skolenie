@@ -1,5 +1,17 @@
 # Examples
 
+## Random sample
+
+```python
+import random
+
+words = ['sky', 'cup', 'war', 'auto', 'plant', 'cup', 'cloud', 'car']
+
+res = random.choices(words, k=3, weights=[100, 5, 3, 1, 1, 10, 8, 1])
+print(res)
+```
+
+
 ## implicitne parametre funkcii
 
 ```python
