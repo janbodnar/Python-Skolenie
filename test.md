@@ -68,7 +68,11 @@ print(words[2])
 print(words[-2])
 print(words[-1])
 
+# zaokruhli na 3 desatinne miesta
+vals3 = (47.32342, 11.21221325, 24.23222, 32.2345, 32.3266)
 
+for val in vals3:
+    print(round(val, 3))
 
 
 ```
