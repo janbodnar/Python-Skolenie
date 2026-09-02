@@ -129,6 +129,25 @@ for c in msg:
         total += 1
 
 print(total)
+
+
+# vypis slova zacinajuce na r
+# vypis slova konciace na r
+# vypis slova zacinajuce na c alebo w
+words = ['small', 'rock', 'nice', 'raw', 'atom', 'car', 'cup', 'cloud', 'water']
+
+for word in words:
+    if word.startswith('r'):
+        print(word)
+
+
+for word in words:
+    if word.endswith('r'):
+        print(word)
+
+for word in words:
+    if word.startswith('c') or word.startswith('w'):
+        print(word)
 ```
 
 
