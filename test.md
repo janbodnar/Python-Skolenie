@@ -161,6 +161,14 @@ for val in vals:
         print(f'{val}: positive value')
     elif val == 0:
         print(f'{val}: zero')
+
+
+# vypis cisla zo zoznamu
+items = [2, -3, ('cool', 'hot'), 4.5, 6, 'small', True]
+
+for item in items:
+    if type(item) == int or type(item) == float:
+        print(item)
 ```
 
 
