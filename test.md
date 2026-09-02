@@ -1,5 +1,23 @@
 # Examples
 
+## Filter, map file
+
+`words.txt`:
+
+```
+small
+rock
+nice
+raw
+atom
+car
+cup
+cloud
+water
+```
+
+
+
 ## filter function
 
 ```python
