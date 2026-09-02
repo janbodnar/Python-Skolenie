@@ -111,6 +111,24 @@ msg = 'an old falcon'
 for _ in range(9):
     print(msg)
 
+# spocitaj pocet samohlasok
+msg = 'an old falcon in the sky'
+
+total = 0
+
+for c in msg:
+    if c == 'a':
+        total += 1
+    elif c == 'e':
+        total += 1
+    elif c == 'i':
+        total += 1
+    elif c == 'o':
+        total += 1
+    elif c == 'u':
+        total += 1
+
+print(total)
 ```
 
 
