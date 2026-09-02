@@ -3,21 +3,28 @@
 ## filter function
 
 ```python
-def is_negative(e):
-    return e < 0
+# filter, map
 
-def is_positive(e):
-    return e > 0
+# def is_negative(e):
+#     return e < 0
+
+# def is_positive(e):
+#     return e > 0
 
 vals = (1, 0, -1, -3, 9, 5, 6, 7, -8)
 
-negatives = list(filter(is_negative, vals))
+negatives = list(filter(lambda e: e < 0, vals))
 print(negatives)
 
-positives = list(filter(is_positive, vals))
+positives = list(filter(lambda e: e > 0, vals))
 print(positives)
 
 print(vals)
+
+words = ['war', 'water', 'cup', 'cloud', 'sky', 'forest']
+
+words_len_3 = list(filter(lambda word: len(word) == 3 ,words))
+print(words_len_3)
 ```
 
 
