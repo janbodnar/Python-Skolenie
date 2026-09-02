@@ -59,7 +59,14 @@ occupation = 'gardener'
 
 print(f'{name} is {age} years old {occupation}')
 
+# vypis 1, 3, predposledny a posledny prvok
+# zotried slova zostupne a vzostupne
+words = ['small', 'rock', 'nice', 'atom', 'car', 'cup', 'cloud', 'water']
 
+print(words[0])
+print(words[2])
+print(words[-2])
+print(words[-1])
 
 
 
