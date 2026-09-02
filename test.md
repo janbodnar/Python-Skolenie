@@ -16,7 +16,18 @@ cloud
 water
 ```
 
+```python
+filename = 'words.txt'
 
+with open(filename, 'r') as file:
+
+    words = file.readlines()
+    print(words)
+
+
+    words_cleaned = list(map(lambda word: word.strip(), words))
+    print(words_cleaned)
+```
 
 ## filter function
 
