@@ -74,6 +74,16 @@ vals3 = (47.32342, 11.21221325, 24.23222, 32.2345, 32.3266)
 for val in vals3:
     print(round(val, 3))
 
+# spocitaj celkovy pocet znakov v slovach
+words = ['small', 'rock', 'nice', 'atom', 'car']
+
+# for loop, len, total
+total = 0
+
+for word in words:
+    total = total + len(word)
+
+print(total)
 
 ```
 
