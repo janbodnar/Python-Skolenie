@@ -1,5 +1,67 @@
 # Examples
 
+## Opakovanie
+
+```python
+# vypis John Doe is 34 years old gardener pomocou fstringu
+name = "John Doe"
+age = 34
+occupation = 'gardener'
+
+# vypis 1, 3, predposledny a posledny prvok
+# zotried slova zostupne a vzostupne
+words = ['small', 'rock', 'nice', 'atom', 'car', 'cup', 'cloud', 'water']
+
+# zaokruhli na 3 desatinne miesta
+vals3 = (47.32342, 11.21221325, 24.23222, 32.2345, 32.3266)
+
+# spocitaj celkovy pocet znakov v slovach
+words = ['small', 'rock', 'nice', 'atom', 'car']
+
+# vypocitaj sumu pomocou for loopu
+# vypocitaj sumu, min, max, average, velkost pomocou built-in funkcii
+data = [2, 1, 4, 0, -1, 2, -9, 6, 7, -2, 1, -6]
+
+# vypis frazu 9 krat
+msg = 'an old falcon'
+
+# spocitaj pocet samohlasok
+msg = 'an old falcon in the sky'
+
+# vypis slova zacinajuce na r
+# vypis slova konciace na r
+# vypis slova zacinajuce na w alebo w
+words = ['small', 'rock', 'nice', 'raw', 'atom', 'car', 'cup', 'cloud', 'water']
+
+# vypíš pre každé číslo, či je kladné, záporné, nula
+vals = (-2, 0, 1, 3, -4, 5, -9)
+
+# vypis cisla zo zoznamu
+items = [2, -3, ('cool', 'hot'), 4.5, 6, 'small', True]
+
+# vygeneruj zoznam 100 nahodnych cisiel v rozsahu 1-100
+rand_vals = []
+
+# zapis tieto slova do suboru words.txt do jedneho stlpca
+# nacitaj tieto slova zo suboru spat do zoznamu
+words = ['small', 'rock', 'nice', 'raw', 'atom', 'car', 'cup', 'cloud', 'water']
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## input & elif
 
 ```python
