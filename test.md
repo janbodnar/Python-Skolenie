@@ -76,6 +76,17 @@ print(negatives)
 negatives_even = list(filter(lambda e: e < 0 and e % 2 == 0, vals))
 print(negatives_even)
 
+# transform words into an uppercase list
+# sort words in descending order
+words = ['sky', 'town', 'map', 'cool', 'cup', 'snow', 'war']
+
+words_upper = list(map(lambda word: word.upper(), words))
+print(words_upper)
+
+words.sort(reverse=True)
+print(words)
+
+
 
 ```
 
