@@ -98,6 +98,19 @@ print(random_word)
 random_words_3 = random.sample(words, 3)
 print(random_words_3)
 
+
+# create a custom function that calculates absolute value of a number
+
+def absolute(e):
+
+    if e < 0:
+        return -e
+    else:
+        return e
+
+print(absolute(-5))
+print(absolute(5))
+print(absolute(-15))
 ```
 
 
