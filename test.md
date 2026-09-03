@@ -119,6 +119,15 @@ words = [' sky  ', '\ntown\t\t', '  map', 'cool', '  cup\n', '  snow', 'war']
 words_cleaned = list(map(lambda word: word.strip(), words))
 print(words)
 print(words_cleaned)
+
+
+# calculate sum of values
+values = [1, 2, 3, '4', '5', 6, 7, 8, 9, 10]
+# print(sum(values))
+
+values_cleaned = list(map(lambda e: int(e), values))
+print(sum(values_cleaned))
+
 ```
 
 
