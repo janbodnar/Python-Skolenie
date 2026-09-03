@@ -2,6 +2,27 @@
 
 https://visualstudio.microsoft.com/downloads/?q=build+tools
 
+## list comprehensions
+
+```python
+a = [1, "2", "3", 4, 5, 6]
+
+b = [int(e) for e in a]
+
+print(b)
+print(sum(b))
+print(a)
+
+
+words = ["sky", "blue", "cup", "cold", "mark"]
+words_upper = [word.upper() for word in words]
+words_titled = [word.title() for word in words]
+
+print(words_upper)
+print(words_titled)
+```
+
+
 ## Name clash
 
 ```python
