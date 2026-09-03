@@ -86,7 +86,17 @@ print(words_upper)
 words.sort(reverse=True)
 print(words)
 
+# pick a random value from words
+# pick three random values from words
+words = ['sky', 'town', 'map', 'cool', 'cup', 'snow', 'war']
 
+import random
+
+random_word = random.choice(words)
+print(random_word)
+
+random_words_3 = random.sample(words, 3)
+print(random_words_3)
 
 ```
 
