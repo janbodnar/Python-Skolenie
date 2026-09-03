@@ -53,7 +53,22 @@ with open(filename, 'r') as file:
 # use and install arcade library
 ```
 
+## Riesenie
 
+```python
+# sum values 355, 340, 345 ..., 550, 555
+
+total = 0
+
+for n in range(355, 560, 5):
+    total += n
+
+print(total)
+
+
+
+
+```
 
 
 
