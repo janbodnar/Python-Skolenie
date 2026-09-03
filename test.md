@@ -111,6 +111,14 @@ def absolute(e):
 print(absolute(-5))
 print(absolute(5))
 print(absolute(-15))
+
+
+# clean words (create a list of cleaned words)
+words = [' sky  ', '\ntown\t\t', '  map', 'cool', '  cup\n', '  snow', 'war']
+
+words_cleaned = list(map(lambda word: word.strip(), words))
+print(words)
+print(words_cleaned)
 ```
 
 
