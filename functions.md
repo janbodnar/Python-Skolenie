@@ -277,6 +277,18 @@ print(power(3, 3))
 print(power(5, 5))
 ```
 
+```python
+# print(1, end=' ')
+# print(2, end=' ')
+# print(3, end=' ')
+# print(4, end=' ')
+# print(5, end=' ')
+# print(6, end=' ')
+
+print(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, sep=', ')
+print('sky', 'blue', 'sink', 'pen', 'rock', sep='|')
+```
+
 ## Unpacking 
 
 Unpacking is cutting an object (such as a list) into its elements.  
