@@ -1,5 +1,7 @@
 # Examples
 
+https://visualstudio.microsoft.com/downloads/?q=build+tools
+
 ## Name clash
 
 ```python
