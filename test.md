@@ -1,5 +1,125 @@
 # Examples
 
+## Arcade game
+
+```python
+import arcade
+
+# --- Game Constants ---
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+SCREEN_TITLE = "Arkanoid with Arcade"
+
+PADDLE_WIDTH = 100
+PADDLE_HEIGHT = 15
+BALL_RADIUS = 8
+
+BRICK_WIDTH = 65
+BRICK_HEIGHT = 20
+BRICK_SPACING = 5
+BRICK_ROWS = 5
+BRICK_COLS = 10
+
+class ArkanoidGame(arcade.Window):
+    def __init__(self):
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+        arcade.set_background_color(arcade.color.EERIE_BLACK)
+        
+        # Sprite lists
+        self.paddle_list = None
+        self.ball_list = None
+        self.brick_list = None
+        
+        # Individual sprites
+        self.paddle = None
+        self.ball = None
+
+    def setup(self):
+        """ Initialize or restart the game. """
+        self.paddle_list = arcade.SpriteList()
+        self.ball_list = arcade.SpriteList()
+        self.brick_list = arcade.SpriteList()
+
+        # Set up the paddle
+        self.paddle = arcade.SpriteSolidColor(PADDLE_WIDTH, PADDLE_HEIGHT, arcade.color.ELECTRIC_BLUE)
+        self.paddle.center_x = SCREEN_WIDTH // 2
+        self.paddle.center_y = 50
+        self.paddle_list.append(self.paddle)
+
+        # Set up the ball
+        self.ball = arcade.SpriteCircle(BALL_RADIUS, arcade.color.WHITE)
+        self.ball.center_x = SCREEN_WIDTH // 2
+        self.ball.center_y = 100
+        self.ball.change_x = 4  # Initial horizontal speed
+        self.ball.change_y = 4  # Initial vertical speed
+        self.ball_list.append(self.ball)
+
+        # Set up the bricks
+        x_offset = (SCREEN_WIDTH - (BRICK_COLS * (BRICK_WIDTH + BRICK_SPACING))) // 2
+        
+        for row in range(BRICK_ROWS):
+            for column in range(BRICK_COLS):
+                brick = arcade.SpriteSolidColor(BRICK_WIDTH, BRICK_HEIGHT, arcade.color.CRIMSON)
+                brick.center_x = x_offset + column * (BRICK_WIDTH + BRICK_SPACING) + (BRICK_WIDTH // 2)
+                brick.center_y = SCREEN_HEIGHT - 60 - row * (BRICK_HEIGHT + BRICK_SPACING)
+                self.brick_list.append(brick)
+
+    def on_draw(self):
+        """ Render the screen. """
+        self.clear()
+        self.paddle_list.draw()
+        self.ball_list.draw()
+        self.brick_list.draw()
+
+    def on_mouse_motion(self, x, y, dx, dy):
+        """ Move paddle with the mouse. """
+        self.paddle.center_x = x
+        
+        # Prevent the paddle from moving off-screen
+        if self.paddle.left < 0:
+            self.paddle.left = 0
+        if self.paddle.right > SCREEN_WIDTH:
+            self.paddle.right = SCREEN_WIDTH
+
+    def on_update(self, delta_time):
+        """ Game logic and physics. """
+        # Move the ball
+        self.ball.center_x += self.ball.change_x
+        self.ball.center_y += self.ball.change_y
+
+        # Bounce off walls (left, right, top)
+        if self.ball.left < 0 or self.ball.right > SCREEN_WIDTH:
+            self.ball.change_x *= -1
+        if self.ball.top > SCREEN_HEIGHT:
+            self.ball.change_y *= -1
+            
+        # Ball fell through the bottom (Game Over / Restart)
+        if self.ball.bottom < 0:
+            self.setup()
+
+        # Bounce off the paddle
+        if arcade.check_for_collision(self.ball, self.paddle):
+            self.ball.bottom = self.paddle.top  # Prevent ball getting stuck inside paddle
+            self.ball.change_y *= -1
+
+        # Bounce off bricks and destroy them
+        hit_list = arcade.check_for_collision_with_list(self.ball, self.brick_list)
+        if len(hit_list) > 0:
+            self.ball.change_y *= -1  # Simple vertical bounce 
+            for brick in hit_list:
+                brick.remove_from_sprite_lists()
+
+        # You win! Restart game when all bricks are gone
+        if len(self.brick_list) == 0:
+            self.setup()
+
+if __name__ == "__main__":
+    game = ArkanoidGame()
+    game.setup()
+    arcade.run()
+```
+
+
 ## Fetch page
 
 ```python
