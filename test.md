@@ -128,6 +128,15 @@ values = [1, 2, 3, '4', '5', 6, 7, 8, 9, 10]
 values_cleaned = list(map(lambda e: int(e), values))
 print(sum(values_cleaned))
 
+
+# read words from words.txt in a list and clean them
+filename = 'words.txt'
+with open(filename, 'r') as file:
+    words = file.readlines()
+    print(words)
+
+    words_cleaned = list(map(lambda word: word.strip(), words))
+    print(words_cleaned)
 ```
 
 
