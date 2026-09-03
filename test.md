@@ -1,5 +1,30 @@
 # Examples
 
+## Fetch page
+
+```python
+# pip install requests
+
+import requests
+
+url = "https://example.com"
+
+try:
+    # Send a GET request to the URL
+    response = requests.get(url)
+    
+    # Raise an exception for bad status codes (4xx or 5xx)
+    response.raise_for_status()
+    
+    # Print the HTML content of the page
+    print(response.text)
+    
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred while fetching the page: {e}")
+```
+
+
+
 ## Opakovanie
 
 `words.txt` file:
