@@ -66,6 +66,15 @@ for n in range(355, 560, 5):
 print(total)
 
 
+# filter negative values
+# filter negative values that are even
+vals = (-9, -8, 4, -2, 0, 1, 9, -4, 5, -5, 6)
+
+negatives = list(filter(lambda e: e < 0, vals))
+print(negatives)
+
+negatives_even = list(filter(lambda e: e < 0 and e % 2 == 0, vals))
+print(negatives_even)
 
 
 ```
