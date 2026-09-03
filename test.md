@@ -2,6 +2,25 @@
 
 https://visualstudio.microsoft.com/downloads/?q=build+tools
 
+## Pandas & CSV
+
+```python
+# import csv
+import pandas
+
+filename = 'users.csv'
+
+df = pandas.read_csv(filename)
+
+salaries = df['salary']
+
+print('Mean:', salaries.mean())
+print('Min :', salaries.min())
+print('Max :', salaries.max())
+print('Sum :', salaries.sum())
+```
+
+
 ## list comprehensions
 
 ```python
