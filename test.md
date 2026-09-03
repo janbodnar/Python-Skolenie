@@ -1,5 +1,46 @@
 # Examples
 
+## Opakovanie
+
+```python
+
+# sum values 355, 340, 345 ..., 550, 555
+
+# filter negative values
+# filter negative values that are even
+vals = (-9, -8, 4, -2, 0, 1, 9, -4, 5, -5, 6)
+
+# transform words into an uppercase list
+# sort words in descending order
+words = ['sky', 'town', 'map', 'cool', 'cup', 'snow', 'war']
+
+# pick a random value from words
+# pick tree random values from words
+words = ['sky', 'town', 'map', 'cool', 'cup', 'snow', 'war']
+
+# create a custom function that calculates absolute value of a number
+
+# clean words (create a list of cleaned words)
+words = [' sky  ', '\ntown\t\t', '  map', 'cool', '  cup\n', '  snow', 'war']
+
+# calculate sum of values
+values = [1, 2, 3, '4', '5', 6, 7, 8, 9, 10]
+
+# read words from words.txt in a list and clean them
+filename = 'words.txt'
+with open(filename, 'r') as file:
+    ...
+
+# using AI, create a script that will get a home page of https://example.com
+# install & use requests library
+
+# using AI, create a simple arkanoid game
+# use and install arcade library
+```
+
+
+
+
 
 `echo %DEEPSEEK_API_KEY%`
 
