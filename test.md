@@ -2,6 +2,21 @@
 
 ## Opakovanie
 
+`words.txt` file:
+
+```
+small
+rock
+nice
+raw
+atom
+car
+cup
+cloud
+water
+```
+
+
 ```python
 
 # sum values 355, 340, 345 ..., 550, 555
