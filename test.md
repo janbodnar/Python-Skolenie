@@ -1,5 +1,21 @@
 # Examples
 
+## Name clash
+
+```python
+vals = [1, 2, 3, 4, 5]
+
+# sum = 0 je chyba
+suma = 0 
+
+for val in vals:
+    suma += val
+
+print(suma)
+
+print(sum(vals))
+```
+
 ## Arcade game
 
 ```python
