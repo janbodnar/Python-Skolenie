@@ -3,8 +3,21 @@
 
 ## Opakovanie
 
-```python
+The `words.txt` file:
 
+```
+back
+small
+rock
+blue
+cup
+cloud
+past
+water
+```
+
+
+```python
 # using list comprehensions, select all a) positive values, b) negative values
 # c) positive and even values
 vals = (1, 2, -3, -4, 0, 1, 0, 2, 9)
