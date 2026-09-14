@@ -1,6 +1,25 @@
 # Examples
 
 
+## Riesenie
+
+```python
+# using list comprehensions, select all a) positive values, b) negative values
+# c) positive and even values
+vals = (1, 2, -3, -4, 0, 1, 0, 2, 9)
+
+positives = [val for val in vals if val > 0]
+print(positives)
+
+negatives = [val for val in vals if val < 0]
+print(negatives)
+
+positive_even = [val for val in vals if val > 0 and val % 2 == 0]
+print(positive_even)
+```
+
+
+
 ## Opakovanie
 
 The `words.txt` file:
