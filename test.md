@@ -1,5 +1,49 @@
 # Examples
 
+
+## Opakovanie
+
+```python
+
+# using list comprehensions, select all a) positive values, b) negative values
+# c) positive and even values
+vals = (1, 2, -3, -4, 0, 1, 0, 2, 9)
+
+
+# generate 100 random values between 1-100
+# a) print first, second, last, last but one elements
+# b) calculate sum, min, max, len of the numbers
+import random 
+
+rand_vals = []
+
+
+# using list comprehensions, select words a) with lenght 4, b) starting with 'c'
+# c) starting with 'c' or 'w'
+words = ['sky', 'blue', 'nord', 'war', 'small', 'cup', 'colour', 'water']
+
+
+# read words.txt 
+# a) print all words
+# b) print all cleaned words
+# c) print all cleaned words starting with 'w' or 'c'
+
+
+# install matplotlib and using AI, create a pie chart
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://visualstudio.microsoft.com/downloads/?q=build+tools
 
 ## DeepSeek example
