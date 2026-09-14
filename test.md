@@ -48,6 +48,25 @@ print(words_start_c)
 
 words_start_c_or_w = [word for word in words if word.startswith('c') or word.startswith('w')]
 print(words_start_c_or_w)
+
+
+# read words.txt 
+# a) print all words
+# b) print all cleaned words
+# c) print all cleaned words starting with 'w' or 'c'
+
+filename = 'words.txt'
+
+with open(filename, 'r') as fd:
+
+    lines = fd.readlines()
+    print(lines)
+
+    words_cleaned = [line.strip() for line in lines]
+    print(words_cleaned)
+
+    words_cleaned_w_c = [word for word in words_cleaned if word.startswith('w') or word.startswith('c')]
+    print(words_cleaned_w_c)
 ```
 
 
