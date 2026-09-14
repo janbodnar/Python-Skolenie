@@ -67,6 +67,31 @@ with open(filename, 'r') as fd:
 
     words_cleaned_w_c = [word for word in words_cleaned if word.startswith('w') or word.startswith('c')]
     print(words_cleaned_w_c)
+
+
+# install matplotlib and using AI, create a pie chart
+
+import matplotlib.pyplot as plt
+
+# Dáta pre koláčový graf
+labels = ['Jablká', 'Banány', 'Čerešne', 'Hrušky']
+sizes = [35, 25, 20, 20]
+colors = ['#ff9999','#66b3ff','#99ff99','#ffcc99']
+explode = (0.1, 0, 0, 0)  # Zvýraznenie prvého rezu (Jablká)
+
+# Vytvorenie grafu
+fig, ax = plt.subplots()
+ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+
+ax.axis('equal')  # Zabezpečí, že graf bude kruhový
+plt.title('Predaj ovocia')
+
+
+plt.savefig('piechart.png')
+
+# Zobrazenie grafu
+# plt.show()
 ```
 
 
