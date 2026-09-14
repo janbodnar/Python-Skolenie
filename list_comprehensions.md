@@ -1,5 +1,6 @@
 # List comprehensions
 
+https://share.gemini.google/YfOKM4JiG4iM
 
 A *list comprehension* is a syntactic construct which creates a list based on existing list.  
 List comprehensions provide a concise way to create lists. It is a common requirement to make  
