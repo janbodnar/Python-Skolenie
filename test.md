@@ -35,6 +35,19 @@ print(rand_vals)
 
 print(sum(rand_vals), min(rand_vals), max(rand_vals), len(rand_vals))
 
+
+# using list comprehensions, select words a) with lenght 4, b) starting with 'c'
+# c) starting with 'c' or 'w'
+words = ['sky', 'blue', 'nord', 'war', 'small', 'cup', 'colour', 'water']
+
+words_len4 = [word for word in words if len(word) == 4]
+print(words_len4)
+
+words_start_c = [word for word in words if word.startswith('c')]
+print(words_start_c)
+
+words_start_c_or_w = [word for word in words if word.startswith('c') or word.startswith('w')]
+print(words_start_c_or_w)
 ```
 
 
