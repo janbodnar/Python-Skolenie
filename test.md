@@ -16,6 +16,25 @@ print(negatives)
 
 positive_even = [val for val in vals if val > 0 and val % 2 == 0]
 print(positive_even)
+
+# generate 100 random values between 1-100
+# a) print first, second, last, last but one elements
+# b) calculate sum, min, max, len of the numbers
+import random 
+
+rand_vals = []
+
+for _ in range(100):
+
+    random_val = random.randint(1, 100)
+    rand_vals.append(random_val)
+
+
+print(rand_vals[0], rand_vals[1], rand_vals[-1], rand_vals[-2])
+print(rand_vals)
+
+print(sum(rand_vals), min(rand_vals), max(rand_vals), len(rand_vals))
+
 ```
 
 
