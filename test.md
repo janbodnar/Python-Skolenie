@@ -1,6 +1,15 @@
 # Examples
 
 
+```python
+x = input('Enter first number:')
+y = input('Enter second number:')
+
+# '11'
+print(int(x) + int(y))
+```
+
+
 ## Riesenie
 
 ```python
