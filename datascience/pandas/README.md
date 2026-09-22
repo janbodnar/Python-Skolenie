@@ -508,3 +508,36 @@ print("\nDataFrame sorted by index:\n", df)
 selected_data = df.loc['x']
 print("\nSelected data for index 'x':\n", selected_data)
 ```
+
+## Read & analyze Excel files
+
+```python
+import pandas as pd
+import glob
+
+# Find all Excel files matching a pattern in the current folder
+files = glob.glob("sales_*.xlsx")
+
+# Read each file into a DataFrame and store them in a list
+dataframes = []
+for file in files:
+    df = pd.read_excel(file)
+    df["source_file"] = file  # keep track of where each row came from
+    dataframes.append(df)
+
+# Combine everything into a single DataFrame
+combined = pd.concat(dataframes, ignore_index=True)
+
+print(f"Combined {len(files)} files into {len(combined)} rows")
+print(combined.head())
+
+# Example analysis: total sales per region
+summary = combined.groupby("region")["amount"].sum().sort_values(ascending=False)
+print("\nTotal sales by region:")
+print(summary)
+
+# Save the combined result to a new Excel file
+combined.to_excel("combined_sales.xlsx", index=False)
+```
+
+
