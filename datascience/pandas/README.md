@@ -35,7 +35,7 @@ print(df.head(4).to_string(header=False, index=False))
 ## The index, values & column properties
 
 - *index*: Provides access to the row labels of the DataFrame.
-- *values*: Returns a NumPy array representation of the DataFrame's values.
+- *values*: Returns a NumPy array representation of the DataFrame's values.  
 - *columns*: Returns the column labels of the DataFrame.
 
 
@@ -84,9 +84,9 @@ print(frame)
 ## The from_html function
 
 The `pd.read_html(url)` fetches the page at the given URL and parses every  
-<table> element it finds, returning a list of DataFrames — one per table — with  
-the first <tr> of each table used as the column headers. It needs an HTML parser  
-installed (lxml is the default, used automatically here).
+<table> element it finds, returning a list of DataFrames — one per table — with    
+the first <tr> of each table used as the column headers. It needs an HTML parser   
+installed (lxml is the default, used automatically here).  
 
 ```python
 import pandas as pd
