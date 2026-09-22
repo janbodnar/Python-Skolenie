@@ -81,6 +81,29 @@ frame.index = ["BR", "RU", "IN", "CH", "SA"]
 print(frame)
 ```
 
+## The from_html function
+
+The `pd.read_html(url)` fetches the page at the given URL and parses every  
+<table> element it finds, returning a list of DataFrames — one per table — with  
+the first <tr> of each table used as the column headers. It needs an HTML parser  
+installed (lxml is the default, used automatically here).
+
+```python
+import pandas as pd
+
+# teplota vodných nádrží
+url = 'https://www.shmu.sk/sk/?page=981'
+
+tables = pd.read_html(url)
+df = tables[0]  # Assuming the first table is the one we want
+
+print(df)
+```
+
+The example reads the SHMU table which contains the measured temperatures of the Slovak  
+water reservoirs. 
+
+
 ## The write_csv function
 
 The `to_csv` function in pandas is used to export a `DataFrame` or `Series` to a  
