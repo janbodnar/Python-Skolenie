@@ -1,5 +1,15 @@
 # Pandas 
 
+Pandas — a Python library for working with tabular and labeled data, built on  
+top of NumPy. It provides the Series (1-D labeled array) and DataFrame (2-D table)  
+structures plus tools for reading/writing files, cleaning, reshaping, grouping,  
+merging, and time-series work. The name comes from "panel data."
+
+DataFrame — a 2-D, size-mutable, labeled data structure: rows and columns each have  
+an index, and columns may hold different dtypes (int, float, string, datetime...).  
+Think of it as a spreadsheet or SQL table in memory.  
+
+
 ## Simple
 
 ```python
@@ -533,6 +543,10 @@ print("\nSelected data for index 'x':\n", selected_data)
 ```
 
 ## Read & analyze Excel files
+
+The program merges all Excel files named `sales_*.xlsx` into one DataFrame,  
+tags each row with its source file, prints row counts plus total amount per  
+region, and saves the result to combined_sales.xlsx.
 
 ```python
 import pandas as pd
