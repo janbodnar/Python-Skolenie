@@ -84,8 +84,8 @@ print(frame)
 ## The from_html function
 
 The `pd.read_html(url)` fetches the page at the given URL and parses every  
-<table> element it finds, returning a list of DataFrames — one per table — with    
-the first <tr> of each table used as the column headers. It needs an HTML parser   
+`<table>` element it finds, returning a list of DataFrames — one per table — with    
+the first `<tr>` of each table used as the column headers. It needs an HTML parser   
 installed (lxml is the default, used automatically here).  
 
 ```python
