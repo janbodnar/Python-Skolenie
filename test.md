@@ -1,5 +1,32 @@
 # Examples
 
+## Read CSV file
+
+
+```python
+import csv
+
+
+minimum_salary = 50_000
+maximum_salary = 80_000
+
+with open("users.csv", newline="", encoding="utf-8") as users_file:
+	users = csv.DictReader(users_file)
+
+	for user in users:
+		salary = int(user["salary"])
+		if minimum_salary <= salary <= maximum_salary:
+			print(
+				f"{user['first_name']} {user['last_name']} "
+				f"({user['email']}) earns ${salary:,}."
+			)
+
+```
+
+
+
+
+
 ## fstrings
 
 ```python
