@@ -1,5 +1,19 @@
 # Examples
 
+## fstrings
+
+```python
+meno = input('Zadaj svoje meno: ')
+povolanie = input('Zadaj svoje povolanie: ')
+vek = input('Zadaj svoj vek: ')
+
+
+
+msg = f'Meno: {meno} ; Povolanie: {povolanie}; Vek: {vek}'
+
+print(msg)
+```
+
 
 ```python
 x = input('Enter first number:')
