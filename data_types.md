@@ -56,7 +56,7 @@ they might name her Victoria.
 import random
 
 male = False
-male = bool(random.randint(0, 1))
+# male = bool(random.randint(0, 1))
 
 if male:
    print("We will use name John")
