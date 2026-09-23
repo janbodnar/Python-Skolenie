@@ -88,45 +88,6 @@ $ python expressions.py
 There are total of 36 apples
 ```
 
-## Python f-string dictionaries
-
-We can work with dictionaries in f-strings.
-
-```python
-
-user = {'name': 'John Doe', 'occupation': 'gardener'}
-
-print(f"{user['name']} is a {user['occupation']}")
-```
-
-The example evaluates a dictionary in an f-string.
-
-```
-$ python dicts.py
-John Doe is a gardener
-```
-
-## Python f-string debug
-
-Python 3.8 introduced the self-documenting expression with the `=` character.
-
-```python
-
-import math
-
-x = 0.8
-
-print(f'{math.cos(x) = }')
-print(f'{math.sin(x) = }')
-```
-
-The example outputs the Sine and Cosine functions in the debug mode.
-
-```
-$ python debug.py
-math.cos(x) = 0.6967067093471654
-math.sin(x) = 0.7173560908995228
-```
 
 ## Multiline f-string
 
@@ -154,85 +115,6 @@ age: 34
 occupation: gardener
 ```
 
-## Calling functions
-
-We can also call functions in f-strings.
-
-```python
-
-def mymax(x, y):
-
-    return x if x > y else y
-
-a = 3
-b = 4
-
-print(f'Max of {a} and {b} is {mymax(a, b)}')
-```
-
-The example calls a custom function in the f-string.
-
-```
-$ python main.py
-Max of 3 and 4 is 4
-```
-
-## F-string objects
-
-Python f-string accepts objects as well; the objects must have either `__str__` or `__repr__`   
-magic functions defined.
-
-```python
-
-class User:
-    def __init__(self, name, occupation):
-        self.name = name
-        self.occupation = occupation
-
-    def __repr__(self):
-        return f"{self.name} is a {self.occupation}"
-
-u = User('John Doe', 'gardener')
-
-print(f'{u}')
-```
-
-The example evaluates an object in the f-string.
-
-```
-$ python main.py
-John Doe is a gardener
-```
-
-## The __format__ method
-
-The `__format__` method gives us more control over how an object is formatted within  
-an f-string. It allows us to define custom formatting behavior based on the format  
-specifier provided within the f-string.  
-
-```python
-
-from dataclasses import dataclass
-
-@dataclass
-class User:
-    name: str
-    occupation: str
-
-    def __format__(self, spec):
-        return f'User(name={self.name}{spec} occupation={self.occupation})'
-
-
-u1 = User('John Doe', 'gardener')
-u2 = User('Roger Roe', 'driver')
-u3 = User('Lucia Smith', 'teacher')
-
-print(f'{u1:-}')
-print(f'{u2:;}')
-print(f'{u3:#}')
-```
-
-We define a data object with a custom `__format__` method.  
 
 
 ## Python f-string escaping characters
@@ -475,5 +357,128 @@ $ python main.py
 1200400001
 1_200_400_001
 1,200,400,001
+```
+
+
+
+## Calling functions
+
+We can also call functions in f-strings.
+
+```python
+
+def mymax(x, y):
+
+    return x if x > y else y
+
+a = 3
+b = 4
+
+print(f'Max of {a} and {b} is {mymax(a, b)}')
+```
+
+The example calls a custom function in the f-string.
+
+```
+$ python main.py
+Max of 3 and 4 is 4
+```
+
+## F-string objects
+
+Python f-string accepts objects as well; the objects must have either `__str__` or `__repr__`   
+magic functions defined.
+
+```python
+
+class User:
+    def __init__(self, name, occupation):
+        self.name = name
+        self.occupation = occupation
+
+    def __repr__(self):
+        return f"{self.name} is a {self.occupation}"
+
+u = User('John Doe', 'gardener')
+
+print(f'{u}')
+```
+
+The example evaluates an object in the f-string.
+
+```
+$ python main.py
+John Doe is a gardener
+```
+
+## The __format__ method
+
+The `__format__` method gives us more control over how an object is formatted within  
+an f-string. It allows us to define custom formatting behavior based on the format  
+specifier provided within the f-string.  
+
+```python
+
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    name: str
+    occupation: str
+
+    def __format__(self, spec):
+        return f'User(name={self.name}{spec} occupation={self.occupation})'
+
+
+u1 = User('John Doe', 'gardener')
+u2 = User('Roger Roe', 'driver')
+u3 = User('Lucia Smith', 'teacher')
+
+print(f'{u1:-}')
+print(f'{u2:;}')
+print(f'{u3:#}')
+```
+
+We define a data object with a custom `__format__` method.  
+
+
+## Python f-string dictionaries
+
+We can work with dictionaries in f-strings.
+
+```python
+
+user = {'name': 'John Doe', 'occupation': 'gardener'}
+
+print(f"{user['name']} is a {user['occupation']}")
+```
+
+The example evaluates a dictionary in an f-string.
+
+```
+$ python dicts.py
+John Doe is a gardener
+```
+
+## Python f-string debug
+
+Python 3.8 introduced the self-documenting expression with the `=` character.
+
+```python
+
+import math
+
+x = 0.8
+
+print(f'{math.cos(x) = }')
+print(f'{math.sin(x) = }')
+```
+
+The example outputs the Sine and Cosine functions in the debug mode.
+
+```
+$ python debug.py
+math.cos(x) = 0.6967067093471654
+math.sin(x) = 0.7173560908995228
 ```
 
