@@ -165,25 +165,7 @@ March
 5
 ```
 
-## Nested expressions
 
-It is possible to nest expressions within expressions.  
-
-```python
-
-from datetime import datetime
-
-today = datetime.now().date()
-
-spec1 = '%d.%m.%y'
-spec2 = '%y/%m/%d'
-
-print(f'{today:{spec1}}')
-print(f'{today:{spec2}}')
-```
-
-In the example, we use different format specifications. They are provided as  
-spec variables and are evaluated as nested expressions.  
 
 ## Format floats
 
@@ -481,4 +463,24 @@ $ python debug.py
 math.cos(x) = 0.6967067093471654
 math.sin(x) = 0.7173560908995228
 ```
+
+## Nested expressions
+
+It is possible to nest expressions within expressions.  
+
+```python
+
+from datetime import datetime
+
+today = datetime.now().date()
+
+spec1 = '%d.%m.%y'
+spec2 = '%y/%m/%d'
+
+print(f'{today:{spec1}}')
+print(f'{today:{spec2}}')
+```
+
+In the example, we use different format specifications. They are provided as  
+spec variables and are evaluated as nested expressions.  
 
