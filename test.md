@@ -1,6 +1,40 @@
 # Examples
 
 
+
+## Generate user data
+
+```python
+from faker import Faker
+
+faker = Faker()
+
+file_name = 'test_users.csv'
+
+with open(file_name, 'w') as fd:
+
+    headers = 'id,first_name,last_name,city,salary\n'
+    fd.write(headers)
+
+
+    for idx in range(1, 100_001):
+
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        city = faker.city()
+        salary = faker.random_int(850, 5000)
+
+        row = f'{idx},{first_name},{last_name},{city},{salary}\n'
+        fd.write(row)
+
+
+print('file created OK')
+```
+
+
+
+
+
 ```python
 mix = (1, 2, 3, (4, 5, 6, (7, 8, 9, (10, 11, 12))))
 ```
