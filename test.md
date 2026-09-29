@@ -1,6 +1,36 @@
 # Examples
 
 
+## Pandas
+
+```python
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame(np.arange(0, 1200, 2), columns=['A'])
+print(df)
+# df.index = df.index + 1
+
+series = df['A']
+
+# Common descriptive statistics in pandas
+print('count:', series.count())
+print('sum:', series.sum())
+print('mean:', series.mean())
+print('median:', series.median())
+print('minimum:', series.min())
+print('maximum:', series.max())
+print('standard deviation:', series.std())
+print('variance:', series.var())
+print('25th percentile:', series.quantile(0.25))
+print('75th percentile:', series.quantile(0.75))
+print('range:', series.max() - series.min())
+
+# A compact overview of the main statistics
+print(series.describe())
+```
+
+
 
 ## Generate user data
 
