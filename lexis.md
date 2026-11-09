@@ -1,6 +1,7 @@
 # Lexical Structure of Python
 
-Lexical structure describes how Python source code is divided into the smallest meaningful units. These units are called **tokens**. The parser uses tokens to understand the structure of a program.
+Lexical structure describes how Python source code is divided into the smallest meaningful units. These units are called **tokens**.  
+The parser uses tokens to understand the structure of a program.
 
 The main lexical elements are:
 
@@ -12,11 +13,13 @@ The main lexical elements are:
 - **Comments**: source text ignored by the parser
 - **Indentation and line breaks**: whitespace that can affect block structure
 
-Variables are not a separate token category. A variable is a name, or identifier, bound to an object. Assignment is an operation that creates or changes that binding.
+Variables are not a separate token category. A variable is a name, or identifier, bound to an object.  
+Assignment is an operation that creates or changes that binding.
 
 ## Comments
 
-A **comment** is source text intended for human readers. Python ignores everything from `#` to the end of the physical line, except when the `#` occurs inside a string literal.
+A **comment** is source text intended for human readers. Python ignores everything from `#` to the end of the physical line,  
+except when the `#` occurs inside a string literal.
 
 ```python
 # A comment on its own line
@@ -35,7 +38,8 @@ def calculate_area(radius):
 
 ### Comments and docstrings
 
-Triple-quoted text is a **string literal**, not a comment. When it is the first statement in a module, class, or function, it becomes that object's docstring and is available through `__doc__`.
+Triple-quoted text is a **string literal**, not a comment. When it is the first statement in a module, class, or function,  
+it becomes that object's docstring and is available through `__doc__`.
 
 ```python
 def calculate_area(radius):
