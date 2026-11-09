@@ -1,6 +1,27 @@
 # Examples
 
 
+
+```python
+import statistics
+
+
+salaries = [980, 1200, 1350, 990, 1250, 1890, 2000, 1400, 1200, 1400, 780, 990, 1200]
+
+print(min(salaries))
+print(max(salaries))
+print(sum(salaries))
+print(len(salaries))
+
+print(statistics.mean(salaries))
+print(statistics.median(salaries))
+```
+
+
+
+
+
+
 ## Pandas
 
 ```python
