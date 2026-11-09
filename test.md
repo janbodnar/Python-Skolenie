@@ -1,5 +1,47 @@
 # Examples
 
+
+```python
+# membership.py
+
+items = ("coin", "book", "pencil", "spoon", "paper")
+
+if "coin" in items:
+    print("There is a coin in the tuple")
+else:
+    print("There is no coin in the tuple")
+
+if "bowl" not in items:
+    print("There is no bowl in the tuple")
+else:
+    print("There is a bowl in the tuple")
+
+print('--------------------------------')
+
+if 'a' in 'apple':
+    print('a is there')
+else:
+    print('a is not there')
+
+if 'z' not in 'apple':
+    print('z is not there')
+else:
+    print('z is there')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```python
 x = input('Enter first number: ')
 y = input('Enter second number: ')
