@@ -1,5 +1,13 @@
 # Examples
 
+```python
+x = input('Enter first number: ')
+y = input('Enter second number: ')
+
+print('Addition: ', int(x) + int(y))
+```
+
+
 
 ```python
 import numpy as np
