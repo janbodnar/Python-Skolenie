@@ -1,6 +1,199 @@
 # Examples
 
 
+## Tetris 
+
+```python
+import arcade
+import random
+import time
+
+# Constants
+SCREEN_WIDTH = 300
+SCREEN_HEIGHT = 600
+SCREEN_TITLE = "Tetris"
+
+BOARD_WIDTH = 10
+BOARD_HEIGHT = 20
+BLOCK_SIZE = 30
+
+# Colors for each piece type
+COLORS = {
+    "I": arcade.color.CYAN,
+    "O": arcade.color.YELLOW,
+    "T": arcade.color.PURPLE,
+    "S": arcade.color.GREEN,
+    "Z": arcade.color.RED,
+    "J": arcade.color.BLUE,
+    "L": arcade.color.ORANGE,
+}
+
+# Piece shapes (relative offsets)
+SHAPES = {
+    "I": [(0, 0), (1, 0), (2, 0), (3, 0)],
+    "O": [(0, 0), (1, 0), (0, 1), (1, 1)],
+    "T": [(1, 0), (0, 1), (1, 1), (2, 1)],
+    "S": [(1, 0), (2, 0), (0, 1), (1, 1)],
+    "Z": [(0, 0), (1, 0), (1, 1), (2, 1)],
+    "J": [(0, 0), (0, 1), (1, 1), (2, 1)],
+    "L": [(2, 0), (0, 1), (1, 1), (2, 1)],
+}
+
+
+class Tetromino:
+    def __init__(self, kind):
+        self.kind = kind
+        self.color = COLORS[kind]
+        self.blocks = [list(b) for b in SHAPES[kind]]
+        self.x = BOARD_WIDTH // 2 - 2
+        self.y = BOARD_HEIGHT - 2
+
+    def cells(self):
+        return [(self.x + bx, self.y + by) for bx, by in self.blocks]
+
+    def rotate(self):
+        # Rotate 90 degrees clockwise around piece origin
+        new_blocks = []
+        for bx, by in self.blocks:
+            # (x,y) -> (y, -x) relative; shift to keep non-negative
+            new_blocks.append([by, -bx])
+        # normalize
+        min_x = min(b[0] for b in new_blocks)
+        min_y = min(b[1] for b in new_blocks)
+        for b in new_blocks:
+            b[0] -= min_x
+            b[1] -= min_y
+        self.blocks = new_blocks
+
+
+class TetrisWindow(arcade.Window):
+    def __init__(self):
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+        arcade.set_background_color(arcade.color.BLACK)
+        self.board = [[None for _ in range(BOARD_WIDTH)] for _ in range(BOARD_HEIGHT)]
+        self.current = None
+        self.next_piece = random.choice(list(SHAPES.keys()))
+        self.score = 0
+        self.game_over = False
+        self.drop_interval = 0.5
+        self.last_drop = time.time()
+        self.spawn_piece()
+
+    def spawn_piece(self):
+        kind = self.next_piece
+        self.next_piece = random.choice(list(SHAPES.keys()))
+        self.current = Tetromino(kind)
+        if not self.valid_position(self.current):
+            self.game_over = True
+
+    def valid_position(self, piece, dx=0, dy=0, blocks=None):
+        if blocks is None:
+            blocks = piece.blocks
+        for bx, by in blocks:
+            x = piece.x + bx + dx
+            y = piece.y + by + dy
+            if x < 0 or x >= BOARD_WIDTH or y < 0:
+                return False
+            if y < BOARD_HEIGHT and self.board[y][x] is not None:
+                return False
+        return True
+
+    def lock_piece(self):
+        for x, y in self.current.cells():
+            if 0 <= y < BOARD_HEIGHT and 0 <= x < BOARD_WIDTH:
+                self.board[y][x] = self.current.color
+        self.clear_lines()
+        self.spawn_piece()
+
+    def clear_lines(self):
+        new_board = [row for row in self.board if any(c is None for c in row)]
+        cleared = BOARD_HEIGHT - len(new_board)
+        while len(new_board) < BOARD_HEIGHT:
+            new_board.append([None for _ in range(BOARD_WIDTH)])
+        self.board = new_board
+        self.score += cleared * 100
+
+    def on_draw(self):
+        self.clear()
+        # Draw board
+        for y in range(BOARD_HEIGHT):
+            for x in range(BOARD_WIDTH):
+                color = self.board[y][x]
+                if color is not None:
+                    arcade.draw_rect_filled(
+                        arcade.rect.XYWH(
+                            x * BLOCK_SIZE + BLOCK_SIZE / 2,
+                            y * BLOCK_SIZE + BLOCK_SIZE / 2,
+                            BLOCK_SIZE - 2,
+                            BLOCK_SIZE - 2,
+                        ),
+                        color,
+                    )
+        # Draw current piece
+        if self.current is not None and not self.game_over:
+            for x, y in self.current.cells():
+                arcade.draw_rect_filled(
+                    arcade.rect.XYWH(
+                        x * BLOCK_SIZE + BLOCK_SIZE / 2,
+                        y * BLOCK_SIZE + BLOCK_SIZE / 2,
+                        BLOCK_SIZE - 2,
+                        BLOCK_SIZE - 2,
+                    ),
+                    self.current.color,
+                )
+        # Score
+        arcade.draw_text(f"Score: {self.score}", 10, SCREEN_HEIGHT - 20, arcade.color.WHITE, 14)
+        if self.game_over:
+            arcade.draw_text("GAME OVER", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2,
+                            arcade.color.RED, 32, anchor_x="center")
+
+    def on_update(self, delta_time):
+        if self.game_over or self.current is None:
+            return
+        now = time.time()
+        if now - self.last_drop >= self.drop_interval:
+            self.last_drop = now
+            if self.valid_position(self.current, dy=-1):
+                self.current.y -= 1
+            else:
+                self.lock_piece()
+
+    def on_key_press(self, key, modifiers):
+        if self.game_over:
+            return
+        if key == arcade.key.LEFT:
+            if self.valid_position(self.current, dx=-1):
+                self.current.x -= 1
+        elif key == arcade.key.RIGHT:
+            if self.valid_position(self.current, dx=1):
+                self.current.x += 1
+        elif key == arcade.key.DOWN:
+            if self.valid_position(self.current, dy=-1):
+                self.current.y -= 1
+        elif key == arcade.key.UP:
+            # Try rotation
+            old_blocks = [list(b) for b in self.current.blocks]
+            self.current.rotate()
+            if not self.valid_position(self.current):
+                self.current.blocks = old_blocks
+        elif key == arcade.key.SPACE:
+            while self.valid_position(self.current, dy=-1):
+                self.current.y -= 1
+            self.lock_piece()
+
+
+def main():
+    window = TetrisWindow()
+    arcade.run()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+
+
+
 
 ```json
 {
