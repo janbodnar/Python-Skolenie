@@ -55,7 +55,12 @@ for val in vals:
 print(total)
 
 # calculate sum of values <55...755>
-...
+total = 0
+
+for i in range(55, 756):
+    total = total + i
+
+print(total)
 
 # print 5 random values in range <1..100>
 # with while loop
