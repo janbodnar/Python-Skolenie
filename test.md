@@ -1,6 +1,63 @@
 # Examples
 
 
+
+## Opakovanie
+
+```python
+
+# print message John Doe is 34 years old gardener with fstring
+name = "John Doe"
+age = 34
+occupation = "gardener"
+...
+
+
+# print all negative values
+# print all positive values
+nums = [1, 2, 3, -4, 5, 6, -7, 8, 9, -10]
+...
+
+# print word falcon 8 times in a row
+# print word falcon 10 times in a column
+word = 'falcon'
+...
+
+# calculate sum of vals with for loop
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+...
+
+# calculate sum of values <55...755>
+...
+
+# print 5 random values in range <1..100>
+# with while loop
+import random
+...
+
+
+# print 1, 4, last, last but one chars
+# print falcon & sky from the string
+msg = "an old falcon in the sky"
+...
+
+# use input function to ask 2 values from user
+# and calculate and print their addition, summation, multiplication
+x = input("Enter first value: ")
+...
+```
+
+
+
+
+
+
+
+
+
+
+
+
 ```python
 # membership.py
 
