@@ -13,11 +13,19 @@ occupation = "gardener"
 msg = f'{name} is {age} years old {occupation}'
 print(msg)
 
-
 # print all negative values
 # print all positive values
 nums = [1, 2, 3, -4, 5, 6, -7, 8, 9, -10]
-...
+
+print('negative values:')
+for num in nums:
+    if num < 0:
+        print(num)
+
+print('positive values:')
+for num in nums:
+    if num > 0:
+        print(num)
 
 # print word falcon 8 times in a row
 # print word falcon 10 times in a column
