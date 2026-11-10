@@ -1,6 +1,23 @@
 # Examples
 
 
+## Integer notations
+
+```python
+# print in decimal, binary, octal and hexadecimal notation
+x = 17_551
+
+print(f"Decimal:     {x:d}")
+print(f"Binary:      {x:b}")     # or bin(x)
+print(f"Octal:       {x:o}")     # or oct(x)
+print(f"Hexadecimal: {x:x}")     # or hex(x)
+print(f"Hexadecimal: {x:X}")     # or hex(x)
+```
+
+
+
+
+
 
 ## Opakovanie
 
