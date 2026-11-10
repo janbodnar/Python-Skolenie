@@ -84,7 +84,14 @@ for _ in range(5):
 # print 1, 4, last, last but one chars
 # print falcon & sky from the string
 msg = "an old falcon in the sky"
-...
+
+print(msg[0])
+print(msg[3])
+print(msg[-1])
+print(msg[-2])
+
+print(msg[7:14])
+print(msg[-3:])
 
 # use input function to ask 2 values from user
 # and calculate and print their addition, summation, multiplication
