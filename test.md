@@ -65,7 +65,20 @@ print(total)
 # print 5 random values in range <1..100>
 # with while loop
 import random
-...
+
+i = 0
+
+while i < 5:
+    r = random.randint(1, 100)
+    print(r)
+
+    i += 1
+
+print('-----------------------------------')
+
+for _ in range(5):
+    r = random.randint(1, 100)
+    print(r)
 
 
 # print 1, 4, last, last but one chars
