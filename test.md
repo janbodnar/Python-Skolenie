@@ -1,6 +1,60 @@
 # Examples
 
 
+## Bar chart with matplotlib
+
+```python
+#!/usr/bin/env python3
+"""
+Bar chart of the world's top 10 military spenders in 2025.
+
+Data source: SIPRI Fact Sheet "Trends in World Military Expenditure, 2025"
+(April 2026), figures in billions of current US dollars.
+"""
+
+import matplotlib.pyplot as plt
+
+countries = [
+    "USA", "China", "Russia", "Germany", "India",
+    "UK", "Ukraine", "Saudi Arabia", "France", "Japan",
+]
+
+spending = [954, 336, 190, 114, 92.1, 89.0, 84.1, 83.2, 68.0, 62.2]
+
+fig, ax = plt.subplots(figsize=(11, 6))
+
+bars = ax.bar(countries, spending, color="steelblue", edgecolor="black",
+              linewidth=0.6)
+
+# Highlight the top spender
+bars[0].set_color("firebrick")
+bars[0].set_edgecolor("black")
+
+# Value labels above each bar
+ax.bar_label(bars, labels=[f"${v:g}B" for v in spending],
+             padding=3, fontsize=9)
+
+ax.set_title("Top 10 Military Spenders in 2025", fontsize=14,
+             fontweight="bold")
+ax.set_xlabel("Country", fontsize=11)
+ax.set_ylabel("Military expenditure (billion USD)", fontsize=11)
+ax.set_ylim(0, max(spending) * 1.1)
+
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.yaxis.grid(True, linestyle="--", alpha=0.5)
+ax.set_axisbelow(True)
+
+fig.text(0.99, 0.01, "Source: SIPRI, April 2026", ha="right",
+         fontsize=8, color="gray")
+
+plt.tight_layout()
+plt.savefig("military_spenders.png", dpi=150, bbox_inches="tight")
+plt.show()
+```
+
+
+
 ## Generating random values
 
 ```python
