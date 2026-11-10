@@ -5,12 +5,13 @@
 ## Opakovanie
 
 ```python
-
 # print message John Doe is 34 years old gardener with fstring
 name = "John Doe"
 age = 34
 occupation = "gardener"
-...
+
+msg = f'{name} is {age} years old {occupation}'
+print(msg)
 
 
 # print all negative values
