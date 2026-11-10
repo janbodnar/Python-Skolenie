@@ -47,7 +47,12 @@ print((word + '\n') * 10)
 
 # calculate sum of vals with for loop
 vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-...
+total = 0
+
+for val in vals:
+    total += val
+
+print(total)
 
 # calculate sum of values <55...755>
 ...
