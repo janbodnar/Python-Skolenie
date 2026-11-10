@@ -1,6 +1,19 @@
 # Examples
 
 
+
+## Reading files
+
+```python
+filename = 'words.txt'
+
+with open(filename, 'r') as fd:
+
+    for line in fd:
+        print(line.strip())
+```
+
+
 ## Tetris 
 
 ```python
