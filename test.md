@@ -1,6 +1,23 @@
 # Examples
 
 
+
+```json
+{
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "editor.fontFamily": "'JetBrains Mono', 'Cascadia Code', Consolas, 'Courier New', monospace",
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        80
+    ],
+    "editor.stickyScroll.enabled": false,
+    "editor.renderWhitespace": "all",
+}
+```
+
+
+
+
 ## Bar chart with matplotlib
 
 ```python
