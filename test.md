@@ -1,6 +1,23 @@
 # Examples
 
 
+## Generating random values
+
+```python
+# Vytvor zoznam 100 prvkov nahodnych cisiel v rozsahu 1-100
+
+import random
+
+random_values = []
+
+for _ in range(100):
+    r = random.randint(1, 100)
+    random_values.append(r)
+
+print(random_values)
+```
+
+
 ## Indexing
 
 ```python
