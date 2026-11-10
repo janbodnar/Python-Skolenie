@@ -94,9 +94,13 @@ print(msg[7:14])
 print(msg[-3:])
 
 # use input function to ask 2 values from user
-# and calculate and print their addition, summation, multiplication
-x = input("Enter first value: ")
-...
+# and calculate and print their addition, subtraction, multiplication
+x = int(input("Enter first value: "))
+y = int(input("Enter second value: "))
+
+print('addition: ', x + y)
+print('subtraction: ', x - y)
+print('multiplication: ', x * y)
 ```
 
 
