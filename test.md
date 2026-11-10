@@ -30,7 +30,20 @@ for num in nums:
 # print word falcon 8 times in a row
 # print word falcon 10 times in a column
 word = 'falcon'
-...
+
+for _ in range(8):
+    print(word, end=' ')
+
+print('\n------------------------')
+
+for _ in range(10):
+    print(word)
+
+print('------------------------')
+
+print((word + ' ') * 8)
+
+print((word + '\n') * 10)
 
 # calculate sum of vals with for loop
 vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
