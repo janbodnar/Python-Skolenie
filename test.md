@@ -66,6 +66,17 @@ print(vals)
 # sort values in ascending & descending orders
 vals2 = (4, 2, -8, 2, 1, 9, 8, 4, 3 -1)
 
+import statistics
+
+print(min(vals2))
+print(max(vals2))
+print(statistics.mean(vals2))
+print(sum(vals2))
+print(statistics.median(vals2))
+
+print(sorted(vals2))
+print(sorted(vals2, reverse=True))
+
 # pick and print a random word
 # print all words in UPPERCASE
 words = ['sky', 'blue', 'small', 'back', 'water']
