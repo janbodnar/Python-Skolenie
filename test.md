@@ -1,6 +1,26 @@
 # Examples
 
 
+
+## map function
+
+```python
+words = ['cup', 'sky', 'work', 'coin', 'atom', 'spy', 'lake', 'forest', 'town', 'war']
+
+upper_words = list(map(lambda word: word.upper(), words))
+print(upper_words)
+print(words)
+
+from math import sqrt
+
+vals = [4, 9, 21, 49, 81, 36]
+
+vals_sqr = list(map(lambda val: sqrt(val), vals))
+print(vals_sqr)
+```
+
+
+
 ## filtering
 
 ```python
