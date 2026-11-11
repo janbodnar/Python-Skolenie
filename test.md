@@ -4,6 +4,20 @@
 ## filtering
 
 
+Using `filter` with lambda:
+
+```python
+vals = [1, -2, 3, 0, 9, -5]
+
+
+positives = list(filter(lambda e: e > 0, vals))
+print(positives)
+
+negatives = list(filter(lambda e: e < 0, vals))
+print(negatives)
+```
+
+
 
 Using `filter` function
 
