@@ -1,5 +1,210 @@
 # Examples
 
+## Arkanoid
+
+```python
+"""Arkanoid clone in Python + tkinter.
+
+Controls: mouse or Left/Right arrows move the paddle, Space launches the ball
+(and pauses/resumes), R restarts.
+"""
+
+import math
+import random
+import tkinter as tk
+
+WIDTH, HEIGHT = 640, 480
+PADDLE_W, PADDLE_H = 90, 12
+PADDLE_Y = HEIGHT - 40
+PADDLE_SPEED = 9
+BALL_R = 7
+BALL_SPEED = 6
+BRICK_ROWS, BRICK_COLS = 6, 10
+BRICK_W, BRICK_H = 58, 20
+BRICK_GAP = 4
+BRICK_TOP = 50
+ROW_COLORS = ["#e74c3c", "#e67e22", "#f1c40f", "#2ecc71", "#3498db", "#9b59b6"]
+FPS_MS = 16
+
+
+class Arkanoid:
+    def __init__(self, root):
+        self.root = root
+        root.title("Arkanoid")
+        root.resizable(False, False)
+        self.canvas = tk.Canvas(root, width=WIDTH, height=HEIGHT, bg="#10101c",
+                                highlightthickness=0)
+        self.canvas.pack()
+
+        self.keys = set()
+        root.bind("<KeyPress>", lambda e: self.keys.add(e.keysym))
+        root.bind("<KeyRelease>", lambda e: self.keys.discard(e.keysym))
+        root.bind("<space>", self.on_space)
+        root.bind("r", lambda e: self.new_game())
+        root.bind("R", lambda e: self.new_game())
+        self.canvas.bind("<Motion>", self.on_mouse)
+
+        self.new_game()
+        self.loop()
+
+    # ---------- setup ----------
+    def new_game(self):
+        self.canvas.delete("all")
+        self.score = 0
+        self.lives = 3
+        self.level = 1
+        self.state = "ready"  # ready | playing | paused | over | won
+        self.build_level()
+
+    def build_level(self):
+        self.canvas.delete("all")
+        self.bricks = {}
+        left = (WIDTH - (BRICK_COLS * (BRICK_W + BRICK_GAP) - BRICK_GAP)) / 2
+        rows = min(BRICK_ROWS + self.level - 1, 9)
+        for r in range(rows):
+            for c in range(BRICK_COLS):
+                x = left + c * (BRICK_W + BRICK_GAP)
+                y = BRICK_TOP + r * (BRICK_H + BRICK_GAP)
+                color = ROW_COLORS[r % len(ROW_COLORS)]
+                item = self.canvas.create_rectangle(
+                    x, y, x + BRICK_W, y + BRICK_H, fill=color, outline="")
+                self.bricks[item] = (x, y, x + BRICK_W, y + BRICK_H, rows - r)
+
+        self.paddle_x = WIDTH / 2
+        self.paddle = self.canvas.create_rectangle(0, 0, 0, 0, fill="#ecf0f1", outline="")
+        self.ball = self.canvas.create_oval(0, 0, 0, 0, fill="#ffffff", outline="")
+        self.hud = self.canvas.create_text(10, 10, anchor="nw", fill="#bdc3c7",
+                                           font=("Consolas", 12))
+        self.msg = self.canvas.create_text(WIDTH / 2, HEIGHT / 2 + 40, fill="#ffffff",
+                                           font=("Consolas", 18, "bold"), justify="center")
+        self.reset_ball()
+        self.draw()
+
+    def reset_ball(self):
+        self.state = "ready" if self.state not in ("over", "won") else self.state
+        self.bx = self.paddle_x
+        self.by = PADDLE_Y - BALL_R - 1
+        angle = math.radians(random.uniform(-35, 35))
+        self.vx = BALL_SPEED * math.sin(angle)
+        self.vy = -BALL_SPEED * math.cos(angle)
+
+    # ---------- input ----------
+    def on_mouse(self, e):
+        if self.state in ("ready", "playing"):
+            self.paddle_x = e.x
+
+    def on_space(self, _e):
+        if self.state == "ready":
+            self.state = "playing"
+        elif self.state == "playing":
+            self.state = "paused"
+        elif self.state == "paused":
+            self.state = "playing"
+        elif self.state in ("over", "won"):
+            self.new_game()
+
+    # ---------- game loop ----------
+    def loop(self):
+        self.update()
+        self.draw()
+        self.root.after(FPS_MS, self.loop)
+
+    def update(self):
+        if self.state in ("ready", "playing"):
+            if "Left" in self.keys:
+                self.paddle_x -= PADDLE_SPEED
+            if "Right" in self.keys:
+                self.paddle_x += PADDLE_SPEED
+            self.paddle_x = max(PADDLE_W / 2, min(WIDTH - PADDLE_W / 2, self.paddle_x))
+
+        if self.state == "ready":
+            self.bx = self.paddle_x
+            self.by = PADDLE_Y - BALL_R - 1
+            return
+        if self.state != "playing":
+            return
+
+        self.bx += self.vx
+        self.by += self.vy
+
+        # walls
+        if self.bx < BALL_R:
+            self.bx, self.vx = BALL_R, abs(self.vx)
+        elif self.bx > WIDTH - BALL_R:
+            self.bx, self.vx = WIDTH - BALL_R, -abs(self.vx)
+        if self.by < BALL_R:
+            self.by, self.vy = BALL_R, abs(self.vy)
+
+        # paddle: bounce angle depends on where the ball hits
+        px1, px2 = self.paddle_x - PADDLE_W / 2, self.paddle_x + PADDLE_W / 2
+        if (self.vy > 0 and PADDLE_Y - BALL_R <= self.by <= PADDLE_Y + PADDLE_H
+                and px1 - BALL_R <= self.bx <= px2 + BALL_R):
+            offset = (self.bx - self.paddle_x) / (PADDLE_W / 2)  # -1..1
+            angle = math.radians(offset * 60)
+            speed = min(math.hypot(self.vx, self.vy) * 1.01, BALL_SPEED * 1.8)
+            self.vx = speed * math.sin(angle)
+            self.vy = -speed * math.cos(angle)
+            self.by = PADDLE_Y - BALL_R
+
+        self.hit_bricks()
+
+        # fell off the bottom
+        if self.by > HEIGHT + BALL_R:
+            self.lives -= 1
+            if self.lives <= 0:
+                self.state = "over"
+            else:
+                self.state = "ready"
+                self.reset_ball()
+
+    def hit_bricks(self):
+        for item, (x1, y1, x2, y2, pts) in list(self.bricks.items()):
+            # closest point on the brick to the ball centre
+            cx = max(x1, min(self.bx, x2))
+            cy = max(y1, min(self.by, y2))
+            dx, dy = self.bx - cx, self.by - cy
+            if dx * dx + dy * dy > BALL_R * BALL_R:
+                continue
+            # bounce on the axis with the smaller penetration
+            if abs(dx) > abs(dy):
+                self.vx = abs(self.vx) if dx > 0 else -abs(self.vx)
+            else:
+                self.vy = abs(self.vy) if dy > 0 else -abs(self.vy)
+            self.canvas.delete(item)
+            del self.bricks[item]
+            self.score += pts * 10
+            if not self.bricks:
+                self.level += 1
+                self.state = "ready"
+                self.build_level()
+            return  # one brick per frame is enough
+
+    # ---------- drawing ----------
+    def draw(self):
+        c = self.canvas
+        c.coords(self.paddle, self.paddle_x - PADDLE_W / 2, PADDLE_Y,
+                 self.paddle_x + PADDLE_W / 2, PADDLE_Y + PADDLE_H)
+        c.coords(self.ball, self.bx - BALL_R, self.by - BALL_R,
+                 self.bx + BALL_R, self.by + BALL_R)
+        c.itemconfig(self.hud, text=f"Score: {self.score}   Lives: {self.lives}   Level: {self.level}")
+        text = {
+            "ready": "Press SPACE to launch",
+            "paused": "PAUSED\nPress SPACE to resume",
+            "over": f"GAME OVER\nScore: {self.score}\nSPACE or R to restart",
+            "playing": "",
+        }.get(self.state, "")
+        c.itemconfig(self.msg, text=text)
+
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    Arkanoid(root)
+    root.mainloop()
+```
+
+
+
+
 
 ## list big files
 
