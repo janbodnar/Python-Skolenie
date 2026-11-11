@@ -18,7 +18,7 @@ for val in vals:
     num = locale.format_string("%.2f", val)
     print(num)
 
-locale.setlocale(locale.LC_ALL, 'us_US')
+locale.setlocale(locale.LC_ALL, 'en_US')
 
 for val in vals:
     num = locale.format_string("%.2f", val)
