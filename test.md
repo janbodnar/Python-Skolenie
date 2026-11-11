@@ -1,6 +1,36 @@
 # Examples
 
 
+The `words.txt`
+
+```
+war
+sky
+cloud
+terminal
+computer
+snake
+coin
+pen 
+contemporary
+small 
+fack
+back
+bottom
+rock
+pencil
+spectacles
+plant
+```
+
+
+
+
+
+
+
+
+
 
 ## Reading files
 
