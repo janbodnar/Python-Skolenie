@@ -127,9 +127,24 @@ print(random_vals[-10:])
 # read words.txt and count the number of words 
 
 filename = 'words.txt'
+cleaned_words = []
+
 
 with open(filename, 'r') as fd:
-    ...
+
+    lines = fd.readlines()
+
+    for line in lines:
+        cleaned_line = line.strip()
+
+        if cleaned_line != '':
+            cleaned_words.append(cleaned_line)
+
+    print(lines)
+    print(len(lines))
+
+    print(cleaned_words)
+    print(len(cleaned_words))
 
 
 # read thermopylae.txt and count the number of words
