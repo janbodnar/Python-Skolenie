@@ -114,8 +114,14 @@ print(total)
 # print last 10 values
 import random 
 
-vals = ...
-...
+random_vals = []
+
+for _ in range(100):
+    r = random.randint(1, 101)
+    random_vals.append(r)
+
+print(random_vals[:11])
+print(random_vals[-10:])
 
 
 # read words.txt and count the number of words 
