@@ -31,7 +31,52 @@ led by King Leonidas of Sparta, and the Persian Empire of Xerxes I over the
 course of three days, during the second Persian invasion of Greece.
 ```
 
+```python
 
+# print unique values
+# sort values in ascending & descenging orders
+# sum values using while loop
+
+vals = [-2, 0, 1, 9, 3, -5, 7, 2, 8, 1, 2, 9, 3]
+
+# print min, max, avg, sum, median of values
+# sort values in ascending & descending orders
+vals2 = (4, 2, -8, 2, 1, 9, 8, 4, 3 -1)
+
+# pick and print a random word
+# print all words in UPPERCASE
+words = ['sky', 'blue', 'small', 'back', 'water']
+
+# sum these values
+data = '1,2,3,4,5,6,7,8,9,10'
+...
+
+
+# create a list of 100 random values 1-100
+# print first 10 values
+# print last 10 values
+import random 
+
+vals = ...
+...
+
+
+# read words.txt and count the number of words 
+
+filename = 'words.txt'
+
+with open(filename, 'r') as fd:
+    ...
+
+
+# read thermopylae.txt and count the number of words
+# and unique words
+
+filename = 'thermopylae.txt'
+
+with open(filename, 'r') as fd:
+    ...
+```
 
 
 
