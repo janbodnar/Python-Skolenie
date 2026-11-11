@@ -81,6 +81,23 @@ print(sorted(vals2, reverse=True))
 # print all words in UPPERCASE
 words = ['sky', 'blue', 'small', 'back', 'water']
 
+import random
+
+n = len(words)
+
+r = random.randint(0, n-1)
+print(words[r])
+
+print('----------------------------------')
+
+print(random.choice(words))
+
+
+for word in words:
+    print(word.upper())
+
+
+
 # sum these values
 data = '1,2,3,4,5,6,7,8,9,10'
 ...
