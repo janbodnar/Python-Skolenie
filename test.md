@@ -39,6 +39,29 @@ course of three days, during the second Persian invasion of Greece.
 
 vals = [-2, 0, 1, 9, 3, -5, 7, 2, 8, 1, 2, 9, 3]
 
+vals = [-2, 0, 1, 9, 3, -5, 7, 2, 8, 1, 2, 9, 3]
+
+
+total = 0
+i = 0
+n = len(vals)
+
+while i < n:
+    total = total + vals[i]
+    i += 1
+
+print(total)
+print(sum(vals))
+
+
+print(set(vals))
+
+vals.sort()
+print(vals)
+
+vals.sort(reverse=True)
+print(vals)
+
 # print min, max, avg, sum, median of values
 # sort values in ascending & descending orders
 vals2 = (4, 2, -8, 2, 1, 9, 8, 4, 3 -1)
