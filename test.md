@@ -1,6 +1,82 @@
 # Examples
 
 
+## list big files
+
+```python
+"""Find the top N largest files in common user folders (Documents, Desktop, ...)."""
+
+import heapq
+import os
+import sys
+from pathlib import Path
+
+TOP_N = 5
+
+
+def common_places():
+    home = Path.home()
+    names = ["Documents", "Desktop", "Downloads", "Pictures", "Videos", "Music"]
+    return [home / n for n in names if (home / n).is_dir()]
+
+
+def human(size):
+    for unit in ("B", "KB", "MB", "GB", "TB"):
+        if size < 1024 or unit == "TB":
+            return f"{size:.1f} {unit}" if unit != "B" else f"{size} B"
+        size /= 1024
+
+
+def largest_files(roots, n=TOP_N):
+    heap = []  # min-heap of (size, path), keeps only the n largest
+    for root in roots:
+        # onerror=None: silently skip folders we cannot read
+        for dirpath, _dirs, files in os.walk(root, onerror=None):
+            for name in files:
+                path = os.path.join(dirpath, name)
+                try:
+                    if os.path.islink(path):
+                        continue
+                    size = os.path.getsize(path)
+                except OSError:
+                    continue
+                if len(heap) < n:
+                    heapq.heappush(heap, (size, path))
+                elif size > heap[0][0]:
+                    heapq.heapreplace(heap, (size, path))
+    return sorted(heap, reverse=True)
+
+
+def main():
+    # Optional: pass your own folders as arguments
+    roots = [Path(a) for a in sys.argv[1:]] or common_places()
+    if not roots:
+        print("No folders to scan.")
+        return
+
+    print("Scanning:")
+    for r in roots:
+        print(f"  {r}")
+    print()
+
+    results = largest_files(roots)
+    if not results:
+        print("No files found.")
+        return
+
+    print(f"Top {len(results)} largest files:")
+    for i, (size, path) in enumerate(results, 1):
+        print(f"{i}. {human(size):>10}  {path}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+
+
+
 
 ## map function
 
