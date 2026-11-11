@@ -1,6 +1,30 @@
 # Examples
 
 
+## filtering
+
+```python
+vals = [1, -2, 3, 0, 9, -5]
+
+pos = []
+neg = []
+
+for val in vals:
+    if val > 0:
+        pos.append(val)
+
+    if val < 0:
+        neg.append(val)
+
+
+print(pos)
+print(neg)
+```
+
+
+
+
+
 ## Play audio
 
 ```python
