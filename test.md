@@ -1,6 +1,17 @@
 # Examples
 
 
+## Play audio
+
+```python
+from playsound3 import playsound
+
+playsound("aesop_cat_mice.mp3")                 # blocks until finished
+sound = playsound("song.mp3", block=False)
+sound.stop()
+```
+
+
 The `words.txt`:
 
 ```
