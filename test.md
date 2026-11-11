@@ -3,6 +3,33 @@
 
 ## filtering
 
+
+
+Using `filter` function
+
+```python
+vals = [1, -2, 3, 0, 9, -5]
+
+def is_positive(e):
+    if e > 0:
+        return True
+
+def is_negative(e):
+    if e < 0:
+        return True
+
+
+positives = list(filter(is_positive, vals))
+print(positives)
+
+negatives = list(filter(is_negative, vals))
+print(negatives)
+```
+
+
+
+Using loops:
+
 ```python
 vals = [1, -2, 3, 0, 9, -5]
 
