@@ -149,11 +149,18 @@ with open(filename, 'r') as fd:
 
 # read thermopylae.txt and count the number of words
 # and unique words
-
 filename = 'thermopylae.txt'
 
 with open(filename, 'r') as fd:
-    ...
+    content = fd.read()
+
+    content2 = content.replace(',', '').replace('.', '')
+
+    print(content2)
+    words = content2.split()
+
+    print(len(words))
+    print(len(set(words)))
 ```
 
 
