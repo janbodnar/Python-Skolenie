@@ -1,5 +1,90 @@
 # Examples
 
+## Table example
+
+```
+id,first_name,last_name,email,salary
+1,Kristine,Mcmahon,hawkinsdiane@example.net,42478
+2,Robert,Montgomery,asmith@example.com,58191
+3,Christine,Austin,smedina@example.com,87948
+4,Joshua,Cruz,mary33@example.com,68633
+5,Nicole,Todd,bradleybryant@example.com,42254
+6,Nicholas,Kline,jenniferevans@example.com,70166
+7,Tracy,Walton,kenneth19@example.com,91830
+8,Cindy,Pena,murphydeanna@example.org,60064
+9,Joshua,Serrano,davidphillips@example.net,72239
+10,Joseph,Robinson,sandra06@example.net,87451
+11,Jeremiah,Martinez,allensamuel@example.net,99810
+12,Stacy,Williams,paul24@example.net,86304
+13,Jared,Meyers,justin57@example.org,83477
+14,Melissa,Adams,paulward@example.net,46041
+15,Randy,Davidson,elizabethnelson@example.com,52902
+16,Cristian,Williams,garzakimberly@example.org,37350
+17,Shane,Walker,ebradshaw@example.com,61962
+18,Chase,Norris,shelby44@example.net,74557
+19,Claudia,Wilkinson,carrielong@example.org,61686
+20,Gregory,Cooke,jameswalton@example.com,52627
+```
+
+`pip install rich`
+
+
+```python
+import csv
+from pathlib import Path
+
+from rich import box
+from rich.console import Console
+from rich.table import Table
+from rich.text import Text
+
+CSV_PATH = Path(__file__).with_name("users.csv")
+
+
+def main() -> None:
+    console = Console()
+
+    with CSV_PATH.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+
+    table = Table(
+        title="Users",
+        box=box.SIMPLE_HEAD,
+        header_style="bold cyan",
+        title_style="bold cyan",
+        caption=f"{len(rows)} users",
+        caption_style="dim",
+    )
+    table.add_column("ID", justify="right", style="dim")
+    table.add_column("First name")
+    table.add_column("Last name")
+    table.add_column("Email", style="dim")
+    table.add_column("Salary", justify="right", style="green")
+
+    for row in rows:
+        raw = (row["salary"] or "").strip()
+        try:
+            salary_cell = Text(f"{int(raw):,}")
+        except ValueError:
+            salary_cell = Text(f"{raw or '?'} (invalid)", style="bold red")
+        table.add_row(
+            row["id"],
+            row["first_name"],
+            row["last_name"],
+            row["email"],
+            salary_cell,
+        )
+
+    console.print(table)
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+
+
 ## Arkanoid
 
 ```python
