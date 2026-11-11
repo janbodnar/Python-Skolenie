@@ -100,8 +100,14 @@ for word in words:
 
 # sum these values
 data = '1,2,3,4,5,6,7,8,9,10'
-...
 
+parts = data.split(',')
+total = 0
+
+for part in parts:
+    total += int(part)
+
+print(total)
 
 # create a list of 100 random values 1-100
 # print first 10 values
