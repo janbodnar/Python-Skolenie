@@ -3,6 +3,18 @@
 
 ## filtering
 
+```python
+words = ['cup', 'sky', 'work', 'coin', 'atom', 'spy', 'lake', 'forest', 'town', 'war']
+
+words_cw = list(filter(lambda word: word.startswith('w') or word.startswith('c') , words))
+print(words_cw)
+
+words_cw = list(filter(lambda word: word.startswith(('w', 'c')), words))
+print(words_cw)
+```
+
+
+
 
 Using `filter` with lambda:
 
