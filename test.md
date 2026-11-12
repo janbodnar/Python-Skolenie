@@ -107,6 +107,13 @@ print(random_name())
 # calculate # of words, # of unique words, remove punctuation chars
 text = '''There are three falcons in the sky. The sun is shining. The birds
 are singing. The singing is wonderful.'''
+
+text2 = text.replace('.', '')
+print(text2)
+
+words = text2.split()
+print(len(words))
+print(len(set(words)))
 ```
 
 ## Table example
