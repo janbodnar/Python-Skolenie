@@ -1,6 +1,36 @@
 # Examples
 
 
+
+## Faker, CSV of 100k users
+
+```python
+from faker import Faker
+
+
+faker = Faker()
+
+filename = 'users.csv'
+
+with open(filename, 'w') as fd:
+
+    header = 'id,first_name,last_name,job,city,salary\n'
+    fd.write(header)
+
+    for i in range(1, 100_000):
+
+        idx = i
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        job = faker.job()
+        city = faker.city()
+        salary = faker.random_int(850, 5000, 50)
+
+        row = f'{idx},{first_name},{last_name},"{job}",{city},{salary}\n'
+        fd.write(row)
+```
+
+
 ## Faker, 10 users
 
 ```python
