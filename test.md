@@ -64,6 +64,27 @@ print(total)
 # write these words into a column of file 'words.txt'
 words = ['coin', 'sky', 'small', 'water', 'red', 'war', 'cup', 'black']
 
+words_w = list(filter(lambda word: word.startswith('w'), words))
+print(words_w)
+
+words_cw = list(filter(lambda word: word.startswith('w') or word.startswith('c'), words))
+print(words_cw)
+
+words_upper = list(map(lambda word: word.upper(), words))
+print(words_upper)
+
+import random
+random.shuffle(words)
+print(words)
+
+
+filename = 'words.txt'
+
+with open(filename, 'w') as fd:
+
+    for word in words:
+        fd.write(f'{word}\n')
+
 # create function random_name that returns a random name from a tuple:
 # ('John', 'Paul', 'Norbert', 'Simona', 'Robert', 'Lucia', 'George', 'Thomas')
 
