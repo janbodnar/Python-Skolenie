@@ -1,14 +1,15 @@
 # Examples
 
 
-
 ```python
-
 # pick 3 random values and print them and their sum
 # create a sorted tuple (ASC)
 vals = (3, 1, 2, 5, 9, 8, -3, -4)
 
+# calculate sum of values
+vals2 = ((1, 2), (3, 4), (5, 6), (7, 8), (9, 10))
 
+# sum values of sequence 15, 20, 25 ... 555
 
 # calculate sum
 data = "1;2;3;4;5"
@@ -16,8 +17,14 @@ data = "1;2;3;4;5"
 # filter words starting with w
 # filter words starting with w or c
 # create a new list with all words in uppercase
+# randomly shuffle the words
 # write these words into a column of file 'words.txt'
 words = ['coin', 'sky', 'small', 'water', 'red', 'war', 'cup', 'black']
+
+# create function random_name that returns a random name from a tuple:
+# ('John', 'Paul', 'Norbert', 'Simona', 'Robert', 'Lucia', 'George', 'Thomas')
+
+
 
 # calculate # of words, # of unique words, remove punctuation chars
 text = '''There are three falcons in the sky. The sun is shining. The birds
