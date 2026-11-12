@@ -6,6 +6,16 @@
 # create a sorted tuple (ASC)
 vals = (3, 1, 2, 5, 9, 8, -3, -4)
 
+import random 
+
+rand_vals = random.sample(vals, 3)
+
+print(rand_vals)
+print(sum(rand_vals))
+
+sorted_vals = tuple(sorted(vals))
+print(sorted_vals)
+
 # calculate sum of values
 vals2 = ((1, 2), (3, 4), (5, 6), (7, 8), (9, 10))
 
