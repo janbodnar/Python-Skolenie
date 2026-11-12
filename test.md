@@ -47,6 +47,16 @@ print(total)
 # calculate sum
 data = "1;2;3;4;5"
 
+total = 0
+
+parts = data.split(';')
+
+for part in parts:
+    total += int(part)
+
+print(total)
+
+
 # filter words starting with w
 # filter words starting with w or c
 # create a new list with all words in uppercase
