@@ -19,6 +19,17 @@ print(sorted_vals)
 # calculate sum of values
 vals2 = ((1, 2), (3, 4), (5, 6), (7, 8), (9, 10))
 
+vals2 = ((1, 2), (3, 4), (5, 6), (7, 8), (9, 10))
+
+total = 0 
+for nested in vals2:
+    total += sum(nested)
+    # for val in nested:
+        # total += val
+
+print(total)
+
+
 # sum values of sequence 15, 20, 25 ... 555
 
 # calculate sum
