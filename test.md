@@ -1,5 +1,24 @@
 # Examples
 
+## ISS info
+
+```python
+import json
+import requests
+
+url = 'http://api.open-notify.org/iss-now.json'
+# url = 'http://api.open-notify.org/iss-now.json'
+
+resp = requests.get(url)
+data = resp.json()  # Directly parse JSON response
+
+print(data)
+print(data['timestamp'])
+print(data['iss_position'])
+print(data['message'])
+```
+
+
 
 ## CPU info
 
