@@ -1,6 +1,30 @@
 # Examples
 
 
+## Faker, 10 users
+
+```python
+from faker import Faker
+
+
+faker = Faker()
+
+
+for i in range(1, 11):
+
+    idx = i
+    first_name = faker.first_name()
+    last_name = faker.last_name()
+    job = faker.job()
+    city = faker.city()
+    salary = faker.random_int(850, 5000, 50)
+
+    row = f'{idx},{first_name},{last_name},{job},{city},{salary}'
+    print(row)
+```
+
+
+
 ```python
 # pick 3 random values and print them and their sum
 # create a sorted tuple (ASC)
