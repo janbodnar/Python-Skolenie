@@ -1,5 +1,160 @@
 # Examples
 
+```python
+import os
+import queue
+import subprocess
+import threading
+import tkinter as tk
+from tkinter import filedialog, messagebox, ttk
+
+
+def format_size(num_bytes):
+    for unit in ("B", "KB", "MB", "GB", "TB"):
+        if num_bytes < 1024 or unit == "TB":
+            return f"{num_bytes:.1f} {unit}" if unit != "B" else f"{num_bytes} B"
+        num_bytes /= 1024
+
+
+class LargeFileFinder(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("Large File Finder")
+        self.geometry("850x500+200+150")
+
+        self.results = []          # list of (size, path)
+        self.msg_queue = queue.Queue()
+        self.stop_event = threading.Event()
+        self.scanning = False
+
+        self._build_ui()
+
+    def _build_ui(self):
+        top = ttk.Frame(self, padding=8)
+        top.pack(fill="x")
+
+        ttk.Label(top, text="Folder:").grid(row=0, column=0, sticky="w")
+        self.folder_var = tk.StringVar(value="C:\\")
+        ttk.Entry(top, textvariable=self.folder_var).grid(row=0, column=1, sticky="ew", padx=4)
+        ttk.Button(top, text="Browse...", command=self.browse).grid(row=0, column=2)
+
+        ttk.Label(top, text="Min size (MB):").grid(row=1, column=0, sticky="w", pady=(6, 0))
+        self.size_var = tk.StringVar(value="100")
+        ttk.Entry(top, textvariable=self.size_var, width=10).grid(row=1, column=1, sticky="w", padx=4, pady=(6, 0))
+
+        self.scan_btn = ttk.Button(top, text="Scan", command=self.toggle_scan)
+        self.scan_btn.grid(row=1, column=2, pady=(6, 0))
+        top.columnconfigure(1, weight=1)
+
+        columns = ("size", "path")
+        frame = ttk.Frame(self, padding=(8, 0))
+        frame.pack(fill="both", expand=True)
+        self.tree = ttk.Treeview(frame, columns=columns, show="headings")
+        self.tree.heading("size", text="Size")
+        self.tree.heading("path", text="Path")
+        self.tree.column("size", width=100, anchor="e", stretch=False)
+        self.tree.column("path", width=700)
+        scroll = ttk.Scrollbar(frame, orient="vertical", command=self.tree.yview)
+        self.tree.configure(yscrollcommand=scroll.set)
+        self.tree.pack(side="left", fill="both", expand=True)
+        scroll.pack(side="right", fill="y")
+        self.tree.bind("<Double-1>", self.open_in_explorer)
+
+        self.status_var = tk.StringVar(value="Ready. Double-click a result to show it in Explorer.")
+        ttk.Label(self, textvariable=self.status_var, anchor="w", padding=8).pack(fill="x")
+
+    def browse(self):
+        folder = filedialog.askdirectory(initialdir=self.folder_var.get() or "C:\\")
+        if folder:
+            self.folder_var.set(os.path.normpath(folder))
+
+    def toggle_scan(self):
+        if self.scanning:
+            self.stop_event.set()
+            return
+
+        folder = self.folder_var.get()
+        if not os.path.isdir(folder):
+            messagebox.showerror("Error", "Please choose a valid folder.")
+            return
+        try:
+            min_bytes = float(self.size_var.get()) * 1024 * 1024
+        except ValueError:
+            messagebox.showerror("Error", "Min size must be a number.")
+            return
+
+        self.results.clear()
+        self.tree.delete(*self.tree.get_children())
+        self.stop_event.clear()
+        self.scanning = True
+        self.scan_btn.config(text="Stop")
+
+        threading.Thread(target=self.scan, args=(folder, min_bytes), daemon=True).start()
+        self.after(100, self.poll_queue)
+
+    def scan(self, folder, min_bytes):
+        scanned = 0
+        for dirpath, _dirnames, filenames in os.walk(folder):
+            if self.stop_event.is_set():
+                break
+            for name in filenames:
+                path = os.path.join(dirpath, name)
+                try:
+                    if os.path.islink(path):
+                        continue
+                    size = os.path.getsize(path)
+                except OSError:
+                    continue  # no permission / file vanished
+                scanned += 1
+                if size >= min_bytes:
+                    self.msg_queue.put(("file", size, path))
+            self.msg_queue.put(("progress", scanned, dirpath))
+        self.msg_queue.put(("done", scanned, None))
+
+    def poll_queue(self):
+        finished = False
+        try:
+            while True:
+                kind, a, b = self.msg_queue.get_nowait()
+                if kind == "file":
+                    self.results.append((a, b))
+                elif kind == "progress":
+                    self.status_var.set(f"Scanned {a} files... {b}")
+                elif kind == "done":
+                    finished = True
+        except queue.Empty:
+            pass
+
+        self.refresh_tree()
+
+        if finished:
+            self.scanning = False
+            self.scan_btn.config(text="Scan")
+            state = "Stopped" if self.stop_event.is_set() else "Done"
+            self.status_var.set(f"{state}. Found {len(self.results)} large files.")
+        else:
+            self.after(200, self.poll_queue)
+
+    def refresh_tree(self):
+        self.tree.delete(*self.tree.get_children())
+        for size, path in sorted(self.results, reverse=True)[:1000]:
+            self.tree.insert("", "end", values=(format_size(size), path))
+
+    def open_in_explorer(self, _event):
+        selected = self.tree.selection()
+        if not selected:
+            return
+        path = self.tree.item(selected[0], "values")[1]
+        if os.path.exists(path):
+            subprocess.run(["explorer", "/select,", os.path.normpath(path)])
+
+
+if __name__ == "__main__":
+    LargeFileFinder().mainloop()
+```
+
+
+
 ## ISS info
 
 ```python
