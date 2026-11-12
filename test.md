@@ -1,5 +1,29 @@
 # Examples
 
+
+
+```python
+
+# pick 3 random values and print them and their sum
+# create a sorted tuple (ASC)
+vals = (3, 1, 2, 5, 9, 8, -3, -4)
+
+
+
+# calculate sum
+data = "1;2;3;4;5"
+
+# filter words starting with w
+# filter words starting with w or c
+# create a new list with all words in uppercase
+# write these words into a column of file 'words.txt'
+words = ['coin', 'sky', 'small', 'water', 'red', 'war', 'cup', 'black']
+
+# calculate # of words, # of unique words, remove punctuation chars
+text = '''There are three falcons in the sky. The sun is shining. The birds
+are singing. The singing is wonderful.'''
+```
+
 ## Table example
 
 ```
