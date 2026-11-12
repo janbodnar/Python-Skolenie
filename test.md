@@ -1,6 +1,26 @@
 # Examples
 
 
+## CPU info
+
+`pip install py-cpuinfo`
+
+```python
+import cpuinfo
+
+# Get full CPU info dictionary
+info = cpuinfo.get_cpu_info()
+
+print(cpuinfo.platform.machine())
+
+# Print specific, human-readable details
+print(f"Processor Brand: {info.get('brand_raw')}")
+print(f"Architecture:    {info.get('arch')}")
+print(f"Bits:            {info.get('bits')}")
+print(f"Vendor ID:       {info.get('vendor_id_raw')}")
+print(f"Clock Speed:     {info.get('hz_actual_friendly')}")
+```
+
 ## System ARGV
 
 ```python
