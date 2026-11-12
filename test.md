@@ -88,7 +88,21 @@ with open(filename, 'w') as fd:
 # create function random_name that returns a random name from a tuple:
 # ('John', 'Paul', 'Norbert', 'Simona', 'Robert', 'Lucia', 'George', 'Thomas')
 
+import random
 
+def random_name():
+    names = ('John', 'Paul', 'Norbert', 'Simona', 
+            'Robert', 'Lucia', 'George', 'Thomas')
+
+    random_name = random.choice(names)    
+    return random_name
+
+
+print(random_name())
+print(random_name())
+print(random_name())
+print(random_name())
+print(random_name())
 
 # calculate # of words, # of unique words, remove punctuation chars
 text = '''There are three falcons in the sky. The sun is shining. The birds
