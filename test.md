@@ -32,6 +32,18 @@ print(total)
 
 # sum values of sequence 15, 20, 25 ... 555
 
+print(sum(range(15, 560, 5)))
+
+
+i = 15
+total = 0
+
+while i <= 555:
+    total += i
+    i += 5
+
+print(total)
+
 # calculate sum
 data = "1;2;3;4;5"
 
