@@ -1,6 +1,36 @@
 # Examples
 
 
+## System ARGV
+
+```python
+from faker import Faker
+import sys
+
+
+faker = Faker()
+filename = sys.argv[1]
+number_of_rows = sys.argv[2]
+
+with open(filename, 'w') as fd:
+
+    header = 'id,first_name,last_name,job,city,salary\n'
+    fd.write(header)
+
+    for i in range(1, int(number_of_rows)):
+
+        idx = i
+        first_name = faker.first_name()
+        last_name = faker.last_name()
+        job = faker.job()
+        city = faker.city()
+        salary = faker.random_int(850, 5000, 50)
+
+        row = f'{idx},{first_name},{last_name},"{job}",{city},{salary}\n'
+        fd.write(row)
+```
+
+
 
 ## Faker, CSV of 100k users
 
