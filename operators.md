@@ -1,923 +1,1084 @@
-# Operators 
+# Python Operators
 
-An operator is a special symbol that indicates a certain process is carried out.  
-Operators in programming languages are taken from mathematics.  
-Programs work with data; operators are used to process it. 
+An **operator** is a symbol or a keyword that performs an operation on values.  
+You already know many operators from mathematics: `+` adds two numbers, `*`  
+multiplies them. The values that an operator works with are called **operands**.  
+In the expression `3 + 4`, the operator is `+` and the operands are `3` and `4`.
 
-In Python, we have several types of operators:
+Most operators work with two operands; they are called **binary operators**. A  
+few operators work with a single operand; they are called **unary operators**.  
+For example, the minus sign in `-5` is a unary operator.
 
-- assignment operators
+This chapter covers these groups of operators:
+
 - arithmetic operators
-- relational (comparison) operators
-- boolean (logical) operators
-- object identity operators
+- assignment operators
+- comparison operators
+- logical operators
 - membership operators
+- identity operators
+- the conditional expression
 - bitwise operators
-- the conditional (ternary) operator
-  
-An operator may have one or two operands. An operand is one of the inputs (arguments)  
-of an operator. Those operators that work with only one operand are called *unary operators*.  
-Those that work with two operands are called *binary operators*.
 
-The + and - signs can be addition and subtraction operators as well as unary sign operators.  
-It depends on the situation.
-
-```
->>> 2
-2
->>> +2
-2
->>>
-```
-
-The plus sign can be used to indicate that we have a positive number. But it is mostly not used.  
-The minus sign changes the sign of a value.
-
-```
->>> a = 1
->>> -a
--1
->>> -(-a)
-1
-```
-
-Multiplication and addition operators are examples of binary operators. They are used with two operands. 
-
-```
->>> 3 * 3
-9
->>> 3 + 3
-6
-```
-
-## Assignment operator
-
-The assignment operator `=` assigns a value to a variable. In mathematics, the `=` operator has a different  
-meaning. In an equation, the `=` operator is an equality operator. The left side of the equation is equal  
-to the right one.
-
-```
->>> x = 1
->>> x
-1
-```
-
-Here we assign a number to an `x` variable.
-
-```
->>> x = x + 1
->>> x
-2
-```
-
-The previous expression does not make sense in mathematics. But it is legal in programming.  
-The expression means that we add 1 to the x variable. The right side is equal to 2 and 2 is assigned to x.
-
-```
->>> a = b = c = 4
->>> print(a, b, c)
-4 4 4
-```
-
-It is possible to assign a value to multiple variables.
-
-Since Python 3.8, we also have the assignment expression, called the walrus  
-operator `:=`. It assigns a value to a variable and at the same time returns  
-that value, so it can be used directly inside expressions.
-
-```
->>> if (n := len("falcon")) > 3:
-...     print(f"length is {n}")
-...
-length is 6
-```
-
-Here `:=` assigns 6 to `n` and the condition compares the assigned value with 3.
-
-```
->>> 3 = y
-  File "<stdin>", line 1
-    3 = y
-    ^
-SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
-```
-
-This code example results in a syntax error. We cannot assign a value to a literal.
+At the end, you will learn in which order Python evaluates operators in a longer  
+expression, and see a complete example that combines several kinds of operators.
 
 ## Arithmetic operators
 
-The following is a table of arithmetic operators:
+Arithmetic operators do calculations with numbers:
 
+| Operator | Name | Example | Result |
+| --- | --- | --- | --- |
+| `+` | Addition | `7 + 2` | `9` |
+| `-` | Subtraction | `7 - 2` | `5` |
+| `*` | Multiplication | `7 * 2` | `14` |
+| `/` | Division | `7 / 2` | `3.5` |
+| `//` | Floor division | `7 // 2` | `3` |
+| `%` | Remainder (modulo) | `7 % 2` | `1` |
+| `**` | Power | `7 ** 2` | `49` |
 
-|Symbol|	Name|
-| --- | --- |
-|+ |	Addition |
-|- |	Subtraction |
-|* |	Multiplication |
-|/ |	Division |
-|// |	Floor division |
-|% |	Modulo |
-|** |	Power |
-|@ |	Matrix multiplication |
- 	 
-The following example shows arithmetic operations.
+The first five work as in mathematics:
 
 ```python
-# arithmetic.py
+price = 12
+quantity = 3
 
-a = 10
-b = 11
-c = 12
-
-add = a + b + c
-sub = c - a
-mult = a * b
-div = c / 3
-
-power = a ** 2
-
-print(add, sub, mult, div)
-print(power)
+print(price + 5)
+print(price - 5)
+print(price * quantity)
+print(price / quantity)
+print(price ** 2)
 ```
 
-All these are known operators from mathematics.
-
+```text
+$ python arithmetic.py
+17
+7
+36
+4.0
+144
 ```
-$ ./arithmetic.py
-33 2 110 4.0
-100
-```
 
-The `@` operator is the matrix multiplication operator. It was introduced in  
-Python 3.5 and is mainly used with matrices from the NumPy library: `m1 @ m2`  
-multiplies the matrices `m1` and `m2`.
+Notice the result of the division: `4.0`, not `4`. The `/` operator always  
+returns a floating-point number, even when the division is exact.
 
-There are three operators dealing with division.
+### Division
+
+Python has three operators related to division:
 
 ```python
-# division.py
-
-print(9 / 3)
 print(9 / 4)
 print(9 // 4)
 print(9 % 4)
 ```
 
-The example demonstrates the three division operators.
-
-```python
-print(9 / 4)
-```
-
-This results in 2.25. The `/` operator always returns a float.
-
-```python
-print(9 // 4)
-```
-
-The `//` operator is the floor division operator. It returns the largest integer  
-that is less than or equal to the exact result. 9 divided by 4 is 2.25, the  
-integer part is 2.
-
-```python
-print(9 % 4)
-```
-
-The `%` operator is called the modulo operator. It finds the remainder of division  
-of one number by another. 9 % 4 is 1, because 4 goes into 9 twice with a remainder  
-of 1.
-
-Note that the modulo operator always returns a result with the sign of the divisor.  
-This differs from some other languages, where the result takes the sign of  
-the dividend.
-
-```
->>> -7 % 3
-2
-```
-
-```
-$ ./division.py
-3.0
+```text
+$ python division.py
 2.25
 2
 1
 ```
 
-Note that `9 / 3` returns `3.0`; the `/` operator returns a float even when  
-the division is exact.
+- `/` is the ordinary division. `9 / 4` is `2.25`.
+- `//` is the **floor division**. It divides and then rounds the result down to  
+  a whole number. `9 // 4` is `2`.
+- `%` is the **remainder** operator, also called **modulo**. `9 % 4` is `1`,  
+  because 4 fits into 9 twice and 1 remains.
 
-The addition operator can be used to concatenate strings as well.
-
-```
->>> 'return' + 'of' + 'the' + 'king'
-'returnoftheking'
-```
-
-```
->>> 3 + ' apples'
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: unsupported operand type(s) for +: 'int' and 'str'
-```
-
-We cannot add integers and strings. This results in a TypeError.
-
-```
->>> str(3) + ' apples'
-'3 apples'
-```
-
-For the example to work, we must convert the number to a string using the `str` function.  
-On the other hand, the multiplication operator can be used with a string and a number.
-
-```
->>> 'dollar ' * 5
-'dollar dollar dollar dollar dollar '
-```
-
-## Boolean operators
-
-In Python, we have the `and`, `or`, and `not` boolean operators. With boolean operators  
-we perform logical operations. These are most often used with the `if` and `while` keywords.
+The `//` and `%` operators are useful together. For example, they convert  
+minutes to hours and minutes:
 
 ```python
-# andop.py
+minutes = 135
 
-print(True and True)
-print(True and False)
-print(False and True)
-print(False and False)
+hours = minutes // 60
+rest = minutes % 60
+
+print(f"{minutes} minutes is {hours} h {rest} min")
 ```
 
-This example shows the logical and operator. The logical and operator evaluates to `True` only if both  
-operands are `True`.
-
-```
-$ ./andop.py
-True
-False
-False
-False
+```text
+$ python minutes.py
+135 minutes is 2 h 15 min
 ```
 
-The logical or operator evaluates to `True` if either of the operands is `True`.
+The `%` operator also tells you whether a number is even: an even number divided  
+by 2 gives the remainder 0.
 
 ```python
-# orop.py
-
-print(True or True)
-print(True or False)
-print(False or True)
-print(False or False)
+print(10 % 2)
+print(7 % 2)
 ```
 
-If one of the sides of the operator is `True`, the outcome of the operation is `True`.
-
-```
-$ ./orop.py
-True
-True
-True
-False
-```
-
-The negation operator `not` makes `True` `False` and `False` `True`.
-
-```python
-# negation.py
-
-print(not False)
-print(not True)
-print(not (4 < 3))
-```
-
-The example shows the not operator in action.
-
-```
-$ ./negation.py
-True
-False
-True
-```
-
-The `and` and `or` operators are short circuit evaluated. Short circuit evaluation means that  
-the second argument is only evaluated if the first argument does not suffice  
-to determine the value of the expression: when the first argument of `and` evaluates  
-to false, the overall value must be false; and when the first argument of `or` evaluates  
-to true, the overall value must be true.
-
-The following example demonstrates the short circuit evaluation.
-
-```python
-# short_circuit.py
-
-x = 10
-y = 0
-
-if y != 0 and x / y < 100:
-    print("a small value")
-```
-
-The first part of the expression evaluates to `False`. The second part of the expression  
-is not evaluated. Otherwise, we would get a `ZeroDivisionError`.
-
-Note that `and` and `or` do not necessarily return `True` or `False`; they return one  
-of their operands. The `and` operator returns the first falsy operand, or the last  
-operand if all are truthy. The `or` operator returns the first truthy operand, or  
-the last operand if all are falsy. The `not` operator, on the other hand, always  
-returns a boolean value.
-
-```
->>> 1 and 2
-2
->>> 0 and 2
+```text
+$ python even.py
 0
->>> 0 or 'x'
-'x'
->>> not 5
-False
->>> not 0
-True
+1
 ```
 
+With negative numbers, remember that `//` always rounds down, toward negative  
+infinity, and the result of `%` has the same sign as the divisor:
 
-## Relational operators
-
-Relational operators are used to compare values. These operators always result in a boolean value.
-
-|Symbol|	Meaning|
-| --- | --- |
-|<	|strictly less than|
-|<=	|less than or equal to|
-|>	|greater than|
-|>=	|greater than or equal to|
-|==	|equal to|
-|!=	|not equal to|
-|is	|object identity|
-|is not	|negated object identity|
-
-The above table shows Python relational operators.
-
-```
->>> 3 < 4
-True
->>> 4 == 3
-False
->>> 4 >= 3
-True
+```python
+print(-7 // 3)
+print(-7 % 3)
 ```
 
-As we already mentioned, the relational operators return boolean values: `True` or `False`.  
-
-Notice that the relational operators are not limited to numbers. We can use them for other  
-objects as well. Although they might not always be meaningful.
-
-```
->>> "six" == "six"
-True
->>> 'a' < 'b'
-True
+```text
+$ python negative.py
+-3
+2
 ```
 
-We can compare string objects, too.
+The exact result of `-7 / 3` is about `-2.33`. Rounded down, it is `-3`, not  
+`-2`. Some other languages, such as C and Java, give different results here.
 
-```
->>> 'a' < 'b'
-```
-What exactly happens here? Computers do not know characters or strings.  
-For them, everything is just a number. Characters are special numbers stored  
-in specific tables, like ASCII.
+Dividing by zero is an error:
 
+```python
+total = 100
+people = 0
+
+print(total / people)
 ```
->>> 'a' > 6
+
+```text
+$ python zero.py
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: '>' not supported between instances of 'str' and 'int'
+  File "/home/user/project/zero.py", line 4, in <module>
+    print(total / people)
+          ~~~~~~^~~~~~~~
+ZeroDivisionError: division by zero
 ```
 
-It is not possible to use relational operators on different data types. This code leads to a TypeError.
+### Unary plus and minus
+
+The `-` sign before a single value is the unary minus. It changes the sign of  
+the value. The unary plus, `+`, leaves the value unchanged and is rarely used.
 
 ```python
-# compare.py
+temperature = 5
 
-print('a' < 'b')
-
-print("a is:", ord('a'))
-print("b is:", ord('b'))
+print(-temperature)
+print(-(-temperature))
+print(+temperature)
 ```
 
-Internally, the a and b characters are numbers. So when we compare two characters, we compare  
-their stored numbers. The built-in ord function returns the ASCII value of a single character.
-
-```
-$ ./compare.py
-True
-a is: 97
-b is: 98
-```
-
-In fact, we compare two numbers: 97 and 98.
-
-```
->>> "ab" > "aa"
-True
-```
-
-Say we have a string with more characters. If the first characters are equal, we compare the  
-next ones. In our case, the b character at the second position has a greater value than the  
-a character. That is why "ab" string is greater than "aa" string. Comparing strings in such  
-a way does not make much sense, of course. But it is technically possible.
-
-Relational operators can be chained. The expression `a < b < c` is equivalent  
-to `a < b and b < c`; the middle value `b` is evaluated only once.
-
-```
->>> x = 5
->>> 1 < x < 10
-True
->>> 1 < x < 3
-False
-```
-
-
-## Object identity operators
-
-The object identity operators, `is` and `is not`, check if its operands are the same object.
-
-```python
-# object_identity.py
-
-print(None == None)
-print(None is None)
-
-print(True is True)
-
-print([] == [])
-print([] is [])
-
-print("Python" is "Python")
-```
-
-The `==` operator tests for equality while the `is` operator tests for object  
-identity: whether we are talking about the same object. Note that more variables  
-may refer to the same object.
-
-```
-$ ./object_identity.py
-True
-True
-True
-True
-False
-True
-```
-
-The output might be surprising for you. In Python language, there is only one None and one `True`  
-object. That's why `True` is equal and also identical to `True`. There is only one truth out there,  
-anyway. The empty list `[]` is equal to another empty list `[]`. But they are not identical.  
-Python has put them into two different memory locations. They are two distinct objects.  
-Hence the `is` operator returns `False`.
-
-On the other hand, `"Python" is "Python"` returns `True`. This is because of optimization: if two string  
-literals are equal, they have been put to same memory location. Since a string is an immutable entity,  
-no harm can be done.
-
-Note that string interning is an implementation detail of CPython, not a guarantee  
-of the language. The same applies to small integers: in CPython, integers from -5  
-to 256 are cached.
-
-```
->>> a = 256
->>> b = 256
->>> a is b
-True
->>> a = 257
->>> b = 257
->>> a is b
-False
-```
-
-As a rule of thumb, use the `==` operator to compare values, and the `is` operator  
-only when you need to test object identity - for instance, to check for `None`.
-
-## Membership operators
-
-The membership operators, `in` and `not in`, test for membership in a sequence, such as strings, lists, or tuples.
-
-```python
-# membership.py
-
-items = ("coin", "book", "pencil", "spoon", "paper")
-
-if "coin" in items:
-    print("There is a coin in the tuple")
-else:
-    print("There is no coin in the tuple")
-
-if "bowl" not in items:
-    print("There is no bowl in the tuple")
-else:
-    print("There is a bowl in the tuple")
-```
-
-With the membership operators, we test if an item is present in a tuple.
-
-```python
-if "coin" in items:
-```
-
-With the `in` operator, we check if "coin" is present in the items tuple.
-
-```python
-if "bowl" not in items:
-```
-
-With the `not in` operator, we check if "bowl" is not present in the items tuple.
-
-```
-$ ./membership.py
-There is a coin in the tuple
-There is no bowl in the tuple
-```
-
-The membership operators work with any sequence type, such as strings, lists,  
-tuples, sets, and dictionaries. With dictionaries, the `in` operator checks  
-the presence of a key.
-
-```
->>> 'a' in 'cat'
-True
->>> 3 in [1, 2, 3]
-True
->>> 'name' in {'name': 'Peter', 'age': 34}
-True
->>> 'Peter' in {'name': 'Peter', 'age': 34}
-False
-```
-
-## Ternary operator
-
-The conditional operator, also called the ternary operator, is a concise way  
-to write a conditional expression.
-
-```
-exp1 if condition else exp2
-```
-
-If `condition` is true, `exp1` is evaluated and the result is returned. If the condition  
-is false, `exp2` is evaluated and its result is returned.
-
-```python
-# ternary.py
-
-age = 31
-
-adult = True if age >= 18 else False
-
-print(f"Adult: {adult}")
-```
-
-In many countries, adulthood is based on your age: you are an adult if you are  
-older than a certain age. This is a situation for the ternary operator.
-
-```python
-adult = True if age >= 18 else False
-```
-
-First the condition is evaluated. If the age is greater or equal to 18, `True` is returned.  
-If not, the value following the else keyword is returned. The returned value is then  
-assigned to the adult variable.
-
-```
-$ ./ternary.py
-Adult: True
-```
-A 31-year-old person is an adult.
-
-## Bitwise operators
-
-Decimal numbers are natural to humans. Binary numbers are native to computers. Binary, octal, decimal  
-or hexadecimal symbols are only notations of the same number. Bitwise operators work with bits  
-of a binary number. We have binary logical operators and shift operators. Bitwise operators are  
-seldom used in higher level languages like Python. 
-
-|Symbol|	Meaning|
-| --- | --- |
-|~  |	bitwise negation |
-|^  |	bitwise exclusive or |
-|&  |	bitwise and |
-|\|  |	bitwise or |
-|<< | 	left shift |
-|>> |	right shift |
-
-The bitwise negation operator changes each 1 to 0 and 0 to 1.
-
-```
->>> ~7
--8
->>> ~-8
-7
-```
-
-The operator inverts all bits of a number 7. One of the bits also determines whether  
-the number is negative. If we invert all the bits one more time, we get number 7 again.
-
-The bitwise and operator performs bit-by-bit comparison between two numbers. The result for  
-a bit position is 1 only if both corresponding bits in the operands are 1.
-
-```
-     00110
-  &  00011
-   = 00010
-```
-
-The first number is a binary notation of 6, the second is 3 and the final result is 2.
-
-```
->>> 6 & 3
-2
->>> 3 & 6
-2
-```
-
-The bitwise or operator performs bit-by-bit comparison between two numbers. The result for  
-a bit position is 1 if either of the corresponding bits in the operands is 1. 
-
-```
-     00110
-  |  00011
-   = 00111
-```
-The result is 00111 or decimal 7.
-
-```
->>> 6 | 3
-7
-```
-
-The bitwise exclusive or operator performs bit-by-bit comparison between two numbers.  
-The result for a bit position is 1 if one or the other (but not both) of the corresponding  
-bits in the operands is 1.
-
-```
-     00110
-  ^  00011
-   = 00101
-```
-
-The result is 00101 or decimal 5.
-
-```
->>> 6 ^ 3
+```text
+$ python unary.py
+-5
+5
 5
 ```
 
-As we mentioned, bitwise operators are seldom used in Python and other high level languages.  
-Yet there are some situations, where they are used. One example is a mask. A mask is a specific  
-bit pattern. It determines whether some property is set or not.
+### Operators with strings
 
-Let's have an example from GUI programming.
+Some arithmetic operators also work with strings. The `+` operator joins two  
+strings together, and the `*` operator repeats a string:
 
 ```python
-# bitwise_or.py
+first_name = "John"
+last_name = "Doe"
 
-import wx
-
-app = wx.App()
-
-style = (wx.MAXIMIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU
-         | wx.CAPTION | wx.CLOSE_BOX)
-
-window = wx.Frame(None, style=style)
-window.Show(True)
-
-app.MainLoop()
+print(first_name + " " + last_name)
+print("-" * 20)
+print("ha" * 3)
 ```
 
-This is a small example of a wxPython code. The `wx.MAXIMIZE_BOX`, `wx.RESIZE_BORDER`,  
-`wx.SYSTEM_MENU`, `wx.CAPTION`, and `wx.CLOSE_BOX` are constants. The bitwise or operator  
-adds all these constants to the mask. In our case, all these properties are set using the  
-bitwise or operator and applied to the `wx.Frame` widget.
-
-Finally, we also have bitwise shift operators. The bitwise shift operators shift bits to the right or left.
-
-- number << n : multiply number 2 to the nth power
-- number >> n : divide number by 2 to the nth power
-
-These operators are also called arithmetic shift.
-
-```
-     00110
-  >> 00001
-   = 00011
+```text
+$ python strings.py
+John Doe
+--------------------
+hahaha
 ```
 
-We shift each of the bits of number six to the right. It is equal to dividing the six by 2.  
-The result is 00011 or decimal 3.
+A common mistake is to add a number to a string:
 
-```
->>> 6 >> 1
-3
-     00110
-  << 00001
-   = 01100
+```python
+count = 3
+
+print(count + " apples")
 ```
 
-We shift each of the bits of number six to the left. It is equal to multiplying  
-the number six by 2. The result is 01100 or decimal 12.
-
+```text
+$ python apples.py
+Traceback (most recent call last):
+  File "/home/user/project/apples.py", line 3, in <module>
+    print(count + " apples")
+          ~~~~~~^~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
 ```
->>> 6 << 1
+
+Python does not convert the number to a string automatically. Convert it  
+yourself with the `str()` function, or use an f-string:
+
+```python
+count = 3
+
+print(str(count) + " apples")
+print(f"{count} apples")
+```
+
+```text
+$ python apples_fixed.py
+3 apples
+3 apples
+```
+
+### Matrix multiplication
+
+The last arithmetic operator, `@`, is used for matrix multiplication. The  
+built-in types do not support it; it is used with matrices from libraries such  
+as NumPy, as in `m1 @ m2`.
+
+## Assignment operators
+
+The **assignment operator** `=` stores a value in a variable:
+
+```python
+score = 10
+print(score)
+
+score = score + 5
+print(score)
+```
+
+```text
+$ python assignment.py
+10
+15
+```
+
+In mathematics, `score = score + 5` would be nonsense, because no number equals  
+itself plus 5. In Python, `=` does not mean "is equal to". It means: evaluate  
+the expression on the right and store the result in the variable on the left.  
+The right side is `10 + 5`, so `score` becomes `15`.
+
+The left side must be something that can hold a value, such as a variable name.  
+You cannot assign to a number:
+
+```python
+3 = score
+```
+
+```text
+$ python literal.py
+  File "/home/user/project/literal.py", line 1
+    3 = score
+    ^
+SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='?
+```
+
+You can assign one value to several variables at once:
+
+```python
+x = y = z = 0
+
+print(x, y, z)
+```
+
+```text
+$ python chained.py
+0 0 0
+```
+
+### Compound assignment
+
+Changing a variable based on its own value is so common that Python has shorter  
+operators for it. `score += 5` means the same as `score = score + 5`:
+
+```python
+score = 10
+
+score += 5
+print(score)
+
+score -= 3
+print(score)
+
+score *= 2
+print(score)
+
+score //= 5
+print(score)
+```
+
+```text
+$ python compound.py
+15
 12
+24
+4
 ```
 
-## Compound assignment operators
+Every binary arithmetic and bitwise operator has a compound form:
 
-The compound assignment operators consist of two operators. They are shorthand operators.
-
+```text
++=   -=   *=   /=   //=   %=   **=   @=   &=   |=   ^=   <<=   >>=
 ```
->>> i = 1
->>> i = i + 1
->>> i
-2
->>> i += 1
->>> i
+
+The expression on the right side is always evaluated first, as a whole:
+
+```python
+price = 10
+price *= 2 + 1
+
+print(price)
+```
+
+```text
+$ python compound_order.py
+30
+```
+
+The result is `30`, because the statement means `price = price * (2 + 1)`, not  
+`price = price * 2 + 1`.
+
+### The assignment expression
+
+Python 3.8 added the **assignment expression** `:=`, nicknamed the walrus  
+operator because `:=` looks like the eyes and tusks of a walrus. Unlike `=`, it  
+can be used inside a larger expression: it stores a value in a variable and also  
+returns that value.
+
+```python
+word = "falcon"
+
+if (n := len(word)) > 3:
+    print(f"The word has {n} letters")
+```
+
+```text
+$ python walrus.py
+The word has 6 letters
+```
+
+The `:=` operator stores the length of the word in `n`, and the comparison then  
+uses the same value. Without `:=`, you would compute the length on a separate  
+line first. Beginners do not need it often; ordinary assignment is usually  
+clearer.
+
+## Comparison operators
+
+Comparison operators compare two values. The result is always a boolean value:  
+`True` or `False`.
+
+| Operator | Meaning | Example | Result |
+| --- | --- | --- | --- |
+| `==` | equal to | `5 == 5` | `True` |
+| `!=` | not equal to | `5 != 5` | `False` |
+| `<` | less than | `3 < 5` | `True` |
+| `<=` | less than or equal to | `5 <= 5` | `True` |
+| `>` | greater than | `3 > 5` | `False` |
+| `>=` | greater than or equal to | `3 >= 5` | `False` |
+
+```python
+age = 17
+
+print(age >= 18)
+print(age < 18)
+print(age == 17)
+print(age != 17)
+```
+
+```text
+$ python comparison.py
+False
+True
+True
+False
+```
+
+Comparisons are most often used in conditions, for example in an `if` statement:
+
+```python
+age = 17
+
+if age >= 18:
+    print("You can vote")
+else:
+    print("You are too young to vote")
+```
+
+```text
+$ python comparison_if.py
+You are too young to vote
+```
+
+Do not confuse `=` with `==`. A single `=` assigns, a double `==` compares.  
+Using `=` in a condition is a syntax error:
+
+```python
+age = 17
+
+if age = 18:
+    print("Happy birthday!")
+```
+
+```text
+$ python equals_mistake.py
+  File "/home/user/project/equals_mistake.py", line 3
+    if age = 18:
+       ^^^^^^^^
+SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
+```
+
+### Comparing strings
+
+Strings can be compared, too. `==` checks whether two strings are the same, and  
+`<` and `>` compare them alphabetically:
+
+```python
+print("apple" == "apple")
+print("apple" < "banana")
+print("apple" < "Banana")
+```
+
+```text
+$ python compare_strings.py
+True
+True
+False
+```
+
+The last result may surprise you. Python compares strings character by  
+character, using the number that represents each character in Unicode, its  
+**code point**. The built-in `ord()` function returns this number:
+
+```python
+print(ord("a"))
+print(ord("b"))
+print(ord("B"))
+```
+
+```text
+$ python code_points.py
+97
+98
+66
+```
+
+All uppercase letters have smaller code points than lowercase letters, so  
+`"Banana"` comes before `"apple"`. To compare strings regardless of case,  
+convert both to lowercase first, for example with `"apple".lower() <  
+"Banana".lower()`.
+
+Comparing values of unrelated types, such as a string and a number, with `<` or  
+`>` is an error:
+
+```python
+print("10" > 5)
+```
+
+```text
+$ python compare_types.py
+Traceback (most recent call last):
+  File "/home/user/project/compare_types.py", line 1, in <module>
+    print("10" > 5)
+          ^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'int'
+```
+
+The `==` operator does not raise an error in this case; it simply returns  
+`False`, because a string is never equal to a number.
+
+### Comparing floating-point numbers
+
+Floating-point numbers are stored with limited precision, so a result of a  
+calculation may differ slightly from what you expect:
+
+```python
+import math
+
+print(0.1 + 0.2)
+print(0.1 + 0.2 == 0.3)
+print(math.isclose(0.1 + 0.2, 0.3))
+```
+
+```text
+$ python floats.py
+0.30000000000000004
+False
+True
+```
+
+Do not compare floating-point results with `==`. Use `math.isclose()`, which  
+checks whether two numbers are close enough.
+
+### Chained comparisons
+
+Comparisons can be chained. The expression `1 <= x <= 10` means `1 <= x and x <=  
+10`, just like in mathematics:
+
+```python
+grade = 7
+
+print(1 <= grade <= 10)
+print(1 <= grade <= 5)
+```
+
+```text
+$ python chained_comparison.py
+True
+False
+```
+
+## Logical operators
+
+The logical operators `and`, `or`, and `not` combine boolean values. They are  
+used to build more complex conditions.
+
+```python
+age = 25
+has_ticket = True
+is_member = False
+
+print(age >= 18 and has_ticket)
+print(has_ticket or is_member)
+print(not is_member)
+```
+
+```text
+$ python logical.py
+True
+True
+True
+```
+
+- `and` gives `True` only if both operands are true.
+- `or` gives `True` if at least one operand is true.
+- `not` reverses the value: `True` becomes `False` and `False` becomes `True`.
+
+The following table shows all combinations:
+
+| `a` | `b` | `a and b` | `a or b` | `not a` |
+| --- | --- | --- | --- | --- |
+| `True` | `True` | `True` | `True` | `False` |
+| `True` | `False` | `False` | `True` | `False` |
+| `False` | `True` | `False` | `True` | `True` |
+| `False` | `False` | `False` | `False` | `True` |
+
+### Short-circuit evaluation
+
+Python evaluates `and` and `or` from left to right and stops as soon as the  
+result is known. If the left operand of `and` is false, the whole expression  
+must be false, so the right operand is not evaluated at all. Similarly, if the  
+left operand of `or` is true, the right operand is skipped. This is called  
+**short-circuit evaluation**.
+
+It lets you protect an operation that could fail:
+
+```python
+total = 100
+people = 0
+
+if people != 0 and total / people > 20:
+    print("More than 20 per person")
+else:
+    print("Nothing to share")
+```
+
+```text
+$ python short_circuit.py
+Nothing to share
+```
+
+Because `people != 0` is `False`, Python never evaluates `total / people`, so  
+there is no `ZeroDivisionError`.
+
+### Truthy and falsy values
+
+The logical operators work with any values, not only with `True` and `False`.  
+The values `False`, `None`, zero (`0`, `0.0`), and empty collections (`""`,  
+`[]`, `{}`, ...) count as false; they are called **falsy**. All other values  
+count as true; they are **truthy**.
+
+`and` and `or` do not always return `True` or `False`. They return one of their  
+operands: `or` returns the first truthy operand (or the last one, if none is  
+truthy), and `and` returns the first falsy operand (or the last one, if all are  
+truthy). `not` always returns `True` or `False`.
+
+```python
+print(0 or "default")
+print(5 or "default")
+print(0 and 5)
+print(3 and 5)
+print(not "")
+```
+
+```text
+$ python operands.py
+default
+5
+0
+5
+True
+```
+
+This is often used to provide a default value:
+
+```python
+name = ""
+
+print(f"Hello, {name or 'guest'}!")
+```
+
+```text
+$ python default_value.py
+Hello, guest!
+```
+
+## Membership operators
+
+The membership operators `in` and `not in` check whether a value is contained in  
+a collection:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+
+print("banana" in fruits)
+print("mango" in fruits)
+print("mango" not in fruits)
+```
+
+```text
+$ python membership.py
+True
+False
+True
+```
+
+They work with strings, lists, tuples, sets, dictionaries, and other  
+collections. With a string, `in` looks for a substring. With a dictionary, `in`  
+checks the keys, not the values:
+
+```python
+user = {"name": "Peter", "age": 34}
+
+print("cat" in "concatenate")
+print("name" in user)
+print("Peter" in user)
+print(3 in (1, 2, 3))
+```
+
+```text
+$ python membership_types.py
+True
+True
+False
+True
+```
+
+The membership operators are often used in conditions:
+
+```python
+allowed = ("admin", "editor")
+role = "viewer"
+
+if role not in allowed:
+    print(f"Access denied for {role}")
+```
+
+```text
+$ python membership_if.py
+Access denied for viewer
+```
+
+## Identity operators
+
+The identity operators `is` and `is not` check whether two names refer to the  
+**same object** in memory. This is different from `==`, which checks whether two  
+objects have the **same value**:
+
+```python
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+print(a == b)
+print(a is b)
+print(a is c)
+```
+
+```text
+$ python identity.py
+True
+False
+True
+```
+
+The lists `a` and `b` have the same contents, so `a == b` is `True`. But they  
+are two separate lists, so `a is b` is `False`. The variable `c` refers to the  
+same list as `a`, so `a is c` is `True`.
+
+The most common use of `is` is to check for `None`. There is only one `None`  
+object, and PEP 8 recommends comparing with it using `is` or `is not`:
+
+```python
+result = None
+
+if result is None:
+    print("No result yet")
+```
+
+```text
+$ python is_none.py
+No result yet
+```
+
+Do not use `is` to compare numbers or strings. Whether two equal numbers or  
+strings are the same object depends on the Python implementation, so the result  
+is not reliable. Python warns you about it:
+
+```python
+count = 5
+
+print(count is 5)
+```
+
+```text
+$ python is_number.py
+/home/user/project/is_number.py:3: SyntaxWarning: "is" with 'int' literal. Did you mean "=="?
+  print(count is 5)
+True
+```
+
+The program still runs, but the `SyntaxWarning` tells you that you probably  
+meant `==`.
+
+## The conditional expression
+
+The **conditional expression**, sometimes called the ternary operator, chooses  
+one of two values based on a condition:
+
+```text
+value_if_true if condition else value_if_false
+```
+
+Python evaluates the condition first. If it is true, the result is the value  
+before `if`; otherwise, the result is the value after `else`.
+
+```python
+age = 15
+
+status = "adult" if age >= 18 else "minor"
+
+print(f"Status: {status}")
+```
+
+```text
+$ python conditional.py
+Status: minor
+```
+
+The same code with an `if` statement takes four lines:
+
+```python
+if age >= 18:
+    status = "adult"
+else:
+    status = "minor"
+```
+
+The conditional expression is good for short, simple choices. When the condition  
+or the values get long, the `if` statement is easier to read.
+
+A common beginner pattern is `True if condition else False`. It is unnecessary,  
+because the condition itself is already `True` or `False`: write `is_adult = age  
+>= 18` instead.
+
+## Bitwise operators
+
+Computers store integers as binary numbers, made of bits with the values 0 and  
+1. Bitwise operators work with the individual bits of integers. You will not  
+need them often, but you will meet them in low-level code, in network  
+programming, and when working with flags.
+
+| Operator | Name | Example | Result |
+| --- | --- | --- | --- |
+| `&` | bitwise and | `6 & 3` | `2` |
+| `\|` | bitwise or | `6 \| 3` | `7` |
+| `^` | bitwise exclusive or | `6 ^ 3` | `5` |
+| `~` | bitwise negation | `~6` | `-7` |
+| `<<` | left shift | `6 << 1` | `12` |
+| `>>` | right shift | `6 >> 1` | `3` |
+
+The built-in `bin()` function shows the binary form of an integer, which helps  
+to understand what the operators do. The `0b` prefix marks a binary number:
+
+```python
+a = 6    # 110 in binary
+b = 3    # 011 in binary
+
+print(bin(a & b))
+print(bin(a | b))
+print(bin(a ^ b))
+```
+
+```text
+$ python bitwise.py
+0b10
+0b111
+0b101
+```
+
+The operators compare the numbers bit by bit:
+
+```text
+    110         110         110
+  & 011       | 011       ^ 011
+  = 010       = 111       = 101
+```
+
+- `&` sets a bit to 1 only if the bit is 1 in both numbers.
+- `|` sets a bit to 1 if the bit is 1 in at least one of the numbers.
+- `^` sets a bit to 1 if the bit is 1 in exactly one of the numbers.
+
+The shift operators move all bits to the left or to the right. Shifting left by  
+`n` bits multiplies the number by 2<sup>n</sup>; shifting right by `n` bits  
+divides it by 2<sup>n</sup> and rounds down:
+
+```python
+print(6 << 1)
+print(6 << 3)
+print(6 >> 1)
+print(bin(6), bin(6 << 1), bin(6 >> 1))
+```
+
+```text
+$ python shift.py
+12
+48
 3
+0b110 0b1100 0b11
 ```
 
-The `+=` compound operator is one of these shorthand operators.
+The `~` operator inverts all bits. Because of the way Python represents negative  
+integers, `~x` always equals `-x - 1`, so `~6` is `-7`.
 
-Other compound operators are:
+### Flags
 
+A practical use of bitwise operators is storing several yes-or-no settings,  
+called **flags**, in a single number. Each flag uses one bit. File permissions  
+on Linux work this way: reading is `4` (binary `100`), writing is `2` (`010`),  
+and executing is `1` (`001`).
+
+```python
+READ = 4
+WRITE = 2
+EXECUTE = 1
+
+permissions = READ | WRITE
+
+print(permissions)
+print(bool(permissions & READ))
+print(bool(permissions & EXECUTE))
+
+permissions |= EXECUTE
+print(permissions)
 ```
--=   *=   /=   //=   %=   **=   @=   &=   |=   ^=   >>=   <<=
+
+```text
+$ python flags.py
+6
+True
+False
+7
 ```
+
+The `|` operator combines flags, and the `&` operator tests whether a flag is  
+set. The value `7` means that all three permissions are set; this is the `7`  
+that you see in commands such as `chmod 755`.
 
 ## Operator precedence
 
-The operator precedence tells us which operators are evaluated first. The precedence  
-level is necessary to avoid ambiguity in expressions.
-
-What is the outcome of the following expression, 28 or 40?
-
-```
-3 + 5 * 5
-```
-
-Like in mathematics, the multiplication operator has a higher precedence than the addition  
-operator. So the outcome is 28.
-
-```
-(3 + 5) * 5
-```
-
-To change the order of evaluation, we can use parentheses. Expressions inside parentheses  
-are always evaluated first.
-
-The following list shows operator precedence in Python.
-
-```
-( )                                     grouping, indexing, attribute access, calls
-**                                      exponentiation
-+x  -x  ~x                              unary positive, negative, bitwise NOT
-*  /  //  %  @                          multiplication, division, floor division, modulo
-+  -                                    addition, subtraction
-<<  >>                                  bitwise shifts
-&                                       bitwise and
-^                                       bitwise xor
-|                                       bitwise or
-<  <=  >  >=  ==  !=  in  not in  is  is not
-                                        comparisons, membership, identity tests
-not                                     boolean not
-and                                     boolean and
-or                                      boolean or
-if-else                                 conditional expression
-:=                                      assignment expression
-```
-
-The operators on the same row have the same level of precedence. The precedence grows  
-from bottom to top. The comparisons, membership and identity tests are all at the  
-same level of precedence.
-
-There is one subtlety: the exponentiation operator binds more tightly than the  
-unary operators on its left. Therefore `-2 ** 2` is evaluated as `-(2 ** 2)`,  
-so the result is -4.
-
-```
->>> -2 ** 2
--4
-```
+When an expression contains several operators, Python must decide which one to  
+evaluate first. Is `3 + 5 * 5` equal to 28 or 40? As in mathematics,  
+multiplication goes before addition, so the result is 28. The rules that decide  
+the order are called **operator precedence**. Parentheses change the order,  
+because the expression inside them is evaluated first:
 
 ```python
-# precedence.py
-
 print(3 + 5 * 5)
 print((3 + 5) * 5)
-
 print(2 ** 3 * 5)
+```
+
+```text
+$ python precedence.py
+28
+40
+40
+```
+
+The following table lists the operators from the highest precedence (evaluated  
+first) to the lowest. Operators in the same row have the same precedence.
+
+| Operators | Description |
+| --- | --- |
+| `(...)` | Parentheses |
+| `x[i]`, `x(...)`, `x.attr` | Indexing, calls, attribute access |
+| `**` | Power |
+| `+x`, `-x`, `~x` | Unary plus, minus, bitwise negation |
+| `*`, `@`, `/`, `//`, `%` | Multiplication, division, remainder |
+| `+`, `-` | Addition, subtraction |
+| `<<`, `>>` | Shifts |
+| `&` | Bitwise and |
+| `^` | Bitwise exclusive or |
+| `\|` | Bitwise or |
+| `==`, `!=`, `<`, `<=`, `>`, `>=`, `in`, `not in`, `is`, `is not` | Comparisons, membership, identity |
+| `not` | Logical not |
+| `and` | Logical and |
+| `or` | Logical or |
+| `... if ... else ...` | Conditional expression |
+| `:=` | Assignment expression |
+
+A few consequences of this table:
+
+- Comparisons are evaluated before the logical operators, so `age >= 18 and  
+  has_ticket` needs no parentheses.
+- `not` is evaluated before `and`, which is evaluated before `or`.
+- The power operator `**` binds more tightly than the unary minus on its left,  
+  so `-2 ** 2` means `-(2 ** 2)`.
+
+```python
+print(-2 ** 2)
+print((-2) ** 2)
 print(not True or True)
 print(not (True or True))
 ```
 
-In this code example, we show some common expressions. The outcome of each expression is  
-dependent on the precedence level.
-
-```python
-print(2 ** 3 * 5)
-```
-
-The power operator has higher precedence than the multiplication operator. First, the `2 ** 3` is  
-evaluated, which returns 8. Then the outcome is multiplied by 5 and the result is 40.
-
-```python
-print(not True or True)
-```
-
-In this case, the `not` operator has a higher precedence. First, the first `True` value is negated  
-to `False`, then the `or` operator combines False and True, which gives `True` in the end.
-
-```
-$ ./precedence.py
-28
-40
-40
+```text
+$ python precedence_logic.py
+-4
+4
 True
 False
 ```
 
-The relational operators have a higher precedence than logical operators.
+The precedence of `and` and `or` matters in real programs. Suppose that students  
+and seniors get a discount, but only if they show a discount card:
 
 ```python
-# positive.py
+is_student = True
+is_senior = False
+has_card = False
 
-a = 1
-b = 2
+wrong = is_student or is_senior and has_card
+right = (is_student or is_senior) and has_card
 
-if a > 0 and b > 0:
-    print("a and b are positive integers")
+print(wrong)
+print(right)
 ```
 
-The `and` operator combines the two relational expressions. In Python, the relational  
-operators are evaluated before the logical ones, so the parentheses are not strictly  
-needed; they only make the expression more readable.
-
-Note that the boolean operators work with any values, not only with `True` and `False`.  
-Any value that is not considered false (`False`, `0`, empty collections, `None`, ...)  
-is treated as true. There is no syntax error involved; the operators simply return  
-one of the operands.
-
-```
-$ ./positive.py
-a and b are positive integers
+```text
+$ python discount.py
+True
+False
 ```
 
-## Associativity
+The student has no card, so there should be no discount. Because `and` has a  
+higher precedence than `or`, Python reads the first expression as `is_student or  
+(is_senior and has_card)`, and the result is wrong. The parentheses in the  
+second expression fix it. When an expression mixes `and` and `or`, use  
+parentheses to make your intention clear.
 
-Sometimes the precedence is not satisfactory to determine the outcome of an expression. There is  
-another rule called *associativity*. The associativity of operators determines the order of evaluation  
-of operators with the same precedence level.
+### Associativity
 
+When operators have the same precedence, **associativity** decides the order.  
+Most operators are evaluated from left to right:
+
+```python
+print(100 - 10 - 5)
+print(9 / 3 * 3)
+print(2 ** 3 ** 2)
 ```
-9 / 3 * 3
-```
 
-What is the outcome of this expression, 9 or 1? The multiplication, division, and the modulo operators  
-are left to right associated. So the expression is evaluated this way: `(9 / 3) * 3` and the result is 9.  
-
-Arithmetic, boolean, relational and bitwise operators are all left to right associated.  
-The exception is the exponentiation operator `**`, which is right to left associated.
-
-```
->>> 2 ** 3 ** 2
+```text
+$ python associativity.py
+85
+9.0
 512
 ```
 
-The expression is evaluated as `2 ** (3 ** 2)`, i.e. 2 to the 9th power, which is 512.
+`100 - 10 - 5` means `(100 - 10) - 5`, which is 85, and `9 / 3 * 3` means `(9 /  
+3) * 3`, which is 9.0. The power operator is the exception: it is evaluated from  
+right to left, so `2 ** 3 ** 2` means `2 ** (3 ** 2)`, which is 2<sup>9</sup> =  
+512.
 
-On the other hand, the assignment operator is right associated.
+Comparisons are a special case: as you saw in the section on chained  
+comparisons, `a < b < c` means `a < b and b < c`, not `(a < b) < c`.
 
+## A complete example
+
+The following program calculates the total price of a shopping cart. It uses  
+arithmetic, compound assignment, membership, comparison, and logical operators,  
+and the conditional expression.
+
+```python
+cart = [
+    ("apples", 0.45, 6),
+    ("bread", 1.99, 1),
+    ("cheese", 4.50, 2),
+    ("milk", 1.15, 2),
+]
+discounted = ("bread", "cheese")
+is_member = False
+
+total = 0
+
+for name, price, quantity in cart:
+    cost = price * quantity
+    if name in discounted:
+        cost *= 0.9
+    total += cost
+    print(f"{name:<8}{quantity:>3} x {price:>5.2f} = {cost:>6.2f}")
+
+free_delivery = total >= 15 or is_member
+delivery = 0 if free_delivery else 2.50
+total += delivery
+
+print(f"Delivery: {delivery:.2f}")
+print(f"Total: {total:.2f}")
 ```
->>> a = b = c = d = 0
->>> a, b, c, d
-(0, 0, 0, 0)
+
+```text
+$ python checkout.py
+apples    6 x  0.45 =   2.70
+bread     1 x  1.99 =   1.79
+cheese    2 x  4.50 =   8.10
+milk      2 x  1.15 =   2.30
+Delivery: 2.50
+Total: 17.39
 ```
 
-If the association was left to right, the previous expression would not be possible.  
-The compound assignment operators are right to left associated.
+- `price * quantity` computes the cost of one line of the cart.
+- `name in discounted` checks whether the product has a 10% discount, and `cost  
+  *= 0.9` applies it.
+- `total += cost` adds the cost to the running total.
+- `total >= 15 or is_member` decides whether delivery is free: either the order  
+  is large enough, or the customer is a member.
+- The conditional expression chooses the delivery price.
 
-```
->>> j = 0
->>> j *= 3 + 1
->>> j
-0
-```
+## Summary
 
-The expression on the right is evaluated first: `3 + 1` is 4. Then the compound assignment  
-operator is applied: `j = j * 4`, which is `0 * 4`, i.e. 0. The expression does not  
-magically change the initial value of `j`.
+| Group | Operators |
+| --- | --- |
+| Arithmetic | `+` `-` `*` `/` `//` `%` `**` `@` |
+| Unary | `+x` `-x` `~x` |
+| Assignment | `=` `+=` `-=` `*=` `/=` ... `:=` |
+| Comparison | `==` `!=` `<` `<=` `>` `>=` |
+| Logical | `and` `or` `not` |
+| Membership | `in` `not in` |
+| Identity | `is` `is not` |
+| Conditional expression | `x if condition else y` |
+| Bitwise | `&` `\|` `^` `~` `<<` `>>` |
 
-In this chapter we have covered the operators of the Python language: assignment,  
-arithmetic, relational, boolean, identity and membership operators, the conditional  
-expression, compound assignment operators, and the rules of precedence and associativity.
+## References
 
+- [Python Language Reference: Expressions](https://docs.python.org/3/reference/expressions.html)
+- [Operator precedence](https://docs.python.org/3/reference/expressions.html#operator-precedence)
+- [Python Tutorial: Numbers](https://docs.python.org/3/tutorial/introduction.html#numbers)
+- [Truth Value Testing](https://docs.python.org/3/library/stdtypes.html#truth-value-testing)
+- [Floating-Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html)
+- [PEP 572: Assignment Expressions](https://peps.python.org/pep-0572/)
