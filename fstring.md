@@ -1,601 +1,603 @@
-# Lexical Structure of Python
+# Python f-strings
 
-The lexical structure of a language describes how source code is split into its  
-smallest meaningful units, called **tokens**. Before Python can run a program,  
-the tokenizer reads the source text and turns it into a stream of tokens. The  
-parser then uses these tokens to build the structure of the program.
+An **f-string** (formatted string literal) is a string that can contain values  
+of variables and expressions. You write it with the `f` prefix before the  
+opening quote and put the expressions inside curly braces `{}`. When the line  
+runs, Python evaluates each expression and inserts its value into the text.
 
-Python recognizes these main lexical elements:
+f-strings were introduced in Python 3.6. They are the most readable and usually  
+the fastest way to build text from values, and they are the recommended choice  
+for new code.
 
-- **Identifiers**: names of variables, functions, classes, and modules
-- **Keywords**: reserved words with a special meaning
-- **Literals**: values written directly in source code
-- **Operators**: symbols and words that combine, compare, or transform values
-- **Delimiters**: punctuation that groups or separates parts of the code
-- **Comments**: text for human readers that the tokenizer discards
-- **Line structure and indentation**: line breaks and leading whitespace that  
-  define statements and blocks
+## Three ways to format strings
 
-Variables are not a separate token category. A variable is a name (an  
-identifier) bound to an object. Assignment is the operation that creates or  
-changes that binding.
-
-At the end of this chapter, you will use the `tokenize` module to see the  
-tokens of a complete program.
-
-## Comments
-
-A **comment** is source text intended for human readers. Python ignores  
-everything from `#` to the end of the physical line, unless the `#` appears  
-inside a string literal.
+Python offers three ways to insert values into a string. All three lines in the  
+following example print the same text:
 
 ```python
-# A comment on its own line
-print("Hello")  # A comment after a statement
-print("# This is not a comment, it is part of the string")
+name = "Peter"
+age = 23
+
+print("%s is %d years old" % (name, age))
+print("{} is {} years old".format(name, age))
+print(f"{name} is {age} years old")
 ```
-
-Python has no dedicated multi-line comment syntax. For a longer comment, use  
-several lines that each start with `#`:
-
-```python
-# Calculate the area of a circle.
-# math.pi is used instead of a hard-coded approximation
-# so that the result is as precise as a float allows.
-import math
-
-def calculate_area(radius):
-    return math.pi * radius ** 2
-```
-
-### Comments and docstrings
-
-Triple-quoted text is a **string literal**, not a comment. When a string literal  
-is the first statement in a module, class, or function, it becomes that object's  
-**docstring** and is available through the `__doc__` attribute and the `help()`  
-function.
-
-```python
-import math
-
-def calculate_area(radius):
-    """Return the area of a circle with the given radius."""
-    return math.pi * radius ** 2
-
-print(calculate_area.__doc__)  # Return the area of a circle ...
-```
-
-Use comments to explain intent or a non-obvious decision, not to repeat what the  
-code already says. Use docstrings to document public modules, classes, and  
-functions. Keep both up to date when the code changes; an outdated comment is  
-worse than none.
-
-## Identifiers
-
-An **identifier** is a name that refers to a variable, function, class, module,  
-or other program element.
-
-### Naming rules
-
-- An identifier may contain letters, decimal digits, and underscores.
-- It cannot start with a digit.
-- It cannot be a hard keyword such as `class` or `for`.
-- Identifiers are case-sensitive: `name`, `Name`, and `NAME` are three different  
-  names.
-
-Python accepts non-ASCII letters in identifiers, so `výška` is a valid name,  
-while `cena€` is not, because `€` is not a letter. In practice, ASCII letters  
-are the most portable and readable choice.
-
-```python
-value = 10
-value2 = 20
-company_name = "Acme"
-_internal_name = "implementation detail"
-MAX_CONNECTIONS = 100
-výška = 182          # Valid, but ASCII names are preferred
-
-12value = 10         # SyntaxError: cannot start with a digit
-first-name = "A"     # SyntaxError: parsed as first - name
-class = "Math"       # SyntaxError: class is a keyword
-```
-
-Case sensitivity is easy to demonstrate:
-
-```python
-number = 10
-Number = 11
-NUMBER = 12
-
-print(number, Number, NUMBER)  # 10 11 12
-```
-
-This is legal, but names that differ only in capitalization are confusing. Avoid  
-them in real code.
-
-### Naming conventions
-
-PEP 8, the official style guide, recommends these conventions:
-
-| Kind of name | Convention | Example |
-| --- | --- | --- |
-| Variables and functions | `snake_case` | `user_age`, `load_data` |
-| Constants | `UPPER_SNAKE_CASE` | `MAX_CONNECTIONS` |
-| Classes | `CapWords` | `UserProfile` |
-| Internal (non-public) names | leading underscore | `_cache` |
-| Special (dunder) names | double underscores on both sides | `__init__`, `__name__` |
-
-Names with double underscores on both sides are reserved for Python itself. Use  
-the existing ones, such as `__init__`, but do not invent new ones.
-
-### Names and objects
-
-A Python variable does not contain a value directly. It is a name that refers to  
-an object, and assignment binds the name to that object:
-
-```python
-value = 10           # value refers to an int object
-value = "Hello"      # The same name now refers to a str object
-value = [1, 2, 3]    # ... and now to a list object
-```
-
-The type belongs to the object, not to the name. A name can refer to objects of  
-different types over time, which is why Python is described as **dynamically  
-typed**.
-
-## Keywords
-
-**Keywords** are reserved words with a predefined meaning. Hard keywords cannot  
-be used as names of variables, functions, classes, or anything else.
-
-In current Python versions, the hard keywords are:
 
 ```text
-False     None      True      and       as        assert
-async     await     break     class     continue  def
-del       elif      else      except    finally   for
-from      global    if        import    in        is
-lambda    nonlocal  not       or        pass      raise
-return    try       while     with      yield
+$ python formatting.py
+Peter is 23 years old
+Peter is 23 years old
+Peter is 23 years old
 ```
 
-Python also has **soft keywords**. They have a special meaning only in specific  
-contexts and remain ordinary identifiers everywhere else:
+- The `%` operator is the oldest method, inspired by the `printf()` function in  
+  C. Placeholders such as `%s` (string) and `%d` (integer) are replaced by the  
+  values in the tuple.
+- The `str.format()` method was added in Python 3.0 and 2.6. It uses the same  
+  format specifiers as f-strings, but the values are passed as arguments, away  
+  from the place where they appear.
+- f-strings, added in Python 3.6, put the expressions directly in the text,  
+  which makes the code shorter and easier to read.
 
-- `match`, `case`, and `_` in structural pattern matching (Python 3.10+)
-- `type` in type alias statements (Python 3.12+)
-- `lazy` in lazy import statements (Python 3.15+)
+`str.format()` is still useful when the template is not known in advance, for  
+example, when it is loaded from a file or a translation. An f-string is  
+evaluated immediately where it is written, so it cannot serve as a reusable  
+template.
+
+You will meet the two older methods in existing code, so you should be able to  
+read them. In new code, prefer f-strings. The rest of this chapter covers them  
+in detail.
+
+## The first f-string
 
 ```python
-match = "a valid variable name"  # Legal, but not recommended
+name = "John Doe"
+age = 34
 
-type Point = tuple[float, float]  # Here, type is a soft keyword
+print(f"{name} is {age} years old")
 ```
 
-The exact keyword lists depend on the Python version. Use the `keyword` module  
-to inspect the interpreter you are running:
-
-```python
-import keyword
-
-print(keyword.kwlist)                 # Hard keywords
-print(keyword.softkwlist)             # Soft keywords
-print(keyword.iskeyword("class"))     # True
-print(keyword.iskeyword("my_var"))    # False
-print(keyword.issoftkeyword("type"))  # True in Python 3.12+
+```text
+$ python first.py
+John Doe is 34 years old
 ```
 
-The programmatic approach is preferable when writing tools, such as code  
-generators or linters, because the lists change between releases.
+The `{name}` and `{age}` placeholders are replaced with the values of the  
+variables. The number `34` is converted to text automatically, so you do not  
+need to call `str()`.
 
-## Literals
-
-A **literal** is notation that represents a fixed value directly in source code.
-
-| Type | Examples |
-| --- | --- |
-| Integer | `42`, `1_000_000`, `0b1010`, `0o755`, `0xFF` |
-| Floating point | `3.14`, `.5`, `1e-3`, `2.5E6` |
-| Imaginary | `3j`, `1.5j` |
-| String | `"Hello"`, `'World'`, `"""Multiline"""`, `r"C:\temp"`, `f"{x}"` |
-| Bytes | `b"data"`, `b'\x00\xff'` |
-
-A few details are worth knowing:
-
-- Underscores can group digits for readability: `1_000_000` equals `1000000`.
-- A leading minus sign is not part of a numeric literal. `-5` is the unary  
-  operator `-` applied to the literal `5`.
-- Adjacent string literals are joined at compile time: `"Hello, " "World"` is  
-  the same as `"Hello, World"`.
-- f-strings (`f"..."`) look like literals, but they contain expressions that are  
-  evaluated at run time.
-
-Some values that look like literals are tokenized differently:
-
-- `True`, `False`, and `None` are keywords. They behave like constant values and  
-  cannot be reassigned.
-- `[1, 2, 3]`, `{"a": 1}`, and `{1, 2, 3}` are **displays**, not literals. They  
-  are expressions that build a new list, dictionary, or set each time they run.
-- A tuple is created by commas, not by parentheses: `1, 2, 3` is already a  
-  tuple. Parentheses only group it, and `()` creates an empty tuple.
+Without the `f` prefix, the braces are ordinary characters:
 
 ```python
-age = 29
-nationality = "Slovak"
+name = "John Doe"
+
+print("Hello, {name}")
+print(f"Hello, {name}")
+```
+
+```text
+$ python no_prefix.py
+Hello, {name}
+Hello, John Doe
+```
+
+Forgetting the `f` is one of the most common beginner mistakes. Python does not  
+report an error; it simply prints the braces.
+
+## Expressions
+
+The braces can contain any expression, not only a variable name. For example,  
+you can do a calculation:
+
+```python
+bags = 3
+apples_in_bag = 12
+
+print(f"There are {bags * apples_in_bag} apples in total")
+```
+
+```text
+$ python expressions.py
+There are 36 apples in total
+```
+
+## Calling functions and methods
+
+An expression inside the braces can also call a function or a method:
+
+```python
+name = "john doe"
+numbers = [4, 9, 2, 7]
+
+print(f"Name: {name.title()}")
+print(f"Largest number: {max(numbers)}")
+print(f"Number of items: {len(numbers)}")
+```
+
+```text
+$ python functions.py
+Name: John Doe
+Largest number: 9
+Number of items: 4
+```
+
+## Dictionaries and quotes
+
+When you read a value from a dictionary, the key is a string, so the f-string  
+contains quotes inside quotes. The simplest solution is to use the other type of  
+quotes for the key:
+
+```python
+user = {"name": "John Doe", "occupation": "gardener"}
+
+print(f"{user['name']} is a {user['occupation']}")
+```
+
+```text
+$ python dicts.py
+John Doe is a gardener
+```
+
+Since Python 3.12, you can also reuse the same type of quotes, as in  
+`f"{user["name"]}"`. In older versions, this is a syntax error, so the first  
+form is the safer choice.
+
+## Multiline f-strings
+
+The `f` prefix also works with triple-quoted strings that span several lines:
+
+```python
+name = "John Doe"
+age = 34
+occupation = "gardener"
+
+msg = f"""name: {name}
+age: {age}
+occupation: {occupation}"""
+
+print(msg)
+```
+
+```text
+$ python multiline.py
+name: John Doe
+age: 34
+occupation: gardener
+```
+
+## Printing curly braces
+
+Because braces mark expressions, a literal brace must be doubled: `{{` produces  
+`{` and `}}` produces `}`.
+
+```python
+name = "John"
+
+print(f"Python uses {{}} to evaluate expressions in f-strings")
+print(f"{{name}} prints the text, {name} prints the value")
+```
+
+```text
+$ python braces.py
+Python uses {} to evaluate expressions in f-strings
+{name} prints the text, John prints the value
+```
+
+To put a quote character in the text, use the other type of quotes for the whole  
+string, or escape the quote with a backslash:
+
+```python
+film = "Casablanca"
+
+print(f"{film} was a 'great' film")
+print(f'{film} was a \'great\' film')
+```
+
+```text
+$ python quotes.py
+Casablanca was a 'great' film
+Casablanca was a 'great' film
+```
+
+## Format specifiers
+
+So far, values have been inserted as they are. A **format specifier** controls  
+how a value looks: the number of decimal places, the width, the alignment, and  
+more. The specifier follows a colon inside the braces:
+
+```text
+{expression:format_specifier}
+```
+
+### Decimal places
+
+The `f` type displays a number as a decimal number with a fixed number of  
+decimal places. The number after the dot is the **precision**:
+
+```python
+price = 12.3456
+
+print(f"{price}")
+print(f"{price:.2f}")
+print(f"{price:.0f}")
+print(f"Total: {price * 3:.2f} EUR")
+```
+
+```text
+$ python floats.py
+12.3456
+12.35
+12
+Total: 37.04 EUR
+```
+
+The value is rounded, not cut off. The variable itself does not change; only its  
+text representation does.
+
+### Percentages
+
+The `%` type multiplies the value by 100 and adds a percent sign:
+
+```python
+passed = 17
+total = 20
+ratio = passed / total
+
+print(f"{ratio}")
+print(f"{ratio:.0%}")
+print(f"{1 / 7:.2%}")
+```
+
+```text
+$ python percentage.py
+0.85
+85%
+14.29%
+```
+
+### Thousands separators
+
+A comma or an underscore groups digits of large numbers by thousands:
+
+```python
 population = 5_400_000
-ratio = 0.75
-is_student = True
-missing_value = None
-coordinates = (10, 20)          # Tuple created by the comma
-greeting = "Hello, " "World"    # "Hello, World"
+budget = 1234567.891
+
+print(f"{population}")
+print(f"{population:,}")
+print(f"{population:_}")
+print(f"{budget:,.2f}")
 ```
-
-A literal on its own line is a valid expression statement, but in a script its  
-value is computed and then discarded. In the interactive interpreter, the value  
-of such an expression is displayed instead.
-
-```python
-42                 # No effect in a script; prints 42 in the REPL
-
-name = "Jane"
-print(name)        # Jane
-```
-
-## Operators
-
-**Operators** combine or transform values, called **operands**. Most operators  
-are symbols, but some are keywords such as `and`, `in`, and `is`.
-
-| Category | Operators |
-| --- | --- |
-| Arithmetic | `+`, `-`, `*`, `/`, `//`, `%`, `**`, `@` |
-| Comparison | `==`, `!=`, `<`, `>`, `<=`, `>=` |
-| Logical | `and`, `or`, `not` |
-| Bitwise | `&`, `\|`, `^`, `~`, `<<`, `>>` |
-| Identity | `is`, `is not` |
-| Membership | `in`, `not in` |
-| Assignment expression | `:=` |
-
-The `@` operator is used for matrix multiplication, for example by NumPy arrays.  
-The `:=` operator, nicknamed the walrus operator, assigns a value inside an  
-expression:
-
-```python
-data = [3, 8, 1, 9]
-
-if (n := len(data)) > 3:
-    print(f"List is too long ({n} elements)")
-```
-
-### Assignment
-
-The ordinary assignment `=` and augmented assignments such as `+=`, `-=`, `*=`,  
-`/=`, `//=`, `%=`, `**=`, `@=`, `&=`, `|=`, `^=`, `<<=`, and `>>=` are often  
-called assignment operators. Formally, the language reference lists them as  
-delimiters, because assignment is a statement, not an expression that produces a  
-value.
-
-```python
-count = 0
-count += 1       # Same as count = count + 1 for numbers
-print(count)     # 1
-```
-
-### Operator precedence
-
-Operators with higher precedence are evaluated first. From highest to lowest,  
-the most common groups are:
-
-1. Calls, indexing, slicing, and attribute access: `f(x)`, `a[i]`, `a[1:3]`,  
-   `obj.attr`
-2. `await`
-3. Exponentiation: `**`
-4. Unary operators: `+x`, `-x`, `~x`
-5. Multiplication and division: `*`, `@`, `/`, `//`, `%`
-6. Addition and subtraction: `+`, `-`
-7. Shifts: `<<`, `>>`
-8. Bitwise AND: `&`
-9. Bitwise XOR: `^`
-10. Bitwise OR: `|`
-11. Comparisons, identity, and membership: `==`, `<`, `is`, `in`, ...
-12. Logical `not`
-13. Logical `and`
-14. Logical `or`
-15. Conditional expression: `x if condition else y`
-16. `lambda`
-17. Assignment expression: `:=`
-
-Parenthesized expressions are always evaluated first, so use parentheses  
-whenever the intended grouping is not obvious.
-
-```python
-x = 10 + 5 * 2       # 20
-y = (10 + 5) * 2     # 30
-z = -2 ** 2          # -4, because ** binds tighter than unary minus
-w = (-2) ** 2        # 4
-is_equal = 5 == 5    # True
-```
-
-Most operators are evaluated from left to right. Exponentiation is the  
-exception: it groups from right to left, so `2 ** 3 ** 2` means `2 ** (3 ** 2)`,  
-which is `512`.
-
-Comparisons can be chained. `0 < x < 10` means `0 < x and x < 10`, except that  
-`x` is evaluated only once.
-
-## Delimiters
-
-**Delimiters** are punctuation marks that group or separate parts of the code.  
-Their exact role depends on the surrounding syntax.
-
-| Delimiter | Typical role | Example |
-| --- | --- | --- |
-| `( )` | Grouping, calls, tuples | `(a + b) * c`, `print(x)` |
-| `[ ]` | Lists, indexing, slicing | `[1, 2]`, `data[0]`, `data[1:10]` |
-| `{ }` | Dictionaries and sets | `{"a": 1}`, `{1, 2}` |
-| `,` | Separating items and arguments | `f(a, b)` |
-| `:` | Starting a block, dict keys, slices, annotations | `if x:`, `{"a": 1}`, `x: int` |
-| `.` | Attribute access | `text.upper()` |
-| `;` | Separating statements on one line | `a = 1; b = 2` |
-| `@` | Decorator | `@functools.cache` |
-| `->` | Return type annotation | `def f() -> int:` |
-| `=` | Assignment, default and keyword arguments | `x = 1`, `f(end="")` |
-
-```python
-import functools
-
-result = (2 + 3) * 4
-colors = ["red", "green", "blue"]
-first_color = colors[0]
-person = {"name": "John", "age": 30}
-numbers = {1, 2, 3}
-
-if result > 0:
-    print(person["name"])
-
-@functools.cache
-def square(n: int) -> int:
-    return n * n
-```
-
-Avoid the semicolon in everyday code. PEP 8 recommends one statement per line.
-
-Some characters are neither operators nor delimiters. Quotes start and end  
-string literals, `#` starts a comment, and the backslash `\` is an escape  
-character inside strings or a line-continuation marker at the end of a line.
-
-## Line Structure and Indentation
-
-### Logical and physical lines
-
-A **physical line** is a line of text in the source file. A **logical line** is  
-one complete statement, and the tokenizer marks its end with a `NEWLINE` token.  
-Normally, one physical line is one logical line.
-
-A logical line can span several physical lines in two ways. **Implicit line  
-joining** happens inside parentheses, brackets, and braces. This is the  
-preferred way to split long lines:
-
-```python
-total = (price * quantity
-         + shipping_cost
-         - discount)
-
-colors = [
-    "red",
-    "green",
-    "blue",
-]
-```
-
-**Explicit line joining** uses a backslash at the end of a line. It is fragile,  
-because a single space after the backslash breaks it, so prefer brackets:
-
-```python
-total = price * quantity \
-        + shipping_cost
-```
-
-Blank lines and lines that contain only a comment are ignored by the parser.
-
-### Indentation
-
-Python uses indentation, not braces, to group statements into blocks. A compound  
-statement such as `if`, `for`, `def`, or `class` ends its header with a colon.  
-The indented lines that follow form its body, also called a **suite**.
-
-```python
-age = 70
-
-if age >= 18:
-    print("Adult")
-    if age >= 65:
-        print("Retirement age")
-
-print("Done")
-```
-
-The tokenizer turns increases in indentation into `INDENT` tokens and decreases  
-into `DEDENT` tokens. To the parser, these tokens play the same role that `{`  
-and `}` play in C or Java.
-
-Use four spaces per indentation level, as recommended by PEP 8. Do not mix tabs  
-and spaces. Inconsistent indentation raises `IndentationError` or its subclass  
-`TabError`.
-
-```python
-# Error: the body after the colon must be indented
-if age >= 18:
-print("Adult")       # IndentationError: expected an indented block
-```
-
-A block must contain at least one statement. When you need an empty block, use  
-`pass`:
-
-```python
-def not_implemented_yet():
-    pass
-```
-
-## Seeing the Tokens
-
-The standard `tokenize` module shows how Python splits a source file into  
-tokens. It is a good way to check everything this chapter describes. Save the  
-following program as `area.py`:
-
-```python
-# Compute the areas of several circles.
-import math
-
-
-def circle_area(radius):
-    """Return the area of a circle."""
-    return math.pi * radius ** 2
-
-
-radii = [1, 2.5, 4]
-
-for r in radii:
-    if r > 2:
-        print(f"r={r}", round(circle_area(r), 2))
-```
-
-The next script reads a Python file given on the command line and prints every  
-token with its position (line and column), type, and text. `tokenize.open`  
-opens the file in the correct encoding, and `generate_tokens` produces the  
-tokens one by one:
-
-```python
-import sys
-import tokenize
-
-file_name = sys.argv[1]
-
-with tokenize.open(file_name) as f:
-    for tok in tokenize.generate_tokens(f.readline):
-        row, col = tok.start
-        name = tokenize.tok_name[tok.type]
-        print(f"{row:>2}:{col:<3} {name:<14} {tok.string!r}")
-```
-
-Run the script with the file name as an argument:
 
 ```text
-$ python show_tokens.py area.py
- 1:0   COMMENT        '# Compute the areas of several circles.'
- 1:39  NL             '\n'
- 2:0   NAME           'import'
- 2:7   NAME           'math'
- 2:11  NEWLINE        '\n'
- 3:0   NL             '\n'
- 4:0   NL             '\n'
- 5:0   NAME           'def'
- 5:4   NAME           'circle_area'
- 5:15  OP             '('
- 5:16  NAME           'radius'
- 5:22  OP             ')'
- 5:23  OP             ':'
- 5:24  NEWLINE        '\n'
- 6:0   INDENT         '    '
- 6:4   STRING         '"""Return the area of a circle."""'
- 6:38  NEWLINE        '\n'
- 7:4   NAME           'return'
- 7:11  NAME           'math'
- 7:15  OP             '.'
- 7:16  NAME           'pi'
- 7:19  OP             '*'
- 7:21  NAME           'radius'
- 7:28  OP             '**'
- 7:31  NUMBER         '2'
- 7:32  NEWLINE        '\n'
- 8:0   NL             '\n'
- 9:0   NL             '\n'
-10:0   DEDENT         ''
-10:0   NAME           'radii'
-10:6   OP             '='
-10:8   OP             '['
-10:9   NUMBER         '1'
-10:10  OP             ','
-10:12  NUMBER         '2.5'
-10:15  OP             ','
-10:17  NUMBER         '4'
-10:18  OP             ']'
-10:19  NEWLINE        '\n'
-11:0   NL             '\n'
-12:0   NAME           'for'
-12:4   NAME           'r'
-12:6   NAME           'in'
-12:9   NAME           'radii'
-12:14  OP             ':'
-12:15  NEWLINE        '\n'
-13:0   INDENT         '    '
-13:4   NAME           'if'
-13:7   NAME           'r'
-13:9   OP             '>'
-13:11  NUMBER         '2'
-13:12  OP             ':'
-13:13  NEWLINE        '\n'
-14:0   INDENT         '        '
-14:8   NAME           'print'
-14:13  OP             '('
-14:14  FSTRING_START  'f"'
-14:16  FSTRING_MIDDLE 'r='
-14:18  OP             '{'
-14:19  NAME           'r'
-14:20  OP             '}'
-14:21  FSTRING_END    '"'
-14:22  OP             ','
-14:24  NAME           'round'
-14:29  OP             '('
-14:30  NAME           'circle_area'
-14:41  OP             '('
-14:42  NAME           'r'
-14:43  OP             ')'
-14:44  OP             ','
-14:46  NUMBER         '2'
-14:47  OP             ')'
-14:48  OP             ')'
-14:49  NEWLINE        '\n'
-15:0   DEDENT         ''
-15:0   DEDENT         ''
-15:0   ENDMARKER      ''
+$ python thousands.py
+5400000
+5,400,000
+5_400_000
+1,234,567.89
 ```
 
-The output illustrates several points from this chapter:
+The last line combines the thousands separator with two decimal places.
 
-- Keywords such as `import`, `def`, `for`, and `if` are reported as `NAME`  
-  tokens. The tokenizer does not distinguish them from identifiers; the parser  
-  does.
-- Operators and delimiters share the `OP` token type, for example `**`, `=`,  
-  `(`, and `:`.
-- The comment becomes a single `COMMENT` token, and the docstring is an  
-  ordinary `STRING` token. The `tokenize` module keeps comments so that tools  
-  such as formatters can work with them; the parser never sees them.
-- `NEWLINE` ends a logical line, while `NL` marks a line break that does not  
-  end a statement, such as a blank line or a line containing only a comment.
-- Each increase in indentation produces an `INDENT` token and each decrease a  
-  `DEDENT` token. At the end of the file, both open blocks are closed by two  
-  `DEDENT` tokens.
-- Since Python 3.12, an f-string is split into `FSTRING_START`,  
-  `FSTRING_MIDDLE`, and `FSTRING_END` tokens, with the embedded expression  
-  `{r}` tokenized as normal code.
+### Width
+
+A number in the specifier sets the minimum **width** of the result in  
+characters. Shorter values are padded with spaces; longer values are never cut.  
+A leading `0` pads numbers with zeros instead:
+
+```python
+for x in range(1, 11):
+    print(f"{x:02} {x * x:3} {x * x * x:4}")
+```
+
+```text
+$ python width.py
+01   1    1
+02   4    8
+03   9   27
+04  16   64
+05  25  125
+06  36  216
+07  49  343
+08  64  512
+09  81  729
+10 100 1000
+```
+
+The example prints three columns with widths of 2, 3, and 4 characters. The  
+first column is padded with zeros.
+
+### Alignment and fill characters
+
+By default, strings are aligned to the left and numbers to the right. The `<`,  
+`>`, and `^` characters align a value to the left, to the right, or to the  
+center:
+
+```python
+words = ["sky", "fork", "small"]
+
+for word in words:
+    print(f"|{word:<10}|{word:^10}|{word:>10}|")
+```
+
+```text
+$ python align.py
+|sky       |   sky    |       sky|
+|fork      |   fork   |      fork|
+|small     |  small   |     small|
+```
+
+Each column is ten characters wide. A **fill character** placed before the  
+alignment character replaces the default spaces:
+
+```python
+title = "Menu"
+
+print(f"{title:*^20}")
+print(f"{'Soup':.<15}{3.5:>5.2f}")
+print(f"{'Steak':.<15}{14.9:>5.2f}")
+```
+
+```text
+$ python fill.py
+********Menu********
+Soup........... 3.50
+Steak..........14.90
+```
+
+Alignment and width are useful for printing simple tables:
+
+```python
+items = [("Apples", 3, 0.45), ("Bread", 1, 1.99), ("Milk", 2, 1.15)]
+
+print(f"{'Item':<10}{'Qty':>5}{'Price':>8}")
+
+for name, qty, price in items:
+    print(f"{name:<10}{qty:>5}{price:>8.2f}")
+```
+
+```text
+$ python table.py
+Item        Qty   Price
+Apples        3    0.45
+Bread         1    1.99
+Milk          2    1.15
+```
+
+Each item in the list holds a name, a quantity, and a price. The `for` loop  
+takes them out into the `name`, `qty`, and `price` variables. The header and  
+the rows use the same widths, so the columns line up.
+
+### Number systems
+
+The `b`, `o`, `x`, and `X` types display an integer in binary, octal, or  
+hexadecimal. The `#` option adds the usual prefix, such as `0x`. The `e` type  
+uses scientific notation:
+
+```python
+val = 300
+
+print(f"{val:b}")       # binary
+print(f"{val:o}")       # octal
+print(f"{val:x}")       # hexadecimal, lowercase
+print(f"{val:X}")       # hexadecimal, uppercase
+print(f"{val:#x}")      # hexadecimal with the 0x prefix
+print(f"{val:e}")       # scientific notation
+```
+
+```text
+$ python notations.py
+100101100
+454
+12c
+12C
+0x12c
+3.000000e+02
+```
+
+### Dates and times
+
+Dates and times use their own format codes, the same as the `strftime()` method.  
+For example, `%Y` is the year, `%m` the month, and `%d` the day:
+
+```python
+from datetime import datetime
+
+meeting = datetime(2026, 3, 24, 15, 12)
+
+print(f"{meeting:%Y-%m-%d %H:%M}")
+print(f"{meeting:%d.%m.%Y}")
+print(f"{meeting:%A, %B %d}")
+```
+
+```text
+$ python dates.py
+2026-03-24 15:12
+24.03.2026
+Tuesday, March 24
+```
+
+For the current date and time, use `datetime.now()` instead of a fixed date.
+
+### Overview of format specifiers
+
+| Specifier | Meaning | Example | Result |
+| --- | --- | --- | --- |
+| `.2f` | Two decimal places | `f"{3.14159:.2f}"` | `3.14` |
+| `.1%` | Percentage | `f"{0.256:.1%}"` | `25.6%` |
+| `,` | Thousands separator | `f"{1234567:,}"` | `1,234,567` |
+| `5` | Minimum width | `f"\|{42:5}\|"` | `\|   42\|` |
+| `05` | Width, padded with zeros | `f"{42:05}"` | `00042` |
+| `<` `^` `>` | Left, center, right alignment | `f"\|{'ab':^6}\|"` | `\|  ab  \|` |
+| `*^6` | Fill character and alignment | `f"{'ab':*^6}"` | `**ab**` |
+| `+` | Always show the sign | `f"{42:+}"` | `+42` |
+| `b` `o` `x` | Binary, octal, hexadecimal | `f"{255:x}"` | `ff` |
+| `e` | Scientific notation | `f"{1500:e}"` | `1.500000e+03` |
+
+The parts of a specifier are written in a fixed order: fill and alignment, sign,  
+width, thousands separator, precision, and type. For example, `*>12,.2f` means:  
+fill with `*`, align to the right, width 12, thousands separator, two decimal  
+places, decimal notation.
+
+```python
+amount = 1234.5
+
+print(f"{amount:*>12,.2f}")
+```
+
+```text
+$ python combined.py
+****1,234.50
+```
+
+## Variable format specifiers
+
+A format specifier can itself contain expressions in braces. This lets you  
+choose the width or the precision while the program runs:
+
+```python
+value = 3.14159265
+
+for precision in range(1, 5):
+    print(f"{value:.{precision}f}")
+
+width = 12
+print(f"|{'Python':^{width}}|")
+```
+
+```text
+$ python nested.py
+3.1
+3.14
+3.142
+3.1416
+|   Python   |
+```
+
+## Debugging with `=`
+
+Adding `=` after an expression prints both the expression and its value. This is  
+handy for quick debugging. The feature is available since Python 3.8.
+
+```python
+x = 10
+y = 3
+
+print(f"{x = }, {y = }")
+print(f"{x / y = }")
+print(f"{x / y = :.2f}")
+```
+
+```text
+$ python debug.py
+x = 10, y = 3
+x / y = 3.3333333333333335
+x / y = 3.33
+```
+
+The last line shows that `=` can be combined with a format specifier.
+
+## Objects in f-strings
+
+When an f-string inserts an object, it uses the object's string representation,  
+the same text that `str()` returns. For your own classes, you define this text  
+with the `__str__` method:
+
+```python
+class User:
+    def __init__(self, name, occupation):
+        self.name = name
+        self.occupation = occupation
+
+    def __str__(self):
+        return f"{self.name} is a {self.occupation}"
+
+
+user = User("John Doe", "gardener")
+
+print(f"{user}")
+```
+
+```text
+$ python objects.py
+John Doe is a gardener
+```
+
+The `!r` conversion uses `repr()` instead of `str()`. For strings, `repr()` adds  
+quotes, which makes it easy to see empty strings or extra spaces:
+
+```python
+name = "  John "
+
+print(f"[{name}]")
+print(f"[{name!r}]")
+```
+
+```text
+$ python conversion.py
+[  John ]
+['  John ']
+```
+
+## The `__format__` method
+
+The format specifier is passed to the object's `__format__` method. By defining  
+this method, a class can support its own format specifiers. In the following  
+example, a temperature can be displayed in degrees Celsius with `c` or in  
+degrees Fahrenheit with `f`:
+
+```python
+class Temperature:
+    def __init__(self, celsius):
+        self.celsius = celsius
+
+    def __format__(self, spec):
+        if spec == "f":
+            return f"{self.celsius * 9 / 5 + 32:.1f} °F"
+        return f"{self.celsius:.1f} °C"
+
+
+temp = Temperature(21.5)
+
+print(f"{temp}")
+print(f"{temp:c}")
+print(f"{temp:f}")
+```
+
+```text
+$ python custom_format.py
+21.5 °C
+21.5 °C
+70.7 °F
+```
+
+When the braces contain no specifier, `__format__` receives an empty string, and  
+the example falls back to degrees Celsius.
 
 ## Summary
 
-| Element | Meaning | Examples |
-| --- | --- | --- |
-| Comments | Text for readers, discarded by the tokenizer | `# explanation` |
-| Identifiers | Names that refer to objects | `user_name`, `calculate_area` |
-| Keywords | Reserved words; soft keywords depend on context | `if`, `def`, `match`, `type` |
-| Literals | Values written directly in code | `42`, `3.14`, `"Hello"`, `b"data"` |
-| Operators | Symbols or words that operate on values | `+`, `==`, `and`, `:=` |
-| Delimiters | Punctuation that groups or separates code | `()`, `[]`, `{}`, `,`, `:` |
-| Line structure | Logical lines and indentation-based blocks | `NEWLINE`, `INDENT`, `DEDENT` |
+| Feature | Example |
+| --- | --- |
+| Variable | `f"{name}"` |
+| Expression | `f"{price * 2}"` |
+| Function or method call | `f"{name.upper()}"` |
+| Dictionary value | `f"{user['name']}"` |
+| Literal braces | `f"{{}}"` |
+| Decimal places | `f"{price:.2f}"` |
+| Percentage | `f"{ratio:.1%}"` |
+| Thousands separator | `f"{population:,}"` |
+| Width and alignment | `f"{word:>10}"` |
+| Fill character | `f"{word:*^10}"` |
+| Date format | `f"{date:%d.%m.%Y}"` |
+| Variable specifier | `f"{value:.{precision}f}"` |
+| Debugging | `f"{x = }"` |
+| `repr()` conversion | `f"{name!r}"` |
 
 ## References
 
-- [Python Language Reference: Lexical analysis](https://docs.python.org/3/reference/lexical_analysis.html)
-- [Python Language Reference: Operator precedence](https://docs.python.org/3/reference/expressions.html#operator-precedence)
-- [Python Standard Library: `keyword`](https://docs.python.org/3/library/keyword.html)
-- [Python Standard Library: `tokenize`](https://docs.python.org/3/library/tokenize.html)
-- [PEP 8: Style Guide for Python Code](https://peps.python.org/pep-0008/)
+- [Python Tutorial: Fancier Output Formatting](https://docs.python.org/3/tutorial/inputoutput.html#fancier-output-formatting)
+- [Python Language Reference: f-strings](https://docs.python.org/3/reference/lexical_analysis.html#f-strings)
+- [Format Specification Mini-Language](https://docs.python.org/3/library/string.html#format-specification-mini-language)
+- [strftime() and strptime() format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
+- [PEP 498: Literal String Interpolation](https://peps.python.org/pep-0498/)
+- [PEP 701: Syntactic formalization of f-strings](https://peps.python.org/pep-0701/)
