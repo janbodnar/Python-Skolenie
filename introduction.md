@@ -1,91 +1,111 @@
 # Introduction to Python
 
-Python is a **general-purpose, dynamic, object-oriented programming language**  
-designed with a strong emphasis on **programmer productivity** and  
-**code readability**. Its clean syntax and powerful features make it an excellent  
-choice for beginners and experts alike.  
+Python is a general-purpose, high-level programming language designed with a  
+strong emphasis on **readability** and **programmer productivity**. Its clean  
+syntax makes it an excellent first language, while its large ecosystem of  
+libraries makes it a practical tool for professionals in almost every field.
 
 ## The Story of Python
 
-Python was conceived in the late 1980s by **Guido van Rossum** and first  
-released in **1991**. The language was designed to be:  
+Python was created by **Guido van Rossum** at the end of the 1980s and first  
+released in **1991**. The name does not come from the snake but from the British  
+comedy series *Monty Python's Flying Circus*.
 
-- **Simple** and **intuitive**
-- **Readable** with minimal syntactical clutter
-- **Extensible** and **versatile**
+Python was designed to be:
 
-### Design Philosophy
+- simple and intuitive
+- readable, with minimal syntactic clutter
+- extensible and versatile
 
-Guido van Rossum's guiding principle, often called the "Pythonic" way, emphasizes:
-- **Explicit is better than implicit**
-- **Simple is better than complex**
-- **Readability counts**
+> 🎥 **Watch**: [The Story of Python](https://www.youtube.com/watch?v=GfH4QL4VqJ0)
 
-> 🎥 **Watch**: [The Story of Python](https://www.youtube.com/watch?v=GfH4QL4VqJ0&themeRefresh=1)
+### The Zen of Python
 
-### Inspiration
+The design philosophy of Python is summarized in *The Zen of Python* (PEP 20), a  
+set of 19 short principles written by Tim Peters. You can display them directly  
+in Python:
 
-Python drew influence from several languages:
+```python
+import this
+```
+
+A few of the best-known principles:
+
+```text
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Readability counts.
+```
+
+Code that follows these principles and uses the language's idioms well is often  
+called **Pythonic**.
+
+### Influences
+
+Python borrowed ideas from several older languages:
 
 | Language | Contribution to Python |
-|----------|------------------------|
-| **ABC** | Readability, simplicity, early design ideas |
-| **Haskell** | Functional programming concepts |
-| **Java** | Object-oriented structure |
-| **Lisp** | Dynamic typing, functional paradigms |
-| **Icon** | High-level programming concepts |
-| **Perl** | Practicality, text processing |
+| --- | --- |
+| **ABC** | Indentation-based blocks, readability, built-in high-level types |
+| **Modula-3** | Modules, exceptions, classes |
+| **C** | Syntax of expressions and operators |
+| **Lisp** | Functional tools such as `lambda`, `map`, and `filter` |
+| **Haskell** | List comprehensions |
+| **Icon** | Generators |
+| **Perl** | Regular expressions, practicality in text processing |
 
 ---
 
 ## Key Characteristics of Python
 
-Python is a **high-level, general-purpose, multi-platform, interpreted language**  
-maintained by a large, global community of volunteers. It is **open source software**  
-with a permissive license (Python Software Foundation License).
+Python is **open source software**, released under the permissive Python  
+Software Foundation License. Its development is coordinated by the Python  
+Software Foundation (PSF) and carried out by a large, global community of  
+volunteers.
 
-### Core Features
+### Core features
 
-1. **High-Level and Readable**  
-   Python abstracts away low-level details, allowing developers to focus on logic rather than memory management or system architecture.
+1. **High-level and readable**: Python hides low-level details such as memory  
+   management, so you can focus on solving the problem.
+2. **Interpreted**: You run Python source code directly, without a separate  
+   compilation step. Behind the scenes, CPython compiles the code to bytecode  
+   and executes it in a virtual machine. This makes the edit-and-run cycle fast  
+   and is ideal for experimenting.
+3. **Dynamically typed**: You do not declare the types of variables. A type  
+   belongs to the value (the object), not to the variable name, and it is  
+   checked while the program runs.
+4. **Strongly typed**: Python does not silently convert between unrelated types.  
+   For example, `"5" + 3` raises an error instead of guessing what you meant.
+5. **Significant indentation**: Python uses indentation instead of braces or  
+   keywords to mark blocks of code. This enforces clean, consistent formatting.
+6. **Multi-paradigm**: Python supports procedural programming (functions),  
+   object-oriented programming (classes and inheritance), and elements of  
+   functional programming (`lambda`, comprehensions, `map`, `filter`).
+7. **Cross-platform**: Python runs on Windows, macOS, Linux, Raspberry Pi, and  
+   many other systems. The same script usually runs unchanged on all of them.
+8. **Batteries included**: The standard library contains modules for working  
+   with files, text, dates, networking, databases, and much more.
 
-2. **Interpreted Execution**  
-   Python runs code line-by-line through an interpreter, enabling rapid prototyping and iterative development.
+### What is Python used for?
 
-3. **Dynamic Typing**  
-   Variable types are inferred at runtime, offering flexibility without explicit declarations.
+- Web development (Django, Flask, FastAPI)
+- Data analysis and scientific computing (NumPy, pandas, SciPy)
+- Artificial intelligence and machine learning (PyTorch, TensorFlow,  
+  scikit-learn)
+- Automation, scripting, and system administration
+- Testing (pytest)
+- Education and teaching programming
+- Game development (Pygame)
 
-4. **Significant Indentation**  
-   Unlike languages that use braces or keywords, Python uses whitespace (indentation) to define code blocks. This enforces clean, consistent formatting.
+> **Note**: Python has become the main language of artificial intelligence and  
+> data science, largely thanks to its extensive ecosystem of libraries.
 
-5. **Multi-Paradigm Support**  
-   Python supports:
-   - **Procedural programming** (functions)
-   - **Object-oriented programming** (classes, inheritance)
-   - **Functional programming** (lambda, map, filter, comprehensions)
+### Official resources
 
-6. **Cross-Platform**  
-   Python runs on Windows, macOS, Linux, Raspberry Pi, and many other platforms.
-
-7. **Concise Code**  
-   Python allows developers to accomplish more with fewer lines of code compared to languages like Java or C++.
-
-8. **Versatile Use Cases**  
-   - Web development (Django, Flask)
-   - Data science and scientific computing (NumPy, SciPy)
-   - Artificial Intelligence and Machine Learning (TensorFlow, PyTorch)
-   - System administration and scripting
-   - Big data processing (Apache Spark)
-   - Automation and testing
-   - Game development (Pygame)
-
-> **Note**: Python has become the **lingua franca** of Artificial Intelligence and data science, largely due to its extensive ecosystem of libraries and frameworks.
-
-### Official Resources
-
-- **Official Website**: [python.org](https://python.org)
-- **Documentation**: [docs.python.org](https://docs.python.org)
-- **Package Index**: [pypi.org](https://pypi.org)
+- **Official website**: [python.org](https://www.python.org)
+- **Documentation**: [docs.python.org](https://docs.python.org/3/)
+- **Package index (PyPI)**: [pypi.org](https://pypi.org)
 
 ![Python Logo](images/python.jpg)
 
@@ -93,289 +113,182 @@ with a permissive license (Python Software Foundation License).
 
 ## Python Implementations
 
-Python is a **specification** with multiple implementations. The most notable are:
+Python is a language **specification** with several implementations. An  
+implementation is a program that actually runs Python code.
 
-| Implementation | Language | Description |
-|----------------|----------|-------------|
-| **CPython** | C | The reference and most widely used implementation. When people refer to "Python," they usually mean CPython. |
-| **IronPython** | C# | Python for .NET Framework. Integrates with .NET libraries and environments. |
-| **Jython** | Java | Python implemented in Java. Code compiles to Java bytecode and runs on the JVM. |
-| **PyPy** | RPython | Just-in-time (JIT) compiled implementation, optimized for performance. |
-| **MicroPython** | C | Lightweight implementation for microcontrollers and embedded systems. |
+| Implementation | Written in | Description |
+| --- | --- | --- |
+| **CPython** | C | The reference and by far the most widely used implementation. When people say "Python", they usually mean CPython. |
+| **PyPy** | RPython | An implementation with a just-in-time (JIT) compiler, often much faster for long-running programs. |
+| **MicroPython** | C | A lightweight implementation for microcontrollers and embedded systems. |
+| **GraalPy** | Java | Python on the GraalVM, with access to Java libraries. |
+| **IronPython** | C# | Python for .NET, with access to .NET libraries. |
+| **Jython** | Java | Python on the Java Virtual Machine. Supports only Python 2.7. |
 
-This tutorial primarily focuses on **CPython**.
+This course uses **CPython**.
 
 ---
 
 ## Popularity and Community
 
-Python consistently ranks among the **top programming languages** worldwide, according to multiple surveys:
+Python is one of the most popular programming languages in the world:
 
-- **Stack Overflow Developer Survey**: Python consistently appears in the top 3 most popular languages.
-- **JetBrains Developer Ecosystem Survey**: Python shows strong growth, especially in data science and web development.
-- **TIOBE Index**: Python frequently holds the #1 position.
+- **TIOBE Index**: Python has held the first position in recent years.
+- **Stack Overflow Developer Survey**: Python is regularly among the most used  
+  and most wanted languages.
+- **JetBrains Developer Ecosystem Survey**: Python shows strong use in data  
+  science, web development, and automation.
 
-### Notable Python Projects
+You can check the current results here:
 
-- **Django** – High-level web framework
-- **Flask** – Lightweight web framework
-- **PyQt** – GUI toolkit
-- **NumPy/Pandas** – Data manipulation and analysis
-- **TensorFlow/PyTorch** – Machine learning libraries
-- **Mercurial** – Distributed version control
-- **Yum** – Package management for Linux
+- [TIOBE Index](https://www.tiobe.com/tiobe-index/)
+- [Stack Overflow Developer Survey](https://survey.stackoverflow.co/)
+- [JetBrains Developer Ecosystem](https://www.jetbrains.com/lp/devecosystem/)
 
-### Community Surveys
+### Notable software written in Python
 
-- [Stack Overflow Survey 2023](https://survey.stackoverflow.co/2023/#programming-scripting-and-markup-languages)
-- [JetBrains Developer Ecosystem 2023](https://www.jetbrains.com/lp/devecosystem-2023/python/)
+- **Django** and **Flask**: web frameworks
+- **Jupyter**: interactive notebooks for data analysis and teaching
+- **Ansible**: IT automation and configuration management
+- **NumPy** and **pandas**: numerical computing and data analysis
+- **PyTorch** and **TensorFlow**: machine learning libraries
+- **Mercurial**: distributed version control system
+
+Python is also widely used as a scripting language inside other applications,  
+such as Blender, GIMP, and QGIS.
 
 ---
 
 ## Learning Resources
 
 ### Books
-- **Python Crash Course**, 3rd Edition by Eric Matthes  
-  [Amazon Link](https://www.amazon.co.uk/Python-Crash-Course-3Rd-Matthes/dp/1718502702)
 
-- **Automate the Boring Stuff with Python** by Al Sweigart
+- **Python Crash Course**, 3rd Edition, by Eric Matthes: a beginner-friendly  
+  introduction with practical projects.
+- **Automate the Boring Stuff with Python** by Al Sweigart: practical  
+  automation tasks; [free to read online](https://automatetheboringstuff.com/).
+- **Fluent Python**, 2nd Edition, by Luciano Ramalho: idiomatic Python for  
+  intermediate and advanced programmers.
 
-- **Fluent Python** by Luciano Ramalho (for intermediate/advanced)
+### Video courses
 
-### Video Courses
 - [Python for Everyone: Zero to Hero (6 hours)](https://www.youtube.com/watch?v=JZDQKj9BOoc)
 - [Python Full Course for Beginners](https://www.youtube.com/watch?v=H2EJuAcrZYU)
 - [Corey Schafer's Python Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU)
 
-### Online Platforms
-- **Codecademy** – Interactive Python courses
-- **Coursera** – Python for Everybody (University of Michigan)
-- **Real Python** – Tutorials and articles
+### Online platforms
+
+- [The official Python tutorial](https://docs.python.org/3/tutorial/)
+- [Python for Everybody](https://www.py4e.com/): a free course by  
+  Charles Severance (University of Michigan)
+- [Real Python](https://realpython.com/): tutorials and articles
 
 ---
 
 ## Writing and Running Python Scripts
 
-### File Extension
+### Checking the installation
 
-Python scripts use the `.py` extension (e.g., `program.py`).
+Before you start, check that Python is installed. Open a terminal (a command  
+prompt on Windows) and ask for the version:
 
-### The Shebang (Unix/Linux/macOS)
+```bash
+$ python --version
+Python 3.15.2
+```
 
-On Unix-like systems, scripts often start with a **shebang** (`#!`) line that specifies the interpreter:
+If the command is not found, download Python from  
+[python.org](https://www.python.org/downloads/). On Linux, Python is usually  
+installed already or available from the system package manager.
+
+### Your first script
+
+A Python script is a plain text file with the `.py` extension. Create a file  
+named `hello.py` with this content:
+
+```python
+print("Hello, World!")
+```
+
+Run it by passing the file name to the interpreter:
+
+```bash
+$ python hello.py
+Hello, World!
+```
+
+The `print()` function writes its argument to the screen. This is the whole  
+program; Python needs no `main` function or other boilerplate.
+
+### The shebang line
+
+On Unix-like systems (Linux, macOS), a script can start with a **shebang** line.  
+It tells the system which interpreter should run the file:
 
 ```python
 #!/usr/bin/env python3
-# This tells the system to use Python 3 from the environment
 
 print("Hello, World!")
 ```
 
-> **Note**: Shebangs are **not required** on Windows but are good practice for cross-platform compatibility. On Windows, file associations handle script execution.
-
-### Running Python Scripts
-
-#### Method 1: Explicit Interpreter Call
-```bash
-$ python script.py
-The Python tutorial
-```
-
-#### Method 2: Executable Script (Unix-like)
-```bash
-$ chmod +x script.py   # Make executable
-$ ./script.py          # Run directly
-The Python tutorial
-```
-
-### Finding Your Python Interpreter
+After you make the file executable, you can run it directly, without typing  
+`python`:
 
 ```bash
-$ which python
-/usr/bin/python
-
-$ which python3
-/usr/bin/python3
+$ chmod +x hello.py
+$ ./hello.py
+Hello, World!
 ```
 
-On Windows, use:
-```cmd
-> where python
-C:\Users\YourName\AppData\Local\Programs\Python\Python311\python.exe
-```
+On Windows, the shebang line is not needed, but it does no harm.
 
-### Interactive Mode
+### Interactive mode
 
-Python can also be run in interactive mode:
+Python can also run in **interactive mode**, often called the REPL  
+(read–evaluate–print loop). Start the interpreter without a file name:
 
-```bash
+```text
 $ python
-Python 3.11.0 (main, Oct 24 2022, 18:26:48) [GCC 11.2.0] on linux
+Python 3.15.2 (main, Oct 26 2026, 14:06:56) [Clang 23.1.3] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> print("Hello")
 Hello
 >>> 2 + 3
 5
->>> exit()
+>>> exit
 ```
+
+The `>>>` prompt means that Python is waiting for your input. Each statement  
+runs as soon as you press Enter, and the value of an expression, such as `2 +  
+3`, is printed automatically. Interactive mode is ideal for quick experiments  
+and for trying out the examples in this course. To leave it, type `exit` or  
+press Ctrl+D (Ctrl+Z and Enter on Windows).
 
 ---
-
-## Basic Python Examples
-
-### Example 1: Simple Output
-
-```python
-# simple.py
-print("The Python tutorial")
-```
-
-### Example 2: Working with Lists
-
-Lists are ordered, mutable collections that can hold heterogeneous data types.
-
-```python
-# Create a list
-numbers = [1, 2, 3, 4, 5]
-print(numbers)  # Output: [1, 2, 3, 4, 5]
-
-# Iterate through a list
-for num in numbers:
-    print(num)
-
-# Lists can hold different types
-mixed = [1, "hello", True, 3.14]
-
-# List comprehension
-squares = [x**2 for x in range(1, 6)]
-print(squares)  # Output: [1, 4, 9, 16, 25]
-```
-
-### Example 3: Reading User Input
-
-The `input()` function reads a line from standard input and returns it as a string.
-
-```python
-# read_input.py
-name = input("Enter your name: ")
-print("Hello", name)
-
-# Optional prompt with formatted output
-age = input("Enter your age: ")
-print(f"{name} is {age} years old")
-```
-
-**Output:**
-```
-$ python read_input.py
-Enter your name: Peter
-Hello Peter
-```
-
-> **Note**: The `input()` function always returns a string. Convert to other types using `int()`, `float()`, etc.
-
-### Example 4: Command-Line Arguments
-
-The `sys.argv` list contains command-line arguments passed to a script.
-
-```python
-# command_line_args.py
-import sys
-
-print("Script name:", sys.argv[0])
-print("Arguments:", sys.argv[1:])
-
-# Access individual arguments
-if len(sys.argv) > 1:
-    print("First argument:", sys.argv[1])
-```
-
-**Usage:**
-```bash
-$ python command_line_args.py hello world 42
-Script name: command_line_args.py
-Arguments: ['hello', 'world', '42']
-First argument: hello
-```
-
----
-
-## Working with Randomness
-
-The `random` module provides functions for generating random values.
-
-```python
-import random
-
-# Random integer in range [0, 10]
-r1 = random.randint(0, 10)
-print(f"Random integer: {r1}")
-
-# Random number from arithmetic progression: start, stop, step
-r2 = random.randrange(500, 1000, 50)  # Values: 500, 550, 600, ..., 950
-print(f"Random from range: {r2}")
-
-# Random element from a list
-vals = [11, 22, 33, 44, 55, 66, 77]
-r3 = random.choice(vals)
-print(f"Random choice: {r3}")
-
-# Random sample (without replacement)
-words = ['sky', 'atom', 'war', 'cup', 'book', 'zebra', 'moon']
-r4 = random.sample(words, 2)  # Choose 2 unique elements
-print(f"Random sample: {r4}")
-
-# Shuffle a list
-random.shuffle(words)
-print(f"Shuffled list: {words}")
-```
-
-**Sample Output:**
-```
-Random integer: 7
-Random from range: 750
-Random choice: 44
-Random sample: ['zebra', 'book']
-Shuffled list: ['cup', 'zebra', 'sky', 'moon', 'atom', 'book', 'war']
-```
-
-### Random Module Functions Summary
-
-| Function | Description |
-|----------|-------------|
-| `random.randint(a, b)` | Random integer between a and b (inclusive) |
-| `random.randrange(start, stop, step)` | Random integer from range(start, stop, step) |
-| `random.choice(seq)` | Random element from sequence |
-| `random.sample(seq, k)` | k random unique elements from sequence |
-| `random.shuffle(seq)` | Shuffle sequence in place |
-| `random.random()` | Float between 0.0 and 1.0 |
-| `random.uniform(a, b)` | Float between a and b |
-
-
-
 
 ## Summary
 
 | Aspect | Description |
-|--------|-------------|
-| **Creator** | Guido van Rossum (1991) |
-| **Paradigm** | Multi-paradigm (OOP, procedural, functional) |
-| **Typing** | Dynamic, strong |
-| **Execution** | Interpreted |
-| **Popularity** | Top 3 languages (multiple surveys) |
-| **Common Uses** | Web, AI/ML, Data Science, Automation, Scripting |
-| **Implementations** | CPython, PyPy, Jython, IronPython |
-
+| --- | --- |
+| **Creator** | Guido van Rossum, first released in 1991 |
+| **Philosophy** | Readability and simplicity (The Zen of Python) |
+| **Paradigms** | Procedural, object-oriented, functional elements |
+| **Typing** | Dynamic and strong |
+| **Execution** | Interpreted (compiled to bytecode and run in a virtual machine) |
+| **Common uses** | Web, AI and machine learning, data science, automation, scripting |
+| **Implementations** | CPython (reference), PyPy, MicroPython, GraalPy, IronPython, Jython |
+| **Scripts** | Plain text `.py` files, run with `python file.py` |
 
 ## Next Steps
 
-This introduction provides the foundation for Python programming. Continue with:
+This introduction gives you the background for the rest of the course. Continue  
+with:
 
-1. **Basic Data Types** – Numbers, strings, booleans
-2. **Control Flow** – Conditionals and loops
-3. **Functions** – Defining and using functions
-4. **Data Structures** – Lists, tuples, dictionaries, sets
-5. **File I/O** – Reading and writing files
-6. **Exception Handling** – Managing errors gracefully
-7. **Modules and Packages** – Organizing and importing code
-
+1. **Lexical structure**: comments, names, keywords, literals, and operators
+2. **Basic data types**: numbers, strings, and booleans
+3. **Control flow**: conditions and loops
+4. **Functions**: defining and calling functions
+5. **Data structures**: lists, tuples, dictionaries, and sets
+6. **File I/O**: reading and writing files
+7. **Exception handling**: dealing with errors
+8. **Modules and packages**: organizing and importing code
