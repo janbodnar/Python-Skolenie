@@ -1,6 +1,17 @@
 # Examples
 
 
+## input function
+
+```python
+x = input("Enter first number: ")
+y = input("Enter second number: ")
+
+print("addition:", x + y)
+```
+
+
+
 ## Unary operator
 
 ```python
