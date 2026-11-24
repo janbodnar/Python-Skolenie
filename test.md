@@ -1,6 +1,26 @@
 # Examples
 
 
+## Decimal
+
+```python
+import decimal
+
+import math
+
+x = decimal.Decimal("0.1")
+y = decimal.Decimal("0.2")
+z = decimal.Decimal("0.3")
+
+print(z == decimal.Decimal("0.1") + decimal.Decimal("0.2"))
+
+print(0.1 + 0.2)
+print(0.1 + 0.2 == 0.3)
+print(math.isclose(0.1 + 0.2, 0.3))
+
+```
+
+
 ## input function
 
 ```python
