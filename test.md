@@ -1,5 +1,51 @@
 # Examples
 
+
+## Podmienky
+
+```python
+x = 0
+
+
+if x > 0:
+    print('positive value')
+elif x < 0:
+    print('negative value')
+else:
+    print('zero value')
+# elif x == 0:
+#     print('zero value')
+
+
+# if x > 0:
+#     print('positive value')
+# 
+# if x < 0:
+#     print('negative value')
+# 
+# if x == 0:
+#     print('zero value')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```python
 import os
 import queue
