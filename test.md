@@ -1,6 +1,21 @@
 # Examples
 
 
+## Unary operator
+
+```python
+x = 10
+y = 30
+
+z = x + y
+
+print(z)
+
+x = -10
+print(-(-(-x)))
+```
+
+
 ## While loop
 
 ```python
