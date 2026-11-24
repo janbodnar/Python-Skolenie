@@ -1,6 +1,19 @@
 # Examples
 
 
+## While loop
+
+```python
+i = 10
+
+msg = 'an old falcon'
+
+while i >= 1:
+    print(msg)
+    i -= 1
+```
+
+
 ## Ternary operator
 
 ```python
