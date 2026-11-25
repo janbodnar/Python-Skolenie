@@ -2,6 +2,38 @@
 
 
 
+```python
+# string_basics.py
+
+name = "Alice"
+
+for c in name:
+    print(c)
+
+print('--------------------------')
+
+print(len(name))
+
+print(name[0], name[-1])
+print(name[1], name[-2])
+print(name[2], name[-3])
+print(name[3], name[-4])
+print(name[4], name[-5])
+# print(name[5])
+
+print('--------------------------')
+
+vals = [11, 22, 33, 44, 55]
+
+print(vals[0], vals[-1])
+print(vals[1], vals[-2])
+print(vals[2], vals[-3])
+print(vals[3], vals[-4])
+print(vals[4], vals[-5])
+```
+
+
+
 ## Banker's rounding
 
 ```python
