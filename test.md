@@ -127,7 +127,18 @@ print(x ** n)
 print(pow(x, n))
 ```
 
+```python
+# calculate the sum of values
+vals2 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+total2 = 0
 
+for val in vals2:
+    total2 += int(val)
+
+print(total2)
+
+print(sum(int(val) for val in vals2))
+```
 
 
 
