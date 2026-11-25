@@ -61,6 +61,24 @@ print(f'{name} is {age} years old {occupation}')
 ```
 
 
+```python
+# print an old falcon 12 times in a column
+# use while loop, for loop, and an operator
+msg = 'and old falcon'
+
+i = 1
+
+while i <= 12:
+    print(msg)
+    i += 1
+
+for _ in range(1, 13):
+    print(msg)
+
+msg2 = 'and old falcon' + '\n'
+print(msg2 * 12)
+```
+
 
 
 
