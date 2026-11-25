@@ -118,6 +118,14 @@ for val in range(55, 160, 5):
 print(total)
 ```
 
+```python
+# calculate 5 powered to 10 using an operator and a function
+x = 5
+n = 10
+
+print(x ** n)
+print(pow(x, n))
+```
 
 
 
