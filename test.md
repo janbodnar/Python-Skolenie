@@ -1,6 +1,72 @@
 # Examples
 
 
+## Opakovanie
+
+```python
+# print 'John Doe is 45 years old gardener' in 3 ways
+name = "John Doe"
+age = 45
+occupation = "gardener"
+
+# print an old falcon 12 times in a column
+# use while loop, for loop, and an operator
+msg = 'and old falcon'
+
+# generate 10 random values in range 1..100
+import random
+...
+
+# calculate sum using for loop
+# calculate min, max, sum, len using builtin functions
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+total1 = 0
+for val in vals:
+    pass
+...
+
+
+# calculate the sum of sequence 55, 60, 65 .. 155
+...
+
+# calculate 5 powered to 10 using an operator and a function
+x = 5
+n = 10
+
+# calculate the sum of values
+vals2 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+total2 = 0
+...
+
+# calculate the sum of characters in the list
+words = ['sky', 'blue', 'coin', 'tower', 'cup', 'war']
+total3 = 0
+
+# using input function ask user for two numbers and calculate
+# its product
+n1 = input("Enter first value:")
+...
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Decimal
 
 ```python
