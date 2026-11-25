@@ -1,6 +1,19 @@
 # Examples
 
 
+```python
+msg = 'an old falcon'
+
+c = "t"
+
+if c in msg:
+    print(c, 'is present in the message')
+else:
+    print(c, 'is not present in the message')
+```
+
+
+
 ## Opakovanie
 
 ```python
