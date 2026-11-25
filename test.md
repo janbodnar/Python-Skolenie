@@ -1,5 +1,33 @@
 # Examples
 
+
+```python
+import locale
+
+
+val = 111_123_234.25
+val2 = "1234567.89"
+
+locale.setlocale(locale.LC_ALL, 'sk_SK')
+
+num = locale.format_string("%d", val, grouping=True) # use thousand separators
+print(num)
+
+num2 = locale.atof(val2) # parse
+print(num2)
+
+locale.setlocale(locale.LC_ALL, 'en_US')
+
+num = locale.format_string("%d", val, grouping=True)
+print(num)
+
+num2 = locale.atof(val2)
+print(num2)
+```
+
+
+
+
 ## Escaping characters
 
 ```python
