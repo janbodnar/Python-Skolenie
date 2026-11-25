@@ -79,7 +79,14 @@ msg2 = 'and old falcon' + '\n'
 print(msg2 * 12)
 ```
 
+```python
+# generate 10 random values in range 1..100
+import random
 
+for _ in range(10):
+    r = random.randint(1, 100)
+    print(r)
+```
 
 
 
