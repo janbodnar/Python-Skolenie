@@ -1,5 +1,23 @@
 # Examples
 
+## Escaping characters
+
+```python
+msg = "He said: \"Hello there!\""
+print(msg)
+
+msg = 'He said: "Hello there!"'
+print(msg)
+
+msg = 'John\'s dog'
+print(msg)
+
+msg = "John's dog"
+print(msg)
+```
+
+
+
 
 ```python
 name = "john doe"
