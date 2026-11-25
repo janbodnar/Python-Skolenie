@@ -105,7 +105,18 @@ print(sum(vals))
 print(len(vals))
 ```
 
+```python
+# calculate the sum of sequence 55, 60, 65 .. 155
 
+print(sum(range(55, 160, 5)))
+
+total = 0
+
+for val in range(55, 160, 5):
+    total += val
+    
+print(total)
+```
 
 
 
