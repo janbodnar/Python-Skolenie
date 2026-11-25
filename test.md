@@ -2,6 +2,18 @@
 
 
 ```python
+j = 5
+j *= 0 + 1
+print(j)
+
+i = 5
+i = i * 0 + 1
+print(i)
+```
+
+
+
+```python
 msg = 'an old falcon'
 
 c = "t"
