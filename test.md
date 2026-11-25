@@ -2,6 +2,20 @@
 
 
 ```python
+name = "john doe"
+numbers = [4, 9, 2, 7]
+
+print(name.upper())
+numbers.sort()
+print(numbers)
+
+print(f"Name: {name.title()}")
+print(f"Largest number: {max(numbers)}")
+print(f"Number of items: {len(numbers)}")
+```
+
+
+```python
 name = "Peter"
 age = 23
 occupation = 'programmer'
