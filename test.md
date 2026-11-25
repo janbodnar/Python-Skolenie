@@ -153,7 +153,16 @@ print(total3)
 print(sum(len(word) for word in words))
 ```
 
+```python
+# using input function ask user for two numbers and calculate
+# its product
+n1 = input("Enter first value:")
+n2 = input("Enter second value:")
 
+product = int(n1) * int(n2)
+
+print('The product is', product)
+```
 
 
 
