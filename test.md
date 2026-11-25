@@ -2,6 +2,17 @@
 
 
 ```python
+name = "Peter"
+age = 23
+occupation = 'programmer'
+
+print("%s is %d years old %s" % (name, age, occupation))
+print("{1} is {2} years old {0}".format(occupation, name, age))
+print(f"{name} is {age} years old {occupation}")
+```
+
+
+```python
 j = 5
 j *= 0 + 1
 print(j)
