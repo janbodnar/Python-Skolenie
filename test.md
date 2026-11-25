@@ -140,7 +140,18 @@ print(total2)
 print(sum(int(val) for val in vals2))
 ```
 
+```python
+# calculate the sum of characters in the list
+words = ['sky', 'blue', 'coin', 'tower', 'cup', 'war']
+total3 = 0
 
+for word in words:
+    total3 += len(word)
+
+print(total3)
+
+print(sum(len(word) for word in words))
+```
 
 
 
