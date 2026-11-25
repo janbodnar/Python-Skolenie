@@ -88,7 +88,22 @@ for _ in range(10):
     print(r)
 ```
 
+```python
+# calculate sum using for loop
+# calculate min, max, sum, len using builtin functions
+vals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+total1 = 0
+for val in vals:
+    total1 += val
+
+print(total1)
+
+print(min(vals))
+print(max(vals))
+print(sum(vals))
+print(len(vals))
+```
 
 
 
