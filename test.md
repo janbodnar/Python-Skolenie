@@ -1,6 +1,25 @@
 # Examples
 
 
+## sorted/reversed
+
+```python
+scores = [72, 95, 88, 61]
+
+scores_sorted = sorted(scores, reverse=True)
+print(scores_sorted)
+
+print(scores)
+
+print('-----------------------------')
+
+scores_reversed = list(reversed(scores))
+print(scores_reversed)
+
+print(scores)
+```
+
+## sort/reverse
 
 ```python
 scores = [72, 95, 88, 61]
