@@ -3,6 +3,23 @@
 
 
 ```python
+scores = [72, 95, 88, 61]
+scores.reverse()
+print(scores)
+
+scores.sort(reverse=True)
+print(scores)
+
+words = ['sky','atom', 'cup', 'war', 'ocean']
+words.sort()
+
+print(words)
+```
+
+
+
+
+```python
 # string_basics.py
 
 name = "Alice"
