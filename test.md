@@ -1,6 +1,32 @@
 # Examples
 
 
+
+## Banker's rounding
+
+```python
+import math
+
+values = [0.5, 1.5, 2.5, 3.5]
+
+half_up = [math.floor(v + 0.5) for v in values]
+half_even = [round(v) for v in values]
+
+print(sum(values))     # 8.0  (true sum)
+print(sum(half_up))    # 10   (biased upward)
+print(sum(half_even))  # 8    (unbiased)
+```
+
+
+
+
+
+
+
+
+
+
+
 ## Rich table
 
 
