@@ -1,6 +1,105 @@
 # Examples
 
 
+## Rich table
+
+
+```python
+#!/usr/bin/env python
+"""Render a nicely styled, coloured table in the terminal with rich."""
+
+from rich import box
+from rich.console import Console
+from rich.table import Table
+from rich.text import Text
+
+languages = [
+    # name, first appeared, typing, paradigm, popularity (0-100), change %
+    ("Python", 1991, "dynamic", "multi-paradigm", 98, 2.4),
+    ("JavaScript", 1995, "dynamic", "multi-paradigm", 92, -0.8),
+    ("TypeScript", 2012, "static", "multi-paradigm", 81, 3.9),
+    ("Rust", 2015, "static", "systems", 64, 5.1),
+    ("Go", 2009, "static", "concurrent", 61, 0.7),
+    ("Java", 1995, "static", "object-oriented", 72, -1.9),
+    ("C#", 2000, "static", "object-oriented", 66, 0.2),
+    ("Haskell", 1990, "static", "functional", 18, -0.4),
+]
+
+
+def popularity_bar(value: int, width: int = 12) -> Text:
+    """Return a small coloured bar chart for a 0-100 value."""
+    filled = round(value / 100 * width)
+    colour = "green" if value >= 75 else "yellow" if value >= 50 else "red"
+    bar = Text("█" * filled, style=colour)
+    bar.append("░" * (width - filled), style="grey35")
+    bar.append(f" {value:>3}", style="bold")
+    return bar
+
+
+def change_cell(change: float) -> Text:
+    """Return a coloured trend indicator."""
+    if change > 0:
+        return Text(f"▲ {change:+.1f}%", style="bold green")
+    if change < 0:
+        return Text(f"▼ {change:+.1f}%", style="bold red")
+    return Text("● 0.0%", style="dim")
+
+
+def build_table() -> Table:
+    table = Table(
+        title="[bold magenta]Programming Languages Overview[/]",
+        caption="[dim]Popularity figures are illustrative sample data[/]",
+        box=box.ROUNDED,
+        header_style="bold white on dark_blue",
+        border_style="bright_blue",
+        row_styles=["", "on grey11"],  # zebra striping
+        show_lines=False,
+        padding=(0, 1),
+    )
+
+    table.add_column("Language", style="bold cyan", no_wrap=True)
+    table.add_column("Year", justify="center", style="yellow")
+    table.add_column("Typing", justify="center")
+    table.add_column("Paradigm", style="italic", no_wrap=True)
+    table.add_column("Popularity", no_wrap=True)
+    table.add_column("Trend", justify="right")
+
+    typing_styles = {"static": "bold blue", "dynamic": "bold orange3"}
+
+    ranked = sorted(languages, key=lambda r: r[4], reverse=True)
+    for name, year, typing, paradigm, pop, change in ranked:
+        table.add_row(
+            name,
+            str(year),
+            Text(typing, style=typing_styles[typing]),
+            paradigm,
+            popularity_bar(pop),
+            change_cell(change),
+        )
+
+    avg = sum(r[4] for r in languages) / len(languages)
+    table.add_section()
+    table.add_row(
+        "[bold]Average[/]", "", "", "", popularity_bar(round(avg)), "",
+        style="bold",
+    )
+    return table
+
+
+def main() -> None:
+    console = Console()
+    console.print()
+    console.print(build_table())
+    console.print()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+
+
+
 ```python
 import locale
 
