@@ -49,6 +49,17 @@ n1 = input("Enter first value:")
 ```
 
 
+```python
+# print 'John Doe is 45 years old gardener' in 3 ways
+name = "John Doe"
+age = 45
+occupation = "gardener"
+
+print(name, 'is', age, 'years old', occupation)
+print(name + ' is ' + str(age) + ' years old ' + occupation)
+print(f'{name} is {age} years old {occupation}')
+```
+
 
 
 
